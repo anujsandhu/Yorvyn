@@ -1,0 +1,180 @@
+/* ── Login Page — Yorvyn ─────────────────────────────────────────────── */
+
+.lp-root {
+  min-height: 100dvh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 4vw, 24px);
+  position: relative;
+  overflow: hidden;
+  /* Safe area for notched phones */
+  padding-top: max(clamp(12px, 4vw, 24px), env(safe-area-inset-top));
+  padding-bottom: max(clamp(12px, 4vw, 24px), env(safe-area-inset-bottom));
+}
+
+/* Ambient blobs — scale down on mobile */
+.lp-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.lp-blob-1 {
+  width: clamp(200px, 50vw, 420px);
+  height: clamp(200px, 50vw, 420px);
+  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+  top: -80px;
+  right: -60px;
+}
+.lp-blob-2 {
+  width: clamp(180px, 45vw, 360px);
+  height: clamp(180px, 45vw, 360px);
+  background: radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 70%);
+  bottom: -80px;
+  left: -50px;
+}
+
+/* ── Card ── */
+.lp-card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: clamp(16px, 4vw, 24px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  max-width: 460px;
+  width: 100%;
+  padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px) clamp(24px, 5vw, 36px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Logo ── */
+.lp-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(20px, 4vw, 28px);
+}
+
+/* ── Hero ── */
+.lp-hero {
+  text-align: center;
+  margin-bottom: clamp(20px, 4vw, 28px);
+}
+.lp-headline {
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.lp-sub {
+  font-size: clamp(0.8125rem, 2.5vw, 0.925rem);
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* ── Feature pills ── */
+.lp-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: clamp(20px, 4vw, 28px);
+}
+.lp-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bg-subtle, rgba(0,0,0,0.04));
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.lp-feature-icon {
+  color: var(--accent-strong);
+  display: flex;
+  align-items: center;
+}
+
+/* ── Divider ── */
+.lp-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.lp-divider::before,
+.lp-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.lp-divider span {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ── Sign-in ── */
+.lp-signin-wrap {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.lp-note {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  text-align: center;
+  margin: 10px 0 0;
+  line-height: 1.5;
+}
+
+/* ── Footer ── */
+.lp-footer {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  text-align: center;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  width: 100%;
+  line-height: 1.5;
+}
+
+/* ── Loading — handled by AppLoader component ── */
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .lp-features { gap: 6px; }
+  .lp-feature { font-size: 0.75rem; padding: 5px 10px; }
+}
+
+@media (max-width: 360px) {
+  .lp-features { gap: 5px; }
+  .lp-feature { font-size: 0.7rem; padding: 4px 8px; }
+  .lp-note { font-size: 0.7rem; }
+  .lp-footer { font-size: 0.68rem; }
+}
+
+/* Landscape mobile — reduce vertical spacing */
+@media (max-height: 600px) and (orientation: landscape) {
+  .lp-logo-wrap { margin-bottom: 14px; }
+  .lp-hero { margin-bottom: 14px; }
+  .lp-features { margin-bottom: 14px; }
+  .lp-headline { font-size: 1.2rem; }
+}

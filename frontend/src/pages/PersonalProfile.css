@@ -1,0 +1,136 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Yorvyn Personal Identity Profile — Warm Beige Luxury Aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.profile-page {
+  padding: 32px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--text, #181816);
+  font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+}
+
+.profile-header {
+  margin-bottom: 32px;
+}
+
+.profile-title-h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text, #181816);
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 6px 0;
+}
+
+.profile-section-card {
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-2xl, 16px);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text, #181816);
+  margin: 0 0 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-section-desc {
+  font-size: 0.82rem;
+  color: var(--text-2, #67655F);
+  margin: 0 0 20px 0;
+}
+
+/* Option Grid */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.option-box {
+  background: var(--bg, #F8F7F4);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-xl, 12px);
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.option-box:hover {
+  background: var(--bg-subtle, #EFEBE3);
+  border-color: var(--border-mid, #CFC7BA);
+}
+
+.option-box.selected {
+  background: var(--c-sage-100, #E9EDE8);
+  border-color: var(--accent-strong, #3D5146);
+  box-shadow: 0 0 0 1px var(--accent-strong, #3D5146);
+}
+
+.option-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text, #181816);
+}
+
+.option-desc {
+  font-size: 0.74rem;
+  color: var(--text-2, #67655F);
+  line-height: 1.4;
+}
+
+/* Color Swatches Grid */
+.season-palette-preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--bg-subtle, #EFEBE3);
+  border-radius: var(--r-lg, 10px);
+  border: 1px solid var(--border, #E4E0D7);
+}
+
+.season-chip {
+  padding: 6px 12px;
+  border-radius: var(--r-md, 8px);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text, #181816);
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  text-transform: capitalize;
+}
+
+.save-profile-btn {
+  background: var(--accent-strong, #3D5146);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--r-full, 999px);
+  padding: 14px 34px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.save-profile-btn:hover {
+  background: var(--accent-hover, #4F665A);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}

@@ -1,0 +1,132 @@
+/* ═══════════ Search Widget ═══════════ */
+.search-widget {
+  position: relative;
+  width: 100%;
+}
+
+.search-widget-form {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 0 18px;
+  height: 56px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.search-widget-form:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(217, 63, 111, 0.1), var(--shadow-md);
+}
+
+.sm-icon {
+  color: var(--text-muted);
+  margin-right: 12px;
+}
+
+.search-widget-form input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  height: 100%;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.search-widget-form input:focus {
+  outline: none;
+}
+
+.sm-clear {
+  color: var(--text-muted);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sm-clear:hover { color: var(--text); }
+
+/* Dropdown */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 100;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.sm-loading, .sm-empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.sm-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.2s;
+}
+
+.sm-item:hover {
+  background: var(--accent-light);
+}
+
+.sm-item-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background: var(--bg-section-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sm-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sm-item-img span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.sm-item-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+.sm-item-brand {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.sm-see-all {
+  padding: 16px;
+  text-align: center;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg-section-alt);
+}
+.sm-see-all:hover {
+  background: var(--accent-light);
+}

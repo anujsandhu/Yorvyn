@@ -1,0 +1,35 @@
+/* App shell */
+html, body, #root { height: 100%; }
+
+/* Desktop: fixed layout, no page scroll */
+@media (min-width: 641px) {
+  html, body, #root { overflow: hidden; }
+}
+
+/* Mobile: allow page scroll within the main content area */
+@media (max-width: 640px) {
+  html, body, #root { overflow: hidden; }
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.app-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Touch devices — prevent text size inflation */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Safe area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .app { padding-bottom: env(safe-area-inset-bottom); }
+}

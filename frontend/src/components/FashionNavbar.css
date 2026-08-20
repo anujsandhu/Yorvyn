@@ -1,0 +1,121 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Yorvyn Fashion Navigation Header — Warm Beige Luxury Aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.fashion-nav-root {
+  height: var(--nav-h, 68px);
+  background: var(--bg-sidebar, #F3F1EC);
+  border-bottom: 1px solid var(--border, #E4E0D7);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+}
+
+.fashion-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text, #181816);
+}
+
+.fashion-logo-emblem {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-md, 8px);
+  background: var(--accent-strong, #3D5146);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #FFFFFF;
+  font-family: 'Playfair Display', serif;
+  box-shadow: var(--shadow-xs);
+}
+
+.fashion-brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-family: 'Playfair Display', serif;
+  color: var(--text, #181816);
+}
+
+.fashion-brand-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-3, #9B9891);
+  display: block;
+}
+
+/* Nav Links */
+.fashion-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fashion-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2, #67655F);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--r-full, 999px);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fashion-nav-item:hover {
+  color: var(--text, #181816);
+  background: var(--bg-hover, rgba(24, 24, 22, 0.055));
+}
+
+.fashion-nav-item.active {
+  background: var(--bg-card, #FFFFFF);
+  color: var(--accent-strong, #3D5146);
+  border: 1px solid var(--border-mid, #CFC7BA);
+  box-shadow: var(--shadow-xs);
+}
+
+.fashion-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-quick-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  padding: 6px 14px;
+  border-radius: var(--r-full, 999px);
+  font-size: 0.78rem;
+  color: var(--text, #181816);
+  font-weight: 500;
+  box-shadow: var(--shadow-xs);
+}
+
+@media (max-width: 860px) {
+  .fashion-nav-root {
+    padding: 0 16px;
+  }
+  .fashion-nav-item span {
+    display: none;
+  }
+  .fashion-nav-item {
+    padding: 8px;
+  }
+}

@@ -1,0 +1,53 @@
+/* ── AppLoader — full-screen auth loading state ── */
+
+.al-root {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  z-index: 9999;
+}
+
+/* Logo + glow wrapper */
+.al-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Soft radial glow behind the logo */
+.al-glow {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Logo itself — slight drop shadow for depth */
+.al-logo {
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.10));
+  position: relative;
+  z-index: 1;
+}
+
+/* Three-dot bounce loader */
+.al-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.al-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-3);
+}

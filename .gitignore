@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Streamlit
+.streamlit/
+.streamlit_cache/
+*.streamlit.run
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# Cache
+.cache/
+*.cache
+.pytest_cache/
+
+# Logs
+*.log
+backend/backend.log
+frontend/frontend.log
+
+# OS
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Trained ML model binaries — included for deployment on Render
+# To regenerate: python3 train_model.py
+# models/*.pkl
+
+# Large combined dataset (regenerate with data pipeline)
+# data/combined_perfume_data.csv  — included for deployment
+data/encoder.pkl
+data/perfume_model.pkl
+data/*.xls
+data/*.xlsx
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Vite build output
+frontend/dist/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Private / tool config
+private/
+secrets/
+.agents/
+.claude/
+.kiro/
+.windsurf/
+skills-lock.json
+
+# Firebase — keep config files, ignore only service account secrets
+# firebase.json and .firebaserc are intentionally tracked
+firebase-adminsdk*.json

@@ -1,0 +1,356 @@
+/* ═══════════════════════════════════════════════════════════════
+   Recommended For You — horizontal carousel
+   Cards are fixed-size tokens. Only horizontal scroll.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --tp-card-w: 188px;
+  --tp-card-h: 288px;
+  --tp-img-sz: 130px;   /* square image container height = width */
+}
+
+/* ── Root ── */
+.tp-root {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  /* Never clip the section — let it be visible */
+  overflow: visible;
+  min-height: 0;
+}
+
+/* ── Section ── */
+.tp-section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  overflow: visible;
+}
+
+/* ── Header ── */
+.tp-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 12px;
+  flex-shrink: 0;
+}
+
+.tp-section-left { display: flex; align-items: center; gap: 10px; }
+
+.tp-section-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+
+/* View all button */
+.tp-view-all-btn {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-2);
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  background: transparent;
+  border: 1px solid var(--border);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.tp-view-all-btn:hover {
+  color: var(--text);
+  background: var(--bg-subtle);
+  border-color: var(--border-mid);
+  transform: translateX(2px);
+}
+
+.tp-section-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-xs);
+}
+
+.tp-section-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.tp-section-sub { font-size: 0.63rem; color: var(--text-3); margin-top: 3px; }
+
+/* ── Arrows ── */
+.tp-arrows { display: flex; gap: 5px; }
+
+.tp-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-out);
+  box-shadow: var(--shadow-xs);
+}
+.tp-arrow:hover:not(:disabled) {
+  background: var(--text);
+  color: var(--bg-card);
+  border-color: var(--text);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-sm);
+}
+.tp-arrow-off { opacity: 0.2; cursor: not-allowed; }
+
+/* ── Track ── */
+.tp-track {
+  display: flex;
+  gap: 10px;
+  padding: 4px 24px 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  align-items: flex-start;
+  /* Ensure track is always visible */
+  min-height: 0;
+  flex-shrink: 0;
+}
+.tp-track::-webkit-scrollbar { display: none; }
+.tp-track:active { cursor: grabbing; }
+
+/* ── Card wrapper ── */
+.tp-track-item {
+  flex-shrink: 0;
+  width: var(--tp-card-w);
+  scroll-snap-align: start;
+  /* height is determined by card content — no fixed height on wrapper */
+}
+
+/* ── Override rv-ccard inside carousel ── */
+.tp-track-item .rv-ccard {
+  width: var(--tp-card-w) !important;
+  /* No fixed height — let content determine it */
+  border-radius: var(--r-lg) !important;
+}
+/* Tap feedback on mobile */
+.tp-track-item .rv-ccard:active {
+  transform: scale(0.97) !important;
+  transition: transform 0.08s ease !important;
+}
+
+/* Image wrapper */
+.tp-track-item .rv-ccard-img-wrap {
+  margin: 8px 8px 0 !important;
+  border-radius: var(--r-md) !important;
+  overflow: hidden !important;
+}
+
+/* Image container — fixed square size (override aspect-ratio) */
+.tp-track-item .rv-ccard-img {
+  width: 100% !important;
+  height: var(--tp-img-sz) !important;
+  aspect-ratio: unset !important;
+}
+
+/* Image element */
+.tp-track-item .rv-ccard-img-el {
+  width: 70% !important;
+  height: 70% !important;
+}
+
+/* Card body */
+.tp-track-item .rv-ccard-info {
+  padding: 8px 10px 10px !important;
+  gap: 3px !important;
+}
+
+/* Name */
+.tp-track-item .rv-ccard-name {
+  font-size: 0.8rem !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  min-height: 2.08em !important;
+}
+
+/* Brand */
+.tp-track-item .rv-ccard-brand { font-size: 0.52rem !important; }
+
+/* Tags — single row, no wrap */
+.tp-track-item .rv-ccard-tags { flex-wrap: nowrap !important; overflow: hidden !important; }
+.tp-track-item .rv-ctag { font-size: 0.52rem !important; padding: 2px 6px !important; }
+
+/* Wishlist — adjust position for smaller card */
+.tp-track-item .rv-ccard-wish {
+  top: 12px !important;
+  right: 12px !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Footer */
+.tp-track-item .rv-ccard-foot { padding-top: 7px !important; }
+.tp-track-item .rv-ccard-view { font-size: 0.6rem !important; padding: 3px 8px !important; }
+.tp-track-item .rv-ccard-rating { font-size: 0.6rem !important; }
+
+/* ── Skeleton cards ── */
+.tp-skeleton-card {
+  pointer-events: none;
+  flex-shrink: 0;
+  width: var(--tp-card-w) !important;
+  border-radius: var(--r-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Skeleton image — fixed square on desktop, 4:3 on mobile via media query */
+.tp-sk-img {
+  margin: 8px 8px 0;
+  height: var(--tp-img-sz);
+  width: calc(100% - 16px);
+  border-radius: var(--r-md);
+  flex-shrink: 0;
+}
+
+.tp-sk-line { border-radius: 4px; margin: 0 10px 6px; }
+
+/* ── Shimmer ── */
+.sk-pulse {
+  background: linear-gradient(90deg, var(--bg-subtle) 25%, var(--border) 50%, var(--bg-subtle) 75%);
+  background-size: 200% 100%;
+  animation: skPulse 1.4s ease-in-out infinite;
+}
+@keyframes skPulse {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) and (min-width: 641px) {
+  :root { --tp-card-w: 168px; --tp-img-sz: 114px; }
+  .tp-section-head { padding: 0 18px 10px; }
+  .tp-track { padding: 4px 18px 14px; gap: 10px; }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --tp-card-w: 82vw;    /* 82% = clear peek of next card */
+    --tp-img-sz: 0px;     /* overridden below with aspect-ratio */
+  }
+  .tp-root { margin-top: 4px; }
+  .tp-section { padding-top: 14px; }
+  .tp-section-head {
+    padding: 0 var(--sp-4) 10px;
+    /* Always visible — no overflow hidden */
+    overflow: visible;
+  }
+  .tp-section-title { font-size: 0.95rem; }
+  .tp-view-all-btn { display: none; }
+  .tp-track {
+    padding: 4px var(--sp-4) 20px;
+    gap: 12px;
+    scroll-padding-left: var(--sp-4);
+    /* Ensure track is scrollable */
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+  .tp-arrows { display: none; }
+
+  /* Mobile card — 4:3 image ratio, full redesign */
+  .tp-track-item {
+    width: var(--tp-card-w);
+  }
+  .tp-track-item .rv-ccard {
+    width: var(--tp-card-w) !important;
+    /* Override mobile horizontal layout from ResultsView */
+    flex-direction: column !important;
+    min-height: unset !important;
+  }
+
+  /* Image wrapper — full width, 4:3 ratio */
+  .tp-track-item .rv-ccard-img-wrap {
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: unset !important;
+    border-radius: var(--r-lg) var(--r-lg) 0 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 4:3 image container */
+  .tp-track-item .rv-ccard-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  /* Image element — larger within 4:3 */
+  .tp-track-item .rv-ccard-img-el {
+    width: 60% !important;
+    height: 60% !important;
+  }
+
+  /* Wishlist — top-right of image */
+  .tp-track-item .rv-ccard-wish {
+    top: 10px !important;
+    right: 10px !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Card body — more generous on mobile */
+  .tp-track-item .rv-ccard-info {
+    padding: 12px 14px 14px !important;
+    gap: 5px !important;
+  }
+
+  .tp-track-item .rv-ccard-brand { font-size: 0.55rem !important; letter-spacing: 0.1em !important; }
+  .tp-track-item .rv-ccard-name {
+    font-size: 0.9rem !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    min-height: unset !important;
+  }
+  .tp-track-item .rv-ccard-tags { flex-wrap: nowrap !important; overflow: hidden !important; }
+  .tp-track-item .rv-ctag { font-size: 0.6rem !important; padding: 3px 8px !important; }
+  .tp-track-item .rv-ccard-foot { padding-top: 10px !important; }
+  .tp-track-item .rv-ccard-rating { font-size: 0.7rem !important; }
+  .tp-track-item .rv-ccard-view {
+    font-size: 0.7rem !important;
+    padding: 5px 14px !important;
+  }
+  /* Restore why text in carousel */
+  .tp-track-item .rv-ccard-why { display: block !important; }
+
+  /* Skeleton — match 4:3 */
+  .tp-sk-img {
+    margin: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: var(--r-lg) var(--r-lg) 0 0 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  :root { --tp-card-w: 86vw; }
+}

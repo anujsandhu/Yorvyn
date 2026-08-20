@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;650;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════
+   YORVYN DESIGN SYSTEM
+   Warm Beige / Premium D2C — Aesop, Byredo, Le Labo visual language
+═══════════════════════════════════════════════════════════════════ */
+:root {
+
+  /* ── Colour palette ─────────────────────────────────────────────── */
+  --c-cream-50:  #FCFBF8;
+  --c-cream-100: #F6F4EF;
+  --c-cream-200: #ECE7DD;
+  --c-cream-300: #DED7CA;
+  --c-cream-400: #C8BDAF;
+  --c-cream-500: #9B8E7F;
+  --c-cream-600: #74685F;
+  --c-cream-700: #554D47;
+
+  --c-ink-900:   #181816;
+  --c-ink-700:   #343431;
+  --c-ink-500:   #67655F;
+  --c-ink-300:   #9B9891;
+  --c-ink-100:   #D8D4CB;
+
+  --c-sage-700:  #3D5146;
+  --c-sage-600:  #4F665A;
+  --c-sage-500:  #6F8176;
+  --c-sage-100:  #E9EDE8;
+
+  --c-amber-600: #9A6A1F;
+  --c-amber-50:  #FBF6E7;
+
+  --c-green-700: #166534;
+  --c-green-50:  #F0FDF4;
+  --c-green-200: #BBF7D0;
+
+  --c-red-700:   #B91C1C;
+  --c-red-50:    #FEF2F2;
+  --c-red-200:   #FECACA;
+
+  /* ── Brand accent (pink — used by Home/Recommendations/QuizModal) ── */
+  --yb-pink:       #E04A7B;
+  --yb-pink-dark:  #C73568;
+  --yb-pink-light: #FDF0F4;
+  --yb-green:      #0F8449;
+
+  /* ── Semantic tokens ────────────────────────────────────────────── */
+  --bg:           #F8F7F4;
+  --bg-subtle:    #EFEBE3;
+  --bg-card:      #FFFFFF;
+  --bg-sidebar:   #F3F1EC;
+  --bg-arch:      #ECE6DB;
+  --bg-hover:     rgba(24, 24, 22, 0.055);
+
+  --text:         var(--c-ink-900);
+  --text-2:       var(--c-ink-500);
+  --text-3:       var(--c-ink-300);
+  /* Legacy aliases used by Home/Recommendations pages */
+  --text-light:   var(--c-ink-500);
+  --text-muted:   var(--c-ink-300);
+
+  --accent:         var(--c-sage-500);
+  --accent-hover:   var(--c-sage-600);
+  --accent-strong:  var(--c-sage-700);
+  --accent-light:   var(--c-sage-100);
+  --accent-dim:     rgba(79, 102, 90, 0.14);
+
+  --border:         #E4E0D7;
+  --border-mid:     #CFC7BA;
+  --border-strong:  var(--c-cream-500);
+  /* Legacy alias */
+  --border-light:   #E4E0D7;
+
+  /* ── Elevation ──────────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 2px rgba(24, 24, 22, 0.04);
+  --shadow-sm: 0 2px 8px rgba(24, 24, 22, 0.06);
+  --shadow-md: 0 8px 24px rgba(24, 24, 22, 0.08);
+  --shadow-lg: 0 14px 34px rgba(24, 24, 22, 0.12);
+  --shadow-xl: 0 24px 64px rgba(24, 24, 22, 0.18);
+
+  /* ── Radii ──────────────────────────────────────────────────────── */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r-md:   8px;
+  --r-lg:   10px;
+  --r-xl:   12px;
+  --r-2xl:  14px;
+  --r-3xl:  16px;
+  --r-full: 999px;
+  /* Legacy aliases used by Home/Recommendations/QuizModal */
+  --radius:       12px;
+  --radius-sm:    8px;
+  --radius-full:  999px;
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs:   0.6875rem;  /* 11px */
+  --text-sm:   0.75rem;    /* 12px */
+  --text-base: 0.875rem;   /* 14px */
+  --text-md:   1rem;       /* 16px */
+  --text-lg:   1.125rem;   /* 18px */
+  --text-xl:   1.25rem;    /* 20px */
+  --text-2xl:  1.5rem;     /* 24px */
+  --text-3xl:  1.875rem;   /* 30px */
+
+  /* ── Spacing (4px base) ─────────────────────────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  /* ── Layout ─────────────────────────────────────────────────────── */
+  --nav-h:               68px;  /* Increased for larger logo visibility */
+  --sidebar-w:           272px;
+  --sidebar-w-collapsed: 60px;
+  --content-max:         1200px;
+  --ui-scale:            1;
+
+  /* ── Motion ─────────────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:    120ms;
+  --dur-base:    200ms;
+  --dur-slow:    320ms;
+}
+
+@media (max-width: 1280px) {
+  :root { --sidebar-w: 256px; }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --nav-h: 64px;  /* Increased for mobile visibility */
+    --sp-6: 20px;
+    --sp-8: 28px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-body);
+  font-size: calc(16px * var(--ui-scale));
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a            { text-decoration: none; color: inherit; }
+button       { border: none; background: none; cursor: pointer; font-family: inherit; }
+img          { max-width: 100%; display: block; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--border-mid);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* ── Utility: container ── */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 var(--sp-4); }
+}
+
+/* ── Utility: skeleton shimmer (shared across components) ── */
+.sk-pulse,
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--border)    50%,
+    var(--bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: skPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skPulse {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

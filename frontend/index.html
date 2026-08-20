@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ── Primary SEO ── -->
+    <title>Yorvyn – AI Perfume Advisor | Find Your Perfect Fragrance</title>
+    <meta name="description" content="Discover your perfect fragrance with Yorvyn's AI-powered perfume advisor. Get personalised recommendations from 73,000+ perfumes based on your mood, occasion, and style." />
+    <meta name="keywords" content="perfume recommendations, AI fragrance advisor, best perfume for me, personalised perfume, fragrance finder, oud perfume, floral perfume, men perfume, women perfume, buy perfume online India" />
+    <meta name="author" content="Anuj Sandhu" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yorvyn-ai.web.app/" />
+
+    <!-- ── Open Graph (Facebook / WhatsApp) ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yorvyn-ai.web.app/" />
+    <meta property="og:title" content="Yorvyn – AI Perfume Advisor" />
+    <meta property="og:description" content="Find your perfect scent with AI. 73,000+ fragrances, personalised to your mood, occasion, and style." />
+    <meta property="og:image" content="https://yorvyn-ai.web.app/yorvyn-logo.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:site_name" content="Yorvyn" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ── Twitter Card ── -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@yorvyn_ai" />
+    <meta name="twitter:title" content="Yorvyn – AI Perfume Advisor" />
+    <meta name="twitter:description" content="Find your perfect scent with AI. 73,000+ fragrances, personalised to your mood, occasion, and style." />
+    <meta name="twitter:image" content="https://yorvyn-ai.web.app/yorvyn-logo.png" />
+
+    <!-- ── PWA / App ── -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1c1917" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Yorvyn" />
+    <link rel="apple-touch-icon" href="/yorvyn-logo.png" />
+    <link rel="icon" type="image/png" href="/yorvyn-logo.png" />
+
+    <!-- ── Structured Data (JSON-LD) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Yorvyn",
+      "url": "https://yorvyn-ai.web.app",
+      "description": "AI-powered perfume recommendation system with 73,000+ fragrances",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "author": {
+        "@type": "Person",
+        "name": "Anuj Sandhu",
+        "url": "https://github.com/anujsandhu"
+      },
+      "featureList": [
+        "AI-powered fragrance recommendations",
+        "73,000+ perfume database",
+        "Personalised scent profiles",
+        "Conversational AI advisor",
+        "Shopping links across platforms"
+      ]
+    }
+    </script>
+
+    <!-- ── Preconnect ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Kill any stale service worker immediately on localhost before anything loads -->
+    <script>
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(regs) {
+            regs.forEach(function(r) { r.unregister() })
+          })
+          // Also clear all caches
+          if ('caches' in window) {
+            caches.keys().then(function(keys) {
+              keys.forEach(function(k) { caches.delete(k) })
+            })
+          }
+        }
+      }
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

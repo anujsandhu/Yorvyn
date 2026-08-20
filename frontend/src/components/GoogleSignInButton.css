@@ -1,0 +1,169 @@
+/**
+ * Google Sign-In Button Styles
+ */
+
+.google-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   Variants
+   ============================================================================ */
+
+/* Primary variant (default) */
+.google-signin-primary {
+  background: white;
+  color: #1a1a1a;
+  border: 1px solid #ddd;
+}
+
+.google-signin-primary:hover:not(:disabled) {
+  background: #f8f8f8;
+  border-color: #bbb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.google-signin-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Secondary variant */
+.google-signin-secondary {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px solid currentColor;
+}
+
+.google-signin-secondary:hover:not(:disabled) {
+  background: rgba(26, 26, 26, 0.05);
+}
+
+.google-signin-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Icon variant */
+.google-signin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  color: #1a1a1a;
+  border: none;
+}
+
+.google-signin-icon:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+/* ============================================================================
+   Sizes
+   ============================================================================ */
+
+.google-signin-small {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.google-signin-medium {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.google-signin-large {
+  padding: 14px 20px;
+  font-size: 15px;
+}
+
+.google-signin-icon.google-signin-small {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.google-signin-icon.google-signin-medium {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.google-signin-icon.google-signin-large {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+/* ============================================================================
+   Full Width
+   ============================================================================ */
+
+.google-signin-full {
+  width: 100%;
+}
+
+/* ============================================================================
+   Loading State
+   ============================================================================ */
+
+.google-signin-loading {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ============================================================================
+   Disabled State
+   ============================================================================ */
+
+.google-signin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   Focus State (Accessibility)
+   ============================================================================ */
+
+.google-signin-btn:focus-visible {
+  outline: 2px solid #4285F4;
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Dark Mode (if needed)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .google-signin-primary {
+    background: #2a2a2a;
+    color: #fff;
+    border-color: #444;
+  }
+
+  .google-signin-primary:hover:not(:disabled) {
+    background: #3a3a3a;
+    border-color: #555;
+  }
+
+  .google-signin-secondary {
+    color: #fff;
+  }
+
+  .google-signin-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .google-signin-icon {
+    color: #fff;
+  }
+}

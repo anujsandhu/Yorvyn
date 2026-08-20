@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: yorvyn-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1"
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: PYTHONPATH
+        value: "/opt/render/project/src/backend"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: "llama-3.1-8b-instant"
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: "google/gemma-3-12b-it:free"
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: "gemini-2.5-flash"
+      - key: HF_API_KEY
+        sync: false
+      - key: HF_MODEL
+        value: "HuggingFaceH4/zephyr-7b-beta"
+      - key: AI_MAX_RESPONSE_TOKENS
+        value: "150"
+      - key: AI_CACHE_TTL
+        value: "3600"
+      - key: AI_FALLBACK_ENABLED
+        value: "true"
+      - key: AI_FALLBACK_CONFIDENCE_THRESHOLD
+        value: "0.24"
+      - key: AI_FALLBACK_TIMEOUT
+        value: "4"
+      - key: DEBUG
+        value: "false"
+      - key: APP_NAME
+        value: "Yorvyn API"
+    healthCheckPath: /health

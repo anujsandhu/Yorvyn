@@ -1,0 +1,37 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── User root document ────────────────────────────────────────────
+    // Allows reading/writing the user's own top-level document
+    // (e.g. users/{uid} — used by AuthContext to sync profile)
+    match /users/{userId} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == userId;
+
+      // ── All subcollections ────────────────────────────────────────
+      // wishlist, history, preferences, recents, chats, settings/**
+      match /{subcollection}/{docId} {
+        allow read, write: if request.auth != null
+                           && request.auth.uid == userId;
+      }
+
+      // ── Nested subcollections (e.g. settings/personalization) ─────
+      match /{subcollection}/{docId}/{nested=**} {
+        allow read, write: if request.auth != null
+                           && request.auth.uid == userId;
+      }
+    }
+
+    // ── AI cache — server-side only, no client access ─────────────────
+    match /ai_cache/{docId} {
+      allow read, write: if false;
+    }
+
+    // ── Deny everything else ──────────────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

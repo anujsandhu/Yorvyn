@@ -1,0 +1,517 @@
+/* ═══════════════════════════════════════════════════════════════
+   Quiz / Home Page — premium advisor layout
+   Sections (top→bottom, all fixed, zero page scroll):
+   1. Skip button (top right)
+   2. Context strip   (28px)
+   3. Progress bar    (3px)
+   4. Survey panel    (fixed height)
+   5. Context bridge  (auto, only when tags exist)
+   6. Carousel        (fills remaining)
+   ═══════════════════════════════════════════════════════════════ */
+
+.qv-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Allow scroll on mobile so TopPicks is reachable */
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg);
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/* ── Skip button - top right ── */
+.qv-skip-top {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  z-index: 100;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-3);
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  background: transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.qv-skip-top:hover {
+  color: var(--text);
+  background: var(--bg-subtle);
+}
+
+/* ── 1. Context strip ── */
+.qv-context-strip {
+  height: 34px;
+  background: rgba(255, 255, 255, 0.62);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 24px;
+}
+
+.qv-context-text {
+  font-size: 0.71rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 2. Progress bar ── */
+.qv-progress-track {
+  height: 3px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.qv-progress-fill {
+  height: 100%;
+  background: var(--accent-strong);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── 3. Survey panel — fixed height ── */
+.qv-survey-panel {
+  height: 420px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.qv-inner {
+  width: 100%;
+  max-width: 820px;
+  padding: 0 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+/* Step meta */
+.qv-step-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.qv-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  transition: background 0.15s, color 0.15s;
+}
+.qv-back-btn:hover { background: var(--bg-subtle); color: var(--text-2); }
+
+.qv-step-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Question block */
+.qv-question-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.qv-question-head {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Hero heading above question */
+.qv-hero-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+
+.qv-question {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Progress dots */
+.qv-progress-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.qv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-mid);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qv-dot-active {
+  background: var(--accent-strong);
+  transform: scale(1.2);
+}
+
+.qv-hint {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Options grid */
+.qv-options {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+.qv-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.qv-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Selection card — premium D2C style with gradient */
+.qv-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: 18px 16px 16px;
+  border-radius: var(--r-xl);
+  border: 1.5px solid var(--border);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 255, 255, 0.5) 100%);
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition:
+    all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qv-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--accent-dim);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.qv-card-selected {
+  border-color: var(--accent-strong) !important;
+  background: linear-gradient(135deg, var(--accent-light) 0%, rgba(255, 255, 255, 0.8) 100%) !important;
+  box-shadow: 0 0 0 3px var(--accent-dim), 0 6px 20px rgba(217, 63, 111, 0.15) !important;
+  transform: scale(1.03) !important;
+}
+
+.qv-card-dimmed { opacity: 0.28; pointer-events: none; }
+
+.qv-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, var(--bg-subtle) 0%, rgba(255, 255, 255, 0.8) 100%);
+  color: var(--accent-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.qv-card-label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.qv-card-sub {
+  font-size: 0.6rem;
+  color: var(--text-3);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Text group — transparent on desktop, becomes flex column on mobile */
+.qv-card-text-group {
+  display: contents;
+}
+
+/* Check mark — spring animation */
+.qv-card-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--r-full);
+  background: var(--accent-strong);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Skip */
+.qv-skip-btn {
+  font-size: 0.69rem;
+  font-weight: 500;
+  color: var(--text-3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-mid);
+  transition: color 0.15s;
+  align-self: flex-start;
+  flex-shrink: 0;
+  padding: 2px 0;
+}
+.qv-skip-btn:hover { color: var(--text-2); }
+
+/* Continue button */
+.qv-continue-btn {
+  width: 100%;
+  max-width: 280px;
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+  border-radius: var(--r-full);
+  background: var(--text);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.qv-continue-btn:hover:not(:disabled) {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 63, 111, 0.25);
+}
+
+.qv-continue-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.qv-continue-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── 4. Context bridge ── */
+.qv-bridge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 28px;
+  background: rgba(255, 255, 255, 0.62);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.qv-bridge-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.qv-bridge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.qv-bridge-tag {
+  font-size: 0.69rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-xs);
+}
+
+/* ── Responsive ── */
+
+/* ── Large desktop (≥1280px) ── */
+@media (min-width: 1280px) {
+  .qv-survey-panel { height: 360px; }
+  .qv-question { font-size: 1.65rem; }
+}
+
+/* ── Tablet (641–1023px) ── */
+@media (max-width: 1023px) and (min-width: 641px) {
+  .qv-survey-panel { height: auto; min-height: 320px; }
+  .qv-inner { padding: 18px 20px 14px; gap: 10px; }
+  .qv-question { font-size: 1.35rem; }
+  .qv-cols-4 { grid-template-columns: repeat(3, 1fr); }
+  .qv-cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Mobile (≤640px) — SQUARE GRID CARDS ── */
+@media (max-width: 640px) {
+  .qv-skip-top {
+    top: 8px;
+    right: 12px;
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .qv-context-strip { height: 26px; padding: 0 var(--sp-4); }
+  .qv-context-text { font-size: 0.65rem; }
+
+  /* Survey panel — auto height, no overflow clipping */
+  .qv-survey-panel {
+    height: auto;
+    flex-shrink: 0;
+    overflow: visible;
+    padding-top: 12px;
+  }
+
+  .qv-inner {
+    padding: var(--sp-4) var(--sp-4) var(--sp-3);
+    gap: var(--sp-3);
+    height: auto;
+    overflow: visible;
+  }
+
+  .qv-question-block { flex: none; overflow: visible; gap: var(--sp-3); }
+  .qv-hero-heading { font-size: 0.75rem; }
+  .qv-question { font-size: 1.25rem; letter-spacing: -0.01em; }
+  .qv-hint { font-size: 0.6rem; letter-spacing: 0.06em; }
+  .qv-progress-dots { gap: 5px; }
+  .qv-dot { width: 7px; height: 7px; }
+
+  /* 2-column square card grid */
+  .qv-cols-3,
+  .qv-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Square card */
+  .qv-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 12px 16px;
+    border-radius: var(--r-xl);
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    min-height: unset;
+    overflow: hidden;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .qv-card:active {
+    transform: scale(0.96) !important;
+    transition: transform 0.08s ease !important;
+  }
+  .qv-card-icon { width: 44px; height: 44px; margin-bottom: 4px; }
+  .qv-card-text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+  }
+  .qv-card-label { font-size: 0.85rem; font-weight: 700; text-align: center; line-height: 1.2; color: var(--text); }
+  .qv-card-sub {
+    font-size: 0.6rem;
+    color: var(--text-3);
+    text-align: center;
+    line-height: 1.3;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 100%;
+  }
+  .qv-card-check { top: 8px; right: 8px; width: 16px; height: 16px; }
+  .qv-card-selected {
+    border-color: var(--accent-strong) !important;
+    background: linear-gradient(135deg, var(--accent-light) 0%, rgba(255, 255, 255, 0.9) 100%) !important;
+    box-shadow: 0 0 0 2px var(--accent-dim), 0 6px 16px rgba(217, 63, 111, 0.12) !important;
+    transform: scale(1.03) !important;
+  }
+
+  .qv-continue-btn {
+    max-width: 100%;
+    min-height: 48px;
+    font-size: 0.9375rem;
+  }
+
+  .qv-step-meta { gap: var(--sp-2); }
+  .qv-step-pill { font-size: 0.65rem; padding: 3px 10px; }
+  .qv-skip-btn { font-size: 0.63rem; }
+  .qv-bridge { padding: 7px var(--sp-4); gap: 6px; }
+  .qv-bridge-label { display: none; }
+  .qv-bridge-tag { font-size: 0.63rem; padding: 2px 8px; }
+}
+
+/* ── Very small (≤380px) ── */
+@media (max-width: 380px) {
+  .qv-inner { padding: var(--sp-3) var(--sp-3) var(--sp-2); }
+  .qv-question { font-size: 1.05rem; }
+  .qv-card { padding: 12px 8px 10px; gap: 4px; }
+  .qv-card-icon { width: 32px; height: 32px; }
+  .qv-card-label { font-size: 0.72rem; }
+  .qv-card-sub { font-size: 0.52rem; }
+  .qv-cols-3, .qv-cols-4 { gap: 8px; }
+}

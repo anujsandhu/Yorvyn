@@ -1,0 +1,14 @@
+{
+  "name": "yorvyn",
+  "private": true,
+  "scripts": {
+    "dev": "bash ./start.sh",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --host 127.0.0.1 --port 8002",
+    "build": "npm run build --prefix frontend",
+    "build:prod": "npm run build:prod --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "install:frontend": "npm install --prefix frontend",
+    "deploy:frontend": "npm run build:prod --prefix frontend && firebase deploy --only hosting"
+  }
+}

@@ -1,0 +1,250 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Yorvyn Outfit Lookbook Studio — Warm Beige Luxury Aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+.outfit-studio-page {
+  padding: 32px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--text, #181816);
+  font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+}
+
+.studio-header {
+  margin-bottom: 28px;
+}
+
+.studio-title-h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text, #181816);
+  font-family: 'Playfair Display', serif;
+  margin: 0 0 6px 0;
+}
+
+.studio-subtitle {
+  color: var(--text-2, #67655F);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Context Control Bar */
+.context-control-bar {
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-2xl, 16px);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) auto;
+  gap: 20px;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.ctrl-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctrl-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-2, #67655F);
+}
+
+.ctrl-select {
+  background: var(--bg, #F8F7F4);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-md, 8px);
+  padding: 8px 12px;
+  color: var(--text, #181816);
+  font-size: 0.88rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.ctrl-select:focus {
+  border-color: var(--accent-strong, #3D5146);
+}
+
+.generate-outfits-btn {
+  background: var(--accent-strong, #3D5146);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--r-full, 999px);
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  align-self: flex-end;
+}
+
+.generate-outfits-btn:hover {
+  background: var(--accent-hover, #4F665A);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Lookbook Canvas Grid */
+.lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.lookbook-card {
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-2xl, 18px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.lookbook-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent, #6F8176);
+  box-shadow: var(--shadow-lg);
+}
+
+.lookbook-card-header {
+  padding: 18px 22px;
+  background: var(--bg-subtle, #EFEBE3);
+  border-bottom: 1px solid var(--border, #E4E0D7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outfit-score-ring {
+  background: var(--c-sage-100, #E9EDE8);
+  border: 1px solid var(--accent, #6F8176);
+  color: var(--accent-strong, #3D5146);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  border-radius: var(--r-full, 999px);
+}
+
+/* 2D Visual Layer Canvas */
+.visual-layers-canvas {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: var(--bg, #F8F7F4);
+}
+
+.canvas-slot {
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--border, #E4E0D7);
+  border-radius: var(--r-lg, 10px);
+  height: 140px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+}
+
+.canvas-slot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.canvas-slot:hover .canvas-slot-img {
+  transform: scale(1.04);
+}
+
+.canvas-slot-badge {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  background: rgba(24, 24, 22, 0.75);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--r-xs, 4px);
+}
+
+/* Breakdown details */
+.lookbook-details {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.palette-swatches-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--border, #E4E0D7);
+}
+
+.rationale-quote {
+  font-size: 0.84rem;
+  color: var(--text-2, #67655F);
+  line-height: 1.5;
+  background: var(--bg-subtle, #EFEBE3);
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent-strong, #3D5146);
+  border-radius: 0 var(--r-md, 8px) var(--r-md, 8px) 0;
+  margin: 0;
+}
+
+.lookbook-actions {
+  padding: 16px 22px;
+  border-top: 1px solid var(--border, #E4E0D7);
+  display: flex;
+  gap: 10px;
+}
+
+.lookbook-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--r-md, 8px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.lookbook-btn.wear-now {
+  background: var(--accent-strong, #3D5146);
+  color: #FFFFFF;
+}
+
+.lookbook-btn.save-look {
+  background: var(--bg-subtle, #EFEBE3);
+  border: 1px solid var(--border, #E4E0D7);
+  color: var(--text, #181816);
+}
+
+.lookbook-btn:hover {
+  filter: brightness(0.95);
+}

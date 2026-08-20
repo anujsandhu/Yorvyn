@@ -1,0 +1,17 @@
+{
+  "name": "Yorvyn – AI Perfume Advisor",
+  "short_name": "Yorvyn",
+  "description": "Discover your perfect fragrance with AI-powered recommendations from 73,000+ perfumes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf9",
+  "theme_color": "#1c1917",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/yorvyn-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/yorvyn-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["lifestyle", "shopping", "beauty"],
+  "screenshots": [],
+  "lang": "en"
+}

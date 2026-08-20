@@ -1,0 +1,210 @@
+/* ── Top Navigation ── */
+.tn-root {
+  height: var(--nav-h);
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: none;
+  /* Safe area for notched phones */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.tn-inner {
+  height: var(--nav-h);
+  padding: 0 var(--sp-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo — centered absolutely so left/right buttons don't shift it */
+.tn-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.tn-icon-btn {
+  /* Minimum 44px touch target (Apple HIG) */
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  transition: all var(--dur-fast);
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+.tn-icon-btn:hover  { 
+  background: var(--bg-subtle); 
+  color: var(--text); 
+}
+.tn-icon-btn:active { 
+  background: var(--border); 
+  transform: scale(0.95); 
+}
+
+/* ── RIGHT CONTROLS ── */
+.tn-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── TEMP TOGGLE (PILL SWITCH) ── */
+.tn-temp-toggle {
+  min-height: 36px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.tn-temp-toggle:hover {
+  background: var(--bg-subtle);
+  border-color: var(--text-3);
+  color: var(--text);
+}
+
+.tn-temp-toggle:active {
+  transform: scale(0.96);
+}
+
+/* Active state - glowing */
+.tn-temp-active {
+  background: rgba(234, 179, 8, 0.1);
+  border-color: rgba(234, 179, 8, 0.3);
+  color: rgb(161, 98, 7);
+  animation: tempGlow 2s ease-in-out infinite;
+}
+
+.tn-temp-active:hover {
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.4);
+}
+
+@keyframes tempGlow {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.2); 
+  }
+  50% { 
+    box-shadow: 0 0 0 4px rgba(234, 179, 8, 0); 
+  }
+}
+
+/* ── "+ New Search" BUTTON ── */
+.tn-new-search-btn {
+  min-height: 36px;
+  padding: 0 var(--sp-3);
+  border-radius: var(--r-full);
+  background: var(--text);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-xs);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.tn-new-search-btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tn-new-search-btn:active {
+  transform: scale(0.96);
+}
+
+/* ── TEMP MODE BADGE ── */
+.tn-temp-badge {
+  position: absolute;
+  top: calc(var(--nav-h) - 2px);
+  right: var(--sp-3);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  color: rgb(161, 98, 7);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  z-index: 1;
+  animation: slideDown 200ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .tn-temp-toggle span,
+  .tn-new-search-btn span {
+    display: none;
+  }
+  .tn-temp-toggle,
+  .tn-new-search-btn {
+    min-width: 36px;
+    min-height: 36px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+  .tn-temp-badge {
+    right: var(--sp-2);
+    padding: 3px 8px;
+    font-size: 0.625rem;
+  }
+}
+
+/* Show on tablet and mobile */
+@media (max-width: 1023px) {
+  .tn-root { display: block; }
+}
+
+@media (max-width: 380px) {
+  .tn-inner { padding: 0 var(--sp-2); }
+  .tn-controls { gap: var(--sp-1); }
+}
