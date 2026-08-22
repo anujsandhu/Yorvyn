@@ -4,6 +4,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from app.ml_model import recommender
 
+recommender.initialize()
 print(f"Recommender data: {recommender.data is not None}")
 if recommender.data is not None:
     print(f"Dataset size: {len(recommender.data)}")

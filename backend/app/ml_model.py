@@ -31,11 +31,13 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
 
 from .config import settings
+from .pipeline.dataset_manager import dataset_manager
 
 warnings.filterwarnings("ignore")
 
+_ftax = dataset_manager.fragrance_taxonomy
 
-TEXT_STOPWORDS = {
+TEXT_STOPWORDS = set(_ftax.get("stopwords", [
     # Generic filler words
     "a", "an", "and", "are", "as", "at", "be", "best", "but", "by", "for",
     "from", "have", "i", "in", "is", "it", "its", "like", "me", "my", "of",
@@ -55,54 +57,73 @@ TEXT_STOPWORDS = {
     "long", "lasting", "longevity", "projection", "sillage",
     "premium", "luxury", "expensive", "cheap", "affordable", "budget",
     "new", "old", "classic", "modern", "popular", "famous", "brand",
-}
+]))
 NEGATION_TOKENS = {"avoid", "dislike", "dont", "don't", "hate", "no", "not", "without"}
-NOISE_TITLE_TOKENS = {
+NOISE_TITLE_TOKENS = set(_ftax.get("noise_title_tokens", [
     "sample", "samples", "sampler", "vial", "vials", "decant", "mini", "minis",
     "lot", "tester", "testers", "ml", "bottle", "bottles", "spray", "sealed",
     "set", "gift", "pack", "bundle", "empty",
-}
-NOTE_SYNONYMS = {
-    "aquatic": ("aquatic", "marine", "fresh", "water"),
-    "citrusy": ("citrus", "bergamot", "lemon", "orange"),
-    "floral": ("floral", "rose", "jasmine", "white floral"),
-    "sweet": ("sweet", "vanilla", "caramel", "gourmand"),
-    "woody": ("woody", "cedar", "sandalwood", "vetiver"),
-    "oud": ("oud", "woody", "smoky", "amber"),
-    "spicy": ("spicy", "cinnamon", "pepper", "cardamom"),
-    "fresh": ("fresh", "clean", "green", "citrus"),
-    "powdery": ("powdery", "musk", "iris", "soft"),
-}
-OCCASION_HINTS = {
-    "office":  ("fresh", "clean", "green", "citrus", "musk", "aromatic", "light"),
-    "work":    ("fresh", "clean", "green", "citrus", "musk", "aromatic", "light"),
-    "daily":   ("fresh", "clean", "soft", "citrus", "aromatic", "light", "musk"),
-    "date":    ("rose", "vanilla", "amber", "musk", "sweet", "sensual", "warm", "seductive"),
-    "night":   ("amber", "oud", "vanilla", "spicy", "woody", "dark", "intense"),
-    "party":   ("amber", "oud", "sweet", "spicy", "woody", "bold", "intense"),
-    "wedding": ("rose", "white floral", "musk", "vanilla", "elegant", "woody", "spicy", "amber", "patchouli"),
-    "gym":     ("fresh", "aquatic", "clean", "citrus", "sport", "light"),
-    "outdoor": ("green", "woody", "fresh", "earthy", "citrus", "aromatic"),
-    "casual":  ("fresh", "clean", "light", "citrus", "soft", "musk"),
-    "formal":  ("woody", "amber", "spicy", "elegant", "musk", "leather"),
-}
-SEASON_HINTS = {
-    "summer":  ("citrus", "aquatic", "fresh", "green", "light", "ozonic"),
-    "spring":  ("floral", "fresh", "green", "citrus", "light", "rose"),
-    "winter":  ("amber", "vanilla", "oud", "spicy", "woody", "warm", "patchouli"),
-    "autumn":  ("woody", "amber", "spicy", "earthy", "leather", "vetiver"),
-    "fall":    ("woody", "amber", "spicy", "earthy", "leather", "vetiver"),
-    "monsoon": ("fresh", "green", "woody", "clean", "earthy"),
-}
-MOOD_HINTS = {
-    "romantic":   ("rose", "vanilla", "musk", "amber", "sweet"),
-    "confident":  ("woody", "spicy", "amber", "leather", "oud"),
-    "luxury":     ("oud", "amber", "iris", "woody", "leather"),
-    "playful":    ("fruity", "sweet", "floral", "fresh", "citrus"),
-    "calm":       ("soft", "powdery", "musk", "clean", "lavender"),
-    "mysterious": ("oud", "amber", "smoky", "dark", "incense"),
-    "energetic":  ("citrus", "fresh", "aquatic", "green", "sport"),
-}
+]))
+_raw_syns = _ftax.get("note_synonyms", {})
+if _raw_syns:
+    NOTE_SYNONYMS = {k: tuple(v) for k, v in _raw_syns.items()}
+else:
+    NOTE_SYNONYMS = {
+        "aquatic": ("aquatic", "marine", "fresh", "water"),
+        "citrusy": ("citrus", "bergamot", "lemon", "orange"),
+        "floral": ("floral", "rose", "jasmine", "white floral"),
+        "sweet": ("sweet", "vanilla", "caramel", "gourmand"),
+        "woody": ("woody", "cedar", "sandalwood", "vetiver"),
+        "oud": ("oud", "woody", "smoky", "amber"),
+        "spicy": ("spicy", "cinnamon", "pepper", "cardamom"),
+        "fresh": ("fresh", "clean", "green", "citrus"),
+        "powdery": ("powdery", "musk", "iris", "soft"),
+    }
+
+_raw_occ = _ftax.get("occasion_hints", {})
+if _raw_occ:
+    OCCASION_HINTS = {k: tuple(v) for k, v in _raw_occ.items()}
+else:
+    OCCASION_HINTS = {
+        "office":  ("fresh", "clean", "green", "citrus", "musk", "aromatic", "light"),
+        "work":    ("fresh", "clean", "green", "citrus", "musk", "aromatic", "light"),
+        "daily":   ("fresh", "clean", "soft", "citrus", "aromatic", "light", "musk"),
+        "date":    ("rose", "vanilla", "amber", "musk", "sweet", "sensual", "warm", "seductive"),
+        "night":   ("amber", "oud", "vanilla", "spicy", "woody", "dark", "intense"),
+        "party":   ("amber", "oud", "sweet", "spicy", "woody", "bold", "intense"),
+        "wedding": ("rose", "white floral", "musk", "vanilla", "elegant", "woody", "spicy", "amber", "patchouli"),
+        "gym":     ("fresh", "aquatic", "clean", "citrus", "sport", "light"),
+        "outdoor": ("green", "woody", "fresh", "earthy", "citrus", "aromatic"),
+        "casual":  ("fresh", "clean", "light", "citrus", "soft", "musk"),
+        "formal":  ("woody", "amber", "spicy", "elegant", "musk", "leather"),
+    }
+
+_raw_seas = _ftax.get("season_hints", {})
+if _raw_seas:
+    SEASON_HINTS = {k: tuple(v) for k, v in _raw_seas.items()}
+else:
+    SEASON_HINTS = {
+        "summer":  ("citrus", "aquatic", "fresh", "green", "light", "ozonic"),
+        "spring":  ("floral", "fresh", "green", "citrus", "light", "rose"),
+        "winter":  ("amber", "vanilla", "oud", "spicy", "woody", "warm", "patchouli"),
+        "autumn":  ("woody", "amber", "spicy", "earthy", "leather", "vetiver"),
+        "fall":    ("woody", "amber", "spicy", "earthy", "leather", "vetiver"),
+        "monsoon": ("fresh", "green", "woody", "clean", "earthy"),
+    }
+
+_raw_mood = _ftax.get("mood_hints", {})
+if _raw_mood:
+    MOOD_HINTS = {k: tuple(v) for k, v in _raw_mood.items()}
+else:
+    MOOD_HINTS = {
+        "romantic":   ("rose", "vanilla", "musk", "amber", "sweet"),
+        "confident":  ("woody", "spicy", "amber", "leather", "oud"),
+        "luxury":     ("oud", "amber", "iris", "woody", "leather"),
+        "playful":    ("fruity", "sweet", "floral", "fresh", "citrus"),
+        "calm":       ("soft", "powdery", "musk", "clean", "lavender"),
+        "mysterious": ("oud", "amber", "smoky", "dark", "incense"),
+        "energetic":  ("citrus", "fresh", "aquatic", "green", "sport"),
+    }
 
 
 def clean_accords(raw: Any) -> str:
@@ -252,23 +273,28 @@ class AdvancedPerfumeRecommender:
         if not autoload:
             return
 
+        self.initialize()
+
+    def initialize(self) -> bool:
         start_time = time.time()
         if self._load_pretrained_models():
             self._prepare_runtime_artifacts()
             elapsed = time.time() - start_time
             print(f"⚡ All pre-trained models loaded in {elapsed:.2f}s")
             self.__class__._models_trained = True
-            return
+            return True
 
         print("⚠ Pre-trained models not found — training from scratch…")
         self._load_all_datasets()
         if self.data is not None and len(self.data) > 1:
             self._train_all_models()
             self.__class__._models_trained = True
+            print(f"   Startup completed in {time.time() - start_time:.2f}s")
+            return True
         else:
             print("❌ No data available for training")
-
-        print(f"   Startup completed in {time.time() - start_time:.2f}s")
+            print(f"   Startup completed in {time.time() - start_time:.2f}s")
+            return False
 
     # ------------------------------------------------------------------
     # Model loading and training
@@ -333,6 +359,17 @@ class AdvancedPerfumeRecommender:
             return False
 
     def _load_all_datasets(self):
+        master_path = self.data_dir / "master_perfume_catalog.csv"
+        if master_path.exists():
+            try:
+                df = self._read_csv(master_path)
+                df["dataset_source"] = "master_catalog"
+                self.data = self._merge_datasets([df])
+                print(f"   ✓ Loaded master catalog: {len(self.data):,} perfumes")
+                return
+            except Exception as exc:
+                print(f"   ✗ Failed to load master catalog: {exc}")
+
         datasets = {
             "fra_perfumes": self.data_dir / "fra_perfumes.csv",
             "final_perfume_data": self.data_dir / "final_perfume_data.csv",

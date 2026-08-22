@@ -48,6 +48,7 @@ class Settings(BaseSettings):
     hf_api_key: str = ""
     hf_model: str = "HuggingFaceH4/zephyr-7b-beta"
 
+    ai_fallback_enabled: bool = True
     ai_max_response_tokens: int = 1500
     ai_cache_ttl: int = 3600
     ai_timeout_seconds: int = 15

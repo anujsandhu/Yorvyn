@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "name": "Fragrance Taxonomy and Domain Knowledge",
+  "description": "Standardized fragrance notes, accord synonyms, occasion mappings, season hints, and title noise filters.",
+  "note_synonyms": {
+    "aquatic": ["aquatic", "marine", "fresh", "water", "sea", "oceanic"],
+    "citrusy": ["citrus", "bergamot", "lemon", "orange", "grapefruit", "mandarin", "lime", "yuzu", "neroli"],
+    "floral": ["floral", "rose", "jasmine", "white floral", "lavender", "violet", "iris", "magnolia", "tuberose", "geranium", "lily"],
+    "sweet": ["sweet", "vanilla", "caramel", "gourmand", "honey", "tonka bean", "sugar", "praline", "chocolate"],
+    "woody": ["woody", "cedar", "sandalwood", "vetiver", "patchouli", "pine", "oakmoss", "cypress", "guaiac wood"],
+    "oud": ["oud", "agarwood", "woody", "smoky", "amber", "dark wood"],
+    "spicy": ["spicy", "cinnamon", "pepper", "cardamom", "clove", "nutmeg", "ginger", "saffron", "pink pepper"],
+    "fresh": ["fresh", "clean", "green", "citrus", "aromatic", "mint", "herbal", "crisp"],
+    "powdery": ["powdery", "musk", "iris", "soft", "talc", "violet", "heliotrope"],
+    "amber": ["amber", "ambery", "resinous", "balsamic", "benzoin", "labdanum"],
+    "leather": ["leather", "suede", "smoky", "animalic", "birch tar"],
+    "fruity": ["fruity", "apple", "berry", "peach", "plum", "black currant", "pineapple", "coconut", "fig"]
+  },
+  "occasion_hints": {
+    "office": ["fresh", "clean", "green", "citrus", "musk", "aromatic", "light"],
+    "work": ["fresh", "clean", "green", "citrus", "musk", "aromatic", "light"],
+    "daily": ["fresh", "clean", "soft", "citrus", "aromatic", "light", "musk"],
+    "date": ["rose", "vanilla", "amber", "musk", "sweet", "sensual", "warm", "seductive"],
+    "night": ["amber", "oud", "vanilla", "spicy", "woody", "dark", "intense"],
+    "party": ["amber", "oud", "sweet", "spicy", "woody", "bold", "intense"],
+    "wedding": ["rose", "white floral", "musk", "vanilla", "elegant", "woody", "spicy", "amber", "patchouli"],
+    "gym": ["fresh", "aquatic", "clean", "citrus", "sport", "light"],
+    "outdoor": ["green", "woody", "fresh", "earthy", "citrus", "aromatic"],
+    "casual": ["fresh", "clean", "light", "citrus", "soft", "musk"],
+    "formal": ["woody", "amber", "spicy", "elegant", "musk", "leather"]
+  },
+  "season_hints": {
+    "summer": ["citrus", "aquatic", "fresh", "green", "light", "ozonic"],
+    "spring": ["floral", "fresh", "green", "citrus", "light", "rose"],
+    "winter": ["amber", "vanilla", "oud", "spicy", "woody", "warm", "patchouli"],
+    "autumn": ["woody", "amber", "spicy", "earthy", "leather", "vetiver"],
+    "fall": ["woody", "amber", "spicy", "earthy", "leather", "vetiver"],
+    "monsoon": ["fresh", "green", "woody", "clean", "earthy"]
+  },
+  "mood_hints": {
+    "romantic": ["rose", "vanilla", "musk", "amber", "sweet"],
+    "confident": ["woody", "spicy", "amber", "leather", "oud"],
+    "luxury": ["oud", "amber", "iris", "woody", "leather"],
+    "playful": ["fruity", "sweet", "floral", "fresh", "citrus"],
+    "calm": ["soft", "powdery", "musk", "clean", "lavender"],
+    "mysterious": ["oud", "amber", "smoky", "dark", "incense"],
+    "energetic": ["citrus", "fresh", "aquatic", "green", "sport"]
+  },
+  "stopwords": [
+    "a", "an", "and", "are", "as", "at", "be", "best", "but", "by", "for",
+    "from", "have", "i", "in", "is", "it", "its", "like", "me", "my", "of",
+    "on", "or", "perfume", "please", "recommend", "recommendation", "scent",
+    "something", "that", "the", "this", "to", "want", "with", "would",
+    "fragrance", "looking", "wear", "smell", "get", "give", "need", "find",
+    "good", "great", "nice", "any", "some", "one", "can", "you", "us",
+    "brother", "sister", "husband", "wife", "boyfriend", "girlfriend",
+    "father", "mother", "dad", "mom", "son", "daughter", "friend",
+    "broth", "husb", "boyfri", "girlfri",
+    "wedding", "office", "party", "date", "night", "daily", "gym",
+    "outdoor", "casual", "formal", "work", "occasion", "event",
+    "strong", "light", "heavy", "mild", "subtle", "intense", "bold",
+    "long", "lasting", "longevity", "projection", "sillage",
+    "premium", "luxury", "expensive", "cheap", "affordable", "budget",
+    "new", "old", "classic", "modern", "popular", "famous", "brand"
+  ],
+  "noise_title_tokens": [
+    "sample", "samples", "sampler", "vial", "vials", "decant", "mini", "minis",
+    "lot", "tester", "testers", "ml", "bottle", "bottles", "spray", "sealed",
+    "set", "gift", "pack", "bundle", "empty"
+  ],
+  "fake_patterns": [
+    "inspired by", "type", "version", "similar to", "smells like",
+    "dupe", "clone", "alternative", "impression", "replica"
+  ]
+}

@@ -29,6 +29,8 @@ print(f"Project root: {recommender.project_root}")
 print(f"Data dir: {recommender.data_dir}")
 print(f"Models dir: {recommender.models_dir}")
 
+recommender.initialize()
+
 if recommender.data is None or len(recommender.data) == 0:
     print("ERROR: Dataset not loaded!")
     print("Please ensure data files exist in the data/ directory")

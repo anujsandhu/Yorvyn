@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "name": "Fashion Intelligence and Color Theory Taxonomy",
+  "description": "Standardized color palettes, harmonious pairings, seasonal color analysis, aesthetic style archetypes, and dress code mappings.",
+  "color_palettes": {
+    "neutrals": [
+      "black", "white", "grey", "gray", "charcoal", "cream", "beige",
+      "tan", "khaki", "camel", "ivory", "off-white", "navy", "brown", "taupe"
+    ],
+    "warm": [
+      "red", "coral", "terracotta", "rust", "orange", "mustard", "yellow",
+      "olive", "warm brown", "gold", "amber", "burgundy", "maroon"
+    ],
+    "cool": [
+      "blue", "sky blue", "cobalt", "royal blue", "teal", "emerald", "sage",
+      "mint", "forest green", "lavender", "purple", "violet", "silver", "pink"
+    ]
+  },
+  "harmonious_pairs": [
+    ["navy", "white"], ["navy", "beige"], ["navy", "camel"], ["navy", "grey"],
+    ["navy", "tan"], ["navy", "burgundy"], ["navy", "sky blue"],
+    ["black", "white"], ["black", "grey"], ["black", "camel"], ["black", "charcoal"],
+    ["black", "cream"], ["black", "red"], ["black", "olive"], ["black", "silver"],
+    ["white", "beige"], ["white", "tan"], ["white", "olive"], ["white", "blue"],
+    ["white", "grey"], ["white", "denim"], ["white", "forest green"],
+    ["beige", "cream"], ["beige", "brown"], ["beige", "olive"], ["beige", "sage"],
+    ["camel", "cream"], ["camel", "black"], ["camel", "navy"], ["camel", "white"],
+    ["grey", "pink"], ["grey", "burgundy"], ["grey", "navy"], ["grey", "sky blue"],
+    ["olive", "cream"], ["olive", "black"], ["olive", "white"], ["olive", "tan"],
+    ["sage", "cream"], ["sage", "white"], ["sage", "tan"], ["sage", "brown"],
+    ["burgundy", "grey"], ["burgundy", "navy"], ["burgundy", "cream"], ["burgundy", "black"],
+    ["terracotta", "cream"], ["terracotta", "denim"], ["terracotta", "white"]
+  ],
+  "seasonal_color_palettes": {
+    "spring": {
+      "undertone": "warm-bright",
+      "best_colors": ["coral", "peach", "warm yellow", "camel", "light navy", "cream", "sage", "gold"],
+      "avoid": ["stark black", "icy grey", "dull brown"]
+    },
+    "summer": {
+      "undertone": "cool-soft",
+      "best_colors": ["lavender", "sky blue", "soft grey", "rose", "sage", "navy", "off-white"],
+      "avoid": ["bright orange", "mustard", "heavy black"]
+    },
+    "autumn": {
+      "undertone": "warm-deep",
+      "best_colors": ["terracotta", "rust", "olive", "forest green", "mustard", "camel", "burgundy", "warm brown"],
+      "avoid": ["pure stark white", "neon pink", "icy blue"]
+    },
+    "winter": {
+      "undertone": "cool-bright",
+      "best_colors": ["stark black", "pure white", "royal blue", "emerald", "burgundy", "charcoal", "silver", "ruby red"],
+      "avoid": ["warm mustard", "dusty orange", "beige"]
+    }
+  },
+  "style_aesthetics": {
+    "quiet_luxury": {
+      "name": "Quiet Luxury / Old Money",
+      "key_colors": ["camel", "cream", "navy", "white", "charcoal", "beige", "olive"],
+      "fabrics": ["cashmere", "wool", "silk", "linen", "structured cotton"],
+      "silhouettes": ["tailored", "relaxed-tapered", "clean lines"],
+      "forbidden_patterns": ["loud logo", "graphic print", "distressed denim"],
+      "description": "Understated elegance, high-quality fabrication, monochromatic or muted neutral palette with pristine tailoring."
+    },
+    "minimalist_scandi": {
+      "name": "Minimalist Scandinavian",
+      "key_colors": ["black", "white", "grey", "charcoal", "oatmeal", "navy"],
+      "fabrics": ["heavy cotton", "raw denim", "merino wool", "matte leather"],
+      "silhouettes": ["boxy", "oversized clean", "architectural", "straight-leg"],
+      "forbidden_patterns": ["loud florals", "tie-dye"],
+      "description": "Functional, clean geometries, high-contrast monochrome, effortlessly structured."
+    },
+    "streetwear_tech": {
+      "name": "Elevated Streetwear / Techwear",
+      "key_colors": ["black", "charcoal", "olive", "grey", "silver", "khaki", "white"],
+      "fabrics": ["technical nylon", "gore-tex", "fleece", "heavyweight jersey", "leather"],
+      "silhouettes": ["cargo", "oversized hoodie", "chunky footwear", "layered modular"],
+      "forbidden_patterns": ["formal suiting", "lace"],
+      "description": "Modern urban silhouette, utility pockets, technical textiles, and chunky footwear."
+    },
+    "smart_casual": {
+      "name": "Smart Casual / Modern Professional",
+      "key_colors": ["navy", "white", "grey", "tan", "olive", "burgundy", "light blue"],
+      "fabrics": ["oxford cotton", "knitwear", "chino twill", "unstructured blazer"],
+      "silhouettes": ["fitted", "clean taper", "layer-friendly"],
+      "forbidden_patterns": ["distressed", "beachwear"],
+      "description": "Polished yet versatile, bridging casual ease with professional structure."
+    },
+    "parisian_chic": {
+      "name": "Parisian Chic",
+      "key_colors": ["black", "white", "navy", "stripes", "camel", "red accent", "denim"],
+      "fabrics": ["trench gabardine", "breton knit", "denim", "silk scarf", "leather"],
+      "silhouettes": ["high-waisted", "effortless drape", "classic trench", "loafers"],
+      "forbidden_patterns": ["neon", "athleisure"],
+      "description": "Timeless French nonchalance, iconic wardrobe staples, balanced contrast."
+    },
+    "formal_evening": {
+      "name": "Formal Gala / Black Tie",
+      "key_colors": ["black", "midnight navy", "white", "emerald", "burgundy", "silver"],
+      "fabrics": ["tuxedo wool", "satin", "silk", "velvet"],
+      "silhouettes": ["structured suit", "floor-length", "tailored tuxedo"],
+      "forbidden_patterns": ["denim", "sneakers", "t-shirts", "sweatshirts"],
+      "description": "Highest level of formal dressing, precision tailoring, polished finish."
+    }
+  }
+}

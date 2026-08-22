@@ -5,45 +5,53 @@ Thermal / Weather Rules, and Occasion Dress Codes.
 """
 
 from typing import Dict, List, Set, Tuple
+from ..pipeline.dataset_manager import dataset_manager
 
 # ---------------------------------------------------------
 # 1. COLOR THEORY & HARMONY ENGINE
 # ---------------------------------------------------------
 
-COLOR_PALETTES = {
-    "neutrals": {
+_tax = dataset_manager.fashion_taxonomy
+
+_raw_palettes = _tax.get("color_palettes", {})
+COLOR_PALETTES: Dict[str, Set[str]] = {
+    "neutrals": set(_raw_palettes.get("neutrals", [
         "black", "white", "grey", "gray", "charcoal", "cream", "beige",
         "tan", "khaki", "camel", "ivory", "off-white", "navy", "brown", "taupe"
-    },
-    "warm": {
+    ])),
+    "warm": set(_raw_palettes.get("warm", [
         "red", "coral", "terracotta", "rust", "orange", "mustard", "yellow",
         "olive", "warm brown", "gold", "amber", "burgundy", "maroon"
-    },
-    "cool": {
+    ])),
+    "cool": set(_raw_palettes.get("cool", [
         "blue", "sky blue", "cobalt", "royal blue", "teal", "emerald", "sage",
         "mint", "forest green", "lavender", "purple", "violet", "silver", "pink"
-    }
+    ]))
 }
 
 # Established harmonious color pairings (Aesthetic & Classical Color Wheel Rules)
-HARMONIOUS_PAIRS = {
-    ("navy", "white"), ("navy", "beige"), ("navy", "camel"), ("navy", "grey"),
-    ("navy", "tan"), ("navy", "burgundy"), ("navy", "sky blue"),
-    ("black", "white"), ("black", "grey"), ("black", "camel"), ("black", "charcoal"),
-    ("black", "cream"), ("black", "red"), ("black", "olive"), ("black", "silver"),
-    ("white", "beige"), ("white", "tan"), ("white", "olive"), ("white", "blue"),
-    ("white", "grey"), ("white", "denim"), ("white", "forest green"),
-    ("beige", "cream"), ("beige", "brown"), ("beige", "olive"), ("beige", "sage"),
-    ("camel", "cream"), ("camel", "black"), ("camel", "navy"), ("camel", "white"),
-    ("grey", "pink"), ("grey", "burgundy"), ("grey", "navy"), ("grey", "sky blue"),
-    ("olive", "cream"), ("olive", "black"), ("olive", "white"), ("olive", "tan"),
-    ("sage", "cream"), ("sage", "white"), ("sage", "tan"), ("sage", "brown"),
-    ("burgundy", "grey"), ("burgundy", "navy"), ("burgundy", "cream"), ("burgundy", "black"),
-    ("terracotta", "cream"), ("terracotta", "denim"), ("terracotta", "white")
-}
+_raw_pairs = _tax.get("harmonious_pairs", [])
+if _raw_pairs:
+    HARMONIOUS_PAIRS = set(tuple(p) for p in _raw_pairs)
+else:
+    HARMONIOUS_PAIRS = {
+        ("navy", "white"), ("navy", "beige"), ("navy", "camel"), ("navy", "grey"),
+        ("navy", "tan"), ("navy", "burgundy"), ("navy", "sky blue"),
+        ("black", "white"), ("black", "grey"), ("black", "camel"), ("black", "charcoal"),
+        ("black", "cream"), ("black", "red"), ("black", "olive"), ("black", "silver"),
+        ("white", "beige"), ("white", "tan"), ("white", "olive"), ("white", "blue"),
+        ("white", "grey"), ("white", "denim"), ("white", "forest green"),
+        ("beige", "cream"), ("beige", "brown"), ("beige", "olive"), ("beige", "sage"),
+        ("camel", "cream"), ("camel", "black"), ("camel", "navy"), ("camel", "white"),
+        ("grey", "pink"), ("grey", "burgundy"), ("grey", "navy"), ("grey", "sky blue"),
+        ("olive", "cream"), ("olive", "black"), ("olive", "white"), ("olive", "tan"),
+        ("sage", "cream"), ("sage", "white"), ("sage", "tan"), ("sage", "brown"),
+        ("burgundy", "grey"), ("burgundy", "navy"), ("burgundy", "cream"), ("burgundy", "black"),
+        ("terracotta", "cream"), ("terracotta", "denim"), ("terracotta", "white")
+    }
 
 # Color Season mappings for skin undertones
-SEASONAL_COLOR_PALETTES = {
+SEASONAL_COLOR_PALETTES = _tax.get("seasonal_color_palettes", {
     "spring": {
         "undertone": "warm-bright",
         "best_colors": ["coral", "peach", "warm yellow", "camel", "light navy", "cream", "sage", "gold"],
@@ -64,13 +72,13 @@ SEASONAL_COLOR_PALETTES = {
         "best_colors": ["stark black", "pure white", "royal blue", "emerald", "burgundy", "charcoal", "silver", "ruby red"],
         "avoid": ["warm mustard", "dusty orange", "beige"]
     }
-}
+})
 
 # ---------------------------------------------------------
 # 2. AESTHETIC DEFINITIONS
 # ---------------------------------------------------------
 
-STYLE_AESTHETICS = {
+STYLE_AESTHETICS = _tax.get("style_aesthetics", {
     "quiet_luxury": {
         "name": "Quiet Luxury / Old Money",
         "key_colors": ["camel", "cream", "navy", "white", "charcoal", "beige", "olive"],
@@ -119,7 +127,7 @@ STYLE_AESTHETICS = {
         "forbidden_patterns": ["denim", "sneakers", "t-shirts", "sweatshirts"],
         "description": "Highest level of formal dressing, precision tailoring, polished finish."
     }
-}
+})
 
 # ---------------------------------------------------------
 # 3. OCCASION RULES & DRESS CODES
