@@ -922,14 +922,14 @@ export const AvatarStudio: React.FC<AvatarStudioProps> = ({ defaultTab = 'fashio
 
   return (
     <div className={`avatar-stage-container scene-${scene}`}>
-      {/* ── Dynamic Vanta FOG shader atmospheric background across the entire stage ── */}
+      {/* ── Dynamic Vanta FOG shader atmospheric background in light sky blue ── */}
       <VantaFogBackground
         highlightColor={0xffffff}
-        midtoneColor={0xd0e8ff}
-        lowlightColor={0x70bcfc}
-        baseColor={0xa8dcff}
-        blurFactor={0.42}
-        speed={0.80}
+        midtoneColor={0xbae6fd}
+        lowlightColor={0x87cefa}
+        baseColor={0xe0f2fe}
+        blurFactor={0.45}
+        speed={0.65}
         zoom={1.25}
       />
 

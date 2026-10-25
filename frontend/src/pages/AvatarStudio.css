@@ -18,13 +18,13 @@
   transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Scene Themes ── */
+/* ── Scene Themes: Light Sky Blue Palette ── */
 .scene-studio {
-  background: linear-gradient(180deg, #38bdf8 0%, #60a5fa 22%, #93c5fd 50%, #bae6fd 75%, #f0f9ff 100%);
+  background: linear-gradient(180deg, #bae6fd 0%, #cbe9fc 35%, #e0f2fe 70%, #f0f9ff 100%);
 }
 
 .scene-sky_clouds {
-  background: linear-gradient(180deg, #0284c7 0%, #38bdf8 30%, #7dd3fc 60%, #e0f2fe 100%);
+  background: linear-gradient(180deg, #bae6fd 0%, #cbe9fc 35%, #e0f2fe 70%, #f0f9ff 100%);
 }
 
 .scene-sunset {
@@ -1749,11 +1749,11 @@
     display: flex;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #38bdf8 0%, #60a5fa 22%, #93c5fd 50%, #bae6fd 75%, #f0f9ff 100%);
+    background: linear-gradient(180deg, #bae6fd 0%, #cbe9fc 35%, #e0f2fe 70%, #f0f9ff 100%);
   }
 
   .avatar-stage-container.scene-studio {
-    background: linear-gradient(180deg, #38bdf8 0%, #60a5fa 22%, #93c5fd 50%, #bae6fd 75%, #f0f9ff 100%);
+    background: linear-gradient(180deg, #bae6fd 0%, #cbe9fc 35%, #e0f2fe 70%, #f0f9ff 100%);
   }
 
 

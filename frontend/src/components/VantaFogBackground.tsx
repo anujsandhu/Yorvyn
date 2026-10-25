@@ -16,13 +16,13 @@ interface VantaFogBackgroundProps {
 }
 
 export const VantaFogBackground: React.FC<VantaFogBackgroundProps> = ({
-  lowlightColor = 0x93c5fd,
+  lowlightColor = 0x87cefa,
   highlightColor = 0xffffff,
-  midtoneColor = 0xcbe9fc,
+  midtoneColor = 0xbae6fd,
   baseColor = 0xe0f2fe,
-  blurFactor = 0.42,
-  speed = 0.85,
-  zoom = 1.35,
+  blurFactor = 0.45,
+  speed = 0.65,
+  zoom = 1.25,
   className = ''
 }) => {
   const vantaRef = useRef<HTMLDivElement>(null);
