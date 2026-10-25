@@ -113,9 +113,9 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.05, 50);
     const h = character?.height || 1.78;
     const isPortrait = (controlledViewMode ?? 'full') === 'portrait';
-    const initCamY = isPortrait ? h * 0.76 : h * 0.50;
-    const initCamZ = isPortrait ? 1.75 : 4.45;
-    const initTargetY = isPortrait ? h * 0.74 : h * 0.48;
+    const initCamY = isPortrait ? h * 0.67 : h * 0.50;
+    const initCamZ = isPortrait ? 2.45 : 4.45;
+    const initTargetY = isPortrait ? h * 0.65 : h * 0.48;
 
     camera.position.set(0, initCamY, initCamZ);
     cameraRef.current = camera;
@@ -616,8 +616,8 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
     if (!cameraRef.current || !controlsRef.current) return;
     const h = character?.height || 1.78;
     if (viewMode === 'portrait') {
-      cameraRef.current.position.set(0, h * 0.76, 1.75);
-      controlsRef.current.target.set(0, h * 0.74, 0);
+      cameraRef.current.position.set(0, h * 0.67, 2.45);
+      controlsRef.current.target.set(0, h * 0.65, 0);
     } else {
       cameraRef.current.position.set(0, h * 0.50, 4.45);
       controlsRef.current.target.set(0, h * 0.48, 0);
@@ -630,8 +630,8 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
     if (!cameraRef.current || !controlsRef.current) return;
     const h = character?.height || 1.78;
     if (viewMode === 'portrait') {
-      cameraRef.current.position.set(0, h * 0.76, 1.75);
-      controlsRef.current.target.set(0, h * 0.74, 0);
+      cameraRef.current.position.set(0, h * 0.67, 2.45);
+      controlsRef.current.target.set(0, h * 0.65, 0);
     } else {
       cameraRef.current.position.set(0, h * 0.50, 4.45);
       controlsRef.current.target.set(0, h * 0.48, 0);
@@ -678,14 +678,14 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
       nextDist = Math.min(currentDist * 1.20, MAX_DISTANCE);
     }
 
-    // Blend target and camera height cleanly between Portrait (inwards) and Full Body (outwards)
+    // Blend target and camera height cleanly between Half Body / Portrait (inwards) and Full Body (outwards)
     // t = 0 when fully zoomed in, t = 1 when fully zoomed out
     const t = THREE.MathUtils.clamp((nextDist - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE), 0, 1);
     
     // In Full Body (t = 1): targetY = h * 0.48, cameraY = h * 0.50
-    // In Portrait (t = 0):  targetY = h * 0.74, cameraY = h * 0.76
-    const targetY = THREE.MathUtils.lerp(h * 0.74, h * 0.48, t);
-    const cameraY = THREE.MathUtils.lerp(h * 0.76, h * 0.50, t);
+    // In Half Body (t = 0): targetY = h * 0.65, cameraY = h * 0.67
+    const targetY = THREE.MathUtils.lerp(h * 0.65, h * 0.48, t);
+    const cameraY = THREE.MathUtils.lerp(h * 0.67, h * 0.50, t);
 
     controls.target.set(0, targetY, 0);
     camera.position.set(
