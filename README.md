@@ -1,6 +1,9 @@
-# 🌸 Yorvyn - AI-Powered Perfume Recommendation System
+# ✦ Yorvyn — Personal AI Stylist
 
-**Advanced Machine Learning & AI-Powered Fragrance Recommendations**
+**Product Category:** Personal AI Stylist  
+**Core Concept:** A personalized fashion AI that helps users discover outfits, manage a digital wardrobe, and visualize clothing on a customizable fictional 3D character.
+
+> **"Yorvyn is your personal AI stylist for discovering outfits, organizing your digital wardrobe, and exploring your individual style."**
 
 [![Deploy Backend](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render)](https://render.com)
 [![Deploy Frontend](https://img.shields.io/badge/Deploy-Firebase-FFCA28?logo=firebase)](https://firebase.google.com)
@@ -17,30 +20,30 @@
 
 ---
 
-## ✨ Features
+## ✨ Features & Fashion Architecture
 
-### 🤖 Machine Learning Engine
-- **73,000+ perfumes** in dataset
-- **TF-IDF vectorization** for semantic matching
-- **Real-time recommendations** based on preferences
-- **Hybrid scoring system**: ML + ratings + popularity
+### 👗 Digital Wardrobe (`/wardrobe`)
+- Track and organize tops, bottoms, outerwear, footwear, and accessories.
+- Automated closet analytics (color distribution, category breakdown, cost-per-wear).
+- One-click garment logging and favoriting.
 
-### 🧠 AI-Powered Intelligence
-- **Multi-provider fallback**: Groq → OpenRouter → Gemini → HuggingFace
-- **Natural language understanding** for user queries
-- **Smart shopping assistant** with personalized suggestions
-- **Token conservation**: AI only called when ML confidence < 0.24
+### ✦ AI Stylist Chat (`/`)
+- Multi-objective layered outfit curation based on occasion, weather temperature, and target aesthetic.
+- Color harmony theory engine (complementary, analogous, neutral anchoring).
+- Commerce gap recommendations for completing curated looks.
 
-### 💬 Interactive Chat
-- **Conversational interface** for perfume discovery
-- **Context-aware responses** using chat history
-- **Personalized recommendations** based on conversation
+### 🎨 Lookbook Studio (`/outfits`)
+- Dynamic outfit generation matching personal color season (Autumn, Spring, Summer, Winter).
+- Aesthetic styling presets (Quiet Luxury, Minimalist Scandi, Parisian Chic, Streetwear Tech).
 
-### 🎨 Modern UI/UX
-- **React + TypeScript** frontend
-- **Responsive design** for all devices
-- **Smooth animations** with Framer Motion
-- **Real-time updates** with Zustand state management
+### 👤 Parametric 3D Digital Twin Avatar (`/avatar`)
+- Customizable fictional avatar canvas with parametric shoulder width, waist taper, and torso height.
+- Real-time layer drape testing (outerwear, top, bottom).
+
+### ⚙️ Personal Fashion Identity (`/profile`)
+- Body geometry profiling (Athletic, Rectangle, Hourglass, Inverted Triangle, Pear).
+- Undertone and seasonal palette mapping with avoided color rules.
+
 
 ### 🔐 Firebase Integration
 - **Authentication** (optional)

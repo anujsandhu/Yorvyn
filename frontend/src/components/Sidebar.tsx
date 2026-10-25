@@ -1,10 +1,11 @@
 import {
   Heart, Trash2, X, LogOut, Settings, Sliders,
   MoreHorizontal, User,
-  HelpCircle, BookOpen,
+  HelpCircle, BookOpen, Sparkles, Layers, Grid, Box
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import { useAuth } from '../context/AuthContext'
 import { WishlistItem } from '../store/index'
@@ -18,6 +19,7 @@ function AccountBlock() {
   const { user, signOut } = useAuth()
   const { userProfile, setSidebarOpen } = useApp()
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
 
   const googleName = user?.displayName || 'Yorvyn user'
   const name    = userProfile.nickname || googleName
@@ -33,9 +35,14 @@ function AccountBlock() {
 
   const handleMenuAction = (action: string) => {
     setOpen(false)
-    // TODO: Implement navigation to these pages
-    // For now, show a toast
-    toast(`${action} - Coming soon`, { duration: 2000 })
+    setSidebarOpen(false)
+    if (action === 'Profile' || action === 'Personalization' || action === 'Settings') {
+      navigate('/profile')
+    } else if (action === 'Style Journal') {
+      navigate('/outfits')
+    } else if (action === 'Support & About') {
+      navigate('/support')
+    }
   }
 
   return (
@@ -65,9 +72,9 @@ function AccountBlock() {
                 <span>Settings</span>
               </button>
               <div className="sb-menu-divider" />
-              <button onClick={() => handleMenuAction('Fragrance Journal')}>
+              <button onClick={() => handleMenuAction('Style Journal')}>
                 <BookOpen size={14} />
-                <span>Fragrance Journal</span>
+                <span>Style Journal</span>
               </button>
               <button onClick={() => handleMenuAction('Support & About')}>
                 <HelpCircle size={14} />
@@ -170,9 +177,40 @@ function SidebarContent({
         )}
       </div>
 
+      {/* Studio Navigation */}
+      <div className="sb-nav-section">
+        <div className="sb-section-label">Fashion Studio</div>
+        <div className="sb-nav-list">
+          <NavLink to="/" end className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <Box size={14} color="#3b82f6" />
+            <span>Fitting Room</span>
+          </NavLink>
+          <NavLink to="/stylist" className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <Sparkles size={14} color="#d4af37" />
+            <span>AI Stylist</span>
+          </NavLink>
+          <NavLink to="/wardrobe" className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <Layers size={14} />
+            <span>Digital Wardrobe</span>
+          </NavLink>
+          <NavLink to="/outfits" className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <Grid size={14} />
+            <span>Lookbook Studio</span>
+          </NavLink>
+          <NavLink to="/avatar" className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <Box size={14} />
+            <span>3D Digital Twin</span>
+          </NavLink>
+          <NavLink to="/profile" className={({ isActive }) => `sb-nav-link ${isActive ? 'active' : ''}`} onClick={() => isDrawer && setSidebarOpen(false)}>
+            <User size={14} />
+            <span>Personal Profile</span>
+          </NavLink>
+        </div>
+      </div>
+
       {/* Main Section: Conversations */}
       <div className="sb-main">
-        <div className="sb-section-label">Conversations</div>
+        <div className="sb-section-label">Styling Sessions</div>
         
         {chatSummaries.length === 0 ? (
           <div className="sb-empty-state">
@@ -218,7 +256,7 @@ function SidebarContent({
         
         {wishlist.length === 0 ? (
           <div className="sb-empty-state sb-empty-compact">
-            <span>No saved perfumes</span>
+            <span>No saved items</span>
           </div>
         ) : (
           <div className="sb-fav-list">

@@ -1,6 +1,6 @@
 # Yorvyn Backend API
 
-FastAPI-based recommendation engine with ML models and AI fallback.
+FastAPI-based Personal AI Fashion Intelligence engine with Digital Wardrobe, Lookbook Studio, and Stylist Core.
 
 ## 🚀 Quick Start
 

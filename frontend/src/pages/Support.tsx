@@ -12,7 +12,7 @@ import './Support.css'
 const DEV = {
   name: 'Anuj Sandhu',
   role: 'Full-Stack Developer & AI Engineer',
-  bio: 'Building Yorvyn to make fragrance discovery smarter, more personal, and more fun. Passionate about AI, design, and the art of perfumery.',
+  bio: 'Building Yorvyn to make personal styling smarter, more accessible, and more intuitive. Passionate about AI, design, and personalized aesthetics.',
   email: 'anujsandhu.dev@gmail.com',
   github: 'https://github.com/anujsandhu',
   linkedin: 'https://linkedin.com/in/anujsandhu',
@@ -23,40 +23,40 @@ const DEV = {
 const FAQS = [
   {
     q: 'How does Yorvyn\'s AI work?',
-    a: 'Yorvyn uses a TF-IDF machine learning model trained on 73,000+ perfumes combined with multi-provider AI (Groq, Gemini, OpenRouter) for natural language understanding. Your preferences, mood, and occasion are matched against the full dataset to surface the most relevant fragrances.',
+    a: 'Yorvyn uses a multi-objective fashion intelligence engine combining color harmony theory, thermal comfort matrices, silhouette geometry, and personal style aesthetics with conversational AI. Your wardrobe, lifestyle, and occasions are evaluated together to curate tailored ensembles.',
   },
   {
     q: 'Is my data private?',
-    a: 'Yes. Your profile, preferences, and chat history are stored securely in Firebase Firestore under your account. We never sell or share your data with third parties. You can delete all your data at any time from your profile.',
+    a: 'Yes. Your digital wardrobe, style preferences, and session history are stored securely under your account in Firebase Firestore. We never sell or share your data with third parties. You can manage or delete your data at any time from your profile.',
   },
   {
-    q: 'How do I get better recommendations?',
-    a: 'Fill in your Personalization settings (gender preference, favourite notes, occasion, season, intensity). The more context you give the AI advisor in chat, the better it gets — mention specific perfumes you love, notes you dislike, or occasions you\'re shopping for.',
+    q: 'How do I get better outfit recommendations?',
+    a: 'Keep your Digital Wardrobe updated with your staple pieces, set your color season and body geometry in your Personal Profile, and mention details like destination, weather, or dress code in the AI Stylist chat.',
   },
   {
     q: 'Can I use Yorvyn offline?',
-    a: 'Yorvyn is a Progressive Web App (PWA). You can install it on your phone or desktop for a native app experience. Basic browsing works offline; AI recommendations require an internet connection.',
+    a: 'Yorvyn is a Progressive Web App (PWA). You can install it on your phone or desktop for a native app experience. Basic wardrobe browsing works offline; AI styling recommendations require an active connection.',
   },
   {
     q: 'How do I install Yorvyn as an app?',
     a: 'On mobile: tap the Share button in your browser and select "Add to Home Screen". On desktop Chrome: click the install icon in the address bar. You\'ll get a full-screen app experience with no browser UI.',
   },
   {
-    q: 'The prices shown — are they accurate?',
-    a: 'Prices are estimates based on brand tier data and live USD/INR conversion rates. They are indicative only. Always check the retailer\'s website for the current price before purchasing.',
+    q: 'How does the 3D Digital Twin work?',
+    a: 'The Avatar Studio lets you customize parametric body geometry, drape outfits in real-time, test silhouette proportions, and visualize layer interactions before wearing them in real life.',
   },
 ]
 
 // ── Suggested features ────────────────────────────────────────────────
 const SUGGESTIONS = [
-  'Fragrance wardrobe — track what you own',
-  'Seasonal scent calendar',
-  'Perfume comparison tool',
-  'Community reviews and ratings',
-  'Subscription box recommendations',
-  'Fragrance layering guide',
-  'Price drop alerts',
-  'AR try-on experience',
+  'Smart capsule wardrobe generator',
+  'Seasonal wardrobe rotation assistant',
+  'Weather-aware morning outfit alerts',
+  'Virtual try-on photo upload',
+  'Fabric texture & drape simulation',
+  'Sustainable cost-per-wear tracker',
+  'Occasion lookbook planner',
+  'Color season undertone scanner',
 ]
 
 type FormType = 'feedback' | 'bug' | 'feature' | null
@@ -290,17 +290,17 @@ export function SupportPage() {
           <Logo size="lg" className="sp-about-logo" />
           <div>
             <p className="sp-about-text">
-              Yorvyn is an AI-powered perfume recommendation platform built to make fragrance discovery personal, intelligent, and fun. With a database of 73,000+ fragrances and a conversational AI advisor, Yorvyn helps you find your perfect scent — whether you're a fragrance novice or a seasoned collector.
+              Yorvyn is your personal AI stylist for discovering outfits, organizing your digital wardrobe, and exploring your individual style. Powered by multi-objective outfit scoring, color harmony algorithms, and a customizable fictional 3D avatar twin, Yorvyn helps you assemble cohesive ensembles for every occasion and climate.
             </p>
             <p className="sp-about-text">
-              Built with React, FastAPI, scikit-learn, and Firebase. Powered by Groq, Google Gemini, and OpenRouter AI.
+              Built with React, FastAPI, Python, and Firebase. Powered by high-curation fashion intelligence and modern generative AI.
             </p>
             <div className="sp-about-badges">
-              <span className="sp-badge">v2.0</span>
-              <span className="sp-badge">73K+ Fragrances</span>
-              <span className="sp-badge">AI-Powered</span>
+              <span className="sp-badge">Personal AI Stylist</span>
+              <span className="sp-badge">Digital Wardrobe</span>
+              <span className="sp-badge">3D Digital Twin</span>
+              <span className="sp-badge">Outfit Scoring</span>
               <span className="sp-badge">PWA</span>
-              <span className="sp-badge">Open Source</span>
             </div>
           </div>
         </div>

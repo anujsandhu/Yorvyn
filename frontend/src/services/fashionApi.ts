@@ -11,7 +11,7 @@ import {
   ClosetAnalytics
 } from '../types/fashion';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/fashion';
+const API_BASE_URL = import.meta.env.VITE_FASHION_API_URL || `${import.meta.env.VITE_API_URL || '/api'}/fashion`;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -107,6 +107,60 @@ export const fashionApi = {
       note,
       user_id: userId
     });
+    return res.data;
+  },
+
+  // 3D Avatar Configuration & Persistence
+  async getAvatarConfig(userId: string = 'default_user'): Promise<any> {
+    const res = await api.get(`/avatar?user_id=${userId}`);
+    return res.data;
+  },
+
+  async saveAvatarConfig(config: any, userId: string = 'default_user'): Promise<any> {
+    const res = await api.post(`/avatar?user_id=${userId}`, config);
+    return res.data;
+  },
+
+  async resetAvatarConfig(userId: string = 'default_user'): Promise<any> {
+    const res = await api.post(`/avatar/reset?user_id=${userId}`);
+    return res.data;
+  },
+
+  // ── AI Photo-to-3D Garment Generation ──
+  async createGarment3DJob(
+    frontImage: File,
+    category: string = 'top',
+    backImage?: File,
+    userId: string = 'default_user'
+  ): Promise<{ job_id: string; status: string; progress: number; current_stage: string }> {
+    const formData = new FormData();
+    formData.append('front_image', frontImage);
+    if (backImage) {
+      formData.append('back_image', backImage);
+    }
+    formData.append('category', category);
+    formData.append('user_id', userId);
+
+    const res = await api.post('/garment-gen/jobs', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return res.data;
+  },
+
+  async getGarment3DJobStatus(jobId: string): Promise<any> {
+    const res = await api.get(`/garment-gen/jobs/${jobId}`);
+    return res.data;
+  },
+
+  async cancelGarment3DJob(jobId: string): Promise<any> {
+    const res = await api.post(`/garment-gen/jobs/${jobId}/cancel`);
+    return res.data;
+  },
+
+  async saveGarment3DToWardrobe(jobId: string, userId: string = 'default_user'): Promise<any> {
+    const res = await api.post(`/garment-gen/jobs/${jobId}/save?user_id=${userId}`);
     return res.data;
   }
 };

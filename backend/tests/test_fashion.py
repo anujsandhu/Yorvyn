@@ -70,3 +70,26 @@ def test_fashion_orchestrator_chat():
     assert "reply" in chat_res
     assert len(chat_res["outfits"]) > 0
     assert "Date Night" in chat_res["reply"] or "10" in chat_res["reply"]
+
+def test_avatar_config_persistence():
+    cfg = wardrobe_service.get_avatar_config("test_user_42")
+    assert cfg["version"] == "1.0"
+    assert "gender" in cfg
+    assert "height" in cfg
+
+    updated = wardrobe_service.save_avatar_config("test_user_42", {
+        "name": "Alex Hunter",
+        "gender": 1.0,
+        "height": 0.8,
+        "muscle": 0.9,
+        "hair": "buzz"
+    })
+    assert updated["name"] == "Alex Hunter"
+    assert updated["height"] == 0.8
+
+    fetched = wardrobe_service.get_avatar_config("test_user_42")
+    assert fetched["name"] == "Alex Hunter"
+
+    reset = wardrobe_service.reset_avatar_config("test_user_42")
+    assert reset["name"] == "Yorvyn Signature Avatar"
+

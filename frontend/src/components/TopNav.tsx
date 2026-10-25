@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Menu, Plus, Zap } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { Logo } from './Logo'
@@ -23,9 +24,9 @@ export function TopNav() {
         </button>
 
         {/* Center — full logo image */}
-        <div className="tn-logo" aria-label="Yorvyn home">
+        <Link to="/" className="tn-logo" aria-label="Yorvyn home">
           <Logo size="md" />
-        </div>
+        </Link>
 
         {/* Right — Controls */}
         <div className="tn-controls">
@@ -40,14 +41,14 @@ export function TopNav() {
             <span>Temp</span>
           </button>
 
-          {/* New Search button */}
+          {/* New Session button */}
           <button
             className="tn-new-search-btn"
             onClick={resetToQuiz}
-            aria-label="New search"
+            aria-label="New session"
           >
             <Plus size={16} strokeWidth={2.5} />
-            <span>New Search</span>
+            <span>New Session</span>
           </button>
         </div>
       </div>

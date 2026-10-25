@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
-import { TopNav } from './components/TopNav'
-import { Sidebar } from './components/Sidebar'
 import { MainView } from './components/MainView'
+import { AppSideNav } from './components/AppSideNav'
+import { SettingsModal } from './components/SettingsModal'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { LoginPage } from './pages/Login'
 import { AuthProvider } from './context/AuthContext'
@@ -11,11 +12,23 @@ import { ErrorBoundary } from './components/ErrorBoundary'
 import './App.css'
 
 /**
+ * AppShell renders the main application layout with the persistent
+ * desktop Side Nav Bar and page routes.
+ */
+function AppShell() {
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  return (
+    <div className="app app-home-stage">
+      <AppSideNav onOpenSettings={() => setIsSettingsOpen(true)} />
+      <MainView />
+      <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+    </div>
+  )
+}
+
+/**
  * Main App Component
- * 
- * Initializes Firebase, sets up authentication, and routing.
- * - /login - Public login page
- * - /* - Protected app pages (requires authentication)
  */
 function App() {
   return (
@@ -32,15 +45,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AppProvider>
-                    <div className="app">
-                      <TopNav />
-                      <div className="app-body">
-                        <Sidebar />
-                        <Routes>
-                          <Route path="/*" element={<MainView />} />
-                        </Routes>
-                      </div>
-                    </div>
+                    <AppShell />
                   </AppProvider>
                 </ProtectedRoute>
               }

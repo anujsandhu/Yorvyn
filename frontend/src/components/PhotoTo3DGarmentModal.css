@@ -1,0 +1,697 @@
+/* ==========================================================================
+   YORVYN — Photo to 3D Garment Modal Styling (Solid Luxury Native)
+   ========================================================================== */
+
+.photo3d-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: photo3dFadeIn 0.25s ease-out;
+}
+
+@keyframes photo3dFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.photo3d-modal-container {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 840px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  animation: photo3dSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes photo3dSlideUp {
+  from { transform: translateY(24px) scale(0.97); }
+  to { transform: translateY(0) scale(1); }
+}
+
+/* ── Header ── */
+.photo3d-modal-header {
+  padding: 1.5rem 2rem 1.25rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photo3d-header-title h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.2rem 0 0 0;
+  letter-spacing: -0.02em;
+}
+
+.photo3d-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.sparkle-icon {
+  color: #0284c7;
+}
+
+.photo3d-close-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.photo3d-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* ── Error Banner ── */
+.photo3d-error-banner {
+  margin: 1rem 2rem 0 2rem;
+  padding: 0.85rem 1.25rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  color: #b91c1c;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ── Body ── */
+.photo3d-step-body {
+  padding: 1.75rem 2rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
+}
+
+.photo3d-intro-text {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Category Pill Row ── */
+.photo3d-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.photo3d-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.6rem;
+}
+
+.photo3d-category-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.photo3d-cat-pill {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo3d-cat-pill:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.photo3d-cat-pill.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+/* ── Upload Dropzones ── */
+.photo3d-upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.photo3d-required-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.photo3d-optional-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.photo3d-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo3d-dropzone:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+.photo3d-dropzone.has-file {
+  border-style: solid;
+  border-color: #e2e8f0;
+  padding: 0;
+}
+
+.photo3d-hidden-input {
+  display: none;
+}
+
+.photo3d-dropzone-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.photo3d-upload-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.photo3d-upload-circle.secondary {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.photo3d-drop-headline {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.photo3d-drop-sub {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.photo3d-preview-thumb {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.photo3d-preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.photo3d-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.photo3d-preview-thumb:hover .photo3d-thumb-overlay {
+  opacity: 1;
+}
+
+/* ── Privacy Guarantee Card ── */
+.photo3d-privacy-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-badge-icon {
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.privacy-text strong {
+  display: block;
+  font-size: 0.86rem;
+  color: #1e293b;
+  margin-bottom: 0.2rem;
+}
+
+.privacy-text p {
+  font-size: 0.80rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Footer ── */
+.photo3d-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.photo3d-footer.center {
+  justify-content: center;
+}
+
+.photo3d-btn-ghost {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.90rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo3d-btn-ghost:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.photo3d-btn-ghost.danger {
+  color: #ef4444;
+}
+
+.photo3d-btn-ghost.danger:hover {
+  background: #fef2f2;
+}
+
+.photo3d-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  transition: all 0.2s ease;
+}
+
+.photo3d-btn-primary:hover:not(:disabled) {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.photo3d-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.photo3d-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 0.90rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo3d-btn-secondary:hover {
+  background: #e2e8f0;
+}
+
+/* ── STEP 2: PROCESSING LAYOUT ── */
+.processing-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+.photo3d-progress-orb {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.photo3d-spinner-ring {
+  position: absolute;
+  inset: 0;
+  border: 4px solid #f1f5f9;
+  border-top-color: #0284c7;
+  border-radius: 50%;
+  animation: photo3dSpin 1s linear infinite;
+}
+
+@keyframes photo3dSpin {
+  to { transform: rotate(360deg); }
+}
+
+.photo3d-progress-pct {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.photo3d-stage-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  min-height: 1.8rem;
+}
+
+.photo3d-progress-bar-container {
+  width: 100%;
+  max-width: 460px;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.photo3d-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.photo3d-stage-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  width: 100%;
+  max-width: 440px;
+  text-align: left;
+}
+
+.photo3d-stage-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.65rem 0.5rem;
+  font-size: 0.88rem;
+  color: #94a3b8;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.photo3d-stage-checklist li.done {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.photo3d-stage-checklist li.active {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.chk-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.photo3d-stage-checklist li.done .chk-icon {
+  background: #ecfdf5;
+  color: #10b981;
+}
+
+.photo3d-stage-checklist li.active .chk-icon {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+/* ── STEP 3: PREVIEW & APPROVAL LAYOUT ── */
+.preview-layout {
+  padding: 1.25rem 2rem 2rem 2rem;
+}
+
+.photo3d-preview-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.75rem;
+}
+
+.photo3d-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  background: #f8fafc;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.photo3d-three-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.photo3d-canvas-overlay-tip {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+/* Metadata Pane */
+.photo3d-meta-pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.meta-garment-title {
+  margin-bottom: 1.25rem;
+}
+
+.meta-category-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 0.4rem;
+}
+
+.meta-garment-title h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.meta-sub {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: capitalize;
+}
+
+.meta-attributes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.meta-attr-card {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+}
+
+.attr-label {
+  display: block;
+  font-size: 0.70rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.3rem;
+}
+
+.attr-val-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color-dot-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+.attr-val-text {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-transform: capitalize;
+}
+
+.attr-val-text.green {
+  color: #10b981;
+}
+
+.photo3d-privacy-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  color: #166534;
+  font-size: 0.76rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.photo3d-preview-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.photo3d-preview-actions .save-btn {
+  justify-content: center;
+  width: 100%;
+}
+
+.photo3d-preview-actions .wear-btn {
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .photo3d-preview-split {
+    grid-template-columns: 1fr;
+  }
+  .photo3d-canvas-wrap {
+    height: 300px;
+  }
+  .photo3d-upload-grid {
+    grid-template-columns: 1fr;
+  }
+}

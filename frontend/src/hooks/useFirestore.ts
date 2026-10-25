@@ -3,7 +3,7 @@
  * to Firestore when the user is logged in.
  *
  * Data model:
- *   users/{uid}/wishlist/{perfumeId}   — WishlistItem
+ *   users/{uid}/wishlist/{itemId}      — WishlistItem
  *   users/{uid}/history/{docId}        — HistoryItem
  *   users/{uid}/preferences/{docId}    — SavedPreference
  *   users/{uid}/recents/{docId}        — RecentSearch

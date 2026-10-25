@@ -1,6 +1,6 @@
 /**
  * Lightweight localStorage-backed store for:
- *  - wishlist (saved perfumes)
+ *  - wishlist (saved fashion items)
  *  - recent searches
  *  - saved preferences (survey answers)
  *  - saved recommendation sessions

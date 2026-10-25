@@ -158,3 +158,45 @@ def record_feedback(req: FeedbackRequest):
         action=req.action,
         note=req.note
     )
+
+# --- 3D Avatar Engine Endpoints ---
+
+@router.get("/avatar")
+def get_avatar_config(user_id: str = "default_user"):
+    return wardrobe_service.get_avatar_config(user_id)
+
+@router.post("/avatar")
+def save_avatar_config(config: Dict[str, Any], user_id: str = "default_user"):
+    return wardrobe_service.save_avatar_config(user_id, config)
+
+@router.post("/avatar/reset")
+def reset_avatar_config(user_id: str = "default_user"):
+    return wardrobe_service.reset_avatar_config(user_id)
+
+@router.get("/ara-assets/{asset_path:path}")
+def proxy_ara_asset(asset_path: str):
+    """Proxies and serves Ara 3D Gen assets with CORS headers."""
+    import urllib.request
+    from fastapi.responses import Response
+
+    target_url = f"https://ara3dgen.com/assets/{asset_path}"
+    try:
+        req = urllib.request.Request(
+            target_url,
+            headers={"User-Agent": "Yorvyn-Avatar-Engine/1.0"}
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            content = resp.read()
+            content_type = resp.headers.get("content-type", "application/octet-stream")
+            return Response(
+                content=content,
+                media_type=content_type,
+                headers={
+                    "Cache-Control": "public, max-age=86400",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            )
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=f"Asset not found: {str(e)}")
+
+

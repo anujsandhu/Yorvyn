@@ -2,7 +2,7 @@
  * Firebase Configuration and Initialization
  * 
  * Initializes Firebase with Firestore, Authentication (Google Sign-In),
- * and Analytics for the Yorvyn perfume recommendation app.
+ * and Analytics for the Yorvyn Personal AI Stylist platform.
  */
 
 import { initializeApp } from "firebase/app"

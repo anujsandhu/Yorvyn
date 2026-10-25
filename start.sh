@@ -197,7 +197,7 @@ echo ""
 echo -e "${BLUE}🚀 What to do next:${NC}"
 echo -e "  1. Open http://localhost:$FRONTEND_PORT in your browser"
 echo -e "  2. Click the chat icon (💬) in the navbar"
-echo -e "  3. Start chatting to get perfume recommendations!"
+echo -e "  3. Start chatting with your personal AI stylist!"
 echo ""
 
 # Keep script running

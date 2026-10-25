@@ -654,3 +654,40 @@
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ── 9. FASHION STUDIO NAVIGATION ─────────────────────────── */
+.sb-nav-section {
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--border, #E4E0D7);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.sb-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sb-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--r-md, 8px);
+  color: var(--text-2, #67655F);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.sb-nav-link:hover {
+  background: var(--bg-hover, rgba(24, 24, 22, 0.055));
+  color: var(--text, #181816);
+}
+.sb-nav-link.active {
+  background: var(--accent-light, #E9EDE8);
+  color: var(--accent-strong, #3D5146);
+  font-weight: 600;
+}
+

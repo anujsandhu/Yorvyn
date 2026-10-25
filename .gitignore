@@ -77,3 +77,11 @@ skills-lock.json
 # Firebase — keep config files, ignore only service account secrets
 # firebase.json and .firebaserc are intentionally tracked
 firebase-adminsdk*.json
+
+# Research upstream third-party repositories & heavy weights
+research/upstream/
+research/experiments/weights/
+
+# Runtime generated local assets & temporary uploads
+backend/data/wardrobe_assets/
+backend/data/temp_processing/

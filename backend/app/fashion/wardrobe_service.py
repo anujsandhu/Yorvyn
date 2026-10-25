@@ -241,13 +241,54 @@ DEFAULT_WARDROBE_ITEMS = [
 ]
 
 class WardrobeService:
-    """In-memory + persistent digital wardrobe manager."""
+    """In-memory + persistent digital wardrobe and 3D avatar manager."""
     
     def __init__(self):
         # Key: user_id -> List[garment dict]
         self._user_wardrobes: Dict[str, List[Dict]] = {
             "default_user": list(DEFAULT_WARDROBE_ITEMS)
         }
+        # Key: user_id -> 3D Avatar Configuration
+        self._user_avatars: Dict[str, Dict] = {}
+        
+    def get_avatar_config(self, user_id: str = "default_user") -> Dict:
+        if user_id in self._user_avatars:
+            return self._user_avatars[user_id]
+        # Default baseline signature avatar
+        return {
+            "version": "1.0",
+            "name": "Yorvyn Signature Avatar",
+            "gender": 1.0,
+            "age": 0.5,
+            "muscle": 0.55,
+            "weight": 0.45,
+            "height": 0.65,
+            "proportions": 0.8,
+            "african": 0.0,
+            "asian": 0.0,
+            "caucasian": 0.85,
+            "breastSize": 0.5,
+            "skin": "young_caucasian_male",
+            "skinTint": "#fcd34d",
+            "eyes": "brown",
+            "hair": "short01",
+            "hairColor": "#1e1b18",
+            "facialHair": "none",
+            "outfit": "male_casualsuit01",
+            "shoes": "shoes01",
+            "detail": "medium",
+            "equipped_garments": ["sig-polo", "sig-jeans", "sig-sneakers"],
+            "updated_at": datetime.utcnow().isoformat()
+        }
+
+    def save_avatar_config(self, user_id: str, config: Dict) -> Dict:
+        config["updated_at"] = datetime.utcnow().isoformat()
+        self._user_avatars[user_id] = config
+        return config
+
+    def reset_avatar_config(self, user_id: str = "default_user") -> Dict:
+        self._user_avatars.pop(user_id, None)
+        return self.get_avatar_config(user_id)
         
     def get_wardrobe(self, user_id: str = "default_user", category: Optional[str] = None) -> List[Dict]:
         items = self._user_wardrobes.get(user_id, DEFAULT_WARDROBE_ITEMS)
@@ -278,7 +319,11 @@ class WardrobeService:
             "image_url": item_data.get("image_url", "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80"),
             "wear_count": 0,
             "favorite": False,
-            "created_at": datetime.utcnow().isoformat()
+            "created_at": datetime.utcnow().isoformat(),
+            "is_custom_3d": item_data.get("is_custom_3d", False),
+            "glb_url": item_data.get("glb_url"),
+            "model_version": item_data.get("model_version"),
+            "reconstruction_metadata": item_data.get("reconstruction_metadata", {})
         }
         self._user_wardrobes[user_id].append(item)
         return item

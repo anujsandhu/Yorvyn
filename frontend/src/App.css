@@ -31,5 +31,15 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /* Safe area insets for notched phones */
 @supports (padding: env(safe-area-inset-bottom)) {
-  .app { padding-bottom: env(safe-area-inset-bottom); }
+  .app:not(.app-home-stage) { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+.app-home-stage {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background: transparent;
 }

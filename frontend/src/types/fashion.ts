@@ -23,6 +23,69 @@ export interface Garment {
   wear_count: number;
   favorite: boolean;
   created_at?: string;
+  // 3D Garment Generation Extensions
+  is_custom_3d?: boolean;
+  glb_url?: string;
+  thumbnail_url?: string;
+  model_version?: string;
+  reconstruction_metadata?: {
+    mesh_vertex_count?: number;
+    mesh_triangle_count?: number;
+    rig_compatibility?: Record<string, any>;
+    palette?: string[];
+    neckline?: string;
+    sleeve_length?: string;
+    fit?: string;
+  };
+}
+
+export interface DetectedGarmentFeatures {
+  category: string;
+  subcategory: string;
+  primary_color_name: string;
+  primary_color_hex: string;
+  secondary_color_name?: string;
+  secondary_color_hex?: string;
+  palette: string[];
+  pattern: string;
+  material_hint: string;
+  neckline_type?: string;
+  sleeve_length?: string;
+  hem_length?: string;
+  fit: string;
+  formality: number;
+  warmth: number;
+  confidence_score: number;
+  requires_additional_view: boolean;
+  quality_notes?: string;
+}
+
+export interface GarmentGenResult {
+  job_id: string;
+  garment_name: string;
+  category: string;
+  subcategory: string;
+  glb_url: string;
+  thumbnail_url: string;
+  texture_url?: string;
+  normal_map_url?: string;
+  mesh_vertex_count: number;
+  mesh_triangle_count: number;
+  features: DetectedGarmentFeatures;
+  model_version: string;
+  created_at: string;
+  rig_compatibility?: Record<string, any>;
+}
+
+export interface GarmentGenJob {
+  job_id: string;
+  status: 'queued' | 'analyzing' | 'generating_mesh' | 'synthesizing_textures' | 'assembling_3d' | 'rendering_preview' | 'completed' | 'failed' | 'cancelled';
+  progress: number;
+  current_stage: string;
+  error?: string | null;
+  result?: GarmentGenResult | null;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface UserProfile {

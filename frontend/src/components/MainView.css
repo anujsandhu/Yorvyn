@@ -19,7 +19,7 @@
 }
 
 /* On mobile, ensure the main view fills the screen below the nav */
-@media (max-width: 1023px) {
+@media (max-width: 899px) {
   .mv-root {
     /* Account for the top nav bar */
     height: calc(100dvh - var(--nav-h));
@@ -32,5 +32,15 @@
     height: auto;
     min-height: 100%;
     overflow: visible;
+  }
+}
+
+/* On large screens, let content fill the viewport with floating side nav */
+@media (min-width: 900px) {
+  .mv-root {
+    margin-left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
   }
 }
