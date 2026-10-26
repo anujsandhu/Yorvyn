@@ -5,10 +5,11 @@ Outfit Generation, AI Stylist Chat, and Feedback Loops.
 """
 
 import json
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional, Any
 
+from backend.app.core.security import get_current_user_optional, UserContext
 from backend.app.services.wardrobe_service import wardrobe_service
 from backend.app.services.context_service import context_service
 from backend.app.services.outfit_generator import outfit_generator
@@ -25,9 +26,21 @@ router = APIRouter(prefix="/api/fashion", tags=["Fashion Intelligence"])
 
 class ProfileUpdateRequest(BaseModel):
     name: Optional[str] = None
-    body_shape: Optional[str] = None
+    display_name: Optional[str] = None
+    age: Optional[int] = None
     height_cm: Optional[int] = None
+    height_value: Optional[float] = None
+    height_unit: Optional[str] = None
+    body_shape: Optional[str] = None
+    body_type: Optional[str] = None
+    skin_tone_id: Optional[str] = None
+    skin_tone_hex: Optional[str] = None
     skin_undertone: Optional[str] = None
+    hair_colour_id: Optional[str] = None
+    hair_colour_hex: Optional[str] = None
+    avatar_gender_presentation: Optional[str] = None
+    avatar_configuration: Optional[Dict[str, Any]] = None
+    onboarding_completed: Optional[bool] = None
     color_season: Optional[str] = None
     fit_preference: Optional[str] = None
     primary_aesthetics: Optional[List[str]] = None
@@ -87,13 +100,22 @@ def get_fashion_knowledge():
     }
 
 @router.get("/profile")
-def get_profile(user_id: str = "default_user"):
-    return context_service.get_user_profile(user_id)
+def get_profile(
+    user_id: str = "default_user",
+    current_user: Optional[UserContext] = Depends(get_current_user_optional)
+):
+    effective_uid = current_user.user_id if current_user else user_id
+    return context_service.get_user_profile(effective_uid)
 
 @router.post("/profile")
-def update_profile(req: ProfileUpdateRequest, user_id: str = "default_user"):
+def update_profile(
+    req: ProfileUpdateRequest,
+    user_id: str = "default_user",
+    current_user: Optional[UserContext] = Depends(get_current_user_optional)
+):
+    effective_uid = current_user.user_id if current_user else user_id
     updates = {k: v for k, v in req.model_dump().items() if v is not None}
-    return context_service.update_user_profile(user_id, updates)
+    return context_service.update_user_profile(effective_uid, updates)
 
 @router.get("/wardrobe")
 def get_wardrobe(user_id: str = "default_user", category: Optional[str] = None):

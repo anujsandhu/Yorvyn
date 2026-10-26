@@ -1,291 +1,328 @@
-/* ── Login Page — Yorvyn ─────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Yorvyn Authentication Page Styles
+   Clean, modern, high-fashion glassmorphism aesthetic matching reference design.
+   ═══════════════════════════════════════════════════════════════════════════════ */
 
-.lp-root {
-  min-height: 100dvh;
-  background: var(--bg);
+.yorvyn-login-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(12px, 4vw, 24px);
-  position: relative;
+  background: linear-gradient(180deg, #b9dcf2 0%, #d8ecf8 35%, #edf6fc 70%, #f8fafc 100%);
   overflow: hidden;
-  /* Safe area for notched phones */
-  padding-top: max(clamp(12px, 4vw, 24px), env(safe-area-inset-top));
-  padding-bottom: max(clamp(12px, 4vw, 24px), env(safe-area-inset-bottom));
+  padding: 24px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Ambient blobs — scale down on mobile */
-.lp-blob {
+/* ── Concentric Sky Geometric Orbital Arcs ── */
+.sky-ambient-overlay {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 0;
-}
-.lp-blob-1 {
-  width: clamp(200px, 50vw, 420px);
-  height: clamp(200px, 50vw, 420px);
-  background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
-  top: -80px;
-  right: -60px;
-}
-.lp-blob-2 {
-  width: clamp(180px, 45vw, 360px);
-  height: clamp(180px, 45vw, 360px);
-  background: radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 70%);
-  bottom: -80px;
-  left: -50px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ── Card ── */
-.lp-card {
-  position: relative;
-  z-index: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: clamp(16px, 4vw, 24px);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
-  max-width: 460px;
+.sky-concentric-arcs {
   width: 100%;
-  padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px) clamp(24px, 5vw, 36px);
+  max-width: 1200px;
+  height: 100%;
+  opacity: 0.65;
+  transform: scale(1.1);
+}
+
+/* ── Center Floating Glassmorphism Card ── */
+.yorvyn-auth-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 42px 36px 36px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  box-shadow: 
+    0 24px 60px rgba(70, 115, 160, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.03),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  animation: cardFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Top Icon Badge ── */
+.auth-badge-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 20px;
+  background: #edf1f5;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    0 3px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.auth-badge-icon:hover {
+  transform: scale(1.04);
+}
+
+/* ── Titles ── */
+.auth-card-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  letter-spacing: -0.4px;
+  margin: 0 0 8px;
+}
+
+.auth-card-subtitle {
+  font-size: 13.5px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.48;
+  margin: 0 0 24px;
+  padding: 0 10px;
+}
+
+/* ── Form Inputs ── */
+.auth-pill-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
-}
-
-/* ── Logo ── */
-.lp-logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: clamp(20px, 4vw, 28px);
-}
-
-/* ── Hero ── */
-.lp-hero {
-  text-align: center;
-  margin-bottom: clamp(20px, 4vw, 28px);
-}
-.lp-headline {
-  font-size: clamp(1.25rem, 4vw, 1.65rem);
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.25;
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
-}
-.lp-sub {
-  font-size: clamp(0.8125rem, 2.5vw, 0.925rem);
-  color: var(--text-2);
-  line-height: 1.6;
-  margin: 0;
-  max-width: 340px;
-}
-
-/* ── Feature pills ── */
-.lp-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: clamp(20px, 4vw, 28px);
-}
-.lp-feature {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--bg-subtle, rgba(0,0,0,0.04));
-  border: 1px solid var(--border);
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-2);
-}
-.lp-feature-icon {
-  color: var(--accent-strong);
-  display: flex;
-  align-items: center;
-}
-
-/* ── Divider ── */
-.lp-divider {
-  width: 100%;
-  display: flex;
-  align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
 }
-.lp-divider::before,
-.lp-divider::after {
+
+.auth-pill-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-pill-left-icon {
+  position: absolute;
+  left: 16px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.auth-pill-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 42px 0 44px;
+  background: #f1f3f5;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 14.5px;
+  color: #111827;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-pill-input::placeholder {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.auth-pill-input:focus {
+  background: #ffffff;
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.06);
+}
+
+.auth-pill-eye-btn {
+  position: absolute;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: color 0.15s;
+}
+
+.auth-pill-eye-btn:hover {
+  color: #111827;
+}
+
+/* ── Forgot Password ── */
+.auth-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -2px;
+  margin-bottom: 4px;
+}
+
+.auth-forgot-link {
+  background: none;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.auth-forgot-link:hover {
+  color: #111827;
+  text-decoration: underline;
+}
+
+/* ── Primary Action Button ── */
+.auth-dark-cta-btn {
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  background: #1e2025;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(30, 32, 37, 0.16);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auth-dark-cta-btn:hover:not(:disabled) {
+  background: #111215;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(30, 32, 37, 0.22);
+}
+
+.auth-dark-cta-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-dark-cta-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Dotted Social Divider ── */
+.auth-dotted-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 22px 0 16px;
+}
+
+.auth-dotted-divider::before,
+.auth-dotted-divider::after {
   content: '';
   flex: 1;
-  height: 1px;
-  background: var(--border);
+  border-bottom: 1.5px dotted #d1d5db;
 }
-.lp-divider span {
-  font-size: 0.78rem;
-  color: var(--text-3);
+
+.auth-dotted-divider span {
+  padding: 0 12px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 400;
   white-space: nowrap;
-  font-weight: 500;
 }
 
-/* ── Sign-in ── */
-.lp-signin-wrap {
-  width: 100%;
-  margin-bottom: 20px;
-}
-.lp-note {
-  font-size: 0.75rem;
-  color: var(--text-3);
-  text-align: center;
-  margin: 10px 0 0;
-  line-height: 1.5;
-}
-
-/* ── Footer ── */
-.lp-footer {
-  font-size: 0.72rem;
-  color: var(--text-3);
-  text-align: center;
-  margin: 0;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  width: 100%;
-  line-height: 1.5;
-}
-
-/* ── Loading — handled by AppLoader component ── */
-
-/* ── Responsive ── */
-@media (max-width: 480px) {
-  .lp-features { gap: 6px; }
-  .lp-feature { font-size: 0.75rem; padding: 5px 10px; }
-}
-
-@media (max-width: 360px) {
-  .lp-features { gap: 5px; }
-  .lp-feature { font-size: 0.7rem; padding: 4px 8px; }
-  .lp-note { font-size: 0.7rem; }
-  .lp-footer { font-size: 0.68rem; }
-}
-
-/* Landscape mobile — reduce vertical spacing */
-@media (max-height: 600px) and (orientation: landscape) {
-  .lp-logo-wrap { margin-bottom: 14px; }
-  .lp-hero { margin-bottom: 14px; }
-  .lp-features { margin-bottom: 14px; }
-  .lp-headline { font-size: 1.2rem; }
-}
-
-/* ── Supabase Auth Tabs & Forms ────────────────────────────────────────────── */
-
-.auth-tab-bar {
+/* ── Social Buttons Row (3 Pill Buttons) ── */
+.auth-social-row {
   display: flex;
-  background: var(--bg-surface, rgba(24, 24, 22, 0.04));
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 4px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.auth-tab-btn {
-  flex: 1;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-2, #5C5850);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.auth-tab-btn.active {
-  background: var(--bg-card, #FFFFFF);
-  color: var(--accent-strong, #3D5146);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-
-.auth-form-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   gap: 12px;
-  margin-bottom: 20px;
-}
-
-.auth-input-group {
-  position: relative;
-  display: flex;
-  align-items: center;
   width: 100%;
 }
 
-.auth-input-icon {
-  position: absolute;
-  left: 14px;
-  color: var(--text-3, #9B9891);
-  pointer-events: none;
-}
-
-.auth-text-input {
-  width: 100%;
-  background: var(--bg-surface, rgba(255, 255, 255, 0.8));
-  border: 1px solid var(--border);
+.auth-social-pill {
+  flex: 1;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
-  padding: 12px 14px 12px 40px;
-  font-size: 0.9rem;
-  color: var(--text);
-  outline: none;
-  font-family: inherit;
-  transition: all 0.2s ease;
-}
-
-.auth-text-input:focus {
-  border-color: var(--accent-strong, #3D5146);
-  box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 102, 90, 0.14));
-}
-
-.forgot-password-link {
-  background: transparent;
-  border: none;
-  color: var(--text-2, #5C5850);
-  font-size: 0.78rem;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-}
-
-.forgot-password-link:hover {
-  color: var(--accent-strong, #3D5146);
-}
-
-.auth-submit-btn {
-  background: var(--accent-strong, #3D5146);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 12px;
-  padding: 13px;
-  font-weight: 600;
-  font-size: 0.92rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: all 0.2s ease;
-  margin-top: 4px;
 }
 
-.auth-submit-btn:hover:not(:disabled) {
-  background: var(--accent-hover, #4F665A);
+.auth-social-pill:hover:not(:disabled) {
+  background: #fdfdfd;
+  border-color: rgba(0, 0, 0, 0.16);
   transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-.auth-submit-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.auth-social-pill:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ── Switcher Link ── */
+.auth-switch-wrap {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.auth-switch-text {
+  font-size: 13.5px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.auth-switch-link {
+  background: none;
+  border: none;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13.5px;
+  transition: text-decoration 0.15s;
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Mobile Responsiveness ── */
+@media (max-width: 480px) {
+  .yorvyn-auth-card {
+    padding: 32px 22px 26px;
+    border-radius: 24px;
+  }
+
+  .auth-card-title {
+    font-size: 21px;
+  }
+
+  .auth-social-row {
+    gap: 8px;
+  }
 }

@@ -6,6 +6,7 @@ import { AppSideNav } from './components/AppSideNav'
 import { SettingsModal } from './components/SettingsModal'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { LoginPage } from './pages/Login'
+import { OnboardingWizard } from './features/onboarding/OnboardingWizard'
 import { AuthProvider } from './context/AuthContext'
 import { AppProvider } from './context/AppContext'
 import { ErrorBoundary } from './components/ErrorBoundary'
@@ -38,6 +39,16 @@ function App() {
           <Routes>
             {/* Public Routes */}
             <Route path="/login" element={<LoginPage />} />
+
+            {/* Onboarding Wizard Route */}
+            <Route
+              path="/onboarding"
+              element={
+                <ProtectedRoute checkOnboarding={false}>
+                  <OnboardingWizard />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Protected Routes */}
             <Route

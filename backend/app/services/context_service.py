@@ -22,8 +22,10 @@ DEFAULT_USER_PROFILE = {
     "lifestyle_notes": "Hybrid office & remote, likes effortless neutrals and versatile layering."
 }
 
+from backend.app.services.database.supabase_repository import supabase_repo
+
 class ContextService:
-    """Extracts and maintains dynamic environment context."""
+    """Extracts and maintains dynamic environment context and user profiles."""
     
     def __init__(self):
         self._user_profiles: Dict[str, Dict] = {
@@ -31,12 +33,37 @@ class ContextService:
         }
         
     def get_user_profile(self, user_id: str = "default_user") -> Dict:
-        return self._user_profiles.get(user_id, DEFAULT_USER_PROFILE)
+        # Check Supabase first
+        if user_id != "default_user":
+            db_profile = supabase_repo.get_profile(user_id)
+            if db_profile:
+                merged = dict(DEFAULT_USER_PROFILE)
+                merged.update(db_profile)
+                merged["user_id"] = user_id
+                self._user_profiles[user_id] = merged
+                return merged
+
+        if user_id in self._user_profiles:
+            return self._user_profiles[user_id]
+        
+        profile = dict(DEFAULT_USER_PROFILE)
+        profile["user_id"] = user_id
+        return profile
 
     def update_user_profile(self, user_id: str, updates: Dict) -> Dict:
         current = self.get_user_profile(user_id)
         current.update(updates)
+        current["user_id"] = user_id
         self._user_profiles[user_id] = current
+        
+        # Persist to Supabase
+        if user_id != "default_user":
+            try:
+                supabase_repo.upsert_profile(user_id, current)
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).warning(f"Could not persist profile to Supabase: {e}")
+                
         return current
 
     def parse_context_from_query(self, query: str, user_temp: Optional[float] = None) -> Dict:
