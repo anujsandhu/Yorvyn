@@ -6,8 +6,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from pydantic import ConfigDict
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 # Path to backend directory
@@ -76,7 +75,7 @@ class Settings(BaseSettings):
     default_latitude: float = 31.1048
     default_longitude: float = 77.1734
 
-    model_config = ConfigDict(
+    model_config = SettingsConfigDict(
         env_file=["backend/.env", ".env"],
         env_file_encoding="utf-8",
         case_sensitive=False,
