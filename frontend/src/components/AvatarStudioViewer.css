@@ -1,0 +1,164 @@
+/* ==========================================================================
+   YORVYN — Ara 3D Avatar Engine Three.js Viewer
+   ========================================================================== */
+
+.ara-viewer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.ara-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+  cursor: grab;
+}
+
+.ara-canvas:active {
+  cursor: grabbing;
+}
+
+/* ── Floating Viewport Toolbar (Replaced by Bottom Capsule Controller) ── */
+.viewer-floating-toolbar {
+  display: none;
+}
+
+.viewer-action-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.viewer-action-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.viewer-action-btn:active {
+  transform: scale(0.95);
+}
+
+.viewer-action-btn.active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+}
+
+.btn-tiny-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+}
+
+
+
+/* ── Loading Overlay ── */
+.viewer-loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.viewer-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3.5px solid rgba(59, 130, 246, 0.15);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+  margin-bottom: 1.25rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.35rem 0;
+}
+
+.loading-desc {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Error Overlay ── */
+.viewer-error-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f87171;
+  margin: 0 0 0.5rem 0;
+}
+
+.error-desc {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  max-width: 360px;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.4;
+}
+
+.viewer-retry-btn {
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.viewer-retry-btn:hover {
+  background: #2563eb;
+}

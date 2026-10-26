@@ -29,13 +29,13 @@ import {
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { araEngine } from '../engine/ara/AraService';
-import { araAnim } from '../engine/ara/AraAnimationController';
+import { avatarEngine as araEngine } from '../engine/ara/avatarStudioService';
+import { avatarAnimationController as araAnim } from '../engine/ara/avatarAnimationController';
 import { HumanParams, DEFAULT_PARAMS } from '../engine/ara/core/params';
 import { Character } from '../engine/ara/core/human';
 import { AssetLibrary } from '../engine/ara/core/assets';
-import { AraAvatarViewer, AraAvatarViewerHandle } from '../components/AraAvatarViewer';
-import { VantaFogBackground } from '../components/VantaFogBackground';
+import { AvatarStudioViewer as AraAvatarViewer, AvatarStudioViewerHandle as AraAvatarViewerHandle } from '../components/AvatarStudioViewer';
+import { AtmosphereBackground as VantaFogBackground } from '../components/AtmosphereBackground';
 import { SettingsModal } from '../components/SettingsModal';
 import { PhotoTo3DGarmentModal } from '../components/PhotoTo3DGarmentModal';
 import { fashionApi } from '../services/fashionApi';

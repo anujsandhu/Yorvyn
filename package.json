@@ -10,5 +10,8 @@
     "preview": "npm run preview --prefix frontend",
     "install:frontend": "npm install --prefix frontend",
     "deploy:frontend": "npm run build:prod --prefix frontend && firebase deploy --only hosting"
+  },
+  "dependencies": {
+    "cloudinary": "^2.11.0"
   }
 }

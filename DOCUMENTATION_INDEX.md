@@ -17,6 +17,15 @@
 ### 📖 [README.md](README.md)
 Quick start guide and project overview
 
+### 🏛️ [Yorvyn Documentation Portal](docs/README.md)
+Comprehensive technical architecture, technology library packages, and development standards:
+- [Project Structure & Layered Architecture](docs/architecture/project-structure.md)
+- [File Migration & Semantic Renaming Map](docs/architecture/file-migration-map.md)
+- [File Naming & Code Conventions](docs/development/file-naming-conventions.md)
+- [Technology Library Map](docs/architecture/technology-library-map.md)
+- [Independent Technology Library Integration Audit](docs/audits/library-integration-audit.md)
+- [Third-Party Notices & Attribution](licenses/THIRD_PARTY_NOTICES.md)
+
 ---
 
 ## Configuration Files

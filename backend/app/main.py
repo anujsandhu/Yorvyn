@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 import logging
-from .config import settings
+from .core.settings import settings
 
 # Setup logging
 logging.basicConfig(
@@ -101,7 +101,8 @@ async def startup_event():
     logger.info("🚀 Yorvyn Fashion Intelligence Core ready")
 
 # Mount Fashion Intelligence routes
-from .fashion import fashion_router, garment_3d_router
+from backend.app.api.fashion_routes import router as fashion_router
+from backend.app.api.garment_generation_routes import router as garment_3d_router
 app.include_router(fashion_router)
 app.include_router(garment_3d_router)
 
