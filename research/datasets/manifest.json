@@ -1,0 +1,70 @@
+{
+  "dataset_name": "Fashion-MNIST (Zalando Research)",
+  "official_repository": "https://github.com/zalandoresearch/fashion-mnist",
+  "license": "MIT License",
+  "commercial_use_permitted": true,
+  "sample_count": 70000,
+  "categories": {
+    "0": "T-shirt/top",
+    "1": "Trouser",
+    "2": "Pullover",
+    "3": "Dress",
+    "4": "Coat",
+    "5": "Sandal",
+    "6": "Shirt",
+    "7": "Sneaker",
+    "8": "Bag",
+    "9": "Ankle boot"
+  },
+  "files": {
+    "train-images-idx3-ubyte.gz": {
+      "source_url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/train-images-idx3-ubyte.gz",
+      "description": "60,000 training images (28x28 grayscale)",
+      "split": "train",
+      "type": "images",
+      "compressed_size_bytes": 26421880,
+      "compressed_sha256": "3aede38d61863908ad78613f6a32ed271626dd12800ba2636569512369268a84",
+      "uncompressed_filename": "train-images-idx3-ubyte",
+      "uncompressed_size_bytes": 47040016,
+      "uncompressed_sha256": "c59f468a2f672dc815687fe0f83887768d799fd8a3f3276145d20f83aa44d888",
+      "verification_status": "VERIFIED_AUTHENTIC"
+    },
+    "train-labels-idx1-ubyte.gz": {
+      "source_url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/train-labels-idx1-ubyte.gz",
+      "description": "60,000 training categorical labels (0-9)",
+      "split": "train",
+      "type": "labels",
+      "compressed_size_bytes": 29515,
+      "compressed_sha256": "a04f17134ac03560a47e3764e11b92fc97de4d1bfaf8ba1a3aa29af54cc90845",
+      "uncompressed_filename": "train-labels-idx1-ubyte",
+      "uncompressed_size_bytes": 60008,
+      "uncompressed_sha256": "bad3541b69d912435c50bb6ba87bec294ff4f6a2e1246121d8633921760443d9",
+      "verification_status": "VERIFIED_AUTHENTIC"
+    },
+    "t10k-images-idx3-ubyte.gz": {
+      "source_url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/t10k-images-idx3-ubyte.gz",
+      "description": "10,000 test evaluation images (28x28 grayscale)",
+      "split": "test",
+      "type": "images",
+      "compressed_size_bytes": 4422102,
+      "compressed_sha256": "346e55b948d973a97e58d2351dde16a484bd415d4595297633bb08f03db6a073",
+      "uncompressed_filename": "t10k-images-idx3-ubyte",
+      "uncompressed_size_bytes": 7840016,
+      "uncompressed_sha256": "5b4141f0afbad91edebe8549f8fcffe087ea10ca49f1dbef5c9a5cd8815ce37b",
+      "verification_status": "VERIFIED_AUTHENTIC"
+    },
+    "t10k-labels-idx1-ubyte.gz": {
+      "source_url": "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/data/fashion/t10k-labels-idx1-ubyte.gz",
+      "description": "10,000 test categorical labels (0-9)",
+      "split": "test",
+      "type": "labels",
+      "compressed_size_bytes": 5148,
+      "compressed_sha256": "67da17c76eaffca5446c3361aaab5c3cd6d1c2608764d35dfb1850b086bf8dd5",
+      "uncompressed_filename": "t10k-labels-idx1-ubyte",
+      "uncompressed_size_bytes": 10008,
+      "uncompressed_sha256": "0402a96d92fd2663957122ceb108a494c5af83dab82d92729df917d7dec38c34",
+      "verification_status": "VERIFIED_AUTHENTIC"
+    }
+  },
+  "citation": "Han Xiao, Kashif Rasul, Roland Vollgraf. Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms. arXiv:1708.07747, 2017."
+}

@@ -10,6 +10,8 @@ from .wardrobe_service import wardrobe_service
 from .outfit_generator import outfit_generator
 from backend.app.domain.fashion_knowledge import STYLE_AESTHETICS, SEASONAL_COLOR_PALETTES
 
+from backend.app.services.ai_stylist_engine import ai_stylist_engine
+
 class FashionOrchestrator:
     """Conversational Fashion Intelligence Engine & Tool Dispatcher."""
     
@@ -30,6 +32,7 @@ class FashionOrchestrator:
         # 1. Parse Context & Intent
         context = context_service.parse_context_from_query(message, override_temp)
         profile = context_service.get_user_profile(user_id)
+        wardrobe_items = wardrobe_service.get_wardrobe(user_id)
         
         # 2. Execute Outfit Generation Tool
         result = outfit_generator.generate_outfits(
@@ -42,16 +45,19 @@ class FashionOrchestrator:
         
         outfits = result.get("outfits", [])
         
-        # 3. Synthesize Editorial Rationale
-        response_text = self._synthesize_editorial_rationale(
-            message=message,
-            context=context,
+        # 3. Call AI Stylist Engine (Groq / OpenRouter / Gemini / Fallback)
+        advice_res = ai_stylist_engine.generate_styling_advice(
+            user_message=message,
             profile=profile,
-            outfits=outfits
+            context=context,
+            wardrobe_items=wardrobe_items,
+            assembled_outfits=outfits
         )
         
         return {
-            "reply": response_text,
+            "reply": advice_res["text"],
+            "provider_used": advice_res.get("provider", "rules_engine"),
+            "model_used": advice_res.get("model", "default"),
             "context": context,
             "outfits": outfits,
             "profile_snippet": {
@@ -60,6 +66,36 @@ class FashionOrchestrator:
                 "aesthetics": profile["primary_aesthetics"]
             }
         }
+
+    def stream_chat_stylist(
+        self,
+        message: str,
+        user_id: str = "default_user",
+        override_temp: Optional[float] = None
+    ):
+        """Streams the AI response tokens for Server-Sent Events (SSE)."""
+        context = context_service.parse_context_from_query(message, override_temp)
+        profile = context_service.get_user_profile(user_id)
+        wardrobe_items = wardrobe_service.get_wardrobe(user_id)
+        
+        result = outfit_generator.generate_outfits(
+            user_id=user_id,
+            occasion=context["occasion"],
+            temp_celsius=context["temperature_celsius"],
+            condition=context["condition"],
+            target_aesthetic=context["target_aesthetic"]
+        )
+        outfits = result.get("outfits", [])
+        
+        # Stream text chunks
+        for token in ai_stylist_engine.stream_styling_advice(
+            user_message=message,
+            profile=profile,
+            context=context,
+            wardrobe_items=wardrobe_items,
+            assembled_outfits=outfits
+        ):
+            yield token
 
     def _synthesize_editorial_rationale(
         self,

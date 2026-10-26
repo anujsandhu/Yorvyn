@@ -4,6 +4,7 @@ Exposes REST routes for Profile, Digital Wardrobe, Context,
 Outfit Generation, AI Stylist Chat, and Feedback Loops.
 """
 
+import json
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional, Any
@@ -150,6 +151,22 @@ def chat_with_stylist(req: StylistChatRequest):
         override_temp=req.temperature_celsius
     )
 
+@router.post("/chat/stream")
+def stream_chat_with_stylist(req: StylistChatRequest):
+    """Streams the personal stylist guidance using text/event-stream."""
+    from fastapi.responses import StreamingResponse
+
+    def event_generator():
+        for token in fashion_orchestrator.stream_chat_stylist(
+            message=req.message,
+            user_id=req.user_id or "default_user",
+            override_temp=req.temperature_celsius
+        ):
+            yield f"data: {json.dumps({'token': token})}\n\n"
+        yield "data: [DONE]\n\n"
+
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
 @router.post("/feedback")
 def record_feedback(req: FeedbackRequest):
     return fashion_orchestrator.record_feedback(
@@ -198,5 +215,20 @@ def proxy_ara_asset(asset_path: str):
             )
     except Exception as e:
         raise HTTPException(status_code=404, detail=f"Asset not found: {str(e)}")
+
+
+# --- Real Fashion ML Evaluation & Dataset Endpoints ---
+
+@router.get("/ml/metrics")
+def get_fashion_ml_metrics():
+    """Returns real dataset evaluation metrics and per-class performance report."""
+    from backend.app.services.ml.fashion_classifier import fashion_ml_classifier, METRICS_PATH
+    if METRICS_PATH.exists():
+        with open(METRICS_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    elif fashion_ml_classifier.metrics:
+        return fashion_ml_classifier.metrics
+    else:
+        return {"status": "not_trained", "message": "ML evaluation has not been executed yet."}
 
 

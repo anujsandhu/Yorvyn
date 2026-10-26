@@ -48,8 +48,9 @@ Thumbs.db
 # To regenerate: python3 train_model.py
 # models/*.pkl
 
-# Large combined dataset (regenerate with data pipeline)
-# data/combined_perfume_data.csv  — included for deployment
+# Large datasets & downloaded archives (regenerate via scripts/acquire_fashion_dataset.py)
+data/datasets/
+models/*.pkl
 data/encoder.pkl
 data/perfume_model.pkl
 data/*.xls

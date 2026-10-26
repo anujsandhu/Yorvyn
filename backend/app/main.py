@@ -103,8 +103,10 @@ async def startup_event():
 # Mount Fashion Intelligence routes
 from backend.app.api.fashion_routes import router as fashion_router
 from backend.app.api.garment_generation_routes import router as garment_3d_router
+from backend.app.api.speech_routes import router as speech_router
 app.include_router(fashion_router)
 app.include_router(garment_3d_router)
+app.include_router(speech_router)
 
 
 

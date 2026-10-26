@@ -162,5 +162,32 @@ export const fashionApi = {
   async saveGarment3DToWardrobe(jobId: string, userId: string = 'default_user'): Promise<any> {
     const res = await api.post(`/garment-gen/jobs/${jobId}/save?user_id=${userId}`);
     return res.data;
+  },
+
+  // Speech & Voice AI
+  async getSpeechConfig(): Promise<any> {
+    const res = await api.get('/speech/config');
+    return res.data;
+  },
+
+  async transcribeAudio(audioBlob: Blob, language: string = 'en'): Promise<{ text: string; provider: string; status: string }> {
+    const formData = new FormData();
+    formData.append('audio', audioBlob, 'mic_recording.webm');
+    formData.append('language', language);
+    const res = await api.post('/speech/transcribe', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+    return res.data;
+  },
+
+  async synthesizeSpeech(text: string, voice?: string): Promise<any> {
+    const res = await api.post('/speech/synthesize', { text, voice });
+    return res.data;
+  },
+
+  // Real ML Metrics
+  async getMLMetrics(): Promise<any> {
+    const res = await api.get('/ml/metrics');
+    return res.data;
   }
 };
