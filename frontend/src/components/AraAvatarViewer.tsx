@@ -8,6 +8,7 @@ import { Character } from '../engine/ara/core/human';
 import { AssetLibrary } from '../engine/ara/core/assets';
 import { araEngine } from '../engine/ara/AraService';
 import { araAnim } from '../engine/ara/AraAnimationController';
+import { calculateCameraFraming } from '@yorvyn/three-renderer/index.ts';
 import './AraAvatarViewer.css';
 
 export interface AraAvatarViewerHandle {
@@ -109,15 +110,12 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
       scene.add(amb);
     }
 
-    // 3. Camera with dynamic height-aware framing (Always full body greeting with headroom & floor space)
-    const camera = new THREE.PerspectiveCamera(30, width / height, 0.05, 50);
     const h = character?.height || 1.78;
     const isPortrait = (controlledViewMode ?? 'full') === 'portrait';
-    const initCamY = isPortrait ? h * 0.67 : h * 0.50;
-    const initCamZ = isPortrait ? 2.45 : 4.45;
-    const initTargetY = isPortrait ? h * 0.65 : h * 0.48;
+    const initFraming = calculateCameraFraming(isPortrait ? 'portrait' : 'full', h);
+    const camera = new THREE.PerspectiveCamera(initFraming.fov, width / height, 0.05, 50);
 
-    camera.position.set(0, initCamY, initCamZ);
+    camera.position.set(initFraming.position[0], initFraming.position[1], initFraming.position[2]);
     cameraRef.current = camera;
 
     // 4. Orbit Controls (natural orbit range without restrictive limits)
@@ -128,7 +126,7 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
     controls.minPolarAngle = Math.PI / 9;    // ~20 degrees, allows comfortable high-angle view
     controls.minDistance = 0.90;            // zoom in to inspect details
     controls.maxDistance = 6.00;            // generous zoom out for full perspective
-    controls.target.set(0, initTargetY, 0);
+    controls.target.set(initFraming.target[0], initFraming.target[1], initFraming.target[2]);
     controlsRef.current = controls;
 
     // 5. Cloud Ambiance & Studio Three-Point Lighting Setup
@@ -615,13 +613,9 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
   useEffect(() => {
     if (!cameraRef.current || !controlsRef.current) return;
     const h = character?.height || 1.78;
-    if (viewMode === 'portrait') {
-      cameraRef.current.position.set(0, h * 0.67, 2.45);
-      controlsRef.current.target.set(0, h * 0.65, 0);
-    } else {
-      cameraRef.current.position.set(0, h * 0.50, 4.45);
-      controlsRef.current.target.set(0, h * 0.48, 0);
-    }
+    const framing = calculateCameraFraming(viewMode, h);
+    cameraRef.current.position.set(framing.position[0], framing.position[1], framing.position[2]);
+    controlsRef.current.target.set(framing.target[0], framing.target[1], framing.target[2]);
     controlsRef.current.update();
   }, [viewMode, character?.height]);
 
@@ -629,13 +623,9 @@ export const AraAvatarViewer = forwardRef<AraAvatarViewerHandle, AraAvatarViewer
   const handleResetCamera = () => {
     if (!cameraRef.current || !controlsRef.current) return;
     const h = character?.height || 1.78;
-    if (viewMode === 'portrait') {
-      cameraRef.current.position.set(0, h * 0.67, 2.45);
-      controlsRef.current.target.set(0, h * 0.65, 0);
-    } else {
-      cameraRef.current.position.set(0, h * 0.50, 4.45);
-      controlsRef.current.target.set(0, h * 0.48, 0);
-    }
+    const framing = calculateCameraFraming(viewMode, h);
+    cameraRef.current.position.set(framing.position[0], framing.position[1], framing.position[2]);
+    controlsRef.current.target.set(framing.target[0], framing.target[1], framing.target[2]);
     controlsRef.current.update();
   };
 

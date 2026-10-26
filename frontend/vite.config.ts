@@ -70,6 +70,7 @@ export default defineConfig(async () => {
         '@hooks': path.resolve(__dirname, './src/hooks'),
         '@utils': path.resolve(__dirname, './src/utils'),
         '@T': path.resolve(__dirname, './src/types'),
+        '@yorvyn': path.resolve(__dirname, '../packages'),
       },
     },
     server: {

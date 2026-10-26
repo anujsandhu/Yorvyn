@@ -22,8 +22,17 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@yorvyn": ["../packages/index.ts"],
+      "@yorvyn/*": ["../packages/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "../packages"],
+  "exclude": ["../packages/tests"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
