@@ -58,6 +58,18 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 60 * 24 * 7  # 7 days
     algorithm: str = "HS256"
 
+    # ── Supabase Backend & Database ───────────────────────────────────
+    supabase_url: str = ""
+    supabase_anon_key: str = ""
+    supabase_service_role_key: str = ""
+    supabase_jwt_secret: str = ""
+
+    # ── Cloudinary Media Storage ──────────────────────────────────────
+    cloudinary_cloud_name: str = ""
+    cloudinary_api_key: str = ""
+    cloudinary_api_secret: str = ""
+    cloudinary_secure: bool = True
+
     # ── External Context & Services ───────────────────────────────────
     open_meteo_url: str = "https://api.open-meteo.com/v1/forecast"
     default_city: str = "Shimla"

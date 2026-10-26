@@ -178,3 +178,114 @@
   .lp-features { margin-bottom: 14px; }
   .lp-headline { font-size: 1.2rem; }
 }
+
+/* ── Supabase Auth Tabs & Forms ────────────────────────────────────────────── */
+
+.auth-tab-bar {
+  display: flex;
+  background: var(--bg-surface, rgba(24, 24, 22, 0.04));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2, #5C5850);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-tab-btn.active {
+  background: var(--bg-card, #FFFFFF);
+  color: var(--accent-strong, #3D5146);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.auth-form-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.auth-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-3, #9B9891);
+  pointer-events: none;
+}
+
+.auth-text-input {
+  width: 100%;
+  background: var(--bg-surface, rgba(255, 255, 255, 0.8));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px 12px 40px;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.auth-text-input:focus {
+  border-color: var(--accent-strong, #3D5146);
+  box-shadow: 0 0 0 3px var(--accent-dim, rgba(79, 102, 90, 0.14));
+}
+
+.forgot-password-link {
+  background: transparent;
+  border: none;
+  color: var(--text-2, #5C5850);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.forgot-password-link:hover {
+  color: var(--accent-strong, #3D5146);
+}
+
+.auth-submit-btn {
+  background: var(--accent-strong, #3D5146);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: var(--accent-hover, #4F665A);
+  transform: translateY(-1px);
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
