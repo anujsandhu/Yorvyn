@@ -12,12 +12,10 @@ Implements:
 """
 from __future__ import annotations
 
-import math
 import time
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, Tuple
 from pydantic import BaseModel, Field
 
-from backend.app.services.garments.appearance.material_profiles import CategoryMaterialSystem
 from backend.app.services.intelligence.inference_adapters import inference_telemetry
 from backend.app.services.intelligence.knowledge_rag import KnowledgeDomain, knowledge_rag
 from backend.app.services.intelligence.recommendation_algorithms import (
@@ -33,7 +31,6 @@ from backend.app.services.intelligence.recommendation_algorithms import (
 )
 from backend.app.services.intelligence.recommendation_profile import (
     PreferenceProfileStore,
-    UserPreferenceProfile,
     recommendation_profile_store,
 )
 from backend.app.services.intelligence.recommendation_taxonomy import (

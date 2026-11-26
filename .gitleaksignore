@@ -1,0 +1,12 @@
+# Verified false positives across historical commits (benchmark _key JSON fields,
+# example JWT placeholders in Phase 10 docs, negative auth-test dummy key,
+# capability registry path text, and public Firebase Web Client API key).
+65bb08ec3b47219faa03812707a137b44a264361:docs/reports/PHASE_14_18_MASTER_VERIFICATION_EVIDENCE.json:generic-api-key:357
+65bb08ec3b47219faa03812707a137b44a264361:docs/reports/PHASE_14_17_MASTER_VERIFICATION_EVIDENCE.json:generic-api-key:552
+65bb08ec3b47219faa03812707a137b44a264361:docs/reports/YORVYN_PHASE_10_BILLING_SECURITY_BETA_READINESS.md:generic-api-key:201
+65bb08ec3b47219faa03812707a137b44a264361:docs/reports/YORVYN_PHASE_10_BILLING_SECURITY_BETA_READINESS.md:generic-api-key:202
+65bb08ec3b47219faa03812707a137b44a264361:docs/reports/YORVYN_PHASE_14_4_BROWSER_EVALUATION.json:generic-api-key:94
+ab6daef12beb00a6224199b1c3704502f5855085:scripts/evaluate_phase_14_4_browser.py:generic-api-key:90
+ab6daef12beb00a6224199b1c3704502f5855085:scripts/evaluate_phase_14_6_remote_neural_inference.py:generic-api-key:58
+1786be312a2c6ad23a458ed8cb1e186d8b619c8e:backend/app/services/intelligence/capability_registry.py:generic-api-key:85
+7437e4d309eab4d898425f1c6c4697bf87961269:frontend/src/utils/firebase.ts:gcp-api-key:17

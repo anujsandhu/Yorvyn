@@ -140,6 +140,7 @@ def test_universal_taxonomy_classification():
     assert 0.5 <= prob_sum <= 1.05
 
 
+@pytest.mark.ml_benchmark
 def test_trousers_classification_and_bifurcation():
     """Verifies split-leg detection correctly classifies bottoms without user hint."""
     trousers = create_synthetic_trousers_image()
@@ -180,6 +181,7 @@ def test_visual_semantic_embeddings_zero_md5():
 
 # ── 3. Component & Anatomical Landmark Detection ──────────────────────────────
 
+@pytest.mark.ml_benchmark
 def test_component_detection_zero_fabrication():
     """Verifies that non-existent components are strictly marked not_detected."""
     tshirt = create_synthetic_tshirt_image()
@@ -318,6 +320,10 @@ def test_mesh_builder_dynamic_intelligence_binding():
 
 # ── 7. Dataset Manifest & Model Registry Verification ─────────────────────────
 
+@pytest.mark.skipif(
+    not os.path.exists("data/datasets/fashion_manifest.json"),
+    reason="Gitignored local dataset manifest (data/datasets/fashion_manifest.json) not present in CI.",
+)
 def test_dataset_manifest_and_model_registry_integrity():
     """Verifies data manifest and model registry licensing status."""
     import json
@@ -339,16 +345,17 @@ def test_dataset_manifest_and_model_registry_integrity():
 
 def test_api_diagnostics_endpoint():
     """Verifies GET /api/fashion/garment-gen/jobs/{job_id}/diagnostics endpoint."""
+    import uuid
     tshirt = create_synthetic_tshirt_image()
     buf = io.BytesIO()
     tshirt.save(buf, format="PNG")
     png_bytes = buf.getvalue()
 
-    # Create job via API
+    # Create job via API with unique user_id so quota/cache does not collide across runs
     res = client.post(
         "/api/fashion/garment-gen/jobs",
         files={"front_image": ("tshirt.png", png_bytes, "image/png")},
-        data={"category": "top", "user_id": "test_user_phase2"}
+        data={"category": "top", "user_id": f"test_user_phase2_{uuid.uuid4().hex[:8]}"}
     )
     assert res.status_code == 200
     job_id = res.json()["job_id"]

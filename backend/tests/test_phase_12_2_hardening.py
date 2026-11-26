@@ -29,6 +29,7 @@ from backend.app.services.garments.reconstruction.engine_registry import reconst
 from backend.app.services.garments.reconstruction.mesh_validator import GarmentMeshValidator
 
 
+@pytest.mark.ml_benchmark
 class TestPhase122ClassificationHardening:
     """Verifies that the Garment Hypothesis Resolver resolves all classification failures."""
 

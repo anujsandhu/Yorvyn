@@ -4,13 +4,10 @@ Uses CLIP logits with an uncalibrated sigmoid transform; it does not load SigLIP
 """
 
 import time
-import math
 import logging
 from typing import Dict, Any, List, Tuple, Optional
 from PIL import Image
-import numpy as np
 import torch
-import torch.nn.functional as F
 
 logger = logging.getLogger(__name__)
 
@@ -93,8 +90,8 @@ class SigLIPAdapter:
 
         from transformers import CLIPModel, CLIPProcessor
         try:
-            self._processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)
-            self._clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(self.device)
+            self._processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)  # nosec B615
+            self._clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(self.device)  # nosec B615
         except Exception as exc:
             raise RuntimeError(f"Cached generic CLIP weights are unavailable; network downloads are disabled: {exc}") from exc
         self._clip_model.eval()

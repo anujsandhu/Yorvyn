@@ -175,7 +175,9 @@ def test_3_sequential_short_history_and_neural_outfit_adapter(tmp_path):
     assert outfit_fb.compatibility_backend == "algorithmic_pairwise"
 
 
-def test_4_promotion_gates_experiments_and_api_routes(tmp_path):
+def test_4_promotion_gates_experiments_and_api_routes(tmp_path, monkeypatch):
+    from backend.app.core.settings import settings
+    monkeypatch.setattr(settings, "admin_api_key", "test-admin-key-phase174")
     # Gate enforcement test: fail on non-real traffic, succeed only when ALL 9 real-world gates pass
     blocked = evaluate_promotion_gates(
         model_id="two_tower_recommender",
@@ -265,7 +267,7 @@ def test_4_promotion_gates_experiments_and_api_routes(tmp_path):
         # Admin promotion route executes and honestly blocks fake promotion
         r_prom = client.post(
             "/api/intelligence/recommendations/neural/promote",
-            headers={"X-Admin-Key": settings.secret_key},
+            headers={"X-Admin-Key": "test-admin-key-phase174"},
             json={
                 "model_id": "two_tower_recommender",
                 "is_real_production_traffic": False,

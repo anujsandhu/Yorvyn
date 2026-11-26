@@ -218,8 +218,8 @@ def get_intent_response(intent_result: IntentResult, user_name: str = "") -> str
     
     elif intent_result.intent == Intent.ABUSIVE:
         return (
-            f"Hey 😅 I didn't quite catch that. "
-            f"Let's keep it friendly — tell me your vibe: fresh, woody, sweet, or something else?"
+            "Hey 😅 I didn't quite catch that. "
+            "Let's keep it friendly — tell me your vibe: fresh, woody, sweet, or something else?"
         )
     
     # For PERFUME_QUERY and CLARIFICATION, return None (let the main flow handle it)

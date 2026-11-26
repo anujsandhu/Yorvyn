@@ -7,7 +7,6 @@ Includes robust offline fallback store for local testing and CI runners.
 
 from __future__ import annotations
 
-import json
 import os
 from fastapi import HTTPException
 import uuid
@@ -15,7 +14,7 @@ import hashlib
 import logging
 import threading
 from datetime import datetime, timedelta
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 import requests
 
 from backend.app.core.settings import settings
@@ -628,7 +627,8 @@ class SupabaseRepository:
         if not look:
             return None
 
-        import copy, uuid
+        import copy
+        import uuid
         cloned = copy.deepcopy(look)
         cloned["id"] = f"look_{uuid.uuid4().hex[:12]}"
         cloned["name"] = new_name or f"{look.get('name', 'Look')} (Copy)"

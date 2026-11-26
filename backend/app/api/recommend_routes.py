@@ -23,10 +23,9 @@ import re
 import time
 from typing import Any, Dict, List, Optional
 
-import numpy as np
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
-from ..ml_model import recommender, clean_accords, normalize_gender
+from ..ml_model import recommender, normalize_gender
 from ..ai_fallback import (
     _call_groq_text,
     _call_openrouter_text,
@@ -52,7 +51,7 @@ _CACHE_TTL = 3600  # seconds
 
 def _cache_key(payload: Dict) -> str:
     canonical = json.dumps(payload, sort_keys=True, ensure_ascii=True)
-    return hashlib.md5(canonical.encode()).hexdigest()
+    return hashlib.sha256(canonical.encode()).hexdigest()
 
 
 def _cache_get(key: str) -> Optional[Dict]:

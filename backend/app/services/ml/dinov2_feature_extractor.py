@@ -11,14 +11,13 @@ Supports:
 import time
 import logging
 import os
-from typing import Dict, Any, List, Tuple, Optional
+from typing import Dict, Any, Optional
 from pathlib import Path
 import numpy as np
 from PIL import Image
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 logger = logging.getLogger(__name__)
 
@@ -69,8 +68,8 @@ class Dinov2FeatureExtractor:
 
         try:
             from transformers import AutoImageProcessor, AutoModel
-            self._processor = AutoImageProcessor.from_pretrained(self.model_name, local_files_only=True)
-            self._model = AutoModel.from_pretrained(self.model_name, local_files_only=True).to(self.device)
+            self._processor = AutoImageProcessor.from_pretrained(self.model_name, local_files_only=True)  # nosec B615
+            self._model = AutoModel.from_pretrained(self.model_name, local_files_only=True).to(self.device)  # nosec B615
             self._model.eval()
             self.execution_backend = "cached_pretrained_dinov2"
             self.pretrained_weights_loaded = True

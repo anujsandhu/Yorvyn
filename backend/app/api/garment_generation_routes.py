@@ -7,7 +7,7 @@ import os
 import uuid
 from typing import Optional
 from pathlib import Path
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, BackgroundTasks, Response, Depends, Request, Header
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Response, Depends, Request, Header
 from fastapi.responses import FileResponse
 
 from backend.app.core.security import get_current_user_optional, UserContext
@@ -602,7 +602,6 @@ async def get_garment_asset(
     and private ETag caching (`Cache-Control: private, max-age=3600`, `Vary: Authorization`).
     """
     import hashlib
-    from fastapi import Response
 
     # 1. Strict path traversal & character sanitization
     safe_filename = os.path.basename(filename)

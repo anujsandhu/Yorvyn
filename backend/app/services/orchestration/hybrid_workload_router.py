@@ -151,7 +151,7 @@ class HybridWorkloadRouter:
                     "status": "POLICY_UNSATISFIED",
                     "selected_location": None,
                     "policy": policy,
-                    "reason": f"Interactive 60fps avatar simulation requires local vertex deformation and cannot execute on cloud under CLOUD_REQUIRED.",
+                    "reason": "Interactive 60fps avatar simulation requires local vertex deformation and cannot execute on cloud under CLOUD_REQUIRED.",
                     "error_code": "POLICY_UNSATISFIED"
                 }
 

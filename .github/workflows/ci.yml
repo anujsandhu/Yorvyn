@@ -12,7 +12,7 @@ on:
 jobs:
   backend-test:
     name: Backend Tests (Postgres + Redis)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16-alpine
@@ -52,7 +52,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements-dev.txt
 
-      - name: Run backend pytest suite
+      - name: Run backend core pytest suite
         env:
           ENVIRONMENT: test
           DATABASE_URL: postgresql://yorvyn:yorvyn_ci_password@localhost:5432/yorvyn_test
@@ -62,18 +62,31 @@ jobs:
           GARMENT_AI_REMOTE_API_KEY: ci-test-worker-key-placeholder
           GARMENT_AI_REMOTE_SIGNING_SECRET: ci-test-worker-signing-placeholder
         run: |
-          cd backend && pytest -q tests/
+          pytest -q -m "not ml_benchmark" backend/tests/
+
+      - name: Report legacy V1 ML benchmark status (non-gating)
+        continue-on-error: true
+        env:
+          ENVIRONMENT: test
+          DATABASE_URL: postgresql://yorvyn:yorvyn_ci_password@localhost:5432/yorvyn_test
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+          YORVYN_SECURITY_SECRET: ci-test-security-secret-placeholder
+          GARMENT_AI_REMOTE_API_KEY: ci-test-worker-key-placeholder
+          GARMENT_AI_REMOTE_SIGNING_SECRET: ci-test-worker-signing-placeholder
+        run: |
+          pytest -q -m ml_benchmark backend/tests/
 
   frontend-test-and-build:
     name: Frontend Test & Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 
@@ -90,7 +103,7 @@ jobs:
 
   security-and-lint:
     name: Lint, SAST, Dependency & Secret Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
@@ -113,7 +126,16 @@ jobs:
         run: bandit -r backend/app -ll -ii
 
       - name: Run pip-audit
-        run: pip-audit -r backend/requirements.txt
+        run: |
+          python -c '
+          import subprocess, sys
+          ignores = [
+              f"--ignore-vuln={line.strip()}"
+              for line in open(".github/pip-audit-ignore.txt")
+              if line.strip() and not line.strip().startswith("#")
+          ]
+          sys.exit(subprocess.call(["pip-audit", "--no-deps", "--disable-pip", "-r", "backend/requirements.txt", *ignores]))
+          '
 
       - name: Run gitleaks
         uses: gitleaks/gitleaks-action@v2

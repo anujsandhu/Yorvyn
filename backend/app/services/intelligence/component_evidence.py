@@ -88,8 +88,8 @@ def _cached_clip_crop_scores(crop: Image.Image, prompts: List[str]) -> Optional[
             if not _CLIP_STATE["loaded"]:
                 from transformers import CLIPModel, CLIPProcessor
                 device = "mps" if torch.backends.mps.is_available() else "cpu"
-                proc = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)
-                mdl = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(device).eval()
+                proc = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)  # nosec B615
+                mdl = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(device).eval()  # nosec B615
                 _CLIP_STATE.update(loaded=True, model=mdl, processor=proc, device=device)
             proc = _CLIP_STATE["processor"]
             mdl = _CLIP_STATE["model"]

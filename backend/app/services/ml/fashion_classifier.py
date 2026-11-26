@@ -8,14 +8,13 @@ training of clothing category classifiers, multi-metric evaluation
 from __future__ import annotations
 
 import json
-import os
 import pickle
 import struct
 import time
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, Tuple
 import numpy as np
-from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
 
 # Paths
@@ -192,7 +191,7 @@ class FashionMLClassifier:
         if CHECKPOINT_PATH.exists() and METRICS_PATH.exists():
             try:
                 with open(CHECKPOINT_PATH, "rb") as f:
-                    self.model = pickle.load(f)
+                    self.model = pickle.load(f)  # nosec B301
                 with open(METRICS_PATH, "r", encoding="utf-8") as f:
                     self.metrics = json.load(f)
             except Exception as e:
@@ -204,7 +203,7 @@ fashion_ml_classifier = FashionMLClassifier()
 if __name__ == "__main__":
     metrics = fashion_ml_classifier.train_and_evaluate()
     print("\n═════════════════════════════════════════════════════════════════════")
-    print(f" 🎯 FASHION CLASSIFIER EVALUATION REPORT")
+    print(" 🎯 FASHION CLASSIFIER EVALUATION REPORT")
     print("═════════════════════════════════════════════════════════════════════")
     print(f"Accuracy:  {metrics['accuracy'] * 100:.2f}%")
     print(f"F1-Score:  {metrics['weighted_f1_score'] * 100:.2f}%")

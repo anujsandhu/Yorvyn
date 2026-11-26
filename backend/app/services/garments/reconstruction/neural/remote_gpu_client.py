@@ -19,17 +19,13 @@ import json
 import hmac
 import hashlib
 import logging
-from typing import Optional, Dict, Any, Tuple, List
-import urllib.request
-import urllib.error
-import numpy as np
+from typing import Optional, Dict, Any, Tuple
+import requests
 from PIL import Image
 import io
 
-from backend.app.services.garments.garment_mesh_builder import GarmentMesh
 from backend.app.models.garment_intelligence_models import GarmentIntelligenceV2Result
-from ..base_reconstruction_engine import ReconstructionOutput, PanelGeometry, MeshQualityReport, GarmentProportions
-from ..mesh_validator import GarmentMeshValidator
+from ..base_reconstruction_engine import ReconstructionOutput, MeshQualityReport, GarmentProportions
 from ...mesh_validation_service import MeshValidationService
 
 logger = logging.getLogger(__name__)
@@ -82,18 +78,18 @@ class RemoteGPUReconstructionClient:
 
         t0 = time.perf_counter()
         try:
-            req = urllib.request.Request(health_url, headers=headers)
-            with urllib.request.urlopen(req, timeout=3.5) as resp:
-                elapsed_ms = round((time.perf_counter() - t0) * 1000.0, 2)
-                data = json.loads(resp.read().decode("utf-8"))
-                return {
-                    "status": "healthy",
-                    "remote_available": True,
-                    "round_trip_ms": elapsed_ms,
-                    "worker_info": data,
-                    "configured_model": self.preferred_model,
-                    "endpoint": self.endpoint_url
-                }
+            resp = requests.get(health_url, headers=headers, timeout=3.5)
+            resp.raise_for_status()
+            elapsed_ms = round((time.perf_counter() - t0) * 1000.0, 2)
+            data = resp.json()
+            return {
+                "status": "healthy",
+                "remote_available": True,
+                "round_trip_ms": elapsed_ms,
+                "worker_info": data,
+                "configured_model": self.preferred_model,
+                "endpoint": self.endpoint_url
+            }
         except Exception as e:
             logger.warning(f"Remote GPU worker health check failed: {e}")
             return {
@@ -148,10 +144,10 @@ class RemoteGPUReconstructionClient:
         if self.api_key:
             headers["X-YORVYN-API-KEY"] = self.api_key
 
-        req = urllib.request.Request(submit_url, data=payload_bytes, headers=headers, method="POST")
         try:
-            with urllib.request.urlopen(req, timeout=10.0) as resp:
-                return json.loads(resp.read().decode("utf-8"))
+            resp = requests.post(submit_url, data=payload_bytes, headers=headers, timeout=10.0)
+            resp.raise_for_status()
+            return resp.json()
         except Exception as e:
             logger.error(f"Failed to submit remote GPU reconstruction job: {e}")
             return {"status": "error", "error": str(e)}
@@ -166,10 +162,10 @@ class RemoteGPUReconstructionClient:
         if self.api_key:
             headers["X-YORVYN-API-KEY"] = self.api_key
 
-        req = urllib.request.Request(status_url, headers=headers, method="GET")
         try:
-            with urllib.request.urlopen(req, timeout=5.0) as resp:
-                return json.loads(resp.read().decode("utf-8"))
+            resp = requests.get(status_url, headers=headers, timeout=5.0)
+            resp.raise_for_status()
+            return resp.json()
         except Exception as e:
             return {"status": "error", "error": str(e)}
 
@@ -183,11 +179,10 @@ class RemoteGPUReconstructionClient:
         if self.api_key:
             headers["X-YORVYN-API-KEY"] = self.api_key
 
-        req = urllib.request.Request(cancel_url, data=b"{}", headers=headers, method="POST")
         try:
-            with urllib.request.urlopen(req, timeout=4.0) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                return data.get("cancelled", False)
+            resp = requests.post(cancel_url, data=b"{}", headers=headers, timeout=4.0)
+            resp.raise_for_status()
+            return resp.json().get("cancelled", False)
         except Exception as e:
             logger.warning(f"Failed to cancel remote job {job_id}: {e}")
             return False
@@ -243,9 +238,11 @@ class RemoteGPUReconstructionClient:
                     return None
 
                 # Download GLB asset
-                req = urllib.request.Request(download_url, headers={"User-Agent": "Yorvyn-Client"})
-                with urllib.request.urlopen(req, timeout=15.0) as resp:
-                    glb_bytes = resp.read()
+                if not str(download_url).startswith(("https://", "http://")):
+                    return None
+                dl_resp = requests.get(download_url, headers={"User-Agent": "Yorvyn-Client"}, timeout=15.0)
+                dl_resp.raise_for_status()
+                glb_bytes = dl_resp.content
 
                 # Validate downloaded GLB
                 validation_rep = MeshValidationService.validate_glb_bytes(glb_bytes, category)
@@ -353,9 +350,11 @@ class RemoteGPUReconstructionClient:
                 if not download_url:
                     return None
 
-                req = urllib.request.Request(download_url, headers={"User-Agent": "Yorvyn-Client"})
-                with urllib.request.urlopen(req, timeout=15.0) as resp:
-                    glb_bytes = resp.read()
+                if not str(download_url).startswith(("https://", "http://")):
+                    return None
+                dl_resp = requests.get(download_url, headers={"User-Agent": "Yorvyn-Client"}, timeout=15.0)
+                dl_resp.raise_for_status()
+                glb_bytes = dl_resp.content
 
                 validation_rep = MeshValidationService.validate_glb_bytes(glb_bytes, category)
                 if not validation_rep.is_valid:

@@ -49,9 +49,10 @@ class TestDef01CorrectionHandoffIntegrity:
             }
         }
 
+        import uuid
         # Create job with category='tops' (original) but subcategory='blazer' and metadata indicating correction
         job = garment_job_manager.create_job(
-            user_id="test_user_phase_12_3_2",
+            user_id=f"test_user_phase_12_3_2_{uuid.uuid4().hex[:8]}",
             front_image_bytes=b"dummy_image_data",
             category="outerwear",
             subcategory="blazer",
@@ -68,6 +69,7 @@ class TestDef01CorrectionHandoffIntegrity:
 
     def test_job_manager_preserves_unmodified_prediction(self):
         """When no user correction is applied, original prediction is used directly."""
+        import uuid
         metadata = {
             "ai_confidence": 0.96,
             "user_correction_state": {
@@ -81,7 +83,7 @@ class TestDef01CorrectionHandoffIntegrity:
         }
 
         job = garment_job_manager.create_job(
-            user_id="test_user_phase_12_3_2",
+            user_id=f"test_user_phase_12_3_2_{uuid.uuid4().hex[:8]}",
             front_image_bytes=b"dummy_image_data",
             category="tops",
             subcategory="hoodie",
@@ -205,6 +207,7 @@ class TestDef03OuterwearHierarchyArbitration:
         assert resolved.category == "outerwear"
         assert resolved.subcategory == "blazer", f"Expected blazer, got {resolved.subcategory}"
 
+    @pytest.mark.ml_benchmark
     def test_formal_coat_not_collapsed_to_denim_jacket(self):
         """Formal coat with elongated silhouette (AR >= 1.30) must resolve to formal_coat."""
         h, w = 512, 512
@@ -262,6 +265,7 @@ class TestDef03OuterwearHierarchyArbitration:
 class TestDef04OutfitDisambiguationAndDressSlits:
     """Verifies DEF-04: Distinguishing outfits from jumpsuits and dress walking slits from pant legs."""
 
+    @pytest.mark.ml_benchmark
     def test_two_piece_layered_outfit_disambiguation(self):
         """Layered two-piece outfit (white shirt + black pants) must not become confident jumpsuit."""
         h, w = 512, 512
@@ -381,6 +385,7 @@ class TestReferenceGarmentsCasesARegression:
         assert resolved.category == "tops"
         assert resolved.subcategory == "hoodie"
 
+    @pytest.mark.ml_benchmark
     def test_case_b_graphic_tshirt(self):
         img = Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png")
         mask = np.array(Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/02_garment_segmentation_mask.png"))
@@ -395,6 +400,7 @@ class TestReferenceGarmentsCasesARegression:
         assert resolved.category == "tops"
         assert resolved.subcategory == "tshirt"
 
+    @pytest.mark.ml_benchmark
     def test_case_c_formal_shirt(self):
         img = Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/01_original_uploaded_image.png")
         mask = np.array(Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/02_garment_segmentation_mask.png"))
@@ -422,6 +428,7 @@ class TestReferenceGarmentsCasesARegression:
         assert resolved.category == "outerwear"
         assert resolved.subcategory == "denim_jacket"
 
+    @pytest.mark.ml_benchmark
     def test_case_e_trousers(self):
         img = Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/01_original_uploaded_image.png")
         mask = np.array(Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/02_garment_segmentation_mask.png"))

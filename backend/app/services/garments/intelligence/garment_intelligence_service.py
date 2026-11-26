@@ -316,7 +316,8 @@ class GarmentIntelligenceService:
         crop_b64 = None
         if hasattr(seg_output, "bbox") and seg_output.bbox:
             try:
-                import io, base64
+                import io
+                import base64
                 cr_img = seg_output.segmented_image.crop(seg_output.bbox)
                 c_buf = io.BytesIO()
                 cr_img.save(c_buf, format="PNG")

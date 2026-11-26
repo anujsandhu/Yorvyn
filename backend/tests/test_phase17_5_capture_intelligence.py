@@ -185,10 +185,14 @@ def test_3_end_to_end_real_photo_capture_to_durable_glb_handoff():
             break
         time.sleep(0.2)
     assert job is not None and str(getattr(job.status, "value", job.status)).upper() == "COMPLETED"
-    glb_path = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "../../models/generated_3d/staging_jobs", f"{job_id}.glb")
-    )
-    assert os.path.isfile(glb_path)
+    from backend.app.services.garments.job_manager import PERMANENT_ASSET_DIR
+    candidate_glbs = [
+        os.path.join(PERMANENT_ASSET_DIR, job_id, "garment.glb"),
+        os.path.join(PERMANENT_ASSET_DIR, f"{job_id}.glb"),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "../../models/generated_3d/staging_jobs", f"{job_id}.glb")),
+    ]
+    glb_path = next((p for p in candidate_glbs if os.path.isfile(p)), candidate_glbs[0])
+    assert os.path.isfile(glb_path), f"Expected durable GLB in one of {candidate_glbs}"
     with open(glb_path, "rb") as gf:
         val_res = MeshValidationService().validate_glb_bytes(gf.read())
     assert bool(getattr(val_res, "passed", getattr(val_res, "is_valid", False))) is True

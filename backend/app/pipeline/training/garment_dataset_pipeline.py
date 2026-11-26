@@ -9,8 +9,8 @@ import os
 import json
 import hashlib
 import logging
-from typing import Dict, List, Optional, Any, Tuple
-from dataclasses import dataclass, asdict, field
+from typing import Dict, List, Optional, Any
+from dataclasses import dataclass
 from datetime import datetime
 import numpy as np
 from PIL import Image
@@ -275,7 +275,7 @@ class GarmentDatasetPipeline:
             return None
 
         # Build canonical UniversalGarmentAnnotation
-        anno_id = str(raw_data.get("id", hashlib.md5(json.dumps(raw_data, sort_keys=True).encode()).hexdigest()[:12]))
+        anno_id = str(raw_data.get("id", hashlib.sha256(json.dumps(raw_data, sort_keys=True).encode()).hexdigest()[:12]))
         cat = str(raw_data.get("category", "tops")).lower()
         subcat = str(raw_data.get("subcategory", "tshirt")).lower()
 

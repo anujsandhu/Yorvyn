@@ -8,9 +8,8 @@ Provides REST API endpoints for zero-cost local garment identification:
 
 import io
 import hashlib
-import time
 import logging
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 import json
 from fastapi import APIRouter, File, UploadFile, Form, HTTPException, status, Depends
 from starlette.concurrency import run_in_threadpool

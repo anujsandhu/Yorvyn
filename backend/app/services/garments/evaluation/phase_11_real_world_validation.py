@@ -11,15 +11,12 @@ Outputs to:
 import os
 import json
 import time
-import math
 import logging
 from typing import Dict, List, Any, Tuple
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 
 from backend.app.services.garments.garment_analyzer import garment_analyzer
-from backend.app.services.garments.garment_mesh_builder import garment_mesh_builder
-from backend.app.services.garments.garment_texture_synthesizer import garment_texture_synthesizer
 
 logger = logging.getLogger(__name__)
 
@@ -312,7 +309,8 @@ class Phase11RealWorldValidationSuite:
             dur_ms = round((time.perf_counter() - start_t) * 1000.0, 1)
 
             # Analyze garment features
-            temp_p = f"/tmp/bench_test_{item['id']}.png"
+            import tempfile
+            temp_p = os.path.join(tempfile.gettempdir(), f"bench_test_{item['id']}.png")
             test_img.save(temp_p)
             try:
                 feat, _ = garment_analyzer.analyze(temp_p, category_hint=item["category"])

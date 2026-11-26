@@ -6,10 +6,9 @@ Solves flat-lay, folded, and unconstrained garment perception by grounding predi
 in multimodal semantic representations rather than body-presence shortcuts.
 """
 
-import os
 import time
 import logging
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, Optional, Tuple
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -158,8 +157,8 @@ class VLMGarmentEngine:
         logger.info(f"Initializing VLM Garment Engine ({self.model_id}) on {self._device}...")
         try:
             from transformers import CLIPProcessor, CLIPModel
-            self._processor = CLIPProcessor.from_pretrained(self.model_id, local_files_only=True)
-            self._model = CLIPModel.from_pretrained(
+            self._processor = CLIPProcessor.from_pretrained(self.model_id, local_files_only=True)  # nosec B615
+            self._model = CLIPModel.from_pretrained(  # nosec B615
                 self.model_id,
                 use_safetensors=False,
                 local_files_only=True

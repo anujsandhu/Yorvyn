@@ -95,7 +95,7 @@ class PersistentSessionService:
                 if p_ctx.get("disliked_styles"):
                     p_lines.append(f"- Disliked Styles: {', '.join(p_ctx['disliked_styles'])}")
                 if p_lines:
-                    system_content += f"\n\n### Learned User Style Personalization Memory:\n" + "\n".join(p_lines)
+                    system_content += "\n\n### Learned User Style Personalization Memory:\n" + "\n".join(p_lines)
         except Exception as e:
             logger.debug(f"Personalization context injection notice: {e}")
 

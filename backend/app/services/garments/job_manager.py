@@ -7,9 +7,9 @@ and strictly purges temporary input files upon completion, failure, or cancellat
 import os
 import io
 import shutil
+import tempfile
 import uuid
 import hashlib
-import asyncio
 import logging
 import heapq
 import threading
@@ -21,11 +21,10 @@ from PIL import Image
 import numpy as np
 from pathlib import Path
 
-from backend.app.models.garment_models import GarmentGenJob, GarmentGenJobStatus, GarmentGenResult, DetectedGarmentFeatures
-from backend.app.models.garment_intelligence_models import GarmentDiagnosticsV2, GarmentIntelligenceV2Result
+from backend.app.models.garment_models import GarmentGenJob, GarmentGenJobStatus, GarmentGenResult
+from backend.app.models.garment_intelligence_models import GarmentDiagnosticsV2
 from .garment_analyzer import GarmentAnalyzer
 from .garment_mesh_builder import GarmentMeshBuilder
-from .garment_texture_synthesizer import garment_texture_synthesizer
 from .glb_exporter import glb_exporter
 from .preview_renderer import preview_renderer
 from backend.app.services.storage.cloudinary_storage import cloudinary_storage
@@ -44,8 +43,7 @@ from backend.app.services.garments.orchestration.queue_broker import (
     ConcurrencyLimitExceededException
 )
 from backend.app.services.garments.orchestration.artifact_committer import (
-    AtomicArtifactPublisher,
-    ArtifactPublicationException
+    AtomicArtifactPublisher
 )
 
 logger = logging.getLogger(__name__)
@@ -66,7 +64,7 @@ class QueueEnqueueError(RuntimeError):
         super().__init__(message)
         self.code = "QUEUE_ENQUEUE_FAILED"
 
-TEMP_BASE_DIR = os.environ.get("YORVYN_GARMENT_TEMP_DIR", "/tmp/yorvyn_garment_pipeline")
+TEMP_BASE_DIR = os.environ.get("YORVYN_GARMENT_TEMP_DIR", os.path.join(tempfile.gettempdir(), "yorvyn_garment_pipeline"))
 PERMANENT_ASSET_DIR = os.environ.get("YORVYN_GARMENT_ASSET_DIR", os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../data/wardrobe_assets")))
 
 # Ensure base directories exist
@@ -165,7 +163,7 @@ class GarmentJobManager:
         if thr is not None and thr.is_alive():
             thr.join(timeout=2.0)
 
-    def _db_job_to_garment_job(self, db_job: UnifiedJobState) -> GarmentGenJob:
+    def _db_job_to_garment_job(self, db_job: UnifiedJobState, is_cached: bool = False) -> GarmentGenJob:
         mem_job = self._jobs.get(db_job.job_id)
 
         status_map = {
@@ -200,9 +198,16 @@ class GarmentJobManager:
             if metadata.is_file():
                 result = GarmentGenResult.model_validate_json(metadata.read_bytes())
 
+        if result and is_cached and not result.is_cached:
+            result = result.model_copy(update={"is_cached": True})
+
         err_msg = None
         if db_job.current_state in ("FAILED", "DEAD_LETTERED"):
             err_msg = db_job.attempts[-1].get("error_details") if db_job.attempts else "Job failed during execution."
+
+        resolved_category = (mem_job.category if mem_job else None) or (result.category if result else None)
+        resolved_subcategory = (mem_job.subcategory if mem_job else None) or (result.subcategory if result else None)
+        resolved_detection_meta = mem_job.detection_metadata if mem_job else None
 
         return GarmentGenJob(
             job_id=db_job.job_id,
@@ -212,6 +217,9 @@ class GarmentJobManager:
             current_stage=f"State: {db_job.current_state}",
             created_at=created_dt,
             updated_at=updated_dt,
+            category=resolved_category,
+            subcategory=resolved_subcategory,
+            detection_metadata=resolved_detection_meta,
             temporary_files=[],
             asset_sha256=db_job.asset_sha256,
             input_sha256=db_job.canonical_fingerprint,
@@ -557,7 +565,7 @@ class GarmentJobManager:
         )
 
         job_id = f"job_{uuid.uuid4().hex[:12]}"
-        effective_idem_key = idempotency_key or f"idem_{user_id}_{img_sha[:16]}"
+        effective_idem_key = idempotency_key or f"idem_{user_id}_{canonical_fp[:16]}"
         now = datetime.utcnow()
         correlation_id = f"corr_{uuid.uuid4().hex[:12]}"
 
@@ -629,7 +637,10 @@ class GarmentJobManager:
             logger.info(
                 f"[GarmentJobManager] Idempotent key '{effective_idem_key}' matched durable job {persisted_db_job.job_id}"
             )
-            return self._db_job_to_garment_job(persisted_db_job)
+            return self._db_job_to_garment_job(
+                persisted_db_job,
+                is_cached=(persisted_db_job.current_state == "COMPLETED" and not detection_metadata),
+            )
 
         # 2. Write temporary input views ONLY after durable DB commit succeeded
         try:
@@ -1004,6 +1015,14 @@ class GarmentJobManager:
                 lambda j: j.transition("CLAIMED", reason="worker_claimed", worker_id=active_worker_id)
             )
             if not claim_ok or not claimed_db:
+                latest_state = self._postgres_adapter.load_job(job_id)
+                if latest_state and latest_state.current_state in (
+                    "CLAIMED", "PROCESSING", "VALIDATING", "PUBLISHING", "COMPLETED", "CANCELLED"
+                ):
+                    logger.info(
+                        f"[GarmentJobManager] Job {job_id} already claimed or terminal ({latest_state.current_state}); skipping duplicate local execution."
+                    )
+                    return
                 raise RuntimeError(f"Failed to acquire durable lease for job {job_id}: {claim_msg}")
             active_lease_gen = claimed_db.lease_generation
 
@@ -1379,37 +1398,14 @@ class GarmentJobManager:
             canonical_glb_path = pub_res["canonical_path"]
             canonical_sha256 = pub_res["sha256"]
 
-            commit_ok, commit_msg, _ = self._postgres_adapter.mutate_job(
-                job_id,
-                lambda j: j.commit_completion(
-                    worker_id=active_worker_id,
-                    lease_generation=active_lease_gen,
-                    asset_path=canonical_glb_path,
-                    asset_sha256=canonical_sha256
-                )
-            )
-            if not commit_ok:
-                raise RuntimeError(f"Durable completion commit rejected for {job_id}: {commit_msg}")
-
-            try:
-                self._redis_broker.acknowledge(job_id, worker_id=active_worker_id)
-            except Exception as ack_err:
-                logger.warning(f"[GarmentJobManager] Redis stream acknowledge notice for {job_id}: {ack_err}")
-
-            # Mark outbox as acknowledged (DURABLE-JOB-FIX-002)
-            try:
-                self._postgres_adapter.mark_outbox_acknowledged(job_id)
-            except Exception as outbox_ack_err:
-                logger.warning(f"[GarmentJobManager] Outbox acknowledgement notice for {job_id}: {outbox_ack_err}")
-
             self._check_execution_health(job, attempt_started)
 
-            # Stage 5: Render 3D Preview Thumbnail
+            # Stage 5: Render 3D Preview Thumbnail before durable COMPLETED commit so readers never observe COMPLETED with result=None
             job.status = GarmentGenJobStatus.RENDERING_PREVIEW
             job.progress = 92
             job.current_stage = "Rendering 3D studio preview thumbnail..."
             job.updated_at = datetime.utcnow()
-            
+
             thumb_filename = "preview.png"
             thumb_path = os.path.join(perm_job_dir, thumb_filename)
             render_start = time.monotonic()
@@ -1428,13 +1424,13 @@ class GarmentJobManager:
             )
             cld_delivery_url = cld_res.get("delivery_url")
             cld_public_id = cld_res.get("public_id")
-                
-            # Finalize Result
+
+            # Finalize Result & persist result.json atomically BEFORE durable COMPLETED transition
             glb_url = f"/api/fashion/garment-gen/assets/{job_id}/{glb_filename}"
             thumb_url = cld_delivery_url or f"/api/fashion/garment-gen/assets/{job_id}/{thumb_filename}"
             tex_url = f"/api/fashion/garment-gen/assets/{job_id}/diffuse.png"
             norm_url = f"/api/fashion/garment-gen/assets/{job_id}/normal.png"
-            
+
             job_dur_ms = round((datetime.utcnow() - job.created_at).total_seconds() * 1000.0, 2)
             cost_usd = 0.0000
             rec_prov = rec_out.provenance if rec_out else "procedural_fallback"
@@ -1467,7 +1463,7 @@ class GarmentJobManager:
                                         "fit_accuracy": "NOT_EVALUATED"} if inspection else None,
                 is_cached=False
             )
-            
+
             # Save in duplicate session cache
             if job.input_sha256:
                 self._completed_cache[f"{job.user_id}:{job.input_sha256}"] = result
@@ -1480,6 +1476,30 @@ class GarmentJobManager:
             pending.write_text(result.model_dump_json(), encoding="utf-8")
             pending.replace(metadata)
             job.result = result
+
+            commit_ok, commit_msg, _ = self._postgres_adapter.mutate_job(
+                job_id,
+                lambda j: j.commit_completion(
+                    worker_id=active_worker_id,
+                    lease_generation=active_lease_gen,
+                    asset_path=canonical_glb_path,
+                    asset_sha256=canonical_sha256
+                )
+            )
+            if not commit_ok:
+                raise RuntimeError(f"Durable completion commit rejected for {job_id}: {commit_msg}")
+
+            try:
+                self._redis_broker.acknowledge(job_id, worker_id=active_worker_id)
+            except Exception as ack_err:
+                logger.warning(f"[GarmentJobManager] Redis stream acknowledge notice for {job_id}: {ack_err}")
+
+            # Mark outbox as acknowledged (DURABLE-JOB-FIX-002)
+            try:
+                self._postgres_adapter.mark_outbox_acknowledged(job_id)
+            except Exception as outbox_ack_err:
+                logger.warning(f"[GarmentJobManager] Outbox acknowledgement notice for {job_id}: {outbox_ack_err}")
+
             job.status = GarmentGenJobStatus.COMPLETED
             job.progress = 100
             job.current_stage = "3D garment successfully created and ready for preview"
@@ -1517,10 +1537,11 @@ class GarmentJobManager:
             
         except TimeoutError as te:
             logger.warning(f"[GarmentGen] Job {job_id} timed out: {te}")
-            job.status = GarmentGenJobStatus.TIMED_OUT
+            self._cleanup_temp_files(job_id)
             job.error = str(te)
             job.current_stage = "Garment reconstruction timed out."
             job.updated_at = datetime.utcnow()
+            job.status = GarmentGenJobStatus.TIMED_OUT
             if os.path.exists(perm_job_dir) and not job.result:
                 try:
                     shutil.rmtree(perm_job_dir)
@@ -1536,10 +1557,11 @@ class GarmentJobManager:
 
         except Exception as e:
             logger.error(f"[GarmentGen] Error processing job {job_id}: {str(e)}", exc_info=True)
-            job.status = GarmentGenJobStatus.FAILED
+            self._cleanup_temp_files(job_id)
             job.error = f"Reconstruction failed: {str(e)}"
             job.current_stage = "Garment reconstruction encountered an error."
             job.updated_at = datetime.utcnow()
+            job.status = GarmentGenJobStatus.FAILED
             # Clean up incomplete permanent asset dir if generation failed
             if os.path.exists(perm_job_dir) and not job.result:
                 try:

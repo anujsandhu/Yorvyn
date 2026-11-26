@@ -76,7 +76,7 @@ def get_cached_response(prompt: str, context: Optional[Dict] = None, uid: Option
                 # Optionally delete expired entry
                 try:
                     doc.reference.delete()
-                except:
+                except Exception:
                     pass
                 return None
         

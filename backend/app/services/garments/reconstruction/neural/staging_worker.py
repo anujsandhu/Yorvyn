@@ -17,6 +17,7 @@ Hardening Invariants (Phase 14.13):
 """
 
 import os
+import shutil
 import sys
 import time
 import uuid
@@ -29,14 +30,12 @@ import json
 import gc
 import logging
 import threading
-from typing import Dict, Any, Optional, Set, List
+from typing import Dict, Any, Optional, Set
 from pathlib import Path
 
-from fastapi import FastAPI, Request, Response, HTTPException, BackgroundTasks, Header
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, Request, Response, HTTPException, BackgroundTasks
 import uvicorn
 import torch
-import numpy as np
 from PIL import Image
 
 # Ensure project root is in sys.path
@@ -47,18 +46,14 @@ if str(PROJECT_ROOT) not in sys.path:
 from backend.app.services.garments.reconstruction.neural.image_conditioned_reconstruction import (
     ImageConditionedReconstructionEngine
 )
-from backend.app.services.garments.mesh_validation_service import MeshValidationService
 from backend.app.services.garments.orchestration.unified_state_machine import (
-    PostgresJobPersistenceAdapter,
-    UnifiedJobState
+    PostgresJobPersistenceAdapter
 )
 from backend.app.services.garments.orchestration.queue_broker import (
-    RedisStreamsQueueBroker,
-    StaleLeaseException
+    RedisStreamsQueueBroker
 )
 from backend.app.services.garments.orchestration.artifact_committer import (
-    AtomicArtifactPublisher,
-    ArtifactPublicationException
+    AtomicArtifactPublisher
 )
 
 logger = logging.getLogger("yorvyn_neural_worker")
@@ -996,7 +991,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", "8088"))
     # Enforce loopback-only binding unless explicitly enabled
     allow_remote = os.getenv("ALLOW_REMOTE_BIND", "0").strip() == "1"
-    host = "0.0.0.0" if allow_remote else "127.0.0.1"
+    host = "0.0.0.0" if allow_remote else "127.0.0.1"  # nosec B104
 
     logger.info(f"Starting Hardened YORVYN Neural 3D Worker on http://{host}:{port} (Loopback only: {not allow_remote})")
     uvicorn.run(app, host=host, port=port, log_level="info")

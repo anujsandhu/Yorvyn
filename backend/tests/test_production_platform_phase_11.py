@@ -24,7 +24,7 @@ from PIL import Image
 from backend.app.core.settings import settings
 from backend.app.core.security import verify_supabase_jwt, get_current_user, UserContext
 from backend.app.models.garment_models import GarmentGenJobStatus, GarmentGenJob
-from backend.app.services.garments.job_manager import garment_job_manager, PriorityTaskEntry
+from backend.app.services.garments.job_manager import garment_job_manager, PriorityTaskEntry, TEMP_BASE_DIR
 from backend.app.services.database.supabase_repository import supabase_repo
 from backend.app.services.billing.entitlement_service import entitlement_service
 from backend.app.services.billing.stripe_service import stripe_billing_service as stripe_service
@@ -163,7 +163,7 @@ def test_ephemeral_purging_on_completed_job():
         time.sleep(0.1)
 
     # Temporary directory must be purged
-    job_temp_dir = os.path.join("/tmp/yorvyn_garment_pipeline", job.job_id)
+    job_temp_dir = os.path.join(TEMP_BASE_DIR, job.job_id)
     assert not os.path.exists(job_temp_dir)
 
 
@@ -174,7 +174,7 @@ def test_ephemeral_purging_on_cancelled_job():
     garment_job_manager.cancel_job(job.job_id)
 
     assert job.status == GarmentGenJobStatus.CANCELLED
-    job_temp_dir = os.path.join("/tmp/yorvyn_garment_pipeline", job.job_id)
+    job_temp_dir = os.path.join(TEMP_BASE_DIR, job.job_id)
     assert not os.path.exists(job_temp_dir)
 
 
@@ -190,7 +190,7 @@ def test_ephemeral_purging_on_timed_out_job():
 
     # Manually execute cleanup as watchdog does
     garment_job_manager._cleanup_temp_files(job.job_id)
-    job_temp_dir = os.path.join("/tmp/yorvyn_garment_pipeline", job.job_id)
+    job_temp_dir = os.path.join(TEMP_BASE_DIR, job.job_id)
     assert not os.path.exists(job_temp_dir)
 
 

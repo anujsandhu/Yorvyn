@@ -9,6 +9,7 @@ pydantic==2.13.5
 pydantic-settings==2.11.0
 python-dotenv==1.2.1
 PyYAML==6.0.3
+defusedxml==0.7.1
 
 # Persistence & Messaging
 SQLAlchemy==2.0.55

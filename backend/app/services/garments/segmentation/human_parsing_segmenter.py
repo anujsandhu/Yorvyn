@@ -14,9 +14,9 @@ garment, and occlusion mask.
 
 import time
 import logging
-from typing import Dict, List, Tuple, Optional, Any
+from typing import Dict, List, Tuple, Optional
 import numpy as np
-from PIL import Image, ImageOps, ImageFilter
+from PIL import Image
 import cv2
 import torch
 
@@ -105,8 +105,8 @@ class HumanParsingSegmenter(IGarmentSegmenter):
         logger.info(f"Loading HumanParsingSegmenter '{self._model_name}' on {self._device}...")
         from transformers import SegformerImageProcessor, AutoModelForSemanticSegmentation
 
-        self._processor = SegformerImageProcessor.from_pretrained(self._model_name)
-        self._model = AutoModelForSemanticSegmentation.from_pretrained(self._model_name).to(self._device)
+        self._processor = SegformerImageProcessor.from_pretrained(self._model_name)  # nosec B615
+        self._model = AutoModelForSemanticSegmentation.from_pretrained(self._model_name).to(self._device)  # nosec B615
         self._model.eval()
         self._is_loaded = True
         logger.info(f"HumanParsingSegmenter ready on {self._device}.")

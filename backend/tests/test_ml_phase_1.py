@@ -418,7 +418,17 @@ def test_api_intelligent_chat_endpoint():
     assert "provider_used" in data
 
 
-def test_api_unified_voice_chat():
+def test_api_unified_voice_chat(monkeypatch):
+    from backend.app.core.settings import settings
+
+    class _MockGroqResp:
+        status_code = 200
+        def json(self):
+            return {"text": "Suggest an evening smart casual outfit"}
+
+    monkeypatch.setattr(settings, "groq_api_key", "gsk_test_mock_key")
+    monkeypatch.setattr("backend.app.api.speech_routes.requests.post", lambda *a, **kw: _MockGroqResp())
+
     # Simulate webm audio upload
     dummy_audio = b"RIFF....WAVEfmt ....data...." * 100
     resp = client.post(

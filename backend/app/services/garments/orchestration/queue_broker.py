@@ -387,6 +387,11 @@ class RedisStreamsQueueBroker(JobQueueBrokerInterface):
         default_lease_seconds: float = 60.0
     ):
         import redis
+        env_prefix = "yorvyn:test:" if os.getenv("ENVIRONMENT", "").strip().lower() == "test" else "yorvyn:"
+        if stream_key == "yorvyn:stream:jobs":
+            stream_key = f"{env_prefix}stream:jobs"
+        if dead_letter_stream == "yorvyn:stream:dead_letter":
+            dead_letter_stream = f"{env_prefix}stream:dead_letter"
         self.client = redis.Redis(host=host, port=port, db=db, decode_responses=True)
         self.stream_key = stream_key
         self.dead_letter_stream = dead_letter_stream

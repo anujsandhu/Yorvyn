@@ -255,11 +255,12 @@ async def general_exception_handler(request: Request, exc: Exception):
 
 
 if __name__ == "__main__":
+    import os
     import uvicorn
 
     uvicorn.run(
         app,
-        host="0.0.0.0",
+        host=os.getenv("HOST", "127.0.0.1"),
         port=8001,
         log_level="info",
     )

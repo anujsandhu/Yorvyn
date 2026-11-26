@@ -382,58 +382,58 @@ class Phase10BetaValidationGenerator:
         }
 
         # Write HTML Index
-        html_content = f"""<!DOCTYPE html>
+        html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yorvyn Phase 10: Private Beta Validation & Visual QA Gallery</title>
     <style>
-        body {{
+        body {
             background: #0f172a;
             color: #f8fafc;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             padding: 40px;
-        }}
-        h1 {{
+        }
+        h1 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
-        }}
-        .subtitle {{
+        }
+        .subtitle {
             color: #94a3b8;
             font-size: 16px;
             margin-bottom: 32px;
-        }}
-        .grid {{
+        }
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 24px;
-        }}
-        .card {{
+        }
+        .card {
             background: #1e293b;
             border: 1px solid #334155;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-        }}
-        .card img {{
+        }
+        .card img {
             width: 100%;
             height: auto;
             display: block;
             border-bottom: 1px solid #334155;
-        }}
-        .card-content {{
+        }
+        .card-content {
             padding: 20px;
-        }}
-        .card-title {{
+        }
+        .card-title {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 6px;
-        }}
-        .badge {{
+        }
+        .badge {
             display: inline-block;
             padding: 4px 10px;
             border-radius: 9999px;
@@ -443,7 +443,7 @@ class Phase10BetaValidationGenerator:
             background: rgba(34, 197, 94, 0.2);
             color: #22c55e;
             border: 1px solid #22c55e;
-        }}
+        }
     </style>
 </head>
 <body>

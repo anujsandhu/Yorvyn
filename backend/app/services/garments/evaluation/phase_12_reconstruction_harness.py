@@ -311,10 +311,10 @@ def execute_test_case_pipeline(
     case_dir = OUTPUT_BASE_DIR / case_id
     case_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n=======================================================")
+    print("\n=======================================================")
     print(f"Executing Phase 12 Recovery Pipeline: {case_name} ({case_id})")
     print(f"Source Image: {source_photo_path}")
-    print(f"=======================================================")
+    print("=======================================================")
 
     # ── 1. Original Uploaded Image ───────────────────────────────────────────
     with Image.open(source_photo_path) as src_im:
@@ -755,11 +755,11 @@ def run_phase_12_reconstruction_suite() -> Dict[str, Any]:
     with open(BENCHMARK_JSON_PATH, "w") as f:
         json.dump(master_benchmark, f, indent=2)
 
-    print(f"\n=======================================================")
+    print("\n=======================================================")
     print(f"Phase 12 Suite Completed in {suite_duration_s}s!")
     print(f"Benchmark JSON saved to: {BENCHMARK_JSON_PATH}")
     print(f"Visual QA artifacts saved to: {OUTPUT_BASE_DIR}")
-    print(f"=======================================================\n")
+    print("=======================================================\n")
 
     return master_benchmark
 

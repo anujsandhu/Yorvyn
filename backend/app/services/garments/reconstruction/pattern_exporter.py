@@ -1,14 +1,12 @@
 """Phase 16.2 Pattern Export (JSON, SVG layout sheet, and ASCII DXF R12 entities) with structural parsing checks."""
 from __future__ import annotations
 
-import json
 from typing import Any, Dict, List, Tuple
-import xml.etree.ElementTree as ET
+from defusedxml import ElementTree as ET
 
 from backend.app.services.garments.reconstruction.pattern_geometry import (
     ConstructionToGeometryHandoff,
     PatternPiece2D,
-    UnifiedConstructionGraphContract,
     compute_seam_allowance_polygon,
 )
 

@@ -1,0 +1,122 @@
+# Known advisories in Python 3.9-bound pins (patched versions require Python >=3.10/3.11)
+# or upstream-unpatched packages (python-jose). Scheduled for V2 Python 3.11+ upgrade.
+
+# python-multipart 0.0.20 (fixes >=0.0.22 require Python >=3.10/3.11)
+PYSEC-2026-1852
+PYSEC-2026-3036
+PYSEC-2026-3037
+PYSEC-2026-3038
+PYSEC-2026-3039
+PYSEC-2026-3040
+
+# python-dotenv 1.2.1 (fix 1.2.2+ requires Python >=3.10)
+PYSEC-2026-2270
+
+# requests 2.32.5 (fix 2.33.0+ requires Python >=3.10)
+PYSEC-2026-2275
+
+# langchain-core 0.3.86 / langgraph 0.6.9 / checkpoint 2.1.2 / sdk 0.2.9 (fixes require Python >=3.10/3.11)
+PYSEC-2026-2193
+PYSEC-2026-2562
+PYSEC-2026-83
+PYSEC-2026-1527
+PYSEC-2026-2573
+PYSEC-2026-2574
+PYSEC-2026-2575
+PYSEC-2026-4240
+
+# torch 2.8.0 (last PyTorch release for Python 3.9; fixes require >=2.9 / Python >=3.10)
+PYSEC-2025-203
+PYSEC-2025-204
+PYSEC-2025-206
+PYSEC-2026-139
+PYSEC-2026-2286
+GHSA-vgrw-7cvw-pwgx
+GHSA-rrmf-rvhw-rf47
+GHSA-qfhq-4f3w-5fph
+
+# transformers 4.57.6 (fixes require 5.x / Python >=3.10 or unpatched upstream)
+PYSEC-2025-217
+PYSEC-2026-2288
+PYSEC-2026-2289
+PYSEC-2026-2290
+PYSEC-2026-3929
+PYSEC-2026-4174
+
+# onnx 1.19.1 (fixes >=1.21 require Python >=3.10)
+PYSEC-2026-103
+PYSEC-2026-104
+PYSEC-2026-2239
+PYSEC-2026-2240
+PYSEC-2026-2241
+PYSEC-2026-2689
+PYSEC-2026-3587
+PYSEC-2026-3876
+GHSA-q69g-f4f5-v8m7
+GHSA-6pwm-x34p-fvj2
+GHSA-48m4-24cq-37qf
+GHSA-m4pr-6v3c-6fgr
+
+# pillow 11.3.0 (fixes >=12.x require Python >=3.10/3.11)
+PYSEC-2026-165
+PYSEC-2026-2249
+PYSEC-2026-2250
+PYSEC-2026-2251
+PYSEC-2026-2252
+PYSEC-2026-2253
+PYSEC-2026-2254
+PYSEC-2026-2255
+PYSEC-2026-2256
+PYSEC-2026-2257
+PYSEC-2026-2874
+PYSEC-2026-3451
+PYSEC-2026-3453
+PYSEC-2026-3454
+PYSEC-2026-3493
+PYSEC-2026-3494
+PYSEC-2026-3495
+PYSEC-2026-3496
+PYSEC-2026-4326
+PYSEC-2026-4327
+PYSEC-2026-4328
+PYSEC-2026-4329
+PYSEC-2026-4330
+PYSEC-2026-4331
+PYSEC-2026-4332
+PYSEC-2026-4334
+PYSEC-2026-4335
+PYSEC-2026-4336
+PYSEC-2026-4337
+PYSEC-2026-4338
+PYSEC-2026-4339
+PYSEC-2026-4340
+PYSEC-2026-4341
+PYSEC-2026-4342
+PYSEC-2026-4343
+PYSEC-2026-4363
+GHSA-p4wg-p73j-c528
+GHSA-65qm-jvmh-6pqg
+GHSA-q45j-58j2-45rg
+GHSA-462x-pgg6-55fp
+GHSA-c6hw-5grf-ff96
+GHSA-vx6w-vv9f-6gvg
+GHSA-w889-685w-c8fh
+GHSA-j4m9-6w36-pw47
+GHSA-fc9g-5qg7-mf45
+GHSA-22hg-r758-rrw9
+GHSA-74r2-7ff9-mjj2
+GHSA-254f-3936-288h
+GHSA-jg86-v3jv-hrpm
+GHSA-f2g6-542v-9j58
+GHSA-5xm2-6676-qcp9
+GHSA-gg2r-wvfm-q9rx
+GHSA-332p-7hrc-92wf
+GHSA-24rc-8hj2-v98c
+GHSA-mrfp-p49p-3hf2
+GHSA-g7cr-3p24-7wf7
+GHSA-78g4-xqwv-q3g8
+GHSA-xcvg-w56q-r89m
+GHSA-wqgw-9xfh-qf2g
+
+# python-jose 3.5.0 (no upstream fix available)
+PYSEC-2026-4298

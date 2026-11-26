@@ -11,7 +11,7 @@ Uses cached generic OpenAI CLIP weights if present; this is not FashionCLIP:
 import time
 import math
 import logging
-from typing import Dict, Any, List, Tuple, Optional
+from typing import Dict, Any, List, Optional
 from PIL import Image
 import numpy as np
 import torch
@@ -206,8 +206,8 @@ class FashionCLIPAdapter:
 
         try:
             from transformers import CLIPModel, CLIPProcessor
-            self._processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)
-            self._model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(self.device)
+            self._processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True)  # nosec B615
+            self._model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32", local_files_only=True).to(self.device)  # nosec B615
             self._model.eval()
             self.execution_backend = "cached_generic_openai_clip"
             logger.info(f"Successfully loaded cached generic CLIP model on {self.device}; this is not FashionCLIP")

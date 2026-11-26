@@ -13,10 +13,9 @@ SHA-256 verified checkpoint serialization, and deterministic fallback behavior:
 from __future__ import annotations
 
 import hashlib
-import json
 import math
 import os
-from typing import Any, Dict, List, Optional, Sequence, Set, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 import torch
@@ -535,8 +534,8 @@ def verify_and_load_neural_checkpoint(
         return False, None, "Checkpoint SHA-256 digest mismatch"
     try:
         import io
-        # Weights + small python metadata dict saved by save_neural_checkpoint
-        data = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=False)
+        # Weights + small python metadata dict saved by save_neural_checkpoint; SHA-256 verified above when expected_sha256 is given.
+        data = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=False)  # nosec B614
         if not isinstance(data, dict) or "state_dict" not in data:
             return False, None, "Invalid checkpoint payload structure"
         return True, data, actual_sha

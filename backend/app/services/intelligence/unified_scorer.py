@@ -413,6 +413,6 @@ if __name__ == "__main__":
     
     # Get detailed breakdown
     breakdown = explain_score(perfume, context, ml_score)
-    print(f"\nScore Breakdown:")
+    print("\nScore Breakdown:")
     for component, details in breakdown["breakdown"].items():
         print(f"  {component}: {details['score']:.3f} (weight: {details['weight']}, raw: {details['raw']:.3f})")

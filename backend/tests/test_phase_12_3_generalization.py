@@ -52,6 +52,7 @@ class TestPhase123ReferenceCasesRegression:
         assert "hoodie" in resolved.subcategory
         assert resolved.uncertainty_status == "CONFIDENT"
 
+    @pytest.mark.ml_benchmark
     def test_case_b_graphic_tshirt_regression(self):
         """Case B: Grey graphic oversized T-shirt on person."""
         img = Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png")
@@ -72,6 +73,7 @@ class TestPhase123ReferenceCasesRegression:
         assert resolved.subcategory in ["tshirt", "oversized_tshirt"]
         assert resolved.uncertainty_status == "CONFIDENT"
 
+    @pytest.mark.ml_benchmark
     def test_case_c_formal_shirt_regression(self):
         """Case C: Formal Oxford button-down shirt (must NEVER invert to bottoms)."""
         img = Image.open("docs/reports/phase_11a_visual_debug/formal_shirt/A_original_photo.png")
@@ -91,6 +93,7 @@ class TestPhase123ReferenceCasesRegression:
         assert resolved.subcategory in ["formal_shirt", "oxford_shirt"]
         assert resolved.uncertainty_status == "CONFIDENT"
 
+    @pytest.mark.ml_benchmark
     def test_case_d_denim_jacket_regression(self):
         """Case D: Structured denim trucker jacket."""
         img = Image.open("docs/reports/on_body_garment_visual_qa/case_04_tailored_jacket/01_original.png")
@@ -111,6 +114,7 @@ class TestPhase123ReferenceCasesRegression:
         assert resolved.subcategory in ["denim_jacket", "jacket"]
         assert resolved.uncertainty_status == "CONFIDENT"
 
+    @pytest.mark.ml_benchmark
     def test_case_e_trousers_regression(self):
         """Case E: Tailored trousers / denim jeans (must NEVER classify as dress or footwear)."""
         img = Image.open("docs/reports/on_body_garment_visual_qa/case_05_trousers_jeans/01_original.png")
@@ -130,6 +134,7 @@ class TestPhase123ReferenceCasesRegression:
         assert resolved.subcategory in ["jeans", "trousers", "straight_jeans"]
         assert resolved.uncertainty_status == "CONFIDENT"
 
+    @pytest.mark.ml_benchmark
     def test_case_f_dress_regression(self):
         """Case F: Floral summer dress (must NEVER reduce to skirt or footwear)."""
         img = Image.open("docs/reports/on_body_garment_visual_qa/case_06_dress/01_original.png")
@@ -180,6 +185,7 @@ class TestPhase123FootwearBugRemediation:
         assert resolved.subcategory == "skirt"
         assert "footwear" not in [c.category for c in resolved.candidate_hypotheses if c.calibrated_probability > 0.10]
 
+    @pytest.mark.ml_benchmark
     def test_flat_lay_shorts_not_classified_as_footwear(self):
         """Flat-lay shorts with low aspect ratio must never be classified as footwear."""
         h, w = 500, 600
@@ -230,6 +236,7 @@ class TestPhase123FootwearBugRemediation:
         assert resolved.subcategory in ["sneakers", "boots", "sandals"]
 
 
+@pytest.mark.ml_benchmark
 class TestPhase123JumpsuitAndRomperClassification:
     """Verifies jumpsuit and romper recognition without destructive bottoms veto."""
 
@@ -448,6 +455,7 @@ class TestPhase123ComprehensiveHoldoutValidation:
 
         return img, mask, comps, lms
 
+    @pytest.mark.ml_benchmark
     def test_run_holdout_benchmark(self):
         """Evaluates 70 holdout items across 7 categories and generates benchmark metrics."""
         categories = ["tops", "outerwear", "bottoms", "dresses_and_skirts", "footwear", "traditional", "accessories"]

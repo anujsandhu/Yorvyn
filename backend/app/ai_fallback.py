@@ -31,7 +31,7 @@ _cache: dict[str, dict] = {}
 
 
 def _cache_key(text: str) -> str:
-    return hashlib.md5(re.sub(r"\s+", " ", text.lower().strip()).encode()).hexdigest()
+    return hashlib.sha256(re.sub(r"\s+", " ", text.lower().strip()).encode()).hexdigest()
 
 
 def _cache_get(text: str) -> Optional[dict[str, Any]]:

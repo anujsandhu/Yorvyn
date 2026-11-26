@@ -143,7 +143,7 @@ class OfflineRulesProvider(LLMProvider):
                         f"provide maximum natural radiance."
                     )
                 else:
-                    editorial = f"Based on your profile data, here is your personalized fashion guidance."
+                    editorial = "Based on your profile data, here is your personalized fashion guidance."
             except Exception:
                 editorial = "Here is a tailored styling recommendation curated for your exact specifications."
         else:

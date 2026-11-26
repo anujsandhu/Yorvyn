@@ -148,8 +148,9 @@ def test_journey_a_gdpr_data_export_and_purge():
 
 def test_journey_b_job_deduplication_and_provenance():
     """Verify that uploading the exact same image uses cached results with full provenance."""
+    import uuid
     img_bytes = _create_test_image_bytes(color=(40, 50, 70))
-    user_id = "usr_dedup_003"
+    user_id = f"usr_dedup_{uuid.uuid4().hex[:8]}"
 
     # 1. Submit initial generation job
     job_1 = garment_job_manager.create_job(
@@ -185,15 +186,25 @@ def test_journey_b_job_deduplication_and_provenance():
 
 
 @pytest.mark.asyncio
-async def test_journey_b_job_retry_mechanism():
-    """Verify that jobs can be retried if previously failed or timed out."""
+async def test_journey_b_job_retry_mechanism(monkeypatch):
+    """Verify that durable failed jobs with retained temp inputs can be retried, and purged ones cannot."""
+    import uuid
     img_bytes = _create_test_image_bytes()
+    # Prevent immediate worker execution so raw temp input stays available during simulated transient failure
+    monkeypatch.setattr(garment_job_manager, "_dispatch_next_tasks", lambda: None)
+
     job = garment_job_manager.create_job(
-        user_id="usr_retry_004",
+        user_id=f"usr_retry_{uuid.uuid4().hex[:8]}",
         front_image_bytes=img_bytes,
         category="hoodie"
     )
-    # Artificially mark as failed
+    # Simulate durable failure while temp source image is still intact
+    def _mark_failed(state):
+        state.transition("CLAIMED", reason="test_claim", worker_id="test_w", lease_generation=state.lease_generation)
+        state.record_failure_attempt("test_w", state.lease_generation, "transient", "Network timeout")
+        return state.transition("FAILED", reason="Network timeout", worker_id="test_w", lease_generation=state.lease_generation)
+
+    garment_job_manager._postgres_adapter.mutate_job(job.job_id, _mark_failed)
     job.status = GarmentGenJobStatus.FAILED
     job.error = "Network timeout"
 
@@ -201,6 +212,7 @@ async def test_journey_b_job_retry_mechanism():
     resp_status = str(getattr(retry_resp["status"], "value", retry_resp["status"])).lower()
     assert resp_status in ["pending", "analyzing", "queued"]
     assert retry_resp["retry_count"] == 1
+    garment_job_manager._cleanup_temp_files(job.job_id)
 
 
 # ── Journey C: Look Management & Outfit Compatibility Rules ─────────────────

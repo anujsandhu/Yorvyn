@@ -405,8 +405,8 @@ class GarmentHypothesisResolver:
             not has_kangaroo_pocket and
             not has_sleeves and
             not has_chest_flap_pockets and
-            not ("lapel" in comp_types) and
-            not ("collar" in comp_types) and
+            "lapel" not in comp_types and
+            "collar" not in comp_types and
             span_ratio <= 1.08 and
             not (user_category_hint and any(kw in user_category_hint.lower() for kw in ["dress", "coat", "jacket", "shirt", "pant", "trouser", "jean"])) and
             (
@@ -440,7 +440,7 @@ class GarmentHypothesisResolver:
             not has_chest_flap_pockets and
             not has_hood and
             not has_kangaroo_pocket and
-            not ("lapel" in comp_types) and
+            "lapel" not in comp_types and
             not (user_category_hint and any(kw in user_category_hint.lower() for kw in ["dress", "coat", "jacket", "shirt", "pant", "trouser", "jean"]))
         )
         if is_kurta_candidate:

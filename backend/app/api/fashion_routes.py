@@ -5,7 +5,7 @@ Outfit Generation, AI Stylist Chat, and Feedback Loops.
 """
 
 import json
-from fastapi import APIRouter, HTTPException, Query, Depends
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional, Any
 
@@ -742,26 +742,27 @@ def get_hairstyle_catalog():
 @router.get("/ara-assets/{asset_path:path}")
 def proxy_ara_asset(asset_path: str):
     """Proxies and serves Ara 3D Gen assets with CORS headers."""
-    import urllib.request
+    import requests
     from fastapi.responses import Response
 
     target_url = f"https://ara3dgen.com/assets/{asset_path}"
     try:
-        req = urllib.request.Request(
+        resp = requests.get(
             target_url,
-            headers={"User-Agent": "Yorvyn-Avatar-Engine/1.0"}
+            headers={"User-Agent": "Yorvyn-Avatar-Engine/1.0"},
+            timeout=15,
         )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            content = resp.read()
-            content_type = resp.headers.get("content-type", "application/octet-stream")
-            return Response(
-                content=content,
-                media_type=content_type,
-                headers={
-                    "Cache-Control": "public, max-age=86400",
-                    "Access-Control-Allow-Origin": "*"
-                }
-            )
+        resp.raise_for_status()
+        content = resp.content
+        content_type = resp.headers.get("content-type", "application/octet-stream")
+        return Response(
+            content=content,
+            media_type=content_type,
+            headers={
+                "Cache-Control": "public, max-age=86400",
+                "Access-Control-Allow-Origin": "*"
+            }
+        )
     except Exception as e:
         raise HTTPException(status_code=404, detail=f"Asset not found: {str(e)}")
 
