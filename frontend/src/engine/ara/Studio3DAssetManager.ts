@@ -48,6 +48,9 @@ export class Studio3DAssetManager {
   private maxConcurrency = 3;
   private maxCachedGLTFs = 12;
   private maxCachedTextures = 30;
+  private cacheHits = 0;
+  private cacheMisses = 0;
+  private disposalCount = 0;
 
   private constructor() {
     const loadingManager = new THREE.LoadingManager();
@@ -158,6 +161,7 @@ export class Studio3DAssetManager {
     // 1. Check in-memory cache
     const cached = this.gltfCache.get(url);
     if (cached) {
+      this.cacheHits++;
       cached.timestamp = Date.now();
       // Return cloneable replica so multiple callers don't mutate the same scene graph
       const clonedScene = cached.gltf.scene.clone(true);
@@ -173,6 +177,7 @@ export class Studio3DAssetManager {
     // 2. Check in-flight duplicate requests
     const inFlight = this.inFlightGLTFs.get(url);
     if (inFlight) {
+      this.cacheHits++;
       return {
         promise: inFlight.then(gltf => ({
           ...gltf,
@@ -181,6 +186,7 @@ export class Studio3DAssetManager {
         abort: () => {}
       };
     }
+    this.cacheMisses++;
 
     // 3. Schedule task through priority queue
     const taskId = `glb:${url}:${Date.now()}`;
@@ -352,10 +358,66 @@ export class Studio3DAssetManager {
     if (oldestKey) {
       const entry = this.gltfCache.get(oldestKey);
       if (entry) {
-        this.disposeObject3D(entry.gltf.scene);
+        this.disposeObject3D(entry.gltf.scene, true);
+        this.disposalCount++;
       }
       this.gltfCache.delete(oldestKey);
     }
+  }
+
+  public invalidateAsset(url: string): void {
+    const entry = this.gltfCache.get(url);
+    if (entry) {
+      this.disposeObject3D(entry.gltf.scene, true);
+      this.disposalCount++;
+      this.gltfCache.delete(url);
+    }
+    const tex = this.textureCache.get(url);
+    if (tex) {
+      tex.texture.dispose();
+      this.disposalCount++;
+      this.textureCache.delete(url);
+    }
+  }
+
+  public clearPrivateAssets(): number {
+    let removed = 0;
+    for (const [url, entry] of Array.from(this.gltfCache.entries())) {
+      if (url.startsWith('/api/') || url.includes('/api/fashion/garment-gen/assets/')) {
+        this.disposeObject3D(entry.gltf.scene, true);
+        this.gltfCache.delete(url);
+        this.disposalCount++;
+        removed++;
+      }
+    }
+    for (const [url, entry] of Array.from(this.textureCache.entries())) {
+      if (url.startsWith('/api/') || url.includes('/api/fashion/')) {
+        entry.texture.dispose();
+        this.textureCache.delete(url);
+        this.disposalCount++;
+        removed++;
+      }
+    }
+    return removed;
+  }
+
+  public getCacheStats(): {
+    gltfEntries: number;
+    textureEntries: number;
+    hits: number;
+    misses: number;
+    disposals: number;
+    hitRatio: number;
+  } {
+    const total = this.cacheHits + this.cacheMisses;
+    return {
+      gltfEntries: this.gltfCache.size,
+      textureEntries: this.textureCache.size,
+      hits: this.cacheHits,
+      misses: this.cacheMisses,
+      disposals: this.disposalCount,
+      hitRatio: total > 0 ? Math.round((this.cacheHits / total) * 10000) / 10000 : 0,
+    };
   }
 
   private evictTextureCacheIfNeeded(): void {

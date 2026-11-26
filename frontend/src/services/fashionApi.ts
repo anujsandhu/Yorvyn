@@ -125,8 +125,21 @@ interface CacheEntry<T> {
   ttlMs: number;
 }
 
+const MAX_RESPONSE_CACHE_ENTRIES = 200;
 const responseCache = new Map<string, CacheEntry<any>>();
 const inFlightRequests = new Map<string, Promise<any>>();
+let apiCacheHits = 0;
+let apiCacheMisses = 0;
+
+export function getApiCacheStats(): { entries: number; hits: number; misses: number; hitRatio: number } {
+  const total = apiCacheHits + apiCacheMisses;
+  return {
+    entries: responseCache.size,
+    hits: apiCacheHits,
+    misses: apiCacheMisses,
+    hitRatio: total > 0 ? Math.round((apiCacheHits / total) * 10000) / 10000 : 0,
+  };
+}
 
 export function invalidateApiCache(prefix?: string): void {
   if (!prefix) {
@@ -147,18 +160,28 @@ async function deduplicatedFetch<T>(
 ): Promise<T> {
   const cached = responseCache.get(key);
   if (cached && Date.now() - cached.timestamp <= cached.ttlMs) {
+    apiCacheHits++;
+    // Touch LRU order
+    responseCache.delete(key);
+    responseCache.set(key, cached);
     return cached.data;
   }
 
   const existingInFlight = inFlightRequests.get(key);
   if (existingInFlight) {
+    apiCacheHits++;
     return existingInFlight as Promise<T>;
   }
 
+  apiCacheMisses++;
   const promise = (async () => {
     try {
       const data = await fetcher();
       if (ttlMs > 0) {
+        if (responseCache.size >= MAX_RESPONSE_CACHE_ENTRIES) {
+          const oldestKey = responseCache.keys().next().value;
+          if (oldestKey) responseCache.delete(oldestKey);
+        }
         responseCache.set(key, { data, timestamp: Date.now(), ttlMs });
       }
       return data;

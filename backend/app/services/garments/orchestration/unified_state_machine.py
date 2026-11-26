@@ -921,6 +921,10 @@ class PostgresJobPersistenceAdapter(JobPersistenceInterface):
                         ON yorvyn_job_outbox(delivered_at) WHERE delivered_at IS NOT NULL AND acknowledged_at IS NULL;
                     CREATE INDEX IF NOT EXISTS idx_outbox_job_id
                         ON yorvyn_job_outbox(job_id);
+                    CREATE INDEX IF NOT EXISTS idx_jobs_user_state
+                        ON yorvyn_jobs(user_id, current_state, updated_at DESC);
+                    CREATE INDEX IF NOT EXISTS idx_attempts_job_id
+                        ON yorvyn_job_attempts(job_id);
                 """)
             finally:
                 await conn.close()

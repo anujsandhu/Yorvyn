@@ -4,6 +4,8 @@ import {
 import { Session, User as SupabaseUser } from '@supabase/supabase-js'
 import { supabase, isSupabaseConfigured, isSupabaseDatabaseAvailable, markSupabaseDatabaseUnavailable } from '../utils/supabase'
 import { profileService, OnboardingProfileData, DEFAULT_ONBOARDING_PROFILE } from '../services/profile/profileService'
+import { invalidateApiCache } from '../services/fashionApi'
+import { studio3DAssetManager } from '../engine/ara/Studio3DAssetManager'
 
 export interface YorvynUser {
   id: string
@@ -225,6 +227,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem('yorvyn_guest_session')
       localStorage.setItem('yorvyn_signed_out', 'true')
     }
+    invalidateApiCache()
+    studio3DAssetManager.clearPrivateAssets()
     await supabase.auth.signOut()
     setUser(null)
     setSession(null)
@@ -248,7 +252,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         localStorage.removeItem('yorvyn_local_profile')
       }
       // Sign out
-      await supabase.auth.signOut()
+      invalidateApiCache()
+    studio3DAssetManager.clearPrivateAssets()
+    await supabase.auth.signOut()
       setUser(null)
       setSession(null)
       setProfile(null)

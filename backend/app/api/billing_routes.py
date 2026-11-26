@@ -4,10 +4,13 @@ Exposes endpoints for Stripe checkout, billing portal, webhook ingestion,
 subscription inspection, and monthly usage accounting.
 """
 
+import hashlib
+import json
 from typing import Optional, Dict, Any
-from fastapi import APIRouter, Depends, HTTPException, Request, Header, status
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, Header, status
 from pydantic import BaseModel
 
+from backend.app.core.cache_service import app_cache
 from backend.app.core.settings import settings
 from backend.app.core.security import get_current_user_optional, UserContext
 from backend.app.core.billing_config import SUBSCRIPTION_PLANS
@@ -47,12 +50,21 @@ class PortalSessionRequest(BaseModel):
 
 
 @router.get("/plans")
-def list_subscription_plans():
-    """Returns catalog of public subscription tiers and feature entitlements."""
-    return {
-        "status": "success",
-        "plans": [p.model_dump() for p in SUBSCRIPTION_PLANS.values()]
-    }
+def list_subscription_plans(request: Request, response: Response):
+    """Returns catalog of public subscription tiers and feature entitlements (cached with ETag)."""
+    payload, _ = app_cache.get_or_set(
+        "billing_plans",
+        "v1",
+        lambda: {"status": "success", "plans": [p.model_dump() for p in SUBSCRIPTION_PLANS.values()]},
+        ttl_seconds=600,
+        is_public=True,
+    )
+    etag = f'"plans-{hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()[:16]}"'
+    if request.headers.get("if-none-match") == etag:
+        return Response(status_code=304, headers={"ETag": etag, "Cache-Control": "public, max-age=300, stale-while-revalidate=600"})
+    response.headers["ETag"] = etag
+    response.headers["Cache-Control"] = "public, max-age=300, stale-while-revalidate=600"
+    return payload
 
 
 @router.get("/subscription")

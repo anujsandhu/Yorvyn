@@ -593,12 +593,17 @@ async def save_to_wardrobe(
 async def get_garment_asset(
     job_id: str,
     filename: str,
+    request: Request,
     current_user: Optional[UserContext] = Depends(get_current_user_optional)
 ):
     """
     Serves the generated GLB models, diffuse textures, and rendered 3D preview thumbnails.
-    Enforces tenant isolation, ownership verification, and path traversal prevention.
+    Enforces tenant isolation, ownership verification, path traversal prevention,
+    and private ETag caching (`Cache-Control: private, max-age=3600`, `Vary: Authorization`).
     """
+    import hashlib
+    from fastapi import Response
+
     # 1. Strict path traversal & character sanitization
     safe_filename = os.path.basename(filename)
     if safe_filename != filename or ".." in filename or "/" in filename or "\\" in filename or "\0" in filename:
@@ -611,10 +616,20 @@ async def get_garment_asset(
     _assert_job_ownership(job, current_user)
 
     asset_path = os.path.join(PERMANENT_ASSET_DIR, job_id, safe_filename)
-    
+
     if not os.path.exists(asset_path):
         raise HTTPException(status_code=404, detail="Asset not found.")
-        
+
+    stat = os.stat(asset_path)
+    etag = f'"{hashlib.sha256(f"{job_id}:{safe_filename}:{stat.st_size}:{stat.st_mtime_ns}".encode()).hexdigest()[:20]}"'
+    private_headers = {
+        "ETag": etag,
+        "Cache-Control": "private, max-age=3600",
+        "Vary": "Authorization",
+    }
+    if request.headers.get("if-none-match") == etag:
+        return Response(status_code=304, headers=private_headers)
+
     media_type = "application/octet-stream"
     if safe_filename.endswith(".glb"):
         media_type = "model/gltf-binary"
@@ -622,5 +637,5 @@ async def get_garment_asset(
         media_type = "image/png"
     elif safe_filename.endswith(".jpg") or safe_filename.endswith(".jpeg"):
         media_type = "image/jpeg"
-        
-    return FileResponse(asset_path, media_type=media_type)
+
+    return FileResponse(asset_path, media_type=media_type, headers=private_headers)

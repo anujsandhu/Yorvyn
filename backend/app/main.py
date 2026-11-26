@@ -1,6 +1,7 @@
 """FastAPI Application — Yorvyn Personal AI Stylist Platform"""
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 import time
@@ -96,6 +97,7 @@ class ObservabilitySecurityAndRateLimitMiddleware(BaseHTTPMiddleware):
         return response
 
 
+app.add_middleware(GZipMiddleware, minimum_size=500)
 app.add_middleware(ObservabilitySecurityAndRateLimitMiddleware)
 app.add_middleware(
     CORSMiddleware,

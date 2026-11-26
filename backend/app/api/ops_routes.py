@@ -209,3 +209,20 @@ async def get_infrastructure_cost_breakdown():
         "measured_total_compute_cost_usd": round(total_cost, 4)
     }
 
+
+@router.get("/performance")
+def get_performance_and_cache_telemetry():
+    """Returns live L1/Redis/AI cache telemetry and process memory usage (no user PII)."""
+    from backend.app.core.cache_service import app_cache
+    from backend.app.services.ai.ai_computation_cache import ai_computation_cache
+
+    rss_raw = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    rss_mb = round(rss_raw / (1024 * 1024), 2) if rss_raw > 1_000_000 else round(rss_raw / 1024, 2)
+    return {
+        "status": "ok",
+        "cache": app_cache.get_stats(),
+        "ai_cache": ai_computation_cache.get_stats(),
+        "process_peak_rss_mb": rss_mb,
+        "timestamp": datetime.utcnow().isoformat(),
+    }
+
