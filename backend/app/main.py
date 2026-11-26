@@ -23,16 +23,24 @@ app = FastAPI(
 )
 
 
-# Configure allowed origins based on debug mode
-allowed_origins = ["*"] if settings.debug else [
-    "https://yorvyn-ai.web.app",
-    "https://yorvyn-ai.firebaseapp.com",
-    "http://localhost:5174",
-    "http://localhost:5173",
-]
+from collections import defaultdict, deque
+import threading
 
-# Custom CORS & Observability middleware wrapper
-class ObservabilityAndCORSMiddleware(BaseHTTPMiddleware):
+# Configure explicit CORS allowlist (never reflect arbitrary Origin, never combine '*' with credentials)
+allowed_origins = list(settings.cors_allowed_origins)
+
+_RATE_LIMIT_LOCK = threading.Lock()
+_RATE_LIMIT_BUCKETS: dict[str, deque[float]] = defaultdict(deque)
+_RATE_LIMIT_RULES = (
+    ("/api/fashion/garment-gen/jobs", 30, 60),
+    ("/api/garments/identify", 30, 60),
+    ("/api/garments/hybrid-orchestrated-identify", 30, 60),
+    ("/api/intelligence/", 60, 60),
+    ("/api/fashion/speech/", 30, 60),
+)
+
+
+class ObservabilitySecurityAndRateLimitMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         start_time = time.perf_counter()
         correlation_id = (
@@ -40,73 +48,62 @@ class ObservabilityAndCORSMiddleware(BaseHTTPMiddleware):
             or request.headers.get("X-Request-ID")
             or f"req_{uuid.uuid4().hex[:12]}"
         )
-        origin = request.headers.get("origin")
-        
-        # For development, allow all origins; for production, check whitelist
-        if settings.debug:
-            allowed = "*"
-            send_credentials = "false"
-        else:
-            allowed = origin if origin in allowed_origins else None
-            send_credentials = "true" if allowed else "false"
-        
-        # Handle CORS preflight requests
-        if request.method == "OPTIONS":
-            headers = {
-                "Access-Control-Allow-Origin": allowed or origin or "*",
-                "Access-Control-Allow-Credentials": send_credentials,
-                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS, PATCH",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With, X-Request-ID, X-Correlation-ID",
-                "Access-Control-Expose-Headers": "X-Request-ID, X-Correlation-ID, X-Response-Time, *",
-                "Access-Control-Max-Age": "86400",
-                "X-Request-ID": correlation_id,
-                "X-Correlation-ID": correlation_id,
-            }
-            return JSONResponse(content={"status": "ok"}, headers=headers)
-        
-        # Process actual request
+
+        # Lightweight sliding-window rate limit for upload/generation/LLM paths
+        path = request.url.path
+        for prefix, max_reqs, window_sec in _RATE_LIMIT_RULES:
+            if path.startswith(prefix) and request.method in ("POST", "PUT", "PATCH"):
+                client_ip = request.client.host if request.client else "unknown"
+                bucket_key = f"{client_ip}:{prefix}"
+                now = time.time()
+                with _RATE_LIMIT_LOCK:
+                    q = _RATE_LIMIT_BUCKETS[bucket_key]
+                    while q and now - q[0] > window_sec:
+                        q.popleft()
+                    if len(q) >= max_reqs:
+                        return JSONResponse(
+                            status_code=429,
+                            content={"error": "rate_limit_exceeded", "request_id": correlation_id},
+                            headers={"Retry-After": str(window_sec), "X-Request-ID": correlation_id},
+                        )
+                    q.append(now)
+                break
+
         try:
             response = await call_next(request)
         except Exception as e:
             elapsed_ms = (time.perf_counter() - start_time) * 1000.0
-            logger.error(f"[{correlation_id}] Request error on {request.method} {request.url.path} after {elapsed_ms:.2f}ms: {e}", exc_info=settings.debug)
-            detail_msg = str(e) if settings.debug else "An internal server error occurred. Please try again later."
-            response = JSONResponse(
-                status_code=500,
-                content={"detail": detail_msg, "type": type(e).__name__, "request_id": correlation_id, "correlation_id": correlation_id}
+            logger.error(
+                f"[{correlation_id}] Unhandled error on {request.method} {request.url.path} after {elapsed_ms:.2f}ms: {e}",
+                exc_info=True,
             )
-        
+            if settings.debug:
+                body = {"error": "internal_error", "detail": str(e), "type": type(e).__name__, "request_id": correlation_id}
+            else:
+                body = {"error": "internal_error", "request_id": correlation_id}
+            response = JSONResponse(status_code=500, content=body)
+
         elapsed_ms = (time.perf_counter() - start_time) * 1000.0
         response.headers["X-Request-ID"] = correlation_id
         response.headers["X-Correlation-ID"] = correlation_id
         response.headers["X-Response-Time"] = f"{elapsed_ms:.2f}ms"
-        
-        # Add CORS headers to response
-        if allowed:
-            response.headers["Access-Control-Allow-Origin"] = allowed
-            response.headers["Access-Control-Allow-Credentials"] = send_credentials
-            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
-        elif not settings.debug:
-            response.headers["Access-Control-Allow-Origin"] = origin or allowed_origins[0]
-            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
-        else:
-            response.headers["Access-Control-Allow-Origin"] = "*"
-            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
-        
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "camera=(self), microphone=(self), geolocation=()"
+        response.headers["X-Frame-Options"] = "DENY"
+
         logger.info(f"[{correlation_id}] {request.method} {request.url.path} -> {response.status_code} ({elapsed_ms:.2f}ms)")
         return response
 
-# Add custom observability & CORS middleware FIRST
-app.add_middleware(ObservabilityAndCORSMiddleware)
 
-# Standard CORS middleware (provides automatic OPTIONS handling via starlette)
+app.add_middleware(ObservabilitySecurityAndRateLimitMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_credentials=not settings.debug,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Requested-With", "X-Request-ID", "X-Correlation-ID", "X-Idempotency-Key", "X-Admin-Key"],
+    expose_headers=["X-Request-ID", "X-Correlation-ID", "X-Response-Time"],
     max_age=3600,
 )
 
@@ -232,37 +229,27 @@ def get_system_metrics():
 
 
 
-# Global error handler — ensure CORS headers preserved
+# Global error handler — never leak internal stack/exception details in non-debug mode
 @app.exception_handler(Exception)
 async def general_exception_handler(request: Request, exc: Exception):
-    import traceback
+    request_id = request.headers.get("X-Request-ID") or f"req_{uuid.uuid4().hex[:12]}"
     error_msg = f"{type(exc).__name__}: {str(exc)}"
-    logger.error(f"Unhandled error: {error_msg}", exc_info=exc)
-    
-    # Return error with CORS headers (middleware will also add them)
-    response = JSONResponse(
-        status_code=500, 
-        content={
+    logger.error(f"[{request_id}] Unhandled error: {error_msg}", exc_info=exc)
+
+    if settings.debug:
+        content = {
+            "error": "internal_error",
             "detail": error_msg,
             "type": type(exc).__name__,
-            "path": str(request.url),
+            "request_id": request_id,
         }
-    )
-    
-    # Explicitly set CORS headers on error response
-    origin = request.headers.get("origin", "*")
-    allowed_origins_list = ["*"] if settings.debug else [
-        "https://yorvyn-ai.web.app",
-        "https://yorvyn-ai.firebaseapp.com",
-        "http://localhost:5174",
-        "http://localhost:5173",
-    ]
-    
-    response.headers["Access-Control-Allow-Origin"] = "*" if settings.debug else origin
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Expose-Headers"] = "*"
-    
-    return response
+    else:
+        content = {
+            "error": "internal_error",
+            "request_id": request_id,
+        }
+
+    return JSONResponse(status_code=500, content=content)
 
 
 if __name__ == "__main__":

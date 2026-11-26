@@ -19,7 +19,7 @@ router = APIRouter(prefix="/api/billing", tags=["Billing & Subscriptions"])
 
 
 def _resolve_billing_user_id(client_user_id: Optional[str], current_user: Optional[UserContext]) -> str:
-    """Enforces strict authentication and ownership for billing operations."""
+    """Enforces strict authentication and ownership for billing operations (no client_user_id fallback)."""
     if isinstance(current_user, UserContext):
         if client_user_id and client_user_id not in ("default_user", "guest") and client_user_id != current_user.user_id:
             raise HTTPException(
@@ -27,10 +27,6 @@ def _resolve_billing_user_id(client_user_id: Optional[str], current_user: Option
                 detail="Forbidden: Cannot access or modify billing for another user."
             )
         return current_user.user_id
-
-    # If test mode / dev environment, allow test callers to supply user ID
-    if (settings.debug or settings.stripe_test_mode) and client_user_id and client_user_id not in ("default_user", "guest"):
-        return client_user_id
 
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,

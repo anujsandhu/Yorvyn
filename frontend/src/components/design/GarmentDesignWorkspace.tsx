@@ -7,7 +7,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import * as THREE from 'three';
-import axios from 'axios';
+import axios, { type AxiosInstance } from 'axios';
+import { supabase } from '../../utils/supabase';
 import {
   CameraPreset,
   DesignStateEngine,
@@ -31,6 +32,25 @@ import {
 } from '../../services/intelligenceApi';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
+const garmentsHttp: AxiosInstance = axios.create({
+  baseURL: API_BASE,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+garmentsHttp.interceptors.request.use(async (config) => {
+  try {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    if (session?.access_token) {
+      config.headers.Authorization = `Bearer ${session.access_token}`;
+    }
+  } catch {
+    // Allow graceful fallback if no active auth session exists yet
+  }
+  return config;
+});
 
 interface SavedRevisionSummary {
   revision_id: string;
@@ -106,8 +126,8 @@ export function GarmentDesignWorkspace({
   // Fetch authoritative Phase 16.2 construction patterns + saved revisions on open
   useEffect(() => {
     let alive = true;
-    axios
-      .post(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/sync-pattern`, {
+    garmentsHttp
+      .post(`/garments/${encodeURIComponent(garmentId)}/sync-pattern`, {
         category,
         subcategory,
         include_exports: true,
@@ -132,8 +152,8 @@ export function GarmentDesignWorkspace({
         // Offline / isolated fallback keeps client pattern model ready
       });
 
-    axios
-      .get(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/revisions`)
+    garmentsHttp
+      .get(`/garments/${encodeURIComponent(garmentId)}/revisions`)
       .then((res) => {
         if (alive && Array.isArray(res.data?.revisions)) {
           setRevisions(res.data.revisions);
@@ -161,7 +181,7 @@ export function GarmentDesignWorkspace({
   const handleSaveRevision = async () => {
     try {
       const parentVer = revisions.length ? revisions[revisions.length - 1].design_version : 0;
-      const res = await axios.post(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/revisions`, {
+      const res = await garmentsHttp.post(`/garments/${encodeURIComponent(garmentId)}/revisions`, {
         candidate_id: candidateId || garmentId,
         expected_parent_version: parentVer,
         geometry_version: designState.geometryVersion,
@@ -233,7 +253,7 @@ export function GarmentDesignWorkspace({
 
   const handleRestoreRevision = async (revId: string) => {
     try {
-      const res = await axios.get(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/revisions/${revId}`);
+      const res = await garmentsHttp.get(`/garments/${encodeURIComponent(garmentId)}/revisions/${revId}`);
       const r = res.data?.revision;
       if (!r) return;
       engine.restoreRevisionSnapshot({
@@ -268,7 +288,7 @@ export function GarmentDesignWorkspace({
         piece_id: p.piece_id,
         boundary_polygon: p.boundary_polygon,
       }));
-      const res = await axios.post(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/sync-pattern`, {
+      const res = await garmentsHttp.post(`/garments/${encodeURIComponent(garmentId)}/sync-pattern`, {
         category: designState.category,
         subcategory: designState.subcategory,
         piece_overrides: overrides,
@@ -422,7 +442,7 @@ export function GarmentDesignWorkspace({
       for (let i = 0; i < srcBuf.length; i += 8192) {
         binStr += String.fromCharCode(...srcBuf.subarray(i, i + 8192));
       }
-      const res = await axios.post(`${API_BASE}/garments/${encodeURIComponent(garmentId)}/candidate-edit-gl`, {
+      const res = await garmentsHttp.post(`/garments/${encodeURIComponent(garmentId)}/candidate-edit-gl`, {
         glb_base64: btoa(binStr),
         category: designState.category,
         torso_length_scale: designState.geometryParams.torsoLengthScale,

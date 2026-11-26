@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import logging
 import os
+import secrets
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Request, UploadFile, status
@@ -55,8 +56,13 @@ MAX_UPLOAD_BYTES = 25 * 1024 * 1024
 
 
 def _verify_admin_access(request: Request, current_user: UserContext) -> None:
-    admin_header = request.headers.get("X-Admin-Key")
-    is_admin_header = bool(admin_header and admin_header == settings.secret_key)
+    admin_header = request.headers.get("X-Admin-Key") or ""
+    configured_admin_key = settings.admin_api_key or ""
+    is_admin_header = bool(
+        configured_admin_key
+        and admin_header
+        and secrets.compare_digest(admin_header, configured_admin_key)
+    )
     is_admin_user = (
         current_user.role in ("admin", "service_role")
         or bool(current_user.email and current_user.email.endswith("@internal.yorvyn.ai"))
@@ -272,8 +278,9 @@ async def analyze_fashion(
     back_image: Optional[UploadFile] = File(None),
     current_user: UserContext = Depends(get_current_user),
 ):
-    front_b = await image.read() if image is not None else None
-    back_b = await back_image.read() if back_image is not None else None
+    from backend.app.core.upload_validation import read_and_validate_image_upload
+    front_b = await read_and_validate_image_upload(image, field_name="image") if image is not None else None
+    back_b = await read_and_validate_image_upload(back_image, field_name="back_image") if back_image is not None else None
     rep = fashion_intelligence_v17.analyze_garment(
         image_bytes=front_b,
         back_image_bytes=back_b,

@@ -108,10 +108,11 @@ class ModelTrainingService:
         completed_job = self.repo.update_training_job(
             job_id=job_id,
             status="completed",
-            evaluation_results={"candidate_model_version": new_version}
+            evaluation_results={"candidate_model_version": new_version, "simulated": True}
         )
 
         return {
+            "simulated": True,
             "job": completed_job,
             "candidate_model": candidate
         }

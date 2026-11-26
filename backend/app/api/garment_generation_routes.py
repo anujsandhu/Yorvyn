@@ -255,37 +255,23 @@ async def create_generation_job(
     effective_uid = _resolve_effective_user_id(user_id, current_user)
     effective_idem_key = idempotency_key or x_idempotency_key
 
-    # 1. Validate front image
-    front_ext = os.path.splitext(front_image.filename or "")[1].lower()
-    if front_ext not in ALLOWED_EXTENSIONS:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported image format '{front_ext}'. Please upload a PNG, JPG, or WEBP photograph."
-        )
-        
-    front_bytes = await front_image.read()
-    if len(front_bytes) > MAX_FILE_SIZE:
-        raise HTTPException(status_code=400, detail="Front image exceeds 15MB limit.")
-    if len(front_bytes) < 1024:
-        raise HTTPException(status_code=400, detail="Front image file is empty or corrupted.")
-        
-    # 2. Validate optional back image
+    from backend.app.core.upload_validation import read_and_validate_image_upload
+
+    # 1. Validate front image (streaming size, magic bytes, pixel dimensions)
+    front_bytes = await read_and_validate_image_upload(front_image, field_name="front_image", min_bytes=64)
+
+    # 2. Validate optional back, side, and detail images
     back_bytes = None
     if back_image and back_image.filename:
-        back_ext = os.path.splitext(back_image.filename)[1].lower()
-        if back_ext not in ALLOWED_EXTENSIONS:
-            raise HTTPException(status_code=400, detail=f"Unsupported back image format '{back_ext}'.")
-        back_bytes = await back_image.read()
-        if len(back_bytes) > MAX_FILE_SIZE:
-            raise HTTPException(status_code=400, detail="Back image exceeds 15MB limit.")
+        back_bytes = await read_and_validate_image_upload(back_image, field_name="back_image", min_bytes=64)
 
     side_bytes = None
     if side_image and side_image.filename:
-        side_bytes = await side_image.read()
+        side_bytes = await read_and_validate_image_upload(side_image, field_name="side_image", min_bytes=64)
 
     detail_bytes = None
     if detail_image and detail_image.filename:
-        detail_bytes = await detail_image.read()
+        detail_bytes = await read_and_validate_image_upload(detail_image, field_name="detail_image", min_bytes=64)
 
     import json
     parsed_metadata = None
@@ -327,7 +313,7 @@ async def create_generation_job(
             idempotency_key=effective_idem_key
         )
     except PermissionError as perm_exc:
-        entitlement_service.release_reconstruction_slot(effective_user_id)
+        entitlement_service.release_reconstruction_slot(effective_uid)
         raise HTTPException(
             status_code=403,
             detail={"code": "ENTITLEMENT_QUOTA_EXCEEDED", "message": str(perm_exc), "retryable": False},

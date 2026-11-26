@@ -15,7 +15,8 @@ import json
 from fastapi import APIRouter, File, UploadFile, Form, HTTPException, status, Depends
 from starlette.concurrency import run_in_threadpool
 from PIL import Image
-from backend.app.core.security import get_current_user_optional, UserContext
+from backend.app.core.security import get_current_user, get_current_user_optional, UserContext
+from backend.app.core.upload_validation import read_and_validate_image_upload
 
 from backend.app.models.structured_garment_specification import (
     StructuredGarmentSpecification,
@@ -55,20 +56,15 @@ router = APIRouter(prefix="/api/garments", tags=["garment-identification"])
 )
 async def identify_garment_endpoint(
     image: UploadFile = File(..., description="Uploaded garment photograph (JPEG/PNG/WebP)"),
-    garment_id: Optional[str] = Form(None, description="Optional custom garment identifier")
+    garment_id: Optional[str] = Form(None, description="Optional custom garment identifier"),
+    current_user: UserContext = Depends(get_current_user),
 ) -> GarmentIdentificationResponse:
     """
     Local identification endpoint. Adapter metadata identifies cached model execution
     separately from generic CLIP and hand-built heuristic stages.
     """
-    if not image.content_type.startswith("image/"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid file type {image.content_type}. Expected an image."
-        )
-
+    contents = await read_and_validate_image_upload(image, field_name="image")
     try:
-        contents = await image.read()
         pil_img = Image.open(io.BytesIO(contents)).convert("RGB")
     except Exception as e:
         logger.error(f"Failed to decode uploaded image: {e}")
@@ -170,7 +166,8 @@ async def get_model_registry_status() -> Dict[str, Any]:
     summary="Validate and adapt specification for 3D reconstruction pipeline"
 )
 async def adapt_reconstruction_handoff(
-    specification: StructuredGarmentSpecification
+    specification: StructuredGarmentSpecification,
+    current_user: UserContext = Depends(get_current_user),
 ) -> Dict[str, Any]:
     """
     Validates structured specification and returns configured parameters for
@@ -211,26 +208,14 @@ async def hybrid_orchestrated_identify_endpoint(
     image: UploadFile = File(..., description="Uploaded garment photograph (JPEG/PNG/WebP)"),
     garment_id: Optional[str] = Form(None, description="Optional custom garment identifier"),
     preferred_provider: Optional[str] = Form(None, description="Optional preferred vision provider (gemini_vision, local_cv)"),
-    mock_mode: bool = Form(False, description="Set True for controlled verification mock testing")
+    mock_mode: bool = Form(False, description="Set True for controlled verification mock testing"),
+    current_user: UserContext = Depends(get_current_user),
 ) -> CanonicalGarmentSpecification:
     """
     Unified multimodal orchestration endpoint executing capability-aware provider routing,
     fallback handling, and canonical garment specification synthesis.
     """
-    if not image.content_type.startswith("image/"):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid file type {image.content_type}. Expected an image."
-        )
-
-    try:
-        contents = await image.read()
-    except Exception as e:
-        logger.error(f"Failed to read image bytes: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Failed to read image payload: {str(e)}"
-        )
+    contents = await read_and_validate_image_upload(image, field_name="image")
 
     try:
         canonical_spec = await run_in_threadpool(ai_orchestrator.process_garment_image,
@@ -269,7 +254,8 @@ async def get_hybrid_providers_status() -> Dict[str, Any]:
     summary="Validate canonical specification and synthesize 3D Universal Construction Graph DAG"
 )
 async def hybrid_orchestrated_reconstruct_endpoint(
-    specification: CanonicalGarmentSpecification
+    specification: CanonicalGarmentSpecification,
+    current_user: UserContext = Depends(get_current_user),
 ) -> Dict[str, Any]:
     """
     Validates canonical specification against Universal Construction Graph DAG,

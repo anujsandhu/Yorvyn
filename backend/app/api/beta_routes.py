@@ -145,7 +145,17 @@ async def update_cohort_status(
 ):
     """
     Suspends, revokes, or reactivates a beta participant.
+    Requires verified admin or service_role authorization.
     """
+    is_admin = (
+        current_user.role in ("admin", "service_role")
+        or bool(current_user.email and current_user.email.endswith("@internal.yorvyn.ai"))
+    )
+    if not is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Admin privileges required to update beta cohort status."
+        )
     updated = supabase_repo.update_beta_status(req.token_or_id, req.status)
     if not updated:
         raise HTTPException(

@@ -16,7 +16,7 @@ from pydantic import BaseModel
 import requests
 
 from backend.app.core.settings import settings
-from backend.app.core.security import get_current_user_optional, UserContext
+from backend.app.core.security import get_current_user, get_current_user_optional, UserContext
 from backend.app.services.llm.service import intelligence_service
 
 logger = logging.getLogger(__name__)
@@ -55,7 +55,8 @@ def get_speech_config():
 @router.post("/transcribe")
 async def transcribe_audio(
     audio: UploadFile = File(...),
-    language: Optional[str] = Form("en")
+    language: Optional[str] = Form("en"),
+    current_user: UserContext = Depends(get_current_user),
 ):
     """
     Transcribes user spoken voice from the browser microphone.
@@ -98,29 +99,18 @@ async def transcribe_audio(
         except Exception as e:
             logger.warning(f"Groq Whisper transcription encountered an error: {e}")
 
-    # 2. Ephemeral Offline Fallback (For automated testing and zero-credential environments)
-    # Generates contextual fashion intent from test audio signals
-    simulated_queries = [
-        "What should I wear for a dinner date tonight?",
-        "Show me something casual in neutral colors.",
-        "Suggest an outfit from my wardrobe for 18°C clear weather.",
-        "Build an outfit with my wool trousers.",
-        "Recommend a stylish business meeting outfit."
-    ]
-    # Pick deterministically from audio byte length
-    idx = len(content) % len(simulated_queries)
-    simulated_text = simulated_queries[idx]
-
-    return {
-        "text": simulated_text,
-        "provider": "offline_acoustic_fallback",
-        "status": "success",
-        "note": "Processed via zero-latency acoustic fallback."
-    }
+    # 2. Fail closed with HTTP 503 instead of returning fabricated simulated transcripts
+    raise HTTPException(
+        status_code=503,
+        detail="Speech-to-text provider is unavailable or not configured. Please retry or use browser speech recognition."
+    )
 
 
 @router.post("/synthesize")
-def synthesize_speech(req: SpeechSynthesisRequest):
+def synthesize_speech(
+    req: SpeechSynthesisRequest,
+    current_user: UserContext = Depends(get_current_user),
+):
     """
     Generates voice synthesis metadata and phonetic SSML cues for the client audio engine.
     Ensures lightweight execution without heavy server-side neural TTS models on 8GB machines.

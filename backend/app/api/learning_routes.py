@@ -11,6 +11,8 @@ from __future__ import annotations
 
 import uuid
 import logging
+import secrets
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 
@@ -38,8 +40,13 @@ router = APIRouter(prefix="/api/learning", tags=["Continuous AI Learning & Perso
 
 def _verify_admin_access(request: Request, current_user: UserContext) -> None:
     """Verifies that the caller has admin or service_role authorization."""
-    admin_header = request.headers.get("X-Admin-Key")
-    is_admin_header = bool(admin_header and admin_header == settings.secret_key)
+    admin_header = request.headers.get("X-Admin-Key") or ""
+    configured_admin_key = settings.admin_api_key or ""
+    is_admin_header = bool(
+        configured_admin_key
+        and admin_header
+        and secrets.compare_digest(admin_header, configured_admin_key)
+    )
     is_admin_user = (
         current_user.role in ("admin", "service_role")
         or (current_user.email and current_user.email.endswith("@internal.yorvyn.ai"))
@@ -298,8 +305,13 @@ def execute_training_job(
     request: Request,
     current_user: UserContext = Depends(get_current_user)
 ):
-    """Executes a queued training job and registers candidate model."""
+    """Executes a simulated training job (disabled unless ENABLE_SIMULATED_TRAINING=true)."""
     _verify_admin_access(request, current_user)
+    if not settings.enable_simulated_training:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Simulated training is disabled. Set ENABLE_SIMULATED_TRAINING=true to enable."
+        )
     return model_training_service.execute_training_job(job_id=job_id)
 
 

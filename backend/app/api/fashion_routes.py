@@ -9,7 +9,7 @@ from fastapi import APIRouter, HTTPException, Query, Depends
 from pydantic import BaseModel, Field
 from typing import Dict, List, Optional, Any
 
-from backend.app.core.security import get_current_user_optional, UserContext
+from backend.app.core.security import get_current_user, get_current_user_optional, UserContext
 from backend.app.services.wardrobe_service import wardrobe_service
 from backend.app.services.context_service import context_service
 from backend.app.services.outfit_generator import outfit_generator
@@ -571,7 +571,10 @@ def reset_avatar_config(
 # --- Phase 8: AI Avatar Intelligence & Personalization Engine Endpoints ---
 
 @router.post("/avatar/chat")
-def handle_avatar_chat(req: AvatarChatRequest):
+def handle_avatar_chat(
+    req: AvatarChatRequest,
+    current_user: UserContext = Depends(get_current_user),
+):
     """
     Parses conversational styling requests, validates Avatar DNA bounds,
     and returns a structured customization proposal.
@@ -643,7 +646,10 @@ def handle_avatar_chat(req: AvatarChatRequest):
     }
 
 @router.post("/avatar/photo-analysis")
-def analyze_reference_photo(req: AvatarPhotoAnalysisRequest):
+def analyze_reference_photo(
+    req: AvatarPhotoAnalysisRequest,
+    current_user: UserContext = Depends(get_current_user),
+):
     """
     Privacy-first ephemeral reference photo processing.
     Requires explicit user consent and guarantees zero permanent retention.

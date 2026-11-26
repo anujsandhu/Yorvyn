@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from typing import List
 from pydantic import model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -60,9 +61,27 @@ class Settings(BaseSettings):
     ai_timeout_seconds: int = 15
 
     # ── Security & Auth ───────────────────────────────────────────────
-    secret_key: str = "yorvyn-super-secret-jwt-key-change-in-production-2026"
+    secret_key: str = ""
+    admin_api_key: str = ""
+    enable_simulated_training: bool = False
+    cors_allowed_origins: List[str] = [
+        "https://yorvyn-ai.web.app",
+        "https://yorvyn-ai.firebaseapp.com",
+        "http://localhost:5174",
+        "http://localhost:5173",
+    ]
     access_token_expire_minutes: int = 60 * 24 * 7  # 7 days
     algorithm: str = "HS256"
+
+    @model_validator(mode="after")
+    def validate_security_secrets(self) -> Settings:
+        env_lower = (self.environment or "").lower()
+        is_dev_or_test = self.debug or env_lower in ("development", "test", "testing")
+        if not self.secret_key:
+            if not is_dev_or_test:
+                raise ValueError("SECRET_KEY must be set when debug=False in non-development environments.")
+            self.secret_key = os.getenv("YORVYN_DEV_JWT_SECRET") or "dev-only-ephemeral-jwt-secret"
+        return self
 
     # ── Supabase Backend & Database ───────────────────────────────────
     supabase_url: str = ""
@@ -92,7 +111,7 @@ class Settings(BaseSettings):
     stripe_webhook_secret: str = ""
     stripe_pro_price_id: str = "price_yorvyn_pro_monthly"
     stripe_studio_price_id: str = "price_yorvyn_studio_monthly"
-    stripe_test_mode: bool = True
+    stripe_test_mode: bool = False
 
     # ── External Context & Services ───────────────────────────────────
     open_meteo_url: str = "https://api.open-meteo.com/v1/forecast"
