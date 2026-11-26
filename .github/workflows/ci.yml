@@ -62,7 +62,7 @@ jobs:
           GARMENT_AI_REMOTE_API_KEY: ci-test-worker-key-placeholder
           GARMENT_AI_REMOTE_SIGNING_SECRET: ci-test-worker-signing-placeholder
         run: |
-          cd backend && pytest -q
+          cd backend && pytest -q tests/
 
   frontend-test-and-build:
     name: Frontend Test & Build
