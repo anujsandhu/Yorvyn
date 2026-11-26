@@ -6,9 +6,9 @@ services:
     container_name: yorvyn-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: yorvyn_persistence
-      POSTGRES_USER: yorvyn
-      POSTGRES_PASSWORD: yorvyn_dev_password_2026
+      POSTGRES_DB: ${POSTGRES_DB:-yorvyn_persistence}
+      POSTGRES_USER: ${POSTGRES_USER:-yorvyn}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
     ports:
       - "5432:5432"
     volumes:
@@ -46,11 +46,11 @@ services:
       redis:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://yorvyn:yorvyn_dev_password_2026@postgres:5432/yorvyn_persistence
+      DATABASE_URL: postgresql://${POSTGRES_USER:-yorvyn}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}@postgres:5432/${POSTGRES_DB:-yorvyn_persistence}
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      YORVYN_SECURITY_SECRET: yorvyn_internal_cryptographic_secret_2026
-      ENVIRONMENT: development
+      YORVYN_SECURITY_SECRET: ${YORVYN_SECURITY_SECRET:?YORVYN_SECURITY_SECRET must be set in .env}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
     ports:
       - "8000:8000"
     volumes:
@@ -70,11 +70,11 @@ services:
         condition: service_healthy
     command: ["python", "backend/app/services/garments/reconstruction/neural/staging_worker.py"]
     environment:
-      GARMENT_AI_REMOTE_API_KEY: yorvyn_staging_key_v14_6
-      GARMENT_AI_REMOTE_SIGNING_SECRET: yorvyn-secret-key
+      GARMENT_AI_REMOTE_API_KEY: ${GARMENT_AI_REMOTE_API_KEY:?GARMENT_AI_REMOTE_API_KEY must be set in .env}
+      GARMENT_AI_REMOTE_SIGNING_SECRET: ${GARMENT_AI_REMOTE_SIGNING_SECRET:?GARMENT_AI_REMOTE_SIGNING_SECRET must be set in .env}
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      ENVIRONMENT: development
+      ENVIRONMENT: ${ENVIRONMENT:-development}
     ports:
       - "8088:8088"
     volumes:

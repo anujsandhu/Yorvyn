@@ -70,9 +70,9 @@ app = FastAPI(
     description="Hardened staging GPU inference worker for 3D garment synthesis with full provenance."
 )
 
-# Configuration
-SIGNING_SECRET = os.getenv("GARMENT_AI_REMOTE_SIGNING_SECRET", "yorvyn-secret-key").strip()
-EXPECTED_API_KEY = os.getenv("GARMENT_AI_REMOTE_API_KEY", "yorvyn_staging_key_v14_6").strip()
+# Configuration (must be provided via environment; never fall back to hardcoded secrets)
+SIGNING_SECRET = os.getenv("GARMENT_AI_REMOTE_SIGNING_SECRET", "").strip()
+EXPECTED_API_KEY = os.getenv("GARMENT_AI_REMOTE_API_KEY", "").strip()
 MODEL_NAME = os.getenv("GARMENT_AI_REMOTE_MODEL", "yorvyn/contour-carved-parametric-reconstruction-v14.13")
 MODEL_VERSION = "14.13.0"
 CHECKPOINT_SHA256 = "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85"
