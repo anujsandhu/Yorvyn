@@ -43,6 +43,12 @@ export interface IThreeStudioRenderer {
 /**
  * Calculates deterministic camera framing preserving full head-to-waist
  * visibility for portrait mode, or full head-to-toe for full-body view.
+ *
+ * Calibrated specifically for Yorvyn's luxury fashion atelier studio:
+ * - Full-body hero distance: 5.25m ensures the full avatar occupies ~63% of stage height,
+ *   providing generous headroom (~90px) under top pills and footroom (~65px) above the bottom dock.
+ * - Upper-body portrait distance: 4.00m ensures head, hair, and shoulders are comfortably
+ *   framed without extreme close-ups or cutting into the face.
  */
 export function calculateCameraFraming(
   mode: 'full' | 'portrait',
@@ -52,21 +58,25 @@ export function calculateCameraFraming(
 
   if (mode === 'portrait') {
     return {
-      position: [0, H * 0.67, 2.45],
-      target: [0, H * 0.65, 0],
+      position: [0, H * 0.64, 3.80],
+      target: [0, H * 0.60, 0],
       fov: 30,
-      minDistance: 0.90,
-      maxDistance: 6.00
+      minDistance: 2.60,
+      maxDistance: 6.50
     };
   }
 
-  // Full-body view: center around avatar midpoint
+  // Full-body view: photographer line-of-sight targeted at H * 0.38 (~0.68m, lower-torso)
+  // with camera at chest level H * 0.62 (~1.10m) and distance 4.65m.
+  // This delivers an authentic fashion-studio eye-to-eye angle where the head,
+  // facial features, and garments are viewed directly, framed with generous headroom
+  // under top pills and floating with clean clearance (~65px) above the bottom dock.
   return {
-    position: [0, H * 0.50, 4.45],
-    target: [0, H * 0.48, 0],
+    position: [0, H * 0.62, 4.65],
+    target: [0, H * 0.38, 0],
     fov: 30,
-    minDistance: 0.90,
-    maxDistance: 6.00
+    minDistance: 2.60,
+    maxDistance: 8.00
   };
 }
 
