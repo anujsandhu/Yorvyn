@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "Workstream A: Dataset Integrity Audit",
+    "generated_at": "2026-11-19 17:06:01 UTC",
+    "verdict": "PASS"
+  },
+  "audit_results": {
+    "total_items": 5714,
+    "split_counts": {
+      "train": 4412,
+      "val": 652,
+      "independent_holdout": 650
+    },
+    "category_counts": {
+      "dress": 1492,
+      "tops": 967,
+      "bottoms": 975,
+      "accessories": 463,
+      "skirt": 435,
+      "shirt": 264,
+      "jacket": 938,
+      "footwear": 133,
+      "hoodie": 35,
+      "traditional": 12
+    },
+    "photo_type_counts": {
+      "on_body": 3900,
+      "product": 156,
+      "lifestyle": 1581,
+      "mannequin": 25,
+      "flat_lay": 52
+    },
+    "unique_parent_identities": 3428,
+    "identity_leakage_audit": {
+      "train_val_overlap_count": 0,
+      "train_holdout_overlap_count": 0,
+      "val_holdout_overlap_count": 0,
+      "is_strictly_disjoint": true,
+      "notes": "Validation and holdout splits are strictly identity-disjoint from training partition."
+    }
+  }
+}

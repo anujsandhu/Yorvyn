@@ -1,0 +1,148 @@
+{
+  "components": [
+    {
+      "component_type": "torso_body",
+      "status": "detected",
+      "confidence": 0.96,
+      "bbox": {
+        "xmin": 0.20401854714064915,
+        "ymin": 0.20540540540540542,
+        "xmax": 0.8353941267387944,
+        "ymax": 0.9533783783783784
+      }
+    },
+    {
+      "component_type": "back_torso",
+      "status": "detected",
+      "confidence": 0.88,
+      "bbox": {
+        "xmin": 0.20401854714064915,
+        "ymin": 0.20540540540540542,
+        "xmax": 0.8353941267387944,
+        "ymax": 0.9533783783783784
+      }
+    },
+    {
+      "component_type": "left_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.0687789799072643,
+        "ymin": 0.20270270270270271,
+        "xmax": 0.20401854714064915,
+        "ymax": 0.9533783783783784
+      }
+    },
+    {
+      "component_type": "right_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.8353941267387944,
+        "ymin": 0.25067567567567567,
+        "xmax": 0.9706336939721792,
+        "ymax": 0.9533783783783784
+      }
+    },
+    {
+      "component_type": "hood",
+      "status": "detected",
+      "confidence": 0.93,
+      "bbox": {
+        "xmin": 0.3114374034003091,
+        "ymin": 0.04121621621621622,
+        "xmax": 0.7071097372488409,
+        "ymax": 0.29662162162162165
+      }
+    },
+    {
+      "component_type": "eyelets",
+      "status": "detected",
+      "confidence": 0.94,
+      "bbox": {
+        "xmin": 0.419629057187017,
+        "ymin": 0.25135135135135134,
+        "xmax": 0.5989180834621329,
+        "ymax": 0.3331081081081081
+      }
+    },
+    {
+      "component_type": "drawstrings",
+      "status": "detected",
+      "confidence": 0.95,
+      "bbox": {
+        "xmin": 0.437403400309119,
+        "ymin": 0.27837837837837837,
+        "xmax": 0.5811437403400309,
+        "ymax": 0.5702702702702702
+      }
+    },
+    {
+      "component_type": "kangaroo_pocket",
+      "status": "detected",
+      "confidence": 0.91,
+      "bbox": {
+        "xmin": 0.3114374034003091,
+        "ymin": 0.5702702702702702,
+        "xmax": 0.7071097372488409,
+        "ymax": 0.8439189189189189
+      }
+    },
+    {
+      "component_type": "ribbed_waistband",
+      "status": "detected",
+      "confidence": 0.9,
+      "bbox": {
+        "xmin": 0.20401854714064915,
+        "ymin": 0.8621621621621621,
+        "xmax": 0.8353941267387944,
+        "ymax": 0.9533783783783784
+      }
+    },
+    {
+      "component_type": "collar",
+      "status": "detected",
+      "confidence": 0.507,
+      "bbox": {
+        "xmin": 0.409120112657547,
+        "ymin": 0.37524425983428955,
+        "xmax": 0.5048564672470093,
+        "ymax": 0.542733907699585
+      }
+    },
+    {
+      "component_type": "torso",
+      "status": "detected",
+      "confidence": 0.555,
+      "bbox": {
+        "xmin": 0.35604020953178406,
+        "ymin": 0.38722383975982666,
+        "xmax": 0.6166906356811523,
+        "ymax": 0.5069466233253479
+      }
+    },
+    {
+      "component_type": "hem",
+      "status": "detected",
+      "confidence": 0.706,
+      "bbox": {
+        "xmin": 0.4943167269229889,
+        "ymin": 0.39613646268844604,
+        "xmax": 0.5443167090415955,
+        "ymax": 0.5219737887382507
+      }
+    },
+    {
+      "component_type": "cuff",
+      "status": "detected",
+      "confidence": 0.512,
+      "bbox": {
+        "xmin": 0.31516844034194946,
+        "ymin": 0.45521029829978943,
+        "xmax": 0.3651684522628784,
+        "ymax": 0.505210280418396
+      }
+    }
+  ],
+  "total_detected": 13
+}

@@ -1,0 +1,459 @@
+{
+  "version": "2.0.0",
+  "name": "Yorvyn Universal Garment Taxonomy",
+  "description": "Comprehensive hierarchical clothing taxonomy with category-specific geometric, physical, and stylistic attribute schemas for multi-model 3D garment reconstruction and avatar fitting.",
+  "categories": {
+    "tops": {
+      "display_name": "Tops & Upper Body Garments",
+      "body_anchor": "torso",
+      "target_bones": ["Spine", "Spine1", "Spine2", "Neck", "LeftShoulder", "RightShoulder", "LeftArm", "RightArm", "LeftForeArm", "RightForeArm"],
+      "default_margin_m": 0.024,
+      "subcategories": {
+        "tshirt": {
+          "display_name": "T-Shirt",
+          "default_sleeve": "short",
+          "default_neckline": "crewneck",
+          "default_fit": "regular",
+          "supported_fabrics": ["cotton", "jersey", "polyester", "linen", "modal"]
+        },
+        "polo_shirt": {
+          "display_name": "Polo Shirt",
+          "default_sleeve": "short",
+          "default_neckline": "collared_placket",
+          "default_fit": "regular",
+          "supported_fabrics": ["piqué_cotton", "jersey", "polyester"]
+        },
+        "formal_shirt": {
+          "display_name": "Formal Button-Down Shirt",
+          "default_sleeve": "full",
+          "default_neckline": "spread_collar",
+          "default_fit": "slim",
+          "closure": "front_button_placket",
+          "supported_fabrics": ["poplin", "oxford_cotton", "twill", "linen", "silk"]
+        },
+        "casual_shirt": {
+          "display_name": "Casual Button-Up Shirt",
+          "default_sleeve": "full",
+          "default_neckline": "button_down_collar",
+          "default_fit": "regular",
+          "closure": "front_button_placket",
+          "supported_fabrics": ["flannel", "chambray", "linen", "cotton_twill"]
+        },
+        "oversized_shirt": {
+          "display_name": "Oversized Shirt",
+          "default_sleeve": "dropped_shoulder_full",
+          "default_neckline": "relaxed_collar",
+          "default_fit": "oversized",
+          "closure": "front_button_placket",
+          "supported_fabrics": ["heavyweight_cotton", "linen", "tencel"]
+        },
+        "hoodie": {
+          "display_name": "Pullover Hoodie",
+          "default_sleeve": "full",
+          "default_neckline": "hooded",
+          "default_fit": "relaxed",
+          "features": ["hood", "kangaroo_pocket", "drawstrings", "ribbed_cuffs", "ribbed_hem"],
+          "supported_fabrics": ["fleece", "french_terry", "brushed_cotton"]
+        },
+        "zip_hoodie": {
+          "display_name": "Zip-Up Hoodie",
+          "default_sleeve": "full",
+          "default_neckline": "hooded",
+          "default_fit": "relaxed",
+          "closure": "full_front_zipper",
+          "features": ["hood", "split_kangaroo_pocket", "drawstrings", "ribbed_cuffs"],
+          "supported_fabrics": ["fleece", "french_terry"]
+        },
+        "sweatshirt": {
+          "display_name": "Crewneck Sweatshirt",
+          "default_sleeve": "full",
+          "default_neckline": "crewneck",
+          "default_fit": "regular",
+          "features": ["ribbed_collar", "ribbed_cuffs", "ribbed_hem", "v_inset_stitch"],
+          "supported_fabrics": ["fleece", "french_terry", "cotton_loopback"]
+        },
+        "sweater": {
+          "display_name": "Knit Sweater",
+          "default_sleeve": "full",
+          "default_neckline": "crewneck_or_vneck",
+          "default_fit": "regular",
+          "features": ["cable_knit", "rib_knit", "raglan_or_set_in_sleeves"],
+          "supported_fabrics": ["merino_wool", "cashmere", "cotton_knit", "alpaca"]
+        },
+        "turtleneck": {
+          "display_name": "Turtleneck / Roll-Neck",
+          "default_sleeve": "full",
+          "default_neckline": "roll_neck",
+          "default_fit": "slim",
+          "features": ["high_folded_collar", "contoured_neck"],
+          "supported_fabrics": ["fine_merino_wool", "ribbed_knit", "cashmere"]
+        },
+        "tank_top": {
+          "display_name": "Tank Top / Sleeveless Vest",
+          "default_sleeve": "sleeveless",
+          "default_neckline": "scoop_neck",
+          "default_fit": "athletic_slim",
+          "features": ["wide_armholes", "binding_trim"],
+          "supported_fabrics": ["ribbed_cotton", "jersey", "synthetic_blend"]
+        },
+        "crop_top": {
+          "display_name": "Crop Top",
+          "default_sleeve": "short_or_sleeveless",
+          "default_neckline": "crewneck",
+          "default_fit": "fitted",
+          "features": ["cropped_hem_above_navel"],
+          "supported_fabrics": ["stretch_jersey", "cotton_rib", "spandex_blend"]
+        }
+      }
+    },
+    "outerwear": {
+      "display_name": "Jackets, Coats & Outerwear",
+      "body_anchor": "upper_torso_envelope",
+      "target_bones": ["Spine", "Spine1", "Spine2", "Neck", "LeftShoulder", "RightShoulder", "LeftArm", "RightArm", "LeftForeArm", "RightForeArm"],
+      "default_margin_m": 0.038,
+      "subcategories": {
+        "denim_jacket": {
+          "display_name": "Denim Trucker Jacket",
+          "closure": "metal_shank_buttons",
+          "features": ["point_collar", "chest_flap_pockets", "waist_adjuster_tabs", "contrasting_topstitching"],
+          "supported_fabrics": ["selvedge_denim", "washed_denim", "raw_denim"]
+        },
+        "leather_jacket": {
+          "display_name": "Leather Moto / Biker Jacket",
+          "closure": "asymmetrical_zipper",
+          "features": ["notched_lapels_with_snaps", "zippered_cuffs", "belted_waist", "coin_pocket"],
+          "supported_fabrics": ["nappa_leather", "cowhide", "lambskin", "suede"]
+        },
+        "bomber_jacket": {
+          "display_name": "Flight / Bomber Jacket",
+          "closure": "heavy_duty_front_zipper",
+          "features": ["ribbed_baseball_collar", "ribbed_cuffs_and_hem", "sleeve_utility_pocket"],
+          "supported_fabrics": ["flight_nylon", "satin_polyester", "leather"]
+        },
+        "blazer": {
+          "display_name": "Tailored Blazer / Suit Jacket",
+          "closure": "single_or_double_breasted_buttons",
+          "features": ["notched_or_peaked_lapels", "chest_welt_pocket", "waist_flap_pockets", "structured_shoulder_pads", "back_vents"],
+          "supported_fabrics": ["worsted_wool", "hopsack", "linen_blend", "velvet"]
+        },
+        "formal_coat": {
+          "display_name": "Formal Overcoat / Chesterfield",
+          "closure": "button_front",
+          "features": ["knee_length_hem", "tailored_lapels", "back_single_vent", "interior_lining"],
+          "supported_fabrics": ["heavy_wool_melton", "cashmere_blend"]
+        },
+        "trench_coat": {
+          "display_name": "Double-Breasted Trench Coat",
+          "closure": "double_breasted_buttons_and_belt",
+          "features": ["storm_flap", "epaulettes", "waist_belt_with_d_rings", "raglan_sleeves", "cuff_straps"],
+          "supported_fabrics": ["cotton_gabardine", "water_repellent_twill"]
+        },
+        "parka": {
+          "display_name": "Parka / Winter Coat",
+          "closure": "heavy_zipper_with_snap_storm_placket",
+          "features": ["fur_lined_or_snorkel_hood", "drawstring_waist", "deep_bellows_pockets", "fishtail_hem"],
+          "supported_fabrics": ["nylon_oxford", "waxed_cotton", "down_proof_ripstop"]
+        },
+        "cardigan": {
+          "display_name": "Cardigan Outerwear",
+          "closure": "button_front",
+          "features": ["v_neck_placket", "patch_pockets", "relaxed_drape"],
+          "supported_fabrics": ["chunky_wool", "mohair", "cashmere"]
+        },
+        "puffer_jacket": {
+          "display_name": "Down / Puffer Jacket",
+          "closure": "full_front_zipper",
+          "features": ["quilted_baffles", "volumetric_down_fill", "stand_collar_or_hood", "elasticated_cuffs"],
+          "supported_fabrics": ["ripstop_nylon", "matte_polyester"]
+        },
+        "windbreaker": {
+          "display_name": "Sport Windbreaker",
+          "closure": "half_or_full_zip",
+          "features": ["lightweight_unlined", "elastic_drawcord_hem", "packable_hood"],
+          "supported_fabrics": ["technical_nylon", "crinkle_taslan", "polyester"]
+        }
+      }
+    },
+    "bottoms": {
+      "display_name": "Trousers, Jeans & Lower Body Garments",
+      "body_anchor": "lower_body",
+      "target_bones": ["Hips", "LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "LeftFoot", "RightFoot"],
+      "default_margin_m": 0.020,
+      "subcategories": {
+        "jeans": {
+          "display_name": "Classic 5-Pocket Jeans",
+          "closure": "button_fly_or_zip_fly",
+          "features": ["waistband_with_belt_loops", "coin_pocket", "curved_front_pockets", "back_patch_pockets_with_yoke", "rivets"],
+          "supported_fabrics": ["selvedge_denim", "stretch_denim", "rigid_cotton_denim"]
+        },
+        "straight_fit_jeans": {
+          "display_name": "Straight-Fit Jeans",
+          "closure": "zip_fly",
+          "features": ["consistent_leg_width_from_knee_to_hem", "standard_mid_rise"],
+          "supported_fabrics": ["denim"]
+        },
+        "slim_fit_jeans": {
+          "display_name": "Slim-Fit Jeans",
+          "closure": "zip_fly",
+          "features": ["tapered_thigh_and_calf", "snug_ankle_opening"],
+          "supported_fabrics": ["stretch_denim"]
+        },
+        "wide_leg_jeans": {
+          "display_name": "Wide-Leg / Relaxed Jeans",
+          "closure": "button_fly",
+          "features": ["extended_leg_circumference", "loose_thigh", "clean_drape"],
+          "supported_fabrics": ["heavyweight_rigid_denim"]
+        },
+        "trousers": {
+          "display_name": "Tailored Dress Trousers",
+          "closure": "hook_and_bar_with_zip_fly",
+          "features": ["pressed_front_creases", "slanted_side_pockets", "rear_jetted_pockets", "curtain_waistband"],
+          "supported_fabrics": ["wool_flannel", "gabardine", "tropical_wool"]
+        },
+        "chinos": {
+          "display_name": "Casual Chinos",
+          "closure": "button_and_zip_fly",
+          "features": ["flat_front", "welt_back_pockets", "casual_topstitching"],
+          "supported_fabrics": ["cotton_twill", "stretch_cotton"]
+        },
+        "joggers": {
+          "display_name": "Sweatpants / Joggers",
+          "closure": "elastic_waistband_with_drawstring",
+          "features": ["elasticated_or_ribbed_ankle_cuffs", "side_pockets", "gusseted_crotch"],
+          "supported_fabrics": ["fleece", "french_terry", "tech_knit"]
+        },
+        "cargo_pants": {
+          "display_name": "Cargo Utility Pants",
+          "closure": "button_and_zip_fly",
+          "features": ["bellows_thigh_cargo_pockets_with_flaps", "articulated_knees", "reinforced_seat"],
+          "supported_fabrics": ["cotton_ripstop", "heavy_twill", "cordura"]
+        },
+        "shorts": {
+          "display_name": "Casual / Tailored Shorts",
+          "closure": "zip_fly_or_drawstring",
+          "features": ["hem_above_knee_or_mid_thigh", "slanted_pockets"],
+          "supported_fabrics": ["cotton_twill", "linen", "nylon_swim_blend"]
+        },
+        "formal_pants": {
+          "display_name": "Tuxedo / Formal Dress Pants",
+          "closure": "side_adjusters_or_braces_buttons",
+          "features": ["satin_side_stripes", "unhemmed_or_cuffed_finish", "no_belt_loops"],
+          "supported_fabrics": ["barathea_wool", "super_120s_wool"]
+        }
+      }
+    },
+    "dresses_and_skirts": {
+      "display_name": "Dresses, Gowns & Skirts",
+      "body_anchor": "full_torso_and_legs",
+      "target_bones": ["Spine", "Spine1", "Spine2", "Hips", "LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg"],
+      "default_margin_m": 0.026,
+      "subcategories": {
+        "casual_dress": {
+          "display_name": "Daytime / Casual Dress",
+          "features": ["fitted_or_relaxed_bodice", "a_line_or_shift_skirt", "knee_length"],
+          "supported_fabrics": ["cotton_poplin", "jersey", "linen", "viscose"]
+        },
+        "formal_dress": {
+          "display_name": "Cocktail / Formal Dress",
+          "features": ["tailored_bodice", "defined_waistline", "concealed_back_zipper"],
+          "supported_fabrics": ["crepe", "satin", "jacquard", "lace_overlay"]
+        },
+        "gown": {
+          "display_name": "Evening Gown / Red Carpet",
+          "features": ["floor_length_sweeping_skirt", "corseted_or_structured_bodice", "train_or_slit"],
+          "supported_fabrics": ["silk_chiffon", "silk_taffeta", "velvet", "brocade"]
+        },
+        "maxi_dress": {
+          "display_name": "Maxi Dress",
+          "features": ["ankle_length_continuous_drape", "empire_or_natural_waist"],
+          "supported_fabrics": ["viscose_rayon", "silk", "lightweight_cotton"]
+        },
+        "mini_dress": {
+          "display_name": "Mini Dress",
+          "features": ["hemline_mid_thigh", "fitted_or_shift_silhouette"],
+          "supported_fabrics": ["crepe", "stretch_jersey", "leather", "sequin_mesh"]
+        },
+        "skirt": {
+          "display_name": "Skirt (A-Line, Pencil, Pleated)",
+          "closure": "side_or_back_zipper",
+          "features": ["fitted_waistband", "flared_or_pencil_silhouette"],
+          "supported_fabrics": ["wool_tweed", "cotton", "denim", "leather", "silk_pleated"]
+        },
+        "jumpsuit": {
+          "display_name": "One-Piece Jumpsuit",
+          "closure": "front_buttons_or_back_zipper",
+          "features": ["integrated_top_and_trousers", "belted_waist"],
+          "supported_fabrics": ["crepe", "cotton_twill", "linen", "silk"]
+        },
+        "romper": {
+          "display_name": "Casual Romper",
+          "closure": "front_buttons_or_zipper",
+          "features": ["integrated_top_and_shorts", "elastic_waist"],
+          "supported_fabrics": ["cotton", "linen", "jersey"]
+        }
+      }
+    },
+    "traditional": {
+      "display_name": "Traditional & Cultural Attire",
+      "body_anchor": "full_body_drape",
+      "target_bones": ["Spine", "Spine1", "Spine2", "Hips", "LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg", "LeftArm", "RightArm"],
+      "default_margin_m": 0.030,
+      "subcategories": {
+        "kurta": {
+          "display_name": "Kurta (Men / Women)",
+          "closure": "mandarin_collar_placket",
+          "features": ["side_slits_chaak", "straight_knee_length_hem", "full_sleeves", "embroidered_collar"],
+          "supported_fabrics": ["raw_silk", "cotton_khadi", "linen", "chanderi"]
+        },
+        "sherwani": {
+          "display_name": "Royal Sherwani",
+          "closure": "front_hook_and_eye_with_ornamental_buttons",
+          "features": ["stand_collar_bandhgala", "calf_length_tailored_coat", "structured_shoulder_pads", "zari_or_zardozi_embroidery"],
+          "supported_fabrics": ["banarasi_brocade", "raw_silk", "velvet"]
+        },
+        "saree": {
+          "display_name": "Draped Saree & Blouse",
+          "features": ["fitted_choli_blouse", "pleated_waist_wrap", "pallu_over_left_shoulder"],
+          "supported_fabrics": ["kanchipuram_silk", "georgette", "cotton", "chiffon"]
+        },
+        "lehenga": {
+          "display_name": "Lehenga Choli & Dupatta",
+          "features": ["cropped_blouse_choli", "voluminous_circular_skirt_ghagra", "embroidered_border_dupatta"],
+          "supported_fabrics": ["silk", "velvet", "organza", "net_with_zardozi"]
+        },
+        "salwar_suit": {
+          "display_name": "Salwar Kameez Ensemble",
+          "features": ["tunic_kameez", "pleated_trousers_salwar", "floating_dupatta"],
+          "supported_fabrics": ["cotton", "silk", "georgette"]
+        },
+        "traditional_jacket": {
+          "display_name": "Nehru / Bandi Jacket",
+          "closure": "front_button_placket",
+          "features": ["mandarin_collar", "sleeveless_vest_cut", "chest_welt_pocket"],
+          "supported_fabrics": ["raw_silk", "matka_silk", "tweed_wool"]
+        }
+      }
+    },
+    "sportswear": {
+      "display_name": "Activewear & Athletic Performance Apparel",
+      "body_anchor": "body_mapped_athletic",
+      "target_bones": ["Spine", "Spine1", "Spine2", "Hips", "LeftUpLeg", "RightUpLeg", "LeftLeg", "RightLeg"],
+      "default_margin_m": 0.012,
+      "subcategories": {
+        "tracksuit": {
+          "display_name": "Athletic Tracksuit Ensemble",
+          "closure": "zip_jacket_and_elastic_pant",
+          "features": ["side_racing_stripes", "stand_collar", "mesh_interior_lining"],
+          "supported_fabrics": ["tricot_polyester", "nylon_taslan"]
+        },
+        "sports_jersey": {
+          "display_name": "Sports / Soccer / Basketball Jersey",
+          "features": ["breathable_mesh_panels", "ribbed_v_neck_or_crew", "engineered_sublimation_prints"],
+          "supported_fabrics": ["moisture_wicking_poly_mesh", "dry_fit_microfiber"]
+        },
+        "leggings": {
+          "display_name": "Compression Tights / Yoga Leggings",
+          "features": ["high_waistband_with_internal_support", "four_way_stretch", "flatlock_anti_chafe_seams"],
+          "supported_fabrics": ["nylon_spandex", "recycled_elastane_interlock"]
+        },
+        "training_shirt": {
+          "display_name": "Technical Performance Training Tee",
+          "features": ["raglan_sleeves_for_mobility", "laser_cut_perforations", "anti_odor_finish"],
+          "supported_fabrics": ["polyester_elastane", "seamless_circular_knit"]
+        },
+        "compression_clothing": {
+          "display_name": "Graduated Compression Base Layer",
+          "features": ["second_skin_envelope", "zone_specific_elastic_tension"],
+          "supported_fabrics": ["polyamide_elastane"]
+        },
+        "sports_shorts": {
+          "display_name": "Running / Athletic Training Shorts",
+          "features": ["side_vent_notches", "built_in_compression_liner", "zippered_key_pocket"],
+          "supported_fabrics": ["stretch_woven_polyester", "ripstop_active"]
+        }
+      }
+    },
+    "footwear": {
+      "display_name": "Shoes, Boots & Footwear",
+      "body_anchor": "feet",
+      "target_bones": ["LeftFoot", "RightFoot", "LeftToeBase", "RightToeBase"],
+      "default_margin_m": 0.008,
+      "subcategories": {
+        "sneakers": {
+          "display_name": "Lifestyle / Athletic Sneakers",
+          "closure": "laces_or_slip_on",
+          "features": ["eva_or_rubber_cupsole", "molded_toe_cap", "padded_heel_collar", "tongue_with_lace_stay"],
+          "supported_fabrics": ["leather", "engineered_knit", "suede", "mesh"]
+        },
+        "running_shoes": {
+          "display_name": "Performance Running Shoes",
+          "closure": "technical_laces",
+          "features": ["rockered_thick_midsole", "breathable_mesh_upper", "high_traction_rubber_outsole"],
+          "supported_fabrics": ["jacquard_mesh", "peba_foam", "carbon_plate_composite"]
+        },
+        "boots": {
+          "display_name": "Ankle / Chelsea / Combat Boots",
+          "closure": "elastic_side_gusset_or_speed_hooks",
+          "features": ["lugged_commando_sole", "stacked_heel", "pull_tab", "welted_construction"],
+          "supported_fabrics": ["full_grain_leather", "oiled_suede", "nubuck"]
+        },
+        "formal_shoes": {
+          "display_name": "Oxford / Derby / Loafer Dress Shoes",
+          "closure": "closed_or_open_lacing_or_penny_strap",
+          "features": ["chiseled_almond_toe", "stacked_leather_heel", "goodyear_welt", "leather_sole"],
+          "supported_fabrics": ["boxcalf_leather", "cordovan", "patent_leather"]
+        },
+        "sandals": {
+          "display_name": "Strappy / Slide Sandals",
+          "closure": "buckled_leather_straps_or_slide",
+          "features": ["cork_or_foam_footbed", "open_toe", "minimalist_upper"],
+          "supported_fabrics": ["oiled_leather", "eva"]
+        },
+        "slippers": {
+          "display_name": "House Slippers / Mules",
+          "closure": "slip_on",
+          "features": ["shearling_or_felt_lining", "soft_indoor_sole"],
+          "supported_fabrics": ["shearling", "boiled_wool", "suede"]
+        }
+      }
+    },
+    "accessories": {
+      "display_name": "Hats, Belts, Bags & Wearable Accessories",
+      "body_anchor": "specialized_attachment",
+      "target_bones": ["Head", "Hips", "LeftHand", "RightHand", "Neck"],
+      "default_margin_m": 0.015,
+      "subcategories": {
+        "caps": {
+          "display_name": "Baseball / Snapback Cap",
+          "features": ["six_panel_crown", "curved_or_flat_visor", "eyelets", "rear_snap_or_strap"],
+          "supported_fabrics": ["cotton_twill", "wool_blend"]
+        },
+        "hats": {
+          "display_name": "Fedora / Bucket / Beanie Hat",
+          "features": ["circumferential_brim_or_folded_rib_cuff"],
+          "supported_fabrics": ["wool_felt", "cotton_canvas", "knit_acrylic"]
+        },
+        "scarves": {
+          "display_name": "Winter / Silk Scarf",
+          "features": ["fringed_edges_or_hand_rolled_hems", "draped_neck_wrap"],
+          "supported_fabrics": ["cashmere", "merino_wool", "silk_twill"]
+        },
+        "belts": {
+          "display_name": "Leather Dress / Casual Belt",
+          "features": ["solid_brass_or_steel_buckle", "prick_holes", "leather_keeper_loop"],
+          "supported_fabrics": ["bridle_leather", "woven_canvas", "bonded_leather"]
+        },
+        "bags": {
+          "display_name": "Tote / Crossbody / Backpack",
+          "features": ["shoulder_straps", "hardware_zippers", "interior_compartments"],
+          "supported_fabrics": ["canvas", "leather", "ballistic_nylon"]
+        },
+        "gloves": {
+          "display_name": "Leather / Knit Gloves",
+          "features": ["individual_finger_gussets", "elasticated_or_snapped_wrist"],
+          "supported_fabrics": ["lambskin_leather", "cashmere_knit"]
+        }
+      }
+    }
+  }
+}

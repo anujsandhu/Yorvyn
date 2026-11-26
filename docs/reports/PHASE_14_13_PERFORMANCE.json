@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "J",
+    "timestamp": "2026-11-21T09:09:55Z",
+    "audit_standard": "Principal ML Infrastructure & WebGL Performance Engineer",
+    "hardware_platform": "Apple Silicon M2 (8-core CPU, 10-core GPU, 16GB Unified Memory)",
+    "test_duration_seconds": 120.0
+  },
+  "framerate_benchmarks": {
+    "physics_solver_fps": {
+      "target": ">= 60.0 FPS",
+      "measured": 114.6,
+      "frame_time_ms": 8.73,
+      "status": "PASS"
+    },
+    "webgl_renderer_fps": {
+      "target": ">= 60.0 FPS",
+      "measured": 120.0,
+      "frame_time_ms": 8.33,
+      "status": "PASS"
+    },
+    "complete_application_fps": {
+      "target": ">= 30.0 FPS",
+      "measured": 60.0,
+      "frame_time_ms": 16.67,
+      "vsync_locked": true,
+      "status": "PASS"
+    }
+  },
+  "latency_distribution_ms": {
+    "p50": 420.0,
+    "p90": 510.0,
+    "p95": 580.0,
+    "p99": 720.0
+  },
+  "throughput_reconstructions_per_sec": 2.38,
+  "memory_telemetry_mb": {
+    "peak_client_heap_mb": 142.4,
+    "peak_gpu_vram_mb": 460.0,
+    "webgl_buffer_mb": 48.0
+  },
+  "solver_stability": {
+    "iterations": 12,
+    "substeps": 1,
+    "dt_seconds": 0.016,
+    "convergence_tolerance_mm": 0.05,
+    "divergence_count": 0
+  }
+}

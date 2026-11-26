@@ -1,0 +1,100 @@
+{
+  "phase": "13.2",
+  "title": "Phase 13.2 Critical Blocker Remediation Test Verification",
+  "timestamp": "2026-11-10T08:39:15Z",
+  "summary": {
+    "total_tests": 76,
+    "passed": 76,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 18.2,
+    "pass_rate_pct": 100.0,
+    "gate_verdict": "PASSED"
+  },
+  "suites": [
+    {
+      "name": "Backend Hybrid AI Orchestration & Blocker Verification",
+      "file": "backend/tests/test_hybrid_ai_orchestration.py",
+      "runner": "pytest 8.4.2",
+      "total": 20,
+      "passed": 20,
+      "failed": 0,
+      "tests": [
+        {"name": "TestModelRegistry::test_list_registered_models", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestModelRegistry::test_get_specific_model_spec", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestModelRegistry::test_verify_model_checksum_matches", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestModelRegistry::test_verify_real_server_checkpoints_on_disk", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestModelRegistry::test_path_traversal_prevention", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestModelRegistry::test_registry_health_report", "status": "PASSED", "blocker_remediated": "BLK-05"},
+        {"name": "TestMeshValidationService::test_validate_valid_manifold_mesh", "status": "PASSED", "blocker_remediated": "BLK-07"},
+        {"name": "TestMeshValidationService::test_validate_open_boundary_garment_mesh", "status": "PASSED", "blocker_remediated": "BLK-07"},
+        {"name": "TestMeshValidationService::test_validate_deliberately_non_manifold_mesh", "status": "PASSED", "blocker_remediated": "BLK-07"},
+        {"name": "TestMeshValidationService::test_anthropometric_bounding_limits", "status": "PASSED", "blocker_remediated": "BLK-07"},
+        {"name": "TestHybridWorkloadRouter::test_plan_auto_policy_routing", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "TestHybridWorkloadRouter::test_plan_local_required_strict_policy", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "TestHybridWorkloadRouter::test_plan_cloud_required_strict_policy", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "TestHybridWorkloadRouter::test_validate_and_reconcile_features_provenance", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_orchestration_health_public", "status": "PASSED", "blocker_remediated": "BLK-02"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_orchestration_unauthenticated_requests_strictly_rejected", "status": "PASSED", "blocker_remediated": "BLK-02"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_orchestration_invalid_tokens_rejected", "status": "PASSED", "blocker_remediated": "BLK-02"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_orchestration_authenticated_endpoints_succeed", "status": "PASSED", "blocker_remediated": "BLK-02"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_glb_streaming_size_limit_rejection", "status": "PASSED", "blocker_remediated": "BLK-01"},
+        {"name": "TestFastAPIOrchestrationRoutesAndSecurity::test_glb_malformed_header_rejection", "status": "PASSED", "blocker_remediated": "BLK-01"}
+      ]
+    },
+    {
+      "name": "Frontend Hybrid AI Orchestration & Client Engine Verification",
+      "file": "frontend/src/engine/orchestration/__tests__/hybridAIOrchestration.test.ts",
+      "runner": "vitest 4.1.12",
+      "total": 19,
+      "passed": 19,
+      "failed": 0,
+      "tests": [
+        {"name": "DeviceCapabilityManager: should initialize as a singleton with valid default state", "status": "PASSED"},
+        {"name": "DeviceCapabilityManager: should inspect device capabilities with non-null metrics", "status": "PASSED"},
+        {"name": "DeviceCapabilityManager: should correctly configure and retrieve user routing policies", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "DeviceCapabilityManager: should route client-mandatory workloads to CLIENT_WORKER", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "DeviceCapabilityManager: should route interactive try-on workloads to client graphics context", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "DeviceCapabilityManager: should route computationally heavy 3D reconstruction to CLOUD_GPU", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "DeviceCapabilityManager: should respect policy overrides dynamically", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "EdgeImagePreprocessor: should calculate target dimensions preserving aspect ratio within maxDimension bound", "status": "PASSED", "blocker_remediated": "BLK-06"},
+        {"name": "EdgeImagePreprocessor: should evaluate Laplacian blur variance accurately on flat vs edge-rich data", "status": "PASSED", "blocker_remediated": "BLK-06"},
+        {"name": "EdgeImagePreprocessor: should extract dominant palette colors from quantized pixel data", "status": "PASSED", "blocker_remediated": "BLK-06"},
+        {"name": "EdgeModelCacheManager: should have singleton instance", "status": "PASSED"},
+        {"name": "EdgeModelCacheManager: should reject models that exceed max storage quota ceiling", "status": "PASSED"},
+        {"name": "EdgeModelCacheManager: should safely return null when model is not found or IndexedDB unavailable", "status": "PASSED"},
+        {"name": "UnifiedAIOrchestrator: should expose orchestrator instance with workload planning capability", "status": "PASSED"},
+        {"name": "UnifiedAIOrchestrator: should provide device capabilities inspection", "status": "PASSED"},
+        {"name": "UnifiedAIOrchestrator: should classify garment and produce authoritative provenance", "status": "PASSED", "blocker_remediated": "BLK-04"},
+        {"name": "UnifiedAIOrchestrator: should strictly return POLICY_UNSATISFIED when LOCAL_REQUIRED cannot run locally", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "UnifiedAIOrchestrator: should strictly return POLICY_UNSATISFIED when CLOUD_REQUIRED cannot run on cloud", "status": "PASSED", "blocker_remediated": "BLK-03"},
+        {"name": "UnifiedAIOrchestrator: should accurately test WASM SIMD capability using true byte probe", "status": "PASSED", "blocker_remediated": "BLK-09"}
+      ]
+    },
+    {
+      "name": "Phase 12.3.2 Remediation Regression Suite",
+      "file": "backend/tests/test_phase_12_3_2_remediation.py",
+      "runner": "pytest 8.4.2",
+      "total": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    {
+      "name": "Phase 12.3 Generalization Regression Suite",
+      "file": "backend/tests/test_phase_12_3_generalization.py",
+      "runner": "pytest 8.4.2",
+      "total": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    {
+      "name": "Phase 11A Fidelity & Mesh Regression Suite",
+      "file": "backend/tests/test_phase_11a_fidelity.py",
+      "runner": "pytest 8.4.2",
+      "total": 6,
+      "passed": 6,
+      "failed": 0
+    }
+  ]
+}
+

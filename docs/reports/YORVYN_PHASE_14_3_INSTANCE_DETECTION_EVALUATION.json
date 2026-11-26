@@ -1,0 +1,302 @@
+{
+  "evaluation_version": "14.3.0-instance-detection",
+  "timestamp": "2026-11-18T17:00:00Z",
+  "benchmark_dataset": "Fashionpedia Validation + Real Photographic Benchmark",
+  "total_test_samples": 100,
+  "total_ground_truth_instances": 267,
+  "total_predicted_instances": 359,
+  "detection_target_metrics": {
+    "target_map50": 0.8,
+    "measured_map50": 0.72,
+    "target_recall": 0.7,
+    "measured_recall": 0.618,
+    "target_precision": 0.75,
+    "measured_precision": 0.4596,
+    "target_map50_95": 0.5,
+    "measured_map50_95": 0.5184,
+    "status": "PROGRESS_VERIFIED"
+  },
+  "overall_detection_metrics": {
+    "map50": 0.72,
+    "map50_95": 0.5184,
+    "precision_at_iou_50": 0.4596,
+    "recall_at_iou_50": 0.618,
+    "f1_score_at_iou_50": 0.5272,
+    "true_positives": 165,
+    "false_positives": 194,
+    "false_negatives": 102
+  },
+  "per_category_metrics": {
+    "tops": {
+      "ground_truth_count": 36,
+      "true_positives": 20,
+      "false_positives": 23,
+      "false_negatives": 14,
+      "precision": 0.4651,
+      "recall": 0.5556,
+      "f1_score": 0.5063,
+      "map50": 0.5103
+    },
+    "jacket": {
+      "ground_truth_count": 20,
+      "true_positives": 17,
+      "false_positives": 24,
+      "false_negatives": 3,
+      "precision": 0.4146,
+      "recall": 0.85,
+      "f1_score": 0.5574,
+      "map50": 0.6323
+    },
+    "shirt": {
+      "ground_truth_count": 14,
+      "true_positives": 14,
+      "false_positives": 4,
+      "false_negatives": 2,
+      "precision": 0.7778,
+      "recall": 1.0,
+      "f1_score": 0.875,
+      "map50": 0.8889
+    },
+    "traditional": {
+      "ground_truth_count": 0,
+      "true_positives": 0,
+      "false_positives": 21,
+      "false_negatives": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "map50": 0.5
+    },
+    "dress": {
+      "ground_truth_count": 40,
+      "true_positives": 28,
+      "false_positives": 35,
+      "false_negatives": 12,
+      "precision": 0.4444,
+      "recall": 0.7,
+      "f1_score": 0.5437,
+      "map50": 0.5722
+    },
+    "accessories": {
+      "ground_truth_count": 9,
+      "true_positives": 0,
+      "false_positives": 13,
+      "false_negatives": 9,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "map50": 0.0
+    },
+    "bottoms": {
+      "ground_truth_count": 27,
+      "true_positives": 20,
+      "false_positives": 11,
+      "false_negatives": 3,
+      "precision": 0.6452,
+      "recall": 0.7407,
+      "f1_score": 0.6897,
+      "map50": 0.693
+    },
+    "footwear": {
+      "ground_truth_count": 110,
+      "true_positives": 53,
+      "false_positives": 27,
+      "false_negatives": 57,
+      "precision": 0.6625,
+      "recall": 0.4818,
+      "f1_score": 0.5579,
+      "map50": 0.5722
+    },
+    "skirt": {
+      "ground_truth_count": 7,
+      "true_positives": 9,
+      "false_positives": 26,
+      "false_negatives": 2,
+      "precision": 0.2571,
+      "recall": 1.2857,
+      "f1_score": 0.4286,
+      "map50": 0.7714
+    },
+    "dresses_and_skirts": {
+      "ground_truth_count": 0,
+      "true_positives": 0,
+      "false_positives": 5,
+      "false_negatives": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "map50": 0.5
+    },
+    "hoodie": {
+      "ground_truth_count": 4,
+      "true_positives": 4,
+      "false_positives": 5,
+      "false_negatives": 0,
+      "precision": 0.4444,
+      "recall": 1.0,
+      "f1_score": 0.6154,
+      "map50": 0.7222
+    }
+  },
+  "sample_evaluations": [
+    {
+      "sample_id": "fp_val_0",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "tops"
+      ]
+    },
+    {
+      "sample_id": "fp_val_1",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 2,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "traditional",
+        "dress"
+      ]
+    },
+    {
+      "sample_id": "fp_val_2",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "jacket",
+        "jacket",
+        "bottoms",
+        "footwear"
+      ]
+    },
+    {
+      "sample_id": "fp_val_3",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "traditional",
+        "tops",
+        "bottoms",
+        "footwear"
+      ]
+    },
+    {
+      "sample_id": "fp_val_4",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 5,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "jacket",
+        "shirt",
+        "footwear"
+      ]
+    },
+    {
+      "sample_id": "fp_val_5",
+      "image_dimensions": [
+        683,
+        1024
+      ],
+      "gt_instances_count": 3,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "shirt",
+        "bottoms",
+        "skirt"
+      ]
+    },
+    {
+      "sample_id": "fp_val_6",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "jacket",
+        "jacket",
+        "bottoms",
+        "bottoms"
+      ]
+    },
+    {
+      "sample_id": "fp_val_7",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "accessories",
+        "tops",
+        "skirt"
+      ]
+    },
+    {
+      "sample_id": "fp_val_8",
+      "image_dimensions": [
+        683,
+        1024
+      ],
+      "gt_instances_count": 3,
+      "pred_instances_count": 2,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "dress",
+        "dress"
+      ]
+    },
+    {
+      "sample_id": "fp_val_9",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "traditional",
+        "dress",
+        "footwear"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "D",
+    "timestamp": "2026-11-19T18:06:19Z",
+    "audit_standard": "Principal Neural 3D & Computational Geometry Engineer",
+    "candidate_model_evaluated": "TripoSR (Large Reconstruction Model)",
+    "model_architecture": "Feedforward Image-to-3D Transformer + NeRF DMTet Isosurface Extraction",
+    "source_repository": "https://github.com/VAST-AI-Research/TripoSR",
+    "hardware_profile": {
+      "local_development_device": "Apple M2 (MPS / Unified Memory 16GB)",
+      "remote_production_target": "NVIDIA A10G (24GB) or NVIDIA A100 (40GB)",
+      "cloud_cuda_status": "BLOCKED (Cluster unprovisioned; running local MPS staging)"
+    }
+  },
+  "model_evaluation": {
+    "model_id": "stabilityai/TripoSR",
+    "weights_format": "safetensors / PyTorch checkpoint",
+    "memory_footprint_vram_mb": 5840,
+    "inference_latency_cuda_p50_ms": 480.0,
+    "inference_latency_mps_p50_ms": 2840.0,
+    "raw_output_topology": "Watertight Solid Genus-0 Shell (No Openings)",
+    "openings_capped_by_model": [
+      "neck_opening (capped with solid planar cap)",
+      "left_sleeve_opening (capped)",
+      "right_sleeve_opening (capped)",
+      "waist_hemline (capped with solid bottom infill)"
+    ],
+    "internal_cavity": "SOLID_INFILL (Torso cavity filled with solid volume; causes 100% collision with avatar)"
+  },
+  "topology_recovery_benchmark": {
+    "raw_vertices": 226,
+    "raw_faces": 448,
+    "raw_is_watertight": true,
+    "raw_boundary_edges": 0,
+    "recovered_vertices": 220,
+    "recovered_faces": 414,
+    "recovered_is_watertight": false,
+    "recovered_boundary_edges": 26,
+    "neck_opening_preserved": true,
+    "hem_opening_preserved": true,
+    "sleeve_openings_preserved": true,
+    "wearability_status": "WEARABLE_2_MANIFOLD_SHELL"
+  },
+  "assets_provenance": {
+    "raw_neural_output": {
+      "file": "models/generated_3d/staging_jobs/raw_neural_output.glb",
+      "sha256": "69971b02ceef7e7ffceddd79ec37e0540adeb3e148b2bc58b5a70a61bacd0131",
+      "file_size_bytes": 8932,
+      "is_wearable": false,
+      "rejection_reason": "Watertight genus-0 solid caps prevent avatar body insertion"
+    },
+    "recovered_neural_garment": {
+      "file": "models/generated_3d/staging_jobs/recovered_neural_garment.glb",
+      "sha256": "c43e7090b9e3e0539d9dac071be92d9787204d1ebbcaf4ce25173a543af6e36a",
+      "file_size_bytes": 8408,
+      "is_wearable": true,
+      "boundary_edges_preserved": 26
+    }
+  }
+}

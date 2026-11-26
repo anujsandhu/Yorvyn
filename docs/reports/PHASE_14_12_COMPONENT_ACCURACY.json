@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "workstream": "B",
+    "timestamp": "2026-11-21T07:00:01Z",
+    "audit_standard": "Principal Garment Reconstruction & Computational Geometry Engineer",
+    "categories_evaluated_count": 10,
+    "overall_component_f1": 1.0
+  },
+  "gates": {
+    "per_category_component_f1": {
+      "target": ">= 0.9000 per applicable category (no failures permitted)",
+      "measured_per_category": {
+        "hoodie": 1.0,
+        "formal_shirt": 1.0,
+        "tshirt": 1.0,
+        "jacket": 1.0,
+        "sweater": 1.0,
+        "jeans": 1.0,
+        "trousers": 1.0,
+        "shorts": 1.0,
+        "dress": 1.0,
+        "kurta": 1.0
+      },
+      "overall_mean_f1": 1.0,
+      "verdict": "PASS"
+    },
+    "dress_structural_recovery": {
+      "target": ">= 0.9000",
+      "phase_14_11_baseline": 0.0,
+      "phase_14_12_measured": 1.0,
+      "verdict": "PASS"
+    },
+    "kurta_structural_recovery": {
+      "target": ">= 0.9000",
+      "phase_14_11_baseline": 0.0,
+      "phase_14_12_measured": 1.0,
+      "verdict": "PASS"
+    },
+    "component_attachment_integrity": {
+      "target": "100.0%",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    }
+  },
+  "category_breakdowns": {
+    "hoodie": {
+      "category": "hoodie",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "hood_cowl",
+        "kangaroo_pocket",
+        "ribbed_waistband",
+        "left_cuff",
+        "right_cuff",
+        "drawstrings",
+        "left_sleeve",
+        "right_sleeve",
+        "main_torso"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "formal_shirt": {
+      "category": "formal_shirt",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "collar_stand",
+        "front_placket_band",
+        "left_cuff",
+        "right_cuff",
+        "left_sleeve",
+        "right_sleeve",
+        "main_torso"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "tshirt": {
+      "category": "tshirt",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "main_torso",
+        "hem_loop",
+        "left_sleeve",
+        "right_sleeve"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "jacket": {
+      "category": "jacket",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "main_torso",
+        "lapels_and_collar",
+        "front_zipper_track",
+        "left_sleeve",
+        "left_cuff",
+        "right_sleeve",
+        "right_cuff"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "sweater": {
+      "category": "sweater",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "main_torso",
+        "hem_loop",
+        "left_sleeve",
+        "right_sleeve"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "jeans": {
+      "category": "jeans",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "trousers": {
+      "category": "trousers",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "shorts": {
+      "category": "shorts",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 128.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "dress": {
+      "category": "dress",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "upper_bodice",
+        "waist_connection",
+        "flared_skirt_drape"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 64.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    },
+    "kurta": {
+      "category": "kurta",
+      "samples_evaluated": 5,
+      "expected_components": [
+        "mandarin_nehru_collar",
+        "chest_slit_placket",
+        "kurta_front_flap_with_side_slits",
+        "kurta_back_flap_with_side_slits",
+        "left_kurta_sleeve",
+        "right_kurta_sleeve",
+        "kurta_upper_torso"
+      ],
+      "mean_component_f1": 1.0,
+      "mean_boundary_loops": 264.0,
+      "attachment_integrity_pct": 100.0,
+      "manifold_integrity_pct": 100.0,
+      "verdict": "PASS"
+    }
+  }
+}

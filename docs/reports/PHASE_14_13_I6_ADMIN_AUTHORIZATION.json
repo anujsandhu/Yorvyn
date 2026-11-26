@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "status": "PASS",
+    "test_environment": "Apple Silicon M2 (local_mps_development)",
+    "exact_test_command": "scripts/benchmark_phase_14_13_workstream_i6.py::run_suite_2_admin_authorization",
+    "expected_result": "All authorization checks pass; client-controlled is_admin=True blocked; server HMAC verified",
+    "actual_result": "6/6 tests passed",
+    "evidence": "Tested forged signatures, expired tokens, client boolean bypasses, and cross-tenant access",
+    "limitations": "Server secret evaluated via local environment configuration",
+    "timestamp": "2026-11-22T09:38:28Z",
+    "execution_nature": "MEASURED"
+  },
+  "tests": [
+    {
+      "test_id": "AUTH-14-13-01",
+      "name": "Client-Supplied is_admin Flag Rejection",
+      "expected": "allowed=False, audit=REJECT_FORGED_ADMIN",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT_FORGED_ADMIN - Unverified client-supplied admin flag rejected for job 'job_auth_001'",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AUTH-14-13-02",
+      "name": "Forged HMAC Admin Signature Rejection",
+      "expected": "allowed=False",
+      "actual": "allowed=False, is_admin=False",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AUTH-14-13-03",
+      "name": "Expired Admin Token Rejection",
+      "expected": "allowed=False",
+      "actual": "allowed=False, verified=False",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AUTH-14-13-04",
+      "name": "Cryptographically Verified Server Admin Accepted",
+      "expected": "allowed=True, audit=ALLOW_VERIFIED_ADMIN",
+      "actual": "allowed=True, msg=SECURITY_AUDIT: ALLOW_VERIFIED_ADMIN - Verified admin 'admin_ops' accessed job 'job_auth_001' for 'emergency_cancel'",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AUTH-14-13-05",
+      "name": "Cross-Tenant Access Rejection",
+      "expected": "allowed=False, audit=REJECT_CROSS_TENANT",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT_CROSS_TENANT - Cross-tenant access attempted on job 'job_auth_001'",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AUTH-14-13-06",
+      "name": "Pre-Inspection Authorization Boundary (Zero Information Leak)",
+      "expected": "All unauthorized requests fail closed before data exposure",
+      "actual": "unauth_blocked=True",
+      "status": "PASS"
+    }
+  ]
+}

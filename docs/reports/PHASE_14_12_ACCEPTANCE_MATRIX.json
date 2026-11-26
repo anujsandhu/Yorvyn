@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "timestamp": "2026-11-21T07:19:56Z",
+    "audit_standard": "Principal 3D Reconstruction, Cloth Simulation & Geometry Validation Engineer",
+    "total_acceptance_gates": 12,
+    "passed_acceptance_gates": 12,
+    "failed_acceptance_gates": 0,
+    "overall_phase_verdict": "PRODUCTION_READY_PASS"
+  },
+  "gates": [
+    {
+      "gate_id": "GATE-14-12-01",
+      "domain": "Cloth Fitting & Sizing Grading",
+      "metric": "Mean Fitting Displacement Per Archetype",
+      "target": "<= 20.0 mm for every archetype (including plus_curvy)",
+      "phase_14_11_baseline": "plus_curvy: 27.22 mm (FAIL)",
+      "phase_14_12_measured": "plus_curvy: 3.27 mm (overall: {'standard_175': '3.26 mm', 'athletic_broad': '3.35 mm', 'slim_lean': '2.74 mm', 'plus_curvy': '3.27 mm'})",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-02",
+      "domain": "Volume & Shape Preservation",
+      "metric": "Garment Volume / Area Distortion",
+      "target": "<= 5.0% for every archetype",
+      "phase_14_11_baseline": "11.35% (FAIL)",
+      "phase_14_12_measured": "1.14%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-03",
+      "domain": "Collision & Drape Dynamics",
+      "metric": "Post-Simulation Body Penetration Percentage",
+      "target": "<= 0.10%",
+      "phase_14_11_baseline": "0.058%",
+      "phase_14_12_measured": "0.0084%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-04",
+      "domain": "Component Reconstruction Recovery",
+      "metric": "Dress Category Structural F1-Score",
+      "target": ">= 0.9000",
+      "phase_14_11_baseline": "0.0000 (FAIL)",
+      "phase_14_12_measured": "1.0",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-05",
+      "domain": "Component Reconstruction Recovery",
+      "metric": "Kurta (Traditional) Category Structural F1-Score",
+      "target": ">= 0.9000",
+      "phase_14_11_baseline": "0.0000 (FAIL)",
+      "phase_14_12_measured": "1.0",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-06",
+      "domain": "Component Reconstruction",
+      "metric": "Overall Component Graph Node F1 Across All Categories",
+      "target": ">= 0.9000 per category (no failures permitted)",
+      "phase_14_11_baseline": "0.4041 (FAIL)",
+      "phase_14_12_measured": "1.0",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-07",
+      "domain": "Component Hierarchy",
+      "metric": "Component Attachment Integrity",
+      "target": "100.0%",
+      "phase_14_11_baseline": "40.4%",
+      "phase_14_12_measured": "100.0%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-08",
+      "domain": "Semantic Boundary Openings",
+      "metric": "Semantic Opening Classification Accuracy",
+      "target": ">= 95.0%",
+      "phase_14_11_baseline": "Uncalibrated raw loops",
+      "phase_14_12_measured": "97.3%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-09",
+      "domain": "Mesh Topology & Manifold Integrity",
+      "metric": "2-Manifold Mesh Integrity with Boundaries",
+      "target": ">= 99.0% (0 non-manifold edges, 0 degenerate faces)",
+      "phase_14_11_baseline": "100.0%",
+      "phase_14_12_measured": "100.0%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-10",
+      "domain": "Dynamic Motion Integrity",
+      "metric": "Visible Mesh Tearing across Motion Sequences",
+      "target": "0 tearing instances",
+      "phase_14_11_baseline": "0",
+      "phase_14_12_measured": "0 tearing instances",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-11",
+      "domain": "Real-Time Browser Simulation",
+      "metric": "Sustained Simulation Framerate on Apple M2",
+      "target": ">= 60.0 FPS",
+      "phase_14_11_baseline": "58.4 FPS (FAIL)",
+      "phase_14_12_measured": "114.6 FPS",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-12-12",
+      "domain": "Textile Physics",
+      "metric": "Calibrated Fabric Presets Coverage",
+      "target": "8/8 presets with ASTM/ISO mechanical validation",
+      "phase_14_11_baseline": "8/8 presets",
+      "phase_14_12_measured": "8/8 presets validated",
+      "verdict": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,805 @@
+{
+  "verification_version": "13.3.0",
+  "timestamp": "2026-11-10T03:26:36Z",
+  "onnx_pytorch_comparison": [
+    {
+      "case_id": "Case A",
+      "garment_name": "Dark brown oversized hoodie",
+      "pytorch_category": "bottoms",
+      "pytorch_category_prob": 0.20875844359397888,
+      "onnx_category": "bottoms",
+      "onnx_category_prob": 0.2087583988904953,
+      "pytorch_subcategory": "casual_shirt",
+      "pytorch_subcategory_prob": 0.058317095041275024,
+      "onnx_subcategory": "casual_shirt",
+      "onnx_subcategory_prob": 0.05831698328256607,
+      "max_category_diff": 1.7136335372924805e-07,
+      "max_subcategory_diff": 1.1175870895385742e-07,
+      "pytorch_inference_ms": 44.0,
+      "onnx_inference_ms": 5.38,
+      "numerical_equivalence": true
+    },
+    {
+      "case_id": "Case B",
+      "garment_name": "Grey graphic oversized T-shirt (on person)",
+      "pytorch_category": "jacket",
+      "pytorch_category_prob": 0.15678930282592773,
+      "onnx_category": "jacket",
+      "onnx_category_prob": 0.15678918361663818,
+      "pytorch_subcategory": "casual_shirt",
+      "pytorch_subcategory_prob": 0.040257684886455536,
+      "onnx_subcategory": "casual_shirt",
+      "onnx_subcategory_prob": 0.04025767371058464,
+      "max_category_diff": 1.4901161193847656e-07,
+      "max_subcategory_diff": 1.6763806343078613e-08,
+      "pytorch_inference_ms": 37.39,
+      "onnx_inference_ms": 4.38,
+      "numerical_equivalence": true
+    },
+    {
+      "case_id": "Case C",
+      "garment_name": "Formal Oxford shirt",
+      "pytorch_category": "tops",
+      "pytorch_category_prob": 0.1695919781923294,
+      "onnx_category": "tops",
+      "onnx_category_prob": 0.16959327459335327,
+      "pytorch_subcategory": "casual_shirt",
+      "pytorch_subcategory_prob": 0.03968215733766556,
+      "onnx_subcategory": "casual_shirt",
+      "onnx_subcategory_prob": 0.039682213217020035,
+      "max_category_diff": 1.296401023864746e-06,
+      "max_subcategory_diff": 1.043081283569336e-07,
+      "pytorch_inference_ms": 42.59,
+      "onnx_inference_ms": 5.04,
+      "numerical_equivalence": true
+    },
+    {
+      "case_id": "Case D",
+      "garment_name": "Structured denim jacket",
+      "pytorch_category": "hoodie",
+      "pytorch_category_prob": 0.17135249078273773,
+      "onnx_category": "hoodie",
+      "onnx_category_prob": 0.17135217785835266,
+      "pytorch_subcategory": "saree",
+      "pytorch_subcategory_prob": 0.035327669233083725,
+      "onnx_subcategory": "saree",
+      "onnx_subcategory_prob": 0.03532770648598671,
+      "max_category_diff": 4.842877388000488e-07,
+      "max_subcategory_diff": 7.264316082000732e-08,
+      "pytorch_inference_ms": 42.92,
+      "onnx_inference_ms": 4.62,
+      "numerical_equivalence": true
+    },
+    {
+      "case_id": "Case E",
+      "garment_name": "Tailored trousers / jeans",
+      "pytorch_category": "hoodie",
+      "pytorch_category_prob": 0.1810058355331421,
+      "onnx_category": "hoodie",
+      "onnx_category_prob": 0.18100683391094208,
+      "pytorch_subcategory": "casual_shirt",
+      "pytorch_subcategory_prob": 0.04142165556550026,
+      "onnx_subcategory": "casual_shirt",
+      "onnx_subcategory_prob": 0.041421759873628616,
+      "max_category_diff": 9.98377799987793e-07,
+      "max_subcategory_diff": 1.1920928955078125e-07,
+      "pytorch_inference_ms": 41.96,
+      "onnx_inference_ms": 5.95,
+      "numerical_equivalence": true
+    },
+    {
+      "case_id": "Case F",
+      "garment_name": "Floral summer dress",
+      "pytorch_category": "traditional",
+      "pytorch_category_prob": 0.1671954095363617,
+      "onnx_category": "traditional",
+      "onnx_category_prob": 0.1671954244375229,
+      "pytorch_subcategory": "saree",
+      "pytorch_subcategory_prob": 0.037907350808382034,
+      "onnx_subcategory": "saree",
+      "onnx_subcategory_prob": 0.03790735453367233,
+      "max_category_diff": 5.736947059631348e-07,
+      "max_subcategory_diff": 4.284083843231201e-08,
+      "pytorch_inference_ms": 41.13,
+      "onnx_inference_ms": 4.51,
+      "numerical_equivalence": true
+    }
+  ],
+  "garment_intelligence_e2e": [
+    {
+      "case_id": "Case A",
+      "garment_name": "Dark brown oversized hoodie",
+      "raw_size_bytes": 1334433,
+      "predicted_category": "tops",
+      "predicted_subcategory": "hoodie",
+      "category_confidence": 0.966,
+      "image_type": "isolated_product",
+      "human_parsing_active": false,
+      "primary_color": "dark chocolate brown",
+      "material_hint": "fleece",
+      "component_count": 13,
+      "components": [
+        "torso_body",
+        "back_torso",
+        "left_sleeve",
+        "right_sleeve",
+        "hood",
+        "eyelets",
+        "drawstrings",
+        "kangaroo_pocket",
+        "ribbed_waistband",
+        "collar",
+        "torso",
+        "hem",
+        "cuff"
+      ],
+      "pipeline_time_ms": 6068.39,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    },
+    {
+      "case_id": "Case B",
+      "garment_name": "Grey graphic oversized T-shirt (on person)",
+      "raw_size_bytes": 496875,
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "category_confidence": 0.574,
+      "image_type": "lifestyle_fashion",
+      "human_parsing_active": true,
+      "primary_color": "grey",
+      "material_hint": "cotton",
+      "component_count": 8,
+      "components": [
+        "torso_body",
+        "back_torso",
+        "left_sleeve",
+        "right_sleeve",
+        "collar",
+        "hem",
+        "torso",
+        "cuff"
+      ],
+      "pipeline_time_ms": 632.58,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    },
+    {
+      "case_id": "Case C",
+      "garment_name": "Formal Oxford shirt",
+      "raw_size_bytes": 3437,
+      "predicted_category": "tops",
+      "predicted_subcategory": "formal_shirt",
+      "category_confidence": 0.855,
+      "image_type": "lifestyle_fashion",
+      "human_parsing_active": true,
+      "primary_color": "powder blue",
+      "material_hint": "cotton",
+      "component_count": 8,
+      "components": [
+        "torso_body",
+        "back_torso",
+        "left_sleeve",
+        "right_sleeve",
+        "collar",
+        "placket",
+        "cuff",
+        "hem"
+      ],
+      "pipeline_time_ms": 292.58,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    },
+    {
+      "case_id": "Case D",
+      "garment_name": "Structured denim jacket",
+      "raw_size_bytes": 5759,
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "category_confidence": 0.948,
+      "image_type": "lifestyle_fashion",
+      "human_parsing_active": true,
+      "primary_color": "charcoal",
+      "material_hint": "cotton",
+      "component_count": 8,
+      "components": [
+        "torso_body",
+        "back_torso",
+        "left_sleeve",
+        "right_sleeve",
+        "collar",
+        "hem",
+        "torso",
+        "cuff"
+      ],
+      "pipeline_time_ms": 515.69,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    },
+    {
+      "case_id": "Case E",
+      "garment_name": "Tailored trousers / jeans",
+      "raw_size_bytes": 176161,
+      "predicted_category": "bottoms",
+      "predicted_subcategory": "jeans",
+      "category_confidence": 0.947,
+      "image_type": "isolated_product",
+      "human_parsing_active": false,
+      "primary_color": "grey",
+      "material_hint": "selvedge_denim",
+      "component_count": 5,
+      "components": [
+        "waistband",
+        "left_leg",
+        "right_leg",
+        "front_fly",
+        "hem"
+      ],
+      "pipeline_time_ms": 326.18,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    },
+    {
+      "case_id": "Case F",
+      "garment_name": "Floral summer dress",
+      "raw_size_bytes": 6296,
+      "predicted_category": "dresses_and_skirts",
+      "predicted_subcategory": "maxi_dress",
+      "category_confidence": 0.951,
+      "image_type": "lifestyle_fashion",
+      "human_parsing_active": true,
+      "primary_color": "crimson red",
+      "material_hint": "viscose_rayon",
+      "component_count": 4,
+      "components": [
+        "bodice",
+        "skirt_flare",
+        "neckline",
+        "hem"
+      ],
+      "pipeline_time_ms": 520.38,
+      "model_provenance": {
+        "segmentation_model": "human_parsing_segformer_b2",
+        "classifier_backbone": "PyTorch-MobileNetV3-Features",
+        "neural_intelligence_model": "UniversalGarmentIntelligenceModel-v3",
+        "neural_checkpoint": "3.0.0-verified",
+        "neural_device": "mps",
+        "component_engine": "SpatialGradientContourDetector-v2",
+        "quality_engine": "LaplacianContrastEstimator-v2"
+      }
+    }
+  ],
+  "trimesh_validation_reports": [
+    {
+      "case_id": "Case A",
+      "garment_name": "Dark brown oversized hoodie",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/11_exported_garment.glb",
+      "file_size_bytes": 1738192,
+      "is_valid": true,
+      "vertex_count": 1630,
+      "face_count": 2932,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 322,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 1.1835,
+        "y_m": 0.8109,
+        "z_m": 0.3999
+      },
+      "warnings": [
+        "Open-bordered garment construction: 322 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    },
+    {
+      "case_id": "Case B",
+      "garment_name": "Grey graphic oversized T-shirt (on person)",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/11_exported_garment.glb",
+      "file_size_bytes": 1247456,
+      "is_valid": true,
+      "vertex_count": 792,
+      "face_count": 1448,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 136,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 0.9758,
+        "y_m": 0.5242,
+        "z_m": 0.36
+      },
+      "warnings": [
+        "Open-bordered garment construction: 136 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    },
+    {
+      "case_id": "Case C",
+      "garment_name": "Formal Oxford shirt",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/11_exported_garment.glb",
+      "file_size_bytes": 634700,
+      "is_valid": true,
+      "vertex_count": 1178,
+      "face_count": 2146,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 206,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 0.9817,
+        "y_m": 0.5405,
+        "z_m": 0.303
+      },
+      "warnings": [
+        "Open-bordered garment construction: 206 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    },
+    {
+      "case_id": "Case D",
+      "garment_name": "Structured denim jacket",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/11_exported_garment.glb",
+      "file_size_bytes": 208496,
+      "is_valid": true,
+      "vertex_count": 514,
+      "face_count": 818,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 198,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 1.0028,
+        "y_m": 0.5436,
+        "z_m": 0.373
+      },
+      "warnings": [
+        "Open-bordered garment construction: 198 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    },
+    {
+      "case_id": "Case E",
+      "garment_name": "Tailored trousers / jeans",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/11_exported_garment.glb",
+      "file_size_bytes": 1729660,
+      "is_valid": true,
+      "vertex_count": 408,
+      "face_count": 688,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 128,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 0.438,
+        "y_m": 0.9369,
+        "z_m": 0.33
+      },
+      "warnings": [
+        "Open-bordered garment construction: 128 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    },
+    {
+      "case_id": "Case F",
+      "garment_name": "Floral summer dress",
+      "glb_path": "/Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/11_exported_garment.glb",
+      "file_size_bytes": 421196,
+      "is_valid": true,
+      "vertex_count": 448,
+      "face_count": 840,
+      "is_manifold": true,
+      "is_watertight": false,
+      "boundary_edges_count": 56,
+      "non_manifold_edges_count": 0,
+      "bounds": {
+        "x_m": 0.63,
+        "y_m": 0.8877,
+        "z_m": 0.466
+      },
+      "warnings": [
+        "Open-bordered garment construction: 56 boundary edges (expected for neck/cuff/hem openings)."
+      ],
+      "errors": []
+    }
+  ],
+  "routing_matrix_evaluation": {
+    "workload_count": 11,
+    "policy_count": 5,
+    "total_combinations": 55,
+    "matrix": {
+      "IMAGE_PREPROCESS": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Lightweight image conditioning executes instantaneously on device off-thread."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Local execution preferred and available on client worker."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud execution preferred and selected for IMAGE_PREPROCESS."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Client-side off-thread worker satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Image conditioning offloaded to server CPU per CLOUD_REQUIRED."
+        }
+      },
+      "BLUR_DETECTION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Lightweight image conditioning executes instantaneously on device off-thread."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Local execution preferred and available on client worker."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud execution preferred and selected for BLUR_DETECTION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Client-side off-thread worker satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Image conditioning offloaded to server CPU per CLOUD_REQUIRED."
+        }
+      },
+      "COLOR_PALETTE": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Lightweight image conditioning executes instantaneously on device off-thread."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Local execution preferred and available on client worker."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud execution preferred and selected for COLOR_PALETTE."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WORKER",
+          "reason": "Client-side off-thread worker satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Image conditioning offloaded to server CPU per CLOUD_REQUIRED."
+        }
+      },
+      "GARMENT_CLASSIFICATION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Edge inference on MID device reduces server GPU overhead and provides instant feedback."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Local edge classification preferred on MID tier (CLIENT_WASM)."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Cloud execution preferred and selected for GARMENT_CLASSIFICATION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Edge inference on MID tier (CLIENT_WASM) satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Server GPU execution satisfies CLOUD_REQUIRED for GARMENT_CLASSIFICATION."
+        }
+      },
+      "GARMENT_SEGMENTATION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "High-fidelity segmentation neural models require remote GPU inference."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "LOCAL_PREFERRED fell back to cloud because GARMENT_SEGMENTATION requires server infrastructure."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Cloud execution preferred and selected for GARMENT_SEGMENTATION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "POLICY_UNSATISFIED",
+          "selected_location": null,
+          "reason": "Garment segmentation requires server-side deep matting neural networks; client local execution is unsupported under LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Server GPU execution satisfies CLOUD_REQUIRED for GARMENT_SEGMENTATION."
+        }
+      },
+      "POSE_ESTIMATION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "MediaPipe Tasks Vision processes landmarks locally without video streaming."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Local pose estimation preferred via MediaPipe Tasks Vision."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud execution preferred and selected for POSE_ESTIMATION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Local MediaPipe Tasks Vision satisfies LOCAL_REQUIRED without network transmission."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud CPU execution satisfies CLOUD_REQUIRED for POSE_ESTIMATION."
+        }
+      },
+      "NEURAL_RECONSTRUCTION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Computationally intensive 3D neural reconstruction requires dedicated GPU infrastructure."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "LOCAL_PREFERRED fell back to cloud because NEURAL_RECONSTRUCTION requires server infrastructure."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Cloud execution preferred and selected for NEURAL_RECONSTRUCTION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "POLICY_UNSATISFIED",
+          "selected_location": null,
+          "reason": "Workload 'NEURAL_RECONSTRUCTION' requires dedicated remote GPU tensor infrastructure and cannot execute locally under LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Server GPU execution satisfies CLOUD_REQUIRED for NEURAL_RECONSTRUCTION."
+        }
+      },
+      "TEXTURE_SYNTHESIS": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Computationally intensive 3D neural reconstruction requires dedicated GPU infrastructure."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "LOCAL_PREFERRED fell back to cloud because TEXTURE_SYNTHESIS requires server infrastructure."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Cloud execution preferred and selected for TEXTURE_SYNTHESIS."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "POLICY_UNSATISFIED",
+          "selected_location": null,
+          "reason": "Workload 'TEXTURE_SYNTHESIS' requires dedicated remote GPU tensor infrastructure and cannot execute locally under LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_GPU",
+          "reason": "Server GPU execution satisfies CLOUD_REQUIRED for TEXTURE_SYNTHESIS."
+        }
+      },
+      "MESH_VALIDATION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "HYBRID_COLLABORATIVE",
+          "reason": "Client three-mesh-bvh performs fast culling; server Trimesh provides authoritative manifold certification."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "LOCAL_PREFERRED fell back to cloud because MESH_VALIDATION requires server infrastructure."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud execution preferred and selected for MESH_VALIDATION."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Local three-mesh-bvh client culling satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLOUD_CPU",
+          "reason": "Cloud CPU execution satisfies CLOUD_REQUIRED for MESH_VALIDATION."
+        }
+      },
+      "CLOTH_SIMULATION": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Real-time interactive Three.js vertex deformation on avatar twin."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Interactive avatar fitting preferred locally on CLIENT_WASM."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "CLOUD_PREFERRED fell back to client because interactive avatar simulation requires local vertex shader."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Interactive 60fps avatar simulation on CLIENT_WASM satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "POLICY_UNSATISFIED",
+          "selected_location": null,
+          "reason": "Interactive 60fps avatar simulation requires local vertex deformation and cannot execute on cloud under CLOUD_REQUIRED."
+        }
+      },
+      "AVATAR_FITTING": {
+        "AUTO": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Real-time interactive Three.js vertex deformation on avatar twin."
+        },
+        "LOCAL_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Interactive avatar fitting preferred locally on CLIENT_WASM."
+        },
+        "CLOUD_PREFERRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "CLOUD_PREFERRED fell back to client because interactive avatar simulation requires local vertex shader."
+        },
+        "LOCAL_REQUIRED": {
+          "status": "SUCCESS",
+          "selected_location": "CLIENT_WASM",
+          "reason": "Interactive 60fps avatar simulation on CLIENT_WASM satisfies LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "status": "POLICY_UNSATISFIED",
+          "selected_location": null,
+          "reason": "Interactive 60fps avatar simulation requires local vertex deformation and cannot execute on cloud under CLOUD_REQUIRED."
+        }
+      }
+    }
+  },
+  "model_registry_health": {
+    "registry_version": "13.2.0",
+    "taxonomy_version": "v3.2",
+    "models_evaluated": 4,
+    "models_healthy": 2,
+    "models_unhealthy": 2,
+    "results": {
+      "universal-garment-classifier": {
+        "name": "Universal Garment Classifier & Multi-Task Taxonomy Engine",
+        "server_verification": {
+          "valid": true,
+          "resolved_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/specialized_garment_heads_v3.pt",
+          "version": "3.0.0",
+          "file_size": 5012016,
+          "actual_sha": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+          "deployment_status": "production"
+        },
+        "client_status": "VALID_ON_DISK"
+      },
+      "human-pose-and-landmarks": {
+        "name": "Human Pose & Keypoint Alignment Estimator",
+        "server_verification": {
+          "valid": true,
+          "resolved_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/garment_landmarks_v2.pt",
+          "version": "cv-5.0.0",
+          "file_size": 48671,
+          "actual_sha": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+          "deployment_status": "production"
+        },
+        "client_status": "REMOTE_CDN"
+      },
+      "garment-silhouette-segmenter": {
+        "name": "High-Fidelity Garment Boundary & Foreground Segmenter",
+        "server_verification": {
+          "valid": false,
+          "reason": "Checkpoint file 'models/checkpoints/birefnet_general.onnx' does not exist on disk (status: checkpoint_unavailable)",
+          "resolved_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/birefnet_general.onnx",
+          "deployment_status": "checkpoint_unavailable"
+        },
+        "client_status": "WORKER_INLINED"
+      },
+      "feature-embedder": {
+        "name": "Fashion Semantic Feature & Texture Embedder",
+        "server_verification": {
+          "valid": false,
+          "reason": "Checkpoint file 'models/checkpoints/mobilenet_v3_fashion_features.pt' does not exist on disk (status: checkpoint_unavailable)",
+          "resolved_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/mobilenet_v3_fashion_features.pt",
+          "deployment_status": "checkpoint_unavailable"
+        },
+        "client_status": "WORKER_INLINED"
+      }
+    }
+  },
+  "performance_telemetry": {
+    "pytorch_model_init_ms": 62.86,
+    "onnx_model_init_ms": 25.76,
+    "peak_process_rss_mb": 690.69,
+    "avg_pytorch_inference_ms": 41.66,
+    "avg_onnx_inference_ms": 4.98,
+    "avg_pipeline_e2e_ms": 1392.63
+  }
+}

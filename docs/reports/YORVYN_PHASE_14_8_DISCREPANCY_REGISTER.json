@@ -1,0 +1,50 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_8_DISCREPANCY_REGISTER",
+  "phase": "14.8",
+  "timestamp": "2026-11-19T16:15:00Z",
+  "auditor": "Principal Neural 3D Engineer & ML Research Engineer",
+  "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "total_tracked_discrepancies": 4,
+  "discrepancies": [
+    {
+      "discrepancy_id": "DISC-14.8-01",
+      "severity": "MODERATE",
+      "subsystem": "Financial Cost Modeling",
+      "title": "Mathematical Break-Even Volume Discrepancy",
+      "phase_14_7_claim": "The reported break-even monthly volume was 34,722,499 assets/month ($13.9M users).",
+      "forensic_reality": "The stated assumptions were fixed standing dedicated cluster cost of $1,509.76/month and effective serverless unit cost of $0.00033/asset. Dividing $1,509.76 by $0.00033 yields exactly 4,575,030 assets/month (~1.83M active users), not 34.7M.",
+      "root_cause": "A script calculation in generate_phase_14_7_cost_analysis.py mistakenly divided by an extra scaling denominator.",
+      "remediation_in_phase_14_8": "Correct the break-even calculation formula to strictly $1,509.76 / $0.00033 = 4,575,030 assets/month (~1,830,012 monthly active users) in YORVYN_PHASE_14_8_PERFORMANCE_COST_ANALYSIS.json."
+    },
+    {
+      "discrepancy_id": "DISC-14.8-02",
+      "severity": "MAJOR",
+      "subsystem": "Garment Identity Retrieval",
+      "title": "Small Identity Gallery Leading to Ceiling Effect (100% Recall@1)",
+      "phase_14_7_claim": "Garment identity retrieval achieved 100.0% Recall@1 and ROC-AUC of 1.0000 across 120 probes.",
+      "forensic_reality": "The test gallery only contained 60 anchor identities, and query probes were photometric/geometric perturbations of the anchors, creating an artificial ceiling effect without cross-instance hard negative interference.",
+      "root_cause": "Gallery pool size was constrained to 60 items to reduce benchmark execution duration.",
+      "remediation_in_phase_14_8": "Expand gallery to 250+ physically distinct garment identities from diverse catalog sources; evaluate cross-photograph pairs with bootstrap confidence intervals."
+    },
+    {
+      "discrepancy_id": "DISC-14.8-03",
+      "severity": "CRITICAL",
+      "subsystem": "3D Neural Reconstruction / Geometry",
+      "title": "Lack of Explicit Observed vs Inferred Hidden Surface Accounting",
+      "phase_14_7_claim": "Generated 3D garment shells were exported as unified meshes without distinguishing front observed surfaces from unobserved rear surfaces.",
+      "forensic_reality": "A single photograph only captures line-of-sight front surfaces. The rear geometry is purely an anatomical guess. Presenting the rear as verified 3D truth is scientifically invalid.",
+      "root_cause": "Reconstruction output lacked per-vertex or per-panel confidence and observation flags.",
+      "remediation_in_phase_14_8": "Introduce explicit multi-view provenance metadata: tag vertices with is_observed (front) vs is_inferred (rear), attach confidence scores (0.95 vs 0.60), and implement a genuine multi-view fusion pathway for dual-photo submissions."
+    },
+    {
+      "discrepancy_id": "DISC-14.8-04",
+      "severity": "MAJOR",
+      "subsystem": "Multi-Garment Instance Perception",
+      "title": "Low Multi-Garment Recall (61.54%) & Connected-Component Merging",
+      "phase_14_7_claim": "Per-instance recall was measured at 61.54% and complete-scene recovery at 18.33%.",
+      "forensic_reality": "Raw connected components on SegFormer semantic masks merged overlapping garments (such as blazers over t-shirts, or sweaters over collared shirts), failing to isolate inner underlayers.",
+      "root_cause": "The detector lacked edge-aware watershed separation and layered occlusion reasoning.",
+      "remediation_in_phase_14_8": "Implement detection-segmentation fusion with morphological watershed splitting along waistband and lapel boundaries, raising recall to >= 80%."
+    }
+  ]
+}

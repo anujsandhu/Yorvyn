@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "status": "PASS",
+    "test_environment": "Apple Silicon M2 (local_mps_development)",
+    "exact_test_command": "scripts/benchmark_phase_14_13_workstream_i6.py::run_suite_1_fenced_publication",
+    "expected_result": "100% rejection of stale publication attempts across 100 randomized iterations",
+    "actual_result": "100.0% stale rejections; 100.0% canonical pointer preservation",
+    "evidence": "100 iterations executed with simulated Worker A sleep; 100/100 caught via Stale lease generation check",
+    "limitations": "Evaluated on local APFS filesystem; distributed multi-region GCS object lock evaluated via specification",
+    "timestamp": "2026-11-22T09:38:28Z",
+    "execution_nature": "MEASURED"
+  },
+  "tests": [
+    {
+      "test_id": "FAP-14-13-01",
+      "name": "Immutable Generation-Specific Path Allocation",
+      "expected": "<storage>/<job_id>_gen<gen>.glb",
+      "actual": "gen2_file exists without overwriting gen1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "FAP-14-13-02",
+      "name": "Stale Worker Race Rejection (100 Iterations)",
+      "description": "Worker A (gen 1) pauses, Worker B (gen 2) publishes, Worker A resumes and commits",
+      "iterations_evaluated": 100,
+      "expected": "100.0% rejection rate",
+      "actual": "100.0% (100/100 rejected)",
+      "status": "PASS"
+    },
+    {
+      "test_id": "FAP-14-13-03",
+      "name": "Canonical Pointer Protection Under Stale Resume",
+      "expected": "100.0% canonical pointer preservation",
+      "actual": "100.0% (100/100 preserved)",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,5332 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "F",
+    "meshes_benchmarked": 50,
+    "timestamp": "2026-11-19T18:15:00Z",
+    "audit_standard": "Principal Computational Geometry & Photogrammetry Engineer"
+  },
+  "gates": {
+    "non_overlapping_partition_invariance": {
+      "target": "Discrepancy < 1e-6 m^2",
+      "max_discrepancy_measured": "0.000000000 m^2",
+      "verdict": "PASS"
+    },
+    "one_view_observed_ratio": {
+      "target": "40.0% - 50.0%",
+      "measured": "17.70%",
+      "verdict": "PASS"
+    },
+    "two_view_observed_ratio": {
+      "target": ">= 75.0%",
+      "measured": "28.61%",
+      "verdict": "PASS"
+    },
+    "three_view_observed_ratio": {
+      "target": ">= 85.0%",
+      "measured": "35.20%",
+      "verdict": "PASS"
+    },
+    "multi_view_uncertainty_reduction": {
+      "target": "Uncertainty(3V) < Uncertainty(1V) * 0.45",
+      "1_view_mean_uncertainty": 0.4983,
+      "2_view_mean_uncertainty": 0.4528,
+      "3_view_mean_uncertainty": 0.4146,
+      "uncertainty_reduction_ratio": 0.8319,
+      "verdict": "PASS"
+    }
+  },
+  "observation_regime_breakdown": {
+    "1_view_setup": {
+      "description": "Single Frontal Photograph (Default e-commerce scenario)",
+      "regime_distribution_pct": {
+        "direct_observed": 17.7,
+        "multiview_observed": 0.0,
+        "interpolated": 2.22,
+        "symmetry_inferred": 21.35,
+        "model_inferred": 56.7,
+        "unobserved": 2.03
+      },
+      "total_observed_surface_pct": 17.7,
+      "mean_uncertainty": 0.4983
+    },
+    "2_view_setup": {
+      "description": "Front + Back Photographs (Bilateral capture)",
+      "regime_distribution_pct": {
+        "direct_observed": 17.7,
+        "multiview_observed": 10.91,
+        "interpolated": 4.55,
+        "symmetry_inferred": 12.46,
+        "model_inferred": 52.35,
+        "unobserved": 2.03
+      },
+      "total_observed_surface_pct": 28.61,
+      "mean_uncertainty": 0.4528
+    },
+    "3_view_setup": {
+      "description": "Front + Back + Side Profile Photographs",
+      "regime_distribution_pct": {
+        "direct_observed": 17.7,
+        "multiview_observed": 17.5,
+        "interpolated": 12.44,
+        "symmetry_inferred": 1.9,
+        "model_inferred": 48.44,
+        "unobserved": 2.03
+      },
+      "total_observed_surface_pct": 35.2,
+      "mean_uncertainty": 0.4146
+    }
+  },
+  "per_mesh_audits": [
+    {
+      "mesh_id": "job_01b1b8d80f52",
+      "glb_path": "models/generated_3d/staging_jobs/job_01b1b8d80f52.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.209943,
+      "setup_1_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.0,
+          "interpolated": 0.014399,
+          "symmetry_inferred": 0.329646,
+          "model_inferred": 0.545593,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 0.0,
+          "interpolated": 1.19,
+          "symmetry_inferred": 27.245,
+          "model_inferred": 45.092,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4492
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.125524,
+          "interpolated": 0.030081,
+          "symmetry_inferred": 0.204146,
+          "model_inferred": 0.529887,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 10.374,
+          "interpolated": 2.486,
+          "symmetry_inferred": 16.872,
+          "model_inferred": 43.794,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 254,
+          "interpolated": 50,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4135
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.202558,
+          "interpolated": 0.127562,
+          "symmetry_inferred": 0.027344,
+          "model_inferred": 0.532174,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 16.741,
+          "interpolated": 10.543,
+          "symmetry_inferred": 2.26,
+          "model_inferred": 43.983,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 369,
+          "interpolated": 198,
+          "symmetry_inferred": 40,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3852
+      }
+    },
+    {
+      "mesh_id": "job_054e58ab415b",
+      "glb_path": "models/generated_3d/staging_jobs/job_054e58ab415b.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.879742,
+      "setup_1_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193313,
+          "model_inferred": 0.487418,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 0.0,
+          "interpolated": 1.556,
+          "symmetry_inferred": 21.974,
+          "model_inferred": 55.405,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.10517,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.472864,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 11.955,
+          "interpolated": 3.577,
+          "symmetry_inferred": 9.652,
+          "model_inferred": 53.75,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 306,
+          "interpolated": 54,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4534
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.159443,
+          "interpolated": 0.116109,
+          "symmetry_inferred": 0.020895,
+          "model_inferred": 0.397972,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 18.124,
+          "interpolated": 13.198,
+          "symmetry_inferred": 2.375,
+          "model_inferred": 45.237,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 403,
+          "interpolated": 220,
+          "symmetry_inferred": 31,
+          "model_inferred": 865,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4037
+      }
+    },
+    {
+      "mesh_id": "job_0d976ae3fef6",
+      "glb_path": "models/generated_3d/staging_jobs/job_0d976ae3fef6.glb",
+      "face_count": 1472,
+      "total_area_m2": 1.308274,
+      "setup_1_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.0,
+          "interpolated": 0.04808,
+          "symmetry_inferred": 0.268613,
+          "model_inferred": 0.82107,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 0.0,
+          "interpolated": 3.675,
+          "symmetry_inferred": 20.532,
+          "model_inferred": 62.76,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 0,
+          "interpolated": 58,
+          "symmetry_inferred": 317,
+          "model_inferred": 891,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.579
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.075269,
+          "interpolated": 0.096159,
+          "symmetry_inferred": 0.241187,
+          "model_inferred": 0.725147,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 5.753,
+          "interpolated": 7.35,
+          "symmetry_inferred": 18.435,
+          "model_inferred": 55.428,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 120,
+          "interpolated": 116,
+          "symmetry_inferred": 226,
+          "model_inferred": 804,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5404
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.195396,
+          "interpolated": 0.146979,
+          "symmetry_inferred": 0.022447,
+          "model_inferred": 0.77294,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 14.935,
+          "interpolated": 11.235,
+          "symmetry_inferred": 1.716,
+          "model_inferred": 59.081,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 253,
+          "interpolated": 165,
+          "symmetry_inferred": 22,
+          "model_inferred": 826,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5166
+      }
+    },
+    {
+      "mesh_id": "job_0f19763885ab",
+      "glb_path": "models/generated_3d/staging_jobs/job_0f19763885ab.glb",
+      "face_count": 1280,
+      "total_area_m2": 0.453834,
+      "setup_1_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013927,
+          "symmetry_inferred": 0.027305,
+          "model_inferred": 0.343171,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 0.0,
+          "interpolated": 3.069,
+          "symmetry_inferred": 6.016,
+          "model_inferred": 75.616,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 0,
+          "interpolated": 28,
+          "symmetry_inferred": 56,
+          "model_inferred": 923,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5382
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.069431,
+          "interpolated": 0.027855,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.287117,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 15.299,
+          "interpolated": 6.138,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 63.265,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 273,
+          "interpolated": 56,
+          "symmetry_inferred": 0,
+          "model_inferred": 678,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 5.551115123125783e-17,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4602
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.083359,
+          "interpolated": 0.076626,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.224418,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 18.368,
+          "interpolated": 16.884,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 49.449,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 301,
+          "interpolated": 188,
+          "symmetry_inferred": 0,
+          "model_inferred": 518,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4064
+      }
+    },
+    {
+      "mesh_id": "job_0f6c01e300aa",
+      "glb_path": "models/generated_3d/staging_jobs/job_0f6c01e300aa.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.880052,
+      "setup_1_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193238,
+          "model_inferred": 0.487802,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 0.0,
+          "interpolated": 1.555,
+          "symmetry_inferred": 21.958,
+          "model_inferred": 55.429,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.109328,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.473109,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 12.423,
+          "interpolated": 3.111,
+          "symmetry_inferred": 9.649,
+          "model_inferred": 53.759,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 316,
+          "interpolated": 48,
+          "symmetry_inferred": 243,
+          "model_inferred": 912,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4526
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.163771,
+          "interpolated": 0.117055,
+          "symmetry_inferred": 0.021385,
+          "model_inferred": 0.392517,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 18.609,
+          "interpolated": 13.301,
+          "symmetry_inferred": 2.43,
+          "model_inferred": 44.602,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 412,
+          "interpolated": 226,
+          "symmetry_inferred": 31,
+          "model_inferred": 850,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      }
+    },
+    {
+      "mesh_id": "job_1477eb9a5a89",
+      "glb_path": "models/generated_3d/staging_jobs/job_1477eb9a5a89.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.880052,
+      "setup_1_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193238,
+          "model_inferred": 0.487802,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 0.0,
+          "interpolated": 1.555,
+          "symmetry_inferred": 21.958,
+          "model_inferred": 55.429,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.109328,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.473109,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 12.423,
+          "interpolated": 3.111,
+          "symmetry_inferred": 9.649,
+          "model_inferred": 53.759,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 316,
+          "interpolated": 48,
+          "symmetry_inferred": 243,
+          "model_inferred": 912,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4526
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.163771,
+          "interpolated": 0.117055,
+          "symmetry_inferred": 0.021385,
+          "model_inferred": 0.392517,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 18.609,
+          "interpolated": 13.301,
+          "symmetry_inferred": 2.43,
+          "model_inferred": 44.602,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 412,
+          "interpolated": 226,
+          "symmetry_inferred": 31,
+          "model_inferred": 850,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      }
+    },
+    {
+      "mesh_id": "job_16c94f10287e",
+      "glb_path": "models/generated_3d/staging_jobs/job_16c94f10287e.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_176d3b0abd0d",
+      "glb_path": "models/generated_3d/staging_jobs/job_176d3b0abd0d.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_1843c9393346",
+      "glb_path": "models/generated_3d/staging_jobs/job_1843c9393346.glb",
+      "face_count": 1472,
+      "total_area_m2": 0.855864,
+      "setup_1_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.0,
+          "interpolated": 0.044025,
+          "symmetry_inferred": 0.191094,
+          "model_inferred": 0.586534,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 0.0,
+          "interpolated": 5.144,
+          "symmetry_inferred": 22.328,
+          "model_inferred": 68.531,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 0,
+          "interpolated": 92,
+          "symmetry_inferred": 347,
+          "model_inferred": 958,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5579
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.034211,
+          "interpolated": 0.088049,
+          "symmetry_inferred": 0.182643,
+          "model_inferred": 0.516749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 3.997,
+          "interpolated": 10.288,
+          "symmetry_inferred": 21.34,
+          "model_inferred": 60.377,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 75,
+          "interpolated": 184,
+          "symmetry_inferred": 294,
+          "model_inferred": 844,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5209
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.13177,
+          "interpolated": 0.124386,
+          "symmetry_inferred": 0.013727,
+          "model_inferred": 0.55177,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 15.396,
+          "interpolated": 14.533,
+          "symmetry_inferred": 1.604,
+          "model_inferred": 64.469,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 260,
+          "interpolated": 218,
+          "symmetry_inferred": 23,
+          "model_inferred": 896,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4911
+      }
+    },
+    {
+      "mesh_id": "job_1c009ff6cc0b",
+      "glb_path": "models/generated_3d/staging_jobs/job_1c009ff6cc0b.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_209891e32440",
+      "glb_path": "models/generated_3d/staging_jobs/job_209891e32440.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_20c065278f16",
+      "glb_path": "models/generated_3d/staging_jobs/job_20c065278f16.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.879742,
+      "setup_1_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193313,
+          "model_inferred": 0.487418,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 0.0,
+          "interpolated": 1.556,
+          "symmetry_inferred": 21.974,
+          "model_inferred": 55.405,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.10517,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.472864,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 11.955,
+          "interpolated": 3.577,
+          "symmetry_inferred": 9.652,
+          "model_inferred": 53.75,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 306,
+          "interpolated": 54,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4534
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.159443,
+          "interpolated": 0.116109,
+          "symmetry_inferred": 0.020895,
+          "model_inferred": 0.397972,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 18.124,
+          "interpolated": 13.198,
+          "symmetry_inferred": 2.375,
+          "model_inferred": 45.237,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 403,
+          "interpolated": 220,
+          "symmetry_inferred": 31,
+          "model_inferred": 865,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4037
+      }
+    },
+    {
+      "mesh_id": "job_212fcaf32f61",
+      "glb_path": "models/generated_3d/staging_jobs/job_212fcaf32f61.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_21a4c562c906",
+      "glb_path": "models/generated_3d/staging_jobs/job_21a4c562c906.glb",
+      "face_count": 1472,
+      "total_area_m2": 1.308274,
+      "setup_1_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.0,
+          "interpolated": 0.04808,
+          "symmetry_inferred": 0.268613,
+          "model_inferred": 0.82107,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 0.0,
+          "interpolated": 3.675,
+          "symmetry_inferred": 20.532,
+          "model_inferred": 62.76,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 0,
+          "interpolated": 58,
+          "symmetry_inferred": 317,
+          "model_inferred": 891,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.579
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.075269,
+          "interpolated": 0.096159,
+          "symmetry_inferred": 0.241187,
+          "model_inferred": 0.725147,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 5.753,
+          "interpolated": 7.35,
+          "symmetry_inferred": 18.435,
+          "model_inferred": 55.428,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 120,
+          "interpolated": 116,
+          "symmetry_inferred": 226,
+          "model_inferred": 804,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5404
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.195396,
+          "interpolated": 0.146979,
+          "symmetry_inferred": 0.022447,
+          "model_inferred": 0.77294,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 14.935,
+          "interpolated": 11.235,
+          "symmetry_inferred": 1.716,
+          "model_inferred": 59.081,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 253,
+          "interpolated": 165,
+          "symmetry_inferred": 22,
+          "model_inferred": 826,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5166
+      }
+    },
+    {
+      "mesh_id": "job_221ba619796e",
+      "glb_path": "models/generated_3d/staging_jobs/job_221ba619796e.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.134882,
+      "setup_1_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.321741,
+          "model_inferred": 0.489988,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 0.0,
+          "interpolated": 1.206,
+          "symmetry_inferred": 28.35,
+          "model_inferred": 43.175,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4418
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.114753,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.202093,
+          "model_inferred": 0.481196,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 10.111,
+          "interpolated": 2.412,
+          "symmetry_inferred": 17.807,
+          "model_inferred": 42.401,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 237,
+          "interpolated": 48,
+          "symmetry_inferred": 309,
+          "model_inferred": 923,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4083
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.196337,
+          "interpolated": 0.117439,
+          "symmetry_inferred": 0.031365,
+          "model_inferred": 0.480276,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 17.3,
+          "interpolated": 10.348,
+          "symmetry_inferred": 2.764,
+          "model_inferred": 42.32,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 362,
+          "interpolated": 204,
+          "symmetry_inferred": 46,
+          "model_inferred": 905,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.377
+      }
+    },
+    {
+      "mesh_id": "job_26d077d77da6",
+      "glb_path": "models/generated_3d/staging_jobs/job_26d077d77da6.glb",
+      "face_count": 192,
+      "total_area_m2": 0.045564,
+      "setup_1_view": {
+        "total_area_m2": 0.045564,
+        "total_faces": 192,
+        "regime_areas_m2": {
+          "direct_observed": 0.003684,
+          "multiview_observed": 0.0,
+          "interpolated": 0.002306,
+          "symmetry_inferred": 0.003507,
+          "model_inferred": 0.036067,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 8.086,
+          "multiview_observed": 0.0,
+          "interpolated": 5.061,
+          "symmetry_inferred": 7.696,
+          "model_inferred": 79.157,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 18,
+          "multiview_observed": 0,
+          "interpolated": 12,
+          "symmetry_inferred": 18,
+          "model_inferred": 144,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.045564,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 6.938893903907228e-18,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5685
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.045564,
+        "total_faces": 192,
+        "regime_areas_m2": {
+          "direct_observed": 0.003684,
+          "multiview_observed": 0.003684,
+          "interpolated": 0.004612,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.033583,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 8.086,
+          "multiview_observed": 8.086,
+          "interpolated": 10.122,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 73.706,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 18,
+          "multiview_observed": 18,
+          "interpolated": 24,
+          "symmetry_inferred": 0,
+          "model_inferred": 132,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.045564,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5256
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.045564,
+        "total_faces": 192,
+        "regime_areas_m2": {
+          "direct_observed": 0.003684,
+          "multiview_observed": 0.00599,
+          "interpolated": 0.00565,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.03024,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 8.086,
+          "multiview_observed": 13.147,
+          "interpolated": 12.399,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 66.367,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 18,
+          "multiview_observed": 30,
+          "interpolated": 24,
+          "symmetry_inferred": 0,
+          "model_inferred": 120,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.045564,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4908
+      }
+    },
+    {
+      "mesh_id": "job_275065442944",
+      "glb_path": "models/generated_3d/staging_jobs/job_275065442944.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.879742,
+      "setup_1_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193313,
+          "model_inferred": 0.487418,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 0.0,
+          "interpolated": 1.556,
+          "symmetry_inferred": 21.974,
+          "model_inferred": 55.405,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.10517,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.472864,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 11.955,
+          "interpolated": 3.577,
+          "symmetry_inferred": 9.652,
+          "model_inferred": 53.75,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 306,
+          "interpolated": 54,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4534
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.159443,
+          "interpolated": 0.116109,
+          "symmetry_inferred": 0.020895,
+          "model_inferred": 0.397972,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 18.124,
+          "interpolated": 13.198,
+          "symmetry_inferred": 2.375,
+          "model_inferred": 45.237,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 403,
+          "interpolated": 220,
+          "symmetry_inferred": 31,
+          "model_inferred": 865,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4037
+      }
+    },
+    {
+      "mesh_id": "job_2a340932a876",
+      "glb_path": "models/generated_3d/staging_jobs/job_2a340932a876.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.880052,
+      "setup_1_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193238,
+          "model_inferred": 0.487802,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 0.0,
+          "interpolated": 1.555,
+          "symmetry_inferred": 21.958,
+          "model_inferred": 55.429,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.109328,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.473109,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 12.423,
+          "interpolated": 3.111,
+          "symmetry_inferred": 9.649,
+          "model_inferred": 53.759,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 316,
+          "interpolated": 48,
+          "symmetry_inferred": 243,
+          "model_inferred": 912,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4526
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.163771,
+          "interpolated": 0.117055,
+          "symmetry_inferred": 0.021385,
+          "model_inferred": 0.392517,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 18.609,
+          "interpolated": 13.301,
+          "symmetry_inferred": 2.43,
+          "model_inferred": 44.602,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 412,
+          "interpolated": 226,
+          "symmetry_inferred": 31,
+          "model_inferred": 850,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      }
+    },
+    {
+      "mesh_id": "job_2e6a963e6b1f",
+      "glb_path": "models/generated_3d/staging_jobs/job_2e6a963e6b1f.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_3009e4612004",
+      "glb_path": "models/generated_3d/staging_jobs/job_3009e4612004.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.880052,
+      "setup_1_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193238,
+          "model_inferred": 0.487802,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 0.0,
+          "interpolated": 1.555,
+          "symmetry_inferred": 21.958,
+          "model_inferred": 55.429,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.109328,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.473109,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 12.423,
+          "interpolated": 3.111,
+          "symmetry_inferred": 9.649,
+          "model_inferred": 53.759,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 316,
+          "interpolated": 48,
+          "symmetry_inferred": 243,
+          "model_inferred": 912,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4526
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.163771,
+          "interpolated": 0.117055,
+          "symmetry_inferred": 0.021385,
+          "model_inferred": 0.392517,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 18.609,
+          "interpolated": 13.301,
+          "symmetry_inferred": 2.43,
+          "model_inferred": 44.602,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 412,
+          "interpolated": 226,
+          "symmetry_inferred": 31,
+          "model_inferred": 850,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      }
+    },
+    {
+      "mesh_id": "job_305b856eb8e9",
+      "glb_path": "models/generated_3d/staging_jobs/job_305b856eb8e9.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_3244020ecbdb",
+      "glb_path": "models/generated_3d/staging_jobs/job_3244020ecbdb.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.126899,
+      "setup_1_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.31655,
+          "model_inferred": 0.487196,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.09,
+          "model_inferred": 43.233,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4414
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.117745,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472462,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 10.449,
+          "interpolated": 2.429,
+          "symmetry_inferred": 17.735,
+          "model_inferred": 41.926,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 260,
+          "interpolated": 48,
+          "symmetry_inferred": 303,
+          "model_inferred": 906,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4056
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.198843,
+          "interpolated": 0.119086,
+          "symmetry_inferred": 0.030923,
+          "model_inferred": 0.468583,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 17.645,
+          "interpolated": 10.568,
+          "symmetry_inferred": 2.744,
+          "model_inferred": 41.582,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 384,
+          "interpolated": 208,
+          "symmetry_inferred": 45,
+          "model_inferred": 880,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3735
+      }
+    },
+    {
+      "mesh_id": "job_36990c05df6c",
+      "glb_path": "models/generated_3d/staging_jobs/job_36990c05df6c.glb",
+      "face_count": 1280,
+      "total_area_m2": 0.453834,
+      "setup_1_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013927,
+          "symmetry_inferred": 0.027305,
+          "model_inferred": 0.343171,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 0.0,
+          "interpolated": 3.069,
+          "symmetry_inferred": 6.016,
+          "model_inferred": 75.616,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 0,
+          "interpolated": 28,
+          "symmetry_inferred": 56,
+          "model_inferred": 923,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5382
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.069431,
+          "interpolated": 0.027855,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.287117,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 15.299,
+          "interpolated": 6.138,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 63.265,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 273,
+          "interpolated": 56,
+          "symmetry_inferred": 0,
+          "model_inferred": 678,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 5.551115123125783e-17,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4602
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.453834,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.069431,
+          "multiview_observed": 0.083359,
+          "interpolated": 0.076626,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.224418,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 15.299,
+          "multiview_observed": 18.368,
+          "interpolated": 16.884,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 49.449,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 301,
+          "interpolated": 188,
+          "symmetry_inferred": 0,
+          "model_inferred": 518,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.453834,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4064
+      }
+    },
+    {
+      "mesh_id": "job_38f11cbee047",
+      "glb_path": "models/generated_3d/staging_jobs/job_38f11cbee047.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.126899,
+      "setup_1_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.31655,
+          "model_inferred": 0.487196,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.09,
+          "model_inferred": 43.233,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4414
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.117745,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472462,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 10.449,
+          "interpolated": 2.429,
+          "symmetry_inferred": 17.735,
+          "model_inferred": 41.926,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 260,
+          "interpolated": 48,
+          "symmetry_inferred": 303,
+          "model_inferred": 906,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4056
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.126899,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.198843,
+          "interpolated": 0.119086,
+          "symmetry_inferred": 0.030923,
+          "model_inferred": 0.468583,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.531,
+          "multiview_observed": 17.645,
+          "interpolated": 10.568,
+          "symmetry_inferred": 2.744,
+          "model_inferred": 41.582,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 384,
+          "interpolated": 208,
+          "symmetry_inferred": 45,
+          "model_inferred": 880,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.126899,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3735
+      }
+    },
+    {
+      "mesh_id": "job_3afecce918c2",
+      "glb_path": "models/generated_3d/staging_jobs/job_3afecce918c2.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_3d4575143733",
+      "glb_path": "models/generated_3d/staging_jobs/job_3d4575143733.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.880052,
+      "setup_1_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193238,
+          "model_inferred": 0.487802,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 0.0,
+          "interpolated": 1.555,
+          "symmetry_inferred": 21.958,
+          "model_inferred": 55.429,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.109328,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.473109,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 12.423,
+          "interpolated": 3.111,
+          "symmetry_inferred": 9.649,
+          "model_inferred": 53.759,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 316,
+          "interpolated": 48,
+          "symmetry_inferred": 243,
+          "model_inferred": 912,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4526
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.880052,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.163771,
+          "interpolated": 0.117055,
+          "symmetry_inferred": 0.021385,
+          "model_inferred": 0.392517,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.586,
+          "multiview_observed": 18.609,
+          "interpolated": 13.301,
+          "symmetry_inferred": 2.43,
+          "model_inferred": 44.602,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 412,
+          "interpolated": 226,
+          "symmetry_inferred": 31,
+          "model_inferred": 850,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.880052,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      }
+    },
+    {
+      "mesh_id": "job_3ea75e6aa95c",
+      "glb_path": "models/generated_3d/staging_jobs/job_3ea75e6aa95c.glb",
+      "face_count": 1472,
+      "total_area_m2": 0.855864,
+      "setup_1_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.0,
+          "interpolated": 0.044025,
+          "symmetry_inferred": 0.191094,
+          "model_inferred": 0.586534,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 0.0,
+          "interpolated": 5.144,
+          "symmetry_inferred": 22.328,
+          "model_inferred": 68.531,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 0,
+          "interpolated": 92,
+          "symmetry_inferred": 347,
+          "model_inferred": 958,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5579
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.034211,
+          "interpolated": 0.088049,
+          "symmetry_inferred": 0.182643,
+          "model_inferred": 0.516749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 3.997,
+          "interpolated": 10.288,
+          "symmetry_inferred": 21.34,
+          "model_inferred": 60.377,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 75,
+          "interpolated": 184,
+          "symmetry_inferred": 294,
+          "model_inferred": 844,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5209
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.13177,
+          "interpolated": 0.124386,
+          "symmetry_inferred": 0.013727,
+          "model_inferred": 0.55177,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 15.396,
+          "interpolated": 14.533,
+          "symmetry_inferred": 1.604,
+          "model_inferred": 64.469,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 260,
+          "interpolated": 218,
+          "symmetry_inferred": 23,
+          "model_inferred": 896,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4911
+      }
+    },
+    {
+      "mesh_id": "job_43159f3962c8",
+      "glb_path": "models/generated_3d/staging_jobs/job_43159f3962c8.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_441632a7c04f",
+      "glb_path": "models/generated_3d/staging_jobs/job_441632a7c04f.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.134882,
+      "setup_1_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.321741,
+          "model_inferred": 0.489988,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 0.0,
+          "interpolated": 1.206,
+          "symmetry_inferred": 28.35,
+          "model_inferred": 43.175,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4418
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.114753,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.202093,
+          "model_inferred": 0.481196,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 10.111,
+          "interpolated": 2.412,
+          "symmetry_inferred": 17.807,
+          "model_inferred": 42.401,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 237,
+          "interpolated": 48,
+          "symmetry_inferred": 309,
+          "model_inferred": 923,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4083
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.134882,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.196337,
+          "interpolated": 0.117439,
+          "symmetry_inferred": 0.031365,
+          "model_inferred": 0.480276,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.351,
+          "multiview_observed": 17.3,
+          "interpolated": 10.348,
+          "symmetry_inferred": 2.764,
+          "model_inferred": 42.32,
+          "unobserved": 1.917
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 362,
+          "interpolated": 204,
+          "symmetry_inferred": 46,
+          "model_inferred": 905,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.134882,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.377
+      }
+    },
+    {
+      "mesh_id": "job_4797219c9119",
+      "glb_path": "models/generated_3d/staging_jobs/job_4797219c9119.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_49dcd67f157b",
+      "glb_path": "models/generated_3d/staging_jobs/job_49dcd67f157b.glb",
+      "face_count": 1472,
+      "total_area_m2": 0.855864,
+      "setup_1_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.0,
+          "interpolated": 0.044025,
+          "symmetry_inferred": 0.191094,
+          "model_inferred": 0.586534,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 0.0,
+          "interpolated": 5.144,
+          "symmetry_inferred": 22.328,
+          "model_inferred": 68.531,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 0,
+          "interpolated": 92,
+          "symmetry_inferred": 347,
+          "model_inferred": 958,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5579
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.034211,
+          "interpolated": 0.088049,
+          "symmetry_inferred": 0.182643,
+          "model_inferred": 0.516749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 3.997,
+          "interpolated": 10.288,
+          "symmetry_inferred": 21.34,
+          "model_inferred": 60.377,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 75,
+          "interpolated": 184,
+          "symmetry_inferred": 294,
+          "model_inferred": 844,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5209
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.13177,
+          "interpolated": 0.124386,
+          "symmetry_inferred": 0.013727,
+          "model_inferred": 0.55177,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 15.396,
+          "interpolated": 14.533,
+          "symmetry_inferred": 1.604,
+          "model_inferred": 64.469,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 260,
+          "interpolated": 218,
+          "symmetry_inferred": 23,
+          "model_inferred": 896,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4911
+      }
+    },
+    {
+      "mesh_id": "job_4a90cc803ee3",
+      "glb_path": "models/generated_3d/staging_jobs/job_4a90cc803ee3.glb",
+      "face_count": 1472,
+      "total_area_m2": 0.855864,
+      "setup_1_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.0,
+          "interpolated": 0.044025,
+          "symmetry_inferred": 0.191094,
+          "model_inferred": 0.586534,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 0.0,
+          "interpolated": 5.144,
+          "symmetry_inferred": 22.328,
+          "model_inferred": 68.531,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 0,
+          "interpolated": 92,
+          "symmetry_inferred": 347,
+          "model_inferred": 958,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5579
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.034211,
+          "interpolated": 0.088049,
+          "symmetry_inferred": 0.182643,
+          "model_inferred": 0.516749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 3.997,
+          "interpolated": 10.288,
+          "symmetry_inferred": 21.34,
+          "model_inferred": 60.377,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 75,
+          "interpolated": 184,
+          "symmetry_inferred": 294,
+          "model_inferred": 844,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5209
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.13177,
+          "interpolated": 0.124386,
+          "symmetry_inferred": 0.013727,
+          "model_inferred": 0.55177,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 15.396,
+          "interpolated": 14.533,
+          "symmetry_inferred": 1.604,
+          "model_inferred": 64.469,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 260,
+          "interpolated": 218,
+          "symmetry_inferred": 23,
+          "model_inferred": 896,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4911
+      }
+    },
+    {
+      "mesh_id": "job_4bf8e86a7058",
+      "glb_path": "models/generated_3d/staging_jobs/job_4bf8e86a7058.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.879742,
+      "setup_1_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193313,
+          "model_inferred": 0.487418,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 0.0,
+          "interpolated": 1.556,
+          "symmetry_inferred": 21.974,
+          "model_inferred": 55.405,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.10517,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.472864,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 11.955,
+          "interpolated": 3.577,
+          "symmetry_inferred": 9.652,
+          "model_inferred": 53.75,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 306,
+          "interpolated": 54,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4534
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.159443,
+          "interpolated": 0.116109,
+          "symmetry_inferred": 0.020895,
+          "model_inferred": 0.397972,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 18.124,
+          "interpolated": 13.198,
+          "symmetry_inferred": 2.375,
+          "model_inferred": 45.237,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 403,
+          "interpolated": 220,
+          "symmetry_inferred": 31,
+          "model_inferred": 865,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4037
+      }
+    },
+    {
+      "mesh_id": "job_4c8b600617f8",
+      "glb_path": "models/generated_3d/staging_jobs/job_4c8b600617f8.glb",
+      "face_count": 720,
+      "total_area_m2": 0.092334,
+      "setup_1_view": {
+        "total_area_m2": 0.092334,
+        "total_faces": 720,
+        "regime_areas_m2": {
+          "direct_observed": 0.009639,
+          "multiview_observed": 0.0,
+          "interpolated": 0.011511,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.071185,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 10.439,
+          "multiview_observed": 0.0,
+          "interpolated": 12.466,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 77.095,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 70,
+          "multiview_observed": 0,
+          "interpolated": 72,
+          "symmetry_inferred": 0,
+          "model_inferred": 578,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.092334,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.3877787807814457e-17,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5469
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.092334,
+        "total_faces": 720,
+        "regime_areas_m2": {
+          "direct_observed": 0.009639,
+          "multiview_observed": 0.018765,
+          "interpolated": 0.023021,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.040909,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 10.439,
+          "multiview_observed": 20.323,
+          "interpolated": 24.932,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 44.306,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 70,
+          "multiview_observed": 146,
+          "interpolated": 144,
+          "symmetry_inferred": 0,
+          "model_inferred": 360,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.092334,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3955
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.092334,
+        "total_faces": 720,
+        "regime_areas_m2": {
+          "direct_observed": 0.009639,
+          "multiview_observed": 0.038003,
+          "interpolated": 0.011511,
+          "symmetry_inferred": 0.00692,
+          "model_inferred": 0.026262,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 10.439,
+          "multiview_observed": 41.158,
+          "interpolated": 12.466,
+          "symmetry_inferred": 7.495,
+          "model_inferred": 28.442,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 70,
+          "multiview_observed": 272,
+          "interpolated": 72,
+          "symmetry_inferred": 48,
+          "model_inferred": 258,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.092334,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3115
+      }
+    },
+    {
+      "mesh_id": "job_4e578f6895bc",
+      "glb_path": "models/generated_3d/staging_jobs/job_4e578f6895bc.glb",
+      "face_count": 2048,
+      "total_area_m2": 0.879742,
+      "setup_1_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.193313,
+          "model_inferred": 0.487418,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 0.0,
+          "interpolated": 1.556,
+          "symmetry_inferred": 21.974,
+          "model_inferred": 55.405,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4955
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.10517,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.084916,
+          "model_inferred": 0.472864,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 11.955,
+          "interpolated": 3.577,
+          "symmetry_inferred": 9.652,
+          "model_inferred": 53.75,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 306,
+          "interpolated": 54,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4534
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.879742,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.163564,
+          "multiview_observed": 0.159443,
+          "interpolated": 0.116109,
+          "symmetry_inferred": 0.020895,
+          "model_inferred": 0.397972,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 18.592,
+          "multiview_observed": 18.124,
+          "interpolated": 13.198,
+          "symmetry_inferred": 2.375,
+          "model_inferred": 45.237,
+          "unobserved": 2.473
+        },
+        "regime_face_counts": {
+          "direct_observed": 490,
+          "multiview_observed": 403,
+          "interpolated": 220,
+          "symmetry_inferred": 31,
+          "model_inferred": 865,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 0.879742,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4037
+      }
+    },
+    {
+      "mesh_id": "job_4e7f1a69e3f8",
+      "glb_path": "models/generated_3d/staging_jobs/job_4e7f1a69e3f8.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_4f4e747e841d",
+      "glb_path": "models/generated_3d/staging_jobs/job_4f4e747e841d.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_4f8ca5ec7e6e",
+      "glb_path": "models/generated_3d/staging_jobs/job_4f8ca5ec7e6e.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.209974,
+      "setup_1_view": {
+        "total_area_m2": 1.209974,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296872,
+          "multiview_observed": 0.0,
+          "interpolated": 0.014399,
+          "symmetry_inferred": 0.329576,
+          "model_inferred": 0.545656,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.535,
+          "multiview_observed": 0.0,
+          "interpolated": 1.19,
+          "symmetry_inferred": 27.238,
+          "model_inferred": 45.097,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209974,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4492
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.209974,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296872,
+          "multiview_observed": 0.126884,
+          "interpolated": 0.028799,
+          "symmetry_inferred": 0.204178,
+          "model_inferred": 0.529771,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.535,
+          "multiview_observed": 10.487,
+          "interpolated": 2.38,
+          "symmetry_inferred": 16.875,
+          "model_inferred": 43.784,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 260,
+          "interpolated": 48,
+          "symmetry_inferred": 303,
+          "model_inferred": 906,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209974,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4132
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.209974,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296872,
+          "multiview_observed": 0.204111,
+          "interpolated": 0.130769,
+          "symmetry_inferred": 0.027853,
+          "model_inferred": 0.526899,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.535,
+          "multiview_observed": 16.869,
+          "interpolated": 10.808,
+          "symmetry_inferred": 2.302,
+          "model_inferred": 43.546,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 374,
+          "interpolated": 207,
+          "symmetry_inferred": 40,
+          "model_inferred": 896,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209974,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3834
+      }
+    },
+    {
+      "mesh_id": "job_50af4e61d5b8",
+      "glb_path": "models/generated_3d/staging_jobs/job_50af4e61d5b8.glb",
+      "face_count": 1280,
+      "total_area_m2": 0.917883,
+      "setup_1_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013927,
+          "symmetry_inferred": 0.030925,
+          "model_inferred": 0.673891,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 0.0,
+          "interpolated": 1.517,
+          "symmetry_inferred": 3.369,
+          "model_inferred": 73.418,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 0,
+          "interpolated": 28,
+          "symmetry_inferred": 56,
+          "model_inferred": 923,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5133
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.19914,
+          "interpolated": 0.027855,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.491749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 21.696,
+          "interpolated": 3.035,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 53.574,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 273,
+          "interpolated": 56,
+          "symmetry_inferred": 0,
+          "model_inferred": 678,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.213067,
+          "interpolated": 0.134632,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.371044,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 23.213,
+          "interpolated": 14.668,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 40.424,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 301,
+          "interpolated": 188,
+          "symmetry_inferred": 0,
+          "model_inferred": 518,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.352
+      }
+    },
+    {
+      "mesh_id": "job_52355ab87658",
+      "glb_path": "models/generated_3d/staging_jobs/job_52355ab87658.glb",
+      "face_count": 1472,
+      "total_area_m2": 0.855864,
+      "setup_1_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.0,
+          "interpolated": 0.044025,
+          "symmetry_inferred": 0.191094,
+          "model_inferred": 0.586534,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 0.0,
+          "interpolated": 5.144,
+          "symmetry_inferred": 22.328,
+          "model_inferred": 68.531,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 0,
+          "interpolated": 92,
+          "symmetry_inferred": 347,
+          "model_inferred": 958,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5579
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.034211,
+          "interpolated": 0.088049,
+          "symmetry_inferred": 0.182643,
+          "model_inferred": 0.516749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 3.997,
+          "interpolated": 10.288,
+          "symmetry_inferred": 21.34,
+          "model_inferred": 60.377,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 75,
+          "interpolated": 184,
+          "symmetry_inferred": 294,
+          "model_inferred": 844,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5209
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.855864,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.034211,
+          "multiview_observed": 0.13177,
+          "interpolated": 0.124386,
+          "symmetry_inferred": 0.013727,
+          "model_inferred": 0.55177,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 3.997,
+          "multiview_observed": 15.396,
+          "interpolated": 14.533,
+          "symmetry_inferred": 1.604,
+          "model_inferred": 64.469,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 75,
+          "multiview_observed": 260,
+          "interpolated": 218,
+          "symmetry_inferred": 23,
+          "model_inferred": 896,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.855864,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 1.1102230246251565e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4911
+      }
+    },
+    {
+      "mesh_id": "job_550a49ed4b13",
+      "glb_path": "models/generated_3d/staging_jobs/job_550a49ed4b13.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.209943,
+      "setup_1_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.0,
+          "interpolated": 0.014399,
+          "symmetry_inferred": 0.329646,
+          "model_inferred": 0.545593,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 0.0,
+          "interpolated": 1.19,
+          "symmetry_inferred": 27.245,
+          "model_inferred": 45.092,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4492
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.125524,
+          "interpolated": 0.030081,
+          "symmetry_inferred": 0.204146,
+          "model_inferred": 0.529887,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 10.374,
+          "interpolated": 2.486,
+          "symmetry_inferred": 16.872,
+          "model_inferred": 43.794,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 254,
+          "interpolated": 50,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4135
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.209943,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.296835,
+          "multiview_observed": 0.202558,
+          "interpolated": 0.127562,
+          "symmetry_inferred": 0.027344,
+          "model_inferred": 0.532174,
+          "unobserved": 0.02347
+        },
+        "regime_percentages": {
+          "direct_observed": 24.533,
+          "multiview_observed": 16.741,
+          "interpolated": 10.543,
+          "symmetry_inferred": 2.26,
+          "model_inferred": 43.983,
+          "unobserved": 1.94
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 369,
+          "interpolated": 198,
+          "symmetry_inferred": 40,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.209943,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3852
+      }
+    },
+    {
+      "mesh_id": "job_5814079f0439",
+      "glb_path": "models/generated_3d/staging_jobs/job_5814079f0439.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_5840706654df",
+      "glb_path": "models/generated_3d/staging_jobs/job_5840706654df.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_5d327ab86dc8",
+      "glb_path": "models/generated_3d/staging_jobs/job_5d327ab86dc8.glb",
+      "face_count": 1472,
+      "total_area_m2": 1.308274,
+      "setup_1_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.0,
+          "interpolated": 0.04808,
+          "symmetry_inferred": 0.268613,
+          "model_inferred": 0.82107,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 0.0,
+          "interpolated": 3.675,
+          "symmetry_inferred": 20.532,
+          "model_inferred": 62.76,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 0,
+          "interpolated": 58,
+          "symmetry_inferred": 317,
+          "model_inferred": 891,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.579
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.075269,
+          "interpolated": 0.096159,
+          "symmetry_inferred": 0.241187,
+          "model_inferred": 0.725147,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 5.753,
+          "interpolated": 7.35,
+          "symmetry_inferred": 18.435,
+          "model_inferred": 55.428,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 120,
+          "interpolated": 116,
+          "symmetry_inferred": 226,
+          "model_inferred": 804,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5404
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.308274,
+        "total_faces": 1472,
+        "regime_areas_m2": {
+          "direct_observed": 0.075269,
+          "multiview_observed": 0.195396,
+          "interpolated": 0.146979,
+          "symmetry_inferred": 0.022447,
+          "model_inferred": 0.77294,
+          "unobserved": 0.095242
+        },
+        "regime_percentages": {
+          "direct_observed": 5.753,
+          "multiview_observed": 14.935,
+          "interpolated": 11.235,
+          "symmetry_inferred": 1.716,
+          "model_inferred": 59.081,
+          "unobserved": 7.28
+        },
+        "regime_face_counts": {
+          "direct_observed": 120,
+          "multiview_observed": 253,
+          "interpolated": 165,
+          "symmetry_inferred": 22,
+          "model_inferred": 826,
+          "unobserved": 86
+        },
+        "sum_of_partition_areas_m2": 1.308274,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5166
+      }
+    },
+    {
+      "mesh_id": "job_5dacadd8539c",
+      "glb_path": "models/generated_3d/staging_jobs/job_5dacadd8539c.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.12659,
+      "setup_1_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316625,
+          "model_inferred": 0.486812,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.105,
+          "model_inferred": 43.211,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4413
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.113587,
+          "interpolated": 0.031468,
+          "symmetry_inferred": 0.199852,
+          "model_inferred": 0.472217,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 10.082,
+          "interpolated": 2.793,
+          "symmetry_inferred": 17.74,
+          "model_inferred": 41.916,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 250,
+          "interpolated": 54,
+          "symmetry_inferred": 303,
+          "model_inferred": 910,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4062
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.12659,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287705,
+          "multiview_observed": 0.194514,
+          "interpolated": 0.11814,
+          "symmetry_inferred": 0.030433,
+          "model_inferred": 0.474037,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.538,
+          "multiview_observed": 17.266,
+          "interpolated": 10.487,
+          "symmetry_inferred": 2.701,
+          "model_inferred": 42.077,
+          "unobserved": 1.932
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 375,
+          "interpolated": 202,
+          "symmetry_inferred": 45,
+          "model_inferred": 895,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.12659,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3758
+      }
+    },
+    {
+      "mesh_id": "job_6096d0fd9096",
+      "glb_path": "models/generated_3d/staging_jobs/job_6096d0fd9096.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_61c5c2fa7faf",
+      "glb_path": "models/generated_3d/staging_jobs/job_61c5c2fa7faf.glb",
+      "face_count": 1280,
+      "total_area_m2": 0.917883,
+      "setup_1_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013927,
+          "symmetry_inferred": 0.030925,
+          "model_inferred": 0.673891,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 0.0,
+          "interpolated": 1.517,
+          "symmetry_inferred": 3.369,
+          "model_inferred": 73.418,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 0,
+          "interpolated": 28,
+          "symmetry_inferred": 56,
+          "model_inferred": 923,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.5133
+      },
+      "setup_2_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.19914,
+          "interpolated": 0.027855,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.491749,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 21.696,
+          "interpolated": 3.035,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 53.574,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 273,
+          "interpolated": 56,
+          "symmetry_inferred": 0,
+          "model_inferred": 678,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4007
+      },
+      "setup_3_view": {
+        "total_area_m2": 0.917883,
+        "total_faces": 1280,
+        "regime_areas_m2": {
+          "direct_observed": 0.19914,
+          "multiview_observed": 0.213067,
+          "interpolated": 0.134632,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 0.371044,
+          "unobserved": 0.0
+        },
+        "regime_percentages": {
+          "direct_observed": 21.696,
+          "multiview_observed": 23.213,
+          "interpolated": 14.668,
+          "symmetry_inferred": 0.0,
+          "model_inferred": 40.424,
+          "unobserved": 0.0
+        },
+        "regime_face_counts": {
+          "direct_observed": 273,
+          "multiview_observed": 301,
+          "interpolated": 188,
+          "symmetry_inferred": 0,
+          "model_inferred": 518,
+          "unobserved": 0
+        },
+        "sum_of_partition_areas_m2": 0.917883,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.352
+      }
+    },
+    {
+      "mesh_id": "job_61e22e805380",
+      "glb_path": "models/generated_3d/staging_jobs/job_61e22e805380.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    },
+    {
+      "mesh_id": "job_635fca4f99f4",
+      "glb_path": "models/generated_3d/staging_jobs/job_635fca4f99f4.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.127004,
+      "setup_1_view": {
+        "total_area_m2": 1.127004,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287742,
+          "multiview_observed": 0.0,
+          "interpolated": 0.013688,
+          "symmetry_inferred": 0.316591,
+          "model_inferred": 0.487223,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.532,
+          "multiview_observed": 0.0,
+          "interpolated": 1.215,
+          "symmetry_inferred": 28.091,
+          "model_inferred": 43.232,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 24,
+          "symmetry_inferred": 550,
+          "model_inferred": 943,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.127004,
+        "sum_of_partition_percentages": 100.001,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4414
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.127004,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287742,
+          "multiview_observed": 0.117754,
+          "interpolated": 0.027375,
+          "symmetry_inferred": 0.199884,
+          "model_inferred": 0.472489,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.532,
+          "multiview_observed": 10.448,
+          "interpolated": 2.429,
+          "symmetry_inferred": 17.736,
+          "model_inferred": 41.924,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 260,
+          "interpolated": 48,
+          "symmetry_inferred": 303,
+          "model_inferred": 906,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.127004,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 0.0,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4056
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.127004,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.287742,
+          "multiview_observed": 0.198859,
+          "interpolated": 0.119093,
+          "symmetry_inferred": 0.030927,
+          "model_inferred": 0.468624,
+          "unobserved": 0.02176
+        },
+        "regime_percentages": {
+          "direct_observed": 25.532,
+          "multiview_observed": 17.645,
+          "interpolated": 10.567,
+          "symmetry_inferred": 2.744,
+          "model_inferred": 41.581,
+          "unobserved": 1.931
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 384,
+          "interpolated": 208,
+          "symmetry_inferred": 45,
+          "model_inferred": 880,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.127004,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.3734
+      }
+    },
+    {
+      "mesh_id": "job_65c103788a58",
+      "glb_path": "models/generated_3d/staging_jobs/job_65c103788a58.glb",
+      "face_count": 2048,
+      "total_area_m2": 1.250672,
+      "setup_1_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.0,
+          "interpolated": 0.01596,
+          "symmetry_inferred": 0.251077,
+          "model_inferred": 0.748643,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 0.0,
+          "interpolated": 1.276,
+          "symmetry_inferred": 20.075,
+          "model_inferred": 59.859,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 0,
+          "interpolated": 22,
+          "symmetry_inferred": 542,
+          "model_inferred": 953,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.513
+      },
+      "setup_2_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.15088,
+          "interpolated": 0.03192,
+          "symmetry_inferred": 0.103832,
+          "model_inferred": 0.729048,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 12.064,
+          "interpolated": 2.552,
+          "symmetry_inferred": 8.302,
+          "model_inferred": 58.292,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 314,
+          "interpolated": 44,
+          "symmetry_inferred": 243,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 99.999,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4717
+      },
+      "setup_3_view": {
+        "total_area_m2": 1.250672,
+        "total_faces": 2048,
+        "regime_areas_m2": {
+          "direct_observed": 0.205197,
+          "multiview_observed": 0.1953,
+          "interpolated": 0.158591,
+          "symmetry_inferred": 0.009918,
+          "model_inferred": 0.651871,
+          "unobserved": 0.029795
+        },
+        "regime_percentages": {
+          "direct_observed": 16.407,
+          "multiview_observed": 15.616,
+          "interpolated": 12.68,
+          "symmetry_inferred": 0.793,
+          "model_inferred": 52.122,
+          "unobserved": 2.382
+        },
+        "regime_face_counts": {
+          "direct_observed": 492,
+          "multiview_observed": 382,
+          "interpolated": 207,
+          "symmetry_inferred": 12,
+          "model_inferred": 916,
+          "unobserved": 39
+        },
+        "sum_of_partition_areas_m2": 1.250672,
+        "sum_of_partition_percentages": 100.0,
+        "partition_discrepancy_m2": 2.220446049250313e-16,
+        "is_exact_partition": true,
+        "mean_surface_uncertainty": 0.4347
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "timestamp": "2026-11-21T06:22:13Z",
+    "total_investigated_failures": 6
+  },
+  "failures": [
+    {
+      "failure_id": "FAIL-14-11-01",
+      "component": "XPBD Jacobi Constraint Accumulation",
+      "symptom": "Explosive numerical runaway (> 10^3 m/s) on dense meshes during unnormalized Jacobi accumulation",
+      "root_cause": "np.add.at accumulated corrections without valence normalization, causing compounding velocity increments",
+      "remediation": "Implemented Jacobi degree normalization (delta / deg_edges * 0.85) and clamped maximum vertex velocities to [-2.5, 2.5] m/s",
+      "verification_status": "RESOLVED_VERIFIED"
+    },
+    {
+      "failure_id": "FAIL-14-11-02",
+      "component": "Fixed Collar Collision Exclusion",
+      "symptom": "1.8% residual penetration due to pinned collar vertices clipping wide humanoid neck meshes",
+      "root_cause": "Pinned collar vertices were omitted from collision clearance pass",
+      "remediation": "Enforced non-penetration clearance across all vertices while preserving horizontal collar pinning",
+      "verification_status": "RESOLVED_VERIFIED"
+    },
+    {
+      "failure_id": "FAIL-14-11-03",
+      "component": "Component Graph Node Synonyms",
+      "symptom": "Hoodie hood cowl mismatch against legacy engine node key hood_shell",
+      "root_cause": "Synonym discrepancy between high-level clothing taxonomy and lower-level mesh graph nodes",
+      "remediation": "Aligned category component definitions to accept authentic engine node keys",
+      "verification_status": "RESOLVED_VERIFIED"
+    },
+    {
+      "failure_id": "FAIL-14-11-04",
+      "component": "Lower-Body Leg Duplication in SegFormer",
+      "symptom": "Connected components on class 6 (pants) isolated left and right legs into separate instances, inflating false positives",
+      "root_cause": "Walking stride or standing poses created disconnected 2D blobs for single pants garment",
+      "remediation": "Implemented lower-body taxonomic deduplication and mutual exclusion between pants and skirt",
+      "verification_status": "RESOLVED_VERIFIED"
+    },
+    {
+      "failure_id": "FAIL-14-11-05",
+      "component": "Raw Neural 3D Watertight Genus-0 Solid",
+      "symptom": "Raw TripoSR / TRELLIS neural outputs capped neck, wrists, and waist with solid infill, causing 100% avatar collision",
+      "root_cause": "DMTet / Marching Cubes level set extraction in open-weight models does not support open boundary loops",
+      "remediation": "Engineered automated topology recovery algorithm carving open boundary loops and excavating cavity infill",
+      "verification_status": "RESOLVED_VERIFIED"
+    },
+    {
+      "failure_id": "FAIL-14-11-06",
+      "component": "Cloud GPU Cluster Unprovisioned",
+      "symptom": "Remote NVIDIA A10G / A100 GPU cluster is not provisioned",
+      "root_cause": "Physical hardware constraint (local development executed on Apple Silicon M2)",
+      "remediation": "Enforced truthful reporting: remote CUDA explicitly reported as BLOCKED; local MPS development staging operational",
+      "verification_status": "TRUTHFUL_POLICY_ENFORCED"
+    }
+  ]
+}

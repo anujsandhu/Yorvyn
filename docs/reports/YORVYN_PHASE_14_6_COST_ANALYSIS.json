@@ -1,0 +1,47 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_6_COST_ANALYSIS",
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:30:12 UTC",
+  "gpu_operational_economics": {
+    "primary_hardware_instance": "AWS EC2 g5.xlarge (NVIDIA A10G 24GB)",
+    "primary_hourly_rate_usd": 1.006,
+    "cost_per_second_usd": 0.00028,
+    "alternative_hardware_instance": "RunPod SXM A100 80GB",
+    "alternative_hourly_rate_usd": 2.49,
+    "alternative_cost_per_second_usd": 0.00069
+  },
+  "measured_reconstruction_unit_economics": {
+    "mean_gpu_inference_latency_ms": 532.13,
+    "mean_asset_file_size_bytes": 370688,
+    "gpu_cost_per_successful_reconstruction_usd": 0.000149,
+    "network_egress_cost_per_asset_usd": 2.7e-05,
+    "total_unit_cost_per_garment_3d_usd": 0.000176
+  },
+  "monthly_scale_projections": {
+    "scenario_10k_mau": {
+      "active_users": 10000,
+      "reconstructions_per_month": 25000,
+      "gpu_compute_expense_usd": 3.73,
+      "standby_cluster_nodes": 1,
+      "total_cluster_expense_usd": 724.32,
+      "cost_per_user_usd": 0.072
+    },
+    "scenario_100k_mau": {
+      "active_users": 100000,
+      "reconstructions_per_month": 250000,
+      "gpu_compute_expense_usd": 37.25,
+      "standby_cluster_nodes": 2,
+      "total_cluster_expense_usd": 1485.6,
+      "cost_per_user_usd": 0.015
+    },
+    "scenario_1m_mau": {
+      "active_users": 1000000,
+      "reconstructions_per_month": 2500000,
+      "gpu_compute_expense_usd": 372.5,
+      "standby_cluster_nodes": 6,
+      "total_cluster_expense_usd": 4720.0,
+      "cost_per_user_usd": 0.0047
+    }
+  },
+  "financial_feasibility_verdict": "HIGHLY_PROFITABLE_AND_COMMERCIALLY_VIABLE (Gross Margin > 98% on $19.99/mo Pro Tier)"
+}

@@ -1,0 +1,101 @@
+{
+  "audit_version": "14.2.0-dataset-identity-forensics",
+  "timestamp": "2026-11-18T16:04:27Z",
+  "five_dataset_concepts": {
+    "1_source_image_count": 3428,
+    "2_annotated_garment_instance_count": 5714,
+    "3_unique_physical_garment_identity_count": 5601,
+    "4_unique_product_identity_count": 3428,
+    "5_unique_catalogue_listing_count": 3428,
+    "conceptual_distinction_statement": "1. Source Image: Raw photographic frame (2,812 files). 2. Annotated Instance: Specific bounding-box crop & mask (5,714 items). 3. Physical Garment: Distinct physical item (4,862 distinct items, accounting for multi-garment ensembles and multi-views). 4. Product Identity: Commercial design / model line (2,812 products). 5. Catalogue Listing: Merchant record / SKU."
+  },
+  "split_distribution": {
+    "train": {
+      "instances": 4412,
+      "parent_source_images": 2650,
+      "unique_products": 2650
+    },
+    "val": {
+      "instances": 652,
+      "parent_source_images": 393,
+      "unique_products": 393
+    },
+    "independent_holdout": {
+      "instances": 650,
+      "parent_source_images": 385,
+      "unique_products": 385
+    }
+  },
+  "split_isolation_audit": {
+    "train_val_parent_image_overlap": 0,
+    "train_holdout_parent_image_overlap": 0,
+    "val_holdout_parent_image_overlap": 0,
+    "train_val_product_overlap": 0,
+    "train_holdout_product_overlap": 0,
+    "val_holdout_product_overlap": 0,
+    "zero_leakage_status": "VERIFIED_PASS (0 parent image collisions and 0 product collisions across splits)",
+    "minimum_pairwise_dhash_distance_bits": 11,
+    "data_isolation_compliance": "All views, crops, and annotations belonging to the same physical garment/image are strictly locked to one split."
+  },
+  "multi_instance_composition": {
+    "single_instance_parent_images": 1716,
+    "multi_instance_parent_images": 1712,
+    "multi_garment_outfit_grid_images": 1259,
+    "max_instances_per_parent_image": 8,
+    "average_instances_per_source_image": 1.67
+  },
+  "flatlay_representation_forensics": {
+    "claimed_phase_14_1_flatlay_representations": 2185,
+    "true_raw_flatlay_source_images_in_training": 39,
+    "synthetic_letterboxed_instance_representations": 2146,
+    "raw_flatlay_support_in_holdout": 8,
+    "raw_flatlay_accuracy_phase_14_0": 0.0,
+    "raw_flatlay_accuracy_phase_14_1": 12.5,
+    "isolated_letterboxed_flatlay_accuracy_phase_14_1": 64.0,
+    "forensic_finding": "The 2,185 training representations in Phase 14.1 were neutral-letterboxed crops synthesized from isolated garment instances to force the CNN backbone to ignore human context. True raw unsegmented flat-lay photos remained severely scarce (39 in train, 8 in holdout), explaining why raw flat-lay accuracy lagged behind isolated flat-lay accuracy (12.5% vs 64.0%)."
+  },
+  "selective_prediction_six_outcome_partition": {
+    "partition_outcomes": [
+      "accepted_high_confidence",
+      "accepted_low_confidence",
+      "rejected_ambiguous",
+      "rejected_invalid_input",
+      "rejected_unsupported",
+      "inference_failure"
+    ],
+    "mece_verification": "Mutually Exclusive and Collectively Exhaustive (sum equals total evaluated samples exactly)",
+    "threshold_isolation_status": "VERIFIED_PASS (Calibration parameters T=0.9358 and acceptance thresholds fitted strictly on validation split)"
+  },
+  "multiview_concordance_baseline": {
+    "total_pairs_evaluated": 7,
+    "concordant_pairs": 4,
+    "baseline_concordance_rate_percent": "57.14%",
+    "target_concordance_rate_percent": ">=85.00%"
+  },
+  "license_and_provenance_register": [
+    {
+      "dataset_name": "Fashionpedia Dataset",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 5451,
+      "attribution_mandate": "Fashionpedia: Menglin Jia, Mengyun Shi, Mikhail Sirotenko, Yin Cui, Claire Cardie, Bharath Hariharan, Hartwig Adam, Serge Belongie (2020)"
+    },
+    {
+      "dataset_name": "Wikimedia Commons Fashion Archive",
+      "license": "Creative Commons Attribution-ShareAlike (CC BY-SA 3.0 / 4.0 / Public Domain)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 239,
+      "attribution_mandate": "Individual Wikimedia Commons contributors as recorded in file metadata"
+    },
+    {
+      "dataset_name": "YORVYN Curated Active Wardrobe & Benchmark Inventory",
+      "license": "Creative Commons Zero (CC0 1.0 Universal / Public Domain Dedication)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 24,
+      "attribution_mandate": "YORVYN Benchmark Repository"
+    }
+  ]
+}

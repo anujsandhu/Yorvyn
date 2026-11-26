@@ -1,0 +1,26 @@
+{
+  "model_version": "14.2.0-domain-generalization",
+  "timestamp": "2026-11-18T16:12:43Z",
+  "onnx_artifact": "frontend/public/models/edge/garment_classifier_edge.onnx",
+  "sha256_checksum": "d785b3ef38e80492506bcfb1cc70a926047f09921b81b3880dc78b773e34ca9f",
+  "file_size_bytes": 4495209,
+  "input_tensor_shape": [
+    "batch_size",
+    3,
+    224,
+    224
+  ],
+  "onnx_opset": 14,
+  "numerical_parity_metrics": {
+    "max_absolute_difference": 8.881092071533203e-06,
+    "mean_absolute_difference": 1.4981208551034797e-06,
+    "parity_threshold": 0.0001,
+    "status": "PASS_NUMERICAL_PARITY"
+  },
+  "tested_aspect_ratios": [
+    "1.00 (Square 224x224)",
+    "0.67 (Tall Portrait 300x450)",
+    "1.50 (Landscape 600x400)",
+    "0.36 (Folded Trouser 180x500)"
+  ]
+}

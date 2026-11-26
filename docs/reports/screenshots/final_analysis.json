@@ -1,0 +1,86 @@
+{
+  "1920x1080": {
+    "viewport": "1920x1080",
+    "image_size": [
+      1920,
+      1080
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 1416,
+    "stage_height": 1016,
+    "tray_width": 400,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "desktop_flex_row"
+  },
+  "1440x900": {
+    "viewport": "1440x900",
+    "image_size": [
+      1440,
+      900
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 936,
+    "stage_height": 836,
+    "tray_width": 400,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "desktop_flex_row"
+  },
+  "1280x800": {
+    "viewport": "1280x800",
+    "image_size": [
+      1280,
+      800
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 776,
+    "stage_height": 736,
+    "tray_width": 400,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "desktop_flex_row"
+  },
+  "1024x768": {
+    "viewport": "1024x768",
+    "image_size": [
+      1024,
+      768
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 520,
+    "stage_height": 704,
+    "tray_width": 400,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "desktop_flex_row"
+  },
+  "768x1024": {
+    "viewport": "768x1024",
+    "image_size": [
+      768,
+      1024
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 768,
+    "stage_height": 532,
+    "tray_width": 768,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "mobile_stacked"
+  },
+  "390x844": {
+    "viewport": "390x844",
+    "image_size": [
+      390,
+      844
+    ],
+    "has_wordmark": true,
+    "has_header_actions": true,
+    "stage_width": 390,
+    "stage_height": 438,
+    "tray_width": 390,
+    "tray_controlled_width_compliant": true,
+    "responsive_layout_mode": "mobile_stacked"
+  }
+}

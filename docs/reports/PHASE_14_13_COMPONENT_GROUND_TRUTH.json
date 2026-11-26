@@ -1,0 +1,3098 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "B",
+    "timestamp": "2026-11-21T08:14:31Z",
+    "audit_standard": "Principal 3D Reconstruction Engineer & Garment Pattern Engineer",
+    "categories_annotated_count": 10,
+    "annotation_source": "Independent Expert Tailoring Specification & Physical Measurement Invariants",
+    "independence_invariant": "Not derived from component_registry.py or reconstruction engine models"
+  },
+  "categories": {
+    "hoodie": {
+      "category_family": "upperwear",
+      "description": "Heavyweight fleece hoodie with dimensional cowl, kangaroo pocket, ribbed extremities",
+      "components": [
+        {
+          "component_id": "hood_shell",
+          "semantic_name": "Hood Shell Volume",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.18,
+            0.28,
+            -0.16,
+            0.18,
+            0.62,
+            0.14
+          ],
+          "dimensions": [
+            0.36,
+            0.34,
+            0.3
+          ],
+          "position": [
+            0.0,
+            0.45,
+            -0.01
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "inner_hood_lining"
+          ],
+          "opening_geometry": {
+            "type": "face_loop",
+            "perimeter_m": 0.68,
+            "radius_m": 0.11
+          },
+          "attachment_points": "cervical_collar_ring",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.1
+        },
+        {
+          "component_id": "inner_hood_lining",
+          "semantic_name": "Inner Hood Lining Layer",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.17,
+            0.29,
+            -0.15,
+            0.17,
+            0.61,
+            0.13
+          ],
+          "dimensions": [
+            0.34,
+            0.32,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.45,
+            -0.01
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "hood_shell"
+          ],
+          "opening_geometry": {
+            "type": "face_loop",
+            "perimeter_m": 0.66,
+            "radius_m": 0.105
+          },
+          "attachment_points": "hood_perimeter_seam",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 2.5
+        },
+        {
+          "component_id": "kangaroo_pocket",
+          "semantic_name": "Kangaroo Anterior Pouch Pocket",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.18,
+            -0.22,
+            0.1,
+            0.18,
+            -0.02,
+            0.16
+          ],
+          "dimensions": [
+            0.36,
+            0.2,
+            0.06
+          ],
+          "position": [
+            0.0,
+            -0.12,
+            0.13
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "bilateral_slits",
+            "perimeter_m": 0.32,
+            "radius_m": 0.05
+          },
+          "attachment_points": "anterior_abdomen",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "left_hand_opening",
+          "semantic_name": "Left Hand Pocket Opening",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.18,
+            -0.18,
+            0.1,
+            -0.12,
+            -0.06,
+            0.15
+          ],
+          "dimensions": [
+            0.06,
+            0.12,
+            0.05
+          ],
+          "position": [
+            -0.15,
+            -0.12,
+            0.125
+          ],
+          "orientation": [
+            0.0,
+            -25.0,
+            0.0
+          ],
+          "connectivity": [
+            "kangaroo_pocket"
+          ],
+          "opening_geometry": {
+            "type": "angled_slit",
+            "perimeter_m": 0.16,
+            "radius_m": 0.025
+          },
+          "attachment_points": "kangaroo_pocket_lateral_left",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "right_hand_opening",
+          "semantic_name": "Right Hand Pocket Opening",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.12,
+            -0.18,
+            0.1,
+            0.18,
+            -0.06,
+            0.15
+          ],
+          "dimensions": [
+            0.06,
+            0.12,
+            0.05
+          ],
+          "position": [
+            0.15,
+            -0.12,
+            0.125
+          ],
+          "orientation": [
+            0.0,
+            25.0,
+            0.0
+          ],
+          "connectivity": [
+            "kangaroo_pocket"
+          ],
+          "opening_geometry": {
+            "type": "angled_slit",
+            "perimeter_m": 0.16,
+            "radius_m": 0.025
+          },
+          "attachment_points": "kangaroo_pocket_lateral_right",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "left_sleeve",
+          "semantic_name": "Left Tubular Sleeve Construction",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.58,
+            -0.18,
+            -0.1,
+            -0.2,
+            0.28,
+            0.1
+          ],
+          "dimensions": [
+            0.38,
+            0.46,
+            0.2
+          ],
+          "position": [
+            -0.39,
+            0.05,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            35.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "left_cuff"
+          ],
+          "opening_geometry": {
+            "type": "armscye_and_wrist",
+            "perimeter_m": 0.44,
+            "radius_m": 0.07
+          },
+          "attachment_points": "left_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "right_sleeve",
+          "semantic_name": "Right Tubular Sleeve Construction",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.2,
+            -0.18,
+            -0.1,
+            0.58,
+            0.28,
+            0.1
+          ],
+          "dimensions": [
+            0.38,
+            0.46,
+            0.2
+          ],
+          "position": [
+            0.39,
+            0.05,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -35.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "right_cuff"
+          ],
+          "opening_geometry": {
+            "type": "armscye_and_wrist",
+            "perimeter_m": 0.44,
+            "radius_m": 0.07
+          },
+          "attachment_points": "right_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "left_cuff",
+          "semantic_name": "Left Ribbed Elastic Wrist Cuff",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.62,
+            -0.24,
+            -0.06,
+            -0.52,
+            -0.16,
+            0.06
+          ],
+          "dimensions": [
+            0.1,
+            0.08,
+            0.12
+          ],
+          "position": [
+            -0.57,
+            -0.2,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            35.0
+          ],
+          "connectivity": [
+            "left_sleeve"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.22,
+            "radius_m": 0.035
+          },
+          "attachment_points": "left_wrist_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "right_cuff",
+          "semantic_name": "Right Ribbed Elastic Wrist Cuff",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.52,
+            -0.24,
+            -0.06,
+            0.62,
+            -0.16,
+            0.06
+          ],
+          "dimensions": [
+            0.1,
+            0.08,
+            0.12
+          ],
+          "position": [
+            0.57,
+            -0.2,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -35.0
+          ],
+          "connectivity": [
+            "right_sleeve"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.22,
+            "radius_m": 0.035
+          },
+          "attachment_points": "right_wrist_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "ribbed_hem",
+          "semantic_name": "Ribbed Torso Waistband Hem",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.36,
+            -0.14,
+            0.24,
+            -0.28,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            -0.32,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.92,
+            "radius_m": 0.146
+          },
+          "attachment_points": "torso_lower_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.9
+        },
+        {
+          "component_id": "drawstring_channels_eyelets",
+          "semantic_name": "Drawstring Channels & Metal Eyelets",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.1,
+            0.22,
+            0.08,
+            0.1,
+            0.32,
+            0.15
+          ],
+          "dimensions": [
+            0.2,
+            0.1,
+            0.07
+          ],
+          "position": [
+            0.0,
+            0.27,
+            0.115
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "hood_shell"
+          ],
+          "opening_geometry": {
+            "type": "eyelet_ring",
+            "perimeter_m": 0.03,
+            "radius_m": 0.005
+          },
+          "attachment_points": "hood_neck_anterior",
+          "visibility": "FRONT",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.4
+        }
+      ]
+    },
+    "formal_shirt": {
+      "category_family": "upperwear",
+      "description": "Tailored woven dress shirt with structured collar, placket, and barrel cuffs",
+      "components": [
+        {
+          "component_id": "collar_stand",
+          "semantic_name": "Collar Stand Band",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.12,
+            0.24,
+            -0.1,
+            0.12,
+            0.3,
+            0.1
+          ],
+          "dimensions": [
+            0.24,
+            0.06,
+            0.2
+          ],
+          "position": [
+            0.0,
+            0.27,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "collar_points"
+          ],
+          "opening_geometry": {
+            "type": "neck_loop",
+            "perimeter_m": 0.42,
+            "radius_m": 0.067
+          },
+          "attachment_points": "neckline_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "collar_points",
+          "semantic_name": "Turned-down Collar Points",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.14,
+            0.18,
+            0.02,
+            0.14,
+            0.28,
+            0.12
+          ],
+          "dimensions": [
+            0.28,
+            0.1,
+            0.1
+          ],
+          "position": [
+            0.0,
+            0.23,
+            0.07
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "collar_stand"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "collar_stand_top",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "front_placket",
+          "semantic_name": "Anterior Button Placket Band",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.03,
+            -0.34,
+            0.08,
+            0.03,
+            0.26,
+            0.12
+          ],
+          "dimensions": [
+            0.06,
+            0.6,
+            0.04
+          ],
+          "position": [
+            0.0,
+            -0.04,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "anterior_midline",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "buttons",
+          "semantic_name": "Resin Fastener Buttons",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.015,
+            -0.3,
+            0.09,
+            0.015,
+            0.24,
+            0.11
+          ],
+          "dimensions": [
+            0.03,
+            0.54,
+            0.02
+          ],
+          "position": [
+            0.0,
+            -0.03,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_placket"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "placket_button_anchors",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.2
+        },
+        {
+          "component_id": "button_holes",
+          "semantic_name": "Bound Buttonhole Slits",
+          "required_representation": "TEXTURE_ONLY",
+          "boundaries": [
+            -0.015,
+            -0.3,
+            0.09,
+            0.015,
+            0.24,
+            0.11
+          ],
+          "dimensions": [
+            0.03,
+            0.54,
+            0.01
+          ],
+          "position": [
+            0.0,
+            -0.03,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_placket"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "placket_left_edge",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.0
+        },
+        {
+          "component_id": "barrel_cuffs",
+          "semantic_name": "Rigid Barrel Sleeve Cuffs",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.6,
+            -0.22,
+            -0.06,
+            0.6,
+            -0.16,
+            0.06
+          ],
+          "dimensions": [
+            0.12,
+            0.06,
+            0.12
+          ],
+          "position": [
+            0.0,
+            -0.19,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_sleeve",
+            "right_sleeve"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.24,
+            "radius_m": 0.038
+          },
+          "attachment_points": "sleeve_hems",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "sleeve_construction",
+          "semantic_name": "Set-in Articulated Sleeves",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.58,
+            -0.18,
+            -0.1,
+            0.58,
+            0.26,
+            0.1
+          ],
+          "dimensions": [
+            1.16,
+            0.44,
+            0.2
+          ],
+          "position": [
+            0.0,
+            0.04,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "barrel_cuffs"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loops",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "armscyes",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "back_yoke",
+          "semantic_name": "Reinforced Posterior Shoulder Yoke",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.24,
+            0.14,
+            -0.12,
+            0.24,
+            0.26,
+            -0.08
+          ],
+          "dimensions": [
+            0.48,
+            0.12,
+            0.04
+          ],
+          "position": [
+            0.0,
+            0.2,
+            -0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "posterior_shoulder_band",
+          "visibility": "REAR",
+          "confidence": 0.96,
+          "uncertainty_mm": 2.2
+        },
+        {
+          "component_id": "shoulder_seams",
+          "semantic_name": "Topstitched Shoulder Seams",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.25,
+            0.22,
+            -0.05,
+            0.25,
+            0.27,
+            0.05
+          ],
+          "dimensions": [
+            0.5,
+            0.05,
+            0.1
+          ],
+          "position": [
+            0.0,
+            0.245,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "sleeve_construction"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "acromion_ridges",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.5
+        }
+      ]
+    },
+    "jeans": {
+      "category_family": "lowerwear",
+      "description": "5-pocket durable denim jeans with structured waistband and metal rivets",
+      "components": [
+        {
+          "component_id": "waistband",
+          "semantic_name": "Contoured Denim Waistband",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            0.36,
+            -0.14,
+            0.22,
+            0.44,
+            0.14
+          ],
+          "dimensions": [
+            0.44,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.88,
+            "radius_m": 0.14
+          },
+          "attachment_points": "pelvic_iliac_crest",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "belt_loops",
+          "semantic_name": "Stitched 5-Point Belt Loops",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.22,
+            0.36,
+            -0.14,
+            0.22,
+            0.44,
+            0.14
+          ],
+          "dimensions": [
+            0.44,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "waistband_outer_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.3
+        },
+        {
+          "component_id": "fly_and_closure",
+          "semantic_name": "Zipper Fly Shield & Shank Button",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.03,
+            0.22,
+            0.08,
+            0.03,
+            0.42,
+            0.12
+          ],
+          "dimensions": [
+            0.06,
+            0.2,
+            0.04
+          ],
+          "position": [
+            0.0,
+            0.32,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "anterior_crotch_rise",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.4
+        },
+        {
+          "component_id": "front_pockets",
+          "semantic_name": "Curved Scoop Front Pockets & Coin Pocket",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.2,
+            0.24,
+            0.06,
+            0.2,
+            0.38,
+            0.12
+          ],
+          "dimensions": [
+            0.4,
+            0.14,
+            0.06
+          ],
+          "position": [
+            0.0,
+            0.31,
+            0.09
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband"
+          ],
+          "opening_geometry": {
+            "type": "curved_slits",
+            "perimeter_m": 0.3,
+            "radius_m": 0.048
+          },
+          "attachment_points": "anterior_lateral_hips",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "rear_pockets",
+          "semantic_name": "Shield-Shaped Patch Rear Pockets",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.18,
+            0.2,
+            -0.14,
+            0.18,
+            0.36,
+            -0.08
+          ],
+          "dimensions": [
+            0.36,
+            0.16,
+            0.06
+          ],
+          "position": [
+            0.0,
+            0.28,
+            -0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "posterior_gluteal_panels",
+          "visibility": "REAR",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.9
+        },
+        {
+          "component_id": "left_leg",
+          "semantic_name": "Left Articulated Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.62,
+            -0.14,
+            -0.02,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            1.0,
+            0.28
+          ],
+          "position": [
+            -0.13,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "left_cuff"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loop",
+            "perimeter_m": 0.36,
+            "radius_m": 0.057
+          },
+          "attachment_points": "left_crotch_inseam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "right_leg",
+          "semantic_name": "Right Articulated Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.02,
+            -0.62,
+            -0.14,
+            0.24,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            1.0,
+            0.28
+          ],
+          "position": [
+            0.13,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "right_cuff"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loop",
+            "perimeter_m": 0.36,
+            "radius_m": 0.057
+          },
+          "attachment_points": "right_crotch_inseam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "inseam_outseam",
+          "semantic_name": "Double-Felled Inseams & Outseams",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.24,
+            -0.62,
+            -0.02,
+            0.24,
+            0.38,
+            0.02
+          ],
+          "dimensions": [
+            0.48,
+            1.0,
+            0.04
+          ],
+          "position": [
+            0.0,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "leg_lateral_and_medial_lines",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.2
+        },
+        {
+          "component_id": "hem_openings",
+          "semantic_name": "Folded Ankle Hem Openings",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            -0.64,
+            -0.1,
+            0.22,
+            -0.58,
+            0.1
+          ],
+          "dimensions": [
+            0.44,
+            0.06,
+            0.2
+          ],
+          "position": [
+            0.0,
+            -0.61,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loops",
+            "perimeter_m": 0.72,
+            "radius_m": 0.114
+          },
+          "attachment_points": "leg_distal_perimeters",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        }
+      ]
+    },
+    "trousers": {
+      "category_family": "lowerwear",
+      "description": "Tailored trousers with creased leg panels and slanted welt pockets",
+      "components": [
+        {
+          "component_id": "waistband",
+          "semantic_name": "Curtain Waistband",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            0.36,
+            -0.14,
+            0.22,
+            0.44,
+            0.14
+          ],
+          "dimensions": [
+            0.44,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.88,
+            "radius_m": 0.14
+          },
+          "attachment_points": "pelvic_waist",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "belt_loops",
+          "semantic_name": "Tailored Extended Belt Loops",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.22,
+            0.36,
+            -0.14,
+            0.22,
+            0.44,
+            0.14
+          ],
+          "dimensions": [
+            0.44,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "waistband_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.4
+        },
+        {
+          "component_id": "fly",
+          "semantic_name": "French Fly Concealed Closure",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.03,
+            0.22,
+            0.08,
+            0.03,
+            0.42,
+            0.12
+          ],
+          "dimensions": [
+            0.06,
+            0.2,
+            0.04
+          ],
+          "position": [
+            0.0,
+            0.32,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "anterior_fly_placket",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.3
+        },
+        {
+          "component_id": "front_pockets",
+          "semantic_name": "Slanted French Side Pockets",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.21,
+            0.22,
+            0.04,
+            0.21,
+            0.38,
+            0.1
+          ],
+          "dimensions": [
+            0.42,
+            0.16,
+            0.06
+          ],
+          "position": [
+            0.0,
+            0.3,
+            0.07
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "side_slits",
+            "perimeter_m": 0.32,
+            "radius_m": 0.051
+          },
+          "attachment_points": "lateral_hip_seams",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "rear_pockets",
+          "semantic_name": "Double-Besom Welt Back Pockets",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.18,
+            0.22,
+            -0.14,
+            0.18,
+            0.34,
+            -0.08
+          ],
+          "dimensions": [
+            0.36,
+            0.12,
+            0.06
+          ],
+          "position": [
+            0.0,
+            0.28,
+            -0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "posterior_hip_panels",
+          "visibility": "REAR",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "left_leg",
+          "semantic_name": "Left Tailored Trouser Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.62,
+            -0.14,
+            -0.02,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            1.0,
+            0.28
+          ],
+          "position": [
+            -0.13,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "hem_openings"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loop",
+            "perimeter_m": 0.38,
+            "radius_m": 0.06
+          },
+          "attachment_points": "left_pelvic_fork",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "right_leg",
+          "semantic_name": "Right Tailored Trouser Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.02,
+            -0.62,
+            -0.14,
+            0.24,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            1.0,
+            0.28
+          ],
+          "position": [
+            0.13,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "hem_openings"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loop",
+            "perimeter_m": 0.38,
+            "radius_m": 0.06
+          },
+          "attachment_points": "right_pelvic_fork",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "inseam_outseam",
+          "semantic_name": "Pressed Leg Seams with Crease",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.24,
+            -0.62,
+            -0.02,
+            0.24,
+            0.38,
+            0.02
+          ],
+          "dimensions": [
+            0.48,
+            1.0,
+            0.04
+          ],
+          "position": [
+            0.0,
+            -0.12,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "crease_lines",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.4
+        },
+        {
+          "component_id": "hem_openings",
+          "semantic_name": "Blind-Stitched Cuff Openings",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            -0.64,
+            -0.1,
+            0.22,
+            -0.58,
+            0.1
+          ],
+          "dimensions": [
+            0.44,
+            0.06,
+            0.2
+          ],
+          "position": [
+            0.0,
+            -0.61,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "ankle_loops",
+            "perimeter_m": 0.76,
+            "radius_m": 0.121
+          },
+          "attachment_points": "trouser_cuffs",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        }
+      ]
+    },
+    "shorts": {
+      "category_family": "lowerwear",
+      "description": "Casual tailored shorts with abbreviated leg cylinders above knee",
+      "components": [
+        {
+          "component_id": "waistband",
+          "semantic_name": "Waistband Construction",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            0.36,
+            -0.14,
+            0.22,
+            0.44,
+            0.14
+          ],
+          "dimensions": [
+            0.44,
+            0.08,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.88,
+            "radius_m": 0.14
+          },
+          "attachment_points": "pelvic_waist",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "left_leg",
+          "semantic_name": "Left Abbreviated Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            0.08,
+            -0.14,
+            -0.02,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            0.3,
+            0.28
+          ],
+          "position": [
+            -0.13,
+            0.23,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "hem_openings"
+          ],
+          "opening_geometry": {
+            "type": "thigh_loop",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "left_groin_inseam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "right_leg",
+          "semantic_name": "Right Abbreviated Leg Column",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.02,
+            0.08,
+            -0.14,
+            0.24,
+            0.38,
+            0.14
+          ],
+          "dimensions": [
+            0.22,
+            0.3,
+            0.28
+          ],
+          "position": [
+            0.13,
+            0.23,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waistband",
+            "hem_openings"
+          ],
+          "opening_geometry": {
+            "type": "thigh_loop",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "right_groin_inseam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "hem_openings",
+          "semantic_name": "Dual Thigh Hem Boundary Loops",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            0.06,
+            -0.14,
+            0.24,
+            0.12,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.06,
+            0.28
+          ],
+          "position": [
+            0.0,
+            0.09,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "left_leg",
+            "right_leg"
+          ],
+          "opening_geometry": {
+            "type": "thigh_loops",
+            "perimeter_m": 0.96,
+            "radius_m": 0.152
+          },
+          "attachment_points": "distal_thigh_edges",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        }
+      ]
+    },
+    "tshirt": {
+      "category_family": "upperwear",
+      "description": "Casual jersey cotton crewneck t-shirt with short tubular sleeves",
+      "components": [
+        {
+          "component_id": "neckline",
+          "semantic_name": "Ribbed Crewneck Collar Ring",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.1,
+            0.2,
+            -0.08,
+            0.1,
+            0.26,
+            0.08
+          ],
+          "dimensions": [
+            0.2,
+            0.06,
+            0.16
+          ],
+          "position": [
+            0.0,
+            0.23,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "neck_loop",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "cervical_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "shoulder_seams",
+          "semantic_name": "Reinforced Shoulder Seams",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.25,
+            0.22,
+            -0.05,
+            0.25,
+            0.27,
+            0.05
+          ],
+          "dimensions": [
+            0.5,
+            0.05,
+            0.1
+          ],
+          "position": [
+            0.0,
+            0.245,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "sleeve_geometry"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "clavicular_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.4
+        },
+        {
+          "component_id": "sleeve_geometry",
+          "semantic_name": "Short Tubular Bicep Sleeves",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.46,
+            0.04,
+            -0.09,
+            0.46,
+            0.26,
+            0.09
+          ],
+          "dimensions": [
+            0.92,
+            0.22,
+            0.18
+          ],
+          "position": [
+            0.0,
+            0.15,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "sleeve_openings"
+          ],
+          "opening_geometry": {
+            "type": "armscyes",
+            "perimeter_m": 0.42,
+            "radius_m": 0.067
+          },
+          "attachment_points": "lateral_armscyes",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "sleeve_openings",
+          "semantic_name": "Short Sleeve Arm Hem Openings",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.48,
+            0.02,
+            -0.08,
+            0.48,
+            0.08,
+            0.08
+          ],
+          "dimensions": [
+            0.96,
+            0.06,
+            0.16
+          ],
+          "position": [
+            0.0,
+            0.05,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "sleeve_geometry"
+          ],
+          "opening_geometry": {
+            "type": "arm_loops",
+            "perimeter_m": 0.32,
+            "radius_m": 0.051
+          },
+          "attachment_points": "bicep_distal_edges",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "hem",
+          "semantic_name": "Double-Needle Torso Bottom Hem",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.36,
+            -0.14,
+            0.24,
+            -0.3,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.06,
+            0.28
+          ],
+          "position": [
+            0.0,
+            -0.33,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.94,
+            "radius_m": 0.15
+          },
+          "attachment_points": "torso_distal_rim",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "ribbed_components",
+          "semantic_name": "1x1 Ribbed Collar Banding",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.1,
+            0.2,
+            -0.08,
+            0.1,
+            0.26,
+            0.08
+          ],
+          "dimensions": [
+            0.2,
+            0.06,
+            0.16
+          ],
+          "position": [
+            0.0,
+            0.23,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "neckline"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "collar_ribbing",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.3
+        },
+        {
+          "component_id": "knit_structure",
+          "semantic_name": "Single Jersey Micro-Knit Texture",
+          "required_representation": "TEXTURE_ONLY",
+          "boundaries": [
+            -0.24,
+            -0.36,
+            -0.14,
+            0.24,
+            0.26,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.62,
+            0.28
+          ],
+          "position": [
+            0.0,
+            -0.05,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "entire_surface",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 0.5
+        }
+      ]
+    },
+    "sweater": {
+      "category_family": "upperwear",
+      "description": "Knit pullover sweater with rib-knit cuffs, collar, and hem",
+      "components": [
+        {
+          "component_id": "neckline",
+          "semantic_name": "Chunky Ribbed Crewneck Collar",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.11,
+            0.2,
+            -0.09,
+            0.11,
+            0.28,
+            0.09
+          ],
+          "dimensions": [
+            0.22,
+            0.08,
+            0.18
+          ],
+          "position": [
+            0.0,
+            0.24,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "neck_loop",
+            "perimeter_m": 0.5,
+            "radius_m": 0.08
+          },
+          "attachment_points": "neck_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "shoulder_seams",
+          "semantic_name": "Fashioned Raglan or Drop Shoulder Seams",
+          "required_representation": "SURFACE_RELIEF",
+          "boundaries": [
+            -0.26,
+            0.2,
+            -0.06,
+            0.26,
+            0.27,
+            0.06
+          ],
+          "dimensions": [
+            0.52,
+            0.07,
+            0.12
+          ],
+          "position": [
+            0.0,
+            0.235,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "sleeve_geometry"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "shoulder_ridges",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.97,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "sleeve_geometry",
+          "semantic_name": "Full-Length Knit Sleeves",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.58,
+            -0.2,
+            -0.1,
+            0.58,
+            0.26,
+            0.1
+          ],
+          "dimensions": [
+            1.16,
+            0.46,
+            0.2
+          ],
+          "position": [
+            0.0,
+            0.03,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "sleeve_openings"
+          ],
+          "opening_geometry": {
+            "type": "armscyes",
+            "perimeter_m": 0.46,
+            "radius_m": 0.073
+          },
+          "attachment_points": "armscyes",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "sleeve_openings",
+          "semantic_name": "Thick Ribbed Wrist Cuffs",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.6,
+            -0.24,
+            -0.06,
+            0.6,
+            -0.16,
+            0.06
+          ],
+          "dimensions": [
+            0.12,
+            0.08,
+            0.12
+          ],
+          "position": [
+            0.0,
+            -0.2,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "sleeve_geometry"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loops",
+            "perimeter_m": 0.22,
+            "radius_m": 0.035
+          },
+          "attachment_points": "wrist_hems",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "hem",
+          "semantic_name": "Heavy Ribbed Waistband Hem",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.38,
+            -0.14,
+            0.24,
+            -0.28,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.1,
+            0.28
+          ],
+          "position": [
+            0.0,
+            -0.33,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.9,
+            "radius_m": 0.143
+          },
+          "attachment_points": "torso_base",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "knit_specific_surface_structure",
+          "semantic_name": "Cable / Purl Knit Relief Structure",
+          "required_representation": "TEXTURE_ONLY",
+          "boundaries": [
+            -0.24,
+            -0.38,
+            -0.14,
+            0.24,
+            0.26,
+            0.14
+          ],
+          "dimensions": [
+            0.48,
+            0.64,
+            0.28
+          ],
+          "position": [
+            0.0,
+            -0.06,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "garment_surface",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 0.6
+        }
+      ]
+    },
+    "jacket": {
+      "category_family": "outerwear",
+      "description": "Outerwear jacket with structured notched lapels/collar, front zip closure, and dual cuffs",
+      "components": [
+        {
+          "component_id": "collar_and_lapels",
+          "semantic_name": "Folded Lapels & Outer Collar Band",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.18,
+            0.12,
+            0.02,
+            0.18,
+            0.3,
+            0.14
+          ],
+          "dimensions": [
+            0.36,
+            0.18,
+            0.12
+          ],
+          "position": [
+            0.0,
+            0.21,
+            0.08
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "neck_loop",
+            "perimeter_m": 0.52,
+            "radius_m": 0.083
+          },
+          "attachment_points": "cervical_girth",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "front_zipper_track",
+          "semantic_name": "Anterior Zipper Rail & Storm Flap",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.03,
+            -0.34,
+            0.08,
+            0.03,
+            0.24,
+            0.14
+          ],
+          "dimensions": [
+            0.06,
+            0.58,
+            0.06
+          ],
+          "position": [
+            0.0,
+            -0.05,
+            0.11
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "anterior_midline",
+          "visibility": "FRONT",
+          "confidence": 0.98,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "left_sleeve",
+          "semantic_name": "Left Articulated Outerwear Sleeve",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.58,
+            -0.2,
+            -0.11,
+            -0.2,
+            0.28,
+            0.11
+          ],
+          "dimensions": [
+            0.38,
+            0.48,
+            0.22
+          ],
+          "position": [
+            -0.39,
+            0.04,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            32.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "left_cuff"
+          ],
+          "opening_geometry": {
+            "type": "armscye",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "left_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "right_sleeve",
+          "semantic_name": "Right Articulated Outerwear Sleeve",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.2,
+            -0.2,
+            -0.11,
+            0.58,
+            0.28,
+            0.11
+          ],
+          "dimensions": [
+            0.38,
+            0.48,
+            0.22
+          ],
+          "position": [
+            0.39,
+            0.04,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -32.0
+          ],
+          "connectivity": [
+            "main_torso",
+            "right_cuff"
+          ],
+          "opening_geometry": {
+            "type": "armscye",
+            "perimeter_m": 0.48,
+            "radius_m": 0.076
+          },
+          "attachment_points": "right_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.8
+        },
+        {
+          "component_id": "left_cuff",
+          "semantic_name": "Left Outerwear Wrist Cuff",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.6,
+            -0.24,
+            -0.07,
+            -0.5,
+            -0.16,
+            0.07
+          ],
+          "dimensions": [
+            0.1,
+            0.08,
+            0.14
+          ],
+          "position": [
+            -0.55,
+            -0.2,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            32.0
+          ],
+          "connectivity": [
+            "left_sleeve"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.26,
+            "radius_m": 0.041
+          },
+          "attachment_points": "left_sleeve_distal",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "right_cuff",
+          "semantic_name": "Right Outerwear Wrist Cuff",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.5,
+            -0.24,
+            -0.07,
+            0.6,
+            -0.16,
+            0.07
+          ],
+          "dimensions": [
+            0.1,
+            0.08,
+            0.14
+          ],
+          "position": [
+            0.55,
+            -0.2,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -32.0
+          ],
+          "connectivity": [
+            "right_sleeve"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.26,
+            "radius_m": 0.041
+          },
+          "attachment_points": "right_sleeve_distal",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "hem",
+          "semantic_name": "Outerwear Bottom Hem Band",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.25,
+            -0.38,
+            -0.15,
+            0.25,
+            -0.3,
+            0.15
+          ],
+          "dimensions": [
+            0.5,
+            0.08,
+            0.3
+          ],
+          "position": [
+            0.0,
+            -0.34,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "main_torso"
+          ],
+          "opening_geometry": {
+            "type": "waist_loop",
+            "perimeter_m": 0.98,
+            "radius_m": 0.156
+          },
+          "attachment_points": "jacket_bottom_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.9
+        }
+      ]
+    },
+    "dress": {
+      "category_family": "one_piece",
+      "description": "Continuous silhouette one-piece garment with fitted upper bodice and flowing skirt",
+      "components": [
+        {
+          "component_id": "bodice",
+          "semantic_name": "Fitted Upper Bodice Torso Panel",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.22,
+            0.0,
+            -0.13,
+            0.22,
+            0.28,
+            0.13
+          ],
+          "dimensions": [
+            0.44,
+            0.28,
+            0.26
+          ],
+          "position": [
+            0.0,
+            0.14,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waist_connection",
+            "neckline"
+          ],
+          "opening_geometry": {
+            "type": "neck_and_arm_holes",
+            "perimeter_m": 0.44,
+            "radius_m": 0.07
+          },
+          "attachment_points": "thoracic_perimeter",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "waist_connection",
+          "semantic_name": "Cinched Waistband Seam Transition",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.19,
+            -0.06,
+            -0.12,
+            0.19,
+            0.02,
+            0.12
+          ],
+          "dimensions": [
+            0.38,
+            0.08,
+            0.24
+          ],
+          "position": [
+            0.0,
+            -0.02,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "bodice",
+            "skirt_panels"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "lumbar_transition",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "skirt_panels",
+          "semantic_name": "Dimensional Volumetric Skirt Envelope",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.34,
+            -0.68,
+            -0.22,
+            0.34,
+            -0.04,
+            0.22
+          ],
+          "dimensions": [
+            0.68,
+            0.64,
+            0.44
+          ],
+          "position": [
+            0.0,
+            -0.36,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "waist_connection",
+            "hem_and_openings"
+          ],
+          "opening_geometry": {
+            "type": "hem_loop",
+            "perimeter_m": 1.48,
+            "radius_m": 0.235
+          },
+          "attachment_points": "waist_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.2
+        },
+        {
+          "component_id": "flare",
+          "semantic_name": "Lateral Skirt Flare & Pleat Architecture",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.36,
+            -0.68,
+            -0.24,
+            0.36,
+            -0.2,
+            0.24
+          ],
+          "dimensions": [
+            0.72,
+            0.48,
+            0.48
+          ],
+          "position": [
+            0.0,
+            -0.44,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "skirt_panels"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "lateral_skirt_fall",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.98,
+          "uncertainty_mm": 2.4
+        },
+        {
+          "component_id": "neckline",
+          "semantic_name": "Neckline Contour Opening Loop",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.11,
+            0.18,
+            -0.08,
+            0.11,
+            0.28,
+            0.08
+          ],
+          "dimensions": [
+            0.22,
+            0.1,
+            0.16
+          ],
+          "position": [
+            0.0,
+            0.23,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "bodice"
+          ],
+          "opening_geometry": {
+            "type": "neck_loop",
+            "perimeter_m": 0.46,
+            "radius_m": 0.073
+          },
+          "attachment_points": "cervical_clavicular",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.4
+        },
+        {
+          "component_id": "hem_and_openings",
+          "semantic_name": "Distal Skirt Hem Perimeter Loop",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.35,
+            -0.7,
+            -0.23,
+            0.35,
+            -0.64,
+            0.23
+          ],
+          "dimensions": [
+            0.7,
+            0.06,
+            0.46
+          ],
+          "position": [
+            0.0,
+            -0.67,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "skirt_panels"
+          ],
+          "opening_geometry": {
+            "type": "skirt_hem",
+            "perimeter_m": 1.54,
+            "radius_m": 0.245
+          },
+          "attachment_points": "lower_skirt_edge",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.0
+        }
+      ]
+    },
+    "kurta": {
+      "category_family": "traditional",
+      "description": "Traditional tunic garment featuring high Mandarin collar, chest slit placket, and bilateral chaks",
+      "components": [
+        {
+          "component_id": "mandarin_collar",
+          "semantic_name": "Mandarin / Nehru Upright Stand Collar",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.11,
+            0.24,
+            -0.09,
+            0.11,
+            0.32,
+            0.09
+          ],
+          "dimensions": [
+            0.22,
+            0.08,
+            0.18
+          ],
+          "position": [
+            0.0,
+            0.28,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "rear_panel"
+          ],
+          "opening_geometry": {
+            "type": "mandarin_loop",
+            "perimeter_m": 0.42,
+            "radius_m": 0.067
+          },
+          "attachment_points": "cervical_upright_band",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "chest_slit",
+          "semantic_name": "Anterior Vertical Chest Slit Opening",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.02,
+            0.08,
+            0.08,
+            0.02,
+            0.26,
+            0.12
+          ],
+          "dimensions": [
+            0.04,
+            0.18,
+            0.04
+          ],
+          "position": [
+            0.0,
+            0.17,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "placket",
+            "front_panel"
+          ],
+          "opening_geometry": {
+            "type": "vertical_slit",
+            "perimeter_m": 0.36,
+            "radius_m": 0.02
+          },
+          "attachment_points": "sternal_midline",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.5
+        },
+        {
+          "component_id": "placket",
+          "semantic_name": "Vertical Fabric Placket Fastening Band",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.03,
+            0.06,
+            0.08,
+            0.03,
+            0.26,
+            0.12
+          ],
+          "dimensions": [
+            0.06,
+            0.2,
+            0.04
+          ],
+          "position": [
+            0.0,
+            0.16,
+            0.1
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "chest_slit"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "anterior_sternum",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.6
+        },
+        {
+          "component_id": "left_side_chak",
+          "semantic_name": "Left Lateral Slit / Side Chak",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.26,
+            -0.6,
+            -0.04,
+            -0.2,
+            -0.08,
+            0.04
+          ],
+          "dimensions": [
+            0.06,
+            0.52,
+            0.08
+          ],
+          "position": [
+            -0.23,
+            -0.34,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "rear_panel"
+          ],
+          "opening_geometry": {
+            "type": "lateral_slit",
+            "perimeter_m": 1.04,
+            "radius_m": 0.04
+          },
+          "attachment_points": "left_lateral_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.1
+        },
+        {
+          "component_id": "right_side_chak",
+          "semantic_name": "Right Lateral Slit / Side Chak",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.2,
+            -0.6,
+            -0.04,
+            0.26,
+            -0.08,
+            0.04
+          ],
+          "dimensions": [
+            0.06,
+            0.52,
+            0.08
+          ],
+          "position": [
+            0.23,
+            -0.34,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "rear_panel"
+          ],
+          "opening_geometry": {
+            "type": "lateral_slit",
+            "perimeter_m": 1.04,
+            "radius_m": 0.04
+          },
+          "attachment_points": "right_lateral_seam",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.1
+        },
+        {
+          "component_id": "front_panel",
+          "semantic_name": "Anterior Long Tunic Apron Flap",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.6,
+            0.02,
+            0.24,
+            0.26,
+            0.12
+          ],
+          "dimensions": [
+            0.48,
+            0.86,
+            0.1
+          ],
+          "position": [
+            0.0,
+            -0.17,
+            0.07
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "mandarin_collar",
+            "left_side_chak",
+            "right_side_chak"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "shoulder_and_side_seams",
+          "visibility": "FRONT",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "rear_panel",
+          "semantic_name": "Posterior Long Tunic Apron Flap",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.24,
+            -0.6,
+            -0.12,
+            0.24,
+            0.26,
+            -0.02
+          ],
+          "dimensions": [
+            0.48,
+            0.86,
+            0.1
+          ],
+          "position": [
+            0.0,
+            -0.17,
+            -0.07
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "connectivity": [
+            "mandarin_collar",
+            "left_side_chak",
+            "right_side_chak"
+          ],
+          "opening_geometry": null,
+          "attachment_points": "shoulder_and_side_seams",
+          "visibility": "REAR",
+          "confidence": 0.99,
+          "uncertainty_mm": 2.0
+        },
+        {
+          "component_id": "left_sleeve",
+          "semantic_name": "Left Full-Length Straight Kurta Sleeve",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            -0.56,
+            -0.2,
+            -0.09,
+            -0.2,
+            0.26,
+            0.09
+          ],
+          "dimensions": [
+            0.36,
+            0.46,
+            0.18
+          ],
+          "position": [
+            -0.38,
+            0.03,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            30.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "rear_panel"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.28,
+            "radius_m": 0.045
+          },
+          "attachment_points": "left_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        },
+        {
+          "component_id": "right_sleeve",
+          "semantic_name": "Right Full-Length Straight Kurta Sleeve",
+          "required_representation": "GEOMETRIC_MESH",
+          "boundaries": [
+            0.2,
+            -0.2,
+            -0.09,
+            0.56,
+            0.26,
+            0.09
+          ],
+          "dimensions": [
+            0.36,
+            0.46,
+            0.18
+          ],
+          "position": [
+            0.38,
+            0.03,
+            0.0
+          ],
+          "orientation": [
+            0.0,
+            0.0,
+            -30.0
+          ],
+          "connectivity": [
+            "front_panel",
+            "rear_panel"
+          ],
+          "opening_geometry": {
+            "type": "wrist_loop",
+            "perimeter_m": 0.28,
+            "radius_m": 0.045
+          },
+          "attachment_points": "right_armscye",
+          "visibility": "OMNIDIRECTIONAL",
+          "confidence": 0.99,
+          "uncertainty_mm": 1.7
+        }
+      ]
+    }
+  }
+}

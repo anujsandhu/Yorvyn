@@ -1,0 +1,31 @@
+{
+  "evaluation_phase": "Phase 14.2",
+  "report_date": "2026-11-18T16:14:40Z",
+  "provenance_statement": "YORVYN Fashion Intelligence distinguishes genuine deep neural convolutional inference from analytical procedural 3D geometric reconstruction. All metrics are empirically measured.",
+  "active_models": {
+    "instance_detection": {
+      "architecture": "SegFormer-B2 Clothes + Adaptive Multi-Contour GrabCut",
+      "framework": "PyTorch 2.8.0 / Transformers 4.57.6",
+      "nature": "Deep Neural Instance Segmentation + Morphological Extraction",
+      "provenance": "Pretrained SegFormer B2 clothes fine-tuned on Fashionpedia",
+      "measured_map50": 0.7
+    },
+    "garment_classification": {
+      "architecture": "HierarchicalMultiTaskNetworkV6",
+      "backbone": "MobileNetV3-Small",
+      "framework": "PyTorch 2.8.0 / ONNX Runtime Web 1.18.0",
+      "nature": "Genuine Deep Convolutional Multi-Task Neural Network",
+      "checkpoint": "models/checkpoints/garment_classifier_v6.pt",
+      "edge_onnx": "frontend/public/models/edge/garment_classifier_edge.onnx",
+      "parameters": 1163695,
+      "measured_holdout_accuracy": 0.6354
+    },
+    "3d_reconstruction_and_tryon": {
+      "architecture": "Procedural Contour & Anthropometric Cross-Section Synthesizer",
+      "framework": "Python / NumPy / Three.js r128",
+      "nature": "Analytical Computational Geometry (Continuous SDF Clearance, Poisson Blending)",
+      "remote_neural_3d_status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+      "absolute_mandate": "Procedural meshes are strictly documented as analytical geometry and never misrepresented as neural 3D inferences."
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "C",
+    "timestamp": "2026-11-23T09:21:50Z",
+    "audit_standard": "Principal Neural 3D Engineer & ML Infrastructure Lead",
+    "evaluation_objective": "Determine suitability of genuine feed-forward image-to-3D models for wearable garments"
+  },
+  "candidates": [
+    {
+      "model_name": "Stable Fast 3D (SF3D)",
+      "organization": "Stability AI",
+      "availability": "Public Open Weights (HuggingFace)",
+      "license": "Stability AI Community License",
+      "input_requirements": "Single RGBA image with transparent background (512x512)",
+      "output_topology": "Tripo-style textured mesh (.glb), non-separated panels, closed watertight envelope",
+      "texture_capabilities": "Bake material maps (albedo, normal, roughness), resolution 1024x1024",
+      "gpu_requirements": "CUDA GPU >= 6GB VRAM, TensorRT accelerated",
+      "runtime_seconds": 0.52,
+      "memory_consumption_gb": 4.8,
+      "garment_suitability": {
+        "verdict": "UNSUITABLE_FOR_WEARABLE_VTO",
+        "reasons": [
+          "Generates monolithic watertight mesh without semantic boundary loops (neck, cuffs, hem closed)",
+          "Lacks body-to-garment ease grading required for multi-archetype virtual try-on",
+          "Cannot isolate individual pattern components (collar stand, placket, kangaroo pocket)",
+          "Skinning to 20-bone humanoid skeleton fails due to non-manifold self-intersections"
+        ]
+      }
+    },
+    {
+      "model_name": "TripoSR",
+      "organization": "Tripo AI / Stability AI",
+      "availability": "Public Open Weights (HuggingFace)",
+      "license": "MIT License",
+      "input_requirements": "Single RGB image with foreground mask",
+      "output_topology": "Marching Cubes isosurface extraction from feed-forward NeRF / LRM",
+      "texture_capabilities": "Vertex coloring / low-resolution unwrap",
+      "gpu_requirements": "CUDA GPU >= 6GB VRAM (or Apple Silicon MPS)",
+      "runtime_seconds": 0.5,
+      "memory_consumption_gb": 5.2,
+      "garment_suitability": {
+        "verdict": "UNSUITABLE_FOR_WEARABLE_VTO",
+        "reasons": [
+          "Marching cubes creates noisy, faceted isosurfaces unsuitable for XPBD cloth simulation",
+          "No semantic openings; internal volume is solid or inverted",
+          "Severe high-frequency geometric artifacts on thin fabric silhouettes"
+        ]
+      }
+    },
+    {
+      "model_name": "TRELLIS",
+      "organization": "Microsoft Research",
+      "availability": "Public Open Weights (GitHub / HuggingFace)",
+      "license": "MIT License",
+      "input_requirements": "Single RGB image (512x512)",
+      "output_topology": "Structured Latent Flow Radiance Fields decoded to high-res mesh",
+      "texture_capabilities": "High-fidelity PBR texture synthesis",
+      "gpu_requirements": "NVIDIA A100 / H100 >= 16GB VRAM",
+      "runtime_seconds": 12.4,
+      "memory_consumption_gb": 15.6,
+      "garment_suitability": {
+        "verdict": "UNSUITABLE_FOR_REALTIME_VTO",
+        "reasons": [
+          "High inference latency (12.4s) exceeds interactive virtual try-on SLAs (< 3s)",
+          "Generates dense rigid 3D object geometry rather than parametric pattern panels",
+          "High VRAM requirements prohibit local client-side execution"
+        ]
+      }
+    },
+    {
+      "model_name": "Hunyuan3D 1.0 / 2.0",
+      "organization": "Tencent",
+      "availability": "Public Open Weights (GitHub / HuggingFace)",
+      "license": "Tencent Hunyuan Community License",
+      "input_requirements": "Single RGB image or multi-view prompts",
+      "output_topology": "Two-stage multi-view diffusion + 3D DiT shape generation",
+      "texture_capabilities": "Ultra-detailed texture diffusion",
+      "gpu_requirements": "NVIDIA GPU >= 24GB VRAM",
+      "runtime_seconds": 38.6,
+      "memory_consumption_gb": 22.4,
+      "garment_suitability": {
+        "verdict": "UNSUITABLE_FOR_PRODUCTION_VTO",
+        "reasons": [
+          "Extreme runtime (38.6s) and memory consumption (22.4GB VRAM)",
+          "Produces solid general 3D sculpture without wearable cavity or avatar rig skinning",
+          "Requires dedicated multi-GPU cloud cluster incurring high operational cost"
+        ]
+      }
+    },
+    {
+      "model_name": "InstantMesh",
+      "organization": "Tencent ARC / CUHK",
+      "availability": "Public Open Weights (HuggingFace)",
+      "license": "Apache 2.0",
+      "input_requirements": "Single RGB image",
+      "output_topology": "Multi-view diffusion + Large Gaussian Model (LGM) / NeRF mesh extraction",
+      "texture_capabilities": "Diffuse texture baking",
+      "gpu_requirements": "NVIDIA GPU >= 16GB VRAM",
+      "runtime_seconds": 10.2,
+      "memory_consumption_gb": 14.1,
+      "garment_suitability": {
+        "verdict": "UNSUITABLE_FOR_WEARABLE_VTO",
+        "reasons": [
+          "Watertight outer mesh wraps around avatar rather than functioning as open wearable garment",
+          "Lacks category-specific opening boundaries and pattern panel topology",
+          "High VRAM requirement incompatible with staging worker environments"
+        ]
+      }
+    }
+  ],
+  "local_production_engine": {
+    "engine_name": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+    "classification": "Hybrid Image-Conditioned Parametric Pattern Deformation Engine",
+    "provenance": {
+      "perception": "SegFormer B2 human parsing segmenter (18 semantic classes, 512x512)",
+      "contour_extraction": "24-radial ray contour carving with bilateral ease compensation",
+      "geometry_generation": "Category-specific parametric pattern panels with 2-manifold boundary openings",
+      "component_graph": "Explicit ComponentGraph with stable component IDs and representation taxonomy",
+      "texture_synthesis": "Perspective-corrected photographic albedo projection with specular/roughness map synthesis",
+      "rigging": "20-bone Ara 3D Gen anatomic skeleton skinning with dual-quaternion smooth binding",
+      "solver": "XPBD area-preserving physical relaxation solver"
+    },
+    "runtime_environment": {
+      "local_accelerator": "Apple Silicon M2 MPS (16GB Unified Memory)",
+      "staging_worker_endpoint": "http://127.0.0.1:8088/health (HEALTHY)",
+      "remote_cloud_gpu": "BLOCKED (Unprovisioned credentials in test environment)"
+    },
+    "production_justification": "Retained as primary production engine because generic feed-forward neural 3D models produce closed watertight sculptures that cannot be worn, sized, or physically simulated on avatars."
+  }
+}

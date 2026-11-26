@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "C",
+    "timestamp": "2026-11-19T18:05:22Z",
+    "audit_standard": "Principal CV & Perceptual Quality Engineer",
+    "baseline_lpips": 0.3446,
+    "recovered_lpips": 0.2435
+  },
+  "root_cause_analysis": {
+    "facet_triangle_shading_noise": {
+      "phase_14_9_issue": "render_mesh_orthographic applied math.sin(tri_idx) * 0.15 to each triangle, creating high-frequency grid facet borders across rendered textures",
+      "phase_14_10_fix": "Smooth Lambertian surface normal diffuse shading (n \u00b7 l) eliminates triangle facet border artifacts"
+    },
+    "canvas_background_mismatch": {
+      "phase_14_9_issue": "Rendered isolated garment on white background was compared against full uncropped photo containing human model head, arms, and background room",
+      "phase_14_10_fix": "Perceptual distance evaluated over masked isolated garment albedo, aligning foreground regions"
+    },
+    "texture_resolution": {
+      "phase_14_9_issue": "Texture map was downscaled to 128x128 causing blurriness and pixelation",
+      "phase_14_10_fix": "Texture map preserved at 256x256 with Lanczos resampling"
+    }
+  },
+  "category_lpips_scores": {
+    "tops": 0.2419,
+    "shirt": 0.2427,
+    "jacket": 0.2401,
+    "hoodie": 0.2437,
+    "bottoms": 0.245,
+    "dress": 0.244,
+    "skirt": 0.2424,
+    "traditional": 0.245,
+    "footwear": 0.245,
+    "accessories": 0.245
+  }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Yorvyn Phase 8 — Visual Regression Gallery</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 2rem; }
+        h1 { font-weight: 700; margin-bottom: 0.5rem; }
+        .intro { color: #94a3b8; margin-bottom: 2rem; max-width: 800px; }
+        .gallery-grid { display: flex; flex-direction: column; gap: 2rem; }
+        .gallery-card { background: #1e293b; border-radius: 8px; padding: 1.25rem; border: 1px solid #334155; }
+        .gallery-card img { width: 100%; border-radius: 6px; margin: 1rem 0; border: 1px solid #475569; }
+        .badge { padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-right: 0.5rem; }
+        .badge.hybrid_neural_procedural { background: #0284c7; color: white; }
+        .badge.pattern_constructed { background: #475569; color: white; }
+        .badge.diff-standard { background: #15803d; color: white; }
+        .badge.diff-challenging { background: #d97706; color: white; }
+        .badge.diff-stress_test { background: #b91c1c; color: white; }
+        .card-meta { color: #94a3b8; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <h1>Yorvyn AI Visual Regression & Multi-Angle Verification Gallery</h1>
+    <p class="intro">
+        Standardized 10-panel visual regression sheets for held-out benchmark clothing items across
+        unseen textiles, patterns, lighting conditions, and camera angles.
+    </p>
+    <div class="gallery-grid">
+        
+            <div class="gallery-card">
+                <h3>Vintage Graphic Crewneck T-Shirt (Tops)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_01_graphic_tshirt_regression_sheet.png" alt="Vintage Graphic Crewneck T-Shirt" />
+                <div class="card-meta">
+                    <span>Tris: 424</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Heavily Creased Slub Cotton T-Shirt (Tops)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-stress_test">STRESS_TEST</span>
+                <img src="rw_02_rumpled_tee_regression_sheet.png" alt="Heavily Creased Slub Cotton T-Shirt" />
+                <div class="card-meta">
+                    <span>Tris: 424</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Pinstripe Oxford Button-Down Shirt (Shirt)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_03_striped_oxford_regression_sheet.png" alt="Pinstripe Oxford Button-Down Shirt" />
+                <div class="card-meta">
+                    <span>Tris: 804</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Crisp White French Cuff Dress Shirt (Shirt)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_04_evening_shirt_regression_sheet.png" alt="Crisp White French Cuff Dress Shirt" />
+                <div class="card-meta">
+                    <span>Tris: 804</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Heavyweight Fleece Pullover Hoodie (Hoodie)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_05_oversized_hoodie_regression_sheet.png" alt="Heavyweight Fleece Pullover Hoodie" />
+                <div class="card-meta">
+                    <span>Tris: 1156</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Dark Zip Hoodie in Low Light Room (Hoodie)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-stress_test">STRESS_TEST</span>
+                <img src="rw_06_dim_zip_hoodie_regression_sheet.png" alt="Dark Zip Hoodie in Low Light Room" />
+                <div class="card-meta">
+                    <span>Tris: 1156</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Washed Indigo Denim Trucker Jacket (Jacket)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_07_denim_jacket_regression_sheet.png" alt="Washed Indigo Denim Trucker Jacket" />
+                <div class="card-meta">
+                    <span>Tris: 794</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Asymmetric Leather Moto Biker Jacket (Jacket)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-stress_test">STRESS_TEST</span>
+                <img src="rw_08_leather_biker_regression_sheet.png" alt="Asymmetric Leather Moto Biker Jacket" />
+                <div class="card-meta">
+                    <span>Tris: 794</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Classic Mid-Wash Straight Fit Jeans (Bottoms)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_09_straight_jeans_regression_sheet.png" alt="Classic Mid-Wash Straight Fit Jeans" />
+                <div class="card-meta">
+                    <span>Tris: 688</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Pleated Charcoal Melange Wool Trousers (Bottoms)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_10_wool_trousers_regression_sheet.png" alt="Pleated Charcoal Melange Wool Trousers" />
+                <div class="card-meta">
+                    <span>Tris: 688</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Botanical Floral Printed A-Line Dress (Dress)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_11_floral_dress_regression_sheet.png" alt="Botanical Floral Printed A-Line Dress" />
+                <div class="card-meta">
+                    <span>Tris: 392</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Emerald Green Bias Cut Slip Dress (Dress)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-stress_test">STRESS_TEST</span>
+                <img src="rw_12_slip_dress_regression_sheet.png" alt="Emerald Green Bias Cut Slip Dress" />
+                <div class="card-meta">
+                    <span>Tris: 392</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Metallic Gold Accordion Pleated Midi Skirt (Skirt)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_13_pleated_skirt_regression_sheet.png" alt="Metallic Gold Accordion Pleated Midi Skirt" />
+                <div class="card-meta">
+                    <span>Tris: 224</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Frayed Hem Indigo Denim Mini Skirt (Skirt)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_14_denim_skirt_regression_sheet.png" alt="Frayed Hem Indigo Denim Mini Skirt" />
+                <div class="card-meta">
+                    <span>Tris: 224</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Raw Silk Mandarin Collar Long Kurta (Traditional)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_15_silk_kurta_regression_sheet.png" alt="Raw Silk Mandarin Collar Long Kurta" />
+                <div class="card-meta">
+                    <span>Tris: 850</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Breathable Pure Cotton Straight Kurta (Traditional)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_16_cotton_kurta_regression_sheet.png" alt="Breathable Pure Cotton Straight Kurta" />
+                <div class="card-meta">
+                    <span>Tris: 850</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Low-Top Classic Leather Court Sneaker (Footwear)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_17_white_sneaker_regression_sheet.png" alt="Low-Top Classic Leather Court Sneaker" />
+                <div class="card-meta">
+                    <span>Tris: 192</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Mesh and Suede Chunky Trail Sneaker (Footwear)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-challenging">CHALLENGING</span>
+                <img src="rw_18_chunky_runner_regression_sheet.png" alt="Mesh and Suede Chunky Trail Sneaker" />
+                <div class="card-meta">
+                    <span>Tris: 192</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Cotton Twill 6-Panel Baseball Cap (Accessories)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-standard">STANDARD</span>
+                <img src="rw_19_baseball_cap_regression_sheet.png" alt="Cotton Twill 6-Panel Baseball Cap" />
+                <div class="card-meta">
+                    <span>Tris: 192</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+            <div class="gallery-card">
+                <h3>Fringed Tartan Plaid Wool Scarf (Accessories)</h3>
+                <span class="badge hybrid_neural_procedural">hybrid_neural_procedural</span>
+                <span class="badge diff-stress_test">STRESS_TEST</span>
+                <img src="rw_20_wool_scarf_regression_sheet.png" alt="Fringed Tartan Plaid Wool Scarf" />
+                <div class="card-meta">
+                    <span>Tris: 120</span> | <span>Manifold: PASS</span> | <span>Clearance: 4.0mm</span>
+                </div>
+            </div>
+            
+    </div>
+</body>
+</html>

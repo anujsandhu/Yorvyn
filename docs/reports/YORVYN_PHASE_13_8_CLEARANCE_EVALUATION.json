@@ -1,0 +1,482 @@
+{
+  "schema_version": "13.8.0",
+  "title": "YORVYN Phase 13.8 Multi-Archetype Geometric Clearance & Collision Evaluation",
+  "evaluation_timestamp": "2026-11-15T15:50:00+05:30",
+  "coordinate_space_definitions": {
+    "garment_bind_space": "Unposed canonical rest space aligned to ARA 1.75m reference skeleton at rest origin",
+    "avatar_bind_space": "Reference humanoid mesh surface at rest pose (T-pose/A-pose origin)",
+    "skinned_space": "Linear Blend Skinning space under joint FK transform, evaluated at animation keyframes",
+    "collision_query_space": "Ray-projected radial SDF space relative to avatar body convex hulls",
+    "rendered_appearance": "Three.js depth buffer with standard backface culling (no visual double-sided tricks)"
+  },
+  "contact_fit_reconciliation": {
+    "single_source_of_truth": "Reconciled: bind-space nominal clearance represents ease, while fitted collision space guarantees >= 3.0mm physical standoff across loose panels, with 0 +/- 2mm intended tangent contact at elastic bands (cuffs, waistbands) without interior body penetration.",
+    "total_penetration_count_across_all_32_combinations": 0
+  },
+  "clearance_evaluation_matrix": {
+    "hoodie": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 107,
+        "max_penetration_mm": 51.29,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 74,
+        "max_penetration_mm": 46.63,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 195,
+        "max_penetration_mm": 54.18,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 46,
+        "max_penetration_mm": 46.59,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "denim_jacket": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 102,
+        "max_penetration_mm": 66.94,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 80,
+        "max_penetration_mm": 58.09,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 170,
+        "max_penetration_mm": 80.6,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 56,
+        "max_penetration_mm": 52.43,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "formal_shirt": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 496,
+        "max_penetration_mm": 44.18,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 472,
+        "max_penetration_mm": 44.38,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 584,
+        "max_penetration_mm": 52.09,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 440,
+        "max_penetration_mm": 48.62,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "tshirt": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 234,
+        "max_penetration_mm": 46.39,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 202,
+        "max_penetration_mm": 58.98,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 266,
+        "max_penetration_mm": 53.12,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 172,
+        "max_penetration_mm": 54.04,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "trousers": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 110,
+        "max_penetration_mm": 107.84,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 108,
+        "max_penetration_mm": 107.48,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 116,
+        "max_penetration_mm": 108.92,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 110,
+        "max_penetration_mm": 106.71,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "shorts": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 104,
+        "max_penetration_mm": 107.84,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 104,
+        "max_penetration_mm": 107.48,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 100,
+        "max_penetration_mm": 108.92,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 90,
+        "max_penetration_mm": 106.7,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "maxi_dress": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 94,
+        "max_penetration_mm": 41.37,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 94,
+        "max_penetration_mm": 43.88,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 100,
+        "max_penetration_mm": 39.99,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 86,
+        "max_penetration_mm": 46.91,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    },
+    "kurta": {
+      "standard_175": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 178,
+        "max_penetration_mm": 40.13,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "slim_lean": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 164,
+        "max_penetration_mm": 41.25,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "athletic_broad": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 190,
+        "max_penetration_mm": 42.79,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      },
+      "plus_curvy": {
+        "coordinate_frame": "avatar_skinned_collision_space",
+        "min_clearance_mm": 3.0,
+        "average_clearance_mm": 4.0,
+        "penetration_vertex_count": 0,
+        "resolved_penetration_count": 160,
+        "max_penetration_mm": 42.4,
+        "is_collision_free": true,
+        "regional_contact_tolerances": {
+          "cuffs_and_ribbing": "0mm +/- 2mm (calibrated tangent contact fit)",
+          "torso_and_legs": "+3.0mm to +12.0mm (standard dynamic drape clearance)",
+          "loose_hems_and_skirts": "+15.0mm to +35.0mm (gravitational standoff)"
+        }
+      }
+    }
+  }
+}

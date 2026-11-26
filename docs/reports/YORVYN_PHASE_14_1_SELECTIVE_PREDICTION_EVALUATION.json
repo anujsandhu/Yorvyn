@@ -1,0 +1,90 @@
+{
+  "evaluation_version": "14.1.0-selective",
+  "timestamp": "2026-11-18T09:07:19Z",
+  "total_holdout_samples": 650,
+  "outcome_distribution": {
+    "accepted_high_confidence": 295,
+    "accepted_low_confidence": 222,
+    "rejected_ambiguous": 133,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0
+  },
+  "accounting_reconciliation": {
+    "accepted_high_confidence": 295,
+    "accepted_low_confidence": 222,
+    "rejected_ambiguous": 133,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0,
+    "total_accounted": 650,
+    "status": "RECONCILED_EXACT"
+  },
+  "acceptance_thresholds": {
+    "tau_high": 0.65,
+    "tau_acc": 0.4,
+    "margin_threshold": 0.1
+  },
+  "selective_metrics": {
+    "high_confidence_precision": 0.878,
+    "rejection_precision": 0.6165,
+    "false_acceptance_rate": 0.2747,
+    "selective_coverage": 0.7954
+  },
+  "coverage_risk_tradeoff": [
+    {
+      "threshold": 0.2,
+      "coverage": 0.9954,
+      "accuracy": 0.6584,
+      "selective_risk": 0.3416
+    },
+    {
+      "threshold": 0.3,
+      "coverage": 0.9462,
+      "accuracy": 0.6846,
+      "selective_risk": 0.3154
+    },
+    {
+      "threshold": 0.4,
+      "coverage": 0.8108,
+      "accuracy": 0.7173,
+      "selective_risk": 0.2827
+    },
+    {
+      "threshold": 0.5,
+      "coverage": 0.6492,
+      "accuracy": 0.7891,
+      "selective_risk": 0.2109
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.5262,
+      "accuracy": 0.8363,
+      "selective_risk": 0.1637
+    },
+    {
+      "threshold": 0.65,
+      "coverage": 0.4538,
+      "accuracy": 0.878,
+      "selective_risk": 0.122
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.4108,
+      "accuracy": 0.8914,
+      "selective_risk": 0.1086
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.3123,
+      "accuracy": 0.936,
+      "selective_risk": 0.064
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.1908,
+      "accuracy": 0.9677,
+      "selective_risk": 0.0323
+    }
+  ]
+}

@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "phase": "14.8",
+    "workstream": "Workstream E: Multi-View Reconstruction & Hidden-Surface Reasoning",
+    "eval_pairs_count": 20,
+    "generated_at": "2026-11-19 16:33:04 UTC",
+    "elapsed_seconds": 26.97,
+    "verdict": "PASS"
+  },
+  "summary": {
+    "single_view_mean_observed_ratio": 0.561,
+    "single_view_mean_inferred_ratio": 0.439,
+    "single_view_rear_confidence": 0.6,
+    "multi_view_mean_observed_ratio": 1.0,
+    "multi_view_mean_inferred_ratio": 0.0,
+    "multi_view_confidence": 0.95,
+    "mean_cross_view_concordance": 0.8,
+    "mean_color_similarity": 1.0,
+    "discrepancy_03_resolution": "DISC-14.8-03 Resolved: Single-view reconstruction no longer falsely claims directly observed rear geometry. Single-view meshes explicitly distinguish front observed vertices (ratio ~ 0.53, confidence 0.88) from inferred rear vertices (confidence 0.60, bilateral symmetry prior). Multi-view inputs fuse front and rear photographs into dual UV panels, verifying 100% surface observation with concordance scoring."
+  },
+  "evaluations": [
+    {
+      "garment_index": 1,
+      "identity_id": "fp_val_13331_obj00",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "single_view": {
+        "observed_surface_ratio": 0.57,
+        "inferred_surface_ratio": 0.43,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 3176.56
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 0.9999,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 365.51
+      }
+    },
+    {
+      "garment_index": 2,
+      "identity_id": "fp_val_11925_obj00",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 176.12
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 360.55
+      }
+    },
+    {
+      "garment_index": 3,
+      "identity_id": "fp_tr_1147_obj04",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "single_view": {
+        "observed_surface_ratio": 0.57,
+        "inferred_surface_ratio": 0.43,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 175.93
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 365.27
+      }
+    },
+    {
+      "garment_index": 4,
+      "identity_id": "fp_tr_904_obj05",
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 172.53
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 352.74
+      }
+    },
+    {
+      "garment_index": 5,
+      "identity_id": "p13_p13_9_hoodie_zip_01",
+      "category": "hoodie",
+      "subcategory": "zip_hoodie",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 1143.22
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 2226.36
+      }
+    },
+    {
+      "garment_index": 6,
+      "identity_id": "fp_val_11097_obj01",
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 188.6
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 365.43
+      }
+    },
+    {
+      "garment_index": 7,
+      "identity_id": "fp_tr_796_obj03",
+      "category": "jacket",
+      "subcategory": "leather_jacket",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 175.36
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 362.76
+      }
+    },
+    {
+      "garment_index": 8,
+      "identity_id": "fp_val_9591_obj11",
+      "category": "jacket",
+      "subcategory": "blazer",
+      "single_view": {
+        "observed_surface_ratio": 0.605,
+        "inferred_surface_ratio": 0.395,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 181.27
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 374.63
+      }
+    },
+    {
+      "garment_index": 9,
+      "identity_id": "fp_tr_23_obj03",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 173.2
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 1.0,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 359.65
+      }
+    },
+    {
+      "garment_index": 10,
+      "identity_id": "fp_tr_43_obj04",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 182.05
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 1.0,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 383.28
+      }
+    },
+    {
+      "garment_index": 11,
+      "identity_id": "fp_val_11925_obj04",
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 165.1
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 343.25
+      }
+    },
+    {
+      "garment_index": 12,
+      "identity_id": "fp_tr_1147_obj03",
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 170.57
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 355.67
+      }
+    },
+    {
+      "garment_index": 13,
+      "identity_id": "p13_p13_9_footwear_boot_03",
+      "category": "footwear",
+      "subcategory": "boots",
+      "single_view": {
+        "observed_surface_ratio": 0.55,
+        "inferred_surface_ratio": 0.45,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 382.37
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 829.44
+      }
+    },
+    {
+      "garment_index": 14,
+      "identity_id": "p13_p13_9_footwear_boot_01",
+      "category": "footwear",
+      "subcategory": "boots",
+      "single_view": {
+        "observed_surface_ratio": 0.55,
+        "inferred_surface_ratio": 0.45,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 579.68
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 1203.38
+      }
+    },
+    {
+      "garment_index": 15,
+      "identity_id": "p13_tr_acc_scarf_11",
+      "category": "accessories",
+      "subcategory": "scarf",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 368.98
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 740.34
+      }
+    },
+    {
+      "garment_index": 16,
+      "identity_id": "p13_p13_9_acc_cap_03",
+      "category": "accessories",
+      "subcategory": "cap",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 2090.42
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 4604.34
+      }
+    },
+    {
+      "garment_index": 17,
+      "identity_id": "fp_val_13331_obj03",
+      "category": "bottoms",
+      "subcategory": "chinos",
+      "single_view": {
+        "observed_surface_ratio": 0.551,
+        "inferred_surface_ratio": 0.449,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 222.77
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 378.01
+      }
+    },
+    {
+      "garment_index": 18,
+      "identity_id": "fp_tr_44_obj00",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 174.62
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 1.0,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 553.59
+      }
+    },
+    {
+      "garment_index": 19,
+      "identity_id": "fp_tr_904_obj03",
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "single_view": {
+        "observed_surface_ratio": 0.551,
+        "inferred_surface_ratio": 0.449,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 172.16
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 0.75,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 365.57
+      }
+    },
+    {
+      "garment_index": 20,
+      "identity_id": "fp_val_10645_obj02",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "single_view": {
+        "observed_surface_ratio": 0.531,
+        "inferred_surface_ratio": 0.469,
+        "rear_observed": false,
+        "rear_confidence": 0.6,
+        "reconstruction_time_ms": 194.15
+      },
+      "multi_view": {
+        "observed_surface_ratio": 1.0,
+        "inferred_surface_ratio": 0.0,
+        "rear_observed": true,
+        "concordance_score": 1.0,
+        "color_similarity": 1.0,
+        "overall_confidence": 0.95,
+        "reconstruction_time_ms": 401.62
+      }
+    }
+  ]
+}

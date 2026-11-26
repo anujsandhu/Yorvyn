@@ -1,0 +1,32 @@
+{
+  "model_version": "5.0.0-edge",
+  "onnx_artifact": "frontend/public/models/edge/garment_classifier_edge.onnx",
+  "sha256_checksum": "b3d4167fddb919bfa2a49999690e103898b3db332f9b72a9cce3c072a46ce100",
+  "file_size_bytes": 4495161,
+  "input_tensor_shape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "input_color_channel_order": "RGB",
+  "pixel_normalization": "ImageNet (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])",
+  "output_tensor_shapes": {
+    "category_probs": [
+      1,
+      10
+    ],
+    "subcategory_probs": [
+      1,
+      55
+    ]
+  },
+  "max_absolute_difference": 7.748603820800781e-07,
+  "parity_threshold": 0.0001,
+  "parity_status": "PASS",
+  "browser_execution_providers": [
+    "webgpu",
+    "wasm",
+    "cpu"
+  ]
+}

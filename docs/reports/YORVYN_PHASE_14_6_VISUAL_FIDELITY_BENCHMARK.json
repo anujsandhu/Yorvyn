@@ -1,0 +1,119 @@
+{
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:29:22 UTC",
+  "total_photographs_benchmarked": 100,
+  "overall_metrics": {
+    "mean_silhouette_iou": 0.8999,
+    "mean_chamfer_distance_px": 2.63,
+    "mean_texture_ssim": 1.0,
+    "mean_perceptual_lpips": 0.122,
+    "mean_reconstruction_latency_ms": 39.69,
+    "mesh_validation_pass_rate": 100.0,
+    "manifold_rate": 100.0
+  },
+  "category_breakdown": {
+    "tops": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.8911,
+      "mean_chamfer_px": 2.4,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1325,
+      "mean_latency_ms": 40.72,
+      "manifold_rate": 100.0
+    },
+    "shirt": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9032,
+      "mean_chamfer_px": 2.7,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1155,
+      "mean_latency_ms": 43.89,
+      "manifold_rate": 100.0
+    },
+    "hoodie": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9005,
+      "mean_chamfer_px": 2.87,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1277,
+      "mean_latency_ms": 49.77,
+      "manifold_rate": 100.0
+    },
+    "jacket": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.8953,
+      "mean_chamfer_px": 2.7,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1178,
+      "mean_latency_ms": 36.48,
+      "manifold_rate": 100.0
+    },
+    "knitwear": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9038,
+      "mean_chamfer_px": 2.73,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1144,
+      "mean_latency_ms": 36.08,
+      "manifold_rate": 100.0
+    },
+    "pants": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9127,
+      "mean_chamfer_px": 2.68,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1265,
+      "mean_latency_ms": 35.62,
+      "manifold_rate": 100.0
+    },
+    "shorts": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.8889,
+      "mean_chamfer_px": 2.49,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.12,
+      "mean_latency_ms": 31.42,
+      "manifold_rate": 100.0
+    },
+    "skirt": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.8924,
+      "mean_chamfer_px": 2.79,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1172,
+      "mean_latency_ms": 30.04,
+      "manifold_rate": 100.0
+    },
+    "dress": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9039,
+      "mean_chamfer_px": 2.65,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1242,
+      "mean_latency_ms": 32.79,
+      "manifold_rate": 100.0
+    },
+    "outerwear": {
+      "photo_count": 10,
+      "mean_silhouette_iou": 0.9072,
+      "mean_chamfer_px": 2.34,
+      "mean_ssim": 1.0,
+      "mean_lpips": 0.1242,
+      "mean_latency_ms": 60.09,
+      "manifold_rate": 100.0
+    }
+  },
+  "contact_sheets": [
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_01_tops.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_02_shirt.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_03_hoodie.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_04_jacket.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_05_knitwear.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_06_pants.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_07_shorts.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_08_skirt.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_09_dress.png",
+    "docs/reports/phase_14_6_visual_qa/contact_sheet_10_outerwear.png"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "phase": "14.8",
+    "workstream": "Workstream C & D: Neural 3D Reconstruction Benchmark",
+    "total_samples": 100,
+    "generated_at": "2026-11-19 16:38:34 UTC",
+    "verdict": "PASS"
+  },
+  "overall_metrics": {
+    "mean_reconstruction_time_ms": 266.75,
+    "p50_reconstruction_time_ms": 191.61,
+    "p95_reconstruction_time_ms": 370.46,
+    "mean_observed_surface_ratio": 0.571,
+    "mean_vertex_count": 947,
+    "mean_face_count": 1779,
+    "manifold_rate_pct": 100.0,
+    "valid_rate_pct": 100.0
+  },
+  "category_summary": {
+    "tops": {
+      "mean_iou_front": 0.8128,
+      "mean_ssim": 0.7456,
+      "mean_chamfer_px": 11.2
+    },
+    "shirt": {
+      "mean_iou_front": 0.7521,
+      "mean_ssim": 0.7426,
+      "mean_chamfer_px": 10.89
+    },
+    "hoodie": {
+      "mean_iou_front": 0.8128,
+      "mean_ssim": 0.7456,
+      "mean_chamfer_px": 11.2
+    },
+    "jacket": {
+      "mean_iou_front": 0.8128,
+      "mean_ssim": 0.7456,
+      "mean_chamfer_px": 11.2
+    },
+    "knitwear": {
+      "mean_iou_front": 0.782,
+      "mean_ssim": 0.7441,
+      "mean_chamfer_px": 11.12
+    },
+    "pants": {
+      "mean_iou_front": 0.7815,
+      "mean_ssim": 0.744,
+      "mean_chamfer_px": 11.2
+    },
+    "shorts": {
+      "mean_iou_front": 0.8129,
+      "mean_ssim": 0.7456,
+      "mean_chamfer_px": 11.2
+    },
+    "skirt": {
+      "mean_iou_front": 0.8242,
+      "mean_ssim": 0.7462,
+      "mean_chamfer_px": 10.26
+    },
+    "dress": {
+      "mean_iou_front": 0.8134,
+      "mean_ssim": 0.7456,
+      "mean_chamfer_px": 11.11
+    },
+    "outerwear": {
+      "mean_iou_front": 0.782,
+      "mean_ssim": 0.7441,
+      "mean_chamfer_px": 11.12
+    }
+  }
+}

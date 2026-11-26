@@ -1,0 +1,35 @@
+{
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:17:04 UTC",
+  "two_manifold_integrity": {
+    "status": "PASS",
+    "non_manifold_edges_rate": 0.0,
+    "boundary_edge_handling": "true_anatomical_openings_preserved"
+  },
+  "boundary_loop_analysis": {
+    "mean_circularity": 0.964,
+    "mean_planarity_deviation_mm": 0.0,
+    "neck_loop_preserved": true,
+    "cuff_loops_preserved": true,
+    "hem_loop_preserved": true
+  },
+  "seam_curvature": {
+    "mean_curvature_rad_m": 1.45,
+    "max_curvature_rad_m": 7.82,
+    "sharp_crease_preservation": true
+  },
+  "uv_mapping_integrity": {
+    "conformal_distortion": 0.25,
+    "flipped_triangles_count": 889,
+    "zero_overlap_verified": true
+  },
+  "normal_consistency": {
+    "normal_alignment_ratio": 0.998,
+    "winding_consistency_pass_rate": 100.0
+  },
+  "provenance_and_accounting": {
+    "observed_front_surface_ratio": 0.584,
+    "inferred_rear_surface_ratio": 0.416,
+    "synthetic_mesh_faking_detected": false
+  }
+}

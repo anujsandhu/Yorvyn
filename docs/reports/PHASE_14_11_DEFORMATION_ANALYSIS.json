@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "A",
+    "timestamp": "2026-11-20T00:05:00Z",
+    "description": "Comparative deformation analysis between baseline geometric pushout and XPBD relaxation"
+  },
+  "deformation_analyses": [
+    {
+      "garment_index": 1,
+      "fabric": "cotton",
+      "stretch_compliance": 0.00015,
+      "bending_compliance": 0.0025,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 0.08,
+      "plus_disp_mm": 0.08,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 2,
+      "fabric": "denim",
+      "stretch_compliance": 2e-05,
+      "bending_compliance": 0.08,
+      "standard_disp_mm": 4.45,
+      "athletic_disp_mm": 10.02,
+      "plus_disp_mm": 22.5,
+      "slim_disp_mm": 0.97
+    },
+    {
+      "garment_index": 3,
+      "fabric": "wool",
+      "stretch_compliance": 8e-05,
+      "bending_compliance": 0.03,
+      "standard_disp_mm": 114.39,
+      "athletic_disp_mm": 151.42,
+      "plus_disp_mm": 166.41,
+      "slim_disp_mm": 86.83
+    },
+    {
+      "garment_index": 4,
+      "fabric": "knitwear",
+      "stretch_compliance": 0.0006,
+      "bending_compliance": 0.0012,
+      "standard_disp_mm": 0.01,
+      "athletic_disp_mm": 0.03,
+      "plus_disp_mm": 20.06,
+      "slim_disp_mm": 0.01
+    },
+    {
+      "garment_index": 5,
+      "fabric": "polyester",
+      "stretch_compliance": 4e-05,
+      "bending_compliance": 0.008,
+      "standard_disp_mm": 1.61,
+      "athletic_disp_mm": 3.47,
+      "plus_disp_mm": 10.54,
+      "slim_disp_mm": 0.71
+    },
+    {
+      "garment_index": 6,
+      "fabric": "silk",
+      "stretch_compliance": 0.0001,
+      "bending_compliance": 0.0004,
+      "standard_disp_mm": 0.52,
+      "athletic_disp_mm": 0.19,
+      "plus_disp_mm": 0.34,
+      "slim_disp_mm": 0.07
+    },
+    {
+      "garment_index": 7,
+      "fabric": "leather",
+      "stretch_compliance": 5e-06,
+      "bending_compliance": 0.18,
+      "standard_disp_mm": 0.14,
+      "athletic_disp_mm": 2.64,
+      "plus_disp_mm": 2.76,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 8,
+      "fabric": "linen",
+      "stretch_compliance": 3e-05,
+      "bending_compliance": 0.045,
+      "standard_disp_mm": 0.14,
+      "athletic_disp_mm": 0.82,
+      "plus_disp_mm": 5.43,
+      "slim_disp_mm": 0.07
+    },
+    {
+      "garment_index": 9,
+      "fabric": "cotton",
+      "stretch_compliance": 0.00015,
+      "bending_compliance": 0.0025,
+      "standard_disp_mm": 3.2,
+      "athletic_disp_mm": 9.93,
+      "plus_disp_mm": 18.58,
+      "slim_disp_mm": 2.93
+    },
+    {
+      "garment_index": 10,
+      "fabric": "denim",
+      "stretch_compliance": 2e-05,
+      "bending_compliance": 0.08,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 0.72,
+      "plus_disp_mm": 0.17,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 11,
+      "fabric": "wool",
+      "stretch_compliance": 8e-05,
+      "bending_compliance": 0.03,
+      "standard_disp_mm": 115.75,
+      "athletic_disp_mm": 154.04,
+      "plus_disp_mm": 170.43,
+      "slim_disp_mm": 88.16
+    },
+    {
+      "garment_index": 12,
+      "fabric": "knitwear",
+      "stretch_compliance": 0.0006,
+      "bending_compliance": 0.0012,
+      "standard_disp_mm": 1.83,
+      "athletic_disp_mm": 3.44,
+      "plus_disp_mm": 9.46,
+      "slim_disp_mm": 1.01
+    },
+    {
+      "garment_index": 13,
+      "fabric": "polyester",
+      "stretch_compliance": 4e-05,
+      "bending_compliance": 0.008,
+      "standard_disp_mm": 0.0,
+      "athletic_disp_mm": 0.01,
+      "plus_disp_mm": 18.87,
+      "slim_disp_mm": 0.0
+    },
+    {
+      "garment_index": 14,
+      "fabric": "silk",
+      "stretch_compliance": 0.0001,
+      "bending_compliance": 0.0004,
+      "standard_disp_mm": 0.07,
+      "athletic_disp_mm": 0.07,
+      "plus_disp_mm": 0.07,
+      "slim_disp_mm": 0.07
+    },
+    {
+      "garment_index": 15,
+      "fabric": "leather",
+      "stretch_compliance": 5e-06,
+      "bending_compliance": 0.18,
+      "standard_disp_mm": 2.93,
+      "athletic_disp_mm": 5.2,
+      "plus_disp_mm": 16.93,
+      "slim_disp_mm": 1.69
+    },
+    {
+      "garment_index": 16,
+      "fabric": "linen",
+      "stretch_compliance": 3e-05,
+      "bending_compliance": 0.045,
+      "standard_disp_mm": 64.07,
+      "athletic_disp_mm": 89.72,
+      "plus_disp_mm": 102.72,
+      "slim_disp_mm": 50.7
+    },
+    {
+      "garment_index": 17,
+      "fabric": "cotton",
+      "stretch_compliance": 0.00015,
+      "bending_compliance": 0.0025,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 0.1,
+      "plus_disp_mm": 0.26,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 18,
+      "fabric": "denim",
+      "stretch_compliance": 2e-05,
+      "bending_compliance": 0.08,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 1.19,
+      "plus_disp_mm": 0.33,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 19,
+      "fabric": "wool",
+      "stretch_compliance": 8e-05,
+      "bending_compliance": 0.03,
+      "standard_disp_mm": 2.85,
+      "athletic_disp_mm": 5.61,
+      "plus_disp_mm": 14.92,
+      "slim_disp_mm": 1.54
+    },
+    {
+      "garment_index": 20,
+      "fabric": "knitwear",
+      "stretch_compliance": 0.0006,
+      "bending_compliance": 0.0012,
+      "standard_disp_mm": 0.1,
+      "athletic_disp_mm": 0.38,
+      "plus_disp_mm": 5.49,
+      "slim_disp_mm": 0.17
+    },
+    {
+      "garment_index": 21,
+      "fabric": "polyester",
+      "stretch_compliance": 4e-05,
+      "bending_compliance": 0.008,
+      "standard_disp_mm": 103.26,
+      "athletic_disp_mm": 142.73,
+      "plus_disp_mm": 157.9,
+      "slim_disp_mm": 72.72
+    },
+    {
+      "garment_index": 22,
+      "fabric": "silk",
+      "stretch_compliance": 0.0001,
+      "bending_compliance": 0.0004,
+      "standard_disp_mm": 0.07,
+      "athletic_disp_mm": 0.07,
+      "plus_disp_mm": 0.07,
+      "slim_disp_mm": 0.07
+    },
+    {
+      "garment_index": 23,
+      "fabric": "leather",
+      "stretch_compliance": 5e-06,
+      "bending_compliance": 0.18,
+      "standard_disp_mm": 2.56,
+      "athletic_disp_mm": 6.3,
+      "plus_disp_mm": 17.07,
+      "slim_disp_mm": 1.53
+    },
+    {
+      "garment_index": 24,
+      "fabric": "linen",
+      "stretch_compliance": 3e-05,
+      "bending_compliance": 0.045,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 0.08,
+      "plus_disp_mm": 0.08,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 25,
+      "fabric": "cotton",
+      "stretch_compliance": 0.00015,
+      "bending_compliance": 0.0025,
+      "standard_disp_mm": 2.49,
+      "athletic_disp_mm": 4.97,
+      "plus_disp_mm": 13.24,
+      "slim_disp_mm": 1.21
+    },
+    {
+      "garment_index": 26,
+      "fabric": "denim",
+      "stretch_compliance": 2e-05,
+      "bending_compliance": 0.08,
+      "standard_disp_mm": 0.0,
+      "athletic_disp_mm": 0.19,
+      "plus_disp_mm": 23.97,
+      "slim_disp_mm": 0.0
+    },
+    {
+      "garment_index": 27,
+      "fabric": "wool",
+      "stretch_compliance": 8e-05,
+      "bending_compliance": 0.03,
+      "standard_disp_mm": 0.34,
+      "athletic_disp_mm": 0.78,
+      "plus_disp_mm": 3.79,
+      "slim_disp_mm": 0.17
+    },
+    {
+      "garment_index": 28,
+      "fabric": "knitwear",
+      "stretch_compliance": 0.0006,
+      "bending_compliance": 0.0012,
+      "standard_disp_mm": 3.06,
+      "athletic_disp_mm": 5.63,
+      "plus_disp_mm": 13.95,
+      "slim_disp_mm": 1.61
+    },
+    {
+      "garment_index": 29,
+      "fabric": "polyester",
+      "stretch_compliance": 4e-05,
+      "bending_compliance": 0.008,
+      "standard_disp_mm": 0.08,
+      "athletic_disp_mm": 0.08,
+      "plus_disp_mm": 0.08,
+      "slim_disp_mm": 0.08
+    },
+    {
+      "garment_index": 30,
+      "fabric": "silk",
+      "stretch_compliance": 0.0001,
+      "bending_compliance": 0.0004,
+      "standard_disp_mm": 0.07,
+      "athletic_disp_mm": 0.07,
+      "plus_disp_mm": 0.07,
+      "slim_disp_mm": 0.07
+    }
+  ]
+}

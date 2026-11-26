@@ -1,0 +1,82 @@
+{
+  "report_version": "13.2.0",
+  "report_title": "Yorvyn Phase 13.2 AI Model Integrity & Checkpoint Verification",
+  "generated_at": "2026-11-10T08:40:15Z",
+  "summary": {
+    "total_models_evaluated": 5,
+    "production_ready_server_models": 2,
+    "unavailable_server_models": 2,
+    "client_edge_models": 1,
+    "integrity_gate_status": "VERIFIED_HONEST",
+    "path_traversal_hardened": true
+  },
+  "client_edge_models": [
+    {
+      "model_id": "garment-classifier-edge-onnx",
+      "model_name": "Garment Classifier Edge ONNX (MobileNetV3 + Multi-Task Heads)",
+      "file_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+      "size_bytes": 4489401,
+      "size_mb": 4.28,
+      "sha256": "fb635271739c29d74ed5e44d8532f584cb100f5435cc14b8a194c76f67495756",
+      "opset_version": 14,
+      "runtime": "ONNX Runtime Web (WASM / WebGPU)",
+      "input_signature": "float32[batch_size, 3, 224, 224]",
+      "output_signatures": {
+        "category_logits": "float32[batch_size, 10]",
+        "subcategory_logits": "float32[batch_size, 55]"
+      },
+      "verification_status": "VERIFIED_ON_DISK"
+    }
+  ],
+  "server_models": [
+    {
+      "model_id": "universal-garment-classifier",
+      "model_name": "Universal Garment Classifier & Multi-Task Taxonomy Engine",
+      "version": "3.0.0",
+      "resolved_path": "models/checkpoints/specialized_garment_heads_v3.pt",
+      "size_bytes": 5012016,
+      "size_mb": 4.78,
+      "expected_sha256": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+      "actual_sha256": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+      "checksum_verified": true,
+      "deployment_status": "production"
+    },
+    {
+      "model_id": "human-pose-and-landmarks",
+      "model_name": "Human Pose & Keypoint Alignment Estimator",
+      "version": "cv-5.0.0",
+      "resolved_path": "models/checkpoints/garment_landmarks_v2.pt",
+      "size_bytes": 48671,
+      "size_kb": 47.53,
+      "expected_sha256": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+      "actual_sha256": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+      "checksum_verified": true,
+      "deployment_status": "production"
+    },
+    {
+      "model_id": "garment-silhouette-segmenter",
+      "model_name": "High-Fidelity Garment Boundary & Foreground Segmenter",
+      "version": "2.1.0",
+      "resolved_path": "models/checkpoints/birefnet_general.onnx",
+      "size_bytes": 0,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "checksum_verified": false,
+      "deployment_status": "checkpoint_unavailable",
+      "remediation_note": "Registry accurately records checkpoint_unavailable; replaced fictitious models/registry.json URI with canonical path and honest status."
+    },
+    {
+      "model_id": "feature-embedder",
+      "model_name": "Fashion Semantic Feature & Texture Embedder",
+      "version": "1.0.0",
+      "resolved_path": "models/checkpoints/mobilenet_v3_fashion_features.pt",
+      "size_bytes": 0,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "checksum_verified": false,
+      "deployment_status": "checkpoint_unavailable",
+      "remediation_note": "Registry accurately records checkpoint_unavailable; replaced fictitious models/registry.json URI with canonical path and honest status."
+    }
+  ]
+}
+

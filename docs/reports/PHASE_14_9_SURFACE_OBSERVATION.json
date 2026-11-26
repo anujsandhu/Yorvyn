@@ -1,0 +1,922 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "D",
+    "timestamp": "2026-11-19T17:24:12Z",
+    "audit_standard": "Principal Computer Vision & Computational Geometry Engineer",
+    "total_groups_evaluated": 20,
+    "six_regimes_defined": [
+      "directly_observed",
+      "multiview_projected",
+      "interpolated",
+      "symmetry_derived",
+      "model_inferred",
+      "unobserved"
+    ]
+  },
+  "aggregate_regime_statistics": {
+    "single_view": {
+      "directly_observed_mean": 0.4153,
+      "multiview_projected_mean": 0.0,
+      "symmetry_derived_mean": 0.2996,
+      "model_inferred_mean": 0.1158,
+      "mean_uncertainty": 0.2267
+    },
+    "dual_view_front_rear": {
+      "directly_observed_mean": 0.4153,
+      "multiview_projected_mean": 0.4063,
+      "symmetry_derived_mean": 0.0,
+      "total_photographic_observation_mean": 0.8217,
+      "mean_uncertainty": 0.0732
+    },
+    "tri_view_front_side_rear": {
+      "directly_observed_mean": 0.4153,
+      "multiview_projected_mean": 0.5757,
+      "symmetry_derived_mean": 0.0,
+      "total_photographic_observation_mean": 0.991,
+      "mean_uncertainty": 0.0489
+    }
+  },
+  "evaluations": [
+    {
+      "group_id": "mv_group_01_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "jacket",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_03_jacket_denim.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_02_jacket_denim.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3355,
+          "model_inferred": 0.08,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7751,
+        "uncertainty_score": 0.2249
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.3824,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.921,
+        "uncertainty_score": 0.079
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5515,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9475,
+        "uncertainty_score": 0.0525
+      }
+    },
+    {
+      "group_id": "mv_group_02_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_06_hoodie_pullover.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_07_hoodie_pullover.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3392,
+          "model_inferred": 0.0763,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7753,
+        "uncertainty_score": 0.2247
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.3824,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.921,
+        "uncertainty_score": 0.079
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5515,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9475,
+        "uncertainty_score": 0.0525
+      }
+    },
+    {
+      "group_id": "mv_group_03_sweater_knit",
+      "category": "tops",
+      "subcategory": "sweater",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_09_sweater_knit.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_11_sweater_knit.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_10_sweater_knit.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3281,
+          "model_inferred": 0.0873,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7747,
+        "uncertainty_score": 0.2253
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.4118,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9281,
+        "uncertainty_score": 0.0719
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5809,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9519,
+        "uncertainty_score": 0.0481
+      }
+    },
+    {
+      "group_id": "mv_group_04_shirt_plaid",
+      "category": "tops",
+      "subcategory": "shirt",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_13_shirt_plaid.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_15_shirt_plaid.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_14_shirt_plaid.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3364,
+          "model_inferred": 0.079,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7751,
+        "uncertainty_score": 0.2249
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.3824,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.921,
+        "uncertainty_score": 0.079
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5515,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9475,
+        "uncertainty_score": 0.0525
+      }
+    },
+    {
+      "group_id": "mv_group_05_shirt_formal",
+      "category": "tops",
+      "subcategory": "shirt",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_19_shirt_formal.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_18_shirt_formal.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3401,
+          "model_inferred": 0.0754,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7753,
+        "uncertainty_score": 0.2247
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.4118,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9281,
+        "uncertainty_score": 0.0719
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5809,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9519,
+        "uncertainty_score": 0.0481
+      }
+    },
+    {
+      "group_id": "mv_group_06_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_24_tshirt_graphic.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_22_tshirt_graphic.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3373,
+          "model_inferred": 0.0781,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7752,
+        "uncertainty_score": 0.2248
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.4118,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9281,
+        "uncertainty_score": 0.0719
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5809,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9519,
+        "uncertainty_score": 0.0481
+      }
+    },
+    {
+      "group_id": "mv_group_07_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_25_trousers_chinos.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_28_trousers_chinos.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_26_trousers_chinos.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.2656,
+          "model_inferred": 0.1605,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7718,
+        "uncertainty_score": 0.2282
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.4261,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.931,
+        "uncertainty_score": 0.069
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.5739,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9528,
+        "uncertainty_score": 0.0472
+      }
+    },
+    {
+      "group_id": "mv_group_08_jeans_denim",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_31_jeans_denim.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_30_jeans_denim.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.267,
+          "model_inferred": 0.1591,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7719,
+        "uncertainty_score": 0.2281
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.4261,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.931,
+        "uncertainty_score": 0.069
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.5739,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9528,
+        "uncertainty_score": 0.0472
+      }
+    },
+    {
+      "group_id": "mv_group_09_shorts_casual",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_36_shorts_casual.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_34_shorts_casual.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.2685,
+          "model_inferred": 0.1577,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7719,
+        "uncertainty_score": 0.2281
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.4261,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.931,
+        "uncertainty_score": 0.069
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.5739,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9528,
+        "uncertainty_score": 0.0472
+      }
+    },
+    {
+      "group_id": "mv_group_10_skirt_pleated",
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_40_skirt_pleated.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_38_skirt_pleated.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.2995,
+          "model_inferred": 0.1068,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7731,
+        "uncertainty_score": 0.2269
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    },
+    {
+      "group_id": "mv_group_11_dress_aline",
+      "category": "dress",
+      "subcategory": "aline_dress",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_43_dress_aline.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_42_dress_aline.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.3086,
+          "model_inferred": 0.0977,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7736,
+        "uncertainty_score": 0.2264
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    },
+    {
+      "group_id": "mv_group_12_kurta_ethnic",
+      "category": "tops",
+      "subcategory": "kurta",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_48_kurta_ethnic.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_46_kurta_ethnic.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3419,
+          "model_inferred": 0.0735,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7754,
+        "uncertainty_score": 0.2246
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.3824,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.921,
+        "uncertainty_score": 0.079
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5515,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9475,
+        "uncertainty_score": 0.0525
+      }
+    },
+    {
+      "group_id": "mv_group_13_jeans_extra",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_49_jeans_extra.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_51_jeans_extra.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_50_jeans_extra.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.2585,
+          "model_inferred": 0.1676,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7714,
+        "uncertainty_score": 0.2286
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.4261,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.931,
+        "uncertainty_score": 0.069
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.5739,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9528,
+        "uncertainty_score": 0.0472
+      }
+    },
+    {
+      "group_id": "mv_group_14_shorts_extra",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_52_shorts_extra.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_54_shorts_extra.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_53_shorts_extra.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.2557,
+          "model_inferred": 0.1705,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7713,
+        "uncertainty_score": 0.2287
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.4261,
+          "interpolated": 0.1477,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.931,
+        "uncertainty_score": 0.069
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4261,
+          "multiview_projected": 0.5739,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9528,
+        "uncertainty_score": 0.0472
+      }
+    },
+    {
+      "group_id": "mv_group_15_dress_extra",
+      "category": "dress",
+      "subcategory": "dress",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_57_dress_extra.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_59_dress_extra.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_58_dress_extra.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.2891,
+          "model_inferred": 0.1172,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7726,
+        "uncertainty_score": 0.2274
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    },
+    {
+      "group_id": "mv_group_16_sweater_extra",
+      "category": "tops",
+      "subcategory": "sweater",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_60_sweater_extra.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_62_sweater_extra.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_61_sweater_extra.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3373,
+          "model_inferred": 0.0781,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7752,
+        "uncertainty_score": 0.2248
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.3824,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.921,
+        "uncertainty_score": 0.079
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5515,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0331,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9475,
+        "uncertainty_score": 0.0525
+      }
+    },
+    {
+      "group_id": "mv_group_17_tshirt_extra",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "front_path": "data/datasets/phase_13_6_real_photos/wm_63_tshirt_extra.jpg",
+      "rear_path": "data/datasets/phase_13_6_real_photos/wm_65_tshirt_extra.jpg",
+      "side_path": "data/datasets/phase_13_6_real_photos/wm_64_tshirt_extra.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.3336,
+          "model_inferred": 0.0818,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.775,
+        "uncertainty_score": 0.225
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.4118,
+          "interpolated": 0.1691,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9281,
+        "uncertainty_score": 0.0719
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4154,
+          "multiview_projected": 0.5809,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0037,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9519,
+        "uncertainty_score": 0.0481
+      }
+    },
+    {
+      "group_id": "mv_group_18_acc_beanie",
+      "category": "accessories",
+      "subcategory": "beanie",
+      "front_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_beanie_01.jpg",
+      "rear_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_beanie_02.jpg",
+      "side_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_beanie_03.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.25,
+          "model_inferred": 0.1562,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7706,
+        "uncertainty_score": 0.2294
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    },
+    {
+      "group_id": "mv_group_19_acc_belt",
+      "category": "accessories",
+      "subcategory": "belt",
+      "front_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_belt_01.jpg",
+      "rear_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_belt_02.jpg",
+      "side_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_belt_03.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.25,
+          "model_inferred": 0.1562,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7706,
+        "uncertainty_score": 0.2294
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    },
+    {
+      "group_id": "mv_group_20_acc_cap",
+      "category": "accessories",
+      "subcategory": "cap",
+      "front_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_cap_01.jpg",
+      "rear_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_cap_02.jpg",
+      "side_path": "data/datasets/phase_13_9_real_photos/p13_9_acc_cap_03.jpg",
+      "single_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.0,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.25,
+          "model_inferred": 0.1562,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.7706,
+        "uncertainty_score": 0.2294
+      },
+      "dual_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.4062,
+          "interpolated": 0.1875,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9272,
+        "uncertainty_score": 0.0728
+      },
+      "tri_view": {
+        "regime_ratios": {
+          "directly_observed": 0.4062,
+          "multiview_projected": 0.5938,
+          "interpolated": 0.0,
+          "symmetry_derived": 0.0,
+          "model_inferred": 0.0,
+          "unobserved": 0.0
+        },
+        "mean_confidence": 0.9522,
+        "uncertainty_score": 0.0478
+      }
+    }
+  ]
+}

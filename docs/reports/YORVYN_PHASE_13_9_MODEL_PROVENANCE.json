@@ -1,0 +1,117 @@
+{
+  "evaluation_phase": "Phase 13.9",
+  "report_date": "2026-11-15T17:23:36Z",
+  "active_models": {
+    "edge_onnx_classifier": {
+      "model_name": "garment_classifier_edge.onnx",
+      "relative_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+      "sha256_checksum": "1bcfb0040ab6a89df6ddd7b5396d6c852ef60e8f3adc185f0f65238e69003d43",
+      "file_size_bytes": 4489800,
+      "opset_version": 14,
+      "architecture": "MobileNetV3-Small-Trunk-MultiTask-v4",
+      "total_parameters": 1164209,
+      "input_tensor": {
+        "name": "input_image",
+        "shape": [
+          1,
+          3,
+          224,
+          224
+        ],
+        "color_channel_order": "RGB",
+        "normalization": "ImageNet (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])"
+      },
+      "output_tensors": {
+        "category_probs": {
+          "shape": [
+            1,
+            10
+          ],
+          "classes_count": 10
+        },
+        "subcategory_probs": {
+          "shape": [
+            1,
+            55
+          ],
+          "classes_count": 55
+        }
+      },
+      "temperature_parameter": 1.6129,
+      "execution_providers": [
+        {
+          "provider": "webgpu",
+          "priority": 1,
+          "tier": "hardware_accelerated_gpu"
+        },
+        {
+          "provider": "wasm",
+          "priority": 2,
+          "tier": "simd_multithreaded_cpu"
+        },
+        {
+          "provider": "cpu",
+          "priority": 3,
+          "tier": "universal_fallback"
+        }
+      ],
+      "training_provenance": {
+        "curated_dataset_size": 263,
+        "train_split": 132,
+        "val_split": 26,
+        "independent_holdout_split": 105,
+        "zero_leakage_guarantee": true,
+        "training_hardware": "Apple Silicon M2 (MPS)",
+        "validation_ece": 0.0734
+      }
+    },
+    "pytorch_canonical_checkpoint": {
+      "checkpoint_name": "specialized_garment_heads_v3.pt",
+      "relative_path": "models/checkpoints/specialized_garment_heads_v3.pt",
+      "sha256_checksum": "3201833316c3cd3d33708f6b69c1f135951980cf4d8af3bb88b5ab3d5dc309ef",
+      "file_size_bytes": 4800367,
+      "framework": "PyTorch 2.x",
+      "training_epochs": 24,
+      "optimizer": "AdamW (lr=1e-3, weight_decay=1e-4)",
+      "calibration_optimizer": "L-BFGS (max_iter=50)"
+    },
+    "segmentation_backbone": {
+      "model_name": "nvidia/segformer-b0-finetuned-ade-512-512",
+      "task": "Semantic Human Parsing & Garment Isolation",
+      "input_resolution": [
+        512,
+        512
+      ],
+      "execution_device": "mps"
+    },
+    "remote_neural_3d_gpu_inference": {
+      "status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+      "environment_variable": "GARMENT_AI_REMOTE_INFERENCE_URL",
+      "is_configured": false,
+      "mock_inference_permitted": false,
+      "simulated_latency_permitted": false,
+      "operational_fallback": "Local Category-Aware Pattern-Constructed Geometry Engine",
+      "operational_fallback_status": "100% OPERATIONAL (PRODUCTION ACTIVE)"
+    }
+  },
+  "rule_arbitration_provenance": {
+    "decision_paths": [
+      {
+        "reason": "neural_primary",
+        "description": "Learned multi-task neural network prediction accepted as primary classification"
+      },
+      {
+        "reason": "rule_override",
+        "description": "Structural geometric certainty (e.g. unequivocal bilateral crotch bifurcation or shoe sole density) overrides ambiguous low-confidence neural logit"
+      },
+      {
+        "reason": "rule_fallback",
+        "description": "Contour profile, hole topology, and aspect-ratio heuristics active if neural model unavailable"
+      },
+      {
+        "reason": "user_hint",
+        "description": "User explicit category selection acts as Bayesian prior"
+      }
+    ]
+  }
+}

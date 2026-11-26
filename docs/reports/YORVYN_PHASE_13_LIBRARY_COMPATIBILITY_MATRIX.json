@@ -1,0 +1,271 @@
+{
+  "title": "Yorvyn Phase 13 — Hybrid AI Technology & Library Compatibility Matrix",
+  "version": "13.0.0",
+  "audit_timestamp": "2026-11-09T10:35:00Z",
+  "target_architecture": "Client-Side Edge Computing + Server-Side GPU Intelligence",
+  "matrix": [
+    {
+      "library": "onnxruntime-web",
+      "ecosystem": "frontend",
+      "version_evaluated": "1.21.0-dev / 1.19.2",
+      "decision": "INTEGRATE",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["WebGPU", "WASM", "CPU"],
+      "primary_use_cases": [
+        "Lightweight on-device garment attribute classification",
+        "Edge fabric pattern & texture recognition",
+        "Fast local silhouette embedding"
+      ],
+      "rationale": "Enables direct WebGPU-accelerated local inference without server round-trip latency. Provides seamless fallback to SIMD WASM when WebGPU is unavailable."
+    },
+    {
+      "library": "@huggingface/transformers",
+      "ecosystem": "frontend",
+      "version_evaluated": "3.3.3",
+      "decision": "EVALUATE",
+      "license": "Apache 2.0 (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["WebGPU", "WASM"],
+      "primary_use_cases": [
+        "Zero-shot image classification",
+        "Multimodal text-image style search",
+        "Client-side CLIP image embeddings"
+      ],
+      "rationale": "High memory footprint (>60MB bundle and model shards). Evaluated for desktop and high-tier devices with lazy dynamic initialization, but deferred for low-end mobile to avoid memory exhaustion."
+    },
+    {
+      "library": "@mediapipe/tasks-vision",
+      "ecosystem": "frontend",
+      "version_evaluated": "0.10.22",
+      "decision": "INTEGRATE",
+      "license": "Apache 2.0 (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["WASM", "WebGL", "WebGPU"],
+      "primary_use_cases": [
+        "Client-side human pose landmark detection",
+        "On-body garment alignment & collar/shoulder anchor detection",
+        "User body framing and perspective calibration"
+      ],
+      "rationale": "Ultra-lightweight (<8MB wasm/model), rapid execution (~12ms per frame), perfectly suited for interactive avatar try-on framing without server video streams."
+    },
+    {
+      "library": "opencv.js / Canvas Web Workers",
+      "ecosystem": "frontend",
+      "version_evaluated": "Native OffscreenCanvas + Web Worker CV pipeline",
+      "decision": "INTEGRATE",
+      "license": "Apache 2.0 / Native Web Standards",
+      "commercial_approval": true,
+      "supported_runtimes": ["Web Worker", "SIMD WASM", "Canvas2D"],
+      "primary_use_cases": [
+        "EXIF orientation correction & aspect ratio normalization",
+        "Blur & defocus detection via Laplacian variance",
+        "Dominant palette extraction via color quantization",
+        "Intelligent multi-tier image downscaling & WebP compression (saving ~85% network bandwidth)"
+      ],
+      "rationale": "Native canvas and worker routines provide zero-bundle-overhead, ultra-fast (<25ms) image preprocessing off the React UI thread, preventing main-thread jank."
+    },
+    {
+      "library": "WebGPU (navigator.gpu)",
+      "ecosystem": "frontend",
+      "version_evaluated": "W3C Candidate Recommendation",
+      "decision": "INTEGRATE",
+      "license": "W3C Open Standard",
+      "commercial_approval": true,
+      "supported_runtimes": ["WebGPU"],
+      "primary_use_cases": [
+        "GPU-accelerated compute shaders for cloth vertex transformation",
+        "High-performance ONNX Runtime Web backend",
+        "Parallel texture processing & normal map generation"
+      ],
+      "rationale": "Delivers native GPU compute capabilities directly in modern browsers (Chrome 113+, Edge 113+, Safari 18+). Supported conditionally via DeviceCapabilityManager."
+    },
+    {
+      "library": "WebAssembly (WASM)",
+      "ecosystem": "frontend",
+      "version_evaluated": "Wasm 2.0 + SIMD128",
+      "decision": "ALREADY_PRESENT",
+      "license": "W3C Open Standard",
+      "commercial_approval": true,
+      "supported_runtimes": ["Ara WebAssembly Core", "ONNX WASM Fallback"],
+      "primary_use_cases": [
+        "Ara human parametric mannequin generation",
+        "CPU fallback for ONNX Runtime Web and MediaPipe vision"
+      ],
+      "rationale": "Currently active in production powering Ara character generation. Provides guaranteed cross-browser compatibility across 100% of modern browsers."
+    },
+    {
+      "library": "Native Web Workers",
+      "ecosystem": "frontend",
+      "version_evaluated": "HTML5 Web Workers API",
+      "decision": "INTEGRATE",
+      "license": "W3C Open Standard",
+      "commercial_approval": true,
+      "supported_runtimes": ["Dedicated Worker"],
+      "primary_use_cases": [
+        "Off-thread image resizing and compression",
+        "Off-thread blur detection and color quantization",
+        "Asynchronous model weight streaming and decompression"
+      ],
+      "rationale": "Guarantees 60fps UI responsiveness during intensive upload preprocessing. Isolates heavy array operations from React state renders."
+    },
+    {
+      "library": "IndexedDB / Client Storage",
+      "ecosystem": "frontend",
+      "version_evaluated": "W3C IndexedDB API 3.0",
+      "decision": "INTEGRATE",
+      "license": "W3C Open Standard",
+      "commercial_approval": true,
+      "supported_runtimes": ["Browser Storage"],
+      "primary_use_cases": [
+        "Persistent local caching of verified ONNX model weights",
+        "Temporary caching of preprocessed garment textures",
+        "Device capability telemetry and user routing preferences"
+      ],
+      "rationale": "Eliminates repetitive network downloads for neural model weights (typically 5MB - 25MB). Implements strict quota caps and user-initiated purge capability."
+    },
+    {
+      "library": "PyTorch",
+      "ecosystem": "backend",
+      "version_evaluated": "2.8.0",
+      "decision": "ALREADY_PRESENT",
+      "license": "Modified BSD (Permissive)",
+      "commercial_approval": true,
+      "supported_runtimes": ["CUDA", "Apple Silicon MPS", "CPU"],
+      "primary_use_cases": [
+        "Universal garment neural classification",
+        "Component detection & boundary regression",
+        "Continuous learning and neural fine-tuning"
+      ],
+      "rationale": "Core backbone of Yorvyn's neural garment intelligence services. Fully operational with MPS and CUDA hardware acceleration."
+    },
+    {
+      "library": "ONNX Runtime (Server)",
+      "ecosystem": "backend",
+      "version_evaluated": "1.19.2",
+      "decision": "ALREADY_PRESENT",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["CUDAExecutionProvider", "CoreMLExecutionProvider", "CPUExecutionProvider"],
+      "primary_use_cases": [
+        "High-throughput server-side garment classification",
+        "BiRefNet foreground segmentation",
+        "Portable inference across containerized GPU clusters"
+      ],
+      "rationale": "Installed in backend environment and used for standardized inference benchmarks. Provides parity testing against onnxruntime-web."
+    },
+    {
+      "library": "NVIDIA TensorRT",
+      "ecosystem": "backend",
+      "version_evaluated": "10.x",
+      "decision": "EVALUATE",
+      "license": "NVIDIA Proprietary (Permissive for production serving)",
+      "commercial_approval": true,
+      "supported_runtimes": ["NVIDIA Ampere/Hopper/Ada GPUs"],
+      "primary_use_cases": [
+        "Sub-10ms FP16/INT8 inference for production cloud workers"
+      ],
+      "rationale": "Requires target NVIDIA GPU hardware. Evaluated for production cloud deployments; developer environment on macOS utilizes Apple Silicon MPS."
+    },
+    {
+      "library": "NVIDIA Triton Inference Server",
+      "ecosystem": "backend",
+      "version_evaluated": "24.x",
+      "decision": "EVALUATE",
+      "license": "BSD-3-Clause",
+      "commercial_approval": true,
+      "supported_runtimes": ["Docker / Kubernetes / NVIDIA GPU"],
+      "primary_use_cases": [
+        "Dynamic batching for multi-tenant high-volume inference",
+        "Concurrent model execution across GPU instances"
+      ],
+      "rationale": "Evaluated as an external inference cluster gateway. FastAPI remains the primary application API coordinator to enforce Supabase auth and entitlements."
+    },
+    {
+      "library": "NVIDIA Kaolin",
+      "ecosystem": "backend",
+      "version_evaluated": "0.16.0",
+      "decision": "EVALUATE",
+      "license": "Apache 2.0",
+      "commercial_approval": true,
+      "supported_runtimes": ["CUDA / PyTorch"],
+      "primary_use_cases": [
+        "Differentiable 3D representation learning",
+        "Tetrahedral mesh optimization for garment silhouettes"
+      ],
+      "rationale": "Specialized CUDA-only research tool. Evaluated for offline neural shape optimization pipelines, not required in interactive API loop."
+    },
+    {
+      "library": "PyTorch3D",
+      "ecosystem": "backend",
+      "version_evaluated": "0.7.8",
+      "decision": "EVALUATE",
+      "license": "BSD-3-Clause",
+      "commercial_approval": true,
+      "supported_runtimes": ["PyTorch / CUDA / C++"],
+      "primary_use_cases": [
+        "Chamfer distance calculation against ground truth scans",
+        "Differentiable mesh rasterization and silhouette loss"
+      ],
+      "rationale": "Heavy build dependency. Evaluated and retained in reconstruction research sandbox for formal verification benchmarks."
+    },
+    {
+      "library": "Open3D",
+      "ecosystem": "backend",
+      "version_evaluated": "0.18.0",
+      "decision": "EVALUATE",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["CPU / CUDA"],
+      "primary_use_cases": [
+        "Point cloud Poisson surface reconstruction",
+        "Mesh smoothing and laplacian filtering"
+      ],
+      "rationale": "Effective for point cloud processing. Evaluated for depth-sensor scans; parametric Trimesh pipeline handles single/multi-view CAD models cleanly."
+    },
+    {
+      "library": "Trimesh",
+      "ecosystem": "backend",
+      "version_evaluated": "4.12.2",
+      "decision": "INTEGRATE",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "supported_runtimes": ["Pure Python / NumPy / C Extensions"],
+      "primary_use_cases": [
+        "Authoritative 3D mesh topology inspection (watertightness, manifoldness)",
+        "Degenerate face & disconnected component detection",
+        "Bounding box and center-of-mass validation prior to GLB export"
+      ],
+      "rationale": "Lightweight, robust, cross-platform, zero C++/CUDA compilation hurdles, and provides definitive geometric quality validation for GLB outputs."
+    },
+    {
+      "library": "NVIDIA Warp / Taichi",
+      "ecosystem": "backend",
+      "version_evaluated": "Warp 1.4 / Taichi 1.7",
+      "decision": "EVALUATE",
+      "license": "Apache 2.0",
+      "commercial_approval": true,
+      "supported_runtimes": ["CUDA / C++ / WebGPU"],
+      "primary_use_cases": [
+        "GPU-accelerated cloth simulation constraint solving",
+        "High-density physical drapery generation"
+      ],
+      "rationale": "Evaluated against existing Three.js Position-Based Dynamics (PBD). Existing client-side PBD engine satisfies real-time interactive requirements without GPU server costs."
+    },
+    {
+      "library": "Blender Python API (bpy)",
+      "ecosystem": "backend",
+      "version_evaluated": "Blender 4.2+ bpy",
+      "decision": "EVALUATE",
+      "license": "GPL v3",
+      "commercial_approval": false,
+      "supported_runtimes": ["Standalone Blender Process"],
+      "primary_use_cases": [
+        "Offline synthetic garment render dataset generation",
+        "Automated regression rendering for reference cases"
+      ],
+      "rationale": "GPLv3 license restricts proprietary linking. Evaluated strictly as an isolated offline CLI render harness; never linked inside production FastAPI or client bundle."
+    }
+  ]
+}
+

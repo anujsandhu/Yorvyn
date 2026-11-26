@@ -1,0 +1,30 @@
+{
+  "engine_id": "tops_pattern_engine_v1",
+  "provenance": "pattern_constructed",
+  "vertex_count": 792,
+  "triangle_count": 1448,
+  "panels_count": 4,
+  "panels": [
+    "front_torso_panel",
+    "back_torso_panel",
+    "left_sleeve",
+    "right_sleeve"
+  ],
+  "quality_report": {
+    "is_valid": true,
+    "is_manifold": true,
+    "quality_score": 1.0,
+    "degenerate_triangle_count": 0,
+    "boundary_loops": 6,
+    "issues": []
+  },
+  "proportions": {
+    "shoulder_width_m": 0.5014,
+    "chest_width_m": 0.456,
+    "waist_width_m": 0.416,
+    "torso_length_m": 0.6023,
+    "sleeve_length_m": 0.4457,
+    "ease_margin_m": 0.048
+  },
+  "reconstruction_duration_ms": 10.52
+}

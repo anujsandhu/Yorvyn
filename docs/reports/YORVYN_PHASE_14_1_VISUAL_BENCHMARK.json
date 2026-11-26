@@ -1,0 +1,137 @@
+{
+  "benchmark_version": "14.1.0-visual-qa",
+  "timestamp": "2026-11-18T09:12:37Z",
+  "total_modalities_verified": 11,
+  "visual_qa_directory": "docs/reports/phase_14_1_visual_qa/",
+  "required_six_panels": [
+    "1. Original Photograph",
+    "2. Garment Segmentation Mask",
+    "3. Model Prediction",
+    "4. Calibrated Confidence",
+    "5. Final Classification",
+    "6. 3D Fitting Preview"
+  ],
+  "verified_modalities": [
+    {
+      "key": "flat_lay_tshirt",
+      "title": "Flat-Lay T-Shirt",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "calibrated_confidence": 0.74,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_tshirt.png",
+      "sha256_checksum": "be175e1df5f979c3b0d8af82539f6547f0e2a7b575761206a50cdb57468dbd57",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_shirt",
+      "title": "Flat-Lay Formal Shirt",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "calibrated_confidence": 0.68,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_shirt.png",
+      "sha256_checksum": "87ad8a155c0e6c32bd0a9a1632e95940524a455b27803421e4167cf63e735bbb",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_hoodie",
+      "title": "Flat-Lay Hoodie",
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "calibrated_confidence": 0.71,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_hoodie.png",
+      "sha256_checksum": "74d15de9fdd758204f05a2f99e20e075d90cf0d450b062d37ca491b594f216e6",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_jacket",
+      "title": "Flat-Lay Denim Jacket",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "calibrated_confidence": 0.69,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_jacket.png",
+      "sha256_checksum": "bfbea793447bac183bef427b38751905202e3174b55674145a6c618ced1d0202",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_trousers",
+      "title": "Flat-Lay Trousers",
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "calibrated_confidence": 0.65,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_trousers.png",
+      "sha256_checksum": "3bd2f412a578d8e1d3ae2b932b03fe94b84583722908b422fbe275526c58dc51",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_shorts",
+      "title": "Flat-Lay Shorts",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "calibrated_confidence": 0.67,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_shorts.png",
+      "sha256_checksum": "fa12891a5137deac44bccdec3efffcd88b2367650ef886e73686afa2c3dab6b6",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_dress",
+      "title": "Flat-Lay A-Line Dress",
+      "category": "dresses_and_skirts",
+      "subcategory": "a_line_dress",
+      "calibrated_confidence": 0.72,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_dress.png",
+      "sha256_checksum": "b394f1182c2103fa5047c145e2081d837ae6cf73865b97cde50d350f92b39456",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "flat_lay_skirt",
+      "title": "Flat-Lay Skirt",
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "calibrated_confidence": 0.66,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_flatlay_skirt.png",
+      "sha256_checksum": "81660449c067502cfc90158ce9fd500132b5615e30b7ee2bfef29c708174b1a7",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "traditional_kurta",
+      "title": "Ethnic Kurta",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "calibrated_confidence": 0.68,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_traditional_kurta.png",
+      "sha256_checksum": "69341ff21e3e38ace13e10b52a922b00092b220c7bbdbffe0df8c3b90e82f727",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "lifestyle_garment",
+      "title": "Lifestyle Streetwear",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "calibrated_confidence": 0.78,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_lifestyle.png",
+      "sha256_checksum": "c065f8b135355d937919e2534f90554717c3670ae43123e50a6e72d827198fd8",
+      "six_panel_audit": "PASS"
+    },
+    {
+      "key": "on_body_garment",
+      "title": "On-Body Model Fit",
+      "category": "jacket",
+      "subcategory": "denim_jacket",
+      "calibrated_confidence": 0.82,
+      "final_outcome": "accepted_high_confidence",
+      "contact_sheet_path": "docs/reports/phase_14_1_visual_qa/contact_sheet_on_body.png",
+      "sha256_checksum": "765334206245d3d0106b28044b83162f4c9188079e99fd9e2e8935b913c9d228",
+      "six_panel_audit": "PASS"
+    }
+  ]
+}

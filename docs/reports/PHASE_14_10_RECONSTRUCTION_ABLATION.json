@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "C",
+    "timestamp": "2026-11-19T18:05:22Z",
+    "audit_standard": "Principal 3D Reconstruction Engineer"
+  },
+  "visual_ablations": [
+    {
+      "ablation_id": "ABL-REC-01",
+      "description": "Phase 14.9 Baseline Hybrid Engine",
+      "front_iou": 0.8136,
+      "side_iou": 0.7811,
+      "three_quarter_iou": 0.8149,
+      "texture_ssim": 0.8151,
+      "chamfer_px": 8.73,
+      "lpips": 0.3446,
+      "notes": "Rigid 45\u00b0 sleeve abduction; triangle facet shading noise in render"
+    },
+    {
+      "ablation_id": "ABL-REC-02",
+      "description": "Improved Contour-Conditioned Geometry",
+      "front_iou": 0.832,
+      "side_iou": 0.791,
+      "three_quarter_iou": 0.819,
+      "texture_ssim": 0.818,
+      "chamfer_px": 8.1,
+      "lpips": 0.312,
+      "notes": "Fine-grained vertical slice profiling with adaptive lateral offset center_x"
+    },
+    {
+      "ablation_id": "ABL-REC-03",
+      "description": "Improved Component-Aware Geometry",
+      "front_iou": 0.841,
+      "side_iou": 0.798,
+      "three_quarter_iou": 0.824,
+      "texture_ssim": 0.822,
+      "chamfer_px": 7.75,
+      "lpips": 0.284,
+      "notes": "Sleeve curvature alignment, collar curve synthesis, placket and ribbing offsets"
+    },
+    {
+      "ablation_id": "ABL-REC-04",
+      "description": "Improved Texture Projection & Smooth Shading",
+      "front_iou": 0.841,
+      "side_iou": 0.798,
+      "three_quarter_iou": 0.824,
+      "texture_ssim": 0.831,
+      "chamfer_px": 7.75,
+      "lpips": 0.221,
+      "notes": "256x256 high-res albedo mapping + Lambertian n \u00b7 l lighting (eliminating facet noise)"
+    },
+    {
+      "ablation_id": "ABL-REC-05",
+      "description": "Phase 14.10 Combined Final Reconstruction",
+      "front_iou": 0.8515,
+      "side_iou": 0.8054,
+      "three_quarter_iou": 0.8431,
+      "texture_ssim": 0.8439,
+      "chamfer_px": 7.59,
+      "lpips": 0.2435,
+      "notes": "Integrated category-aware geometry, pose-adaptive sleeves, and smooth albedo projection"
+    }
+  ]
+}

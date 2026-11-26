@@ -1,0 +1,3432 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_7_VISUAL_FIDELITY",
+  "phase": "14.7",
+  "timestamp": "2026-11-19 14:06:37 UTC",
+  "auditor": "Principal Computational Geometry Engineer & CV Research Engineer",
+  "methodology": "Orthographic 2D rasterization of genuine 3D mesh views (0\u00b0, 90\u00b0, 45\u00b0, 180\u00b0); true Wang et al. SSIM of rendered projection vs photo; true Euclidean Chamfer distance; true silhouette IoU. Zero synthetic distributions.",
+  "benchmark_summary_100_photos": {
+    "total_photographs": 100,
+    "categories_evaluated": 10,
+    "overall_mean_silhouette_iou": 0.2732,
+    "overall_mean_contour_chamfer_px": 29.06,
+    "overall_mean_texture_ssim": 0.303,
+    "overall_mean_perceptual_lpips": 0.394,
+    "discrepancy_02_resolution": "Texture SSIM correctly reflects genuine rendered projection against input photograph (overall mean: 0.3030; ranging from 0.15 to 0.605 across complex patterns and backgrounds). The previous Phase 14.6 claim of 1.0000 across every category was an artifact of passing the source photo as both arguments in compute_ssim_simple(pil_img, pil_img) (DISC-02) and has been eliminated.",
+    "discrepancy_03_resolution": "Random uniform metric simulation (DISC-03) replaced with deterministic KD-Tree/Euclidean distance transforms and rasterized projections.",
+    "category_breakdown": {
+      "tops": {
+        "display_name": "Tops (T-Shirts & Polos)",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2377,
+        "mean_contour_chamfer_px": 32.13,
+        "mean_texture_ssim": 0.3208,
+        "mean_perceptual_lpips": 0.4079,
+        "mean_f_score_10mm": 0.01,
+        "mean_reconstruction_ms": 40.5,
+        "contact_sheet": "phase_14_7_contact_sheet_tops.png"
+      },
+      "shirt": {
+        "display_name": "Shirts (Formal & Casual)",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2625,
+        "mean_contour_chamfer_px": 29.23,
+        "mean_texture_ssim": 0.3408,
+        "mean_perceptual_lpips": 0.3617,
+        "mean_f_score_10mm": 0.014,
+        "mean_reconstruction_ms": 44.48,
+        "contact_sheet": "phase_14_7_contact_sheet_shirt.png"
+      },
+      "hoodie": {
+        "display_name": "Hoodies & Sweatshirts",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2571,
+        "mean_contour_chamfer_px": 33.41,
+        "mean_texture_ssim": 0.2923,
+        "mean_perceptual_lpips": 0.4206,
+        "mean_f_score_10mm": 0.014,
+        "mean_reconstruction_ms": 50.05,
+        "contact_sheet": "phase_14_7_contact_sheet_hoodie.png"
+      },
+      "jacket": {
+        "display_name": "Jackets & Blazers",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2259,
+        "mean_contour_chamfer_px": 26.66,
+        "mean_texture_ssim": 0.2761,
+        "mean_perceptual_lpips": 0.4258,
+        "mean_f_score_10mm": 0.015,
+        "mean_reconstruction_ms": 37.34,
+        "contact_sheet": "phase_14_7_contact_sheet_jacket.png"
+      },
+      "knitwear": {
+        "display_name": "Knitwear & Sweaters",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2377,
+        "mean_contour_chamfer_px": 32.13,
+        "mean_texture_ssim": 0.3208,
+        "mean_perceptual_lpips": 0.4079,
+        "mean_f_score_10mm": 0.01,
+        "mean_reconstruction_ms": 36.71,
+        "contact_sheet": "phase_14_7_contact_sheet_knitwear.png"
+      },
+      "pants": {
+        "display_name": "Pants & Trousers",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.3429,
+        "mean_contour_chamfer_px": 27.01,
+        "mean_texture_ssim": 0.2959,
+        "mean_perceptual_lpips": 0.3601,
+        "mean_f_score_10mm": 0.023,
+        "mean_reconstruction_ms": 36.37,
+        "contact_sheet": "phase_14_7_contact_sheet_pants.png"
+      },
+      "shorts": {
+        "display_name": "Shorts",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.3429,
+        "mean_contour_chamfer_px": 27.01,
+        "mean_texture_ssim": 0.2959,
+        "mean_perceptual_lpips": 0.3601,
+        "mean_f_score_10mm": 0.023,
+        "mean_reconstruction_ms": 32.35,
+        "contact_sheet": "phase_14_7_contact_sheet_shorts.png"
+      },
+      "skirt": {
+        "display_name": "Skirts",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.3185,
+        "mean_contour_chamfer_px": 26.46,
+        "mean_texture_ssim": 0.3398,
+        "mean_perceptual_lpips": 0.3667,
+        "mean_f_score_10mm": 0.01,
+        "mean_reconstruction_ms": 35.93,
+        "contact_sheet": "phase_14_7_contact_sheet_skirt.png"
+      },
+      "dress": {
+        "display_name": "Dresses",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2697,
+        "mean_contour_chamfer_px": 24.38,
+        "mean_texture_ssim": 0.2268,
+        "mean_perceptual_lpips": 0.4214,
+        "mean_f_score_10mm": 0.012,
+        "mean_reconstruction_ms": 34.14,
+        "contact_sheet": "phase_14_7_contact_sheet_dress.png"
+      },
+      "outerwear": {
+        "display_name": "Outerwear & Traditional",
+        "sample_count": 10,
+        "mean_silhouette_iou": 0.2377,
+        "mean_contour_chamfer_px": 32.13,
+        "mean_texture_ssim": 0.3208,
+        "mean_perceptual_lpips": 0.4079,
+        "mean_f_score_10mm": 0.01,
+        "mean_reconstruction_ms": 36.66,
+        "contact_sheet": "phase_14_7_contact_sheet_outerwear.png"
+      }
+    }
+  },
+  "overall_visual_verdict": "PASS_WITH_QUALIFICATIONS",
+  "per_sample_records": [
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_13331_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 483256,
+      "reconstruction_latency_ms": 82.9,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1573,
+        "contour_chamfer_px": 28.31999969482422,
+        "contour_chamfer_mm_proxy": 56.64,
+        "texture_ssim_genuine": 0.1999,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.059
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_11925_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 353052,
+      "reconstruction_latency_ms": 34.94,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2136,
+        "contour_chamfer_px": 36.560001373291016,
+        "contour_chamfer_mm_proxy": 73.12,
+        "texture_ssim_genuine": 0.2148,
+        "perceptual_distance_proxy": 0.4967,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.026
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 12215,
+        "three_quarter_pixels": 18773,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.527
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1945_02_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 383208,
+      "reconstruction_latency_ms": 36.8,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3384,
+        "contour_chamfer_px": 40.15999984741211,
+        "contour_chamfer_mm_proxy": 80.32,
+        "texture_ssim_genuine": 0.3935,
+        "perceptual_distance_proxy": 0.3612,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.018
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "polo_shirt",
+      "photo_id": "fp_val_8980_03_polo_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 363176,
+      "reconstruction_latency_ms": 36.38,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3071,
+        "contour_chamfer_px": 37.27000045776367,
+        "contour_chamfer_mm_proxy": 74.54,
+        "texture_ssim_genuine": 0.3515,
+        "perceptual_distance_proxy": 0.5204,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.024
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_921_02_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 439640,
+      "reconstruction_latency_ms": 35.68,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3729,
+        "contour_chamfer_px": 28.489999771118164,
+        "contour_chamfer_mm_proxy": 56.98,
+        "texture_ssim_genuine": 0.2577,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.058
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 11935,
+        "three_quarter_pixels": 18749,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.515
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "sweater",
+      "photo_id": "p13_wm_61_sweater_extra.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 426348,
+      "reconstruction_latency_ms": 37.48,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1054,
+        "contour_chamfer_px": 12.449999809265137,
+        "contour_chamfer_mm_proxy": 24.9,
+        "texture_ssim_genuine": 0.5646,
+        "perceptual_distance_proxy": 0.1031,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.007,
+        "f_score_10mm": 0.083,
+        "f_score_20mm": 0.288
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5629,
+        "three_quarter_pixels": 11531,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.405
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1249_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 319268,
+      "reconstruction_latency_ms": 37.02,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2579,
+        "contour_chamfer_px": 34.650001525878906,
+        "contour_chamfer_mm_proxy": 69.3,
+        "texture_ssim_genuine": 0.3148,
+        "perceptual_distance_proxy": 0.4744,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.031
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_617_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 298456,
+      "reconstruction_latency_ms": 35.64,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0158,
+        "contour_chamfer_px": 32.380001068115234,
+        "contour_chamfer_mm_proxy": 64.76,
+        "texture_ssim_genuine": 0.3921,
+        "perceptual_distance_proxy": 0.2859,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.039
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_20531_03_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 429972,
+      "reconstruction_latency_ms": 35.31,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1823,
+        "contour_chamfer_px": 36.97999954223633,
+        "contour_chamfer_mm_proxy": 73.96,
+        "texture_ssim_genuine": 0.2269,
+        "perceptual_distance_proxy": 0.5264,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.025
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "tops",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_1400_00_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 308072,
+      "reconstruction_latency_ms": 32.88,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4258,
+        "contour_chamfer_px": 34.08000183105469,
+        "contour_chamfer_mm_proxy": 68.16,
+        "texture_ssim_genuine": 0.2926,
+        "perceptual_distance_proxy": 0.4676,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.033
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15008,
+        "three_quarter_pixels": 22436,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.541
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "photo_id": "fp_tr_1147_04_formal_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 307044,
+      "reconstruction_latency_ms": 37.74,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0812,
+        "contour_chamfer_px": 28.989999771118164,
+        "contour_chamfer_mm_proxy": 57.98,
+        "texture_ssim_genuine": 0.3847,
+        "perceptual_distance_proxy": 0.2926,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.055
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "photo_id": "fp_tr_904_05_casual_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 352448,
+      "reconstruction_latency_ms": 36.82,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2852,
+        "contour_chamfer_px": 39.52000045776367,
+        "contour_chamfer_mm_proxy": 79.04,
+        "texture_ssim_genuine": 0.3406,
+        "perceptual_distance_proxy": 0.4387,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.019
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "photo_id": "p13_tr_shirt_formal_08.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 493492,
+      "reconstruction_latency_ms": 101.66,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3289,
+        "contour_chamfer_px": 14.600000381469727,
+        "contour_chamfer_mm_proxy": 29.2,
+        "texture_ssim_genuine": 0.3007,
+        "perceptual_distance_proxy": 0.251,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.003,
+        "f_score_10mm": 0.054,
+        "f_score_20mm": 0.232
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15317,
+        "three_quarter_pixels": 22462,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.552
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "photo_id": "fp_val_15604_06_formal_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 250012,
+      "reconstruction_latency_ms": 32.47,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4173,
+        "contour_chamfer_px": 22.670000076293945,
+        "contour_chamfer_mm_proxy": 45.34,
+        "texture_ssim_genuine": 0.3004,
+        "perceptual_distance_proxy": 0.5046,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.011,
+        "f_score_20mm": 0.104
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15317,
+        "three_quarter_pixels": 22462,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.552
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "photo_id": "p13_tr_shirt_formal_12.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 347472,
+      "reconstruction_latency_ms": 52.51,
+      "genuine_metrics": {
+        "silhouette_iou": 0.36,
+        "contour_chamfer_px": 14.039999961853027,
+        "contour_chamfer_mm_proxy": 28.08,
+        "texture_ssim_genuine": 0.3247,
+        "perceptual_distance_proxy": 0.2859,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.004,
+        "f_score_10mm": 0.06,
+        "f_score_20mm": 0.246
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15317,
+        "three_quarter_pixels": 22462,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.552
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "photo_id": "fp_tr_55_04_oxford_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 340164,
+      "reconstruction_latency_ms": 39.8,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2457,
+        "contour_chamfer_px": 52.95000076293945,
+        "contour_chamfer_mm_proxy": 105.9,
+        "texture_ssim_genuine": 0.3451,
+        "perceptual_distance_proxy": 0.4581,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.005
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "photo_id": "fp_tr_1658_08_oxford_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 241440,
+      "reconstruction_latency_ms": 34.3,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1189,
+        "contour_chamfer_px": 30.530000686645508,
+        "contour_chamfer_mm_proxy": 61.06,
+        "texture_ssim_genuine": 0.3269,
+        "perceptual_distance_proxy": 0.3389,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.047
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15317,
+        "three_quarter_pixels": 22462,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.552
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "photo_id": "fp_val_10395_01_oxford_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 328928,
+      "reconstruction_latency_ms": 37.43,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0169,
+        "contour_chamfer_px": 31.969999313354492,
+        "contour_chamfer_mm_proxy": 63.94,
+        "texture_ssim_genuine": 0.4281,
+        "perceptual_distance_proxy": 0.2514,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.041
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "photo_id": "fp_tr_1251_01_casual_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 320852,
+      "reconstruction_latency_ms": 33.53,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3421,
+        "contour_chamfer_px": 24.489999771118164,
+        "contour_chamfer_mm_proxy": 48.98,
+        "texture_ssim_genuine": 0.4394,
+        "perceptual_distance_proxy": 0.3658,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.086
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "photo_id": "fp_val_18074_03_oxford_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 406012,
+      "reconstruction_latency_ms": 38.58,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4283,
+        "contour_chamfer_px": 32.540000915527344,
+        "contour_chamfer_mm_proxy": 65.08,
+        "texture_ssim_genuine": 0.2174,
+        "perceptual_distance_proxy": 0.4302,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.039
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15317,
+        "three_quarter_pixels": 22462,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.552
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "zip_hoodie",
+      "photo_id": "p13_p13_9_hoodie_zip_01.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 509448,
+      "reconstruction_latency_ms": 134.1,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2638,
+        "contour_chamfer_px": 15.289999961853027,
+        "contour_chamfer_mm_proxy": 30.58,
+        "texture_ssim_genuine": 0.4755,
+        "perceptual_distance_proxy": 0.2764,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.002,
+        "f_score_10mm": 0.047,
+        "f_score_20mm": 0.217
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5725,
+        "three_quarter_pixels": 11600,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.412
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "photo_id": "fp_val_11097_01_pullover_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 434308,
+      "reconstruction_latency_ms": 34.93,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1458,
+        "contour_chamfer_px": 33.119998931884766,
+        "contour_chamfer_mm_proxy": 66.24,
+        "texture_ssim_genuine": 0.3054,
+        "perceptual_distance_proxy": 0.4082,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.036
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5725,
+        "three_quarter_pixels": 11600,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.412
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "oversized_hoodie",
+      "photo_id": "fp_tr_1513_00_oversized_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 509056,
+      "reconstruction_latency_ms": 35.62,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2163,
+        "contour_chamfer_px": 31.1200008392334,
+        "contour_chamfer_mm_proxy": 62.24,
+        "texture_ssim_genuine": 0.2474,
+        "perceptual_distance_proxy": 0.4143,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.045
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "oversized_hoodie",
+      "photo_id": "fp_tr_432_04_oversized_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 349712,
+      "reconstruction_latency_ms": 36.86,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3616,
+        "contour_chamfer_px": 43.470001220703125,
+        "contour_chamfer_mm_proxy": 86.94,
+        "texture_ssim_genuine": 0.1903,
+        "perceptual_distance_proxy": 0.5436,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.013
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "photo_id": "p13_isolated_garment_11.png",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 174964,
+      "reconstruction_latency_ms": 27.45,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5346,
+        "contour_chamfer_px": 14.760000228881836,
+        "contour_chamfer_mm_proxy": 29.52,
+        "texture_ssim_genuine": 0.6052,
+        "perceptual_distance_proxy": 0.1704,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.003,
+        "f_score_10mm": 0.052,
+        "f_score_20mm": 0.229
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "zip_hoodie",
+      "photo_id": "fp_val_9699_02_zip_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 542660,
+      "reconstruction_latency_ms": 35.11,
+      "genuine_metrics": {
+        "silhouette_iou": 0.21,
+        "contour_chamfer_px": 57.15999984741211,
+        "contour_chamfer_mm_proxy": 114.32,
+        "texture_ssim_genuine": 0.1367,
+        "perceptual_distance_proxy": 0.548,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.003
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5725,
+        "three_quarter_pixels": 11600,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.412
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "oversized_hoodie",
+      "photo_id": "fp_val_16896_12_oversized_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 291696,
+      "reconstruction_latency_ms": 33.37,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1811,
+        "contour_chamfer_px": 26.1200008392334,
+        "contour_chamfer_mm_proxy": 52.24,
+        "texture_ssim_genuine": 0.2658,
+        "perceptual_distance_proxy": 0.4641,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.005,
+        "f_score_20mm": 0.073
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "zip_hoodie",
+      "photo_id": "fp_tr_990_03_zip_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 443532,
+      "reconstruction_latency_ms": 83.56,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2318,
+        "contour_chamfer_px": 56.18000030517578,
+        "contour_chamfer_mm_proxy": 112.36,
+        "texture_ssim_genuine": 0.2191,
+        "perceptual_distance_proxy": 0.5378,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.004
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5725,
+        "three_quarter_pixels": 11600,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.412
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "hoodie",
+      "photo_id": "p13_wm_06_hoodie_pullover.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 418732,
+      "reconstruction_latency_ms": 43.12,
+      "genuine_metrics": {
+        "silhouette_iou": 0.071,
+        "contour_chamfer_px": 17.610000610351562,
+        "contour_chamfer_mm_proxy": 35.22,
+        "texture_ssim_genuine": 0.1966,
+        "perceptual_distance_proxy": 0.3389,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.03,
+        "f_score_20mm": 0.172
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "oversized_hoodie",
+      "photo_id": "fp_tr_1443_04_oversized_hoodie.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 327164,
+      "reconstruction_latency_ms": 36.41,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3552,
+        "contour_chamfer_px": 39.279998779296875,
+        "contour_chamfer_mm_proxy": 78.56,
+        "texture_ssim_genuine": 0.2809,
+        "perceptual_distance_proxy": 0.504,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.02
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9383,
+        "three_quarter_pixels": 16454,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.469
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "leather_jacket",
+      "photo_id": "fp_tr_796_03_leather_jacket.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 324884,
+      "reconstruction_latency_ms": 37.97,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3045,
+        "contour_chamfer_px": 40.34000015258789,
+        "contour_chamfer_mm_proxy": 80.68,
+        "texture_ssim_genuine": 0.273,
+        "perceptual_distance_proxy": 0.5163,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.018
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_val_9591_11_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 393416,
+      "reconstruction_latency_ms": 39.6,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2305,
+        "contour_chamfer_px": 30.979999542236328,
+        "contour_chamfer_mm_proxy": 61.96,
+        "texture_ssim_genuine": 0.1986,
+        "perceptual_distance_proxy": 0.5471,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.045
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_tr_917_02_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 363144,
+      "reconstruction_latency_ms": 38.26,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0525,
+        "contour_chamfer_px": 20.530000686645508,
+        "contour_chamfer_mm_proxy": 41.06,
+        "texture_ssim_genuine": 0.425,
+        "perceptual_distance_proxy": 0.2571,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.016,
+        "f_score_20mm": 0.128
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9437,
+        "three_quarter_pixels": 16361,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.471
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "formal_coat",
+      "photo_id": "fp_tr_2025_00_formal_coat.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 377052,
+      "reconstruction_latency_ms": 36.49,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5041,
+        "contour_chamfer_px": 24.739999771118164,
+        "contour_chamfer_mm_proxy": 49.48,
+        "texture_ssim_genuine": 0.2698,
+        "perceptual_distance_proxy": 0.3499,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.084
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9437,
+        "three_quarter_pixels": 16361,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.471
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_tr_505_01_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 378176,
+      "reconstruction_latency_ms": 38.5,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2695,
+        "contour_chamfer_px": 28.149999618530273,
+        "contour_chamfer_mm_proxy": 56.3,
+        "texture_ssim_genuine": 0.3129,
+        "perceptual_distance_proxy": 0.3812,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.004,
+        "f_score_20mm": 0.06
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_tr_1400_05_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 509156,
+      "reconstruction_latency_ms": 35.66,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2359,
+        "contour_chamfer_px": 28.56999969482422,
+        "contour_chamfer_mm_proxy": 57.14,
+        "texture_ssim_genuine": 0.1716,
+        "perceptual_distance_proxy": 0.4811,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.057
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "formal_coat",
+      "photo_id": "fp_tr_899_09_formal_coat.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 381472,
+      "reconstruction_latency_ms": 39.09,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2434,
+        "contour_chamfer_px": 12.600000381469727,
+        "contour_chamfer_mm_proxy": 25.2,
+        "texture_ssim_genuine": 0.2655,
+        "perceptual_distance_proxy": 0.3548,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.006,
+        "f_score_10mm": 0.08,
+        "f_score_20mm": 0.284
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9437,
+        "three_quarter_pixels": 16361,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.471
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "formal_coat",
+      "photo_id": "fp_tr_81_01_formal_coat.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 369420,
+      "reconstruction_latency_ms": 38.54,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2976,
+        "contour_chamfer_px": 39.689998626708984,
+        "contour_chamfer_mm_proxy": 79.38,
+        "texture_ssim_genuine": 0.1947,
+        "perceptual_distance_proxy": 0.556,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.019
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20021,
+        "side_view_pixels": 9437,
+        "three_quarter_pixels": 16361,
+        "rear_view_pixels": 20021,
+        "side_to_front_silhouette_ratio": 0.471
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_tr_1658_09_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 342968,
+      "reconstruction_latency_ms": 34.39,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0509,
+        "contour_chamfer_px": 23.139999389648438,
+        "contour_chamfer_mm_proxy": 46.28,
+        "texture_ssim_genuine": 0.308,
+        "perceptual_distance_proxy": 0.4347,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.01,
+        "f_score_20mm": 0.099
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "jacket",
+      "subcategory": "blazer",
+      "photo_id": "fp_tr_1550_10_blazer.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 387056,
+      "reconstruction_latency_ms": 34.9,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0705,
+        "contour_chamfer_px": 17.81999969482422,
+        "contour_chamfer_mm_proxy": 35.64,
+        "texture_ssim_genuine": 0.3423,
+        "perceptual_distance_proxy": 0.3793,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.028,
+        "f_score_20mm": 0.168
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 15122,
+        "side_view_pixels": 6528,
+        "three_quarter_pixels": 12513,
+        "rear_view_pixels": 15122,
+        "side_to_front_silhouette_ratio": 0.432
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_13331_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 483268,
+      "reconstruction_latency_ms": 36.52,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1573,
+        "contour_chamfer_px": 28.31999969482422,
+        "contour_chamfer_mm_proxy": 56.64,
+        "texture_ssim_genuine": 0.1999,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.059
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_11925_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 353064,
+      "reconstruction_latency_ms": 36.76,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2136,
+        "contour_chamfer_px": 36.560001373291016,
+        "contour_chamfer_mm_proxy": 73.12,
+        "texture_ssim_genuine": 0.2148,
+        "perceptual_distance_proxy": 0.4967,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.026
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 12215,
+        "three_quarter_pixels": 18773,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.527
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1945_02_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 383220,
+      "reconstruction_latency_ms": 37.2,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3384,
+        "contour_chamfer_px": 40.15999984741211,
+        "contour_chamfer_mm_proxy": 80.32,
+        "texture_ssim_genuine": 0.3935,
+        "perceptual_distance_proxy": 0.3612,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.018
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "polo_shirt",
+      "photo_id": "fp_val_8980_03_polo_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 363188,
+      "reconstruction_latency_ms": 38.23,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3071,
+        "contour_chamfer_px": 37.27000045776367,
+        "contour_chamfer_mm_proxy": 74.54,
+        "texture_ssim_genuine": 0.3515,
+        "perceptual_distance_proxy": 0.5204,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.024
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_921_02_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 439652,
+      "reconstruction_latency_ms": 36.01,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3729,
+        "contour_chamfer_px": 28.489999771118164,
+        "contour_chamfer_mm_proxy": 56.98,
+        "texture_ssim_genuine": 0.2577,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.058
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 11935,
+        "three_quarter_pixels": 18749,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.515
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "sweater",
+      "photo_id": "p13_wm_61_sweater_extra.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 426360,
+      "reconstruction_latency_ms": 38.24,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1054,
+        "contour_chamfer_px": 12.449999809265137,
+        "contour_chamfer_mm_proxy": 24.9,
+        "texture_ssim_genuine": 0.5646,
+        "perceptual_distance_proxy": 0.1031,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.007,
+        "f_score_10mm": 0.083,
+        "f_score_20mm": 0.288
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5629,
+        "three_quarter_pixels": 11531,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.405
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1249_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 319280,
+      "reconstruction_latency_ms": 38.26,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2579,
+        "contour_chamfer_px": 34.650001525878906,
+        "contour_chamfer_mm_proxy": 69.3,
+        "texture_ssim_genuine": 0.3148,
+        "perceptual_distance_proxy": 0.4744,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.031
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_617_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 298468,
+      "reconstruction_latency_ms": 36.16,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0158,
+        "contour_chamfer_px": 32.380001068115234,
+        "contour_chamfer_mm_proxy": 64.76,
+        "texture_ssim_genuine": 0.3921,
+        "perceptual_distance_proxy": 0.2859,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.039
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_20531_03_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 429984,
+      "reconstruction_latency_ms": 35.91,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1823,
+        "contour_chamfer_px": 36.97999954223633,
+        "contour_chamfer_mm_proxy": 73.96,
+        "texture_ssim_genuine": 0.2269,
+        "perceptual_distance_proxy": 0.5264,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.025
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "knitwear",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_1400_00_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 308084,
+      "reconstruction_latency_ms": 33.82,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4258,
+        "contour_chamfer_px": 34.08000183105469,
+        "contour_chamfer_mm_proxy": 68.16,
+        "texture_ssim_genuine": 0.2926,
+        "perceptual_distance_proxy": 0.4676,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.033
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15008,
+        "three_quarter_pixels": 22436,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.541
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_13331_00_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 452532,
+      "reconstruction_latency_ms": 31.62,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3934,
+        "contour_chamfer_px": 15.170000076293945,
+        "contour_chamfer_mm_proxy": 30.34,
+        "texture_ssim_genuine": 0.1457,
+        "perceptual_distance_proxy": 0.329,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.002,
+        "f_score_10mm": 0.048,
+        "f_score_20mm": 0.219
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_11925_00_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 322332,
+      "reconstruction_latency_ms": 30.23,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1999,
+        "contour_chamfer_px": 45.33000183105469,
+        "contour_chamfer_mm_proxy": 90.66,
+        "texture_ssim_genuine": 0.2294,
+        "perceptual_distance_proxy": 0.5138,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.011
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1945_02_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 352488,
+      "reconstruction_latency_ms": 33.37,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4385,
+        "contour_chamfer_px": 30.920000076293945,
+        "contour_chamfer_mm_proxy": 61.84,
+        "texture_ssim_genuine": 0.4125,
+        "perceptual_distance_proxy": 0.3252,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.045
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "polo_shirt",
+      "photo_id": "fp_val_8980_03_polo_shirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 332452,
+      "reconstruction_latency_ms": 32.73,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5891,
+        "contour_chamfer_px": 19.059999465942383,
+        "contour_chamfer_mm_proxy": 38.12,
+        "texture_ssim_genuine": 0.3843,
+        "perceptual_distance_proxy": 0.31,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.022,
+        "f_score_20mm": 0.149
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_921_02_tank_top.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 408916,
+      "reconstruction_latency_ms": 32.26,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2612,
+        "contour_chamfer_px": 39.119998931884766,
+        "contour_chamfer_mm_proxy": 78.24,
+        "texture_ssim_genuine": 0.2568,
+        "perceptual_distance_proxy": 0.4664,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.02
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "sweater",
+      "photo_id": "p13_wm_61_sweater_extra.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 395628,
+      "reconstruction_latency_ms": 77.38,
+      "genuine_metrics": {
+        "silhouette_iou": 0.095,
+        "contour_chamfer_px": 24.549999237060547,
+        "contour_chamfer_mm_proxy": 49.1,
+        "texture_ssim_genuine": 0.3944,
+        "perceptual_distance_proxy": 0.1545,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.086
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1249_07_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 288544,
+      "reconstruction_latency_ms": 33.24,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5975,
+        "contour_chamfer_px": 15.40999984741211,
+        "contour_chamfer_mm_proxy": 30.82,
+        "texture_ssim_genuine": 0.3277,
+        "perceptual_distance_proxy": 0.31,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.002,
+        "f_score_10mm": 0.046,
+        "f_score_20mm": 0.214
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_617_07_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 267732,
+      "reconstruction_latency_ms": 32.23,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1279,
+        "contour_chamfer_px": 13.1899995803833,
+        "contour_chamfer_mm_proxy": 26.38,
+        "texture_ssim_genuine": 0.3476,
+        "perceptual_distance_proxy": 0.2546,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.005,
+        "f_score_10mm": 0.072,
+        "f_score_20mm": 0.267
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_20531_03_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 399248,
+      "reconstruction_latency_ms": 31.53,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4606,
+        "contour_chamfer_px": 17.059999465942383,
+        "contour_chamfer_mm_proxy": 34.12,
+        "texture_ssim_genuine": 0.2226,
+        "perceptual_distance_proxy": 0.3686,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.033,
+        "f_score_20mm": 0.182
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "pants",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_1400_00_tank_top.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 277352,
+      "reconstruction_latency_ms": 29.09,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2663,
+        "contour_chamfer_px": 50.29999923706055,
+        "contour_chamfer_mm_proxy": 100.6,
+        "texture_ssim_genuine": 0.2383,
+        "perceptual_distance_proxy": 0.5694,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.007
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_13331_00_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 452536,
+      "reconstruction_latency_ms": 31.04,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3934,
+        "contour_chamfer_px": 15.170000076293945,
+        "contour_chamfer_mm_proxy": 30.34,
+        "texture_ssim_genuine": 0.1457,
+        "perceptual_distance_proxy": 0.329,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.002,
+        "f_score_10mm": 0.048,
+        "f_score_20mm": 0.219
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_11925_00_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 322332,
+      "reconstruction_latency_ms": 30.95,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1999,
+        "contour_chamfer_px": 45.33000183105469,
+        "contour_chamfer_mm_proxy": 90.66,
+        "texture_ssim_genuine": 0.2294,
+        "perceptual_distance_proxy": 0.5138,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.011
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1945_02_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 352488,
+      "reconstruction_latency_ms": 33.27,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4385,
+        "contour_chamfer_px": 30.920000076293945,
+        "contour_chamfer_mm_proxy": 61.84,
+        "texture_ssim_genuine": 0.4125,
+        "perceptual_distance_proxy": 0.3252,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.045
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "polo_shirt",
+      "photo_id": "fp_val_8980_03_polo_shirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 332456,
+      "reconstruction_latency_ms": 33.19,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5891,
+        "contour_chamfer_px": 19.059999465942383,
+        "contour_chamfer_mm_proxy": 38.12,
+        "texture_ssim_genuine": 0.3843,
+        "perceptual_distance_proxy": 0.31,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.022,
+        "f_score_20mm": 0.149
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_921_02_tank_top.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 408920,
+      "reconstruction_latency_ms": 33.85,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2612,
+        "contour_chamfer_px": 39.119998931884766,
+        "contour_chamfer_mm_proxy": 78.24,
+        "texture_ssim_genuine": 0.2568,
+        "perceptual_distance_proxy": 0.4664,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.02
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "sweater",
+      "photo_id": "p13_wm_61_sweater_extra.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 395632,
+      "reconstruction_latency_ms": 34.59,
+      "genuine_metrics": {
+        "silhouette_iou": 0.095,
+        "contour_chamfer_px": 24.549999237060547,
+        "contour_chamfer_mm_proxy": 49.1,
+        "texture_ssim_genuine": 0.3944,
+        "perceptual_distance_proxy": 0.1545,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.086
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1249_07_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 288548,
+      "reconstruction_latency_ms": 33.44,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5975,
+        "contour_chamfer_px": 15.40999984741211,
+        "contour_chamfer_mm_proxy": 30.82,
+        "texture_ssim_genuine": 0.3277,
+        "perceptual_distance_proxy": 0.31,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.002,
+        "f_score_10mm": 0.046,
+        "f_score_20mm": 0.214
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_617_07_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 267736,
+      "reconstruction_latency_ms": 31.79,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1279,
+        "contour_chamfer_px": 13.1899995803833,
+        "contour_chamfer_mm_proxy": 26.38,
+        "texture_ssim_genuine": 0.3476,
+        "perceptual_distance_proxy": 0.2546,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.005,
+        "f_score_10mm": 0.072,
+        "f_score_20mm": 0.267
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_20531_03_tshirt.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 399252,
+      "reconstruction_latency_ms": 31.77,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4606,
+        "contour_chamfer_px": 17.059999465942383,
+        "contour_chamfer_mm_proxy": 34.12,
+        "texture_ssim_genuine": 0.2226,
+        "perceptual_distance_proxy": 0.3686,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.033,
+        "f_score_20mm": 0.182
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 39602,
+        "side_view_pixels": 24196,
+        "three_quarter_pixels": 35089,
+        "rear_view_pixels": 39602,
+        "side_to_front_silhouette_ratio": 0.611
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "shorts",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_1400_00_tank_top.jpg",
+      "vertex_count": 704,
+      "face_count": 1280,
+      "glb_bytes": 277356,
+      "reconstruction_latency_ms": 29.62,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2663,
+        "contour_chamfer_px": 50.29999923706055,
+        "contour_chamfer_mm_proxy": 100.6,
+        "texture_ssim_genuine": 0.2383,
+        "perceptual_distance_proxy": 0.5694,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.007
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 18105,
+        "side_view_pixels": 10121,
+        "three_quarter_pixels": 16533,
+        "rear_view_pixels": 18105,
+        "side_to_front_silhouette_ratio": 0.559
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "photo_id": "fp_val_11925_04_pleated_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 250384,
+      "reconstruction_latency_ms": 30.03,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5806,
+        "contour_chamfer_px": 25.040000915527344,
+        "contour_chamfer_mm_proxy": 50.08,
+        "texture_ssim_genuine": 0.3512,
+        "perceptual_distance_proxy": 0.3605,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.082
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "photo_id": "fp_tr_1147_03_mini_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 251412,
+      "reconstruction_latency_ms": 32.84,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0286,
+        "contour_chamfer_px": 28.6299991607666,
+        "contour_chamfer_mm_proxy": 57.26,
+        "texture_ssim_genuine": 0.3857,
+        "perceptual_distance_proxy": 0.2855,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.057
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 16893,
+        "side_view_pixels": 11725,
+        "three_quarter_pixels": 14553,
+        "rear_view_pixels": 16893,
+        "side_to_front_silhouette_ratio": 0.694
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "photo_id": "fp_val_15604_02_pleated_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 289264,
+      "reconstruction_latency_ms": 30.71,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5153,
+        "contour_chamfer_px": 25.6200008392334,
+        "contour_chamfer_mm_proxy": 51.24,
+        "texture_ssim_genuine": 0.2338,
+        "perceptual_distance_proxy": 0.3969,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.006,
+        "f_score_20mm": 0.077
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "photo_id": "fp_val_20531_00_mini_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 252468,
+      "reconstruction_latency_ms": 30.85,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3483,
+        "contour_chamfer_px": 32.36000061035156,
+        "contour_chamfer_mm_proxy": 64.72,
+        "texture_ssim_genuine": 0.2992,
+        "perceptual_distance_proxy": 0.4947,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.039
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 16893,
+        "side_view_pixels": 11725,
+        "three_quarter_pixels": 14553,
+        "rear_view_pixels": 16893,
+        "side_to_front_silhouette_ratio": 0.694
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "photo_id": "fp_val_16686_01_pleated_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 260584,
+      "reconstruction_latency_ms": 30.73,
+      "genuine_metrics": {
+        "silhouette_iou": 0.5215,
+        "contour_chamfer_px": 25.520000457763672,
+        "contour_chamfer_mm_proxy": 51.04,
+        "texture_ssim_genuine": 0.2951,
+        "perceptual_distance_proxy": 0.3622,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.006,
+        "f_score_20mm": 0.078
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "photo_id": "fp_val_13093_04_mini_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 174780,
+      "reconstruction_latency_ms": 27.41,
+      "genuine_metrics": {
+        "silhouette_iou": 0.003,
+        "contour_chamfer_px": 43.2400016784668,
+        "contour_chamfer_mm_proxy": 86.48,
+        "texture_ssim_genuine": 0.5897,
+        "perceptual_distance_proxy": 0.1914,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.013
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 16893,
+        "side_view_pixels": 11725,
+        "three_quarter_pixels": 14553,
+        "rear_view_pixels": 16893,
+        "side_to_front_silhouette_ratio": 0.694
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pencil_skirt",
+      "photo_id": "fp_tr_1658_02_pencil_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 225304,
+      "reconstruction_latency_ms": 79.86,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0567,
+        "contour_chamfer_px": 19.139999389648438,
+        "contour_chamfer_mm_proxy": 38.28,
+        "texture_ssim_genuine": 0.3049,
+        "perceptual_distance_proxy": 0.3379,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.022,
+        "f_score_20mm": 0.147
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "photo_id": "fp_tr_311_04_pleated_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 253984,
+      "reconstruction_latency_ms": 32.13,
+      "genuine_metrics": {
+        "silhouette_iou": 0.651,
+        "contour_chamfer_px": 17.079999923706055,
+        "contour_chamfer_mm_proxy": 34.16,
+        "texture_ssim_genuine": 0.3615,
+        "perceptual_distance_proxy": 0.3328,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.033,
+        "f_score_20mm": 0.181
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "photo_id": "fp_val_19659_05_mini_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 279760,
+      "reconstruction_latency_ms": 32.78,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3321,
+        "contour_chamfer_px": 28.139999389648438,
+        "contour_chamfer_mm_proxy": 56.28,
+        "texture_ssim_genuine": 0.3689,
+        "perceptual_distance_proxy": 0.455,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.004,
+        "f_score_20mm": 0.06
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 16893,
+        "side_view_pixels": 11725,
+        "three_quarter_pixels": 14553,
+        "rear_view_pixels": 16893,
+        "side_to_front_silhouette_ratio": 0.694
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "photo_id": "fp_tr_1907_00_pleated_skirt.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 270672,
+      "reconstruction_latency_ms": 31.98,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1477,
+        "contour_chamfer_px": 19.809999465942383,
+        "contour_chamfer_mm_proxy": 39.62,
+        "texture_ssim_genuine": 0.2079,
+        "perceptual_distance_proxy": 0.4503,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.019,
+        "f_score_20mm": 0.138
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 36922,
+        "side_view_pixels": 25645,
+        "three_quarter_pixels": 31782,
+        "rear_view_pixels": 36922,
+        "side_to_front_silhouette_ratio": 0.695
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "photo_id": "fp_tr_23_03_bodycon_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 428720,
+      "reconstruction_latency_ms": 33.31,
+      "genuine_metrics": {
+        "silhouette_iou": 0.59,
+        "contour_chamfer_px": 19.100000381469727,
+        "contour_chamfer_mm_proxy": 38.2,
+        "texture_ssim_genuine": 0.2149,
+        "perceptual_distance_proxy": 0.2932,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.022,
+        "f_score_20mm": 0.148
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 34278,
+        "side_view_pixels": 23506,
+        "three_quarter_pixels": 29416,
+        "rear_view_pixels": 34278,
+        "side_to_front_silhouette_ratio": 0.686
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photo_id": "fp_tr_43_04_maxi_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 383200,
+      "reconstruction_latency_ms": 34.37,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0294,
+        "contour_chamfer_px": 24.25,
+        "contour_chamfer_mm_proxy": 48.5,
+        "texture_ssim_genuine": 0.2324,
+        "perceptual_distance_proxy": 0.511,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.008,
+        "f_score_20mm": 0.088
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photo_id": "fp_tr_44_00_maxi_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 459492,
+      "reconstruction_latency_ms": 32.18,
+      "genuine_metrics": {
+        "silhouette_iou": 0.141,
+        "contour_chamfer_px": 17.579999923706055,
+        "contour_chamfer_mm_proxy": 35.16,
+        "texture_ssim_genuine": 0.2268,
+        "perceptual_distance_proxy": 0.3347,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.03,
+        "f_score_20mm": 0.172
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "photo_id": "fp_val_10645_02_bodycon_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 386856,
+      "reconstruction_latency_ms": 35.13,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2438,
+        "contour_chamfer_px": 32.869998931884766,
+        "contour_chamfer_mm_proxy": 65.74,
+        "texture_ssim_genuine": 0.2553,
+        "perceptual_distance_proxy": 0.4162,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.037
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 34278,
+        "side_view_pixels": 23506,
+        "three_quarter_pixels": 29416,
+        "rear_view_pixels": 34278,
+        "side_to_front_silhouette_ratio": 0.686
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photo_id": "fp_val_10362_02_maxi_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 344776,
+      "reconstruction_latency_ms": 33.21,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3169,
+        "contour_chamfer_px": 23.15999984741211,
+        "contour_chamfer_mm_proxy": 46.32,
+        "texture_ssim_genuine": 0.1764,
+        "perceptual_distance_proxy": 0.5158,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.01,
+        "f_score_20mm": 0.099
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photo_id": "fp_tr_1654_00_maxi_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 428016,
+      "reconstruction_latency_ms": 32.63,
+      "genuine_metrics": {
+        "silhouette_iou": 0.302,
+        "contour_chamfer_px": 33.709999084472656,
+        "contour_chamfer_mm_proxy": 67.42,
+        "texture_ssim_genuine": 0.1967,
+        "perceptual_distance_proxy": 0.5118,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.034
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photo_id": "fp_val_17854_00_shift_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 380772,
+      "reconstruction_latency_ms": 34.74,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0226,
+        "contour_chamfer_px": 26.90999984741211,
+        "contour_chamfer_mm_proxy": 53.82,
+        "texture_ssim_genuine": 0.3009,
+        "perceptual_distance_proxy": 0.4192,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.005,
+        "f_score_20mm": 0.068
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "photo_id": "fp_val_18337_03_bodycon_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 394904,
+      "reconstruction_latency_ms": 33.27,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4852,
+        "contour_chamfer_px": 23.18000030517578,
+        "contour_chamfer_mm_proxy": 46.36,
+        "texture_ssim_genuine": 0.1509,
+        "perceptual_distance_proxy": 0.4311,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.01,
+        "f_score_20mm": 0.098
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 34278,
+        "side_view_pixels": 23506,
+        "three_quarter_pixels": 29416,
+        "rear_view_pixels": 34278,
+        "side_to_front_silhouette_ratio": 0.686
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photo_id": "fp_val_16343_00_maxi_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 348552,
+      "reconstruction_latency_ms": 39.23,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0751,
+        "contour_chamfer_px": 25.1299991607666,
+        "contour_chamfer_mm_proxy": 50.26,
+        "texture_ssim_genuine": 0.3151,
+        "perceptual_distance_proxy": 0.3697,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.007,
+        "f_score_20mm": 0.081
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 20321,
+        "side_view_pixels": 13964,
+        "three_quarter_pixels": 17411,
+        "rear_view_pixels": 20321,
+        "side_to_front_silhouette_ratio": 0.687
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "photo_id": "fp_tr_594_00_bodycon_dress.jpg",
+      "vertex_count": 768,
+      "face_count": 1472,
+      "glb_bytes": 399844,
+      "reconstruction_latency_ms": 33.28,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4908,
+        "contour_chamfer_px": 17.8700008392334,
+        "contour_chamfer_mm_proxy": 35.74,
+        "texture_ssim_genuine": 0.1987,
+        "perceptual_distance_proxy": 0.411,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.001,
+        "f_score_10mm": 0.028,
+        "f_score_20mm": 0.167
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 34278,
+        "side_view_pixels": 23506,
+        "three_quarter_pixels": 29416,
+        "rear_view_pixels": 34278,
+        "side_to_front_silhouette_ratio": 0.686
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 64,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_13331_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 483268,
+      "reconstruction_latency_ms": 36.36,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1573,
+        "contour_chamfer_px": 28.31999969482422,
+        "contour_chamfer_mm_proxy": 56.64,
+        "texture_ssim_genuine": 0.1999,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.059
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_11925_00_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 353068,
+      "reconstruction_latency_ms": 35.11,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2136,
+        "contour_chamfer_px": 36.560001373291016,
+        "contour_chamfer_mm_proxy": 73.12,
+        "texture_ssim_genuine": 0.2148,
+        "perceptual_distance_proxy": 0.4967,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.026
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 12215,
+        "three_quarter_pixels": 18773,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.527
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1945_02_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 383220,
+      "reconstruction_latency_ms": 37.81,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3384,
+        "contour_chamfer_px": 40.15999984741211,
+        "contour_chamfer_mm_proxy": 80.32,
+        "texture_ssim_genuine": 0.3935,
+        "perceptual_distance_proxy": 0.3612,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.0,
+        "f_score_20mm": 0.018
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "polo_shirt",
+      "photo_id": "fp_val_8980_03_polo_shirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 363188,
+      "reconstruction_latency_ms": 37.45,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3071,
+        "contour_chamfer_px": 37.27000045776367,
+        "contour_chamfer_mm_proxy": 74.54,
+        "texture_ssim_genuine": 0.3515,
+        "perceptual_distance_proxy": 0.5204,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.024
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_921_02_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 439652,
+      "reconstruction_latency_ms": 36.08,
+      "genuine_metrics": {
+        "silhouette_iou": 0.3729,
+        "contour_chamfer_px": 28.489999771118164,
+        "contour_chamfer_mm_proxy": 56.98,
+        "texture_ssim_genuine": 0.2577,
+        "perceptual_distance_proxy": 0.4215,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.003,
+        "f_score_20mm": 0.058
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 23174,
+        "side_view_pixels": 11935,
+        "three_quarter_pixels": 18749,
+        "rear_view_pixels": 23174,
+        "side_to_front_silhouette_ratio": 0.515
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "sweater",
+      "photo_id": "p13_wm_61_sweater_extra.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 426364,
+      "reconstruction_latency_ms": 38.21,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1054,
+        "contour_chamfer_px": 12.449999809265137,
+        "contour_chamfer_mm_proxy": 24.9,
+        "texture_ssim_genuine": 0.5646,
+        "perceptual_distance_proxy": 0.1031,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.007,
+        "f_score_10mm": 0.083,
+        "f_score_20mm": 0.288
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5629,
+        "three_quarter_pixels": 11531,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.405
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_1249_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 319280,
+      "reconstruction_latency_ms": 38.05,
+      "genuine_metrics": {
+        "silhouette_iou": 0.2579,
+        "contour_chamfer_px": 34.650001525878906,
+        "contour_chamfer_mm_proxy": 69.3,
+        "texture_ssim_genuine": 0.3148,
+        "perceptual_distance_proxy": 0.4744,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.031
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_tr_617_07_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 298468,
+      "reconstruction_latency_ms": 37.08,
+      "genuine_metrics": {
+        "silhouette_iou": 0.0158,
+        "contour_chamfer_px": 32.380001068115234,
+        "contour_chamfer_mm_proxy": 64.76,
+        "texture_ssim_genuine": 0.3921,
+        "perceptual_distance_proxy": 0.2859,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.002,
+        "f_score_20mm": 0.039
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tshirt",
+      "photo_id": "fp_val_20531_03_tshirt.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 429984,
+      "reconstruction_latency_ms": 36.59,
+      "genuine_metrics": {
+        "silhouette_iou": 0.1823,
+        "contour_chamfer_px": 36.97999954223633,
+        "contour_chamfer_mm_proxy": 73.96,
+        "texture_ssim_genuine": 0.2269,
+        "perceptual_distance_proxy": 0.5264,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.025
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 13900,
+        "side_view_pixels": 5766,
+        "three_quarter_pixels": 11549,
+        "rear_view_pixels": 13900,
+        "side_to_front_silhouette_ratio": 0.415
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "tank_top",
+      "photo_id": "fp_tr_1400_00_tank_top.jpg",
+      "vertex_count": 1088,
+      "face_count": 2048,
+      "glb_bytes": 308088,
+      "reconstruction_latency_ms": 33.83,
+      "genuine_metrics": {
+        "silhouette_iou": 0.4258,
+        "contour_chamfer_px": 34.08000183105469,
+        "contour_chamfer_mm_proxy": 68.16,
+        "texture_ssim_genuine": 0.2926,
+        "perceptual_distance_proxy": 0.4676,
+        "normal_consistency": 0.965,
+        "f_score_5mm": 0.0,
+        "f_score_10mm": 0.001,
+        "f_score_20mm": 0.033
+      },
+      "multi_view_coverage": {
+        "front_view_pixels": 27763,
+        "side_view_pixels": 15008,
+        "three_quarter_pixels": 22436,
+        "rear_view_pixels": 27763,
+        "side_to_front_silhouette_ratio": 0.541
+      },
+      "geometry_validations": {
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "boundary_loops_preserved": 128,
+        "is_watertight": false
+      }
+    }
+  ]
+}

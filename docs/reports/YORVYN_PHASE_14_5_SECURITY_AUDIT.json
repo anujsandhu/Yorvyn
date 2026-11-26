@@ -1,0 +1,34 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_5_SECURITY_AUDIT",
+  "timestamp": "2026-11-18T18:48:00Z",
+  "audit_version": "14.5.0-security-and-governance",
+  "remote_gpu_authentication": {
+    "hmac_sha256_request_signing": "Verified \u2014 Every remote dispatch requires HMAC signature over timestamp and body",
+    "api_key_header_enforcement": "Enforced \u2014 X-YORVYN-API-KEY required for cluster ingress",
+    "credential_isolation": "Verified \u2014 Zero GPU credentials or provider API keys leaked to frontend browser bundle",
+    "replay_protection": "Timestamp verification rejects requests older than 300 seconds"
+  },
+  "queue_and_resource_bounds": {
+    "max_worker_queue_depth": 10,
+    "max_concurrent_jobs_per_user": 2,
+    "execution_timeout_seconds": 45.0,
+    "cooperative_cancellation": "Verified \u2014 cancellation flags terminate active worker tasks immediately",
+    "unbounded_queue_vulnerability": "Mitigated \u2014 Excess requests receive immediate HTTP 429 / 503 rejection"
+  },
+  "data_privacy_and_ephemeral_storage": {
+    "input_photograph_purging": "Verified \u2014 Temporary upload buffers strictly unlinked upon job completion or failure",
+    "permanent_storage_isolation": "Only generated .glb binary assets and preview thumbnails persisted with user UID scoping",
+    "external_ai_provider_policy": "Zero user photographs forwarded to public third-party APIs; remote cluster operates in private VPC"
+  },
+  "input_validation_and_sanitization": {
+    "max_upload_size_bytes": 15728640,
+    "allowed_mime_types": [
+      "image/png",
+      "image/jpeg",
+      "image/webp"
+    ],
+    "svg_sanitization": "svgSanitizer strips script tags, CDATA, and malicious inline event handlers",
+    "glb_magic_byte_verification": "GLB headers verified (0x46546C67) before buffer loading"
+  },
+  "status": "PASS (Zero credential leakage, authenticated remote queue with concurrency caps, and verified ephemeral image purging)"
+}

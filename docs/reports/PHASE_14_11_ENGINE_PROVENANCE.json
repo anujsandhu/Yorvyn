@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "D",
+    "timestamp": "2026-11-19T18:56:46Z",
+    "audit_standard": "Principal ML Infrastructure & Security Engineer"
+  },
+  "provenance_modes": {
+    "neural_reconstruction": {
+      "engine_mode": "neural_reconstruction",
+      "description": "Feedforward neural network image-to-3D synthesis",
+      "hardware_requirement": "NVIDIA A10G / A100 (>=24GB VRAM)",
+      "runtime_status": "BLOCKED_ON_REMOTE_CUDA_PROVISIONING",
+      "checkpoint_sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+      "fallback_behavior": "Explicit fallback to hybrid_reconstruction with logged provenance"
+    },
+    "hybrid_reconstruction": {
+      "engine_mode": "hybrid_reconstruction",
+      "description": "Multimodal perception + contour carving + XPBD physical relaxation",
+      "hardware_requirement": "Apple Silicon M1/M2/M3 (MPS) or CPU",
+      "runtime_status": "OPERATIONAL_STAGING_AND_LOCAL",
+      "checkpoint_sha256": null,
+      "segmentation_sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68"
+    },
+    "parametric_reconstruction": {
+      "engine_mode": "parametric_reconstruction",
+      "description": "Pure parametric template initialization with anthropometric scaling",
+      "hardware_requirement": "CPU / WebGL",
+      "runtime_status": "OPERATIONAL_DETERMINISTIC_FALLBACK",
+      "checkpoint_sha256": null
+    },
+    "topology_recovery": {
+      "engine_mode": "topology_recovery",
+      "description": "Computational geometry post-processing converting solid genus-0 into wearable 2-manifold shells",
+      "hardware_requirement": "CPU / WebAssembly",
+      "runtime_status": "OPERATIONAL_PRODUCTION_PIPELINE",
+      "boundary_carving_validation": "PASSED (Open boundary loops verified on neck, cuffs, hemline)"
+    }
+  }
+}

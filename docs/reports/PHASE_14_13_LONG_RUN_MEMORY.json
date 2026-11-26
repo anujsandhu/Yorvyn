@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Long-Run Memory Stability Benchmark",
+    "timestamp": "2026-11-21T18:12:48Z",
+    "hardware": "Apple Silicon M2 (MPS accelerator / 16GB Unified Memory)",
+    "total_requests": 1000,
+    "successes": 1000,
+    "failures": 0,
+    "success_rate_pct": 100.0,
+    "total_duration_s": 349.09,
+    "average_throughput_req_per_s": 2.86,
+    "memory_leak_slope_mb_per_100_req": -0.038,
+    "memory_stability_verdict": "PASS (Memory plateaued; no leak detected)"
+  },
+  "checkpoints": [
+    {
+      "checkpoint_index": 0,
+      "cumulative_requests": 0,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 0.0,
+      "latency_p95_ms": 0.0,
+      "latency_p99_ms": 0.0,
+      "worker_rss_mb": 336.91,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:06:59Z"
+    },
+    {
+      "checkpoint_index": 1,
+      "cumulative_requests": 100,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 350.33,
+      "latency_p95_ms": 394.18,
+      "latency_p99_ms": 436.19,
+      "worker_rss_mb": 327.88,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:07:35Z"
+    },
+    {
+      "checkpoint_index": 2,
+      "cumulative_requests": 200,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 347.18,
+      "latency_p95_ms": 385.58,
+      "latency_p99_ms": 411.13,
+      "worker_rss_mb": 328.5,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:08:10Z"
+    },
+    {
+      "checkpoint_index": 3,
+      "cumulative_requests": 300,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 349.91,
+      "latency_p95_ms": 376.98,
+      "latency_p99_ms": 382.69,
+      "worker_rss_mb": 328.84,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:08:45Z"
+    },
+    {
+      "checkpoint_index": 4,
+      "cumulative_requests": 400,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 349.6,
+      "latency_p95_ms": 371.58,
+      "latency_p99_ms": 391.95,
+      "worker_rss_mb": 330.19,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:09:20Z"
+    },
+    {
+      "checkpoint_index": 5,
+      "cumulative_requests": 500,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 346.19,
+      "latency_p95_ms": 370.3,
+      "latency_p99_ms": 382.6,
+      "worker_rss_mb": 329.89,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:09:55Z"
+    },
+    {
+      "checkpoint_index": 6,
+      "cumulative_requests": 600,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 340.62,
+      "latency_p95_ms": 362.61,
+      "latency_p99_ms": 375.39,
+      "worker_rss_mb": 330.67,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:10:30Z"
+    },
+    {
+      "checkpoint_index": 7,
+      "cumulative_requests": 700,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 344.41,
+      "latency_p95_ms": 378.7,
+      "latency_p99_ms": 393.45,
+      "worker_rss_mb": 330.61,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:11:04Z"
+    },
+    {
+      "checkpoint_index": 8,
+      "cumulative_requests": 800,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 344.41,
+      "latency_p95_ms": 364.57,
+      "latency_p99_ms": 383.75,
+      "worker_rss_mb": 331.09,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:11:39Z"
+    },
+    {
+      "checkpoint_index": 9,
+      "cumulative_requests": 900,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 343.32,
+      "latency_p95_ms": 362.18,
+      "latency_p99_ms": 369.47,
+      "worker_rss_mb": 330.7,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:12:14Z"
+    },
+    {
+      "checkpoint_index": 10,
+      "cumulative_requests": 1000,
+      "success_rate_pct": 100.0,
+      "latency_p50_ms": 345.63,
+      "latency_p95_ms": 364.59,
+      "latency_p99_ms": 368.23,
+      "worker_rss_mb": 331.45,
+      "open_fds": 421,
+      "thread_count": 24,
+      "timestamp": "2026-11-21T18:12:48Z"
+    }
+  ]
+}

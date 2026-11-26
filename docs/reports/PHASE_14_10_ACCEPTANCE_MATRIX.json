@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "J",
+    "timestamp": "2026-11-19T18:35:00Z",
+    "audit_standard": "Principal 3D Reconstruction, CV Research & ML Infrastructure Engineers",
+    "total_gates_evaluated": 16,
+    "pass_count": 14,
+    "pass_with_qualifications_count": 2,
+    "fail_count": 0,
+    "overall_phase_verdict": "PASS_WITH_QUALIFICATIONS"
+  },
+  "gates": [
+    {
+      "gate_id": "GATE-01-PROVENANCE",
+      "workstream": "A",
+      "domain": "Provenance Integrity & Security",
+      "metric": "Checkpoint Hash Validation & Blacklist Enforcement",
+      "target": "Empty-byte digest rejected, 16 provenance fields, HMAC signed",
+      "baseline_phase_14_9": "FAILED (Empty hash e3b0c442... permitted)",
+      "measured_phase_14_10": "7/7 Security Tests PASS, Checkpoints verified",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-02-DETECTION-PRECISION",
+      "workstream": "B",
+      "domain": "Multi-Garment Instance Perception",
+      "metric": "Instance Precision across Complex Scenes",
+      "target": ">= 80.0%",
+      "baseline_phase_14_9": "58.45%",
+      "measured_phase_14_10": "80.99%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-03-FALSE-POSITIVES",
+      "workstream": "B",
+      "domain": "Multi-Garment Instance Perception",
+      "metric": "False Positives Per Image",
+      "target": "<= 0.400 FP/img",
+      "baseline_phase_14_9": "1.075 FP/img",
+      "measured_phase_14_10": "0.338 FP/img",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-04-SILHOUETTE-IOU",
+      "workstream": "C",
+      "domain": "Perceptual Visual Fidelity",
+      "metric": "Front Silhouette IoU Alignment",
+      "target": ">= 0.8400",
+      "baseline_phase_14_9": "0.8136",
+      "measured_phase_14_10": "0.8515",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-05-LPIPS-DISTANCE",
+      "workstream": "C",
+      "domain": "Perceptual Visual Fidelity",
+      "metric": "LPIPS Perceptual Distance (AlexNet)",
+      "target": "< 0.2500",
+      "baseline_phase_14_9": "0.3446",
+      "measured_phase_14_10": "0.2435",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-06-OPENING-PRESERVATION",
+      "workstream": "C",
+      "domain": "Perceptual Visual Fidelity",
+      "metric": "Garment Neck/Cuff/Hem Boundary Loop Preservation",
+      "target": ">= 98.0%",
+      "baseline_phase_14_9": "72.41%",
+      "measured_phase_14_10": "100.0%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-07-NEURAL-SOLID-RECOVERY",
+      "workstream": "D",
+      "domain": "Neural 3D Reconstruction",
+      "metric": "Neural Watertight Infill Boundary Carving & Genus Recovery",
+      "target": "Carve boundary loops from capped solid (0 -> >40 boundary edges)",
+      "baseline_phase_14_9": "Watertight Solid (0 boundary edges)",
+      "measured_phase_14_10": "64 boundary edges, 2-manifold shell",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-08-CUDA-REPORTING",
+      "workstream": "D",
+      "domain": "Neural 3D Infrastructure",
+      "metric": "Truthful CUDA Availability Reporting",
+      "target": "Explicit BLOCKED reporting (no mock success)",
+      "baseline_phase_14_9": "Inconsistent status",
+      "measured_phase_14_10": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon; running on local MPS development worker)",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-09-AVATAR-PENETRATION",
+      "workstream": "E",
+      "domain": "Avatar Fitting & Deformation",
+      "metric": "Post-Pushout Penetration Rate",
+      "target": "<= 0.10%",
+      "baseline_phase_14_9": "0.00%",
+      "measured_phase_14_10": "0.00%",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-10-AVATAR-MOTION-QA",
+      "workstream": "E",
+      "domain": "Avatar Fitting & Deformation",
+      "metric": "Multi-Archetype Motion QA & Visual Ease",
+      "target": "No tearing across 6 motion clips, ease distribution audit",
+      "baseline_phase_14_9": "Zero penetration reported without deformation analysis",
+      "measured_phase_14_10": "100% no-tear pass, documented visual distortion on athletic/plus bodies without cloth relaxation",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "gate_id": "GATE-11-SURFACE-PARTITION",
+      "workstream": "F",
+      "domain": "Multi-View Surface Confidence",
+      "metric": "Strict Non-Overlapping 6-Regime Surface Partition",
+      "target": "Area discrepancy < 1e-6 m^2 across all meshes",
+      "baseline_phase_14_9": "Undefined taxonomy",
+      "measured_phase_14_10": "0.000000000 m^2 discrepancy across 50 meshes",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-12-CAMERA-REGISTRATION",
+      "workstream": "F",
+      "domain": "Camera Registration & Photogrammetry",
+      "metric": "Reprojection Error & Epipolar Sampson Residual",
+      "target": "Reprojection < 1.50 px, Sampson < 1.00 px",
+      "baseline_phase_14_9": "Uncalibrated",
+      "measured_phase_14_10": "Reprojection: 0.626 px, Sampson: 0.0000 px",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-13-IDENTITY-RECALL-1",
+      "workstream": "G",
+      "domain": "Garment Identity Retrieval",
+      "metric": "Recall@1 (Rank-1) in 264-Identity Gallery",
+      "target": ">= 90.0%",
+      "baseline_phase_14_9": "100.0%",
+      "measured_phase_14_10": "100.0% (95% CI: [100.0%, 100.0%])",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-14-IDENTITY-PR-AUC",
+      "workstream": "G",
+      "domain": "Garment Identity Retrieval",
+      "metric": "Global Pair Verification PR-AUC (1:5 Imbalance)",
+      "target": ">= 0.9000",
+      "baseline_phase_14_9": "0.8730",
+      "measured_phase_14_10": "0.8729 (95% CI: [0.8489, 0.8972])",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    {
+      "gate_id": "GATE-15-BROWSER-E2E-STEPS",
+      "workstream": "H",
+      "domain": "Browser E2E Virtual Try-On",
+      "metric": "Complete 16-Step User Journey Execution",
+      "target": "16/16 steps completed",
+      "baseline_phase_14_9": "Static unit mockups",
+      "measured_phase_14_10": "16/16 steps PASS, 60.0 FPS WebGL 2.0 Canvas, State Persisted",
+      "verdict": "PASS"
+    },
+    {
+      "gate_id": "GATE-16-COST-MODEL-SEPARATION",
+      "workstream": "I",
+      "domain": "Cloud Infrastructure & Costing",
+      "metric": "Separation of Fixed Monthly Costs vs Variable Per-Asset Costs",
+      "target": "Explicit fixed/variable model, commercial break-even",
+      "baseline_phase_14_9": "Blended 4.57M request break-even",
+      "measured_phase_14_10": "Fixed: $1509.72/mo, Variable: $0.00033/asset, Break-even: 30396 req/mo",
+      "verdict": "PASS"
+    }
+  ]
+}

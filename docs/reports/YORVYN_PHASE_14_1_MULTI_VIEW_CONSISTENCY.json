@@ -1,0 +1,94 @@
+{
+  "evaluation_version": "14.1.0-multiview",
+  "timestamp": "2026-11-18T09:07:20Z",
+  "total_pairs_evaluated": 7,
+  "concordant_pairs": 4,
+  "concordance_rate": 0.5714,
+  "concordance_rate_percent": "57.14%",
+  "tested_pair_evaluations": [
+    {
+      "test_type": "front_back_pair",
+      "expected_domain": "hoodie",
+      "view_1_path": "docs/reports/hoodie_visual_regression/E_front_3d_view.png",
+      "view_1_prediction": "footwear",
+      "view_1_confidence": 0.4727,
+      "view_2_path": "docs/reports/hoodie_visual_regression/G_rear_3d_view_inferred.png",
+      "view_2_prediction": "footwear",
+      "view_2_confidence": 0.4001,
+      "predictions_concordant": true,
+      "matches_expected": false
+    },
+    {
+      "test_type": "lifestyle_vs_isolated",
+      "expected_domain": "hoodie",
+      "view_1_path": "docs/reports/hoodie_visual_regression/A_original_reference_photo.png",
+      "view_1_prediction": "hoodie",
+      "view_1_confidence": 0.9846,
+      "view_2_path": "docs/reports/hoodie_visual_regression/D_geometry_only_hoodie.png",
+      "view_2_prediction": "accessories",
+      "view_2_confidence": 0.4076,
+      "predictions_concordant": false,
+      "matches_expected": false
+    },
+    {
+      "test_type": "different_camera_distance",
+      "expected_domain": "shirt",
+      "view_1_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "view_1_prediction": "shirt",
+      "view_1_confidence": 0.7101,
+      "view_2_path": "data/datasets/phase_13_6_real_photos/wm_18_shirt_formal.jpg",
+      "view_2_prediction": "shirt",
+      "view_2_confidence": 0.9268,
+      "predictions_concordant": true,
+      "matches_expected": true
+    },
+    {
+      "test_type": "flat_lay_vs_hang",
+      "expected_domain": "bottoms",
+      "view_1_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "view_1_prediction": "bottoms",
+      "view_1_confidence": 0.391,
+      "view_2_path": "data/datasets/phase_13_6_real_photos/wm_30_jeans_denim.jpg",
+      "view_2_prediction": "jacket",
+      "view_2_confidence": 0.6344,
+      "predictions_concordant": false,
+      "matches_expected": false
+    },
+    {
+      "test_type": "flat_lay_vs_onbody",
+      "expected_domain": "dress",
+      "view_1_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "view_1_prediction": "accessories",
+      "view_1_confidence": 0.4365,
+      "view_2_path": "data/datasets/phase_13_6_real_photos/wm_42_dress_aline.jpg",
+      "view_2_prediction": "footwear",
+      "view_2_confidence": 0.6929,
+      "predictions_concordant": false,
+      "matches_expected": false
+    },
+    {
+      "test_type": "different_composition",
+      "expected_domain": "skirt",
+      "view_1_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "view_1_prediction": "skirt",
+      "view_1_confidence": 0.9245,
+      "view_2_path": "data/datasets/phase_13_6_real_photos/wm_38_skirt_pleated.jpg",
+      "view_2_prediction": "skirt",
+      "view_2_confidence": 0.8273,
+      "predictions_concordant": true,
+      "matches_expected": true
+    },
+    {
+      "test_type": "multiple_views",
+      "expected_domain": "bottoms",
+      "view_1_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "view_1_prediction": "bottoms",
+      "view_1_confidence": 0.9043,
+      "view_2_path": "data/datasets/phase_13_6_real_photos/wm_34_shorts_casual.jpg",
+      "view_2_prediction": "bottoms",
+      "view_2_confidence": 0.931,
+      "predictions_concordant": true,
+      "matches_expected": true
+    }
+  ]
+}

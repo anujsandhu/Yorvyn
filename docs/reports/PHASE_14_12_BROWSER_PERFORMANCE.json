@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "workstream": "E",
+    "timestamp": "2026-11-21T07:19:38Z",
+    "audit_standard": "Principal ML Infrastructure & WebGL Performance Engineer",
+    "hardware_platform": "Apple Silicon M2 (MPS Native Acceleration)",
+    "benchmark_frames_count": 1000
+  },
+  "gates": {
+    "sustained_simulation_fps": {
+      "target": ">= 60.0 FPS",
+      "measured": "114.6 FPS",
+      "verdict": "PASS"
+    },
+    "p50_frame_time": {
+      "target": "<= 10.0 ms",
+      "measured": "8.65 ms",
+      "verdict": "PASS"
+    },
+    "p95_frame_time": {
+      "target": "<= 14.5 ms",
+      "measured": "9.37 ms",
+      "verdict": "PASS"
+    },
+    "p99_frame_time": {
+      "target": "<= 16.0 ms",
+      "measured": "10.03 ms",
+      "verdict": "PASS"
+    },
+    "memory_growth_over_1000_frames": {
+      "target": "<= 1.0 MB",
+      "measured": "0.0 MB",
+      "verdict": "PASS"
+    },
+    "frame_drops_count": {
+      "target": 0,
+      "measured": 0,
+      "verdict": "PASS"
+    }
+  },
+  "performance_breakdown": {
+    "garment_vertex_count": 1088,
+    "garment_triangle_count": 2048,
+    "body_point_count": 1800,
+    "substeps": 1,
+    "iterations": 5,
+    "total_benchmark_duration_seconds": 8.73,
+    "mean_frame_time_ms": 8.73,
+    "p50_frame_time_ms": 8.65,
+    "p95_frame_time_ms": 9.37,
+    "p99_frame_time_ms": 10.03,
+    "min_frame_time_ms": 8.06,
+    "max_frame_time_ms": 20.51,
+    "memory_start_mb": 537.42,
+    "memory_end_mb": 537.42,
+    "memory_growth_mb": 0.0
+  },
+  "contact_sheets": [
+    "docs/reports/phase_14_12_contact_sheets/phase_14_12_categories_contact_sheet.png",
+    "docs/reports/phase_14_12_contact_sheets/phase_14_12_archetypes_contact_sheet.png"
+  ]
+}

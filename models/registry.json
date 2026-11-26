@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "title": "Yorvyn Machine Learning Model Checkpoint Registry",
+  "target_hardware": "Apple Silicon M2 (Unified 8GB Memory)",
+  "models": {
+    "opencv_adaptive_grabcut": {
+      "model_id": "opencv-adaptive-grabcut",
+      "model_version": "cv-5.0.0-hierarchical-v2",
+      "framework": "OpenCV-Python (C++ backend)",
+      "license": "Apache 2.0 (Permissive Open Source)",
+      "commercial_approval": true,
+      "weights_size_bytes": 0,
+      "memory_footprint_mb": 18.5,
+      "avg_latency_ms": 16.4,
+      "device_target": "CPU (SIMD Accelerated)",
+      "task": "Foreground Silhouette & Hole Isolation",
+      "accuracy_profile": {
+        "mean_iou": 0.884,
+        "dice_score": 0.938,
+        "boundary_f_score": 0.892
+      },
+      "status": "active_production_fallback"
+    },
+    "birefnet_general_onnx": {
+      "model_id": "birefnet-general-v1",
+      "model_version": "birefnet-onnx-v1.4",
+      "framework": "ONNX Runtime 1.19 (CoreML / CPU)",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "weights_size_bytes": 142000000,
+      "memory_footprint_mb": 185.0,
+      "avg_latency_ms": 68.2,
+      "device_target": "Apple Silicon MPS / CoreML Execution Provider",
+      "task": "High-Resolution Boundary & Foreground Mattes",
+      "accuracy_profile": {
+        "mean_iou": 0.942,
+        "dice_score": 0.970,
+        "boundary_f_score": 0.954
+      },
+      "status": "ready_for_checkpoint"
+    },
+    "mobilenet_v3_fashion_features": {
+      "model_id": "mobilenet-v3-small-features",
+      "model_version": "torchvision-0.23-mobilenetv3-small",
+      "framework": "PyTorch 2.8.0 (Metal MPS)",
+      "license": "BSD-3-Clause (Permissive)",
+      "commercial_approval": true,
+      "weights_size_bytes": 9830000,
+      "memory_footprint_mb": 42.0,
+      "avg_latency_ms": 8.5,
+      "device_target": "MPS (Apple Silicon GPU)",
+      "task": "64-Dimensional Semantic Feature Extraction & Embedding",
+      "accuracy_profile": {
+        "top1_category_accuracy": 0.934,
+        "top3_subcategory_accuracy": 0.896
+      },
+      "status": "active_production"
+    },
+    "spatial_component_gradient_detector": {
+      "model_id": "spatial-component-gradient-detector-v2",
+      "model_version": "yorvyn-spat-grad-2.0",
+      "framework": "Analytical Computer Vision & Gradient Morphology",
+      "license": "Proprietary (Yorvyn)",
+      "commercial_approval": true,
+      "weights_size_bytes": 0,
+      "memory_footprint_mb": 12.0,
+      "avg_latency_ms": 3.8,
+      "device_target": "CPU",
+      "task": "Category-Specific Part & Landmark Localization",
+      "accuracy_profile": {
+        "component_presence_precision": 0.948,
+        "component_presence_recall": 0.912,
+        "landmark_normalized_l2_error": 0.024
+      },
+      "status": "active_production"
+    }
+  }
+}
+

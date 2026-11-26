@@ -1,0 +1,141 @@
+{
+  "evaluation_title": "Yorvyn AI Model Evaluation & Deployment Gate Report",
+  "evaluation_timestamp": "2026-11-07T07:40:00Z",
+  "test_set_specification": {
+    "held_out_samples_count": 500,
+    "leakage_prevention": "Strict SHA-256 fingerprint segregation between training pool and held-out test splits",
+    "evaluation_runner": "Automated held-out benchmark suite (ModelTrainingService)"
+  },
+  "models": [
+    {
+      "model_name": "universal_garment_classifier",
+      "task_type": "classification",
+      "base_architecture": "MobileNetV3-Large with Fashion Head",
+      "versions_evaluated": [
+        {
+          "version": "v1.0.0",
+          "role": "production_baseline",
+          "status": "deployed",
+          "metrics": {
+            "accuracy": 0.932,
+            "macro_f1": 0.924,
+            "top_3_accuracy": 0.985,
+            "calibration_error": 0.038
+          }
+        },
+        {
+          "version": "v2.0.0_gold",
+          "role": "candidate_improved",
+          "status": "approved",
+          "metrics": {
+            "accuracy": 0.965,
+            "macro_f1": 0.960,
+            "top_3_accuracy": 0.995,
+            "calibration_error": 0.024
+          },
+          "delta_vs_baseline": {
+            "accuracy": "+0.033",
+            "macro_f1": "+0.036",
+            "calibration_error": "-0.014"
+          },
+          "gate_decision": "APPROVED_FOR_DEPLOYMENT"
+        },
+        {
+          "version": "v0.9.0_flawed",
+          "role": "candidate_regressed",
+          "status": "rejected",
+          "metrics": {
+            "accuracy": 0.812,
+            "macro_f1": 0.795,
+            "top_3_accuracy": 0.920,
+            "calibration_error": 0.089
+          },
+          "delta_vs_baseline": {
+            "accuracy": "-0.120",
+            "macro_f1": "-0.129",
+            "calibration_error": "+0.051"
+          },
+          "regression_reasons": [
+            "Accuracy regression: 0.812 < baseline 0.932",
+            "Macro F1 degraded by 12.9%"
+          ],
+          "gate_decision": "REJECTED_BLOCKED_FROM_DEPLOYMENT"
+        }
+      ]
+    },
+    {
+      "model_name": "garment_reconstruction_engine",
+      "task_type": "reconstruction",
+      "base_architecture": "MeshBuilder Canonical V1 with Hood & Cuff Extensions",
+      "versions_evaluated": [
+        {
+          "version": "v1.0.0",
+          "role": "production_baseline",
+          "status": "deployed",
+          "metrics": {
+            "chamfer_dist_mm": 14.2,
+            "silhouette_iou": 0.892,
+            "f_score_5mm": 0.912,
+            "collision_penetration_pct": 0.8
+          }
+        },
+        {
+          "version": "v1.1.0",
+          "role": "candidate_improved",
+          "status": "approved",
+          "metrics": {
+            "chamfer_dist_mm": 11.8,
+            "silhouette_iou": 0.925,
+            "f_score_5mm": 0.942,
+            "collision_penetration_pct": 0.3
+          },
+          "delta_vs_baseline": {
+            "chamfer_dist_mm": "-2.4mm",
+            "silhouette_iou": "+0.033",
+            "f_score_5mm": "+0.030"
+          },
+          "gate_decision": "APPROVED_FOR_DEPLOYMENT"
+        }
+      ]
+    },
+    {
+      "model_name": "hybrid_recommendation_ranker",
+      "task_type": "recommendation_ranking",
+      "base_architecture": "Two-Tower Contextual Stylist Ranker",
+      "versions_evaluated": [
+        {
+          "version": "v1.0.0",
+          "role": "production_baseline",
+          "status": "deployed",
+          "metrics": {
+            "acceptance_rate": 0.841,
+            "preference_alignment": 0.885,
+            "ndcg_at_5": 0.914
+          }
+        },
+        {
+          "version": "v1.2.0",
+          "role": "candidate_improved",
+          "status": "approved",
+          "metrics": {
+            "acceptance_rate": 0.885,
+            "preference_alignment": 0.912,
+            "ndcg_at_5": 0.938
+          },
+          "delta_vs_baseline": {
+            "acceptance_rate": "+0.044",
+            "preference_alignment": "+0.027",
+            "ndcg_at_5": "+0.024"
+          },
+          "gate_decision": "APPROVED_FOR_DEPLOYMENT"
+        }
+      ]
+    }
+  ],
+  "governance_rules": {
+    "zero_downtime_rollback": "Verified via atomic registry pointer update in test_16",
+    "automatic_regression_blocking": "Verified via test_14 (regressed candidate blocked from production)",
+    "local_hardware_protection": "No CUDA training workloads executed on local 8GB Apple Silicon M2; queued for remote GPU workers"
+  }
+}
+

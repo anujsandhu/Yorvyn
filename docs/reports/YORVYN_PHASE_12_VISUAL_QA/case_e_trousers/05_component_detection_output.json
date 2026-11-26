@@ -1,0 +1,60 @@
+{
+  "components": [
+    {
+      "component_type": "waistband",
+      "status": "detected",
+      "confidence": 0.94,
+      "bbox": {
+        "xmin": 0.2638580931263858,
+        "ymin": 0.07216494845360824,
+        "xmax": 0.738359201773836,
+        "ymax": 0.1561119293078056
+      }
+    },
+    {
+      "component_type": "left_leg",
+      "status": "detected",
+      "confidence": 0.94,
+      "bbox": {
+        "xmin": 0.2638580931263858,
+        "ymin": 0.35787923416789397,
+        "xmax": 0.5011086474501109,
+        "ymax": 0.9189985272459499
+      }
+    },
+    {
+      "component_type": "right_leg",
+      "status": "detected",
+      "confidence": 0.94,
+      "bbox": {
+        "xmin": 0.5011086474501109,
+        "ymin": 0.35787923416789397,
+        "xmax": 0.738359201773836,
+        "ymax": 0.9189985272459499
+      }
+    },
+    {
+      "component_type": "front_fly",
+      "status": "detected",
+      "confidence": 0.9,
+      "bbox": {
+        "xmin": 0.48337028824833705,
+        "ymin": 0.1561119293078056,
+        "xmax": 0.5188470066518847,
+        "ymax": 0.35787923416789397
+      }
+    },
+    {
+      "component_type": "hem",
+      "status": "detected",
+      "confidence": 0.603,
+      "bbox": {
+        "xmin": 0.4943609833717346,
+        "ymin": 0.43025854229927063,
+        "xmax": 0.5443609952926636,
+        "ymax": 0.48550698161125183
+      }
+    }
+  ],
+  "total_detected": 5
+}

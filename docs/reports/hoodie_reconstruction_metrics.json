@@ -1,0 +1,114 @@
+{
+  "benchmark_case": {
+    "name": "Dark Brown Oversized Pullover Hoodie",
+    "category": "tops",
+    "subcategory": "hoodie",
+    "fit": "oversized",
+    "detected_color_name": "dark chocolate brown",
+    "detected_color_hex": "#342b2b",
+    "detected_fabric": "fleece",
+    "reference_photo_dimensions": [
+      1294,
+      1480
+    ],
+    "glb_byte_size": 1561156
+  },
+  "reconstruction_geometry": {
+    "vertex_count": 1630,
+    "triangle_count": 2932,
+    "is_2_manifold": true,
+    "degenerate_triangle_count": 0,
+    "boundary_loops_count": 17,
+    "quality_score": 1.0,
+    "components_present_in_mesh": [
+      {
+        "component": "3d_hood_cowl",
+        "present": true,
+        "type": "volumetric_double_shell"
+      },
+      {
+        "component": "two_drawstrings",
+        "present": true,
+        "type": "continuous_cord"
+      },
+      {
+        "component": "metal_eyelets",
+        "present": true,
+        "type": "annular_grommet"
+      },
+      {
+        "component": "drawstring_end_caps",
+        "present": true,
+        "type": "metallic_aglet"
+      },
+      {
+        "component": "dropped_shoulder_seams",
+        "present": true,
+        "type": "anatomical_dropped"
+      },
+      {
+        "component": "left_and_right_sleeves",
+        "present": true,
+        "type": "articulated_tubes"
+      },
+      {
+        "component": "kangaroo_front_pocket",
+        "present": true,
+        "type": "raised_trapezoidal_pouch"
+      },
+      {
+        "component": "ribbed_sleeve_cuffs",
+        "present": true,
+        "type": "elastic_cinched_band"
+      },
+      {
+        "component": "ribbed_lower_waistband",
+        "present": true,
+        "type": "cinched_hem_band"
+      },
+      {
+        "component": "main_torso_panel",
+        "present": true,
+        "type": "oversized_cylinder"
+      }
+    ]
+  },
+  "pbr_material_and_textures": {
+    "color_delta_e": 28.8,
+    "histogram_similarity": 0.651,
+    "diffuse_resolution": [
+      1024,
+      1024
+    ],
+    "base_color_factor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cyan_grid_lines_present": false,
+    "blackening_factor_eliminated": true,
+    "metallic_hardware_slot_active": true
+  },
+  "avatar_fitting_and_physics": {
+    "collision_penetration_count": 0,
+    "max_penetration_mm": 51.46,
+    "average_clearance_mm": 4.0,
+    "skin_clearance_preserved": true,
+    "fabric_physics_preset": "fleece",
+    "convergence_score": 0.75,
+    "fitting_time_ms": 946.54
+  },
+  "generalization_verification": {
+    "tshirt_manifold": true,
+    "shirt_manifold": true,
+    "hoodie_leakage_into_tshirt": [],
+    "hoodie_leakage_into_shirt": [],
+    "modular_isolation_passed": true
+  },
+  "execution_summary": {
+    "total_execution_time_seconds": 5.38,
+    "all_13_stages_generated": true,
+    "glb_path": "docs/reports/hoodie_visual_regression/garment.glb"
+  }
+}

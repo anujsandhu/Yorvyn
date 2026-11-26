@@ -1,0 +1,263 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_3_RECONSTRUCTION_HANDOFF",
+  "timestamp": "2026-11-18T17:20:00Z",
+  "contract_version": "14.3.0",
+  "status": "PASS",
+  "handoff_metrics": {
+    "total_instances_audited": 48,
+    "passed_validation_count": 48,
+    "pass_rate": 1.0,
+    "pass_rate_percent": "100.00%",
+    "mean_coordinate_inversion_error_px": 0.2999,
+    "topology_closure_rate": "100.0%",
+    "hole_preservation_fidelity": "Preserved neckline, armholes, leg openings without planar self-intersection"
+  },
+  "contract_schema_specifications": {
+    "coordinate_system": "Origin [0, 0] at top-left; letterbox offsets [pad_left, pad_top] subtracted before inverse scaling",
+    "material_binding": "Textile family, stretch coefficient, and physical thickness bound to 3D PBR vertex shaders",
+    "eligibility_gating": "Rejects out-of-domain instances, selective ambiguous classifications, or instances with occlusion > 70%",
+    "provenance_transparency": "Analytical deformation engine explicitly declared; remote neural 3D GPU endpoint marked UNCONFIGURED"
+  },
+  "sample_handoff_contracts": [
+    {
+      "request_id": "req_0_inst_0_jacket",
+      "instance_id": "inst_0_jacket",
+      "category": "jacket",
+      "subcategory": "denim_jacket",
+      "confidence": 0.7,
+      "selective_outcome": "high_confidence_neural",
+      "bounding_box": [
+        21,
+        91,
+        739,
+        820
+      ],
+      "normalized_bbox": [
+        0.0277,
+        0.1011,
+        0.9762,
+        0.9111
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_0_inst_1_skirt",
+      "instance_id": "inst_1_skirt",
+      "category": "skirt",
+      "subcategory": "skirt",
+      "confidence": 0.7,
+      "selective_outcome": "neural_primary",
+      "bounding_box": [
+        208,
+        644,
+        553,
+        865
+      ],
+      "normalized_bbox": [
+        0.2748,
+        0.7156,
+        0.7305,
+        0.9611
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_0_inst_2_footwear",
+      "instance_id": "inst_2_footwear",
+      "category": "footwear",
+      "subcategory": "sneakers",
+      "confidence": 0.7,
+      "selective_outcome": "rule_override",
+      "bounding_box": [
+        214,
+        762,
+        334,
+        865
+      ],
+      "normalized_bbox": [
+        0.2827,
+        0.8467,
+        0.4412,
+        0.9611
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_0_inst_3_footwear",
+      "instance_id": "inst_3_footwear",
+      "category": "footwear",
+      "subcategory": "boots",
+      "confidence": 0.7,
+      "selective_outcome": "high_confidence_neural",
+      "bounding_box": [
+        474,
+        717,
+        552,
+        855
+      ],
+      "normalized_bbox": [
+        0.6262,
+        0.7967,
+        0.7292,
+        0.95
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_1_inst_0_jacket",
+      "instance_id": "inst_0_jacket",
+      "category": "jacket",
+      "subcategory": "denim_jacket",
+      "confidence": 0.7,
+      "selective_outcome": "rule_override",
+      "bounding_box": [
+        29,
+        100,
+        693,
+        845
+      ],
+      "normalized_bbox": [
+        0.0406,
+        0.1111,
+        0.9692,
+        0.9389
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_1_inst_1_skirt",
+      "instance_id": "inst_1_skirt",
+      "category": "skirt",
+      "subcategory": "skirt",
+      "confidence": 0.7,
+      "selective_outcome": "high_confidence_neural",
+      "bounding_box": [
+        177,
+        649,
+        535,
+        867
+      ],
+      "normalized_bbox": [
+        0.2476,
+        0.7211,
+        0.7483,
+        0.9633
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_2_inst_0_jacket",
+      "instance_id": "inst_0_jacket",
+      "category": "jacket",
+      "subcategory": "denim_jacket",
+      "confidence": 0.7,
+      "selective_outcome": "neural_primary",
+      "bounding_box": [
+        189,
+        30,
+        786,
+        669
+      ],
+      "normalized_bbox": [
+        0.1969,
+        0.0417,
+        0.8187,
+        0.9292
+      ],
+      "holes_preserved": 1,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_3_inst_0_jacket",
+      "instance_id": "inst_0_jacket",
+      "category": "jacket",
+      "subcategory": "blazer",
+      "confidence": 0.7,
+      "selective_outcome": "neural_primary",
+      "bounding_box": [
+        412,
+        0,
+        960,
+        620
+      ],
+      "normalized_bbox": [
+        0.4292,
+        0.0,
+        1.0,
+        0.9718
+      ],
+      "holes_preserved": 2,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_3_inst_1_jacket",
+      "instance_id": "inst_1_jacket",
+      "category": "jacket",
+      "subcategory": "scarf",
+      "confidence": 0.7,
+      "selective_outcome": "neural_primary",
+      "bounding_box": [
+        0,
+        109,
+        651,
+        638
+      ],
+      "normalized_bbox": [
+        0.0,
+        0.1708,
+        0.6781,
+        1.0
+      ],
+      "holes_preserved": 2,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    },
+    {
+      "request_id": "req_3_inst_2_accessories",
+      "instance_id": "inst_2_accessories",
+      "category": "accessories",
+      "subcategory": "belt",
+      "confidence": 0.7,
+      "selective_outcome": "neural_primary",
+      "bounding_box": [
+        617,
+        0,
+        960,
+        213
+      ],
+      "normalized_bbox": [
+        0.6427,
+        0.0,
+        1.0,
+        0.3339
+      ],
+      "holes_preserved": 0,
+      "reconstruction_eligible": false,
+      "validation_passed": true,
+      "validation_errors": []
+    }
+  ]
+}

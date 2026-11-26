@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Capacity & Cost Model Reconciliation",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "actual_cloud_invoices": "$0.00 (Zero paid cloud infrastructure provisioned)",
+    "pricing_basis": "Published Google Cloud Platform L4 spot & on-demand rates (us-central1)",
+    "verdict": "RECONCILED"
+  },
+  "gpu_hours_forensic_explanation": {
+    "total_monthly_gpu_hours": 1728,
+    "breakdown": "1,440 hours (2 spot L4 workers @ 720h/mo) + 288 hours (1 on-demand L4 fallback @ 40% duty cycle)",
+    "pure_compute_hours_for_100k_jobs": 9.44,
+    "idle_standby_hours": 1718.56,
+    "idle_capacity_ratio_pct": 99.45,
+    "architectural_justification": "To guarantee interactive virtual try-on latency (< 500ms P50), worker instances must remain pre-warmed with pinned GPU tensors. Dynamic cold-booting in response to user requests adds 45-60 seconds of container start and PyTorch initialization latency, violating real-time product requirements. The 1,728 GPU-hours reflect always-on standby availability, not continuous compute saturation."
+  },
+  "scenarios": [
+    {
+      "scenario": "10,000 jobs / month (Development / Beta Pilot)",
+      "monthly_volume": 10000,
+      "pure_compute_gpu_hours": 0.94,
+      "provisioned_gpu_hours": 720,
+      "active_compute_utilization_pct": 0.13,
+      "idle_standby_pct": 99.87,
+      "monthly_cost_usd": 248.5,
+      "cost_per_successful_reconstruction_usd": 0.02485
+    },
+    {
+      "scenario": "100,000 jobs / month (Target Base Production)",
+      "monthly_volume": 100000,
+      "pure_compute_gpu_hours": 9.44,
+      "provisioned_gpu_hours": 1728,
+      "active_compute_utilization_pct": 0.55,
+      "idle_standby_pct": 99.45,
+      "monthly_cost_usd": 727.87,
+      "cost_per_successful_reconstruction_usd": 0.00728
+    },
+    {
+      "scenario": "250,000 jobs / month (High-Growth Production)",
+      "monthly_volume": 250000,
+      "pure_compute_gpu_hours": 23.61,
+      "provisioned_gpu_hours": 3600,
+      "active_compute_utilization_pct": 0.66,
+      "idle_standby_pct": 99.34,
+      "monthly_cost_usd": 1482.4,
+      "cost_per_successful_reconstruction_usd": 0.00593
+    },
+    {
+      "scenario": "1,000,000 jobs / month (Enterprise Scale)",
+      "monthly_volume": 1000000,
+      "pure_compute_gpu_hours": 94.44,
+      "provisioned_gpu_hours": 10080,
+      "active_compute_utilization_pct": 0.94,
+      "idle_standby_pct": 99.06,
+      "monthly_cost_usd": 4890.0,
+      "cost_per_successful_reconstruction_usd": 0.00489
+    }
+  ]
+}

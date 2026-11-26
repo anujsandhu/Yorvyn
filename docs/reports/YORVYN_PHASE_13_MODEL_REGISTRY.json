@@ -1,0 +1,137 @@
+{
+  "version": "13.2.0",
+  "title": "Yorvyn Central Model Registry & Hybrid Version Management (Phase 13.2 Remediated)",
+  "updated_at": "2026-11-10T08:35:00Z",
+  "taxonomy_version": "v3.2",
+  "preprocessing_version": "v2.2",
+  "models": {
+    "universal_garment_classifier": {
+      "model_id": "universal-garment-classifier",
+      "name": "Universal Garment Classifier & Multi-Task Taxonomy Engine",
+      "description": "Hierarchical multi-head classification across 10 top categories and 55 subcategories with component presence verification.",
+      "client": {
+        "runtime": "onnx-web",
+        "model_version": "1.0.0",
+        "artifact_url": "/models/edge/garment_classifier_edge.onnx",
+        "sha256_checksum": "fb635271739c29d74ed5e44d8532f584cb100f5435cc14b8a194c76f67495756",
+        "file_size_bytes": 4489401,
+        "input_shape": [1, 3, 224, 224],
+        "input_color_space": "RGB_IMAGENET_NORMALIZED",
+        "min_device_tier": "MID",
+        "estimated_latency_ms": 32.0,
+        "supported_providers": ["webgpu", "wasm", "cpu"],
+        "deployment_status": "production"
+      },
+      "server": {
+        "runtime": "pytorch",
+        "model_version": "3.0.0",
+        "checkpoint_path": "models/checkpoints/specialized_garment_heads_v3.pt",
+        "sha256_checksum": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+        "file_size_bytes": 5012016,
+        "input_shape": [1, 3, 224, 224],
+        "device_target": "mps / cuda / cpu",
+        "estimated_latency_ms": 9.5,
+        "deployment_status": "production"
+      },
+      "compatibility": {
+        "taxonomy_version": "v3.2",
+        "output_classes": 10,
+        "subcategories": 55,
+        "minimum_confidence_threshold": 0.85
+      },
+      "license": "Proprietary (Yorvyn AI)"
+    },
+    "human_pose_and_landmarks": {
+      "model_id": "human-pose-and-landmarks",
+      "name": "Human Pose & Keypoint Alignment Estimator",
+      "description": "12 anatomical garment landmark keypoints and 33 full-body anatomical landmark tracking.",
+      "client": {
+        "runtime": "mediapipe-tasks-vision",
+        "model_version": "0.10.22",
+        "artifact_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task",
+        "sha256_checksum": "5b248a3562a12cfba5e7d5eb45167e6b7c20ad412bdf7cb9d98ad44a0e1cb10f",
+        "file_size_bytes": 2840000,
+        "min_device_tier": "LOW",
+        "estimated_latency_ms": 14.0,
+        "supported_providers": ["wasm", "webgl", "webgpu"],
+        "deployment_status": "remote_cdn_dependency"
+      },
+      "server": {
+        "runtime": "pytorch",
+        "model_version": "cv-5.0.0",
+        "checkpoint_path": "models/checkpoints/garment_landmarks_v2.pt",
+        "sha256_checksum": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+        "file_size_bytes": 48671,
+        "device_target": "cpu / mps",
+        "estimated_latency_ms": 4.2,
+        "deployment_status": "production"
+      },
+      "compatibility": {
+        "coordinate_system": "NORMALIZED_0_1_UPPER_LEFT",
+        "landmark_count": 12
+      },
+      "license": "Apache 2.0 (MediaPipe) / Yorvyn Proprietary"
+    },
+    "garment_silhouette_segmenter": {
+      "model_id": "garment-silhouette-segmenter",
+      "name": "High-Fidelity Garment Boundary & Foreground Segmenter",
+      "description": "Accurate clothing extraction separating garment from human skin, hair, and complex background scenes.",
+      "client": {
+        "runtime": "worker-canvas-cv",
+        "model_version": "2.1.0",
+        "artifact_url": "inlined_web_worker",
+        "sha256_checksum": "native_pipeline",
+        "file_size_bytes": 0,
+        "min_device_tier": "LOW",
+        "estimated_latency_ms": 22.0,
+        "supported_providers": ["web-worker", "canvas2d"],
+        "deployment_status": "client_fallback"
+      },
+      "server": {
+        "runtime": "onnxruntime",
+        "model_version": "birefnet-onnx-v1.4",
+        "checkpoint_path": "models/checkpoints/birefnet_general.onnx",
+        "sha256_checksum": "834c26a76b9dfa510c81be0a12e8c25db73b184ef462f6b865cb46b9a8f4c12d",
+        "file_size_bytes": 142000000,
+        "device_target": "mps / cuda / cpu",
+        "estimated_latency_ms": 68.2,
+        "deployment_status": "checkpoint_unavailable"
+      },
+      "compatibility": {
+        "mask_format": "ALPHA_CHANNEL_PNG",
+        "resolution_target": 1024
+      },
+      "license": "MIT (Permissive)"
+    },
+    "feature_embedder": {
+      "model_id": "feature-embedder",
+      "name": "Fashion Semantic Feature & Texture Embedder",
+      "description": "64-dimensional dense semantic embedding representing garment color harmony, cut, and pattern style.",
+      "client": {
+        "runtime": "worker-palette-quantizer",
+        "model_version": "1.2.0",
+        "artifact_url": "inlined_web_worker",
+        "sha256_checksum": "native_pipeline",
+        "file_size_bytes": 0,
+        "min_device_tier": "LOW",
+        "estimated_latency_ms": 8.0,
+        "supported_providers": ["web-worker"],
+        "deployment_status": "client_fallback"
+      },
+      "server": {
+        "runtime": "pytorch",
+        "model_version": "torchvision-0.23-mobilenetv3-small",
+        "checkpoint_path": "models/checkpoints/mobilenet_v3_fashion_features.pt",
+        "sha256_checksum": "2195dfb4a8e0cb2184cf58a47291a82e1c905e3b6f284c1b98b7189c42c2f781",
+        "file_size_bytes": 9830000,
+        "device_target": "mps / cuda",
+        "estimated_latency_ms": 8.5,
+        "deployment_status": "checkpoint_unavailable"
+      },
+      "compatibility": {
+        "embedding_dimensions": 64
+      },
+      "license": "BSD-3-Clause"
+    }
+  }
+}

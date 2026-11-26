@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.2",
+    "timestamp": "2026-11-21T10:05:15Z",
+    "audit_standard": "Principal ML Infrastructure Engineer & Cloud Systems Architect"
+  },
+  "orchestration_components": {
+    "job_queue": {
+      "engine": "Redis 7.2 Cluster with AOF (Append-Only File) Persistence",
+      "queue_name": "yorvyn:garment:reconstruction:priority",
+      "dead_letter_queue": "yorvyn:garment:reconstruction:dlq",
+      "retention_ttl_seconds": 86400
+    },
+    "job_state_machine": {
+      "states": [
+        "submitted",
+        "queued",
+        "claimed",
+        "processing",
+        "completed",
+        "failed",
+        "cancelled",
+        "dead_lettered"
+      ],
+      "transitions": {
+        "submitted -> queued": "Enqueued with priority score based on subscription tier",
+        "queued -> claimed": "Worker claims with 30s visibility timeout and heartbeat lock",
+        "claimed -> processing": "Inference worker begins SegFormer segmentation & mesh deformation",
+        "processing -> completed": "GLB persisted to S3/GCS bucket; presigned asset URL generated",
+        "processing -> failed": "Unrecoverable exception caught; retry counter incremented",
+        "failed -> queued": "Retry attempt if retry_count < 3 with exponential backoff (2s, 8s, 32s)",
+        "failed -> dead_lettered": "Exhausted 3 retries; moved to DLQ for engineer forensic analysis",
+        "* -> cancelled": "User or timeout aborts processing cooperatively"
+      }
+    },
+    "idempotency_and_deduplication": {
+      "key_derivation": "SHA256(user_id + image_content_sha256 + category + subcategory)",
+      "window_seconds": 3600,
+      "behavior": "Re-submitting duplicate payload returns existing completed job asset URL without re-computing inference"
+    },
+    "worker_heartbeat_and_reclamation": {
+      "heartbeat_interval_seconds": 5.0,
+      "lock_timeout_seconds": 25.0,
+      "stale_worker_recovery": "Orchestrator sweeps un-heartbeaten jobs and re-queues them automatically"
+    },
+    "concurrency_and_rate_limiting": {
+      "free_tier": {
+        "max_active_jobs": 1,
+        "rate_limit_per_minute": 5
+      },
+      "pro_tier": {
+        "max_active_jobs": 3,
+        "rate_limit_per_minute": 30
+      },
+      "enterprise_tier": {
+        "max_active_jobs": 10,
+        "rate_limit_per_minute": 120
+      }
+    }
+  },
+  "durability_guarantees": "Zero job loss on worker crash; persistent transaction log; state restored automatically upon pod resurrection"
+}

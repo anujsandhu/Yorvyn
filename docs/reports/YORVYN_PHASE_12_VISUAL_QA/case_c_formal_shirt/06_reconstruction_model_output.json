@@ -1,0 +1,32 @@
+{
+  "engine_id": "shirt_pattern_engine_v1",
+  "provenance": "pattern_constructed",
+  "vertex_count": 1178,
+  "triangle_count": 2146,
+  "panels_count": 6,
+  "panels": [
+    "front_torso_panel",
+    "back_torso_panel",
+    "collar_stand_and_points",
+    "front_placket_band",
+    "left_sleeve_and_cuff",
+    "right_sleeve_and_cuff"
+  ],
+  "quality_report": {
+    "is_valid": true,
+    "is_manifold": true,
+    "quality_score": 1.0,
+    "degenerate_triangle_count": 0,
+    "boundary_loops": 8,
+    "issues": []
+  },
+  "proportions": {
+    "shoulder_width_m": 0.5246,
+    "chest_width_m": 0.41,
+    "waist_width_m": 0.37,
+    "torso_length_m": 0.6181,
+    "sleeve_length_m": 0.2522,
+    "ease_margin_m": 0.025
+  },
+  "reconstruction_duration_ms": 14.14
+}

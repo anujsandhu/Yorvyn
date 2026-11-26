@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "status": "PASS",
+    "test_environment": "Apple Silicon M2 (local_mps_development)",
+    "exact_test_command": "scripts/benchmark_phase_14_13_workstream_i6.py::run_suite_5_disk_queue_recovery",
+    "expected_result": "500 jobs claimed across 8 OS processes with zero duplicate claims and crash recovery",
+    "actual_result": "500/500 jobs completed; 1 crashed leases recovered",
+    "evidence": "8 OS processes executed concurrently; simulated SIGKILL termination of worker_os_0",
+    "limitations": "Tested on local APFS storage; NFS / distributed shared disks require separate distributed lock testing",
+    "timestamp": "2026-11-22T09:38:46Z",
+    "execution_nature": "MEASURED"
+  },
+  "tests": [
+    {
+      "test_id": "DQC-14-13-01",
+      "name": "8 Independent OS Processes Claiming 500 Jobs",
+      "expected": "500 jobs processed without deadlock or data loss",
+      "actual": "completed=500/500, remaining_incoming=0",
+      "status": "PASS"
+    },
+    {
+      "test_id": "DQC-14-13-02",
+      "name": "Process Crash Recovery (Worker 0 Terminated During Lease)",
+      "expected": "reclaimed_jobs >= 1, all jobs eventually acknowledged",
+      "actual": "reclaimed=1, final_completed=500",
+      "status": "PASS"
+    },
+    {
+      "test_id": "DQC-14-13-03",
+      "name": "Zero Duplicate Active Claims Across Processes",
+      "expected": "completed_count == len(unique_completed)",
+      "actual": "completed=500, unique=500",
+      "status": "PASS"
+    }
+  ]
+}

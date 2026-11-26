@@ -1,0 +1,45 @@
+{
+  "evaluation_version": "14.3.0-classification",
+  "timestamp": "2026-11-18T17:15:00Z",
+  "holdout_population": 650,
+  "domain_accuracy": {
+    "instance_letterbox_accuracy": 0.8062,
+    "instance_letterbox_accuracy_percent": "80.62%",
+    "full_frame_accuracy": 0.7215,
+    "full_frame_accuracy_percent": "72.15%"
+  },
+  "exact_subcategory_accuracy": {
+    "instance_letterbox_accuracy": 0.4569,
+    "instance_letterbox_accuracy_percent": "45.69%",
+    "full_frame_accuracy": 0.2492,
+    "full_frame_accuracy_percent": "24.92%"
+  },
+  "macro_f1_score": 0.6836,
+  "photography_domain_breakdown": {
+    "on_body": {
+      "total_evaluated": 422,
+      "accuracy": 0.846,
+      "accuracy_percent": "84.60%"
+    },
+    "lifestyle": {
+      "total_evaluated": 209,
+      "accuracy": 0.7751,
+      "accuracy_percent": "77.51%"
+    },
+    "product": {
+      "total_evaluated": 9,
+      "accuracy": 0.4444,
+      "accuracy_percent": "44.44%"
+    },
+    "flat_lay": {
+      "total_evaluated": 8,
+      "accuracy": 0.125,
+      "accuracy_percent": "12.50%"
+    },
+    "mannequin": {
+      "total_evaluated": 2,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.00%"
+    }
+  }
+}

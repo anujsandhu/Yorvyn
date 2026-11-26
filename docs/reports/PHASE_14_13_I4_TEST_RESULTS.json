@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Master Integration & Concurrency Benchmark",
+    "timestamp": "2026-11-21T18:50:54Z",
+    "hardware": "Apple Silicon M2 (MPS accelerator / 16GB Unified Memory)",
+    "execution_lock": "PyTorch single-worker engine_lock (verified active)",
+    "verdict": "PASS"
+  },
+  "concurrency_tiers": [
+    {
+      "concurrency": 1,
+      "requests": 10,
+      "successes": 10,
+      "p50_latency_ms": 55.03,
+      "p95_latency_ms": 55.07,
+      "throughput_req_per_s": 18.44,
+      "lock_contention_observed": false
+    },
+    {
+      "concurrency": 2,
+      "requests": 10,
+      "successes": 10,
+      "p50_latency_ms": 107.87,
+      "p95_latency_ms": 110.26,
+      "throughput_req_per_s": 18.49,
+      "lock_contention_observed": true
+    },
+    {
+      "concurrency": 4,
+      "requests": 10,
+      "successes": 10,
+      "p50_latency_ms": 211.02,
+      "p95_latency_ms": 216.78,
+      "throughput_req_per_s": 18.75,
+      "lock_contention_observed": true
+    },
+    {
+      "concurrency": 8,
+      "requests": 10,
+      "successes": 10,
+      "p50_latency_ms": 299.33,
+      "p95_latency_ms": 461.1,
+      "throughput_req_per_s": 18.49,
+      "lock_contention_observed": true
+    }
+  ]
+}

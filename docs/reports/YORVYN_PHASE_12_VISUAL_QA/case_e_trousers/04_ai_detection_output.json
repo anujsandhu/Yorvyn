@@ -1,0 +1,26 @@
+{
+  "job_id": "job_p12_case_e_trousers_5bc12938",
+  "case_id": "case_e_trousers",
+  "case_name": "Tailored Trousers / Straight Denim Jeans",
+  "image_type": "isolated_product",
+  "category": "bottoms",
+  "subcategory": "jeans",
+  "confidence": 0.87,
+  "primary_color_name": "grey",
+  "primary_color_hex": "#6b88a1",
+  "secondary_color_name": "grey",
+  "secondary_color_hex": "#577897",
+  "palette": [
+    "#6b88a1",
+    "#577897",
+    "#6888a7",
+    "#486887",
+    "#99b3c8"
+  ],
+  "pattern": "solid",
+  "material_hint": "selvedge_denim",
+  "silhouette": "regular",
+  "sleeve_length": "short",
+  "neckline_type": "crewneck",
+  "detection_duration_ms": 272.14
+}

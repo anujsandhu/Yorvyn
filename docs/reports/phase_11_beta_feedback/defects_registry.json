@@ -1,0 +1,76 @@
+{
+  "schema_version": "v2026.11-defect-registry",
+  "generated_at": "2026-11-05T20:44:00Z",
+  "total_defects_logged": 3,
+  "defects_by_severity": {
+    "P0_blockers": 0,
+    "P1_high": 1,
+    "P2_normal": 2
+  },
+  "defects": [
+    {
+      "defect_id": "DEFECT-P11-01",
+      "severity": "P1",
+      "title": "Low-resolution 480p mobile photographs cause slight seam boundary softening in armpit junction",
+      "job_id": "job_p11_480p_sample",
+      "correlation_id": "corr_beta_test_04",
+      "software_version": "v2026.11-beta",
+      "reconstruction_provenance": "hybrid_neural_procedural",
+      "failure_category": "input_resolution_degradation",
+      "reproduction_steps": [
+        "1. Capture garment photo at 640x480 resolution on mobile camera with overhead lighting.",
+        "2. Upload photograph to PhotoTo3DGarmentModal with category 'top'.",
+        "3. Inspect reconstructed 3D GLB wireframe in AvatarStudioViewer under inspection lighting.",
+        "4. Observe vertex normal variance and edge softening around axillary sleeve seam junction."
+      ],
+      "root_cause_analysis": "Confidence engine correctly flags image quality warning (0.74 score). Bilinear texture unwarping at 480p loses micro-seam gradients, resulting in slightly smoothed boundary normals.",
+      "mitigation_and_fix": "Integrated 2x ESRGAN neural super-resolution pre-filter on input uploads with resolution < 720px prior to landmark extraction.",
+      "status": "TRIAGED",
+      "owner": "AI Vision Lead",
+      "include_raw_image_consented": false
+    },
+    {
+      "defect_id": "DEFECT-P11-02",
+      "severity": "P2",
+      "title": "Folded flat-lay linen pants initial drape requires 2 simulation steps to resolve planar tension",
+      "job_id": "job_p11_linen_02",
+      "correlation_id": "corr_beta_test_08",
+      "software_version": "v2026.11-beta",
+      "reconstruction_provenance": "hybrid_neural_procedural",
+      "failure_category": "cloth_physics_relaxation_latency",
+      "reproduction_steps": [
+        "1. Upload flat-lay photograph of wide-leg linen trousers.",
+        "2. Complete reconstruction and load garment onto Ara humanoid avatar.",
+        "3. Observe initial frame render before PBD solver settles constraint positions.",
+        "4. Note planar tension along inner thigh before cloth physics relaxes."
+      ],
+      "root_cause_analysis": "Initial 3D mesh inflation expands symmetrically before avatar collision volumes engage, taking 2 simulation frames (32ms) to drape smoothly.",
+      "mitigation_and_fix": "Pre-warmed PBD simulation with 3 headless constraint sub-steps prior to first Three.js canvas paint.",
+      "status": "RESOLVED",
+      "owner": "3D Graphics Lead",
+      "include_raw_image_consented": false
+    },
+    {
+      "defect_id": "DEFECT-P11-03",
+      "severity": "P2",
+      "title": "Mobile Safari landscape mode safe area notch causes minor toggle overlap",
+      "job_id": null,
+      "correlation_id": "corr_beta_test_11",
+      "software_version": "v2026.11-beta",
+      "reconstruction_provenance": null,
+      "failure_category": "responsive_layout_safe_area",
+      "reproduction_steps": [
+        "1. Launch Yorvyn Studio on iPhone 15 / 16 in Mobile Safari.",
+        "2. Rotate device to landscape orientation.",
+        "3. Open the digital wardrobe drawer toggle on right boundary.",
+        "4. Observe 8px overlap with hardware dynamic island / sensor notch."
+      ],
+      "root_cause_analysis": "Sidebar drawer CSS omitted padding-right: env(safe-area-inset-right) in landscape media query.",
+      "mitigation_and_fix": "Added env(safe-area-inset-right) and env(safe-area-inset-left) CSS rules to AppSideNav and AvatarStudio viewer layouts.",
+      "status": "RESOLVED",
+      "owner": "Senior Full-Stack Engineer",
+      "include_raw_image_consented": false
+    }
+  ]
+}
+

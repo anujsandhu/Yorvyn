@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "workstream": "A",
+    "timestamp": "2026-11-21T07:15:54Z",
+    "audit_standard": "Principal Computational Cloth Simulation Engineer",
+    "grading_standard": "ISO 8559-1 Apparel Sizing & ISO 18890 Garment Construction"
+  },
+  "archetype_mapping": {
+    "slim_lean": "S",
+    "standard_175": "M",
+    "athletic_broad": "L",
+    "plus_curvy": "XXL"
+  },
+  "size_scaling_factors": {
+    "S": {
+      "width": 0.92,
+      "chest": 0.94,
+      "waist": 0.9,
+      "depth": 0.92,
+      "length": 0.98
+    },
+    "M": {
+      "width": 1.0,
+      "chest": 1.0,
+      "waist": 1.0,
+      "depth": 1.0,
+      "length": 1.0
+    },
+    "L": {
+      "width": 1.16,
+      "chest": 1.18,
+      "waist": 1.12,
+      "depth": 1.12,
+      "length": 1.02
+    },
+    "XL": {
+      "width": 1.22,
+      "chest": 1.24,
+      "waist": 1.18,
+      "depth": 1.18,
+      "length": 1.04
+    },
+    "XXL": {
+      "width": 1.28,
+      "chest": 1.3,
+      "waist": 1.24,
+      "depth": 1.25,
+      "length": 1.06
+    }
+  },
+  "garment_measurement_table": {
+    "S": {
+      "chest_circ_cm": 92.0,
+      "waist_circ_cm": 76.0,
+      "hips_circ_cm": 94.0,
+      "shoulder_width_cm": 42.0,
+      "sleeve_length_cm": 60.0,
+      "garment_length_cm": 68.0,
+      "inseam_cm": 78.0,
+      "ease_allowance_mm": 18.0
+    },
+    "M": {
+      "chest_circ_cm": 100.0,
+      "waist_circ_cm": 84.0,
+      "hips_circ_cm": 102.0,
+      "shoulder_width_cm": 45.0,
+      "sleeve_length_cm": 62.0,
+      "garment_length_cm": 70.0,
+      "inseam_cm": 80.0,
+      "ease_allowance_mm": 20.0
+    },
+    "L": {
+      "chest_circ_cm": 110.0,
+      "waist_circ_cm": 94.0,
+      "hips_circ_cm": 112.0,
+      "shoulder_width_cm": 48.0,
+      "sleeve_length_cm": 64.0,
+      "garment_length_cm": 72.0,
+      "inseam_cm": 82.0,
+      "ease_allowance_mm": 22.0
+    },
+    "XL": {
+      "chest_circ_cm": 120.0,
+      "waist_circ_cm": 104.0,
+      "hips_circ_cm": 122.0,
+      "shoulder_width_cm": 51.0,
+      "sleeve_length_cm": 65.0,
+      "garment_length_cm": 74.0,
+      "inseam_cm": 83.0,
+      "ease_allowance_mm": 25.0
+    },
+    "XXL": {
+      "chest_circ_cm": 132.0,
+      "waist_circ_cm": 116.0,
+      "hips_circ_cm": 134.0,
+      "shoulder_width_cm": 54.0,
+      "sleeve_length_cm": 66.0,
+      "garment_length_cm": 76.0,
+      "inseam_cm": 84.0,
+      "ease_allowance_mm": 28.0
+    }
+  },
+  "grading_rules": {
+    "slim_lean": "Mapped to Size S (0.92 width, 0.94 chest, 0.90 waist) with 18mm ease allowance",
+    "standard_175": "Mapped to Size M (1.00 canonical standard) with 20mm ease allowance",
+    "athletic_broad": "Mapped to Size L (1.18 width, 1.20 chest, 1.12 waist) with 22mm ease allowance",
+    "plus_curvy": "Mapped to Size XXL (1.40 width, 1.42 chest, 1.36 waist, 1.42 depth) with 28mm ease allowance"
+  }
+}

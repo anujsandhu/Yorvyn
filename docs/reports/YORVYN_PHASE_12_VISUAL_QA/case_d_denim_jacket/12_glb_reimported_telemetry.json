@@ -1,0 +1,36 @@
+{
+  "file_size_bytes": 208496,
+  "format": "glTF 2.0 Binary (GLB)",
+  "magic": "glTF",
+  "version": 2,
+  "declared_length": 208496,
+  "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+  "mesh_name": "garment_case_d_denim_jacket",
+  "primitive_mode": 4,
+  "attributes": [
+    "POSITION",
+    "NORMAL",
+    "TEXCOORD_0",
+    "JOINTS_0",
+    "WEIGHTS_0"
+  ],
+  "has_skinning": true,
+  "skin_bones_count": 20,
+  "material": {
+    "name": "garment_case_d_denim_jacket_mat",
+    "baseColorFactor": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "metallicFactor": 0.03,
+    "roughnessFactor": 0.92,
+    "doubleSided": true,
+    "has_diffuse_texture": true,
+    "has_normal_texture": true,
+    "has_occlusion_texture": true
+  },
+  "embedded_images_count": 4,
+  "textures_count": 4
+}

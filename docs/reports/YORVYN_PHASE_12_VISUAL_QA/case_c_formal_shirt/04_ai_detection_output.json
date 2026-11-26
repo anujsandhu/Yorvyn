@@ -1,0 +1,25 @@
+{
+  "job_id": "job_p12_case_c_formal_shirt_14c4beeb",
+  "case_id": "case_c_formal_shirt",
+  "case_name": "Formal Button-Down Oxford Shirt",
+  "image_type": "lifestyle_fashion",
+  "category": "tops",
+  "subcategory": "formal_shirt",
+  "confidence": 0.953,
+  "primary_color_name": "powder blue",
+  "primary_color_hex": "#c7e6f4",
+  "secondary_color_name": "powder blue",
+  "secondary_color_hex": "#aacdeb",
+  "palette": [
+    "#c7e6f4",
+    "#aacdeb",
+    "#dcffff",
+    "#f8f8fa"
+  ],
+  "pattern": "solid",
+  "material_hint": "cotton",
+  "silhouette": "oversized",
+  "sleeve_length": "3_4",
+  "neckline_type": "v_neck",
+  "detection_duration_ms": 245.71
+}

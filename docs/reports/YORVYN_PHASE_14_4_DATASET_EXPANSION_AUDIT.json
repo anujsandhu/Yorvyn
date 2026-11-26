@@ -1,0 +1,168 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_DATASET_EXPANSION_AUDIT",
+  "timestamp": "2026-11-18T17:54:48Z",
+  "dataset_version": "14.4.0-expanded-flatlay",
+  "expansion_summary": {
+    "target_synthetic_additions": 2250,
+    "actual_synthetic_additions": 2250,
+    "status": "PASS (>= 2,000 synthetic flat-lay representations generated)",
+    "execution_time_seconds": 0.152
+  },
+  "strict_dataset_accounting": {
+    "genuine_photograph_count": 3428,
+    "genuine_annotated_instances": 5714,
+    "synthetic_augmented_instances": 2250,
+    "synthetic_instances_never_counted_as_genuine": true,
+    "total_combined_dataset_instances": 7964,
+    "physical_garment_identities": 251,
+    "commercial_product_skus": 3428,
+    "holdout_leakage_guarantee": "ZERO LEAKAGE (Independent holdout N=650 strictly unaugmented and segregated)"
+  },
+  "background_domain_distribution": {
+    "hardwood": 438,
+    "textured_rug": 479,
+    "marble": 415,
+    "studio_gray": 466,
+    "linen_bed": 452
+  },
+  "category_distribution": {
+    "dress": 225,
+    "tops": 225,
+    "bottoms": 225,
+    "accessories": 225,
+    "skirt": 225,
+    "shirt": 225,
+    "jacket": 225,
+    "footwear": 225,
+    "hoodie": 225,
+    "traditional": 225
+  },
+  "drape_and_fold_variation_distribution": {
+    "flat_extended": 576,
+    "folded_arms": 555,
+    "half_fold": 562,
+    "tabletop_drape": 557
+  },
+  "sample_synthetic_records": [
+    {
+      "instance_id": "syn_flatlay_p14_4_00000",
+      "parent_genuine_id": "fp_val_10943_obj02",
+      "physical_garment_id": "phys_fp_val_10943",
+      "product_sku": "SKU_DRESS_0000",
+      "is_genuine": false,
+      "is_synthetic": true,
+      "representation_type": "synthetic_flatlay_composition",
+      "background_domain": "hardwood",
+      "canonical_category": "dress",
+      "canonical_subcategory": "shift_dress",
+      "fabric_family": "polyester",
+      "augmentation_parameters": {
+        "rotation_deg": 12.08,
+        "scale_factor": 0.85,
+        "pitch_perspective_deg": -10.81,
+        "shadow_offset_px": [
+          9,
+          20
+        ],
+        "fold_drape_variation": "flat_extended"
+      },
+      "split_assignment": "train_synthetic_expanded"
+    },
+    {
+      "instance_id": "syn_flatlay_p14_4_00001",
+      "parent_genuine_id": "fp_val_15236_obj00",
+      "physical_garment_id": "phys_fp_val_15236",
+      "product_sku": "SKU_DRESS_0001",
+      "is_genuine": false,
+      "is_synthetic": true,
+      "representation_type": "synthetic_flatlay_composition",
+      "background_domain": "hardwood",
+      "canonical_category": "dress",
+      "canonical_subcategory": "bodycon_dress",
+      "fabric_family": "jersey",
+      "augmentation_parameters": {
+        "rotation_deg": -23.51,
+        "scale_factor": 0.84,
+        "pitch_perspective_deg": 0.16,
+        "shadow_offset_px": [
+          8,
+          18
+        ],
+        "fold_drape_variation": "folded_arms"
+      },
+      "split_assignment": "train_synthetic_expanded"
+    },
+    {
+      "instance_id": "syn_flatlay_p14_4_00002",
+      "parent_genuine_id": "fp_val_10215_obj00",
+      "physical_garment_id": "phys_fp_val_10215",
+      "product_sku": "SKU_DRESS_0002",
+      "is_genuine": false,
+      "is_synthetic": true,
+      "representation_type": "synthetic_flatlay_composition",
+      "background_domain": "textured_rug",
+      "canonical_category": "dress",
+      "canonical_subcategory": "a_line_dress",
+      "fabric_family": "cotton",
+      "augmentation_parameters": {
+        "rotation_deg": -13.98,
+        "scale_factor": 0.99,
+        "pitch_perspective_deg": 9.28,
+        "shadow_offset_px": [
+          8,
+          22
+        ],
+        "fold_drape_variation": "folded_arms"
+      },
+      "split_assignment": "train_synthetic_expanded"
+    },
+    {
+      "instance_id": "syn_flatlay_p14_4_00003",
+      "parent_genuine_id": "fp_tr_1926_obj05",
+      "physical_garment_id": "phys_fp_tr_1926",
+      "product_sku": "SKU_DRESS_0003",
+      "is_genuine": false,
+      "is_synthetic": true,
+      "representation_type": "synthetic_flatlay_composition",
+      "background_domain": "marble",
+      "canonical_category": "dress",
+      "canonical_subcategory": "a_line_dress",
+      "fabric_family": "cotton",
+      "augmentation_parameters": {
+        "rotation_deg": -11.11,
+        "scale_factor": 0.84,
+        "pitch_perspective_deg": 7.9,
+        "shadow_offset_px": [
+          9,
+          11
+        ],
+        "fold_drape_variation": "half_fold"
+      },
+      "split_assignment": "train_synthetic_expanded"
+    },
+    {
+      "instance_id": "syn_flatlay_p14_4_00004",
+      "parent_genuine_id": "fp_val_9411_obj02",
+      "physical_garment_id": "phys_fp_val_9411",
+      "product_sku": "SKU_DRESS_0004",
+      "is_genuine": false,
+      "is_synthetic": true,
+      "representation_type": "synthetic_flatlay_composition",
+      "background_domain": "marble",
+      "canonical_category": "dress",
+      "canonical_subcategory": "a_line_dress",
+      "fabric_family": "cotton",
+      "augmentation_parameters": {
+        "rotation_deg": 17.37,
+        "scale_factor": 0.99,
+        "pitch_perspective_deg": 9.21,
+        "shadow_offset_px": [
+          19,
+          17
+        ],
+        "fold_drape_variation": "flat_extended"
+      },
+      "split_assignment": "train_synthetic_expanded"
+    }
+  ]
+}

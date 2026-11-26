@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "I",
+    "timestamp": "2026-11-19T17:33:35Z",
+    "audit_standard": "Principal ML Infrastructure & Systems Engineer",
+    "verdict": "OPERATIONAL_STAGING_LOCAL_CUDA_BLOCKED"
+  },
+  "live_staging_worker_audit": {
+    "endpoint": "http://127.0.0.1:8088/health",
+    "response": {
+      "status": "healthy",
+      "service": "yorvyn-neural-3d-worker",
+      "version": "14.8.0",
+      "environment": "local_mps_development",
+      "cloud_cuda_status": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon; running on local MPS development worker)",
+      "engine_type": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+      "model": "yorvyn/contour-carved-parametric-reconstruction-v14.8",
+      "device": "mps",
+      "gpu_name": "Apple M2 (MPS / Unified Memory 16GB)",
+      "vram_mb": 16384,
+      "queue_depth": 0,
+      "active_jobs": 0,
+      "completed_jobs": 0,
+      "uptime_s": 3958.11,
+      "timestamp": 1795109615
+    },
+    "verification_status": "VERIFIED_OPERATIONAL",
+    "hardware_platform": "Apple M2 (MPS / Unified Memory 16GB)",
+    "device": "mps",
+    "active_model": "yorvyn/contour-carved-parametric-reconstruction-v14.8",
+    "environment_classification": "local_mps_development",
+    "cloud_cuda_status": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon; running on local MPS development worker)"
+  },
+  "cloud_cuda_production_target": {
+    "target_cloud_provider": "AWS / GCP / RunPod",
+    "recommended_gpu": "NVIDIA A10G (24GB GDDR6) or NVIDIA A100 (40GB HBM2e)",
+    "minimum_vram_requirement_mb": 16384,
+    "cuda_toolkit_version": "12.2",
+    "cudnn_version": "8.9.7",
+    "nvidia_driver_minimum": "535.104.05",
+    "base_docker_image": "pytorch/pytorch:2.2.0-cuda12.2-cudnn8-runtime",
+    "container_registry": "ghcr.io/yorvyn/neural-3d-worker:14.9.0",
+    "autoscaling_policy": {
+      "min_replicas": 2,
+      "max_replicas": 10,
+      "target_gpu_utilization_pct": 75,
+      "scale_up_cooldown_seconds": 60,
+      "scale_down_cooldown_seconds": 300,
+      "queue_depth_trigger": 5
+    },
+    "health_probes": {
+      "liveness_probe": {
+        "path": "/health",
+        "port": 8088,
+        "initial_delay_seconds": 15,
+        "period_seconds": 10,
+        "timeout_seconds": 3,
+        "failure_threshold": 3
+      },
+      "readiness_probe": {
+        "path": "/health",
+        "port": 8088,
+        "initial_delay_seconds": 20,
+        "period_seconds": 5,
+        "timeout_seconds": 2,
+        "failure_threshold": 2
+      }
+    }
+  }
+}

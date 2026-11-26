@@ -1,0 +1,68 @@
+{
+  "discrepancies": [
+    {
+      "id": "DISC-14-13-I5-01",
+      "workstream": "Workstream A (Tenant Isolation)",
+      "finding": "assert_ownership() granted bypass if user_id was empty, 'anonymous', or 'default_user'.",
+      "remediation": "Removed all bypass branches. Enforced mandatory authenticated user_id and tenant_id with fail-closed security audit events.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-02",
+      "workstream": "Workstream B (Lease Fencing)",
+      "finding": "Workers lacked monotonically increasing fencing tokens, allowing stale workers to commit assets after lease expiry.",
+      "remediation": "Introduced lease_generation fencing tokens validated on every heartbeat, state transition, and artifact publication.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-03",
+      "workstream": "Workstream C (Queue Atomicity)",
+      "finding": "Multi-process claim races were not verified under true OS process concurrency.",
+      "remediation": "Executed independent multi-process claim benchmark across 4 separate OS processes; proven collision-safe via POSIX rename.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-04",
+      "workstream": "Workstream D (Redis Streams Review)",
+      "finding": "Immediate XDEL after XACK violated PEL audit retention and stream durability.",
+      "remediation": "Prohibited immediate XDEL; defined sliding-window MAXLEN ~ 50000 retention and safe PEL dead-letter handling.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-05",
+      "workstream": "Workstream E (Idempotency Scoping)",
+      "finding": "Idempotency keys were not tenant-scoped and did not include garment category, subcategory, or reconstruction parameters.",
+      "remediation": "Implemented compute_canonical_fingerprint() and IdempotencyRegistry raising 409 Conflict on payload mismatch.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-06",
+      "workstream": "Workstream F (Artifact Publication)",
+      "finding": "Labeled as 2PC without true distributed two-phase commit semantics.",
+      "remediation": "Renamed to Atomic Artifact Publication Protocol with 12-step validation, glTF JSON chunk parse, and startup reconciliation.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-07",
+      "workstream": "Workstream G (State Machine Consistency)",
+      "finding": "Retrying failed jobs erased historical attempt error logs.",
+      "remediation": "Introduced append-only 'attempts' list preserving error codes, timestamps, and worker IDs across retries.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-08",
+      "workstream": "Workstream H (Device Concurrency)",
+      "finding": "Hardcoded 4-worker concurrency assumption on NVIDIA L4 without memory measurement.",
+      "remediation": "Implemented calculate_cuda_concurrency_limit() deriving safe worker count from measured model resident and peak activation VRAM.",
+      "status": "REMEDIATED"
+    },
+    {
+      "id": "DISC-14-13-I5-09",
+      "workstream": "Workstream I (Capacity & Cost Reconciliation)",
+      "finding": "Base production total cost ($727.87) was mathematically smaller than GPU subtotal ($745.92).",
+      "remediation": "Recalculated line items: $745.92 GPU compute + $56.28 auxiliary infrastructure = $802.20/mo total.",
+      "status": "REMEDIATED"
+    }
+  ],
+  "total_remediated": 9
+}

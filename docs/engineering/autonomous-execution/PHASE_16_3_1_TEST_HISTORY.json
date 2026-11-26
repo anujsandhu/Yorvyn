@@ -1,0 +1,42 @@
+{
+  "phase": "16.3.1",
+  "recorded_at": "2026-11-25T22:07:00+05:30",
+  "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "backend_regression": {
+    "suites_passed": 17,
+    "tests_passed": 246,
+    "duration_s": 35.07,
+    "new_phase16_3_1_tests": 5,
+    "suite_file": "backend/tests/test_phase16_3_1_transactional_sync.py"
+  },
+  "frontend_vitest": {
+    "files_passed": 27,
+    "tests_passed": 364,
+    "duration_s": 4.81,
+    "new_phase16_3_1_tests": 4,
+    "suite_file": "frontend/src/engine/designStudio/__tests__/designStudioPhase16_3_1.test.ts"
+  },
+  "frontend_build": {
+    "command": "cd frontend && npm test -- --run && npm run build",
+    "exit_code": 0,
+    "vite_build_s": 6.55
+  },
+  "browser_verification": {
+    "script": "scripts/verify_phase16_3_browser.py",
+    "evidence_file": "docs/reports/PHASE_16_3_1_BROWSER_EVIDENCE.json",
+    "status": "PASSED",
+    "browser": "headless_chromium_swiftshader",
+    "measurements_before_2d_edit": "Synced Measurements (PATTERN_PANEL_HALF): Panel 21.8 cm | Half Chest 43.5 cm | Circumference 87.0 cm | Length 52.0 cm | SA 1.0 cm",
+    "measurements_after_2d_edit": "Synced Measurements (PATTERN_PANEL_HALF): Panel 24.8 cm | Half Chest 49.5 cm | Circumference 99.0 cm | Length 52.0 cm | SA 1.0 cm",
+    "sync_status_badge": "Design v5 | Geom v4 | Pattern v5 | Mat v4 | Sync: SYNCHRONIZED_WITH_UNCERTAINTY",
+    "exported_glb_bytes": 1631028,
+    "page_errors": []
+  },
+  "server_overhead_ms": {
+    "correspondence_build_ms": 0.212,
+    "correspondence_validate_ms": 0.006,
+    "extended_construction_validate_ms": 1.423,
+    "glb_parametric_edit_ms": 0.389,
+    "atomic_transaction_full_ms": 12.44
+  }
+}

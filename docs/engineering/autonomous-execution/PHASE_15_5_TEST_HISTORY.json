@@ -1,0 +1,290 @@
+{
+  "phase": "15.5",
+  "date": "2026-11-25",
+  "git_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "dirty_workspace": true,
+  "scope": "Local software certification. External acceptance separately gated.",
+  "environment": {
+    "python": "3.9.6",
+    "torch": "2.8.0",
+    "numpy": "2.0.2",
+    "machine": "macOS arm64",
+    "mps_available": true
+  },
+  "changed_source_sha256": {
+    "Dockerfile.backend": "4b56402b9306a475c1a8c024ecbcbdc6849167eee610f90c93a12e5de42b5f7e",
+    "backend/app/services/ml/model_registry.py": "e9a979d566b0d2a083fea4758145ce3d26cf713c9e40961ef55cdb9023a7970d",
+    "backend/app/services/garments/intelligence/universal_garment_classifier.py": "0c5318765dc7a263154f42bedd51723505ae8b358117a84e2a1af2eb849ca02a",
+    "backend/app/services/garments/intelligence/universal_garment_intelligence_model.py": "81b8ab5ba1921b7b0a221b4a49e808fba4152c5ccab5cb125fd8ae255ab983ae",
+    "backend/app/services/ai/provider_diagnostics.py": "b68c04ff633c9fd8d86330c5d03189b9c137085745596cce21a59d6ae1a50b16",
+    "backend/app/services/ai/providers/gemini_provider.py": "0b69ebe69826403ec532991261d88f7d0d0f9f6f09ee8b58a8fc910663fb28d1",
+    "backend/app/services/ai/providers/groq_provider.py": "d57de6f2317922c21296ee60eb7c3b973f51c42412a3812f611a73dee7c4508d",
+    "backend/app/services/llm/base.py": "623e3f9b0415b73392790990a71418cc23aa83519026ff41dfa9121c8bf2b4ad",
+    "backend/app/services/llm/garment_plan.py": "4c0361c4f995ca0c15b6888b8f658a19c6bc1ce3dc51346947a0732992673dc4",
+    "backend/app/services/llm/registry.py": "79f51e84a56e9bc7284a7c91f923f64f4731fa7628239ffec8dfb443cfe896f6",
+    "backend/app/services/llm/error_handler.py": "9ba967b892e8d5ccaae8013539efc633a9b8fab2f6cc8d684385cbba2265a596",
+    "backend/app/services/llm/service.py": "36008481dd1a42a9f8f5f3d2d8b0e69be3e41dea407028c9c990e6a95c11a86f",
+    "backend/app/services/llm/providers/gemini_provider.py": "555b73c3c19c2137790935fa8f371b13d99cb27cda44e0d8c2e9984a8ed1e3e2",
+    "backend/app/services/llm/providers/groq_provider.py": "e3cb9cb745590dc647c299c227bdf5bff80a8b4cd160ec1423b9b5a80279140a",
+    "backend/app/services/llm/providers/openrouter_provider.py": "cb83c1cc7ce6821028cf4e9b5c4abe229dae289f9fe1ae93c4167464497c87ea",
+    "scripts/verify_staging_garment.py": "42a19995ceecc35e228536b5130ba9e0d589fdfa51bce131d4bf9ac21fc97e1a",
+    "scripts/benchmark_phase_14_26_hybrid_ai.py": "8686b0da05e33795327ac8df1784c2f74bbe9142c9b1466904edd475055bea12",
+    "backend/tests/test_hybrid_ai_orchestration.py": "46a088c54fef65400998e09cec09e6a24ac642381a65f6f9e6b2f64a00c3f1bd",
+    "backend/tests/test_phase15_5_certification.py": "defd813ca6e1efa2932771e1643b3e1de613a1d8f9ff26d7aadcbc8f418dedd5",
+    "backend/tests/test_phase15_4_staging.py": "8ace8abd36ede8fb4d10375e464cb56d49e5e55b9caf054ce4f1dea00312e4b8",
+    "backend/tests/test_garment_chat_edits.py": "ee0c2175c8404941c0cfb8e50dc1d2e186f0e7ea14dc01e666db27492aca2a54",
+    "backend/tests/test_neural_garment_ai_phase_7.py": "c085d95518d3826eac1222f03c07caeff1e11e72e189da302a6fbf796651d0c7"
+  },
+  "release_evidence_sha256": {
+    "docs/reports/YORVYN_PHASE_13_MODEL_REGISTRY.json": "f6a040e49e9a165ea6fb85608839d2d6a93474ed1c118dea9c6f8a703c5f0e9e",
+    "docs/reports/YORVYN_PHASE_14_0_MODEL_PROVENANCE.json": "aca7ac90116ce846c22416385f93f899e4e5a45b08f9685610a8592752ad1f38",
+    "docs/reports/YORVYN_PHASE_14_1_MODEL_PROVENANCE.json": "d75f356e21c750f59f39a602fcbb7688ae09b3d821105e524484323d6dfb56cd",
+    "models/checkpoints/garment_classifier_v6.pt": "1cc5d8a9afddb8113ec90258d73e51f8382418f5c7e053ba037286db2a49c3fc",
+    "models/checkpoints/garment_classifier_v5.pt": "1cc5d8a9afddb8113ec90258d73e51f8382418f5c7e053ba037286db2a49c3fc",
+    "models/checkpoints/specialized_garment_heads_v3.pt": "08225bd499b33a26920e7c241157fccabc4922addb021884b62c16e2f3e404c3",
+    "models/checkpoints/garment_landmarks_v2.pt": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+    "frontend/public/models/edge/garment_classifier_edge.onnx": "d785b3ef38e80492506bcfb1cc70a926047f09921b81b3880dc78b773e34ca9f"
+  },
+  "commands_reference": "docs/engineering/autonomous-execution/PHASE_15_5_AI_INFRASTRUCTURE_CERTIFICATION.md",
+  "baseline": {
+    "failed": 2,
+    "deselected": 20,
+    "seconds": 6.66,
+    "exit_code": 1
+  },
+  "intermediate_regression": "75 passed, 1 failed. Corrected TimeoutError classification and updated the exact fallback trace assertion to include the new diagnostic fields.",
+  "final_backend": {
+    "passed": 128,
+    "warnings": 31,
+    "seconds": 10.69,
+    "exit_code": 0
+  },
+  "frontend": {
+    "passed": 355,
+    "files": 25,
+    "seconds": 3.43,
+    "build_seconds": 8.3,
+    "build_exit_code": 0
+  },
+  "local_classifier": {
+    "case": "licensed denim jacket photograph",
+    "raw_neural_category": "jacket",
+    "reported_confidence": 0.7583,
+    "accuracy_evaluation": null
+  },
+  "separate_browser_workflow": {
+    "exit_code": 0,
+    "verified": [
+      "loaded preview",
+      "GLB downloads",
+      "edit",
+      "undo",
+      "history restoration",
+      "mesh attachment to avatar"
+    ]
+  },
+  "local_recovery": {
+    "mode": "recovery",
+    "environment": "disposable loopback staging",
+    "live_required": false,
+    "source_sha256": [
+      "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+    ],
+    "planner": {
+      "provider": "local_rules",
+      "previous_attempts": []
+    },
+    "vision": [
+      {
+        "mock": false,
+        "usage": null,
+        "cached": false,
+        "category": "jacket",
+        "provider": "local_cv",
+        "mime_type": "image/png",
+        "confidence": 0.9248798041197706,
+        "request_id": "req_5723f9d7308c_vision",
+        "image_sha256": "5ef1ff93b601ad742db0933834ef2fc68871cae309ba54054efa5e8d78593478",
+        "upstream_model": null,
+        "configured_model": "Local multimodal pipeline (per-adapter execution provenance in payload)",
+        "unknown_properties": [],
+        "upstream_request_id": null
+      }
+    ],
+    "geometry_provenance": "hybrid_neural_procedural",
+    "user_id": "fe13ca9d-5d7a-4d9f-a36f-53cb9e0a2fb5",
+    "conversation_id": "753a4fce-274e-4cc3-9932-09e6dc2baace",
+    "message_count": 4,
+    "conversation_state": "active",
+    "job_id": "job_8f7ac1315f99",
+    "candidate_id": "4a14b35d-c6aa-49c6-97bf-15fab0c54345",
+    "parent_candidate_id": "106e140d-9b36-414f-951b-675201c0b1b7",
+    "asset": "job_8f7ac1315f99.glb",
+    "committed_sha256": "b9bac0982b85b6ce90a2ca6937c188f6aa17f022e5c662ca00a89d791551cd79",
+    "original_sha256": "b9bac0982b85b6ce90a2ca6937c188f6aa17f022e5c662ca00a89d791551cd79",
+    "before_sha256": "afe509595cf245bfa3fce2866920fd7a690bfc75509516ca943fd9efd0c6ae14",
+    "browser_recovery": "VERIFIED_COMPLETE",
+    "backend_pids": [
+      18261,
+      18494
+    ],
+    "after_sha256": "afe509595cf245bfa3fce2866920fd7a690bfc75509516ca943fd9efd0c6ae14",
+    "restart": "VERIFIED_COMPLETE",
+    "interrupted_job": {
+      "before": "analyzing",
+      "after": "failed"
+    },
+    "negative_checks": [
+      "anonymous",
+      "expired",
+      "cross-user session/candidate/job",
+      "unknown session",
+      "duplicate before and after restart",
+      "missing asset",
+      "corrupt asset",
+      "database loss",
+      "worker failure persisted across restart",
+      "interrupted worker deadline",
+      "database row-level ownership",
+      "daily budget after restart"
+    ],
+    "status": "PARTIALLY_VERIFIED"
+  },
+  "external_preflight": {
+    "mode": "preflight",
+    "vision": {
+      "provider": "gemini_vision",
+      "configured_model": "gemini-2.5-flash",
+      "credential_configured": true,
+      "capability": "garment image to structured JSON",
+      "capability_verified": false,
+      "endpoint_reachable": true,
+      "status": "BLOCKED_PERMISSION_DENIED",
+      "error": "PERMISSION_DENIED",
+      "upstream_model": null,
+      "request_id": null,
+      "http_status": 403,
+      "image_sha256": "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+    },
+    "planners": [
+      {
+        "provider": "groq",
+        "configured_model": "llama-3.1-8b-instant",
+        "credential_configured": true,
+        "capability": "text to plan_garment tool call",
+        "capability_verified": false,
+        "endpoint_reachable": true,
+        "status": "BLOCKED_INVALID_CREDENTIAL",
+        "error": "INVALID_CREDENTIAL",
+        "upstream_model": null,
+        "request_id": "req_01m89fc1h3er7rbdmbv7r77zt3",
+        "http_status": 401,
+        "validated_provider_action": null
+      },
+      {
+        "provider": "openrouter",
+        "configured_model": "google/gemma-3-12b-it:free",
+        "credential_configured": true,
+        "capability": "text to plan_garment tool call",
+        "capability_verified": false,
+        "endpoint_reachable": true,
+        "status": "BLOCKED_INVALID_CREDENTIAL",
+        "error": "INVALID_CREDENTIAL",
+        "upstream_model": null,
+        "request_id": null,
+        "http_status": 401,
+        "validated_provider_action": null
+      },
+      {
+        "provider": "gemini",
+        "configured_model": "gemini-2.5-flash",
+        "credential_configured": true,
+        "capability": "text to plan_garment tool call",
+        "capability_verified": false,
+        "endpoint_reachable": true,
+        "status": "BLOCKED_PERMISSION_DENIED",
+        "error": "PERMISSION_DENIED",
+        "upstream_model": null,
+        "request_id": null,
+        "http_status": 403,
+        "validated_provider_action": null
+      }
+    ],
+    "requested_planner": null,
+    "selected_live_planner": null,
+    "status": "BLOCKED_PERMISSION_DENIED"
+  },
+  "credentialed_recovery": {
+    "mode": "recovery",
+    "environment": "disposable loopback staging",
+    "live_required": true,
+    "preflight": {
+      "mode": "preflight",
+      "vision": {
+        "provider": "gemini_vision",
+        "configured_model": "gemini-2.5-flash",
+        "credential_configured": true,
+        "capability": "garment image to structured JSON",
+        "capability_verified": false,
+        "endpoint_reachable": true,
+        "status": "BLOCKED_PERMISSION_DENIED",
+        "error": "PERMISSION_DENIED",
+        "upstream_model": null,
+        "request_id": null,
+        "http_status": 403,
+        "image_sha256": "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+      },
+      "planners": [
+        {
+          "provider": "groq",
+          "configured_model": "llama-3.1-8b-instant",
+          "credential_configured": true,
+          "capability": "text to plan_garment tool call",
+          "capability_verified": false,
+          "endpoint_reachable": true,
+          "status": "BLOCKED_INVALID_CREDENTIAL",
+          "error": "INVALID_CREDENTIAL",
+          "upstream_model": null,
+          "request_id": "req_01m89fc1qyemt8fek64fs9fex8",
+          "http_status": 401,
+          "validated_provider_action": null
+        },
+        {
+          "provider": "openrouter",
+          "configured_model": "google/gemma-3-12b-it:free",
+          "credential_configured": true,
+          "capability": "text to plan_garment tool call",
+          "capability_verified": false,
+          "endpoint_reachable": true,
+          "status": "BLOCKED_INVALID_CREDENTIAL",
+          "error": "INVALID_CREDENTIAL",
+          "upstream_model": null,
+          "request_id": null,
+          "http_status": 401,
+          "validated_provider_action": null
+        },
+        {
+          "provider": "gemini",
+          "configured_model": "gemini-2.5-flash",
+          "credential_configured": true,
+          "capability": "text to plan_garment tool call",
+          "capability_verified": false,
+          "endpoint_reachable": true,
+          "status": "BLOCKED_PERMISSION_DENIED",
+          "error": "PERMISSION_DENIED",
+          "upstream_model": null,
+          "request_id": null,
+          "http_status": 403,
+          "validated_provider_action": null
+        }
+      ],
+      "requested_planner": null,
+      "selected_live_planner": null,
+      "status": "BLOCKED_PERMISSION_DENIED"
+    },
+    "status": "BLOCKED_PERMISSION_DENIED"
+  },
+  "preflight_exit_code": 2,
+  "credentialed_recovery_exit_code": 2,
+  "docker": "Daemon unavailable. Container build and runtime unverified."
+}

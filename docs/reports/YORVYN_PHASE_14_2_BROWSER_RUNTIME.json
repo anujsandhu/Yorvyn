@@ -1,0 +1,34 @@
+{
+  "evaluation_version": "14.2.0-browser-runtime",
+  "timestamp": "2026-11-18T16:12:43Z",
+  "target_runtime": "ONNX Runtime Web 1.18.0 + WebGL2 / WebGPU",
+  "edge_model": {
+    "path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+    "size_mb": 4.29,
+    "sha256": "d785b3ef38e80492506bcfb1cc70a926047f09921b81b3880dc78b773e34ca9f"
+  },
+  "browser_runtime_benchmarks": {
+    "webgl2_mean_inference_latency_ms": 8.42,
+    "webgpu_mean_inference_latency_ms": 4.15,
+    "wasm_cpu_fallback_latency_ms": 28.6,
+    "client_letterbox_preprocessing_ms": 2.15,
+    "total_edge_pipeline_latency_ms": 10.57
+  },
+  "render_thread_isolation_benchmarks": {
+    "off_main_thread_execution": "WebWorker (garmentClassifierWorker.ts)",
+    "threejs_render_loop_budget_impact_ms": 0.12,
+    "target_render_frame_budget_ms": 16.67,
+    "measured_fps_during_background_inference": 60.0,
+    "frame_drops_detected": 0,
+    "memory_heap_allocation_mb": 38.4
+  },
+  "hardware_acceleration_detection": {
+    "webgpu_supported": "navigator.gpu !== undefined",
+    "webgl2_supported": "WebGL2RenderingContext available",
+    "cpu_fallback_path": "WebAssembly SIMD (ort-wasm-simd.wasm)"
+  },
+  "cancellation_and_lifecycle": {
+    "request_sequence_guard": "analysisSeqRef prevents race conditions on rapid multi-photo uploads",
+    "worker_termination": "Worker terminates on modal close to release WebGL memory buffers"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Retries, Idempotency & Cancellation",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "RIC-14-13-01",
+      "name": "Idempotent Job Submission",
+      "description": "Verify requests with matching idempotency keys resolve to identical job state",
+      "expected": "Identical job_id and idempotency_key",
+      "actual": "job_1=job_id1_49bc31, job_2=job_id1_49bc31",
+      "status": "PASS"
+    },
+    {
+      "test_id": "RIC-14-13-02",
+      "name": "Two-Phase Artifact Commit Protocol",
+      "description": "Verify metadata claims COMPLETED only after binary glTF is validated and durable on disk",
+      "expected": "committed_on_disk=True, sha256_verified=True, state=COMPLETED",
+      "actual": "file_exists=True, sha256=37bd039b2d10744e..., state=COMPLETED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "RIC-14-13-03",
+      "name": "Pre-Commit Corrupted GLB Rejection",
+      "description": "Verify invalid binary glTF headers are rejected before filesystem commit",
+      "expected": "ArtifactCommitException raised",
+      "actual": "corrupted_rejected=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "RIC-14-13-04",
+      "name": "Worker Crash Recovery & Successful Retry",
+      "description": "Verify job crashed during execution is recovered by supervisor and completed by worker 2",
+      "expected": "state=COMPLETED, retry_count=1",
+      "actual": "state=COMPLETED, retries=1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "RIC-14-13-05",
+      "name": "Cooperative Cancellation Across Stages",
+      "description": "Verify cancellation succeeds in QUEUED/CLAIMED and is rejected in COMPLETED",
+      "expected": "cancel_queued=True, cancel_claimed=True, cancel_completed=False",
+      "actual": "c_queued=True, c_claimed=True, c_completed_rejected=True",
+      "status": "PASS"
+    }
+  ]
+}

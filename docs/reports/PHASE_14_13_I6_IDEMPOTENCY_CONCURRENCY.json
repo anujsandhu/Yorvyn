@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "status": "PASS",
+    "test_environment": "Apple Silicon M2 (local_mps_development)",
+    "exact_test_command": "scripts/benchmark_phase_14_13_workstream_i6.py::run_suite_4_idempotency_concurrency",
+    "expected_result": "Exactly 1 logical job for 20 concurrent requests; 409 Conflict on payload mismatch",
+    "actual_result": "4/4 tests passed",
+    "evidence": "20 concurrent OS processes raced on O_CREAT | O_EXCL file lock; exactly 1 winner",
+    "limitations": "Tested on POSIX filesystem; Redis SETNX evaluated via specification",
+    "timestamp": "2026-11-22T09:38:35Z",
+    "execution_nature": "MEASURED"
+  },
+  "tests": [
+    {
+      "test_id": "IDP-14-13-01",
+      "name": "20 Simultaneous Concurrent Registrations Under POSIX O_EXCL",
+      "expected": "exactly 1 is_new=True, 19 return same existing job_id",
+      "actual": "is_new=1, duplicates=19, unique_jids=1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-02",
+      "name": "Same Key With Different Image Returns HTTP 409 Conflict",
+      "expected": "IdempotencyConflictException",
+      "actual": "conflict_caught=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-03",
+      "name": "Same Key With Different Category Returns HTTP 409 Conflict",
+      "expected": "IdempotencyConflictException",
+      "actual": "conflict_caught=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-04",
+      "name": "Tenant-Scoped Idempotency Namespace Isolation",
+      "expected": "is_new=True for new tenant with same client key",
+      "actual": "is_new=True, jid=job_safari_winner",
+      "status": "PASS"
+    }
+  ]
+}

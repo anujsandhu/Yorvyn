@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Cloud Cost Model Reconciliation",
+    "timestamp": "2026-11-21T18:24:08Z",
+    "actual_cloud_invoice_to_date": "$0.00 (Zero paid cloud infrastructure provisioned)",
+    "classification": "INDEPENDENT_PROJECTION_RECONCILED"
+  },
+  "operational_parameters": {
+    "hardware_instance": "GCP g2-standard-4 (1x NVIDIA L4 24GB, 4 vCPU, 16GB RAM)",
+    "on_demand_hourly_rate": 0.84,
+    "spot_hourly_rate": 0.252,
+    "spot_discount_pct": 70.0,
+    "gpu_processing_seconds_per_job": 0.34,
+    "gpu_active_utilization_pct": 85.0,
+    "gpu_idle_overhead_pct": 15.0,
+    "spot_interruption_rate_pct": 3.5,
+    "on_demand_fallback_routing_pct": 15.0,
+    "failed_reconstruction_rate_pct": 0.2,
+    "retry_overhead_rate_pct": 0.1,
+    "storage_retention_days": 30,
+    "glb_asset_avg_bytes": 428080,
+    "s3_gcs_storage_rate_per_gb_month": 0.023,
+    "cdn_cache_hit_ratio_pct": 90.0,
+    "egress_rate_per_gb": 0.09,
+    "observability_monitoring_monthly": 95.0,
+    "queue_broker_sqs_monthly": 25.0
+  },
+  "monthly_reconciliation_100k_jobs": {
+    "volume_jobs": 100000,
+    "compute_cost_spot_usd": 362.88,
+    "compute_cost_on_demand_usd": 241.92,
+    "queue_broker_cost_usd": 25.0,
+    "storage_cost_30day_usd": 0.96,
+    "network_egress_cdn_usd": 0.38,
+    "observability_datadog_usd": 95.0,
+    "failure_retry_waste_usd": 1.73,
+    "total_reconciled_monthly_cost_usd": 727.87,
+    "reconciled_cost_per_job_usd": 0.00728
+  },
+  "volume_scaling_matrix": [
+    {
+      "volume_jobs_per_month": 10000,
+      "spot_workers": 1,
+      "on_demand_workers": 0,
+      "total_cost_usd": 248.5,
+      "cost_per_job_usd": 0.02485
+    },
+    {
+      "volume_jobs_per_month": 100000,
+      "spot_workers": 2,
+      "on_demand_workers": 1,
+      "total_cost_usd": 727.87,
+      "cost_per_job_usd": 0.00728
+    },
+    {
+      "volume_jobs_per_month": 250000,
+      "spot_workers": 4,
+      "on_demand_workers": 1,
+      "total_cost_usd": 1482.4,
+      "cost_per_job_usd": 0.00593
+    },
+    {
+      "volume_jobs_per_month": 1000000,
+      "spot_workers": 12,
+      "on_demand_workers": 2,
+      "total_cost_usd": 4890.0,
+      "cost_per_job_usd": 0.00489
+    }
+  ]
+}

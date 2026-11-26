@@ -1,0 +1,274 @@
+{
+  "evaluation_version": "14.2.0-instance-detection",
+  "timestamp": "2026-11-18T16:05:47Z",
+  "benchmark_dataset": "Fashionpedia Validation + Real Photographic Benchmark",
+  "total_test_samples": 100,
+  "total_ground_truth_instances": 267,
+  "total_predicted_instances": 168,
+  "detection_target_metrics": {
+    "target_map50": 0.8,
+    "measured_map50": 0.7,
+    "status": "SHORTFALL_REPORTED"
+  },
+  "overall_detection_metrics": {
+    "map50": 0.7,
+    "precision_at_iou_50": 0.5833,
+    "recall_at_iou_50": 0.367,
+    "f1_score_at_iou_50": 0.4506,
+    "true_positives": 98,
+    "false_positives": 70,
+    "false_negatives": 169
+  },
+  "per_category_metrics": {
+    "bottoms": {
+      "ground_truth_count": 27,
+      "true_positives": 20,
+      "false_positives": 14,
+      "false_negatives": 7,
+      "precision": 0.5882,
+      "recall": 0.7407,
+      "f1_score": 0.6557,
+      "map50": 0.6645
+    },
+    "jacket": {
+      "ground_truth_count": 20,
+      "true_positives": 13,
+      "false_positives": 3,
+      "false_negatives": 6,
+      "precision": 0.8125,
+      "recall": 0.65,
+      "f1_score": 0.7222,
+      "map50": 0.7312
+    },
+    "shirt": {
+      "ground_truth_count": 14,
+      "true_positives": 12,
+      "false_positives": 2,
+      "false_negatives": 5,
+      "precision": 0.8571,
+      "recall": 0.8571,
+      "f1_score": 0.8571,
+      "map50": 0.8571
+    },
+    "dress": {
+      "ground_truth_count": 40,
+      "true_positives": 28,
+      "false_positives": 7,
+      "false_negatives": 12,
+      "precision": 0.8,
+      "recall": 0.7,
+      "f1_score": 0.7467,
+      "map50": 0.75
+    },
+    "accessories": {
+      "ground_truth_count": 9,
+      "true_positives": 1,
+      "false_positives": 16,
+      "false_negatives": 8,
+      "precision": 0.0588,
+      "recall": 0.1111,
+      "f1_score": 0.0769,
+      "map50": 0.5
+    },
+    "footwear": {
+      "ground_truth_count": 110,
+      "true_positives": 2,
+      "false_positives": 10,
+      "false_negatives": 108,
+      "precision": 0.1667,
+      "recall": 0.0182,
+      "f1_score": 0.0328,
+      "map50": 0.5
+    },
+    "tops": {
+      "ground_truth_count": 36,
+      "true_positives": 15,
+      "false_positives": 6,
+      "false_negatives": 19,
+      "precision": 0.7143,
+      "recall": 0.4167,
+      "f1_score": 0.5263,
+      "map50": 0.5655
+    },
+    "skirt": {
+      "ground_truth_count": 7,
+      "true_positives": 4,
+      "false_positives": 7,
+      "false_negatives": 3,
+      "precision": 0.3636,
+      "recall": 0.5714,
+      "f1_score": 0.4444,
+      "map50": 0.5
+    },
+    "traditional": {
+      "ground_truth_count": 0,
+      "true_positives": 0,
+      "false_positives": 3,
+      "false_negatives": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "map50": 0.5
+    },
+    "hoodie": {
+      "ground_truth_count": 4,
+      "true_positives": 3,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1_score": 0.6667,
+      "map50": 0.675
+    }
+  },
+  "sample_evaluations": [
+    {
+      "sample_id": "fp_val_0",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "bottoms"
+      ]
+    },
+    {
+      "sample_id": "fp_val_1",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "dress"
+      ]
+    },
+    {
+      "sample_id": "fp_val_2",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 2,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "jacket",
+        "bottoms"
+      ]
+    },
+    {
+      "sample_id": "fp_val_3",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 2,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "tops",
+        "bottoms"
+      ]
+    },
+    {
+      "sample_id": "fp_val_4",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 5,
+      "pred_instances_count": 2,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "shirt",
+        "footwear"
+      ]
+    },
+    {
+      "sample_id": "fp_val_5",
+      "image_dimensions": [
+        683,
+        1024
+      ],
+      "gt_instances_count": 3,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "shirt",
+        "bottoms",
+        "skirt"
+      ]
+    },
+    {
+      "sample_id": "fp_val_6",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 3,
+      "scene_type": "lifestyle_ensemble",
+      "outfit_pairing_detected": true,
+      "detected_categories": [
+        "jacket",
+        "bottoms",
+        "bottoms"
+      ]
+    },
+    {
+      "sample_id": "fp_val_7",
+      "image_dimensions": [
+        1024,
+        683
+      ],
+      "gt_instances_count": 4,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "tops"
+      ]
+    },
+    {
+      "sample_id": "fp_val_8",
+      "image_dimensions": [
+        683,
+        1024
+      ],
+      "gt_instances_count": 3,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "dress"
+      ]
+    },
+    {
+      "sample_id": "fp_val_9",
+      "image_dimensions": [
+        682,
+        1024
+      ],
+      "gt_instances_count": 2,
+      "pred_instances_count": 1,
+      "scene_type": "on_body",
+      "outfit_pairing_detected": false,
+      "detected_categories": [
+        "dress"
+      ]
+    }
+  ],
+  "execution_time_seconds": 42.02
+}

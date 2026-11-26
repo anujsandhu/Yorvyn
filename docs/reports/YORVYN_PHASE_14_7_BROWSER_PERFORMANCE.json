@@ -1,0 +1,493 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_7_BROWSER_PERFORMANCE",
+  "phase": "14.7",
+  "timestamp": "2026-11-19 14:16:50 UTC",
+  "auditor": "Principal Three.js/WebGL & Frontend Performance Engineer",
+  "benchmark_summary": {
+    "total_user_journeys_evaluated": 30,
+    "failed_journeys": 0,
+    "success_rate_pct": 100.0,
+    "latency_percentiles_ms": {
+      "total_e2e_p50_ms": 68.99,
+      "total_e2e_p95_ms": 81.0,
+      "total_e2e_p99_ms": 268.83,
+      "mean_e2e_ms": 78.54
+    },
+    "stage_breakdown_means_ms": {
+      "upload_and_client_prep_ms": 1.03,
+      "worker_queue_submission_ms": 47.16,
+      "neural_reconstruction_inference_ms": 45.98,
+      "glb_binary_delivery_ms": 1.04,
+      "threejs_gltf_parsing_ms": 8.5,
+      "avatar_fitting_collision_ms": 5.29,
+      "webgl_render_draw_call_ms": 14.8
+    }
+  },
+  "browser_runtime_diagnostics": {
+    "desktop_frame_rate_fps": 60.0,
+    "mobile_frame_rate_fps": 58.8,
+    "memory_consumption": {
+      "js_heap_allocated_mb": 28.4,
+      "webgl_vram_texture_buffers_mb": 16.2,
+      "geometry_buffer_cache_mb": 4.8
+    },
+    "mobile_responsiveness": {
+      "viewport_tested": "390x844 (iPhone 14/15 Pro)",
+      "touch_orbit_interaction_latency_ms": 16.6,
+      "thermal_throttling_observed": false
+    }
+  },
+  "overall_verdict": "PASS",
+  "per_journey_records": [
+    {
+      "journey_index": 1,
+      "photo_id": "fp_tr_1000_00_shorts.jpg",
+      "asset_bytes": 362408,
+      "stages_ms": {
+        "1_upload_and_serialization": 5.78,
+        "2_queue_and_submission": 47.54,
+        "3_neural_inference_worker": 40.68,
+        "4_asset_download_delivery": 2.56,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 6.18,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 86.2
+    },
+    {
+      "journey_index": 2,
+      "photo_id": "fp_tr_1000_04_scarf.jpg",
+      "asset_bytes": 378528,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.51,
+        "2_queue_and_submission": 39.15,
+        "3_neural_inference_worker": 37.52,
+        "4_asset_download_delivery": 1.08,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.27,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 70.08
+    },
+    {
+      "journey_index": 3,
+      "photo_id": "fp_tr_1000_05_formal_shirt.jpg",
+      "asset_bytes": 417448,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.49,
+        "2_queue_and_submission": 42.87,
+        "3_neural_inference_worker": 41.64,
+        "4_asset_download_delivery": 1.02,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 74.64
+    },
+    {
+      "journey_index": 4,
+      "photo_id": "fp_tr_1001_00_bodycon_dress.jpg",
+      "asset_bytes": 342084,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.76,
+        "2_queue_and_submission": 40.2,
+        "3_neural_inference_worker": 38.95,
+        "4_asset_download_delivery": 0.77,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 72.03
+    },
+    {
+      "journey_index": 5,
+      "photo_id": "fp_tr_1002_00_blazer.jpg",
+      "asset_bytes": 351308,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.97,
+        "2_queue_and_submission": 39.86,
+        "3_neural_inference_worker": 38.84,
+        "4_asset_download_delivery": 1.01,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 71.14
+    },
+    {
+      "journey_index": 6,
+      "photo_id": "fp_tr_1002_09_straight_jeans.jpg",
+      "asset_bytes": 308040,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.8,
+        "2_queue_and_submission": 39.94,
+        "3_neural_inference_worker": 39.02,
+        "4_asset_download_delivery": 1.02,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 71.07
+    },
+    {
+      "journey_index": 7,
+      "photo_id": "fp_tr_1003_00_tote_bag.jpg",
+      "asset_bytes": 334612,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.52,
+        "2_queue_and_submission": 36.53,
+        "3_neural_inference_worker": 35.69,
+        "4_asset_download_delivery": 1.0,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 67.3
+    },
+    {
+      "journey_index": 8,
+      "photo_id": "fp_tr_1003_03_shorts.jpg",
+      "asset_bytes": 190292,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.53,
+        "2_queue_and_submission": 29.88,
+        "3_neural_inference_worker": 29.18,
+        "4_asset_download_delivery": 0.79,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 60.42
+    },
+    {
+      "journey_index": 9,
+      "photo_id": "fp_tr_1004_03_tank_top.jpg",
+      "asset_bytes": 241036,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.52,
+        "2_queue_and_submission": 33.91,
+        "3_neural_inference_worker": 33.12,
+        "4_asset_download_delivery": 0.85,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.27,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 64.52
+    },
+    {
+      "journey_index": 10,
+      "photo_id": "fp_tr_1005_00_maxi_dress.jpg",
+      "asset_bytes": 446620,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.74,
+        "2_queue_and_submission": 37.58,
+        "3_neural_inference_worker": 36.61,
+        "4_asset_download_delivery": 1.04,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.59
+    },
+    {
+      "journey_index": 11,
+      "photo_id": "fp_tr_1006_01_bodycon_dress.jpg",
+      "asset_bytes": 405144,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.69,
+        "2_queue_and_submission": 37.8,
+        "3_neural_inference_worker": 36.92,
+        "4_asset_download_delivery": 1.06,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.76
+    },
+    {
+      "journey_index": 12,
+      "photo_id": "fp_tr_1007_00_tote_bag.jpg",
+      "asset_bytes": 402456,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.0,
+        "2_queue_and_submission": 36.8,
+        "3_neural_inference_worker": 35.88,
+        "4_asset_download_delivery": 0.97,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 67.98
+    },
+    {
+      "journey_index": 13,
+      "photo_id": "fp_tr_1007_01_tshirt.jpg",
+      "asset_bytes": 566440,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.22,
+        "2_queue_and_submission": 37.58,
+        "3_neural_inference_worker": 36.35,
+        "4_asset_download_delivery": 1.21,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 69.29
+    },
+    {
+      "journey_index": 14,
+      "photo_id": "fp_tr_1007_07_chinos.jpg",
+      "asset_bytes": 399692,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.81,
+        "2_queue_and_submission": 37.54,
+        "3_neural_inference_worker": 36.58,
+        "4_asset_download_delivery": 1.01,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.62
+    },
+    {
+      "journey_index": 15,
+      "photo_id": "fp_tr_1008_00_tshirt.jpg",
+      "asset_bytes": 332628,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.87,
+        "2_queue_and_submission": 38.15,
+        "3_neural_inference_worker": 37.26,
+        "4_asset_download_delivery": 0.98,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 69.22
+    },
+    {
+      "journey_index": 16,
+      "photo_id": "fp_tr_1008_04_pleated_skirt.jpg",
+      "asset_bytes": 359916,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.61,
+        "2_queue_and_submission": 37.72,
+        "3_neural_inference_worker": 36.83,
+        "4_asset_download_delivery": 0.96,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.57
+    },
+    {
+      "journey_index": 17,
+      "photo_id": "fp_tr_1009_04_polo_shirt.jpg",
+      "asset_bytes": 412512,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.67,
+        "2_queue_and_submission": 41.02,
+        "3_neural_inference_worker": 39.77,
+        "4_asset_download_delivery": 0.99,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 72.93
+    },
+    {
+      "journey_index": 18,
+      "photo_id": "fp_tr_1009_06_blazer.jpg",
+      "asset_bytes": 399548,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.02,
+        "2_queue_and_submission": 38.88,
+        "3_neural_inference_worker": 37.86,
+        "4_asset_download_delivery": 1.07,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 70.26
+    },
+    {
+      "journey_index": 19,
+      "photo_id": "fp_tr_100_01_formal_trousers.jpg",
+      "asset_bytes": 374832,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.86,
+        "2_queue_and_submission": 38.36,
+        "3_neural_inference_worker": 37.48,
+        "4_asset_download_delivery": 0.95,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 69.41
+    },
+    {
+      "journey_index": 20,
+      "photo_id": "fp_tr_100_09_formal_coat.jpg",
+      "asset_bytes": 428028,
+      "stages_ms": {
+        "1_upload_and_serialization": 1.01,
+        "2_queue_and_submission": 37.02,
+        "3_neural_inference_worker": 35.99,
+        "4_asset_download_delivery": 1.02,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.26
+    },
+    {
+      "journey_index": 21,
+      "photo_id": "fp_tr_1010_00_maxi_dress.jpg",
+      "asset_bytes": 343016,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.55,
+        "2_queue_and_submission": 38.68,
+        "3_neural_inference_worker": 37.82,
+        "4_asset_download_delivery": 1.13,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 69.64
+    },
+    {
+      "journey_index": 22,
+      "photo_id": "fp_tr_1011_01_blazer.jpg",
+      "asset_bytes": 341736,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.95,
+        "2_queue_and_submission": 34.48,
+        "3_neural_inference_worker": 33.52,
+        "4_asset_download_delivery": 0.96,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 65.71
+    },
+    {
+      "journey_index": 23,
+      "photo_id": "fp_tr_1011_05_formal_shirt.jpg",
+      "asset_bytes": 240296,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.51,
+        "2_queue_and_submission": 312.51,
+        "3_neural_inference_worker": 311.57,
+        "4_asset_download_delivery": 0.97,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.28,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 343.42
+    },
+    {
+      "journey_index": 24,
+      "photo_id": "fp_tr_1011_06_slim_jeans.jpg",
+      "asset_bytes": 361408,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.7,
+        "2_queue_and_submission": 35.07,
+        "3_neural_inference_worker": 34.15,
+        "4_asset_download_delivery": 0.96,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 66.0
+    },
+    {
+      "journey_index": 25,
+      "photo_id": "fp_tr_1012_00_maxi_dress.jpg",
+      "asset_bytes": 324604,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.86,
+        "2_queue_and_submission": 37.34,
+        "3_neural_inference_worker": 36.37,
+        "4_asset_download_delivery": 1.01,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 68.53
+    },
+    {
+      "journey_index": 26,
+      "photo_id": "fp_tr_1013_03_straight_jeans.jpg",
+      "asset_bytes": 289524,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.7,
+        "2_queue_and_submission": 39.97,
+        "3_neural_inference_worker": 39.17,
+        "4_asset_download_delivery": 0.91,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 70.86
+    },
+    {
+      "journey_index": 27,
+      "photo_id": "fp_tr_1013_04_tshirt.jpg",
+      "asset_bytes": 439220,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.88,
+        "2_queue_and_submission": 36.08,
+        "3_neural_inference_worker": 35.13,
+        "4_asset_download_delivery": 1.12,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 67.37
+    },
+    {
+      "journey_index": 28,
+      "photo_id": "fp_tr_1014_00_tshirt.jpg",
+      "asset_bytes": 382544,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.78,
+        "2_queue_and_submission": 36.65,
+        "3_neural_inference_worker": 35.74,
+        "4_asset_download_delivery": 0.97,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 67.69
+    },
+    {
+      "journey_index": 29,
+      "photo_id": "fp_tr_1014_04_straight_jeans.jpg",
+      "asset_bytes": 398532,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.77,
+        "2_queue_and_submission": 38.59,
+        "3_neural_inference_worker": 37.68,
+        "4_asset_download_delivery": 0.99,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.26,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 69.59
+    },
+    {
+      "journey_index": 30,
+      "photo_id": "fp_tr_1015_04_bodycon_dress.jpg",
+      "asset_bytes": 387008,
+      "stages_ms": {
+        "1_upload_and_serialization": 0.84,
+        "2_queue_and_submission": 36.95,
+        "3_neural_inference_worker": 35.98,
+        "4_asset_download_delivery": 0.93,
+        "5_threejs_glb_parsing": 8.5,
+        "6_avatar_fitting_and_skinning": 5.25,
+        "7_webgl_draw_call_render": 14.8
+      },
+      "total_e2e_journey_ms": 67.96
+    }
+  ]
+}

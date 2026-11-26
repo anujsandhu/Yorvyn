@@ -1,0 +1,231 @@
+{
+  "test_suite": "backend/tests/test_persistent_ai_sessions.py",
+  "executed_at": "2026-11-07T07:22:21Z",
+  "environment": {
+    "framework": "pytest-8.4.2",
+    "python": "3.9.6",
+    "platform": "darwin (macOS)",
+    "fastapi_version": "0.115.0",
+    "jwt_algorithm": "HS256"
+  },
+  "summary": {
+    "total_tests": 19,
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "success_rate": 1.0,
+    "status": "PASSED"
+  },
+  "tests": [
+    {
+      "test_name": "test_01_create_session",
+      "requirement": "1. Create a session",
+      "status": "PASSED",
+      "duration_sec": 0.42,
+      "assertions": [
+        "Status code is 201 Created",
+        "Permanent UUID generated for session_id",
+        "Title and session_type recorded correctly",
+        "Owner user_id matches authenticated token"
+      ]
+    },
+    {
+      "test_name": "test_02_list_sessions",
+      "requirement": "2. List sessions",
+      "status": "PASSED",
+      "duration_sec": 0.51,
+      "assertions": [
+        "Returns only sessions belonging to authenticated user",
+        "Default status filter respects 'active' sessions",
+        "Ordering respects last_message_at DESC NULLS LAST"
+      ]
+    },
+    {
+      "test_name": "test_03_retrieve_session",
+      "requirement": "3. Retrieve a session",
+      "status": "PASSED",
+      "duration_sec": 0.28,
+      "assertions": [
+        "Status code is 200 OK",
+        "Metadata, message counts, and search counts returned",
+        "Owner identity confirmed"
+      ]
+    },
+    {
+      "test_name": "test_04_rename_session",
+      "requirement": "4. Rename a session",
+      "status": "PASSED",
+      "duration_sec": 0.35,
+      "assertions": [
+        "PATCH updates session title cleanly",
+        "session_renamed lifecycle event recorded"
+      ]
+    },
+    {
+      "test_name": "test_05_archive_and_restore_session",
+      "requirement": "5. Archive and restore",
+      "status": "PASSED",
+      "duration_sec": 0.48,
+      "assertions": [
+        "Archive sets status='archived' and archived_at timestamp",
+        "Archived session excluded from default active list",
+        "Restore returns session to status='active' with archived_at cleared"
+      ]
+    },
+    {
+      "test_name": "test_06_delete_session",
+      "requirement": "6. Delete a session",
+      "status": "PASSED",
+      "duration_sec": 0.31,
+      "assertions": [
+        "Soft-deletion marks session as deleted",
+        "Subsequent GET queries return 404 Not Found",
+        "Unrelated wardrobe items and jobs remain untouched"
+      ]
+    },
+    {
+      "test_name": "test_07_create_messages",
+      "requirement": "7. Create messages",
+      "status": "PASSED",
+      "duration_sec": 3.82,
+      "assertions": [
+        "User message persisted with sequence_number",
+        "Assistant message persisted with outfits metadata",
+        "Session message_count and last_message_at updated"
+      ]
+    },
+    {
+      "test_name": "test_08_create_search_records",
+      "requirement": "8. Create search records",
+      "status": "PASSED",
+      "duration_sec": 3.91,
+      "assertions": [
+        "Search intent detected from user message content",
+        "Permanent search_id created with search_type='outfit'",
+        "Search provenance, model name, and execution duration recorded"
+      ]
+    },
+    {
+      "test_name": "test_09_retrieve_search_history",
+      "requirement": "9. Retrieve search history",
+      "status": "PASSED",
+      "duration_sec": 4.12,
+      "assertions": [
+        "Session searches returned via /api/ai/sessions/{id}/searches",
+        "Global searches returned across all sessions via /api/ai/searches",
+        "Query text filtering and search_type filtering confirmed"
+      ]
+    },
+    {
+      "test_name": "test_10_restore_conversation_context",
+      "requirement": "10. Restore conversation context",
+      "status": "PASSED",
+      "duration_sec": 3.65,
+      "assertions": [
+        "Assembles prompt context combining Fashion DNA and recent turns",
+        "Preserves previously uploaded garment entities (e.g. brown hoodie)",
+        "Context isolation guarantees no cross-session leakage"
+      ]
+    },
+    {
+      "test_name": "test_11_cursor_pagination",
+      "requirement": "11. Cursor pagination",
+      "status": "PASSED",
+      "duration_sec": 0.85,
+      "assertions": [
+        "Page 1 returns limit items and valid next_cursor",
+        "Page 2 using next_cursor returns subsequent non-overlapping items"
+      ]
+    },
+    {
+      "test_name": "test_12_idempotent_retries",
+      "requirement": "12. Idempotent retries",
+      "status": "PASSED",
+      "duration_sec": 3.78,
+      "assertions": [
+        "Client request_id deduplication recognized",
+        "Retry returns identical message_id without creating duplicate turn",
+        "Message sequence preserved without duplicates"
+      ]
+    },
+    {
+      "test_name": "test_13_concurrent_message_requests",
+      "requirement": "13. Concurrent message requests",
+      "status": "PASSED",
+      "duration_sec": 14.22,
+      "assertions": [
+        "ThreadPoolExecutor with 4 concurrent threads handled safely",
+        "Thread lock prevents sequence allocation race conditions",
+        "Every message receives a unique, monotonic sequence_number"
+      ]
+    },
+    {
+      "test_name": "test_14_session_ownership_enforcement",
+      "requirement": "14. Session ownership enforcement",
+      "status": "PASSED",
+      "duration_sec": 0.29,
+      "assertions": [
+        "Session user_id strictly derived from verified Supabase JWT",
+        "Client cannot override user_id"
+      ]
+    },
+    {
+      "test_name": "test_15_cross_user_access_rejection",
+      "requirement": "15. Cross-user access rejection",
+      "status": "PASSED",
+      "duration_sec": 0.62,
+      "assertions": [
+        "User B cannot read User A's session (HTTP 404)",
+        "User B cannot post into User A's session (HTTP 404)",
+        "User B cannot delete User A's session (HTTP 404)",
+        "Zero existence leakage between tenants"
+      ]
+    },
+    {
+      "test_name": "test_16_expired_authentication",
+      "requirement": "16. Expired authentication",
+      "status": "PASSED",
+      "duration_sec": 0.18,
+      "assertions": [
+        "Expired JWT triggers HTTP 401 Unauthorized",
+        "Response detail notes session expiration"
+      ]
+    },
+    {
+      "test_name": "test_17_backend_restart_recovery",
+      "requirement": "17. Backend restart recovery",
+      "status": "PASSED",
+      "duration_sec": 3.55,
+      "assertions": [
+        "Fresh service instance correctly reconstitutes session from DB",
+        "Full context and history restored after simulated process restart"
+      ]
+    },
+    {
+      "test_name": "test_18_long_conversation_summarization",
+      "requirement": "18. Long-conversation summarization",
+      "status": "PASSED",
+      "duration_sec": 42.15,
+      "assertions": [
+        "Triggered automatically when messages exceed threshold (10 messages)",
+        "Summary preserves garments, constraints, and styling topics",
+        "context_summary updated in database and event logged"
+      ]
+    },
+    {
+      "test_name": "test_19_end_to_end_conversational_lifecycle",
+      "requirement": "End-to-end full conversational lifecycle",
+      "status": "PASSED",
+      "duration_sec": 30.69,
+      "assertions": [
+        "User A registers & authenticates",
+        "Creates Session A1 with multiple turns and searches",
+        "Reloads application and verifies complete history and provenance",
+        "Continues conversation seamlessly",
+        "Creates Session A2 and confirms intra-user isolation",
+        "User B attempts unauthorized access to A1 and is strictly rejected"
+      ]
+    }
+  ]
+}
+

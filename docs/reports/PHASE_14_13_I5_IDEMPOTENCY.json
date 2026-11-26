@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.5",
+    "suite": "Idempotency Correction & Canonical Fingerprints",
+    "timestamp": "2026-11-21T19:05:21Z",
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "IDP-14-13-01",
+      "name": "Initial Idempotency Key Registration",
+      "expected": "is_new=True, job_id=job_idp_001",
+      "actual": "is_new=True, job_id=job_idp_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-02",
+      "name": "Identical Duplicate Request Returns Existing Job",
+      "expected": "is_new=False, job_id=job_idp_001",
+      "actual": "is_new=False, job_id=job_idp_001",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-03",
+      "name": "Different Category Produces Distinct Fingerprint",
+      "expected": "fp_diff != fp_base",
+      "actual": "distinct=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-04",
+      "name": "Different Model Version Produces Distinct Fingerprint",
+      "expected": "fp_diff != fp_base",
+      "actual": "distinct=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-05",
+      "name": "Reused Idempotency Key with Mismatched Payload Raises 409 Conflict",
+      "expected": "IdempotencyConflictException",
+      "actual": "conflict_caught=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "IDP-14-13-06",
+      "name": "Idempotency Keys Scoped to Tenant Identity",
+      "expected": "is_new=True, job_id=job_tenant_safari_001",
+      "actual": "is_new=True, job_id=job_tenant_safari_001",
+      "status": "PASS"
+    }
+  ]
+}

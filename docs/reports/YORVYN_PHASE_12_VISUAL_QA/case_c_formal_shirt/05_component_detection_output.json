@@ -1,0 +1,83 @@
+{
+  "components": [
+    {
+      "component_type": "torso_body",
+      "status": "detected",
+      "confidence": 0.96,
+      "bbox": {
+        "xmin": 0.234375,
+        "ymin": 0.28125,
+        "xmax": 0.763671875,
+        "ymax": 0.873046875
+      }
+    },
+    {
+      "component_type": "back_torso",
+      "status": "detected",
+      "confidence": 0.88,
+      "bbox": {
+        "xmin": 0.234375,
+        "ymin": 0.28125,
+        "xmax": 0.763671875,
+        "ymax": 0.873046875
+      }
+    },
+    {
+      "component_type": "left_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.123046875,
+        "ymin": 0.201171875,
+        "xmax": 0.234375,
+        "ymax": 0.40625
+      }
+    },
+    {
+      "component_type": "right_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.763671875,
+        "ymin": 0.21875,
+        "xmax": 0.875,
+        "ymax": 0.298828125
+      }
+    },
+    {
+      "component_type": "collar",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.29296875,
+        "ymin": 0.15234375,
+        "xmax": 0.5625,
+        "ymax": 0.28125
+      }
+    },
+    {
+      "component_type": "placket",
+      "status": "detected",
+      "confidence": 0.9,
+      "bbox": {
+        "xmin": 0.3984375,
+        "ymin": 0.259765625,
+        "xmax": 0.45703125,
+        "ymax": 0.873046875
+      }
+    },
+    {
+      "component_type": "cuff",
+      "status": "detected",
+      "confidence": 0.91,
+      "bbox": null
+    },
+    {
+      "component_type": "hem",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": null
+    }
+  ],
+  "total_detected": 8
+}

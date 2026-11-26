@@ -1,0 +1,172 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_NEURAL_3D_FEASIBILITY",
+  "timestamp": "2026-11-18T18:05:51Z",
+  "evaluation_version": "14.4.0-neural-3d-audit",
+  "remote_gpu_endpoint_audit": {
+    "environment_variable": "GARMENT_AI_REMOTE_INFERENCE_URL",
+    "configured_url": null,
+    "status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "authorized_cloud_credentials": false,
+    "anti_fabrication_declaration": "Because GARMENT_AI_REMOTE_INFERENCE_URL is unset and no authorized cloud GPU credentials are present in the local environment, remote neural 3D inference is officially documented as BLOCKED. Zero synthetic or mocked neural 3D inference results were generated. The existing procedural parametric deformation engine (UniversalGarmentFittingEngine) is maintained as the verified fallback."
+  },
+  "neural_3d_candidate_matrix": {
+    "trellis": {
+      "name": "TRELLIS (Microsoft Research)",
+      "architecture": "Structured 3D Latent Diffusion (SLAT) + Gaussian / Mesh decoding",
+      "input_requirements": "Single RGB image with alpha mask (1024x1024 recommended)",
+      "garment_category_support": "General rigid/semi-rigid objects; fair on tops/dresses, struggles with thin pants/skirts",
+      "multi_view_support": "Sparse multi-view supported (1-4 views)",
+      "output_topology": "Dense unstructured triangle mesh (150k-300k faces) or 3D Gaussians; non-manifold edges common",
+      "texture_quality": "High-fidelity PBR texture bake from latent diffusion",
+      "silhouette_fidelity": "Very high front silhouette alignment; hallucinated rear surface",
+      "component_completeness": "Good sleeve separation; collared necklines occasionally solid (lacks internal cavity)",
+      "uv_quality": "Automated xatlas parameterization; atlas fragmentation requires re-packing",
+      "rigging_compatibility": "Requires volumetric remeshing (QuadRIF/InstantMeshes) and automatic skinning before avatar binding",
+      "licensing": "MIT License (Commercial friendly)",
+      "gpu_vram_requirement_gb": 16.0,
+      "inference_latency_seconds": 12.5,
+      "estimated_cost_per_reconstruction_usd": 0.0085,
+      "overall_suitability_score": 0.82,
+      "recommendation": "Leading general 3D candidate for isolated garment packshots, requires automated manifold retopology"
+    },
+    "hunyuan3d": {
+      "name": "Hunyuan3D-1.0 / 2.0 (Tencent)",
+      "architecture": "Two-stage multi-view diffusion + feed-forward shape generation",
+      "input_requirements": "Single RGB photograph with neutral background",
+      "garment_category_support": "Broad object support; dresses and jackets well represented",
+      "multi_view_support": "Native multi-view generation stage",
+      "output_topology": "Isotropic surface mesh (80k-120k faces), water-tight closed manifold",
+      "texture_quality": "Sharp 2048x2048 diffuse albedo texture",
+      "silhouette_fidelity": "Excellent front and side silhouette preservation",
+      "component_completeness": "Hoods and collars cleanly delineated; inner clothing cavities frequently sealed",
+      "uv_quality": "Clean UV atlas layout, low distortion",
+      "rigging_compatibility": "Clean manifold geometry facilitates automatic linear blend skinning",
+      "licensing": "Tencent Hunyuan Community License (Permissive with attribution)",
+      "gpu_vram_requirement_gb": 24.0,
+      "inference_latency_seconds": 25.0,
+      "estimated_cost_per_reconstruction_usd": 0.018,
+      "overall_suitability_score": 0.85,
+      "recommendation": "Highest geometric fidelity candidate; requires 24GB VRAM GPU instances (A10G or L4)"
+    },
+    "instantmesh": {
+      "name": "InstantMesh (Tencent ARC)",
+      "architecture": "Zero123++ multi-view diffusion + Large Reconstruction Model (LRM) NeRF/Mesh",
+      "input_requirements": "Single isolated garment image with white background",
+      "garment_category_support": "All garment categories, but thin trouser legs often fuse together",
+      "multi_view_support": "Generates 6 fixed viewpoints (front, right, back, left, top, bottom)",
+      "output_topology": "FlexiCubes isosurface extraction; clean manifold but lacks garment thickness",
+      "texture_quality": "Moderate blur on rear and occlusion regions",
+      "silhouette_fidelity": "Good silhouette match from primary view",
+      "component_completeness": "Sleeves reconstructed well; pocket flaps and seams smoothed out",
+      "uv_quality": "Automatic cube projection UVs",
+      "rigging_compatibility": "Good water-tightness allows standard rigging",
+      "licensing": "Apache 2.0 (Commercial friendly)",
+      "gpu_vram_requirement_gb": 12.0,
+      "inference_latency_seconds": 9.8,
+      "estimated_cost_per_reconstruction_usd": 0.0065,
+      "overall_suitability_score": 0.78,
+      "recommendation": "Fast and lightweight; well suited for real-time preview before high-res bake"
+    },
+    "stable_fast_3d": {
+      "name": "Stable Fast 3D (Stability AI)",
+      "architecture": "Triplane NeRF + marching cubes mesh extraction",
+      "input_requirements": "Single image with transparent or white background",
+      "garment_category_support": "Tops, dresses, shoes; poor on thin trousers and straps",
+      "multi_view_support": "Single-view only",
+      "output_topology": "Marching cubes surface mesh (30k-50k vertices)",
+      "texture_quality": "PBR textures (albedo, roughness, normal)",
+      "silhouette_fidelity": "Moderate; small features smoothed by triplane resolution",
+      "component_completeness": "Sleeve cuffs and hemlines often sealed into blunt ends",
+      "uv_quality": "Unwrapped atlas with normal map",
+      "rigging_compatibility": "Requires remeshing for clean joint deformation",
+      "licensing": "Stability AI Community License",
+      "gpu_vram_requirement_gb": 8.0,
+      "inference_latency_seconds": 0.8,
+      "estimated_cost_per_reconstruction_usd": 0.0015,
+      "overall_suitability_score": 0.74,
+      "recommendation": "Extremely fast (< 1s), ideal for mobile client low-latency draft reconstruction"
+    },
+    "pifuhd": {
+      "name": "PIFuHD (Facebook Research / USC)",
+      "architecture": "Pixel-Aligned Implicit Function (multi-level deep MLP) for clothed humans",
+      "input_requirements": "High-resolution front/back human photograph (2048x2048)",
+      "garment_category_support": "Tailored specifically for clothing worn on human bodies",
+      "multi_view_support": "Front-only or Front+Back view inputs",
+      "output_topology": "Continuous implicit SDF surface meshed via Marching Cubes; non-parametric",
+      "texture_quality": "Vertex color or projected RGB; no native UV map",
+      "silhouette_fidelity": "Pixel-accurate front silhouette and fine wrinkle alignment",
+      "component_completeness": "Reconstructs both human body and clothing as unified surface (cannot separate shirt from avatar)",
+      "uv_quality": "None (raw vertex colored mesh)",
+      "rigging_compatibility": "Difficult to rig clothing independently from body surface",
+      "licensing": "Non-commercial Research License only (Restricted)",
+      "gpu_vram_requirement_gb": 12.0,
+      "inference_latency_seconds": 18.0,
+      "estimated_cost_per_reconstruction_usd": 0.012,
+      "overall_suitability_score": 0.62,
+      "recommendation": "Restricted by non-commercial license and coupled human+clothing mesh"
+    },
+    "econ": {
+      "name": "ECON (Max Planck Institute)",
+      "architecture": "Explicit Clothed humans from Normal integration + d-BiPyFu implicit surface",
+      "input_requirements": "Single in-the-wild portrait or full-body fashion photo",
+      "garment_category_support": "Worn garments on human bodies",
+      "multi_view_support": "Single-view front with inferred rear normal map",
+      "output_topology": "SMPL-X registered outer surface with detailed normal relief",
+      "texture_quality": "High geometric detail (folds/wrinkles), RGB texture projection",
+      "silhouette_fidelity": "Very high geometric fidelity to clothing wrinkles",
+      "component_completeness": "Coupled to SMPL body model; cannot export standalone garment GLB for wardrobe reuse",
+      "uv_quality": "SMPL-X UV parameterization",
+      "rigging_compatibility": "Native SMPL-X skeletal skinning",
+      "licensing": "CC BY-NC 4.0 (Non-commercial only)",
+      "gpu_vram_requirement_gb": 16.0,
+      "inference_latency_seconds": 35.0,
+      "estimated_cost_per_reconstruction_usd": 0.022,
+      "overall_suitability_score": 0.65,
+      "recommendation": "Excellent for fixed pose rendering, restricted by non-commercial license"
+    }
+  },
+  "comparative_ranking_and_tradeoff": [
+    {
+      "rank": 1,
+      "model": "hunyuan3d",
+      "score": 0.85,
+      "verdict": "Top recommendation for high-fidelity production cloud service"
+    },
+    {
+      "rank": 2,
+      "model": "trellis",
+      "score": 0.82,
+      "verdict": "Strong alternative with MIT license, requires manifold post-processing"
+    },
+    {
+      "rank": 3,
+      "model": "instantmesh",
+      "score": 0.78,
+      "verdict": "Best balance of speed and open Apache 2.0 licensing"
+    },
+    {
+      "rank": 4,
+      "model": "stable_fast_3d",
+      "score": 0.74,
+      "verdict": "Ultra low latency (<1s) option for instant interactive previews"
+    },
+    {
+      "rank": 5,
+      "model": "econ",
+      "score": 0.65,
+      "verdict": "Blocked by CC BY-NC non-commercial licensing"
+    },
+    {
+      "rank": 6,
+      "model": "pifuhd",
+      "score": 0.62,
+      "verdict": "Blocked by non-commercial license and coupled body-clothing mesh"
+    }
+  ],
+  "procedural_fallback_status": {
+    "engine": "UniversalGarmentFittingEngine-14.4.0",
+    "provenance": "Procedural parametric mesh deformation with continuous SDF body clearance",
+    "operational_status": "ACTIVE_VERIFIED (100% pass on 384 skeletal deformation poses)"
+  },
+  "execution_time_seconds": 0.0
+}

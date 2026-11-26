@@ -1,0 +1,1614 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "C",
+    "timestamp": "2026-11-19T17:18:34Z",
+    "audit_standard": "Principal Computational Geometry & Fashion Intelligence Engineer",
+    "total_benchmark_garments": 10,
+    "total_components_checked": 83,
+    "total_components_valid": 83,
+    "overall_component_completeness": 1.0,
+    "open_boundary_preservation_rate": 1.0,
+    "manifold_integrity_rate": 1.0
+  },
+  "garment_evaluations": [
+    {
+      "garment_category": "tops",
+      "subcategory": "hoodie",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "image_sha256": "c2d731e7b4844bb065350c80b547430c14fa054e6a43619fdd08dcbf83bf912a",
+      "reconstruction_time_ms": 4359.57,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 11,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 11,
+        "verified_components_count": 11,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.6188,
+            0.54,
+            0.3368
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4059,
+            0.047,
+            0.2809
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6081,
+            0.1409,
+            0.3319
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6188,
+            0.1878,
+            0.3362
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6034,
+            0.1174,
+            0.3229
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "kangaroo_pocket",
+          "status": "PASS",
+          "semantic_type": "pocket",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5319,
+            0.0704,
+            0.3097
+          ],
+          "vertex_count": 128,
+          "triangle_count": 256,
+          "attachment_location": "abdomen",
+          "material_assignment": "pocket_fleece",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hood_shell",
+          "status": "PASS",
+          "semantic_type": "hood",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.3101,
+            0.0235,
+            0.2367
+          ],
+          "vertex_count": 64,
+          "triangle_count": 64,
+          "attachment_location": "head_base",
+          "material_assignment": "hood_fleece",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_hoodie_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "tops",
+      "subcategory": "jacket",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "image_sha256": "93234e24706027c4e8eb814d5a844860eace2927d2aefdde57f2b665528899a8",
+      "reconstruction_time_ms": 268.35,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 10,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 10,
+        "verified_components_count": 10,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.6079,
+            0.62,
+            0.3318
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.359,
+            0.0539,
+            0.2739
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5772,
+            0.1617,
+            0.3273
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.59,
+            0.2157,
+            0.3318
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6079,
+            0.1348,
+            0.3144
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "front_placket",
+          "status": "PASS",
+          "semantic_type": "placket",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.59,
+            0.2965,
+            0.3318
+          ],
+          "vertex_count": 384,
+          "triangle_count": 768,
+          "attachment_location": "center_front",
+          "material_assignment": "button_placket",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_jacket_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "tops",
+      "subcategory": "shirt",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "image_sha256": "977263f92f56b5432305bc6ba3dd4771c6e645f907e1c38fa9141df8febe81a8",
+      "reconstruction_time_ms": 357.93,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 10,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 10,
+        "verified_components_count": 10,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.6095,
+            0.89,
+            0.3247
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4194,
+            0.0774,
+            0.2984
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5365,
+            0.2322,
+            0.3243
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5526,
+            0.3096,
+            0.3191
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6095,
+            0.1935,
+            0.3052
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "front_placket",
+          "status": "PASS",
+          "semantic_type": "placket",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5526,
+            0.4257,
+            0.3247
+          ],
+          "vertex_count": 384,
+          "triangle_count": 768,
+          "attachment_location": "center_front",
+          "material_assignment": "button_placket",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_shirt_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "tops",
+      "subcategory": "tshirt",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "image_sha256": "995cbc3ed1ebc864f5a61fdf50a6db67b3ea3299bd350b64d7814cb0254be382",
+      "reconstruction_time_ms": 345.48,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 10,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 9,
+        "verified_components_count": 9,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.6474,
+            0.54,
+            0.3515
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4637,
+            0.047,
+            0.3163
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6405,
+            0.1409,
+            0.349
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.6474,
+            0.1878,
+            0.3515
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5633,
+            0.1174,
+            0.3014
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_tshirt_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "tops",
+      "subcategory": "sweater",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_09_sweater_knit.jpg",
+      "image_sha256": "7cbfea5786dbc056ec3c3b686df1a5e626c801a1897f25ab3a09fd8fffc715f7",
+      "reconstruction_time_ms": 244.72,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 9,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 9,
+        "verified_components_count": 9,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.5935,
+            0.89,
+            0.3267
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4149,
+            0.0774,
+            0.2845
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5935,
+            0.2322,
+            0.3267
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5122,
+            0.3096,
+            0.2993
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4937,
+            0.1935,
+            0.2669
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.2489,
+            0.2621,
+            0.1716
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1342,
+            0.1189,
+            0.1369
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_sweater_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "bottoms",
+      "subcategory": "jeans",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "image_sha256": "41837d2f541c8db39cb4ca175dc640ce63e7c6f52d802ecb15f99413f2e65ab6",
+      "reconstruction_time_ms": 355.97,
+      "mesh_summary": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 8,
+        "root_ids": [
+          "waistband_root"
+        ],
+        "expected_components_count": 8,
+        "verified_components_count": 8,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "waistband_root",
+          "status": "PASS",
+          "semantic_type": "waistband",
+          "parent_id": null,
+          "dimensions_m": [
+            0.4688,
+            0.27,
+            0.28
+          ],
+          "vertex_count": 256,
+          "triangle_count": 448,
+          "attachment_location": "pelvis",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "waistband_rim",
+          "status": "PASS",
+          "semantic_type": "waistband",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.4097,
+            0.0386,
+            0.2457
+          ],
+          "vertex_count": 64,
+          "triangle_count": 64,
+          "attachment_location": "waist",
+          "material_assignment": "waistband_elastic",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "fly_closure",
+          "status": "PASS",
+          "semantic_type": "placket",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.4661,
+            0.1543,
+            0.2743
+          ],
+          "vertex_count": 160,
+          "triangle_count": 256,
+          "attachment_location": "front_pelvis",
+          "material_assignment": "fly_zipper",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "crotch_geometry",
+          "status": "PASS",
+          "semantic_type": "crotch_gusset",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.4678,
+            0.0,
+            0.28
+          ],
+          "vertex_count": 32,
+          "triangle_count": 64,
+          "attachment_location": "crotch",
+          "material_assignment": "gusset_seam",
+          "has_non_zero_volume": false
+        },
+        {
+          "component_id": "leg_left",
+          "status": "PASS",
+          "semantic_type": "leg",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.1855,
+            0.66,
+            0.1855
+          ],
+          "vertex_count": 224,
+          "triangle_count": 416,
+          "attachment_location": "hip_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "ankle_cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "leg_left",
+          "dimensions_m": [
+            0.1341,
+            0.1015,
+            0.1341
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "ankle_L",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "leg_right",
+          "status": "PASS",
+          "semantic_type": "leg",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.1855,
+            0.66,
+            0.1855
+          ],
+          "vertex_count": 224,
+          "triangle_count": 416,
+          "attachment_location": "hip_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "ankle_cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "leg_right",
+          "dimensions_m": [
+            0.1341,
+            0.1015,
+            0.1341
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "ankle_R",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/bottoms_jeans_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "bottoms",
+      "subcategory": "shorts",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "image_sha256": "c907b957824349263176caf960965fb3d1318d44f44d2767029b2e41e4f3bb10",
+      "reconstruction_time_ms": 365.33,
+      "mesh_summary": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 8,
+        "root_ids": [
+          "waistband_root"
+        ],
+        "expected_components_count": 8,
+        "verified_components_count": 8,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "waistband_root",
+          "status": "PASS",
+          "semantic_type": "waistband",
+          "parent_id": null,
+          "dimensions_m": [
+            0.5089,
+            0.27,
+            0.28
+          ],
+          "vertex_count": 256,
+          "triangle_count": 448,
+          "attachment_location": "pelvis",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "waistband_rim",
+          "status": "PASS",
+          "semantic_type": "waistband",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.4281,
+            0.0386,
+            0.2457
+          ],
+          "vertex_count": 64,
+          "triangle_count": 64,
+          "attachment_location": "waist",
+          "material_assignment": "waistband_elastic",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "fly_closure",
+          "status": "PASS",
+          "semantic_type": "placket",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.4962,
+            0.1543,
+            0.2743
+          ],
+          "vertex_count": 160,
+          "triangle_count": 256,
+          "attachment_location": "front_pelvis",
+          "material_assignment": "fly_zipper",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "crotch_geometry",
+          "status": "PASS",
+          "semantic_type": "crotch_gusset",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.5089,
+            0.0,
+            0.28
+          ],
+          "vertex_count": 32,
+          "triangle_count": 64,
+          "attachment_location": "crotch",
+          "material_assignment": "gusset_seam",
+          "has_non_zero_volume": false
+        },
+        {
+          "component_id": "leg_left",
+          "status": "PASS",
+          "semantic_type": "leg",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.1988,
+            0.18,
+            0.1988
+          ],
+          "vertex_count": 224,
+          "triangle_count": 416,
+          "attachment_location": "hip_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "ankle_cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "leg_left",
+          "dimensions_m": [
+            0.1713,
+            0.0277,
+            0.1713
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "ankle_L",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "leg_right",
+          "status": "PASS",
+          "semantic_type": "leg",
+          "parent_id": "waistband_root",
+          "dimensions_m": [
+            0.1988,
+            0.18,
+            0.1988
+          ],
+          "vertex_count": 224,
+          "triangle_count": 416,
+          "attachment_location": "hip_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "ankle_cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "leg_right",
+          "dimensions_m": [
+            0.1713,
+            0.0277,
+            0.1713
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "ankle_R",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/bottoms_shorts_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "skirt",
+      "subcategory": "pleated_skirt",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "image_sha256": "2091544482708add777230b72a11f67005d60989c69a0eba05fd0a6f7d661271",
+      "reconstruction_time_ms": 260.06,
+      "mesh_summary": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops": 64,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 4,
+        "root_ids": [
+          "skirt_root"
+        ],
+        "expected_components_count": 4,
+        "verified_components_count": 4,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "skirt_root",
+          "status": "PASS",
+          "semantic_type": "skirt_root",
+          "parent_id": null,
+          "dimensions_m": [
+            0.7595,
+            0.3,
+            0.5136
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "pelvis",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "waistband_rim",
+          "status": "PASS",
+          "semantic_type": "waistband",
+          "parent_id": "skirt_root",
+          "dimensions_m": [
+            0.3755,
+            0.0261,
+            0.2542
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "waist",
+          "material_assignment": "waistband_elastic",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "skirt_drape",
+          "status": "PASS",
+          "semantic_type": "skirt_drape",
+          "parent_id": "skirt_root",
+          "dimensions_m": [
+            0.7595,
+            0.2087,
+            0.5136
+          ],
+          "vertex_count": 544,
+          "triangle_count": 1088,
+          "attachment_location": "hips_lower",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "skirt_drape",
+          "dimensions_m": [
+            0.724,
+            0.0391,
+            0.4969
+          ],
+          "vertex_count": 128,
+          "triangle_count": 256,
+          "attachment_location": "skirt_hem",
+          "material_assignment": "hem_seam",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/skirt_pleated_skirt_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "dress",
+      "subcategory": "aline_dress",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "image_sha256": "690b88c5fce92e2c9d167fd00c4daeeed1b6a4affa88c7a28a5ef2dcf770bc1a",
+      "reconstruction_time_ms": 579.48,
+      "mesh_summary": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops": 64,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 5,
+        "root_ids": [
+          "dress_root"
+        ],
+        "expected_components_count": 5,
+        "verified_components_count": 5,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "dress_root",
+          "status": "PASS",
+          "semantic_type": "dress_root",
+          "parent_id": null,
+          "dimensions_m": [
+            0.6793,
+            1.22,
+            0.4707
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "torso_root",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "bodice_shell",
+          "status": "PASS",
+          "semantic_type": "bodice",
+          "parent_id": "dress_root",
+          "dimensions_m": [
+            0.4982,
+            0.4243,
+            0.28
+          ],
+          "vertex_count": 288,
+          "triangle_count": 512,
+          "attachment_location": "torso",
+          "material_assignment": "bodice_fabric",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "waist_transition",
+          "status": "PASS",
+          "semantic_type": "waist_seam",
+          "parent_id": "dress_root",
+          "dimensions_m": [
+            0.4993,
+            0.053,
+            0.3171
+          ],
+          "vertex_count": 64,
+          "triangle_count": 128,
+          "attachment_location": "waist",
+          "material_assignment": "waist_seam",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "skirt_flare",
+          "status": "PASS",
+          "semantic_type": "skirt_drape",
+          "parent_id": "dress_root",
+          "dimensions_m": [
+            0.6793,
+            0.4774,
+            0.4593
+          ],
+          "vertex_count": 320,
+          "triangle_count": 640,
+          "attachment_location": "hips_lower",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "skirt_flare",
+          "dimensions_m": [
+            0.666,
+            0.1061,
+            0.4707
+          ],
+          "vertex_count": 96,
+          "triangle_count": 192,
+          "attachment_location": "dress_hem",
+          "material_assignment": "hem_seam",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/dress_aline_dress_structural_contact_sheet.png"
+    },
+    {
+      "garment_category": "tops",
+      "subcategory": "kurta",
+      "image_path": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+      "image_sha256": "89df5e41553d8363c1be67fbfbbacccf4a65c7a3bba47c1d4b805b84dc495ffc",
+      "reconstruction_time_ms": 349.76,
+      "mesh_summary": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops": 128,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "quality_score": 0.96
+      },
+      "component_graph_metrics": {
+        "total_nodes": 9,
+        "root_ids": [
+          "torso_root"
+        ],
+        "expected_components_count": 9,
+        "verified_components_count": 9,
+        "component_completeness_ratio": 1.0
+      },
+      "components": [
+        {
+          "component_id": "torso_root",
+          "status": "PASS",
+          "semantic_type": "torso",
+          "parent_id": null,
+          "dimensions_m": [
+            0.5993,
+            0.54,
+            0.3231
+          ],
+          "vertex_count": 768,
+          "triangle_count": 1472,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "collar_curve",
+          "status": "PASS",
+          "semantic_type": "collar",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4175,
+            0.047,
+            0.2856
+          ],
+          "vertex_count": 96,
+          "triangle_count": 128,
+          "attachment_location": "neck",
+          "material_assignment": "collar_rib",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "chest_yoke",
+          "status": "PASS",
+          "semantic_type": "yoke",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5691,
+            0.1409,
+            0.3231
+          ],
+          "vertex_count": 224,
+          "triangle_count": 448,
+          "attachment_location": "chest",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "mid_torso",
+          "status": "PASS",
+          "semantic_type": "torso_body",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5746,
+            0.1878,
+            0.3185
+          ],
+          "vertex_count": 288,
+          "triangle_count": 576,
+          "attachment_location": "spine",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "hemline_ribbing",
+          "status": "PASS",
+          "semantic_type": "hemline",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.5993,
+            0.1174,
+            0.2982
+          ],
+          "vertex_count": 192,
+          "triangle_count": 320,
+          "attachment_location": "hem",
+          "material_assignment": "hem_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_left",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_L",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "sleeve_right",
+          "status": "PASS",
+          "semantic_type": "sleeve",
+          "parent_id": "torso_root",
+          "dimensions_m": [
+            0.4304,
+            0.4982,
+            0.2079
+          ],
+          "vertex_count": 160,
+          "triangle_count": 288,
+          "attachment_location": "shoulder_R",
+          "material_assignment": "main_shell",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_left",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_left",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_L",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        },
+        {
+          "component_id": "cuff_right",
+          "status": "PASS",
+          "semantic_type": "cuff",
+          "parent_id": "sleeve_right",
+          "dimensions_m": [
+            0.1746,
+            0.1714,
+            0.145
+          ],
+          "vertex_count": 48,
+          "triangle_count": 64,
+          "attachment_location": "wrist_R",
+          "material_assignment": "cuff_ribbing",
+          "has_non_zero_volume": true
+        }
+      ],
+      "contact_sheet_path": "docs/reports/phase_14_9_structural_qa/tops_kurta_structural_contact_sheet.png"
+    }
+  ]
+}

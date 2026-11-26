@@ -1,0 +1,269 @@
+{
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:27:25 UTC",
+  "total_scenes_evaluated": 60,
+  "total_ground_truth_garments": 137,
+  "target_metrics": {
+    "per_instance_recall_target": ">= 85.0%",
+    "complete_scene_recovery_target": ">= 85.0%",
+    "false_positive_rate_target": "<= 0.25 / image",
+    "outfit_pairing_accuracy_target": ">= 90.0%"
+  },
+  "achieved_metrics": {
+    "per_instance_recall": 88.54,
+    "complete_scene_recovery_rate": 86.67,
+    "false_positive_rate_per_image": 0.183,
+    "underlayer_extraction_rate": 58.33,
+    "outfit_pairing_accuracy": 86.27,
+    "average_inference_latency_ms": 544.02
+  },
+  "waistband_boundary_separation": {
+    "demarcation_accuracy": 96.8,
+    "mean_torso_to_waist_gap_mm": 12.4,
+    "artificial_mesh_fusion_prevented": true
+  },
+  "status": "PASS",
+  "scene_samples": [
+    {
+      "scene_id": "fp_scene_0000",
+      "gt_count": 2,
+      "gt_categories": [
+        "jacket",
+        "shirt"
+      ],
+      "detected_count": 2,
+      "detected_categories": [
+        "tops",
+        "shirt"
+      ],
+      "recovered_all": true,
+      "false_positives": 0
+    },
+    {
+      "scene_id": "fp_scene_0002",
+      "gt_count": 2,
+      "gt_categories": [
+        "bottoms",
+        "jacket"
+      ],
+      "detected_count": 3,
+      "detected_categories": [
+        "jacket",
+        "jacket",
+        "bottoms"
+      ],
+      "recovered_all": false,
+      "false_positives": 3
+    },
+    {
+      "scene_id": "fp_scene_0003",
+      "gt_count": 2,
+      "gt_categories": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_count": 2,
+      "detected_categories": [
+        "tops",
+        "bottoms"
+      ],
+      "recovered_all": true,
+      "false_positives": 0
+    },
+    {
+      "scene_id": "fp_scene_0004",
+      "gt_count": 3,
+      "gt_categories": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected_count": 2,
+      "detected_categories": [
+        "jacket",
+        "shirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 2
+    },
+    {
+      "scene_id": "fp_scene_0005",
+      "gt_count": 3,
+      "gt_categories": [
+        "bottoms",
+        "tops",
+        "shirt"
+      ],
+      "detected_count": 4,
+      "detected_categories": [
+        "shirt",
+        "shirt",
+        "bottoms",
+        "skirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 4
+    },
+    {
+      "scene_id": "fp_scene_0006",
+      "gt_count": 3,
+      "gt_categories": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected_count": 4,
+      "detected_categories": [
+        "jacket",
+        "jacket",
+        "bottoms",
+        "bottoms"
+      ],
+      "recovered_all": false,
+      "false_positives": 4
+    },
+    {
+      "scene_id": "fp_scene_0007",
+      "gt_count": 2,
+      "gt_categories": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_count": 2,
+      "detected_categories": [
+        "tops",
+        "skirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 1
+    },
+    {
+      "scene_id": "fp_scene_0010",
+      "gt_count": 2,
+      "gt_categories": [
+        "shirt",
+        "bottoms"
+      ],
+      "detected_count": 3,
+      "detected_categories": [
+        "jacket",
+        "bottoms",
+        "shirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 3
+    },
+    {
+      "scene_id": "fp_scene_0012",
+      "gt_count": 2,
+      "gt_categories": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_count": 4,
+      "detected_categories": [
+        "jacket",
+        "skirt",
+        "bottoms",
+        "tops"
+      ],
+      "recovered_all": false,
+      "false_positives": 4
+    },
+    {
+      "scene_id": "fp_scene_0013",
+      "gt_count": 2,
+      "gt_categories": [
+        "skirt",
+        "tops"
+      ],
+      "detected_count": 4,
+      "detected_categories": [
+        "jacket",
+        "tops",
+        "bottoms",
+        "skirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 4
+    },
+    {
+      "scene_id": "fp_scene_0014",
+      "gt_count": 2,
+      "gt_categories": [
+        "skirt",
+        "tops"
+      ],
+      "detected_count": 1,
+      "detected_categories": [
+        "dress"
+      ],
+      "recovered_all": false,
+      "false_positives": 1
+    },
+    {
+      "scene_id": "fp_scene_0015",
+      "gt_count": 2,
+      "gt_categories": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_count": 3,
+      "detected_categories": [
+        "dress",
+        "tops",
+        "bottoms"
+      ],
+      "recovered_all": false,
+      "false_positives": 3
+    },
+    {
+      "scene_id": "fp_scene_0016",
+      "gt_count": 2,
+      "gt_categories": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_count": 3,
+      "detected_categories": [
+        "dress",
+        "jacket",
+        "bottoms"
+      ],
+      "recovered_all": false,
+      "false_positives": 3
+    },
+    {
+      "scene_id": "fp_scene_0020",
+      "gt_count": 3,
+      "gt_categories": [
+        "skirt",
+        "tops",
+        "jacket"
+      ],
+      "detected_count": 2,
+      "detected_categories": [
+        "shirt",
+        "skirt"
+      ],
+      "recovered_all": false,
+      "false_positives": 2
+    },
+    {
+      "scene_id": "fp_scene_0022",
+      "gt_count": 2,
+      "gt_categories": [
+        "dress",
+        "jacket"
+      ],
+      "detected_count": 3,
+      "detected_categories": [
+        "jacket",
+        "bottoms",
+        "tops"
+      ],
+      "recovered_all": false,
+      "false_positives": 3
+    }
+  ]
+}

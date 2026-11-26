@@ -1,0 +1,268 @@
+{
+  "benchmark_version": "13.2.0-empirical",
+  "benchmark_timestamp": "2026-11-10T08:35:00Z",
+  "evaluation_methodology": "Empirical measurement on disk reference assets (Pillow 1200px WebP Q85)",
+  "sample_count": 6,
+  "total_raw_bytes": 2022961,
+  "total_raw_kb": 1975.5,
+  "total_hybrid_bytes": 108324,
+  "total_hybrid_kb": 105.8,
+  "aggregate_bandwidth_saved_bytes": 1914637,
+  "aggregate_bandwidth_saved_pct": 94.65,
+  "aggregate_time_saved_seconds": 1.02,
+  "empirical_note": "Replaces Phase 13 fabricated 96.5% claim with measured 94.65% aggregate bandwidth reduction across reference images (with per-case measurements ranging from -9.05% on small pre-compressed images to 97.27% on uncompressed high-resolution images).",
+  "results": [
+    {
+      "garment_id": "A",
+      "garment_name": "Dark brown oversized hoodie",
+      "category": "top",
+      "subcategory": "hoodie",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/01_original_uploaded_image.png",
+      "original_dimensions": [
+        1294,
+        1480
+      ],
+      "processed_dimensions": [
+        1049,
+        1200
+      ],
+      "raw_payload_bytes": 1334433,
+      "raw_payload_kb": 1303.2,
+      "edge_preprocessed_bytes": 36394,
+      "edge_preprocessed_kb": 35.5,
+      "compression_ratio": 0.0273,
+      "bandwidth_saved_bytes": 1298039,
+      "bandwidth_saved_pct": 97.27,
+      "blur_variance": 307.09,
+      "dominant_palette": [
+        "#302727",
+        "#1d1716",
+        "#fafafa",
+        "#f6f6f6",
+        "#7c7675"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 42.05,
+        "laplacian_blur": 640.94,
+        "palette_extraction": 6.24,
+        "webp_compression": 122.26,
+        "total_client_compute_ms": 811.49
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.712,
+        "hybrid_upload_seconds": 0.019,
+        "time_saved_seconds": 0.692
+      }
+    },
+    {
+      "garment_id": "B",
+      "garment_name": "Grey graphic oversized T-shirt",
+      "category": "top",
+      "subcategory": "graphic_tshirt",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png",
+      "original_dimensions": [
+        720,
+        910
+      ],
+      "processed_dimensions": [
+        720,
+        910
+      ],
+      "raw_payload_bytes": 496875,
+      "raw_payload_kb": 485.2,
+      "edge_preprocessed_bytes": 36142,
+      "edge_preprocessed_kb": 35.3,
+      "compression_ratio": 0.0727,
+      "bandwidth_saved_bytes": 460733,
+      "bandwidth_saved_pct": 92.73,
+      "blur_variance": 804.03,
+      "dominant_palette": [
+        "#868581",
+        "#b1bbc0",
+        "#4c4542",
+        "#a7a7a4",
+        "#cacecb"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 9.45,
+        "laplacian_blur": 4.16,
+        "palette_extraction": 4.23,
+        "webp_compression": 57.46,
+        "total_client_compute_ms": 75.3
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.265,
+        "hybrid_upload_seconds": 0.019,
+        "time_saved_seconds": 0.246
+      }
+    },
+    {
+      "garment_id": "C",
+      "garment_name": "Formal Oxford button-down shirt",
+      "category": "top",
+      "subcategory": "oxford_shirt",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/01_original_uploaded_image.png",
+      "original_dimensions": [
+        512,
+        512
+      ],
+      "processed_dimensions": [
+        512,
+        512
+      ],
+      "raw_payload_bytes": 3437,
+      "raw_payload_kb": 3.4,
+      "edge_preprocessed_bytes": 2878,
+      "edge_preprocessed_kb": 2.8,
+      "compression_ratio": 0.8374,
+      "bandwidth_saved_bytes": 559,
+      "bandwidth_saved_pct": 16.26,
+      "blur_variance": 385.4,
+      "dominant_palette": [
+        "#f8f8fa",
+        "#c2e2f3",
+        "#dafcfe",
+        "#faf9fa",
+        "#f9f8fa"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 1.17,
+        "laplacian_blur": 1.87,
+        "palette_extraction": 1.36,
+        "webp_compression": 10.91,
+        "total_client_compute_ms": 15.31
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.002,
+        "hybrid_upload_seconds": 0.002,
+        "time_saved_seconds": 0.0
+      }
+    },
+    {
+      "garment_id": "D",
+      "garment_name": "Structured denim jacket",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/01_original_uploaded_image.png",
+      "original_dimensions": [
+        720,
+        960
+      ],
+      "processed_dimensions": [
+        720,
+        960
+      ],
+      "raw_payload_bytes": 5759,
+      "raw_payload_kb": 5.6,
+      "edge_preprocessed_bytes": 3884,
+      "edge_preprocessed_kb": 3.8,
+      "compression_ratio": 0.6744,
+      "bandwidth_saved_bytes": 1875,
+      "bandwidth_saved_pct": 32.56,
+      "blur_variance": 570.32,
+      "dominant_palette": [
+        "#e8e8ec",
+        "#efeff3",
+        "#22324c",
+        "#232935",
+        "#d8d7db"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 2.37,
+        "laplacian_blur": 4.35,
+        "palette_extraction": 3.09,
+        "webp_compression": 23.34,
+        "total_client_compute_ms": 33.16
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.003,
+        "hybrid_upload_seconds": 0.002,
+        "time_saved_seconds": 0.001
+      }
+    },
+    {
+      "garment_id": "E",
+      "garment_name": "Tailored trousers / straight jeans",
+      "category": "bottom",
+      "subcategory": "straight_jeans",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/01_original_uploaded_image.png",
+      "original_dimensions": [
+        451,
+        679
+      ],
+      "processed_dimensions": [
+        451,
+        679
+      ],
+      "raw_payload_bytes": 176161,
+      "raw_payload_kb": 172.0,
+      "edge_preprocessed_bytes": 22160,
+      "edge_preprocessed_kb": 21.6,
+      "compression_ratio": 0.1258,
+      "bandwidth_saved_bytes": 154001,
+      "bandwidth_saved_pct": 87.42,
+      "blur_variance": 1273.17,
+      "dominant_palette": [
+        "#ffffff",
+        "#516f8c",
+        "#a2b7c9",
+        "#fefffe",
+        "#fffffe"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 3.4,
+        "laplacian_blur": 1.95,
+        "palette_extraction": 1.95,
+        "webp_compression": 26.56,
+        "total_client_compute_ms": 33.87
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.094,
+        "hybrid_upload_seconds": 0.012,
+        "time_saved_seconds": 0.082
+      }
+    },
+    {
+      "garment_id": "F",
+      "garment_name": "Floral summer dress",
+      "category": "dress",
+      "subcategory": "casual_dress",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/01_original_uploaded_image.png",
+      "original_dimensions": [
+        720,
+        960
+      ],
+      "processed_dimensions": [
+        720,
+        960
+      ],
+      "raw_payload_bytes": 6296,
+      "raw_payload_kb": 6.1,
+      "edge_preprocessed_bytes": 6866,
+      "edge_preprocessed_kb": 6.7,
+      "compression_ratio": 1.0905,
+      "bandwidth_saved_bytes": -570,
+      "bandwidth_saved_pct": -9.05,
+      "blur_variance": 377.37,
+      "dominant_palette": [
+        "#e4e3e6",
+        "#e9eaed",
+        "#c9586e",
+        "#f0f0f4",
+        "#edeef2"
+      ],
+      "edge_compute_timing_ms": {
+        "bilinear_resize": 1.93,
+        "laplacian_blur": 4.47,
+        "palette_extraction": 3.11,
+        "webp_compression": 24.46,
+        "total_client_compute_ms": 33.97
+      },
+      "transmission_4g_seconds": {
+        "raw_upload_seconds": 0.003,
+        "hybrid_upload_seconds": 0.004,
+        "time_saved_seconds": -0.0
+      }
+    }
+  ]
+}

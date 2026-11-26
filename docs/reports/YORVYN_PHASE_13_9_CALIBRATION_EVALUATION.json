@@ -1,0 +1,102 @@
+{
+  "evaluation_phase": "Phase 13.9",
+  "benchmark_date": "2026-11-15T17:44:42Z",
+  "temperature_parameter": 1.6129,
+  "calibration_method": "Post-Hoc Temperature Scaling (L-BFGS on Validation Split)",
+  "holdout_ece": 0.5956,
+  "target_ece": 0.08,
+  "target_met": false,
+  "calibration_bins": [
+    {
+      "bin_index": 0,
+      "bin_lower": 0.0,
+      "bin_upper": 0.1,
+      "sample_count": 9,
+      "average_confidence": 0.0,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.0
+    },
+    {
+      "bin_index": 1,
+      "bin_lower": 0.1,
+      "bin_upper": 0.2,
+      "sample_count": 0,
+      "average_confidence": 0.15,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.0
+    },
+    {
+      "bin_index": 2,
+      "bin_lower": 0.2,
+      "bin_upper": 0.3,
+      "sample_count": 0,
+      "average_confidence": 0.25,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.0
+    },
+    {
+      "bin_index": 3,
+      "bin_lower": 0.3,
+      "bin_upper": 0.4,
+      "sample_count": 0,
+      "average_confidence": 0.35,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.0
+    },
+    {
+      "bin_index": 4,
+      "bin_lower": 0.4,
+      "bin_upper": 0.5,
+      "sample_count": 1,
+      "average_confidence": 0.475,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.475
+    },
+    {
+      "bin_index": 5,
+      "bin_lower": 0.5,
+      "bin_upper": 0.6,
+      "sample_count": 2,
+      "average_confidence": 0.579,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.579
+    },
+    {
+      "bin_index": 6,
+      "bin_lower": 0.6,
+      "bin_upper": 0.7,
+      "sample_count": 5,
+      "average_confidence": 0.6474,
+      "average_accuracy": 0.0,
+      "absolute_calibration_gap": 0.6474
+    },
+    {
+      "bin_index": 7,
+      "bin_lower": 0.7,
+      "bin_upper": 0.8,
+      "sample_count": 10,
+      "average_confidence": 0.756,
+      "average_accuracy": 0.2,
+      "absolute_calibration_gap": 0.556
+    },
+    {
+      "bin_index": 8,
+      "bin_lower": 0.8,
+      "bin_upper": 0.9,
+      "sample_count": 27,
+      "average_confidence": 0.8866,
+      "average_accuracy": 0.2222,
+      "absolute_calibration_gap": 0.6644
+    },
+    {
+      "bin_index": 9,
+      "bin_lower": 0.9,
+      "bin_upper": 1.0,
+      "sample_count": 51,
+      "average_confidence": 0.9444,
+      "average_accuracy": 0.2745,
+      "absolute_calibration_gap": 0.6699
+    }
+  ],
+  "holdout_samples_evaluated": 105
+}

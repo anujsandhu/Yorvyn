@@ -1,0 +1,75 @@
+<USER_REQUEST>
+# YORVYN — PHASE 14.5 MASTER EXECUTION PROMPT
+## VISION-LANGUAGE GARMENT PERCEPTION, REMOTE NEURAL 3D INFERENCE & REAL-GARMENT VIRTUAL TRY-ON
+
+**Project:** YORVYN Fashion Intelligence & 3D Virtual Try-On Platform  
+**Phase:** 14.5  
+**Role:** Principal Computer Vision Engineer, Multimodal ML Engineer, Neural 3D Reconstruction Engineer, Computational Geometry Engineer, Three.js/WebGL Engineer  
+**Baseline Commit:** `7139fc7eea4e1f890e28da9140db2e8550081267`  
+**Primary Objective:** Move YORVYN from predominantly analytical garment generation toward demonstrable image-conditioned garment reconstruction and avatar fitting.
+
+---
+
+## 1. MISSION
+
+Execute a comprehensive engineering phase addressing the unresolved limitations from Phase 14.4.
+
+The objective is not to generate another architecture proposal or another collection of synthetic benchmark results.
+
+The objective is to implement and validate a working pipeline:
+
+**Real garment photograph → garment understanding → segmentation → geometry reconstruction → texture/material generation → avatar fitting → Three.js visualization.**
+
+The implementation must preserve the existing working application and infrastructure. Inspect the repository before modifying anything. Reuse existing services where appropriate and avoid unnecessary rewrites.
+
+### Mandatory priorities
+
+1. Implement and benchmark a vision-language garment perception strategy.
+2. Resolve the flat-lay classification failure.
+3. Improve complete-instance garment detection.
+4. Establish a real remote neural 3D inference endpoint.
+5. Generate actual image-conditioned 3D garment assets.
+6. Integrate generated assets with the existing avatar fitting pipeline.
+7. Compare neural reconstruction against the existing procedural engine.
+8. Validate actual uploaded garment likeness through visual evidence.
+9. Preserve provenance, reproducibility, security, and dataset integrity.
+
+---
+
+## 2. PHASE 14.4 BASELINE — MUST BE PRESERVED
+
+Use these reported results as the starting reference, not 
+<truncated 15152 bytes>
+ference on uploaded photographs |
+| GLB output | Actual generated and validated asset |
+| Avatar integration | Reconstructed garment visibly fitted on avatar |
+| Garment likeness | Real-image visual benchmark |
+| Provenance | Correct neural/hybrid/procedural declaration |
+| Security | Authenticated and bounded remote inference |
+| Regression | Existing application remains functional |
+
+### Final verdict options
+
+- `PASS`: All critical acceptance gates met.
+- `PASS_WITH_QUALIFICATIONS`: Core pipeline works, but explicitly identified non-critical limitations remain.
+- `PARTIAL`: Important engineering milestones achieved, but one or more core capabilities remain incomplete.
+- `BLOCKED`: Required infrastructure or implementation prevents meaningful validation.
+- `FAIL`: Critical functionality regressed or acceptance criteria were not met.
+
+**The most important rule: YORVYN must reconstruct the garment the user actually uploaded, not merely generate a plausible garment of the same category.**
+
+End Phase 14.5 with an honest evidence-backed verdict, a complete list of remaining blockers, and the next engineering roadmap.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-18T23:51:14+05:30.
+
+The user's current state is as follows:
+Active Document: /Users/anujsandhu/Projects/yorvyn/docs/reports/YORVYN_PHASE_14_4_MASTER_ENGINEERING_REPORT.md (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 1
+Other open documents:
+- /Users/anujsandhu/Projects/yorvyn/backend/app/api/ai_orchestration_routes.py (LANGUAGE_UNSPECIFIED)
+- /Users/anujsandhu/Projects/yorvyn/backend/app/models/garment_reconstruction_contract.py (LANGUAGE_UNSPECIFIED)
+- /Users/anujsandhu/Projects/yorvyn/backend/app/services/garments/segmentation/human_parsing_segmenter.py (LANGUAGE_UNSPECIFIED)
+- /Users/anujsandhu/Projects/yorvyn/backend/app/services/garments/intelligence/garment_instance_detector.py (LANGUAGE_UNSPECIFIED)
+- /Users/anujsandhu/Projects/yorvyn/frontend/src/components/PhotoTo3DGarmentModal.tsx (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

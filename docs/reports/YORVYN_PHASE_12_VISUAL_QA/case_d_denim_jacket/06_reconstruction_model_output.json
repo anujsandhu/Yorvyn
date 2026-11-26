@@ -1,0 +1,33 @@
+{
+  "engine_id": "jacket_pattern_engine_v1",
+  "provenance": "pattern_constructed",
+  "vertex_count": 514,
+  "triangle_count": 818,
+  "panels_count": 7,
+  "panels": [
+    "front_jacket_torso",
+    "back_jacket_torso",
+    "denim_point_collar",
+    "button_placket",
+    "chest_flap_pockets",
+    "left_outerwear_sleeve",
+    "right_outerwear_sleeve"
+  ],
+  "quality_report": {
+    "is_valid": true,
+    "is_manifold": true,
+    "quality_score": 1.0,
+    "degenerate_triangle_count": 0,
+    "boundary_loops": 12,
+    "issues": []
+  },
+  "proportions": {
+    "shoulder_width_m": 0.5047,
+    "chest_width_m": 0.435,
+    "waist_width_m": 0.37,
+    "torso_length_m": 0.5258,
+    "sleeve_length_m": 0.3744,
+    "ease_margin_m": 0.037
+  },
+  "reconstruction_duration_ms": 6.55
+}

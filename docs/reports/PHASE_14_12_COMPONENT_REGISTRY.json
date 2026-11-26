@@ -1,0 +1,479 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "workstream": "B",
+    "timestamp": "2026-11-21T06:59:41Z",
+    "audit_standard": "Principal Garment Reconstruction & Computational Geometry Engineer",
+    "registered_components_count": 27,
+    "representation_taxonomy": [
+      "GEOMETRIC_MESH",
+      "SURFACE_RELIEF",
+      "TEXTURE_ONLY",
+      "NOT_APPLICABLE",
+      "NOT_RECONSTRUCTED"
+    ]
+  },
+  "components": {
+    "hood_cowl": {
+      "component_id": "hood_cowl",
+      "semantic_name": "Volumetric 3D Hood Cowl",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "neck_ring",
+      "min_expected_triangles": 64,
+      "validation_description": "Dual-layered cowl enclosing head volume with face opening loop"
+    },
+    "kangaroo_pocket": {
+      "component_id": "kangaroo_pocket",
+      "semantic_name": "Kangaroo Anterior Pouch Pocket",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "anterior_lower_torso",
+      "min_expected_triangles": 32,
+      "validation_description": "Raised pouch over abdomen with bilateral angled hand openings"
+    },
+    "ribbed_waistband": {
+      "component_id": "ribbed_waistband",
+      "semantic_name": "Elastic Ribbed Waistband Hem",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "sweater",
+        "jacket"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "torso_hem",
+      "min_expected_triangles": 32,
+      "validation_description": "Cinched lower perimeter with ribbing texture"
+    },
+    "left_cuff": {
+      "component_id": "left_cuff",
+      "semantic_name": "Left Wrist Ribbed/Barrel Cuff",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "formal_shirt",
+        "jacket",
+        "sweater",
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "left_sleeve",
+      "attachment_anchor": "left_wrist",
+      "min_expected_triangles": 24,
+      "validation_description": "Circumferential cuff opening at left wrist"
+    },
+    "right_cuff": {
+      "component_id": "right_cuff",
+      "semantic_name": "Right Wrist Ribbed/Barrel Cuff",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "formal_shirt",
+        "jacket",
+        "sweater",
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "right_sleeve",
+      "attachment_anchor": "right_wrist",
+      "min_expected_triangles": 24,
+      "validation_description": "Circumferential cuff opening at right wrist"
+    },
+    "drawstrings": {
+      "component_id": "drawstrings",
+      "semantic_name": "Hanging Drawstrings with Aglets",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "hood_cowl",
+      "attachment_anchor": "hood_collar_eyelets",
+      "min_expected_triangles": 16,
+      "validation_description": "Bilateral hanging cords terminating below clavicle"
+    },
+    "left_sleeve": {
+      "component_id": "left_sleeve",
+      "semantic_name": "Left Anatomical Sleeve",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "formal_shirt",
+        "tshirt",
+        "jacket",
+        "sweater",
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "left_shoulder_glenoid",
+      "min_expected_triangles": 48,
+      "validation_description": "Tubular arm geometry skin-weighted to arm/forearm bones"
+    },
+    "right_sleeve": {
+      "component_id": "right_sleeve",
+      "semantic_name": "Right Anatomical Sleeve",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "formal_shirt",
+        "tshirt",
+        "jacket",
+        "sweater",
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "right_shoulder_glenoid",
+      "min_expected_triangles": 48,
+      "validation_description": "Tubular arm geometry skin-weighted to arm/forearm bones"
+    },
+    "main_torso": {
+      "component_id": "main_torso",
+      "semantic_name": "Main Core Torso Shell",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "hoodie",
+        "formal_shirt",
+        "tshirt",
+        "jacket",
+        "sweater"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": null,
+      "attachment_anchor": "spine_core",
+      "min_expected_triangles": 128,
+      "validation_description": "Continuous torso shell enclosing chest, abdomen, and back"
+    },
+    "collar_stand": {
+      "component_id": "collar_stand",
+      "semantic_name": "Upright Collar Stand and Points",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "formal_shirt"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "neck_base",
+      "min_expected_triangles": 36,
+      "validation_description": "Rigid upright band with folded collar points"
+    },
+    "front_placket_band": {
+      "component_id": "front_placket_band",
+      "semantic_name": "Center Front Button Placket",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "formal_shirt"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "anterior_midline",
+      "min_expected_triangles": 24,
+      "validation_description": "Raised vertical placket band with button anchors"
+    },
+    "hem_loop": {
+      "component_id": "hem_loop",
+      "semantic_name": "Lower Torso Hem Perimeter",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "tshirt",
+        "sweater"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "waist_hip_level",
+      "min_expected_triangles": 24,
+      "validation_description": "Continuous open circular boundary loop at waist/hip level"
+    },
+    "lapels_and_collar": {
+      "component_id": "lapels_and_collar",
+      "semantic_name": "Outerwear Lapels and Folded Collar",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "jacket"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "chest_lapel_root",
+      "min_expected_triangles": 48,
+      "validation_description": "Folded notched or peak lapels extending down chest"
+    },
+    "front_zipper_track": {
+      "component_id": "front_zipper_track",
+      "semantic_name": "Front Closure Zipper / Placket Track",
+      "category_family": "upperwear",
+      "applicable_categories": [
+        "jacket"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "main_torso",
+      "attachment_anchor": "anterior_midline",
+      "min_expected_triangles": 24,
+      "validation_description": "Central vertical closure track"
+    },
+    "waistband_and_pelvis": {
+      "component_id": "waistband_and_pelvis",
+      "semantic_name": "Articulated Pelvis Shell & Waistband",
+      "category_family": "lowerwear",
+      "applicable_categories": [
+        "jeans",
+        "trousers",
+        "shorts"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": null,
+      "attachment_anchor": "pelvic_girdle",
+      "min_expected_triangles": 64,
+      "validation_description": "Non-collapsing pelvic shell anchoring waistband around iliac crest"
+    },
+    "left_leg": {
+      "component_id": "left_leg",
+      "semantic_name": "Bifurcated Left Leg Tube",
+      "category_family": "lowerwear",
+      "applicable_categories": [
+        "jeans",
+        "trousers",
+        "shorts"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "waistband_and_pelvis",
+      "attachment_anchor": "left_femur_hip",
+      "min_expected_triangles": 48,
+      "validation_description": "Independent tubular leg separated at crotch bridge"
+    },
+    "right_leg": {
+      "component_id": "right_leg",
+      "semantic_name": "Bifurcated Right Leg Tube",
+      "category_family": "lowerwear",
+      "applicable_categories": [
+        "jeans",
+        "trousers",
+        "shorts"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "waistband_and_pelvis",
+      "attachment_anchor": "right_femur_hip",
+      "min_expected_triangles": 48,
+      "validation_description": "Independent tubular leg separated at crotch bridge"
+    },
+    "upper_bodice": {
+      "component_id": "upper_bodice",
+      "semantic_name": "Fitted Upper Bodice Shell",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "dress"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": null,
+      "attachment_anchor": "spine_upper",
+      "min_expected_triangles": 64,
+      "validation_description": "Fitted torso shell spanning clavicle to natural waist"
+    },
+    "waist_connection": {
+      "component_id": "waist_connection",
+      "semantic_name": "Anatomical Waist Seam Transition",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "dress"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "upper_bodice",
+      "attachment_anchor": "natural_waist",
+      "min_expected_triangles": 32,
+      "validation_description": "Conforming transition band connecting bodice to skirt drape"
+    },
+    "flared_skirt_drape": {
+      "component_id": "flared_skirt_drape",
+      "semantic_name": "Flared Volumetric Skirt Drape",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "dress",
+        "skirt"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "waist_connection",
+      "attachment_anchor": "pelvic_hips",
+      "min_expected_triangles": 96,
+      "validation_description": "Expansive drape flaring outward from hips to lower hemline"
+    },
+    "mandarin_nehru_collar": {
+      "component_id": "mandarin_nehru_collar",
+      "semantic_name": "Mandarin / Nehru Band Collar",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "neck_ring",
+      "min_expected_triangles": 24,
+      "validation_description": "Upright circular stand collar framing the neck without lapels"
+    },
+    "chest_slit_placket": {
+      "component_id": "chest_slit_placket",
+      "semantic_name": "Anterior Chest Slit Placket",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "anterior_chest",
+      "min_expected_triangles": 16,
+      "validation_description": "Vertical chest slit placket running from collar stand down to sternum"
+    },
+    "kurta_front_flap_with_side_slits": {
+      "component_id": "kurta_front_flap_with_side_slits",
+      "semantic_name": "Anterior Tunic Flap with Lateral Chaks",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "hips_anterior",
+      "min_expected_triangles": 64,
+      "validation_description": "Anterior panel extending from hips to knees with open lateral side slits"
+    },
+    "kurta_back_flap_with_side_slits": {
+      "component_id": "kurta_back_flap_with_side_slits",
+      "semantic_name": "Posterior Tunic Flap with Lateral Chaks",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "hips_posterior",
+      "min_expected_triangles": 64,
+      "validation_description": "Posterior panel extending from hips to knees with open lateral side slits"
+    },
+    "left_kurta_sleeve": {
+      "component_id": "left_kurta_sleeve",
+      "semantic_name": "Left Straight Cut Kurta Sleeve",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "left_shoulder_glenoid",
+      "min_expected_triangles": 48,
+      "validation_description": "Straight-draping sleeve without tight elastic cuff"
+    },
+    "right_kurta_sleeve": {
+      "component_id": "right_kurta_sleeve",
+      "semantic_name": "Right Straight Cut Kurta Sleeve",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": "kurta_upper_torso",
+      "attachment_anchor": "right_shoulder_glenoid",
+      "min_expected_triangles": 48,
+      "validation_description": "Straight-draping sleeve without tight elastic cuff"
+    },
+    "kurta_upper_torso": {
+      "component_id": "kurta_upper_torso",
+      "semantic_name": "Kurta Fitted Upper Torso Section",
+      "category_family": "dresses_traditional",
+      "applicable_categories": [
+        "kurta"
+      ],
+      "default_representation": "GEOMETRIC_MESH",
+      "parent_component_id": null,
+      "attachment_anchor": "spine_core",
+      "min_expected_triangles": 96,
+      "validation_description": "Continuous upper torso spanning shoulders down to hip chak apex"
+    }
+  },
+  "category_expected_mapping": {
+    "hoodie": [
+      "hood_cowl",
+      "kangaroo_pocket",
+      "ribbed_waistband",
+      "left_cuff",
+      "right_cuff",
+      "drawstrings",
+      "left_sleeve",
+      "right_sleeve",
+      "main_torso"
+    ],
+    "formal_shirt": [
+      "collar_stand",
+      "front_placket_band",
+      "left_cuff",
+      "right_cuff",
+      "left_sleeve",
+      "right_sleeve",
+      "main_torso"
+    ],
+    "tshirt": [
+      "main_torso",
+      "hem_loop",
+      "left_sleeve",
+      "right_sleeve"
+    ],
+    "jacket": [
+      "main_torso",
+      "lapels_and_collar",
+      "front_zipper_track",
+      "left_sleeve",
+      "left_cuff",
+      "right_sleeve",
+      "right_cuff"
+    ],
+    "sweater": [
+      "main_torso",
+      "hem_loop",
+      "left_sleeve",
+      "right_sleeve"
+    ],
+    "jeans": [
+      "waistband_and_pelvis",
+      "left_leg",
+      "left_cuff",
+      "right_leg",
+      "right_cuff"
+    ],
+    "trousers": [
+      "waistband_and_pelvis",
+      "left_leg",
+      "left_cuff",
+      "right_leg",
+      "right_cuff"
+    ],
+    "shorts": [
+      "waistband_and_pelvis",
+      "left_leg",
+      "left_cuff",
+      "right_leg",
+      "right_cuff"
+    ],
+    "dress": [
+      "upper_bodice",
+      "waist_connection",
+      "flared_skirt_drape"
+    ],
+    "kurta": [
+      "mandarin_nehru_collar",
+      "chest_slit_placket",
+      "kurta_front_flap_with_side_slits",
+      "kurta_back_flap_with_side_slits",
+      "left_kurta_sleeve",
+      "right_kurta_sleeve",
+      "kurta_upper_torso"
+    ]
+  }
+}

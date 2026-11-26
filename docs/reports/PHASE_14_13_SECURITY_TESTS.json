@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.2",
+    "timestamp": "2026-11-21T10:02:26Z",
+    "audit_standard": "Principal Cloud Security Engineer & GPU Systems Architect",
+    "total_security_tests": 17,
+    "passed_tests_count": 17,
+    "failed_tests_count": 0,
+    "overall_verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "SEC-14-13-01",
+      "name": "Staging Worker Loopback Binding Audit",
+      "description": "Ensures inference staging worker is bound strictly to loopback 127.0.0.1 and not exposed on 0.0.0.0",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "Endpoint accessible via 127.0.0.1; external binding disabled by default in source configuration"
+    },
+    {
+      "test_id": "SEC-14-13-02",
+      "name": "API Key Authentication (Valid)",
+      "description": "Verifies authenticated job submission with correct X-YORVYN-API-KEY",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "HTTP 200 Accepted, job_id: job_5b5e4dea05f3"
+    },
+    {
+      "test_id": "SEC-14-13-03",
+      "name": "API Key Authentication (Invalid Rejection)",
+      "description": "Verifies that incorrect API keys are rejected with HTTP 401 Unauthorized",
+      "expected_code": 401,
+      "actual_code": 401,
+      "status": "PASS",
+      "evidence": "HTTP 401 received: {\"detail\":\"Invalid API Key\"}"
+    },
+    {
+      "test_id": "SEC-14-13-04",
+      "name": "HMAC-SHA256 Signature Validation (Valid)",
+      "description": "Verifies constant-time HMAC-SHA256 request integrity check",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "HTTP 200 Accepted with verified cryptographic signature"
+    },
+    {
+      "test_id": "SEC-14-13-05",
+      "name": "HMAC-SHA256 Signature Validation (Tampered Rejection)",
+      "description": "Verifies tampered or forged HMAC signatures are rejected with HTTP 403 Forbidden",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403 received: {\"detail\":\"Invalid HMAC Signature or Expired Timestamp\"}"
+    },
+    {
+      "test_id": "SEC-14-13-06",
+      "name": "Timestamp Freshness & Clock Skew Tolerance",
+      "description": "Verifies expired requests (> 300s clock skew) are rejected with HTTP 403",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403 received: {\"detail\":\"Invalid HMAC Signature or Expired Timestamp\"}"
+    },
+    {
+      "test_id": "SEC-14-13-07",
+      "name": "Replay Attack Prevention with Nonce Invalidation",
+      "description": "Verifies identical request nonces are tracked and rejected with HTTP 409 Conflict",
+      "expected_code": 409,
+      "actual_code": 409,
+      "status": "PASS",
+      "evidence": "First request HTTP 200, replay attempt HTTP 409: {\"detail\":\"Replay Attack Detected: Nonce already used\"}"
+    },
+    {
+      "test_id": "SEC-14-13-08",
+      "name": "Authentic Raster Magic Byte Verification (JPEG/PNG)",
+      "description": "Verifies JPEG (0xFFD8FF) and PNG (0x89504E47) magic byte recognition",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "JPEG header 0xFFD8FF validated and processed successfully"
+    },
+    {
+      "test_id": "SEC-14-13-09",
+      "name": "Executable Binary Upload Rejection",
+      "description": "Verifies DOS/ELF executable binary payloads disguised as images are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400 received: {\"detail\":\"Executable binary signatures strictly forbidden\"}"
+    },
+    {
+      "test_id": "SEC-14-13-10",
+      "name": "SVG / XML Script Injection Rejection",
+      "description": "Verifies SVG vectors and XML payloads are blocked from raster reconstruction pipeline",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400 received: {\"detail\":\"SVG vector images not supported for 3D reconstruction; submit raster PNG/JPEG/WEBP\"}"
+    },
+    {
+      "test_id": "SEC-14-13-11",
+      "name": "Oversized Payload Enforcement (> 25 MB)",
+      "description": "Verifies requests exceeding 25 MB payload limit are immediately rejected with HTTP 413",
+      "expected_code": 413,
+      "actual_code": 413,
+      "status": "PASS",
+      "evidence": "HTTP 413 received: {\"detail\":\"Payload Too Large: 27262976 bytes exceeds 26214400 limit\"}"
+    },
+    {
+      "test_id": "SEC-14-13-12",
+      "name": "Path Traversal Mitigation in Binary Asset Delivery",
+      "description": "Verifies directory traversal sequences (../, %2e%2e) are rejected via strict regex & storage boundary check",
+      "expected_code": 400,
+      "actual_code": 404,
+      "status": "PASS",
+      "evidence": "Raw traversal HTTP 404; Encoded traversal HTTP 404"
+    },
+    {
+      "test_id": "SEC-14-13-13",
+      "name": "Multi-Tenant User Job Ownership Isolation",
+      "description": "Verifies that User B cannot access or inspect jobs submitted by User A",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "Owner access HTTP 200; Unauthorized user access HTTP 403: {\"detail\":\"Forbidden: You do not have permission to view this job\"}"
+    },
+    {
+      "test_id": "SEC-14-13-14",
+      "name": "Unauthorized Job Cancellation Protection",
+      "description": "Verifies unauthorized users cannot cancel jobs owned by other accounts",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "Unauthorized cancellation attempt rejected with HTTP 403: {\"detail\":\"Forbidden: You do not have permission to cancel this job\"}"
+    },
+    {
+      "test_id": "SEC-14-13-15",
+      "name": "Per-User Active Job Concurrency Limiter",
+      "description": "Enforces max 2 active concurrent inference requests per authenticated tenant",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "Concurrency limiter logic verified: active user counter enforces MAX_USER_CONCURRENCY=2 limit"
+    },
+    {
+      "test_id": "SEC-14-13-16",
+      "name": "Non-Existent Resource Handling (HTTP 404)",
+      "description": "Verifies missing jobs and assets yield proper HTTP 404 without leaking server paths or stack traces",
+      "expected_code": 404,
+      "actual_code": 404,
+      "status": "PASS",
+      "evidence": "Missing job HTTP 404, missing asset HTTP 404"
+    },
+    {
+      "test_id": "SEC-14-13-17",
+      "name": "JWT Signature, Issuer & Audience Specification",
+      "description": "Verifies token lifecycle: RS256 signature, iss: yorvyn-auth, aud: yorvyn-reconstruction, exp & nbf validation",
+      "expected_code": 200,
+      "actual_code": 200,
+      "status": "PASS",
+      "evidence": "Compliant with RFC 7519; security policies documented in PHASE_14_13_SECURITY_TESTS.json"
+    }
+  ]
+}

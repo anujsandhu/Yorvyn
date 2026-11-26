@@ -1,0 +1,123 @@
+{
+  "phase": "13.1",
+  "audit_type": "INDEPENDENT_MODEL_ARTIFACT_AND_REGISTRY_INVENTORY",
+  "audit_timestamp": "2026-11-10T08:08:00Z",
+  "verdict": "FAILED",
+  "summary": {
+    "total_registered_models": 4,
+    "server_checkpoints_passed": 1,
+    "server_checkpoints_failed": 3,
+    "client_artifacts_passed": 0,
+    "client_artifacts_missing": 1,
+    "client_artifacts_external_only": 1,
+    "client_artifacts_scaffold_only": 2,
+    "critical_finding": "3 out of 4 server models fail integrity verification on disk (1 SHA256 mismatch, 2 synthetic fragment URI pointers to non-existent files). On the client side, the primary edge ONNX model does not exist on disk, and client workers are non-existent architectural scaffolds."
+  },
+  "registry_source": {
+    "python_service": "backend/app/services/ml/model_registry.py",
+    "registry_data_file": "docs/reports/YORVYN_PHASE_13_MODEL_REGISTRY.json",
+    "legacy_registry_file": "models/registry.json"
+  },
+  "models": [
+    {
+      "model_id": "universal-garment-classifier",
+      "name": "Universal Garment Classifier & Multi-Task Taxonomy Engine",
+      "claimed_purpose": "Hierarchical multi-head classification across 10 top categories and 55 subcategories with component presence verification.",
+      "server_profile": {
+        "runtime": "pytorch",
+        "declared_path": "models/checkpoints/specialized_garment_heads_v3.pt",
+        "disk_status": "EXISTS",
+        "absolute_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/specialized_garment_heads_v3.pt",
+        "file_size_bytes": 5012016,
+        "declared_sha256": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+        "actual_sha256": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+        "verification_result": "VALID"
+      },
+      "client_profile": {
+        "runtime": "onnx-web",
+        "declared_url": "/models/edge/garment_classifier_edge.onnx",
+        "disk_status": "MISSING",
+        "searched_paths": [
+          "frontend/public/models/edge/garment_classifier_edge.onnx",
+          "public/models/edge/garment_classifier_edge.onnx",
+          "models/edge/garment_classifier_edge.onnx"
+        ],
+        "declared_size_bytes": 4820000,
+        "declared_sha256": "a8f34bc98e10d21e8b23c57a9128fe4022a86df798e12ba830182acde385e012",
+        "actual_sha256": null,
+        "verification_result": "FAILED_MISSING_ARTIFACT",
+        "notes": "UnifiedAIOrchestrator.executeEdgeClassification returns a hardcoded mock object instead of executing this model."
+      }
+    },
+    {
+      "model_id": "human-pose-and-landmarks",
+      "name": "Human Pose & Keypoint Alignment Estimator",
+      "claimed_purpose": "33 full-body anatomical landmark tracking for garment scale, shoulder span, and perspective alignment.",
+      "server_profile": {
+        "runtime": "opencv-python",
+        "declared_path": "models/checkpoints/garment_landmarks_v2.pt",
+        "disk_status": "EXISTS",
+        "absolute_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/garment_landmarks_v2.pt",
+        "file_size_bytes": 48671,
+        "declared_sha256": "9b12854cf713e51ad562b7194f1c1f5d2b78a9c394ef64a852e938da64c20d77",
+        "actual_sha256": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+        "verification_result": "FAILED_CHECKSUM_MISMATCH",
+        "notes": "Calculated SHA256 does not match recorded registry checksum."
+      },
+      "client_profile": {
+        "runtime": "mediapipe-tasks-vision",
+        "declared_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task",
+        "disk_status": "REMOTE_ONLY_NOT_BUNDLED",
+        "declared_size_bytes": 2840000,
+        "declared_sha256": "5b248a3562a12cfba5e7d5eb45167e6b7c20ad412bdf7cb9d98ad44a0e1cb10f",
+        "verification_result": "UNBUNDLED_EXTERNAL_DEPENDENCY",
+        "notes": "Frontend relies on external CDN fetch. MediaPipe adapter exists as an uncalled scaffold in PhotoTo3DGarmentModal.tsx."
+      }
+    },
+    {
+      "model_id": "garment-silhouette-segmenter",
+      "name": "High-Fidelity Garment Boundary & Foreground Segmenter",
+      "claimed_purpose": "Accurate clothing extraction separating garment from human skin, hair, and complex background scenes.",
+      "server_profile": {
+        "runtime": "onnxruntime",
+        "declared_path": "models/registry.json#birefnet_general_onnx",
+        "disk_status": "NON_EXISTENT_FRAGMENT_URI",
+        "declared_size_bytes": 142000000,
+        "declared_sha256": "834c26a76b9dfa510c81be0a12e8c25db73b184ef462f6b865cb46b9a8f4c12d",
+        "actual_sha256": null,
+        "verification_result": "FAILED_INVALID_PATH",
+        "notes": "The registry points to a URI fragment inside models/registry.json (a 2.8KB JSON metadata file), not an actual 142MB ONNX model file."
+      },
+      "client_profile": {
+        "runtime": "worker-canvas-cv",
+        "declared_url": "inlined_web_worker",
+        "disk_status": "SCAFFOLD_ONLY",
+        "verification_result": "FAILED_UNIMPLEMENTED_WORKER",
+        "notes": "No Web Worker file exists in the repository. Canvas 2D processing executes entirely on the main UI thread."
+      }
+    },
+    {
+      "model_id": "feature-embedder",
+      "name": "Fashion Semantic Feature & Texture Embedder",
+      "claimed_purpose": "64-dimensional dense semantic embedding representing garment color harmony, cut, and pattern style.",
+      "server_profile": {
+        "runtime": "pytorch",
+        "declared_path": "models/registry.json#mobilenet_v3_fashion_features",
+        "disk_status": "NON_EXISTENT_FRAGMENT_URI",
+        "declared_size_bytes": 9830000,
+        "declared_sha256": "2195dfb4a8e0cb2184cf58a47291a82e1c905e3b6f284c1b98b7189c42c2f781",
+        "actual_sha256": null,
+        "verification_result": "FAILED_INVALID_PATH",
+        "notes": "Points to fragment inside models/registry.json. The actual 9.8MB MobileNet checkpoint is absent from disk."
+      },
+      "client_profile": {
+        "runtime": "worker-palette-quantizer",
+        "declared_url": "inlined_web_worker",
+        "disk_status": "SCAFFOLD_ONLY",
+        "verification_result": "FAILED_UNIMPLEMENTED_WORKER",
+        "notes": "Palette extraction is executed synchronously on the main thread inside EdgeImagePreprocessor.ts."
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.5",
+    "suite": "State Machine Consistency & Historical Attempts",
+    "timestamp": "2026-11-21T19:05:21Z",
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "STM-14-13-01",
+      "name": "Failure Attempt Preserved Across Retry",
+      "expected": "attempts=1, retry_count=1, state=QUEUED",
+      "actual": "attempts=1, retries=1, state=QUEUED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "STM-14-13-02",
+      "name": "Historical Errors Accumulate In Append-Only Log",
+      "expected": "attempts=2, retry_count=2",
+      "actual": "attempts=2, retries=2",
+      "status": "PASS"
+    },
+    {
+      "test_id": "STM-14-13-03",
+      "name": "Max Retries Exhaustion Enforces DEAD_LETTERED",
+      "expected": "transition=False, state=DEAD_LETTERED",
+      "actual": "transition=False, state=DEAD_LETTERED, msg=Retry limit (2) exhausted; moved to DEAD_LETTERED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "STM-14-13-04",
+      "name": "DEAD_LETTERED Terminal State Immutability",
+      "expected": "All transitions rejected",
+      "actual": "t_cancel=False, t_comp=False, state=DEAD_LETTERED",
+      "status": "PASS"
+    }
+  ]
+}

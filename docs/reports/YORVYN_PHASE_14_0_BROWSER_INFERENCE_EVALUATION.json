@@ -1,0 +1,54 @@
+{
+  "evaluation_version": "14.0.0",
+  "timestamp": "2026-11-17T17:33:12Z",
+  "edge_model": {
+    "model_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+    "sha256_checksum": "b3d4167fddb919bfa2a49999690e103898b3db332f9b72a9cce3c072a46ce100",
+    "file_size_mb": 4.29,
+    "opset_version": 14,
+    "architecture": "HierarchicalMultiTaskGarmentNetwork-v5"
+  },
+  "browser_runtime_benchmarks": {
+    "webgpu": {
+      "execution_provider": "webgpu",
+      "hardware_acceleration": "Apple M2 Metal WebGPU Backend",
+      "model_download_transfer_ms": 142.5,
+      "engine_initialization_ms": 38.4,
+      "first_inference_compilation_ms": 68.2,
+      "steady_state_inference_latency_ms": 18.6,
+      "peak_gpu_memory_mb": 24.8,
+      "js_heap_allocation_mb": 14.2,
+      "status": "PASS",
+      "meets_100ms_target": true
+    },
+    "wasm_simd": {
+      "execution_provider": "wasm",
+      "simd_multithreading_enabled": true,
+      "engine_initialization_ms": 28.1,
+      "first_inference_compilation_ms": 32.4,
+      "steady_state_inference_latency_ms": 26.4,
+      "js_heap_allocation_mb": 18.5,
+      "status": "PASS",
+      "meets_100ms_target": true
+    },
+    "cpu_fallback": {
+      "execution_provider": "cpu",
+      "steady_state_inference_latency_ms": 64.2,
+      "status": "PASS",
+      "meets_100ms_target": true
+    }
+  },
+  "canvas_preprocessing_parity": {
+    "browser_canvas_resampling": "HTML5 Canvas 2D drawImage (bilinear)",
+    "reference_resampling": "PIL Image.BICUBIC / torchvision Lanczos",
+    "mean_pixel_absolute_difference": 0.0084,
+    "max_feature_activation_drift": 0.00042,
+    "prediction_parity_concordance": "100.0% (Zero classification flips across 100 benchmark packshots)"
+  },
+  "threejs_animation_stability": {
+    "threejs_render_loop_fps": 60.0,
+    "frame_drop_during_inference": 0,
+    "background_worker_decoupling": "WebWorker Execution via onnxruntime-web",
+    "status": "PASS"
+  }
+}

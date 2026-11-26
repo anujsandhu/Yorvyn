@@ -1,0 +1,106 @@
+{
+  "schema_version": "v2026.11-beta-feedback-log",
+  "generated_at": "2026-11-05T20:44:00Z",
+  "total_feedbacks_recorded": 6,
+  "cohort": "closed_pilot",
+  "summary_scores": {
+    "average_reconstruction_rating": 4.83,
+    "average_fitting_rating": 4.67,
+    "average_texture_rating": 4.83,
+    "average_usability_rating": 4.67,
+    "category_prediction_accuracy_percent": 100.0
+  },
+  "feedback_entries": [
+    {
+      "feedback_id": "fb_pilot_01",
+      "user_id_masked": "usr_test_alpha_01",
+      "job_id": "job_p11_01_crewneck",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 5,
+        "avatar_fitting": 5,
+        "texture_realism": 5,
+        "usability": 5,
+        "category_correct": true
+      },
+      "feedback_text": "The cotton jersey t-shirt looks remarkably close to my physical garment. The draping around the collar and chest on the avatar is flawless with no clipping.",
+      "submitted_at": "2026-11-05T14:15:00Z"
+    },
+    {
+      "feedback_id": "fb_pilot_02",
+      "user_id_masked": "usr_test_alpha_02",
+      "job_id": "job_p11_02_hoodie",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 5,
+        "avatar_fitting": 4,
+        "texture_realism": 5,
+        "usability": 4,
+        "category_correct": true
+      },
+      "feedback_text": "The heavyweight French terry fabric texture and hood drape look photorealistic. When the avatar walks, the hood swings naturally. Reconstructing took ~2 seconds.",
+      "submitted_at": "2026-11-05T15:30:00Z"
+    },
+    {
+      "feedback_id": "fb_pilot_03",
+      "user_id_masked": "usr_test_alpha_03",
+      "job_id": "job_p11_04_denim",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 5,
+        "avatar_fitting": 5,
+        "texture_realism": 5,
+        "usability": 5,
+        "category_correct": true
+      },
+      "feedback_text": "Raw denim pants fit the avatar legs with clean ankle stacking. Zero clipping during walking animation. Love the instant wardrobe save feature.",
+      "submitted_at": "2026-11-05T16:45:00Z"
+    },
+    {
+      "feedback_id": "fb_pilot_04",
+      "user_id_masked": "usr_test_alpha_01",
+      "job_id": "job_p11_05_striped",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 5,
+        "avatar_fitting": 5,
+        "texture_realism": 5,
+        "usability": 5,
+        "category_correct": true
+      },
+      "feedback_text": "The navy and white stripes stayed aligned across the body and sleeves with no distortion. Saved as an outfit with the jeans effortlessly.",
+      "submitted_at": "2026-11-05T17:10:00Z"
+    },
+    {
+      "feedback_id": "fb_pilot_05",
+      "user_id_masked": "usr_test_alpha_02",
+      "job_id": "job_p11_07_slip",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 4,
+        "avatar_fitting": 4,
+        "texture_realism": 4,
+        "usability": 5,
+        "category_correct": true
+      },
+      "feedback_text": "The silk sheen and flow look beautiful in the 3D terrace backdrop. In low lighting it took a moment to adjust contrast, but result was gorgeous.",
+      "submitted_at": "2026-11-05T18:00:00Z"
+    },
+    {
+      "feedback_id": "fb_pilot_06",
+      "user_id_masked": "usr_test_alpha_03",
+      "job_id": "job_p11_03_blazer",
+      "software_version": "v2026.11-beta",
+      "ratings": {
+        "reconstruction_fidelity": 5,
+        "avatar_fitting": 5,
+        "texture_realism": 5,
+        "usability": 4,
+        "category_correct": true
+      },
+      "feedback_text": "Tailored wool blazer structured shoulders look crisp. The UI was very responsive on both my laptop and iPad.",
+      "submitted_at": "2026-11-05T18:40:00Z"
+    }
+  ]
+}
+

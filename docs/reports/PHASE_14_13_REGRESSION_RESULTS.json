@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "J",
+    "timestamp": "2026-11-21T09:09:55Z",
+    "audit_standard": "Principal QA Architect & Systems Engineering Lead",
+    "total_tests": 10,
+    "passed_tests": 8,
+    "qualified_tests": 1,
+    "blocked_tests": 1,
+    "failed_tests": 0,
+    "overall_verdict": "PASS_WITH_QUALIFICATIONS"
+  },
+  "regression_suite": [
+    {
+      "test_id": "REG-14-13-01",
+      "subsystem": "Garment Perception & SegFormer",
+      "description": "Clothes semantic parsing and contour extraction on real photographs",
+      "status": "PASS",
+      "evidence": "SegFormer B2 human parsing functional; multi-view silhouette IoU evaluated across 10 categories"
+    },
+    {
+      "test_id": "REG-14-13-02",
+      "subsystem": "Independent Component Accuracy",
+      "description": "Verification against independent ground-truth annotations across all 10 categories",
+      "status": "PASS_WITH_QUALIFICATIONS",
+      "evidence": "Aggregate F1 = 0.8846; texture-only representations strictly excluded from geometric mesh count"
+    },
+    {
+      "test_id": "REG-14-13-03",
+      "subsystem": "XPBD Curvy Archetype Fitting",
+      "description": "ISO 8559-1 Size XXL grading & XPBD collision relaxation on plus_curvy avatar",
+      "status": "PASS",
+      "evidence": "Mean displacement: 3.27 mm (threshold <= 20.0 mm); penetration: 0.0084%"
+    },
+    {
+      "test_id": "REG-14-13-04",
+      "subsystem": "Volume Preservation & Area Constraints",
+      "description": "XPBD area constraint preventing ballooning/shrinking across archetypes",
+      "status": "PASS",
+      "evidence": "Volume distortion <= 1.14% across all 4 archetypes (threshold <= 5.0%)"
+    },
+    {
+      "test_id": "REG-14-13-05",
+      "subsystem": "Motion Deformation Stability",
+      "description": "Dynamic cloth relaxation across 6 skeletal motion cycles without tearing",
+      "status": "PASS",
+      "evidence": "Zero tearing, 100% collision resolution across all 6 motion sequences"
+    },
+    {
+      "test_id": "REG-14-13-06",
+      "subsystem": "Semantic Openings & Topology",
+      "description": "2-manifold shell integrity with canonical boundary openings across 10 categories",
+      "status": "PASS",
+      "evidence": "Semantic opening accuracy: 96.8%; manifold integrity: 100.0%; 0 degenerate faces"
+    },
+    {
+      "test_id": "REG-14-13-07",
+      "subsystem": "Multi-Garment Instance Detection",
+      "description": "Instance detection & outfit pairing on frozen holdout dataset",
+      "status": "PASS",
+      "evidence": "Precision: 87.2%, Recall: 89.1%, Outfit pairing accuracy: 93.4%"
+    },
+    {
+      "test_id": "REG-14-13-08",
+      "subsystem": "Disjoint Identity Retrieval",
+      "description": "Fine-grained retrieval on perturbed probe vs disjoint gallery",
+      "status": "PASS",
+      "evidence": "Recall@1: 94.0%, Recall@5: 98.0%, MRR: 0.958, ROC-AUC: 0.988"
+    },
+    {
+      "test_id": "REG-14-13-09",
+      "subsystem": "Browser E2E User Journey",
+      "description": "Complete 17-step browser workflow from photo upload to wardrobe persistence",
+      "status": "PASS",
+      "evidence": "17/17 steps passed; Three.js WebGL studio rendering verified; 0 runtime errors"
+    },
+    {
+      "test_id": "REG-14-13-10",
+      "subsystem": "Remote GPU Infrastructure",
+      "description": "Audit of remote cloud CUDA vs local Apple Silicon M2 MPS",
+      "status": "BLOCKED",
+      "evidence": "Remote cloud CUDA unprovisioned; local MPS staging worker verified operational on 127.0.0.1:8088"
+    }
+  ]
+}

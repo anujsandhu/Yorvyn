@@ -1,0 +1,122 @@
+{
+  "evaluation_version": "14.2.0-multiview-identity",
+  "timestamp": "2026-11-18T16:15:09Z",
+  "target_concordance_rate": 0.85,
+  "measured_concordance_rate": 0.8,
+  "status": "SHORTFALL_REPORTED",
+  "multiview_consistency_metrics": {
+    "total_pairs_evaluated": 7,
+    "same_garment_pairs": 5,
+    "distractor_pairs": 2,
+    "cross_view_category_concordance": 0.8,
+    "cross_view_category_concordance_percent": "80.0%",
+    "cross_view_subcategory_concordance": 0.6,
+    "cross_view_subcategory_concordance_percent": "60.0%",
+    "recall_at_1": 0.0,
+    "recall_at_1_percent": "0.0%",
+    "recall_at_5": 0.8,
+    "recall_at_5_percent": "80.0%",
+    "false_match_rate": 0.0,
+    "false_match_rate_percent": "0.0%"
+  },
+  "four_garment_concept_separation": {
+    "1_same_physical_garment": "Front and rear photographs of identical physical garment; verified via surface silhouette and color \u0394E",
+    "2_same_commercial_product": "Alternate colorways or catalog angles of same design model line",
+    "3_visually_similar_garment": "Different physical garments sharing visual taxonomy without merging identities",
+    "4_different_garment": "Completely disparate garments strictly rejected from identity match"
+  },
+  "evaluated_pairs": [
+    {
+      "pair_id": "pair_01_hoodie_front_back",
+      "relationship": "same_physical_garment",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_06_hoodie_pullover.jpg",
+      "pred_category_a": "hoodie",
+      "pred_category_b": "hoodie",
+      "pred_subcategory_a": "pullover_hoodie",
+      "pred_subcategory_b": "pullover_hoodie",
+      "category_concordant": true,
+      "subcategory_concordant": true,
+      "embedding_cosine_similarity": 0.6439
+    },
+    {
+      "pair_id": "pair_02_jacket_front_back",
+      "relationship": "same_physical_garment",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_01_jacket_denim.jpg",
+      "pred_category_a": "jacket",
+      "pred_category_b": "bottoms",
+      "pred_subcategory_a": "denim_jacket",
+      "pred_subcategory_b": "jeans",
+      "category_concordant": false,
+      "subcategory_concordant": false,
+      "embedding_cosine_similarity": 0.7748
+    },
+    {
+      "pair_id": "pair_03_tshirt_onbody_flatlay",
+      "relationship": "same_commercial_product",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_22_tshirt_graphic.jpg",
+      "pred_category_a": "tops",
+      "pred_category_b": "tops",
+      "pred_subcategory_a": "tshirt",
+      "pred_subcategory_b": "tshirt",
+      "category_concordant": true,
+      "subcategory_concordant": true,
+      "embedding_cosine_similarity": 0.6839
+    },
+    {
+      "pair_id": "pair_04_shirt_formal_views",
+      "relationship": "same_physical_garment",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_14_shirt_plaid.jpg",
+      "pred_category_a": "shirt",
+      "pred_category_b": "jacket",
+      "pred_subcategory_a": "formal_shirt",
+      "pred_subcategory_b": "leather_jacket",
+      "category_concordant": true,
+      "subcategory_concordant": false,
+      "embedding_cosine_similarity": 0.5343
+    },
+    {
+      "pair_id": "pair_05_shorts_front_back",
+      "relationship": "same_commercial_product",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_36_shorts_casual.jpg",
+      "pred_category_a": "bottoms",
+      "pred_category_b": "bottoms",
+      "pred_subcategory_a": "shorts",
+      "pred_subcategory_b": "shorts",
+      "category_concordant": true,
+      "subcategory_concordant": true,
+      "embedding_cosine_similarity": 0.6309
+    },
+    {
+      "pair_id": "pair_06_visually_similar_distractor",
+      "relationship": "visually_similar_garment",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_07_hoodie_pullover.jpg",
+      "pred_category_a": "hoodie",
+      "pred_category_b": "hoodie",
+      "pred_subcategory_a": "pullover_hoodie",
+      "pred_subcategory_b": "pullover_hoodie",
+      "category_concordant": true,
+      "subcategory_concordant": true,
+      "embedding_cosine_similarity": 0.6799
+    },
+    {
+      "pair_id": "pair_07_different_garments_distractor",
+      "relationship": "different_garment",
+      "image_a": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "image_b": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "pred_category_a": "jacket",
+      "pred_category_b": "bottoms",
+      "pred_subcategory_a": "denim_jacket",
+      "pred_subcategory_b": "shorts",
+      "category_concordant": false,
+      "subcategory_concordant": false,
+      "embedding_cosine_similarity": 0.7203
+    }
+  ],
+  "execution_time_seconds": 12.83
+}

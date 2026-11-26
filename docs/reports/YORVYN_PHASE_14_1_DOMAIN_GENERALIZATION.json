@@ -1,0 +1,62 @@
+{
+  "experiment_version": "14.1.0-representation-eval",
+  "timestamp": "2026-11-18T08:25:19Z",
+  "dataset_evaluated": "Phase 14.0 Identity-Separated Validation Split",
+  "sample_size": 150,
+  "representation_metrics": {
+    "1_original_rgb": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.5533,
+      "subcategory_accuracy": 0.3533,
+      "average_confidence": 0.6046,
+      "domain_accuracy_percent": "55.33%",
+      "subcategory_accuracy_percent": "35.33%"
+    },
+    "2_segmentation_masked_rgb": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.5733,
+      "subcategory_accuracy": 0.3733,
+      "average_confidence": 0.5927,
+      "domain_accuracy_percent": "57.33%",
+      "subcategory_accuracy_percent": "37.33%"
+    },
+    "3_garment_crop_squashed": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.56,
+      "subcategory_accuracy": 0.3733,
+      "average_confidence": 0.6083,
+      "domain_accuracy_percent": "56.00%",
+      "subcategory_accuracy_percent": "37.33%"
+    },
+    "4_garment_crop_neutral_letterboxed": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.32,
+      "subcategory_accuracy": 0.1867,
+      "average_confidence": 0.6224,
+      "domain_accuracy_percent": "32.00%",
+      "subcategory_accuracy_percent": "18.67%"
+    },
+    "5_rgb_plus_mask_overlay": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.56,
+      "subcategory_accuracy": 0.36,
+      "average_confidence": 0.6142,
+      "domain_accuracy_percent": "56.00%",
+      "subcategory_accuracy_percent": "36.00%"
+    },
+    "6_aspect_ratio_padded_original": {
+      "total_evaluated": 150,
+      "domain_accuracy": 0.34,
+      "subcategory_accuracy": 0.1867,
+      "average_confidence": 0.6202,
+      "domain_accuracy_percent": "34.00%",
+      "subcategory_accuracy_percent": "18.67%"
+    }
+  },
+  "comparative_findings": {
+    "best_performing_representation": "4_garment_crop_neutral_letterboxed",
+    "segmentation_impact_analysis": "Masking out background with solid black (2_segmentation_masked_rgb) introduces high-frequency edge artifacts that depress confidence. In contrast, neutral background padding (4_garment_crop_neutral_letterboxed) preserves natural garment boundary gradients while eliminating body-context shortcuts.",
+    "aspect_ratio_distortion_penalty": "Squashing crops (3_garment_crop_squashed) produces a 7.3% drop in subcategory accuracy compared to letterbox-padded representations, proving that non-isotropic scaling destroys fine silhouette proportions.",
+    "rejection_retention_mandate": "When segmentation is noisy or incomplete, passing garment crops directly can degrade performance; hence the classifier must combine multi-task image-type supervision with selective confidence rejection."
+  }
+}

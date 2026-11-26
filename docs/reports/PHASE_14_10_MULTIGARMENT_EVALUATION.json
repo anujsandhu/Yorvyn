@@ -1,0 +1,1232 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "B",
+    "evaluation_scope": "Multi-Garment Precision Recovery & Complex Scene Perception",
+    "total_scenes_evaluated": 80,
+    "total_ground_truth_garments": 144,
+    "timestamp": "2026-11-19T18:41:42Z",
+    "elapsed_seconds": 23.29
+  },
+  "gates": {
+    "instance_precision": {
+      "target": ">= 85.0%",
+      "phase_14_9_baseline": "58.45%",
+      "phase_14_10_measured": "80.99%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "instance_recall": {
+      "target": ">= 90.0%",
+      "phase_14_9_baseline": "84.03%",
+      "phase_14_10_measured": "79.86%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "complete_scene_detection_rate": {
+      "target": ">= 85.0%",
+      "phase_14_9_baseline": "75.0%",
+      "phase_14_10_measured": "70.0%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "underlayer_detection_rate": {
+      "target": ">= 95.0%",
+      "phase_14_9_baseline": "100.0%",
+      "phase_14_10_measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "false_positives_per_image": {
+      "target": "<= 0.25",
+      "phase_14_9_baseline": 1.075,
+      "phase_14_10_measured": 0.338,
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "outfit_pairing_accuracy": {
+      "target": ">= 90.0%",
+      "phase_14_9_baseline": "86.05%",
+      "phase_14_10_measured": "86.05%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    }
+  },
+  "metrics_summary": {
+    "total_scenes": 80,
+    "total_gt_garments": 144,
+    "total_true_positives": 115,
+    "total_false_positives": 27,
+    "total_false_negatives": 29,
+    "precision_pct": 80.99,
+    "recall_pct": 79.86,
+    "ap50": 0.6791,
+    "ap50_95": 0.4657,
+    "complete_rate_pct": 70.0,
+    "underlayer_rate_pct": 100.0,
+    "pairing_rate_pct": 86.05,
+    "false_positives_per_image": 0.338,
+    "duplicate_detection_rate_pct": 9.86
+  },
+  "scenes": [
+    {
+      "scene_id": "scene_0000",
+      "gt_garments": [
+        "jacket",
+        "shirt"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "shirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 4268.92
+    },
+    {
+      "scene_id": "scene_0001",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 201.39
+    },
+    {
+      "scene_id": "scene_0002",
+      "gt_garments": [
+        "bottoms",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 213.43
+    },
+    {
+      "scene_id": "scene_0003",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 231.11
+    },
+    {
+      "scene_id": "scene_0004",
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected_instances": [
+        "shirt (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 2,
+      "latency_ms": 188.4
+    },
+    {
+      "scene_id": "scene_0005",
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "shirt"
+      ],
+      "detected_instances": [
+        "shirt (0.70)",
+        "bottoms (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 224.19
+    },
+    {
+      "scene_id": "scene_0006",
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 239.3
+    },
+    {
+      "scene_id": "scene_0007",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 188.37
+    },
+    {
+      "scene_id": "scene_0008",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 230.4
+    },
+    {
+      "scene_id": "scene_0009",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 191.47
+    },
+    {
+      "scene_id": "scene_0010",
+      "gt_garments": [
+        "shirt",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 190.08
+    },
+    {
+      "scene_id": "scene_0012",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "skirt (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 394.35
+    },
+    {
+      "scene_id": "scene_0013",
+      "gt_garments": [
+        "skirt",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 275.98
+    },
+    {
+      "scene_id": "scene_0014",
+      "gt_garments": [
+        "skirt",
+        "tops"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 2,
+      "latency_ms": 209.1
+    },
+    {
+      "scene_id": "scene_0015",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 228.72
+    },
+    {
+      "scene_id": "scene_0016",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 211.13
+    },
+    {
+      "scene_id": "scene_0017",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 172.18
+    },
+    {
+      "scene_id": "scene_0018",
+      "gt_garments": [
+        "jacket"
+      ],
+      "detected_instances": [
+        "shirt (0.70)",
+        "skirt (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "latency_ms": 240.02
+    },
+    {
+      "scene_id": "scene_0019",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 186.32
+    },
+    {
+      "scene_id": "scene_0020",
+      "gt_garments": [
+        "skirt",
+        "tops",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 236.25
+    },
+    {
+      "scene_id": "scene_0021",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 192.02
+    },
+    {
+      "scene_id": "scene_0022",
+      "gt_garments": [
+        "dress",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "latency_ms": 273.02
+    },
+    {
+      "scene_id": "scene_0023",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "skirt (0.70)",
+        "tops (0.70)",
+        "jacket (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 248.69
+    },
+    {
+      "scene_id": "scene_0025",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "jacket (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 214.95
+    },
+    {
+      "scene_id": "scene_0027",
+      "gt_garments": [
+        "bottoms",
+        "shirt"
+      ],
+      "detected_instances": [
+        "skirt (0.70)",
+        "shirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 220.1
+    },
+    {
+      "scene_id": "scene_0029",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 188.2
+    },
+    {
+      "scene_id": "scene_0031",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 190.71
+    },
+    {
+      "scene_id": "scene_0032",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [],
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 259.84
+    },
+    {
+      "scene_id": "scene_0034",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "hoodie (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 214.31
+    },
+    {
+      "scene_id": "scene_0035",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 253.84
+    },
+    {
+      "scene_id": "scene_0036",
+      "gt_garments": [
+        "dress",
+        "tops"
+      ],
+      "detected_instances": [
+        "skirt (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 2,
+      "latency_ms": 280.48
+    },
+    {
+      "scene_id": "scene_0037",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 193.41
+    },
+    {
+      "scene_id": "scene_0039",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 195.04
+    },
+    {
+      "scene_id": "scene_0040",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 196.42
+    },
+    {
+      "scene_id": "scene_0041",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 219.93
+    },
+    {
+      "scene_id": "scene_0042",
+      "gt_garments": [
+        "jacket"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 234.24
+    },
+    {
+      "scene_id": "scene_0044",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 242.91
+    },
+    {
+      "scene_id": "scene_0045",
+      "gt_garments": [
+        "tops",
+        "skirt"
+      ],
+      "detected_instances": [
+        "skirt (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 237.17
+    },
+    {
+      "scene_id": "scene_0046",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 230.13
+    },
+    {
+      "scene_id": "scene_0047",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 227.28
+    },
+    {
+      "scene_id": "scene_0048",
+      "gt_garments": [
+        "tops",
+        "skirt",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "shirt (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 3,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 340.6
+    },
+    {
+      "scene_id": "scene_0049",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 290.68
+    },
+    {
+      "scene_id": "scene_0050",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 229.64
+    },
+    {
+      "scene_id": "scene_0051",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 273.66
+    },
+    {
+      "scene_id": "scene_0052",
+      "gt_garments": [
+        "bottoms",
+        "dress",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 227.18
+    },
+    {
+      "scene_id": "scene_0053",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 271.11
+    },
+    {
+      "scene_id": "scene_0054",
+      "gt_garments": [
+        "dress",
+        "tops"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 208.32
+    },
+    {
+      "scene_id": "scene_0055",
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 265.12
+    },
+    {
+      "scene_id": "scene_0056",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "skirt (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 2,
+      "false_negatives": 1,
+      "latency_ms": 252.45
+    },
+    {
+      "scene_id": "scene_0057",
+      "gt_garments": [
+        "dress",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 233.98
+    },
+    {
+      "scene_id": "scene_0059",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "tops (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 251.8
+    },
+    {
+      "scene_id": "scene_0060",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 195.91
+    },
+    {
+      "scene_id": "scene_0062",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 195.22
+    },
+    {
+      "scene_id": "scene_0063",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 195.21
+    },
+    {
+      "scene_id": "scene_0064",
+      "gt_garments": [
+        "shirt",
+        "jacket",
+        "tops",
+        "bottoms",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 3,
+      "latency_ms": 237.44
+    },
+    {
+      "scene_id": "scene_0065",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "skirt (0.70)"
+      ],
+      "true_positives": 0,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 229.29
+    },
+    {
+      "scene_id": "scene_0066",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 263.26
+    },
+    {
+      "scene_id": "scene_0067",
+      "gt_garments": [
+        "dress",
+        "jacket"
+      ],
+      "detected_instances": [
+        "dress (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 255.31
+    },
+    {
+      "scene_id": "scene_0069",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 188.49
+    },
+    {
+      "scene_id": "scene_0070",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 187.59
+    },
+    {
+      "scene_id": "scene_0071",
+      "gt_garments": [
+        "tops",
+        "skirt"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 217.25
+    },
+    {
+      "scene_id": "scene_0072",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 209.29
+    },
+    {
+      "scene_id": "scene_0073",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 172.49
+    },
+    {
+      "scene_id": "scene_0074",
+      "gt_garments": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)",
+        "skirt (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 287.72
+    },
+    {
+      "scene_id": "scene_0075",
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 233.68
+    },
+    {
+      "scene_id": "scene_0076",
+      "gt_garments": [
+        "shirt",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "shirt (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 238.57
+    },
+    {
+      "scene_id": "scene_0078",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 217.53
+    },
+    {
+      "scene_id": "scene_0080",
+      "gt_garments": [
+        "tops",
+        "skirt"
+      ],
+      "detected_instances": [
+        "dress (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 212.88
+    },
+    {
+      "scene_id": "scene_0081",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "jacket (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 379.09
+    },
+    {
+      "scene_id": "scene_0082",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 285.0
+    },
+    {
+      "scene_id": "scene_0083",
+      "gt_garments": [
+        "tops",
+        "jacket"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "tops (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "false_negatives": 0,
+      "latency_ms": 223.58
+    },
+    {
+      "scene_id": "scene_0084",
+      "gt_garments": [
+        "bottoms",
+        "jacket",
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)",
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 3,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 285.8
+    },
+    {
+      "scene_id": "scene_0085",
+      "gt_garments": [
+        "tops",
+        "skirt"
+      ],
+      "detected_instances": [
+        "dress (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 1,
+      "latency_ms": 231.78
+    },
+    {
+      "scene_id": "scene_0087",
+      "gt_garments": [
+        "tops"
+      ],
+      "detected_instances": [
+        "tops (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 203.84
+    },
+    {
+      "scene_id": "scene_0088",
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "bottoms (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 249.19
+    },
+    {
+      "scene_id": "scene_0089",
+      "gt_garments": [
+        "tops",
+        "skirt"
+      ],
+      "detected_instances": [
+        "skirt (0.70)",
+        "tops (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 208.47
+    },
+    {
+      "scene_id": "scene_0090",
+      "gt_garments": [
+        "jacket",
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 240.41
+    },
+    {
+      "scene_id": "scene_0091",
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "latency_ms": 187.84
+    },
+    {
+      "scene_id": "scene_0092",
+      "gt_garments": [
+        "dress"
+      ],
+      "detected_instances": [
+        "dress (0.70)"
+      ],
+      "true_positives": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "latency_ms": 209.8
+    },
+    {
+      "scene_id": "scene_0094",
+      "gt_garments": [
+        "bottoms",
+        "jacket"
+      ],
+      "detected_instances": [
+        "jacket (0.70)",
+        "bottoms (0.70)",
+        "bottoms (0.70)",
+        "skirt (0.70)"
+      ],
+      "true_positives": 2,
+      "false_positives": 2,
+      "false_negatives": 0,
+      "latency_ms": 349.45
+    }
+  ]
+}

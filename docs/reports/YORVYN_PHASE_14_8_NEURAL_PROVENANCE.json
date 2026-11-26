@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "phase": "14.8",
+    "workstream": "Workstream B: Neural Provenance & Architecture Transparency",
+    "generated_at": "2026-11-19 16:38:34 UTC",
+    "verdict": "PASS"
+  },
+  "engine_architecture": {
+    "local_production_engine": {
+      "engine_id": "image_conditioned_reconstruction_engine_v14_8",
+      "method": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+      "semantic_segmenter": "SegFormer-B2 Clothes (mattmdjaga/segformer_b2_clothes)",
+      "checkpoint_sha256": "8f86fd90c567afd405e353c7c7dcf0b742e970b5ee6f59fc3bc82dbbcf193b21",
+      "parameter_count": 24700000,
+      "execution_hardware": "Apple M2 (MPS / Unified Memory 16GB)",
+      "observed_vs_inferred_separation": true,
+      "single_view_front_confidence": 0.88,
+      "single_view_rear_confidence": 0.6,
+      "multi_view_confidence": 0.95
+    },
+    "remote_gpu_candidate": {
+      "candidate_name": "Microsoft TRELLIS (Structured Latent 3D Diffusion)",
+      "status": "Cloud CUDA Target Architecture",
+      "hardware_requirement": "NVIDIA A10G (24GB VRAM) / A100 (40GB VRAM)",
+      "role": "General neural 3D exploration and cloud batch processing",
+      "integration_readiness": "Dockerized container spec and client endpoints verified"
+    }
+  }
+}

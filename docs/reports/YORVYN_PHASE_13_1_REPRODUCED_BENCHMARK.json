@@ -1,0 +1,219 @@
+{
+  "version": "13.1.0",
+  "audit_timestamp": "2026-11-10T02:30:00Z",
+  "audit_mode": "INDEPENDENT_FORENSIC_REPRODUCTION",
+  "auditor": "Codex / Principal 3D & CV Research Engineer",
+  "summary": {
+    "claimed_bandwidth_reduction_pct": 96.5,
+    "actual_reproduced_average_savings_pct": 51.38,
+    "claimed_client_latency_ms": 22.2,
+    "actual_measured_client_latency_ms": 35.24,
+    "claimed_server_gpu_reduction_pct": 55.21,
+    "reproduction_finding": "BENCHMARK_INTEGRITY_COMPROMISED",
+    "details": "Phase 13 benchmark script (benchmark_hybrid_ai_phase_13.py) did not measure real reference files on disk. It executed hardcoded scalar multiplication (raw_bytes * 0.035) and hardcoded GPU times (4.80s vs 2.15s). Real measurements on authentic reference files show savings varying from -11.25% to 97.03%."
+  },
+  "per_case_reproduced_comparison": [
+    {
+      "case_id": "A",
+      "garment_name": "Dark brown oversized hoodie",
+      "category": "top",
+      "subcategory": "hoodie",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 19293798,
+        "raw_size_mb": 18.4,
+        "compressed_bytes": 675282,
+        "compressed_kb": 659.5,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 1334433,
+        "raw_size_kb": 1303.2,
+        "raw_dimensions": [1294, 1480],
+        "target_dimensions": [1049, 1200],
+        "webp_size_bytes": 39690,
+        "webp_size_kb": 38.8,
+        "reproduced_ratio": 0.0297,
+        "reproduced_savings_pct": 97.03,
+        "measured_blur_variance": 307.39,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 107.29,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Phase 13 claimed 18.4MB raw capture, but actual reference image on disk is 1.30MB. WebP downscaling produces 38.8KB (97.03% savings), which exceeds the 85% requirement, but claimed raw size was fictitious."
+    },
+    {
+      "case_id": "B",
+      "garment_name": "Grey graphic oversized T-shirt",
+      "category": "top",
+      "subcategory": "graphic_tshirt",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 17616076,
+        "raw_size_mb": 16.8,
+        "compressed_bytes": 616562,
+        "compressed_kb": 602.1,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 496875,
+        "raw_size_kb": 485.2,
+        "raw_dimensions": [720, 910],
+        "target_dimensions": [720, 910],
+        "webp_size_bytes": 37172,
+        "webp_size_kb": 36.3,
+        "reproduced_ratio": 0.0748,
+        "reproduced_savings_pct": 92.52,
+        "measured_blur_variance": 801.5,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 37.4,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Input dimensions (720x910) are already below the 1200px threshold, so no spatial downscaling occurs. Savings result purely from lossy WebP compression."
+    },
+    {
+      "case_id": "C",
+      "garment_name": "Formal Oxford button-down shirt",
+      "category": "top",
+      "subcategory": "oxford_shirt",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 20132659,
+        "raw_size_mb": 19.2,
+        "compressed_bytes": 704643,
+        "compressed_kb": 688.2,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 3437,
+        "raw_size_kb": 3.4,
+        "raw_dimensions": [512, 512],
+        "target_dimensions": [512, 512],
+        "webp_size_bytes": 2992,
+        "webp_size_kb": 2.9,
+        "reproduced_ratio": 0.8705,
+        "reproduced_savings_pct": 12.95,
+        "measured_blur_variance": 392.66,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 8.96,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Massive discrepancy. Real file is a 3.4KB thumbnail. Real compression achieved only 12.95% savings, failing the 85% requirement on pre-compressed thumbnail assets."
+    },
+    {
+      "case_id": "D",
+      "garment_name": "Structured denim jacket",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 22544384,
+        "raw_size_mb": 21.5,
+        "compressed_bytes": 789053,
+        "compressed_kb": 770.6,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 5759,
+        "raw_size_kb": 5.6,
+        "raw_dimensions": [720, 960],
+        "target_dimensions": [720, 960],
+        "webp_size_bytes": 4038,
+        "webp_size_kb": 3.9,
+        "reproduced_ratio": 0.7012,
+        "reproduced_savings_pct": 29.88,
+        "measured_blur_variance": 570.85,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 21.55,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Real file is 5.6KB compressed image, not 21.5MB raw. Actual compression achieved 29.88% savings, not 96.5%."
+    },
+    {
+      "case_id": "E",
+      "garment_name": "Tailored trousers / straight jeans",
+      "category": "bottom",
+      "subcategory": "straight_jeans",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 16357785,
+        "raw_size_mb": 15.6,
+        "compressed_bytes": 572522,
+        "compressed_kb": 559.3,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 176161,
+        "raw_size_kb": 172.0,
+        "raw_dimensions": [451, 679],
+        "target_dimensions": [451, 679],
+        "webp_size_bytes": 22618,
+        "webp_size_kb": 22.1,
+        "reproduced_ratio": 0.1284,
+        "reproduced_savings_pct": 87.16,
+        "measured_blur_variance": 1273.34,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 14.85,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Real file is 172KB. Achieved 87.16% savings, validating the >85% target on this asset."
+    },
+    {
+      "case_id": "F",
+      "garment_name": "Floral summer dress",
+      "category": "dress",
+      "subcategory": "casual_dress",
+      "source_path": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/01_original_uploaded_image.png",
+      "phase_13_claimed": {
+        "raw_size_bytes": 18769510,
+        "raw_size_mb": 17.9,
+        "compressed_bytes": 656932,
+        "compressed_kb": 641.6,
+        "ratio": 0.035,
+        "bandwidth_saved_pct": 96.5,
+        "client_ms": 22.2,
+        "gpu_time_saved_pct": 55.21
+      },
+      "phase_13_1_reproduced": {
+        "raw_size_bytes": 6296,
+        "raw_size_kb": 6.1,
+        "raw_dimensions": [720, 960],
+        "target_dimensions": [720, 960],
+        "webp_size_bytes": 7004,
+        "webp_size_kb": 6.8,
+        "reproduced_ratio": 1.1125,
+        "reproduced_savings_pct": -11.25,
+        "measured_blur_variance": 436.16,
+        "is_blurry_flag": false,
+        "measured_encode_time_ms": 21.41,
+        "source_data_nature": "AUTHENTIC_DISK_ARTIFACT"
+      },
+      "discrepancy_analysis": "Severe finding: On an already highly-compressed 6.1KB JPEG/PNG, re-encoding to WebP 85 actually INCREASED the file size by 11.25% (negative savings)."
+    }
+  ],
+  "fleet_synthetic_vs_real_comparison": {
+    "total_input_bytes_claimed_6_cases": 114704212,
+    "total_input_bytes_actual_6_cases": 2022961,
+    "input_size_inflation_factor": 56.7,
+    "total_compressed_bytes_claimed": 4014994,
+    "total_compressed_bytes_actual": 113514,
+    "overall_actual_aggregate_savings_pct": 94.39,
+    "average_per_case_savings_pct": 51.38
+  }
+}
+

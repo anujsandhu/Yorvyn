@@ -1,0 +1,26 @@
+{
+  "job_id": "job_p12_case_b_graphic_tshirt_person_f9a8cac8",
+  "case_id": "case_b_graphic_tshirt_person",
+  "case_name": "Grey Graphic Oversized T-Shirt (On Person)",
+  "image_type": "lifestyle_fashion",
+  "category": "tops",
+  "subcategory": "tshirt",
+  "confidence": 0.811,
+  "primary_color_name": "grey",
+  "primary_color_hex": "#a09b97",
+  "secondary_color_name": "sand beige",
+  "secondary_color_hex": "#bcb7b3",
+  "palette": [
+    "#a09b97",
+    "#bcb7b3",
+    "#c2bdba",
+    "#aca7a4",
+    "#7b7673"
+  ],
+  "pattern": "solid",
+  "material_hint": "cotton",
+  "silhouette": "regular",
+  "sleeve_length": "long",
+  "neckline_type": "crewneck",
+  "detection_duration_ms": 526.96
+}

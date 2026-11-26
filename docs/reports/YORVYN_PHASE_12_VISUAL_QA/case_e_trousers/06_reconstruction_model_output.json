@@ -1,0 +1,29 @@
+{
+  "engine_id": "bottoms_pattern_engine_v1",
+  "provenance": "pattern_constructed",
+  "vertex_count": 408,
+  "triangle_count": 688,
+  "panels_count": 3,
+  "panels": [
+    "waistband_and_pelvis",
+    "left_leg_panel",
+    "right_leg_panel"
+  ],
+  "quality_report": {
+    "is_valid": true,
+    "is_manifold": true,
+    "quality_score": 1.0,
+    "degenerate_triangle_count": 0,
+    "boundary_loops": 6,
+    "issues": []
+  },
+  "proportions": {
+    "shoulder_width_m": 0.4575,
+    "chest_width_m": 0.41,
+    "waist_width_m": 0.37,
+    "torso_length_m": 0.52,
+    "sleeve_length_m": 0.52,
+    "ease_margin_m": 0.025
+  },
+  "reconstruction_duration_ms": 4.41
+}

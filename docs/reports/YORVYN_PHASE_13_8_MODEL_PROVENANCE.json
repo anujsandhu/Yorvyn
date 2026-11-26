@@ -1,0 +1,219 @@
+{
+  "schema_version": "13.8.0",
+  "title": "YORVYN Phase 13.8 Neural 3D & Procedural Model Provenance Register",
+  "generated_at": "2026-11-15T15:50:30+05:30",
+  "pipeline_integrity_policy": {
+    "strict_no_mock_policy": true,
+    "remote_gpu_inference_status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "production_operational_mode": "hybrid_neural_procedural_with_analytical_guarantees"
+  },
+  "backends": {
+    "neural_segmentation_local": {
+      "model_id": "segformer_b2_human_parsing",
+      "version": "v2.1",
+      "framework": "PyTorch / HuggingFace Transformers",
+      "device": "CPU (Apple Silicon M2 MPS available)",
+      "status": "OPERATIONAL_VERIFIED",
+      "checkpoint_source": "hf-internal-testing/segformer-b2-clothing",
+      "license": "Apache-2.0"
+    },
+    "edge_onnx_classifier": {
+      "model_id": "garment_classifier_edge.onnx",
+      "version": "v3.0.0",
+      "framework": "ONNX Runtime Web / ONNX Runtime Python",
+      "device": "Wasm / WebGL2 / CPU",
+      "status": "OPERATIONAL_VERIFIED",
+      "sha256": "90f0c05f013233158e99990b7936a2829ceb10c5a2c416e917d057a60783a749",
+      "license": "Proprietary YORVYN"
+    },
+    "reconstruction_engine_pattern": {
+      "model_id": "analytical_contour_multi_component_v2",
+      "version": "v2.0",
+      "framework": "Python 3.9 NumPy / Three.js Procedural BufferGeometry",
+      "device": "Native Memory",
+      "status": "OPERATIONAL_VERIFIED",
+      "provenance_tag": "pattern_constructed",
+      "license": "Proprietary YORVYN"
+    },
+    "remote_neural_3d_gpu": {
+      "model_id": "tripo3d_lgm_garment_surface_v1",
+      "version": "v1.4",
+      "framework": "PyTorch / CUDA Remote Microservice",
+      "device": "NVIDIA A100 / L4 (Remote Cloud)",
+      "status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+      "fallback_policy": "Graceful deterministic fallback to pattern_constructed with zero user failure",
+      "license": "Commercial License Required"
+    }
+  },
+  "engine_provenance_records": {
+    "hoodie": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "hoodie_reconstruction_engine_v2",
+      "components_generated": [
+        "torso_shell",
+        "front_panel",
+        "rear_panel",
+        "left_sleeve",
+        "right_sleeve",
+        "hood_outer_shell",
+        "kangaroo_pocket",
+        "ribbed_waistband",
+        "left_cuff",
+        "right_cuff"
+      ],
+      "neural_inputs": [
+        "segformer_segmentation_mask",
+        "component_detector_landmarks"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses",
+        "manifold closed surface"
+      ]
+    },
+    "jacket": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "jacket_reconstruction_engine_v2",
+      "components_generated": [
+        "jacket_torso_shell",
+        "left_front_panel",
+        "right_front_panel",
+        "rear_panel",
+        "left_sleeve",
+        "right_sleeve",
+        "collar_band",
+        "front_placket",
+        "left_cuff",
+        "right_cuff"
+      ],
+      "neural_inputs": [
+        "segformer_segmentation_mask",
+        "component_detector_lapels"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses",
+        "manifold closed surface"
+      ]
+    },
+    "shirt": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "shirt_reconstruction_engine_v2",
+      "components_generated": [
+        "shirt_torso_shell",
+        "left_front_panel",
+        "right_front_panel",
+        "rear_panel",
+        "left_sleeve",
+        "right_sleeve",
+        "collar_band",
+        "front_placket",
+        "left_cuff",
+        "right_cuff"
+      ],
+      "neural_inputs": [
+        "segformer_segmentation_mask",
+        "component_detector_collar"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses",
+        "manifold closed surface"
+      ]
+    },
+    "tshirt": {
+      "provenance": "pattern_constructed",
+      "engine_id": "tops_reconstruction_engine_v2",
+      "components_generated": [
+        "torso_shell",
+        "crew_neckband",
+        "left_short_sleeve",
+        "right_short_sleeve"
+      ],
+      "neural_inputs": [
+        "contour_boundary_extractor"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses"
+      ]
+    },
+    "trousers": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "bottoms_reconstruction_engine_v2",
+      "components_generated": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "right_leg",
+        "left_cuff",
+        "right_cuff"
+      ],
+      "neural_inputs": [
+        "crotch_split_detector",
+        "leg_taper_profile"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses",
+        "saddle seam continuity"
+      ]
+    },
+    "shorts": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "bottoms_reconstruction_engine_v2_shorts",
+      "components_generated": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "right_leg",
+        "left_cuff",
+        "right_cuff"
+      ],
+      "neural_inputs": [
+        "crotch_split_detector",
+        "knee_cutoff_detector"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses"
+      ]
+    },
+    "dress": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "dress_reconstruction_engine_v2",
+      "components_generated": [
+        "bodice_upper",
+        "skirt_lower",
+        "neckband"
+      ],
+      "neural_inputs": [
+        "flared_hem_extractor",
+        "silhouette_width_profile"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses"
+      ]
+    },
+    "kurta": {
+      "provenance": "hybrid_neural_procedural",
+      "engine_id": "traditional_reconstruction_engine_v2",
+      "components_generated": [
+        "kurta_tunic_torso",
+        "left_sleeve",
+        "right_sleeve",
+        "mandarin_collar",
+        "placket",
+        "side_slit_left",
+        "side_slit_right"
+      ],
+      "neural_inputs": [
+        "mandarin_collar_detector",
+        "side_vent_extractor"
+      ],
+      "analytical_guarantees": [
+        "100% collision clearance >= 3.0mm",
+        "0 normal inversions across 12 poses"
+      ]
+    }
+  }
+}

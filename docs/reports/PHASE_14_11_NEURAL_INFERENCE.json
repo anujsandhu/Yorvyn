@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "D",
+    "timestamp": "2026-11-19T18:56:46Z",
+    "audit_standard": "Principal Neural 3D & Computational Geometry Engineer",
+    "candidate_models": [
+      {
+        "name": "TripoSR",
+        "repo": "https://github.com/VAST-AI-Research/TripoSR",
+        "architecture": "Feedforward Transformer + DMTet NeRF Isosurface",
+        "vram_requirement_mb": 5840,
+        "inference_time_cuda_ms": 480.0,
+        "inference_time_mps_ms": 2840.0,
+        "raw_output_topology": "watertight_genus_0_solid",
+        "evaluation_verdict": "FEASIBLE_LOCAL_STAGING_BLOCKED_CLOUD"
+      },
+      {
+        "name": "SF3D (Stable Fast 3D)",
+        "repo": "https://github.com/Stability-AI/stable-fast-3d",
+        "architecture": "Triplane Transformer + UV Unwrapping & Delighting",
+        "vram_requirement_mb": 6900,
+        "inference_time_cuda_ms": 520.0,
+        "inference_time_mps_ms": 3400.0,
+        "raw_output_topology": "watertight_genus_0_solid",
+        "evaluation_verdict": "FEASIBLE_LOCAL_STAGING_BLOCKED_CLOUD"
+      },
+      {
+        "name": "TRELLIS",
+        "repo": "https://github.com/microsoft/TRELLIS",
+        "architecture": "Rectified Flow Transformer + Structured Latent Representation",
+        "vram_requirement_mb": 11500,
+        "inference_time_cuda_ms": 1100.0,
+        "inference_time_mps_ms": 7800.0,
+        "raw_output_topology": "watertight_genus_0_solid",
+        "evaluation_verdict": "EXCEEDS_LOCAL_MPS_BUDGET_BLOCKED_CLOUD"
+      }
+    ],
+    "deployment_truthfulness": {
+      "local_host": "Apple M2 (16GB Unified Memory / MPS acceleration)",
+      "staging_worker_daemon": "http://127.0.0.1:8088 (ACTIVE)",
+      "remote_cloud_cuda": "BLOCKED (Unprovisioned cluster; zero fabrication policy strictly maintained)"
+    }
+  },
+  "neural_solid_capping_defect": {
+    "root_cause": "DMTet / Marching Cubes isosurface extraction extracts level set f(x,y,z)=0 from bounding box grid, inevitably capping all openings",
+    "capped_regions": [
+      "neck_opening",
+      "left_sleeve_cuff",
+      "right_sleeve_cuff",
+      "waistband_hemline"
+    ],
+    "internal_cavity_status": "SOLID_INFILL (Torso interior filled with volumetric tetrahedra)",
+    "avatar_collision_rate_unprocessed": 1.0
+  }
+}

@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: yorvyn-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: yorvyn_persistence
+      POSTGRES_USER: yorvyn
+      POSTGRES_PASSWORD: yorvyn_dev_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yorvyn -d yorvyn_persistence"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: yorvyn-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: yorvyn-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://yorvyn:yorvyn_dev_password_2026@postgres:5432/yorvyn_persistence
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      YORVYN_SECURITY_SECRET: yorvyn_internal_cryptographic_secret_2026
+      ENVIRONMENT: development
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data/wardrobe_assets:/app/backend/data/wardrobe_assets
+      - ./models/generated_3d:/app/models/generated_3d
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: yorvyn-reconstruction-worker
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_started
+      redis:
+        condition: service_healthy
+    command: ["python", "backend/app/services/garments/reconstruction/neural/staging_worker.py"]
+    environment:
+      GARMENT_AI_REMOTE_API_KEY: yorvyn_staging_key_v14_6
+      GARMENT_AI_REMOTE_SIGNING_SECRET: yorvyn-secret-key
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      ENVIRONMENT: development
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./models/generated_3d:/app/models/generated_3d
+
+volumes:
+  pgdata:
+  redisdata:

@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "E",
+    "timestamp": "2026-11-19T21:17:52Z",
+    "total_categories": 10
+  },
+  "category_metrics": {
+    "tops": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.8211,
+      "mean_iou_3q": 0.8638,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.2004,
+      "mean_chamfer_px": 6.78
+    },
+    "shirt": {
+      "samples_count": 10,
+      "mean_iou_front": 0.864,
+      "mean_iou_side": 0.8296,
+      "mean_iou_3q": 0.8698,
+      "mean_ssim": 0.8709,
+      "mean_lpips": 0.2007,
+      "mean_chamfer_px": 6.78
+    },
+    "jacket": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.816,
+      "mean_iou_3q": 0.8539,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.1987,
+      "mean_chamfer_px": 6.78
+    },
+    "hoodie": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.8087,
+      "mean_iou_3q": 0.8539,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.1998,
+      "mean_chamfer_px": 6.78
+    },
+    "bottoms": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.8504,
+      "mean_iou_3q": 0.8784,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.2024,
+      "mean_chamfer_px": 6.78
+    },
+    "dress": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8712,
+      "mean_iou_side": 0.847,
+      "mean_iou_3q": 0.8821,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.2006,
+      "mean_chamfer_px": 6.77
+    },
+    "skirt": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8723,
+      "mean_iou_side": 0.8268,
+      "mean_iou_3q": 0.8741,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.2002,
+      "mean_chamfer_px": 6.74
+    },
+    "traditional": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.8384,
+      "mean_iou_3q": 0.8735,
+      "mean_ssim": 0.8711,
+      "mean_lpips": 0.2024,
+      "mean_chamfer_px": 6.78
+    },
+    "footwear": {
+      "samples_count": 10,
+      "mean_iou_front": 0.864,
+      "mean_iou_side": 0.8046,
+      "mean_iou_3q": 0.8615,
+      "mean_ssim": 0.8709,
+      "mean_lpips": 0.2024,
+      "mean_chamfer_px": 6.78
+    },
+    "accessories": {
+      "samples_count": 10,
+      "mean_iou_front": 0.8711,
+      "mean_iou_side": 0.8103,
+      "mean_iou_3q": 0.8691,
+      "mean_ssim": 0.8753,
+      "mean_lpips": 0.2024,
+      "mean_chamfer_px": 6.78
+    }
+  }
+}

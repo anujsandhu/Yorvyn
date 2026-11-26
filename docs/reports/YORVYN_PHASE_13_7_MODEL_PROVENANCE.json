@@ -1,0 +1,116 @@
+{
+  "phase": "13.7",
+  "audit_timestamp": "2026-11-14T18:41:33Z",
+  "target_hardware": "Apple Silicon M2 (Unified 8GB Memory)",
+  "execution_device": "MPS (Metal Performance Shaders) / CPU fallback",
+  "zero_mock_enforcement": true,
+  "remote_gpu_inference": {
+    "endpoint_configured": false,
+    "status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "health_response": {
+      "status": "unconfigured",
+      "message": "GARMENT_AI_REMOTE_INFERENCE_URL is not set. Using local pattern-based reconstruction engines.",
+      "remote_available": false
+    },
+    "policy": "Strict truthfulness: Procedural pattern geometry is labeled pattern_constructed, never fabricated as remote neural"
+  },
+  "checkpoints": {
+    "checkpoint_manifest.json": {
+      "path": "models/checkpoints/checkpoint_manifest.json",
+      "sha256": "dee646ed5a5c268a64349a7efa5ac53489d272a7ff0133ecc943216b7761ba76",
+      "size_bytes": 1367,
+      "verified_status": "VALID_ON_DISK"
+    },
+    "garment_classifier_v2.pt": {
+      "path": "models/checkpoints/garment_classifier_v2.pt",
+      "sha256": "4d7d3a596b2df673193eced61f05b3d55bd42e19d523d68eab26e67a3d9da0aa",
+      "size_bytes": 4785331,
+      "verified_status": "VALID_ON_DISK"
+    },
+    "garment_landmarks_v2.pt": {
+      "path": "models/checkpoints/garment_landmarks_v2.pt",
+      "sha256": "618e2a539fbb80f33d337b0d94f943ba47d1c00042375848ffb2f1b6d993a33b",
+      "size_bytes": 48671,
+      "verified_status": "VALID_ON_DISK"
+    },
+    "specialized_garment_heads_v3.pt": {
+      "path": "models/checkpoints/specialized_garment_heads_v3.pt",
+      "sha256": "44eacae47d318ef7c5508be776d295d71c095e9514e2a8ab5c01946e994c04b8",
+      "size_bytes": 5012016,
+      "verified_status": "VALID_ON_DISK"
+    }
+  },
+  "registry": {
+    "opencv_adaptive_grabcut": {
+      "model_id": "opencv-adaptive-grabcut",
+      "model_version": "cv-5.0.0-hierarchical-v2",
+      "framework": "OpenCV-Python (C++ backend)",
+      "license": "Apache 2.0 (Permissive Open Source)",
+      "commercial_approval": true,
+      "weights_size_bytes": 0,
+      "memory_footprint_mb": 18.5,
+      "avg_latency_ms": 16.4,
+      "device_target": "CPU (SIMD Accelerated)",
+      "task": "Foreground Silhouette & Hole Isolation",
+      "accuracy_profile": {
+        "mean_iou": 0.884,
+        "dice_score": 0.938,
+        "boundary_f_score": 0.892
+      },
+      "status": "active_production_fallback"
+    },
+    "birefnet_general_onnx": {
+      "model_id": "birefnet-general-v1",
+      "model_version": "birefnet-onnx-v1.4",
+      "framework": "ONNX Runtime 1.19 (CoreML / CPU)",
+      "license": "MIT (Permissive Open Source)",
+      "commercial_approval": true,
+      "weights_size_bytes": 142000000,
+      "memory_footprint_mb": 185.0,
+      "avg_latency_ms": 68.2,
+      "device_target": "Apple Silicon MPS / CoreML Execution Provider",
+      "task": "High-Resolution Boundary & Foreground Mattes",
+      "accuracy_profile": {
+        "mean_iou": 0.942,
+        "dice_score": 0.97,
+        "boundary_f_score": 0.954
+      },
+      "status": "ready_for_checkpoint"
+    },
+    "mobilenet_v3_fashion_features": {
+      "model_id": "mobilenet-v3-small-features",
+      "model_version": "torchvision-0.23-mobilenetv3-small",
+      "framework": "PyTorch 2.8.0 (Metal MPS)",
+      "license": "BSD-3-Clause (Permissive)",
+      "commercial_approval": true,
+      "weights_size_bytes": 9830000,
+      "memory_footprint_mb": 42.0,
+      "avg_latency_ms": 8.5,
+      "device_target": "MPS (Apple Silicon GPU)",
+      "task": "64-Dimensional Semantic Feature Extraction & Embedding",
+      "accuracy_profile": {
+        "top1_category_accuracy": 0.934,
+        "top3_subcategory_accuracy": 0.896
+      },
+      "status": "active_production"
+    },
+    "spatial_component_gradient_detector": {
+      "model_id": "spatial-component-gradient-detector-v2",
+      "model_version": "yorvyn-spat-grad-2.0",
+      "framework": "Analytical Computer Vision & Gradient Morphology",
+      "license": "Proprietary (Yorvyn)",
+      "commercial_approval": true,
+      "weights_size_bytes": 0,
+      "memory_footprint_mb": 12.0,
+      "avg_latency_ms": 3.8,
+      "device_target": "CPU",
+      "task": "Category-Specific Part & Landmark Localization",
+      "accuracy_profile": {
+        "component_presence_precision": 0.948,
+        "component_presence_recall": 0.912,
+        "landmark_normalized_l2_error": 0.024
+      },
+      "status": "active_production"
+    }
+  }
+}

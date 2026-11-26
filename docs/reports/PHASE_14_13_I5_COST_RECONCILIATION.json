@@ -1,0 +1,90 @@
+{
+  "discrepancy_resolved": "Previous $727.87 total was smaller than GPU compute subtotal ($745.92).",
+  "root_cause": "The earlier Workstream I.4 total was calculated using a flat spot assumption (1,728h x $0.35 = $604.80 + $123.00 infra = $727.80) while simultaneously reporting a hybrid fleet of 1,440 spot hours ($504.00) + 288 on-demand fallback hours ($241.92 = $745.92). The discrepancy has been forensically reconciled to exactly $802.20/mo ($745.92 GPU compute + $56.28 auxiliary infra).",
+  "cloud_provider": "Google Cloud Platform",
+  "cloud_region": "us-central1",
+  "pricing_retrieval_date": "November 2026",
+  "gpu_instance_specification": "g2-standard-4 (1 NVIDIA L4 24GB, 4 vCPUs, 16GB RAM)",
+  "pricing_rates": {
+    "spot_l4_usd_per_hour": 0.35,
+    "ondemand_l4_usd_per_hour": 0.84,
+    "storage_gcs_standard_usd_per_gb_month": 0.02,
+    "internet_egress_usd_per_gb": 0.08,
+    "memorystore_redis_basic_1gb_usd_per_month": 35.28
+  },
+  "slas_separated": {
+    "api_acknowledgement_sla_ms": 50,
+    "queue_waiting_sla_p50_ms": 150,
+    "queue_waiting_sla_p95_ms": 300,
+    "reconstruction_execution_sla_p50_ms": 350,
+    "reconstruction_execution_sla_p95_ms": 450,
+    "end_to_end_completion_sla_p50_ms": 550,
+    "end_to_end_completion_sla_p95_ms": 800
+  },
+  "scenarios": [
+    {
+      "tier": "Tier 1: Pilot / Beta",
+      "monthly_volume": 10000,
+      "spot_l4_hours": 720,
+      "ondemand_l4_hours": 0,
+      "total_gpu_hours": 720,
+      "pure_compute_gpu_hours": 0.94,
+      "idle_standby_gpu_hours": 719.06,
+      "idle_capacity_ratio_pct": 99.87,
+      "gpu_compute_subtotal_usd": 252.0,
+      "storage_usd": 0.09,
+      "egress_usd": 0.34,
+      "redis_and_auxiliary_usd": 38.0,
+      "total_monthly_cost_usd": 290.43,
+      "cost_per_reconstruction_usd": 0.02904
+    },
+    {
+      "tier": "Tier 2: Base Production (Target)",
+      "monthly_volume": 100000,
+      "spot_l4_hours": 1440,
+      "ondemand_l4_hours": 288,
+      "total_gpu_hours": 1728,
+      "pure_compute_gpu_hours": 9.44,
+      "idle_standby_gpu_hours": 1718.56,
+      "idle_capacity_ratio_pct": 99.45,
+      "gpu_compute_subtotal_usd": 745.92,
+      "storage_usd": 0.86,
+      "egress_usd": 3.42,
+      "redis_and_auxiliary_usd": 52.0,
+      "total_monthly_cost_usd": 802.2,
+      "cost_per_reconstruction_usd": 0.00802
+    },
+    {
+      "tier": "Tier 3: High Growth",
+      "monthly_volume": 250000,
+      "spot_l4_hours": 2880,
+      "ondemand_l4_hours": 720,
+      "total_gpu_hours": 3600,
+      "pure_compute_gpu_hours": 23.61,
+      "idle_standby_gpu_hours": 3576.39,
+      "idle_capacity_ratio_pct": 99.34,
+      "gpu_compute_subtotal_usd": 1612.8,
+      "storage_usd": 2.14,
+      "egress_usd": 8.56,
+      "redis_and_auxiliary_usd": 75.0,
+      "total_monthly_cost_usd": 1698.5,
+      "cost_per_reconstruction_usd": 0.00679
+    },
+    {
+      "tier": "Tier 4: Enterprise Scale",
+      "monthly_volume": 1000000,
+      "spot_l4_hours": 7200,
+      "ondemand_l4_hours": 2880,
+      "total_gpu_hours": 10080,
+      "pure_compute_gpu_hours": 94.44,
+      "idle_standby_gpu_hours": 9985.56,
+      "idle_capacity_ratio_pct": 99.06,
+      "gpu_compute_subtotal_usd": 4939.2,
+      "storage_usd": 8.56,
+      "egress_usd": 34.24,
+      "redis_and_auxiliary_usd": 180.0,
+      "total_monthly_cost_usd": 5162.0,
+      "cost_per_reconstruction_usd": 0.00516
+    }
+  ]
+}

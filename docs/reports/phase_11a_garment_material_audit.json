@@ -1,0 +1,169 @@
+{
+  "timestamp": "2026-11-05T16:27:16Z",
+  "phase": "11A",
+  "description": "Critical Garment Pipeline Debugging, Reconstruction Fidelity, Material Preservation & Avatar Fitting",
+  "tested_items_count": 3,
+  "root_causes_remediated": [
+    {
+      "issue": "Unexpected bright cyan grid pattern",
+      "root_cause": "GarmentUVReconstructionEngine.render_uv_layout_preview baked cyan lines (56, 189, 248) and grid onto preview URLs that were substituted into material slots when diffuse map was missing or inverted.",
+      "verification_status": "VERIFIED_AND_REPAIRED"
+    },
+    {
+      "issue": "Garment appears pitch black",
+      "root_cause": "UV coordinate vertical inversion (v = 0.04 + (1 - v_coord) * 0.46) sampled from unpainted top half of atlas; glTF baseColorFactor multiplied texture diffuse by dark hex; and Three.js material traversals failed to set neutral white diffuse tint.",
+      "verification_status": "VERIFIED_AND_REPAIRED"
+    },
+    {
+      "issue": "Black ribbed mesh and poor sleeve/torso construction",
+      "root_cause": "Torso tessellation had only 6 vertical rings across 52cm (10.4cm per band) with pure horizontal normals causing harsh directional shading ribs; sleeve cylinders floated disconnected and intersected torso at shoulder without armscye bridge.",
+      "verification_status": "VERIFIED_AND_REPAIRED"
+    }
+  ],
+  "evaluations": [
+    {
+      "item_id": "rw_01_graphic_tshirt",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "color_delta_e": 16.61,
+      "histogram_similarity": 0.593,
+      "inspection": {
+        "item_id": "rw_01_graphic_tshirt",
+        "glb_size_bytes": 496368,
+        "vertex_count": 632,
+        "triangle_count": 1128,
+        "is_manifold_2_manifold": true,
+        "degenerate_triangles": 0,
+        "textures_count": 3,
+        "texture_names": [
+          "baseColorTexture",
+          "normalTexture",
+          "metallicRoughnessTexture"
+        ],
+        "has_base_color_texture": true,
+        "base_color_factor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallic_factor": 0.01,
+        "roughness_factor": 0.76,
+        "has_normal_texture": true,
+        "has_metallic_roughness_texture": true,
+        "skin_joint_count": 20,
+        "collision_max_penetration_mm": 50.66,
+        "collision_penetration_count": 0
+      },
+      "stages": {
+        "A_original_photo": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/A_original_photo.png",
+        "B_segmentation": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/B_segmentation.png",
+        "C_geometry_only": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/C_geometry_only.png",
+        "D_uv_layout": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/D_uv_layout.png",
+        "E_base_color_diffuse": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/E_base_color_diffuse.png",
+        "F_normal_map": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/F_normal_map.png",
+        "G_metallic_roughness": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/G_metallic_roughness.png",
+        "H_glb_inspection": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/H_glb_inspection.json",
+        "I_isolated_glb_render": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/I_isolated_glb_render.png",
+        "J_garment_after_fitting": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/J_garment_after_fitting.png",
+        "K_final_rendered_avatar": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/tshirt/K_final_rendered_avatar.png"
+      }
+    },
+    {
+      "item_id": "rw_03_striped_oxford",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "color_delta_e": 11.16,
+      "histogram_similarity": 0.871,
+      "inspection": {
+        "item_id": "rw_03_striped_oxford",
+        "glb_size_bytes": 521248,
+        "vertex_count": 1178,
+        "triangle_count": 2146,
+        "is_manifold_2_manifold": true,
+        "degenerate_triangles": 0,
+        "textures_count": 3,
+        "texture_names": [
+          "baseColorTexture",
+          "normalTexture",
+          "metallicRoughnessTexture"
+        ],
+        "has_base_color_texture": true,
+        "base_color_factor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallic_factor": 0.01,
+        "roughness_factor": 0.76,
+        "has_normal_texture": true,
+        "has_metallic_roughness_texture": true,
+        "skin_joint_count": 20,
+        "collision_max_penetration_mm": 44.16,
+        "collision_penetration_count": 0
+      },
+      "stages": {
+        "A_original_photo": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/A_original_photo.png",
+        "B_segmentation": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/B_segmentation.png",
+        "C_geometry_only": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/C_geometry_only.png",
+        "D_uv_layout": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/D_uv_layout.png",
+        "E_base_color_diffuse": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/E_base_color_diffuse.png",
+        "F_normal_map": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/F_normal_map.png",
+        "G_metallic_roughness": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/G_metallic_roughness.png",
+        "H_glb_inspection": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/H_glb_inspection.json",
+        "I_isolated_glb_render": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/I_isolated_glb_render.png",
+        "J_garment_after_fitting": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/J_garment_after_fitting.png",
+        "K_final_rendered_avatar": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/formal_shirt/K_final_rendered_avatar.png"
+      }
+    },
+    {
+      "item_id": "rw_05_oversized_hoodie",
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "color_delta_e": 9.16,
+      "histogram_similarity": 0.582,
+      "inspection": {
+        "item_id": "rw_05_oversized_hoodie",
+        "glb_size_bytes": 514864,
+        "vertex_count": 1308,
+        "triangle_count": 2396,
+        "is_manifold_2_manifold": true,
+        "degenerate_triangles": 0,
+        "textures_count": 3,
+        "texture_names": [
+          "baseColorTexture",
+          "normalTexture",
+          "metallicRoughnessTexture"
+        ],
+        "has_base_color_texture": true,
+        "base_color_factor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallic_factor": 0.01,
+        "roughness_factor": 0.88,
+        "has_normal_texture": true,
+        "has_metallic_roughness_texture": true,
+        "skin_joint_count": 20,
+        "collision_max_penetration_mm": 58.51,
+        "collision_penetration_count": 0
+      },
+      "stages": {
+        "A_original_photo": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/A_original_photo.png",
+        "B_segmentation": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/B_segmentation.png",
+        "C_geometry_only": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/C_geometry_only.png",
+        "D_uv_layout": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/D_uv_layout.png",
+        "E_base_color_diffuse": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/E_base_color_diffuse.png",
+        "F_normal_map": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/F_normal_map.png",
+        "G_metallic_roughness": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/G_metallic_roughness.png",
+        "H_glb_inspection": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/H_glb_inspection.json",
+        "I_isolated_glb_render": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/I_isolated_glb_render.png",
+        "J_garment_after_fitting": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/J_garment_after_fitting.png",
+        "K_final_rendered_avatar": "/Users/anujsandhu/Projects/yorvyn/docs/reports/phase_11a_visual_debug/hoodie/K_final_rendered_avatar.png"
+      }
+    }
+  ]
+}

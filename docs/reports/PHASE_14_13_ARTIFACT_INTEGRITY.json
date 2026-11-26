@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Artifact & Job Integrity",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "total_audited_glbs": 10,
+    "verdict": "PASS"
+  },
+  "audited_samples": [
+    {
+      "job_id": "job_commit_7ee1fd",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_commit_7ee1fd.glb",
+      "file_size_bytes": 140,
+      "sha256": "37bd039b2d10744ebfc664f56d40ac7ee29a044939c0b32e802b555875ad1a8c"
+    },
+    {
+      "job_id": "job_commit_90881d",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_commit_90881d.glb",
+      "file_size_bytes": 140,
+      "sha256": "37bd039b2d10744ebfc664f56d40ac7ee29a044939c0b32e802b555875ad1a8c"
+    },
+    {
+      "job_id": "job_155e056254e5",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_155e056254e5.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_vic_0e4687",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_vic_0e4687.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_a2f2a1c13da9",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_a2f2a1c13da9.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_cabe9acec767",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_cabe9acec767.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_d40b8dbf2b0f",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_d40b8dbf2b0f.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_retrievable_a25c83",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_retrievable_a25c83.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_b35cd24b688a",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_b35cd24b688a.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    },
+    {
+      "job_id": "job_victim_167859",
+      "asset_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_victim_167859.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3"
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "ART-14-13-01",
+      "name": "Persisted Artifact Integrity & Structure Audit",
+      "description": "Verify existing completed GLBs conform to glTF 2.0 binary chunk format",
+      "expected": ">= 5 valid audited artifacts",
+      "actual": "10 valid artifacts verified",
+      "status": "PASS"
+    },
+    {
+      "test_id": "ART-14-13-02",
+      "name": "Orphaned Temporary File Retention & Cleanup",
+      "description": "Verify orphaned temporary files > 300s are pruned without touching active files",
+      "expected": "purged >= 1, active files retained",
+      "actual": "purged=1, cleaned=True",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,2968 @@
+{
+  "evaluation_phase": "Phase 13.9",
+  "benchmark_date": "2026-11-15T17:44:42Z",
+  "dataset_split": "independent_holdout",
+  "total_evaluated_samples": 105,
+  "overall_metrics": {
+    "independent_domain_accuracy": 0.2095,
+    "exact_subcategory_accuracy": 0.0952,
+    "macro_f1": 0.1579,
+    "expected_calibration_error": 0.5956,
+    "high_confidence_precision": 0.25,
+    "rejection_precision": 1.0
+  },
+  "phase_13_8_baseline_comparison": {
+    "independent_domain_accuracy": {
+      "phase_13_8": 0.3,
+      "phase_13_9": 0.2095,
+      "absolute_gain": -0.0905
+    },
+    "exact_subcategory_accuracy": {
+      "phase_13_8": 0.1667,
+      "phase_13_9": 0.0952,
+      "absolute_gain": -0.0715
+    },
+    "macro_f1": {
+      "phase_13_8": 0.1607,
+      "phase_13_9": 0.1579,
+      "absolute_gain": -0.0028
+    },
+    "expected_calibration_error": {
+      "phase_13_8": 0.6457,
+      "phase_13_9": 0.5956,
+      "absolute_reduction": 0.0501
+    }
+  },
+  "decision_reason_distribution": {
+    "neural_primary": {
+      "count": 88,
+      "percentage": 83.8
+    },
+    "photographic_rejection": {
+      "count": 9,
+      "percentage": 8.6
+    },
+    "rule_override": {
+      "count": 8,
+      "percentage": 7.6
+    }
+  },
+  "per_category_metrics": {
+    "accessories": {
+      "samples": 19,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 19,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "bottoms": {
+      "samples": 14,
+      "true_positives": 1,
+      "false_positives": 3,
+      "false_negatives": 13,
+      "precision": 0.25,
+      "recall": 0.0714,
+      "f1_score": 0.1111
+    },
+    "dresses_and_skirts": {
+      "samples": 15,
+      "true_positives": 7,
+      "false_positives": 27,
+      "false_negatives": 8,
+      "precision": 0.2059,
+      "recall": 0.4667,
+      "f1_score": 0.2857
+    },
+    "footwear": {
+      "samples": 14,
+      "true_positives": 1,
+      "false_positives": 1,
+      "false_negatives": 13,
+      "precision": 0.5,
+      "recall": 0.0714,
+      "f1_score": 0.125
+    },
+    "outerwear": {
+      "samples": 16,
+      "true_positives": 5,
+      "false_positives": 12,
+      "false_negatives": 11,
+      "precision": 0.2941,
+      "recall": 0.3125,
+      "f1_score": 0.303
+    },
+    "tops": {
+      "samples": 22,
+      "true_positives": 8,
+      "false_positives": 27,
+      "false_negatives": 14,
+      "precision": 0.2286,
+      "recall": 0.3636,
+      "f1_score": 0.2807
+    },
+    "traditional": {
+      "samples": 5,
+      "true_positives": 0,
+      "false_positives": 4,
+      "false_negatives": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "confusion_matrix": {
+    "accessories": {
+      "accessories": 0,
+      "bottoms": 3,
+      "dresses_and_skirts": 3,
+      "footwear": 0,
+      "outerwear": 2,
+      "tops": 8,
+      "traditional": 0,
+      "other": 0,
+      "rejected": 3
+    },
+    "bottoms": {
+      "accessories": 0,
+      "bottoms": 1,
+      "dresses_and_skirts": 5,
+      "footwear": 0,
+      "outerwear": 3,
+      "tops": 3,
+      "traditional": 1,
+      "other": 0,
+      "rejected": 1
+    },
+    "dresses_and_skirts": {
+      "accessories": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 7,
+      "footwear": 0,
+      "outerwear": 1,
+      "tops": 6,
+      "traditional": 1,
+      "other": 0,
+      "rejected": 0
+    },
+    "footwear": {
+      "accessories": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 9,
+      "footwear": 1,
+      "outerwear": 1,
+      "tops": 2,
+      "traditional": 0,
+      "other": 0,
+      "rejected": 1
+    },
+    "outerwear": {
+      "accessories": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 4,
+      "footwear": 0,
+      "outerwear": 5,
+      "tops": 5,
+      "traditional": 1,
+      "other": 0,
+      "rejected": 1
+    },
+    "tops": {
+      "accessories": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 6,
+      "footwear": 1,
+      "outerwear": 4,
+      "tops": 8,
+      "traditional": 1,
+      "other": 0,
+      "rejected": 2
+    },
+    "traditional": {
+      "accessories": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "outerwear": 1,
+      "tops": 3,
+      "traditional": 0,
+      "other": 0,
+      "rejected": 1
+    }
+  },
+  "sample_evaluations": [
+    {
+      "item_id": "wm_00_jacket_denim",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "denim_jacket",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.2041
+      },
+      "model_confidence": 0.2971,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 6375.67
+    },
+    {
+      "item_id": "wm_01_jacket_denim",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "denim_jacket",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.1221
+      },
+      "model_confidence": 0.2818,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 587.39
+    },
+    {
+      "item_id": "wm_02_jacket_denim",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "denim_jacket",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.1205
+      },
+      "model_confidence": 0.2485,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 560.53
+    },
+    {
+      "item_id": "wm_03_jacket_denim",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "denim_jacket",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 384.04,
+      "rejection_error": "Input image rejected: Garment appears severely cropped at 3 or more boundaries. Guidance: Capture the complete garment within the frame without cutting off sleeves, collar, or hem."
+    },
+    {
+      "item_id": "wm_04_blazer_jacket",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "blazer",
+      "pred_category": "traditional",
+      "pred_domain": "traditional",
+      "pred_subcategory": "kurta",
+      "confidence": 0.928,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1293
+      },
+      "model_confidence": 0.4811,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "blazer"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 844.17
+    },
+    {
+      "item_id": "wm_05_hoodie_pullover",
+      "gt_category": "hoodie",
+      "gt_domain": "tops",
+      "gt_subcategory": "hoodie",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1015
+      },
+      "model_confidence": 0.2144,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.7854,
+      "latency_ms": 848.08
+    },
+    {
+      "item_id": "wm_07_hoodie_pullover",
+      "gt_category": "hoodie",
+      "gt_domain": "tops",
+      "gt_subcategory": "hoodie",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.2157
+      },
+      "model_confidence": 0.4458,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 860.16
+    },
+    {
+      "item_id": "wm_09_sweater_knit",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "sweater",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.948,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2009
+      },
+      "model_confidence": 0.3012,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "formal_coat"
+      },
+      "rule_confidence": 0.8686,
+      "latency_ms": 486.06
+    },
+    {
+      "item_id": "wm_10_sweater_knit",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "sweater",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2931
+      },
+      "model_confidence": 0.3386,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 476.42
+    },
+    {
+      "item_id": "wm_12_sweater_knit",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "sweater",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.2352
+      },
+      "model_confidence": 0.3533,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 571.31
+    },
+    {
+      "item_id": "wm_13_shirt_plaid",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "casual_shirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.95,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.435
+      },
+      "model_confidence": 0.3598,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.732,
+      "latency_ms": 813.54
+    },
+    {
+      "item_id": "wm_15_shirt_plaid",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "casual_shirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.0944
+      },
+      "model_confidence": 0.2185,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 574.42
+    },
+    {
+      "item_id": "wm_17_shirt_formal",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "formal_shirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "formal_shirt",
+      "confidence": 0.9,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1069
+      },
+      "model_confidence": 0.2036,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.7854,
+      "latency_ms": 1098.51
+    },
+    {
+      "item_id": "wm_18_shirt_formal",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "formal_shirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.931,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.1231
+      },
+      "model_confidence": 0.2853,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "blazer"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 907.98
+    },
+    {
+      "item_id": "wm_19_shirt_formal",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "formal_shirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.931,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.1198
+      },
+      "model_confidence": 0.2907,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "blazer"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 932.31
+    },
+    {
+      "item_id": "wm_20_shirt_formal",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "formal_shirt",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 630.91,
+      "rejection_error": "Input image rejected: Garment appears severely cropped at 3 or more boundaries. Guidance: Capture the complete garment within the frame without cutting off sleeves, collar, or hem."
+    },
+    {
+      "item_id": "wm_21_tshirt_graphic",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "tshirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.961,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1103
+      },
+      "model_confidence": 0.3536,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 850.62
+    },
+    {
+      "item_id": "wm_22_tshirt_graphic",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "tshirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "maxi_dress",
+      "confidence": 0.949,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.138
+      },
+      "model_confidence": 0.3529,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 3219.09
+    },
+    {
+      "item_id": "wm_24_tshirt_graphic",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "tshirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.939,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.241
+      },
+      "model_confidence": 0.2486,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 904.48
+    },
+    {
+      "item_id": "wm_25_trousers_chinos",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "trousers",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1387
+      },
+      "model_confidence": 0.3395,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 534.32
+    },
+    {
+      "item_id": "wm_29_jeans_denim",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "jeans",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.949,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.1294
+      },
+      "model_confidence": 0.2304,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8678,
+      "latency_ms": 862.59
+    },
+    {
+      "item_id": "wm_30_jeans_denim",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "jeans",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.3258
+      },
+      "model_confidence": 0.4494,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 792.22
+    },
+    {
+      "item_id": "wm_33_shorts_casual",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.948,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2392
+      },
+      "model_confidence": 0.2316,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "formal_coat"
+      },
+      "rule_confidence": 0.8686,
+      "latency_ms": 939.63
+    },
+    {
+      "item_id": "wm_34_shorts_casual",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.948,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.3087
+      },
+      "model_confidence": 0.2979,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "formal_coat"
+      },
+      "rule_confidence": 0.8686,
+      "latency_ms": 959.44
+    },
+    {
+      "item_id": "wm_35_shorts_casual",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "bottoms",
+      "pred_domain": "bottoms",
+      "pred_subcategory": "shorts",
+      "confidence": 0.937,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1804
+      },
+      "model_confidence": 0.4189,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "shorts"
+      },
+      "rule_confidence": 0.8776,
+      "latency_ms": 849.87
+    },
+    {
+      "item_id": "wm_37_skirt_pleated",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pleated_skirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2282
+      },
+      "model_confidence": 0.2832,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 583.9
+    },
+    {
+      "item_id": "wm_38_skirt_pleated",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pleated_skirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.792,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1528
+      },
+      "model_confidence": 0.2761,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 831.59
+    },
+    {
+      "item_id": "wm_39_skirt_pleated",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pleated_skirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.3656
+      },
+      "model_confidence": 0.425,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 791.1
+    },
+    {
+      "item_id": "wm_42_dress_aline",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "dress",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.95,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "scarf",
+        "subcategory_confidence": 0.2167
+      },
+      "model_confidence": 0.2856,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.7854,
+      "latency_ms": 1309.85
+    },
+    {
+      "item_id": "wm_43_dress_aline",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "dress",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.0947
+      },
+      "model_confidence": 0.3142,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 1603.27
+    },
+    {
+      "item_id": "wm_44_dress_aline",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "dress",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.1996
+      },
+      "model_confidence": 0.257,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 1772.3
+    },
+    {
+      "item_id": "wm_46_kurta_ethnic",
+      "gt_category": "traditional",
+      "gt_domain": "traditional",
+      "gt_subcategory": "kurta",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "formal_shirt",
+      "confidence": 0.724,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "casual_shirt",
+        "subcategory_confidence": 0.0743
+      },
+      "model_confidence": 0.2055,
+      "rule_hypothesis": {
+        "category": "traditional",
+        "subcategory": "kurta"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 940.45
+    },
+    {
+      "item_id": "wm_48_kurta_ethnic",
+      "gt_category": "traditional",
+      "gt_domain": "traditional",
+      "gt_subcategory": "kurta",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "tshirt",
+      "confidence": 0.63,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.0691
+      },
+      "model_confidence": 0.2044,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "sweater"
+      },
+      "rule_confidence": 0.8228,
+      "latency_ms": 879.01
+    },
+    {
+      "item_id": "wm_49_jeans_extra",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "jeans",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 412.53,
+      "rejection_error": "Input image rejected: Image is extremely dark / underexposed; fabric contours cannot be distinguished. Guidance: Please retake the photograph under balanced, well-lit ambient or daylight conditions."
+    },
+    {
+      "item_id": "wm_52_shorts_extra",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.949,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1424
+      },
+      "model_confidence": 0.3483,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 509.5
+    },
+    {
+      "item_id": "wm_54_shorts_extra",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.0841
+      },
+      "model_confidence": 0.2124,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 513.66
+    },
+    {
+      "item_id": "wm_55_blazer_extra",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "blazer",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.839,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.4342
+      },
+      "model_confidence": 0.3317,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 618.77
+    },
+    {
+      "item_id": "wm_58_dress_extra",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "dress",
+      "pred_category": "traditional",
+      "pred_domain": "traditional",
+      "pred_subcategory": "kurta",
+      "confidence": 0.93,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.0688
+      },
+      "model_confidence": 0.2457,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 780.87
+    },
+    {
+      "item_id": "wm_59_dress_extra",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "dress",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "maxi_dress",
+      "confidence": 0.949,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "a_line_dress",
+        "subcategory_confidence": 0.0883
+      },
+      "model_confidence": 0.1958,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 749.84
+    },
+    {
+      "item_id": "wm_60_sweater_extra",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "sweater",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.95,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.3205
+      },
+      "model_confidence": 0.3373,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 717.9
+    },
+    {
+      "item_id": "wm_62_sweater_extra",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "sweater",
+      "pred_category": "traditional",
+      "pred_domain": "traditional",
+      "pred_subcategory": "kurta",
+      "confidence": 0.475,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1151
+      },
+      "model_confidence": 0.3634,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 588.77
+    },
+    {
+      "item_id": "wm_64_tshirt_extra",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "tshirt",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 602.57,
+      "rejection_error": "Input image rejected: Garment appears severely cropped at 3 or more boundaries. Guidance: Capture the complete garment within the frame without cutting off sleeves, collar, or hem."
+    },
+    {
+      "item_id": "wd_05",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "straight_jeans",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1561
+      },
+      "model_confidence": 0.1794,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "sweater"
+      },
+      "rule_confidence": 0.8228,
+      "latency_ms": 199.23
+    },
+    {
+      "item_id": "wd_06",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "formal_trousers",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.1441
+      },
+      "model_confidence": 0.1941,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 189.51
+    },
+    {
+      "item_id": "wd_07",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "formal_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.1204
+      },
+      "model_confidence": 0.2023,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 188.74
+    },
+    {
+      "item_id": "wd_09",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pleated_skirt",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.1479
+      },
+      "model_confidence": 0.1929,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 188.77
+    },
+    {
+      "item_id": "wd_10",
+      "gt_category": "traditional",
+      "gt_domain": "traditional",
+      "gt_subcategory": "kurta",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.942,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.1184
+      },
+      "model_confidence": 0.2146,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 186.52
+    },
+    {
+      "item_id": "wd_15",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "blazer",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1238
+      },
+      "model_confidence": 0.171,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "sweater"
+      },
+      "rule_confidence": 0.8228,
+      "latency_ms": 187.94
+    },
+    {
+      "item_id": "real_ref_01_case_a_hoodie",
+      "gt_category": "hoodie",
+      "gt_domain": "tops",
+      "gt_subcategory": "pullover_hoodie",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.0866
+      },
+      "model_confidence": 0.4815,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "hoodie"
+      },
+      "rule_confidence": 0.8602,
+      "latency_ms": 1868.75
+    },
+    {
+      "item_id": "real_ref_04_case_d_denim_jacket",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "denim_jacket",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "casual_dress",
+      "confidence": 0.95,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "a_line_dress",
+        "subcategory_confidence": 0.0912
+      },
+      "model_confidence": 0.2211,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 489.13
+    },
+    {
+      "item_id": "real_ref_05_case_e_trousers",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "formal_trousers",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.949,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.0935
+      },
+      "model_confidence": 0.3152,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8678,
+      "latency_ms": 303.67
+    },
+    {
+      "item_id": "real_onbody_03_formal_shirt",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "formal_shirt",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.0655
+      },
+      "model_confidence": 0.2887,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 1949.7
+    },
+    {
+      "item_id": "real_onbody_09_multi_person",
+      "gt_category": "tops",
+      "gt_domain": "tops",
+      "gt_subcategory": "tshirt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "formal_shirt",
+      "confidence": 0.725,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "formal_shirt",
+        "subcategory_confidence": 0.1335
+      },
+      "model_confidence": 0.1445,
+      "rule_hypothesis": {
+        "category": "traditional",
+        "subcategory": "kurta"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 470.96
+    },
+    {
+      "item_id": "real_onbody_10_lifestyle_bg",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "blazer",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.664,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "tshirt",
+        "subcategory_confidence": 0.2317
+      },
+      "model_confidence": 0.5512,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 579.37
+    },
+    {
+      "item_id": "p13_9_acc_bag_01",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "tote_bag",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 2275.09,
+      "rejection_error": "Input image rejected: Garment occupies less than 3% of the image; clothing could not be identified. Guidance: Center the garment in frame so it fills at least 40% of the photograph."
+    },
+    {
+      "item_id": "p13_9_acc_beanie_01",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "beanie",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1363
+      },
+      "model_confidence": 0.2566,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.7854,
+      "latency_ms": 4591.5
+    },
+    {
+      "item_id": "p13_9_acc_beanie_03",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "beanie",
+      "pred_category": "bottoms",
+      "pred_domain": "bottoms",
+      "pred_subcategory": "jeans",
+      "confidence": 0.929,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1943
+      },
+      "model_confidence": 0.4443,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 14864.2
+    },
+    {
+      "item_id": "p13_9_acc_beanie_05",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "beanie",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.888,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "scarf",
+        "subcategory_confidence": 0.3205
+      },
+      "model_confidence": 0.2267,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 3932.46
+    },
+    {
+      "item_id": "p13_9_acc_belt_02",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "belt",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.91,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.2525
+      },
+      "model_confidence": 0.211,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "hoodie"
+      },
+      "rule_confidence": 0.8602,
+      "latency_ms": 34953.22
+    },
+    {
+      "item_id": "p13_9_acc_belt_03",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "belt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "tshirt",
+      "confidence": 0.837,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "accessories",
+        "raw_category": "accessories",
+        "subcategory": "belt",
+        "subcategory_confidence": 0.6197
+      },
+      "model_confidence": 0.2612,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 19254.66
+    },
+    {
+      "item_id": "p13_9_acc_belt_04",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "belt",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.724,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "accessories",
+        "raw_category": "accessories",
+        "subcategory": "belt",
+        "subcategory_confidence": 0.6694
+      },
+      "model_confidence": 0.3499,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 12791.84
+    },
+    {
+      "item_id": "p13_9_acc_cap_01",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.667,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1728
+      },
+      "model_confidence": 0.3905,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 1011.85
+    },
+    {
+      "item_id": "p13_9_acc_cap_02",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.073
+      },
+      "model_confidence": 0.2038,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 27089.05
+    },
+    {
+      "item_id": "p13_9_acc_cap_03",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 59541.86,
+      "rejection_error": "Input image rejected: Garment occupies less than 3% of the image; clothing could not be identified. Guidance: Center the garment in frame so it fills at least 40% of the photograph."
+    },
+    {
+      "item_id": "p13_9_acc_cap_04",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "tshirt",
+      "confidence": 0.638,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1874
+      },
+      "model_confidence": 0.3106,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 2989.94
+    },
+    {
+      "item_id": "p13_9_acc_cap_05",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "tshirt",
+      "confidence": 0.58,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "accessories",
+        "raw_category": "accessories",
+        "subcategory": "scarf",
+        "subcategory_confidence": 0.2057
+      },
+      "model_confidence": 0.2295,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.732,
+      "latency_ms": 71454.74
+    },
+    {
+      "item_id": "p13_9_acc_cap_06",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "cap",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.767,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.2777
+      },
+      "model_confidence": 0.3825,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 4356.96
+    },
+    {
+      "item_id": "p13_9_acc_scarf_01",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "bottoms",
+      "pred_domain": "bottoms",
+      "pred_subcategory": "jeans",
+      "confidence": 0.929,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2081
+      },
+      "model_confidence": 0.2844,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "rule_confidence": 0.8288,
+      "latency_ms": 17863.07
+    },
+    {
+      "item_id": "p13_9_acc_scarf_02",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "bottoms",
+      "pred_domain": "bottoms",
+      "pred_subcategory": "trousers",
+      "confidence": 0.929,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1095
+      },
+      "model_confidence": 0.1607,
+      "rule_hypothesis": {
+        "category": "bottoms",
+        "subcategory": "trousers"
+      },
+      "rule_confidence": 0.8581,
+      "latency_ms": 2112.32
+    },
+    {
+      "item_id": "p13_9_acc_scarf_04",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 4224.98,
+      "rejection_error": "Input image rejected: Garment occupies less than 3% of the image; clothing could not be identified. Guidance: Center the garment in frame so it fills at least 40% of the photograph."
+    },
+    {
+      "item_id": "p13_9_acc_scarf_05",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "scarf",
+        "subcategory_confidence": 0.0833
+      },
+      "model_confidence": 0.2169,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.7854,
+      "latency_ms": 41865.4
+    },
+    {
+      "item_id": "p13_9_acc_scarf_06",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "formal_shirt",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "tops",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.143
+      },
+      "model_confidence": 0.2501,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 68852.96
+    },
+    {
+      "item_id": "p13_9_acc_scarf_07",
+      "gt_category": "accessories",
+      "gt_domain": "accessories",
+      "gt_subcategory": "scarf",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "casual_dress",
+      "confidence": 0.948,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "scarf",
+        "subcategory_confidence": 0.13
+      },
+      "model_confidence": 0.1812,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 2036.28
+    },
+    {
+      "item_id": "p13_9_bot_shorts_01",
+      "gt_category": "bottoms",
+      "gt_domain": "bottoms",
+      "gt_subcategory": "shorts",
+      "pred_category": "traditional",
+      "pred_domain": "traditional",
+      "pred_subcategory": "kurta",
+      "confidence": 0.946,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "straight_jeans",
+        "subcategory_confidence": 0.1003
+      },
+      "model_confidence": 0.1969,
+      "rule_hypothesis": {
+        "category": "traditional",
+        "subcategory": "kurta"
+      },
+      "rule_confidence": 0.8982,
+      "latency_ms": 46013.34
+    },
+    {
+      "item_id": "p13_9_dress_maxi_02",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "maxi_dress",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "tshirt",
+      "confidence": 0.638,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.0862
+      },
+      "model_confidence": 0.3151,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 26299.05
+    },
+    {
+      "item_id": "p13_9_dress_maxi_03",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "maxi_dress",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "hoodie",
+      "confidence": 0.931,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.1041
+      },
+      "model_confidence": 0.254,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "formal_coat"
+      },
+      "rule_confidence": 0.8686,
+      "latency_ms": 16375.33
+    },
+    {
+      "item_id": "p13_9_dress_maxi_04",
+      "gt_category": "dress",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "maxi_dress",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.0868
+      },
+      "model_confidence": 0.1871,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 19077.55
+    },
+    {
+      "item_id": "p13_9_footwear_boot_02",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "boots",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.767,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.6146
+      },
+      "model_confidence": 0.547,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 50328.72
+    },
+    {
+      "item_id": "p13_9_footwear_boot_03",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "boots",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.772,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.9211
+      },
+      "model_confidence": 0.7326,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.732,
+      "latency_ms": 14041.7
+    },
+    {
+      "item_id": "p13_9_footwear_boot_04",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "boots",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.898,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.7976
+      },
+      "model_confidence": 0.6239,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 21865.72
+    },
+    {
+      "item_id": "p13_9_footwear_boot_05",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "boots",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.767,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.6714
+      },
+      "model_confidence": 0.5989,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 2321.7
+    },
+    {
+      "item_id": "p13_9_footwear_sand_02",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sandals",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "skirt",
+      "confidence": 0.767,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.1249
+      },
+      "model_confidence": 0.1924,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 13062.65
+    },
+    {
+      "item_id": "p13_9_footwear_sand_04",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sandals",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.861,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "belt",
+        "subcategory_confidence": 0.1833
+      },
+      "model_confidence": 0.2311,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 11125.87
+    },
+    {
+      "item_id": "p13_9_footwear_sand_05",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sandals",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.948,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.0956
+      },
+      "model_confidence": 0.243,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "formal_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 16894.1
+    },
+    {
+      "item_id": "p13_9_footwear_sand_06",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sandals",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.939,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.245
+      },
+      "model_confidence": 0.279,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 5588.82
+    },
+    {
+      "item_id": "p13_9_footwear_snk_01",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "footwear",
+      "pred_domain": "footwear",
+      "pred_subcategory": "sneakers",
+      "confidence": 0.755,
+      "domain_correct": true,
+      "subcategory_correct": true,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.1513
+      },
+      "model_confidence": 0.2719,
+      "rule_hypothesis": {
+        "category": "footwear",
+        "subcategory": "sneakers"
+      },
+      "rule_confidence": 0.8989,
+      "latency_ms": 3895.71
+    },
+    {
+      "item_id": "p13_9_footwear_snk_02",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 20539.29,
+      "rejection_error": "Input image rejected: Garment occupies less than 3% of the image; clothing could not be identified. Guidance: Center the garment in frame so it fills at least 40% of the photograph."
+    },
+    {
+      "item_id": "p13_9_footwear_snk_03",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1922
+      },
+      "model_confidence": 0.2141,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 58387.41
+    },
+    {
+      "item_id": "p13_9_footwear_snk_04",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.953,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.0872
+      },
+      "model_confidence": 0.2151,
+      "rule_hypothesis": {
+        "category": "outerwear",
+        "subcategory": "denim_jacket"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 32760.57
+    },
+    {
+      "item_id": "p13_9_footwear_snk_05",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "dress",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.1594
+      },
+      "model_confidence": 0.2447,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 33753.28
+    },
+    {
+      "item_id": "p13_9_footwear_snk_08",
+      "gt_category": "footwear",
+      "gt_domain": "footwear",
+      "gt_subcategory": "sneakers",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.3496
+      },
+      "model_confidence": 0.2807,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 43436.61
+    },
+    {
+      "item_id": "p13_9_hoodie_zip_01",
+      "gt_category": "hoodie",
+      "gt_domain": "tops",
+      "gt_subcategory": "zip_hoodie",
+      "pred_category": "outerwear",
+      "pred_domain": "outerwear",
+      "pred_subcategory": "denim_jacket",
+      "confidence": 0.839,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "denim_jacket",
+        "subcategory_confidence": 0.2907
+      },
+      "model_confidence": 0.2102,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "skirt"
+      },
+      "rule_confidence": 0.8883,
+      "latency_ms": 28872.79
+    },
+    {
+      "item_id": "p13_9_jack_bomber_01",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "bomber_jacket",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "maxi_dress",
+      "confidence": 0.949,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "accessories",
+        "raw_category": "accessories",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.2543
+      },
+      "model_confidence": 0.2459,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 6628.6
+    },
+    {
+      "item_id": "p13_9_jack_bomber_02",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "bomber_jacket",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "maxi_dress",
+      "confidence": 0.89,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "footwear",
+        "raw_category": "footwear",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.2494
+      },
+      "model_confidence": 0.2348,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 4735.85
+    },
+    {
+      "item_id": "p13_9_jack_bomber_04",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "bomber_jacket",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "sweater",
+        "subcategory_confidence": 0.0822
+      },
+      "model_confidence": 0.2203,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 2619.87
+    },
+    {
+      "item_id": "p13_9_jack_bomber_05",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "bomber_jacket",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "sweater",
+      "confidence": 0.578,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "LOW_CONFIDENCE",
+      "model_prediction": {
+        "category": "tops",
+        "raw_category": "hoodie",
+        "subcategory": "boots",
+        "subcategory_confidence": 0.0989
+      },
+      "model_confidence": 0.1678,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "sweater"
+      },
+      "rule_confidence": 0.7238,
+      "latency_ms": 23884.87
+    },
+    {
+      "item_id": "p13_9_jack_leather_04",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "leather_jacket",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.874,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.2468
+      },
+      "model_confidence": 0.2366,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.732,
+      "latency_ms": 9085.0
+    },
+    {
+      "item_id": "p13_9_jack_leather_06",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "leather_jacket",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.9,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.1396
+      },
+      "model_confidence": 0.2244,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tshirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 19821.65
+    },
+    {
+      "item_id": "p13_9_jack_leather_07",
+      "gt_category": "jacket",
+      "gt_domain": "outerwear",
+      "gt_subcategory": "leather_jacket",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.874,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "outerwear",
+        "raw_category": "jacket",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.3526
+      },
+      "model_confidence": 0.4474,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "tank_top"
+      },
+      "rule_confidence": 0.6909,
+      "latency_ms": 3870.7
+    },
+    {
+      "item_id": "p13_9_shirt_oxford_02",
+      "gt_category": "shirt",
+      "gt_domain": "tops",
+      "gt_subcategory": "oxford_shirt",
+      "pred_category": "footwear",
+      "pred_domain": "footwear",
+      "pred_subcategory": "sneakers",
+      "confidence": 0.899,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "rule_override",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "bottoms",
+        "raw_category": "bottoms",
+        "subcategory": "leather_jacket",
+        "subcategory_confidence": 0.0816
+      },
+      "model_confidence": 0.1443,
+      "rule_hypothesis": {
+        "category": "footwear",
+        "subcategory": "sneakers"
+      },
+      "rule_confidence": 0.8989,
+      "latency_ms": 1884.71
+    },
+    {
+      "item_id": "p13_9_skirt_pencil_01",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pencil_skirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2455
+      },
+      "model_confidence": 0.3761,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 17028.95
+    },
+    {
+      "item_id": "p13_9_skirt_pencil_04",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pencil_skirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.3185
+      },
+      "model_confidence": 0.3775,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 26016.74
+    },
+    {
+      "item_id": "p13_9_skirt_pencil_05",
+      "gt_category": "skirt",
+      "gt_domain": "dresses_and_skirts",
+      "gt_subcategory": "pencil_skirt",
+      "pred_category": "dresses_and_skirts",
+      "pred_domain": "dresses_and_skirts",
+      "pred_subcategory": "pleated_skirt",
+      "confidence": 0.957,
+      "domain_correct": true,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "dresses_and_skirts",
+        "raw_category": "skirt",
+        "subcategory": "pleated_skirt",
+        "subcategory_confidence": 0.2259
+      },
+      "model_confidence": 0.2995,
+      "rule_hypothesis": {
+        "category": "dresses_and_skirts",
+        "subcategory": "maxi_dress"
+      },
+      "rule_confidence": 0.8661,
+      "latency_ms": 53619.49
+    },
+    {
+      "item_id": "p13_9_trad_saree_01",
+      "gt_category": "traditional",
+      "gt_domain": "traditional",
+      "gt_subcategory": "saree",
+      "pred_category": "rejected",
+      "pred_domain": "rejected",
+      "pred_subcategory": "rejected",
+      "confidence": 0.0,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "photographic_rejection",
+      "uncertainty_status": "REJECTED",
+      "model_prediction": null,
+      "model_confidence": 0.0,
+      "rule_hypothesis": null,
+      "rule_confidence": 0.0,
+      "latency_ms": 19345.42,
+      "rejection_error": "Input image rejected: Garment occupies less than 3% of the image; clothing could not be identified. Guidance: Center the garment in frame so it fills at least 40% of the photograph."
+    },
+    {
+      "item_id": "p13_9_trad_saree_02",
+      "gt_category": "traditional",
+      "gt_domain": "traditional",
+      "gt_subcategory": "saree",
+      "pred_category": "tops",
+      "pred_domain": "tops",
+      "pred_subcategory": "casual_shirt",
+      "confidence": 0.943,
+      "domain_correct": false,
+      "subcategory_correct": false,
+      "decision_reason": "neural_primary",
+      "uncertainty_status": "CONFIDENT",
+      "model_prediction": {
+        "category": "traditional",
+        "raw_category": "traditional",
+        "subcategory": "saree",
+        "subcategory_confidence": 0.0928
+      },
+      "model_confidence": 0.2645,
+      "rule_hypothesis": {
+        "category": "tops",
+        "subcategory": "casual_shirt"
+      },
+      "rule_confidence": 0.8322,
+      "latency_ms": 2135.42
+    }
+  ]
+}

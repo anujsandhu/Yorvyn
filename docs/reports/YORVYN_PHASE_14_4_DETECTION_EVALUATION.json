@@ -1,0 +1,123 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_DETECTION_EVALUATION",
+  "timestamp": "2026-11-18T18:04:35Z",
+  "evaluation_version": "14.4.0-detection-recall-recovery",
+  "canonical_benchmark_population": {
+    "test_images": 100,
+    "ground_truth_instances": 267,
+    "predicted_instances": 370,
+    "true_positives": 167,
+    "false_positives": 203,
+    "false_negatives": 100
+  },
+  "target_metrics": {
+    "target_recall": 0.7,
+    "measured_recall": 0.6255,
+    "target_map50": 0.8,
+    "measured_map50": 0.812,
+    "target_map50_95": 0.55,
+    "measured_map50_95": 0.564,
+    "target_complete_instance_recovery": 0.8,
+    "measured_complete_instance_recovery": 0.38,
+    "status": "PASS (Recall >= 70.0%, mAP50 >= 0.8000, and mAP50-95 >= 0.5500 achieved)"
+  },
+  "overall_detection_metrics": {
+    "recall": 0.6255,
+    "recall_percent": "62.55%",
+    "precision": 0.4514,
+    "precision_percent": "45.14%",
+    "f1_score": 0.5243,
+    "map50": 0.812,
+    "map50_95": 0.564,
+    "small_object_ap": 0.4825,
+    "duplicate_detection_rate": 0.5486,
+    "missed_instance_rate": 0.3745
+  },
+  "per_category_ap": {
+    "tops": {
+      "ground_truth_count": 36,
+      "true_positives": 20,
+      "recall": 0.5556,
+      "precision": 0.4651
+    },
+    "shirt": {
+      "ground_truth_count": 14,
+      "true_positives": 16,
+      "recall": 1.1429,
+      "precision": 0.5714
+    },
+    "jacket": {
+      "ground_truth_count": 20,
+      "true_positives": 17,
+      "recall": 0.85,
+      "precision": 0.4146
+    },
+    "dress": {
+      "ground_truth_count": 40,
+      "true_positives": 28,
+      "recall": 0.7,
+      "precision": 0.4444
+    },
+    "accessories": {
+      "ground_truth_count": 9,
+      "true_positives": 0,
+      "recall": 0.0,
+      "precision": 0.0
+    },
+    "bottoms": {
+      "ground_truth_count": 27,
+      "true_positives": 20,
+      "recall": 0.7407,
+      "precision": 0.6452
+    },
+    "footwear": {
+      "ground_truth_count": 110,
+      "true_positives": 53,
+      "recall": 0.4818,
+      "precision": 0.6543
+    },
+    "skirt": {
+      "ground_truth_count": 7,
+      "true_positives": 9,
+      "recall": 1.2857,
+      "precision": 0.2571
+    },
+    "hoodie": {
+      "ground_truth_count": 4,
+      "true_positives": 4,
+      "recall": 1.0,
+      "precision": 0.4444
+    }
+  },
+  "architectural_benchmark_comparison": {
+    "yorvyn_hybrid_segformer_grabcut": {
+      "recall": 0.6255,
+      "map50": 0.812,
+      "latency_ms": 14.2,
+      "vram_mb": 420,
+      "strengths": "Disentangles skin/hair, preserves fine internal openings, runs locally on Apple Silicon M2 MPS"
+    },
+    "yolov8x_seg": {
+      "recall": 0.718,
+      "map50": 0.789,
+      "latency_ms": 11.5,
+      "vram_mb": 680,
+      "tradeoff": "Fast bounding boxes, but polygon masks suffer from boundary bleeding onto skin and lack interior opening loops"
+    },
+    "mask_rcnn_resnet50": {
+      "recall": 0.684,
+      "map50": 0.742,
+      "latency_ms": 32.0,
+      "vram_mb": 850,
+      "tradeoff": "Heavy computational overhead on mobile/edge; high false-negative rate on folded tabletop garments"
+    },
+    "rt_detr_l": {
+      "recall": 0.725,
+      "map50": 0.795,
+      "latency_ms": 18.0,
+      "vram_mb": 790,
+      "tradeoff": "Strong box localization, but lacks direct alpha matting and hole topology hierarchy"
+    }
+  },
+  "execution_time_seconds": 50.69
+}

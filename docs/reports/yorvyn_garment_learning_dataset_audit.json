@@ -1,0 +1,120 @@
+{
+  "audit_title": "Yorvyn Garment Intelligence Continuous Learning Dataset Audit",
+  "audit_version": "v1.3.0_continuous",
+  "audit_timestamp": "2026-11-07T03:41:00Z",
+  "target_dataset_version": "garment_tax_v1.3_continuous",
+  "dataset_architecture": {
+    "layer_a_personalization": "User-scoped key-value preferences stored in yorvyn_user_preferences with source provenance, confidence decaying, and session isolation",
+    "layer_b_task_datasets": "Task-partitioned training examples in yorvyn_learning_examples governed by granular user consent, SHA-256 deduplication, and quality gating"
+  },
+  "signal_intake_statistics": {
+    "total_signals_received": 1420,
+    "validated_and_enrolled": 894,
+    "quarantined_low_quality": 118,
+    "quarantined_contradictory": 42,
+    "duplicate_rejected": 216,
+    "consent_excluded": 138,
+    "abuse_rate_limited": 12,
+    "enrolment_rate": 0.6296
+  },
+  "task_specific_dataset_breakdown": {
+    "classification": {
+      "task_type": "classification",
+      "learning_signals": ["category_correction"],
+      "enrolled_examples": 214,
+      "mean_quality_score": 0.942,
+      "requires_image_consent": false,
+      "target_architecture": "MobileNetV3 Garment Classifier (PyTorch/ONNX)"
+    },
+    "subcategorization": {
+      "task_type": "subcategorization",
+      "learning_signals": ["subcategory_correction"],
+      "enrolled_examples": 182,
+      "mean_quality_score": 0.918,
+      "requires_image_consent": false,
+      "target_architecture": "Hierarchical Fine-Grained Garment Head"
+    },
+    "fabric_estimation": {
+      "task_type": "fabric_estimation",
+      "learning_signals": ["fabric_correction"],
+      "enrolled_examples": 124,
+      "mean_quality_score": 0.887,
+      "requires_image_consent": true,
+      "target_architecture": "PBR Material & Fabric Neural Estimator"
+    },
+    "silhouette_prediction": {
+      "task_type": "silhouette_prediction",
+      "learning_signals": ["silhouette_correction"],
+      "enrolled_examples": 146,
+      "mean_quality_score": 0.935,
+      "requires_image_consent": false,
+      "target_architecture": "Body-Conformal Silhouette Classifier"
+    },
+    "color_pattern": {
+      "task_type": "color_pattern",
+      "learning_signals": ["colour_correction"],
+      "enrolled_examples": 98,
+      "mean_quality_score": 0.951,
+      "requires_image_consent": false,
+      "target_architecture": "Lab Color & Micro-Pattern Discriminator"
+    },
+    "component_detection": {
+      "task_type": "component_detection",
+      "learning_signals": ["component_correction"],
+      "enrolled_examples": 64,
+      "mean_quality_score": 0.894,
+      "requires_image_consent": true,
+      "target_architecture": "YOLOv8 Garment Component Detector (hood, pockets, drawstrings)"
+    },
+    "segmentation": {
+      "task_type": "segmentation",
+      "learning_signals": ["segmentation_correction"],
+      "enrolled_examples": 38,
+      "mean_quality_score": 0.963,
+      "requires_image_consent": true,
+      "target_architecture": "SegFormer-B2 Clothing Mask Segmenter"
+    },
+    "reconstruction": {
+      "task_type": "reconstruction",
+      "learning_signals": ["reconstruction_acceptance", "reconstruction_rejection", "reconstruction_edit", "reconstruction_mismatch"],
+      "enrolled_examples": 28,
+      "mean_quality_score": 0.920,
+      "requires_image_consent": true,
+      "target_architecture": "3D Garment Mesh & Canonical Deformation Network",
+      "supervision_rule": "Subjective ratings update Personalization; only paired image-to-geometry edits enter 3D training"
+    }
+  },
+  "consent_and_privacy_audit": {
+    "total_registered_beta_users": 100,
+    "personalization_enabled_pct": 98.0,
+    "global_model_training_enabled_pct": 74.0,
+    "image_training_enabled_pct": 52.0,
+    "conversation_training_enabled_pct": 68.0,
+    "gdpr_compliance": {
+      "right_to_be_forgotten_implemented": true,
+      "cascade_deletion_verified": true,
+      "derived_learning_examples_purged_on_delete": true,
+      "export_personal_data_implemented": true
+    },
+    "multi_tenant_isolation": {
+      "cross_user_leakage_detected": false,
+      "row_level_security_enforced": true,
+      "session_context_leakage_detected": false
+    }
+  },
+  "deduplication_and_poisoning_defense": {
+    "deduplication_algorithm": "SHA-256(canonical(task_type) + canonical(input) + canonical(target))",
+    "exact_duplicates_suppressed": 216,
+    "contradiction_detector": {
+      "active": true,
+      "rule": "If original_prediction == user_correction or target invalid for taxonomy, quarantine with quality_score=0.0",
+      "quarantined_count": 42
+    },
+    "velocity_rate_limiter": {
+      "max_corrections_per_minute": 10,
+      "max_corrections_per_hour": 50,
+      "action_on_exceed": "Temporary 429 throttling and signal rejection"
+    }
+  }
+}
+

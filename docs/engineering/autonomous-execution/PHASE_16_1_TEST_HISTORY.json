@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "16.1",
+  "recorded_at": "2026-11-25",
+  "repository_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "runs": [
+    {
+      "name": "backend_phase_16_1_and_regressions",
+      "suites": [
+        "backend/tests/test_phase16_1_components.py",
+        "backend/tests/test_phase16_intelligence.py",
+        "backend/tests/test_phase15_5_certification.py",
+        "backend/tests/test_hybrid_ai_orchestration.py",
+        "backend/tests/test_phase15_4_staging.py",
+        "backend/tests/test_garment_chat_edits.py",
+        "backend/tests/test_persistent_ai_sessions.py",
+        "backend/tests/test_phase15_evaluation_integrity.py",
+        "backend/tests/test_neural_garment_ai_phase_7.py",
+        "backend/tests/test_ai_stylist.py",
+        "backend/tests/test_garment_reconstruction_phase_3.py",
+        "backend/tests/test_garment_material_texture_phase_4.py",
+        "backend/tests/test_garment_fitting_phase_5.py",
+        "backend/tests/test_garment_dynamics_phase_6.py"
+      ],
+      "status": "PASSED",
+      "passed": 218
+    },
+    {
+      "name": "frontend_tests_and_build",
+      "command": "(cd frontend && npm test && npm run build)",
+      "status": "PASSED",
+      "test_files": 25,
+      "tests_passed": 355
+    },
+    {
+      "name": "real_photo_conversational_workflow",
+      "command": "backend/venv/bin/python scripts/verify_conversational_garment.py data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "status": "PASSED",
+      "glb_bytes": 1631020
+    },
+    {
+      "name": "real_photos_and_fashionpedia_component_evaluation",
+      "command": "backend/venv/bin/python scripts/evaluate_phase_16_1_components.py",
+      "evidence_file": "docs/reports/PHASE_16_1_EVALUATION_EVIDENCE.json",
+      "real_photos_count": 7,
+      "fashionpedia_val_samples": 50,
+      "pilot_manifest_state": "REAL_DATASET_INCOMPLETE",
+      "scientific_acceptance": "BLOCKED"
+    }
+  ]
+}

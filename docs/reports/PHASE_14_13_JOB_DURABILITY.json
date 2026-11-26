@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Durable Job Recovery & Crash Invariants",
+    "timestamp": "2026-11-21T18:24:06Z",
+    "total_termination_stages": 8,
+    "passed_stages": 8,
+    "failed_stages": 0,
+    "verdict": "PASS"
+  },
+  "lifecycle_invariants": {
+    "atomic_persistence": "Tempfile + os.fsync + os.replace()",
+    "zero_false_completions": "In-flight jobs safely marked FAILED on rehydration",
+    "zero_orphaned_temporary_files": "Automated startup cleanup of .tmp_*",
+    "zero_missing_artifacts": "Completed jobs without GLB marked FAILED",
+    "ownership_enforcement": "Cross-user GLB downloads rejected with HTTP 403"
+  },
+  "tests": [
+    {
+      "stage_id": "STAGE-1",
+      "stage_name": "Job Submission",
+      "failure_description": "Process termination or abort during initial submission payload reading",
+      "expected_state": "NOT_FOUND",
+      "recovered_state": "NOT_FOUND",
+      "status": "PASS",
+      "evidence": "Recovered as NOT_FOUND, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-2",
+      "stage_name": "Queue Insertion",
+      "failure_description": "Termination after job enters QUEUED state before worker lock claim",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-3",
+      "stage_name": "Job Claiming",
+      "failure_description": "Termination during transition from QUEUED to RUNNING",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-4",
+      "stage_name": "Inference Execution",
+      "failure_description": "Termination during active PyTorch MPS neural/parametric synthesis",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-5",
+      "stage_name": "GLB Serialization",
+      "failure_description": "Termination while generating binary glTF buffer chunks",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-6",
+      "stage_name": "Artifact Persistence",
+      "failure_description": "Termination during atomic file replacement of .glb or metadata",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-7",
+      "stage_name": "Completion-State Update",
+      "failure_description": "Termination while updating job record to COMPLETED",
+      "expected_state": "FAILED",
+      "recovered_state": "FAILED",
+      "status": "PASS",
+      "evidence": "Recovered as FAILED, no false completion, no corrupted artifact"
+    },
+    {
+      "stage_id": "STAGE-8",
+      "stage_name": "Artifact Retrievability & Ownership Audit",
+      "failure_description": "Verify completed job has retrievable, valid, ownership-checked GLB artifact",
+      "expected_state": "HTTP 200 with authentic GLB binary",
+      "recovered_state": "HTTP 200 (428080 bytes)",
+      "status": "PASS",
+      "evidence": "Retrieved GLB asset of size 428080 bytes with valid ownership check"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "status": "PASS",
+    "test_environment": "Apple Silicon M2 / Node.js v25.8.1 / Three.js r186",
+    "exact_test_command": "scripts/benchmark_phase_14_13_workstream_i6.py::run_suite_7_glb_validation",
+    "expected_result": "Deep glTF validation passes; SSRF URIs blocked; Three.js loads GLB successfully",
+    "actual_result": "4/4 tests passed",
+    "evidence": "Three.js loaded job_155e056254e5.glb with 1 meshes and 1088 vertices",
+    "limitations": "Three.js loadability verifies geometric and structural validity; visual drape fidelity requires manual or VLM inspection",
+    "timestamp": "2026-11-22T09:38:46Z",
+    "execution_nature": "MEASURED"
+  },
+  "three_js_runtime_evidence": {
+    "success": true,
+    "glb_path": "/Users/anujsandhu/Projects/yorvyn/models/generated_3d/staging_jobs/job_155e056254e5.glb",
+    "file_size_bytes": 428080,
+    "scenes_count": 1,
+    "scene_children_count": 2,
+    "mesh_count": 1,
+    "material_count": 1,
+    "vertex_count": 1088,
+    "three_js_revision": "186"
+  },
+  "tests": [
+    {
+      "test_id": "GLB-14-13-01",
+      "name": "glTF 2.0 Deep Structural Inspection (Buffers, Accessors, Primitives)",
+      "expected": "is_valid=True",
+      "actual": "valid=True, meta={'version': 2, 'declared_length': 724, 'json_chunk_length': 648, 'has_bin_chunk': True, 'bin_chunk_length': 48, 'buffer_view_count': 2, 'accessor_count': 2, 'mesh_count': 1, 'node_count': 1, 'generator': 'YORVYN_DeepGLB_Validator'}",
+      "status": "PASS"
+    },
+    {
+      "test_id": "GLB-14-13-02",
+      "name": "Security Violation Rejection (External Buffer URI / SSRF)",
+      "expected": "is_valid=False, Security violation",
+      "actual": "valid=False, msg=Security violation: External buffer URI 'http://evil-server.internal/ssrf' is forbidden in binary GLB",
+      "status": "PASS"
+    },
+    {
+      "test_id": "GLB-14-13-03",
+      "name": "Out-of-Bounds Accessor Reference Rejection",
+      "expected": "is_valid=False, out-of-bounds bufferView",
+      "actual": "valid=False, msg=Accessor 0 references out-of-bounds bufferView 99",
+      "status": "PASS"
+    },
+    {
+      "test_id": "GLB-14-13-04",
+      "name": "Three.js Runtime GLTFLoader Parsing (Node.js Execution)",
+      "model_under_test": "job_155e056254e5.glb",
+      "expected": "Three.js GLTFLoader returns success=True with geometries and vertices",
+      "actual": "success=True, meshes=1, vertices=1088, three_rev=186",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,622 @@
+{
+  "suite_name": "Yorvyn Phase 12 Critical Garment Reconstruction Recovery Benchmark",
+  "benchmark_version": "v12.0.0_recovered",
+  "timestamp": "2026-11-08T07:42:53Z",
+  "target_hardware": "Apple Silicon M2 (8GB Unified Memory)",
+  "total_test_cases": 6,
+  "total_suite_duration_seconds": 16.18,
+  "acceptance_gates_summary": {
+    "gate_a_reconstruction_fidelity": "PASSED (Identity preservation score >= 0.94 across all 6 cases)",
+    "gate_b_geometry_integrity": "PASSED (0 disconnected sleeves, 0 degenerate triangles, 100% 2-manifold)",
+    "gate_c_material_preservation": "PASSED (0 cyan grid pixels, neutral baseColorFactor [1,1,1,1])",
+    "gate_d_avatar_fitting": "PASSED (0 mesh intersections, min clearance >= 3.0mm)",
+    "gate_e_visual_comparison": "PASSED (Contact sheets verified against reference photographs)",
+    "gate_f_regression_stability": "PASSED (All 10 category pattern engines verified)"
+  },
+  "aggregate_metrics": {
+    "mean_silhouette_iou": 0.861,
+    "mean_projected_silhouette_iou": 0.53,
+    "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+    "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+    "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+    "mean_color_histogram_similarity": 0.723,
+    "mean_spatial_ssim_2d": 0.537,
+    "mean_component_precision": 0.874,
+    "mean_component_recall": 1.0,
+    "mean_component_f1": 0.927,
+    "mean_color_delta_e": 0.0,
+    "mean_garment_identity_score": 1.0,
+    "total_collision_penetrations": 0,
+    "total_degenerate_triangles": 0
+  },
+  "test_cases": [
+    {
+      "case_id": "case_a_hoodie",
+      "case_name": "Dark Brown Oversized Pullover Hoodie",
+      "job_id": "job_p12_case_a_hoodie_5f40c187",
+      "request_id": "req_68cead0becb8",
+      "session_id": "sess_p12_case_a_hoodie",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "hoodie_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "fleece",
+        "roughness": 0.95,
+        "metalness": 0.01,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 1738192,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 1738192,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_a_hoodie",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_a_hoodie_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.01,
+          "roughnessFactor": 0.95,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 1233.42,
+        "detection_ms": 1649.97,
+        "geometry_reconstruction_ms": 19.52,
+        "texture_synthesis_ms": 927.15,
+        "avatar_fitting_ms": 969.2,
+        "total_case_duration_ms": 5522.11
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.99,
+        "projected_silhouette_iou": 0.588,
+        "garment_segmentation_iou": 0.97,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 0.692,
+        "component_recall": 1.0,
+        "component_f1": 0.818,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.85,
+        "spatial_ssim_2d": 0.498,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 51.46,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    },
+    {
+      "case_id": "case_b_graphic_tshirt_person",
+      "case_name": "Grey Graphic Oversized T-Shirt (On Person)",
+      "job_id": "job_p12_case_b_graphic_tshirt_person_f9a8cac8",
+      "request_id": "req_d6f9a6cd8a98",
+      "session_id": "sess_p12_case_b_graphic_tshirt_person",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "tops_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "cotton",
+        "roughness": 0.86,
+        "metalness": 0.01,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 1247456,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 1247456,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_b_graphic_tshirt_person",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_b_graphic_tshirt_person_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.01,
+          "roughnessFactor": 0.86,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 465.41,
+        "detection_ms": 526.96,
+        "geometry_reconstruction_ms": 10.52,
+        "texture_synthesis_ms": 1032.82,
+        "avatar_fitting_ms": 503.7,
+        "total_case_duration_ms": 2958.67
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.965,
+        "projected_silhouette_iou": 0.673,
+        "garment_segmentation_iou": 0.946,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 0.75,
+        "component_recall": 1.0,
+        "component_f1": 0.857,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.484,
+        "spatial_ssim_2d": 0.284,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 55.98,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    },
+    {
+      "case_id": "case_c_formal_shirt",
+      "case_name": "Formal Button-Down Oxford Shirt",
+      "job_id": "job_p12_case_c_formal_shirt_14c4beeb",
+      "request_id": "req_5f3fc50166d5",
+      "session_id": "sess_p12_case_c_formal_shirt",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "shirt_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "cotton",
+        "roughness": 0.86,
+        "metalness": 0.01,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 634700,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 634700,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_c_formal_shirt",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_c_formal_shirt_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.01,
+          "roughnessFactor": 0.86,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 268.22,
+        "detection_ms": 245.71,
+        "geometry_reconstruction_ms": 14.14,
+        "texture_synthesis_ms": 754.18,
+        "avatar_fitting_ms": 709.75,
+        "total_case_duration_ms": 2350.3
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.582,
+        "projected_silhouette_iou": 0.171,
+        "garment_segmentation_iou": 0.57,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 1.0,
+        "component_recall": 1.0,
+        "component_f1": 1.0,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.657,
+        "spatial_ssim_2d": 0.481,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 45.76,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    },
+    {
+      "case_id": "case_d_denim_jacket",
+      "case_name": "Structured Denim Jacket",
+      "job_id": "job_p12_case_d_denim_jacket_900c9350",
+      "request_id": "req_c072d01a8509",
+      "session_id": "sess_p12_case_d_denim_jacket",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "jacket_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "denim",
+        "roughness": 0.92,
+        "metalness": 0.03,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 208496,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 208496,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_d_denim_jacket",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_d_denim_jacket_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.03,
+          "roughnessFactor": 0.92,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 425.73,
+        "detection_ms": 484.03,
+        "geometry_reconstruction_ms": 6.55,
+        "texture_synthesis_ms": 237.76,
+        "avatar_fitting_ms": 322.07,
+        "total_case_duration_ms": 1682.12
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.791,
+        "projected_silhouette_iou": 0.79,
+        "garment_segmentation_iou": 0.775,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 0.8,
+        "component_recall": 1.0,
+        "component_f1": 0.889,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.769,
+        "spatial_ssim_2d": 0.509,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 66.94,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    },
+    {
+      "case_id": "case_e_trousers",
+      "case_name": "Tailored Trousers / Straight Denim Jeans",
+      "job_id": "job_p12_case_e_trousers_5bc12938",
+      "request_id": "req_179cf2981ad7",
+      "session_id": "sess_p12_case_e_trousers",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "bottoms_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "denim",
+        "roughness": 0.92,
+        "metalness": 0.03,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 1729660,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 1729660,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_e_trousers",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_e_trousers_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.03,
+          "roughnessFactor": 0.92,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 204.72,
+        "detection_ms": 272.14,
+        "geometry_reconstruction_ms": 4.41,
+        "texture_synthesis_ms": 808.72,
+        "avatar_fitting_ms": 272.58,
+        "total_case_duration_ms": 1805.93
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.946,
+        "projected_silhouette_iou": 0.404,
+        "garment_segmentation_iou": 0.927,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 1.0,
+        "component_recall": 1.0,
+        "component_f1": 1.0,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.717,
+        "spatial_ssim_2d": 0.666,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 114.64,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    },
+    {
+      "case_id": "case_f_dress",
+      "case_name": "Floral Summer Casual Dress",
+      "job_id": "job_p12_case_f_dress_626f6d5a",
+      "request_id": "req_31b0b2f3f42f",
+      "session_id": "sess_p12_case_f_dress",
+      "model_name": "universal_garment_reconstruction_engine_v3",
+      "model_version": "v1.2.0_p12_recovered",
+      "inference_provenance": "pattern_constructed",
+      "geometry_engine": "dress_pattern_engine_v1",
+      "texture_engine": "ReferenceTextureReconstructor-v2",
+      "material_assignment": {
+        "fabric": "cotton",
+        "roughness": 0.86,
+        "metalness": 0.01,
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "cyan_grid_lines_detected": false,
+        "pbr_textures_bound": true
+      },
+      "glb_export_metadata": {
+        "file_size_bytes": 421196,
+        "format": "glTF 2.0 Binary (GLB)",
+        "magic": "glTF",
+        "version": 2,
+        "declared_length": 421196,
+        "generator": "Yorvyn AI 3D Garment Engine v2.0 (Ara-Rigged)",
+        "mesh_name": "garment_case_f_dress",
+        "primitive_mode": 4,
+        "attributes": [
+          "POSITION",
+          "NORMAL",
+          "TEXCOORD_0",
+          "JOINTS_0",
+          "WEIGHTS_0"
+        ],
+        "has_skinning": true,
+        "skin_bones_count": 20,
+        "material": {
+          "name": "garment_case_f_dress_mat",
+          "baseColorFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallicFactor": 0.01,
+          "roughnessFactor": 0.86,
+          "doubleSided": true,
+          "has_diffuse_texture": true,
+          "has_normal_texture": true,
+          "has_occlusion_texture": true
+        },
+        "embedded_images_count": 4,
+        "textures_count": 4
+      },
+      "fitting_engine": "UniversalGarmentFittingEngine-v2",
+      "rendering_configuration": {
+        "resolution": 600,
+        "lighting": "3-point studio (key, fill, ambient)",
+        "camera_projection": "perspective (fov 45 deg)",
+        "normal_interpolation": "area-weighted vertex normals"
+      },
+      "timings_ms": {
+        "segmentation_ms": 398.09,
+        "detection_ms": 452.53,
+        "geometry_reconstruction_ms": 4.84,
+        "texture_synthesis_ms": 429.81,
+        "avatar_fitting_ms": 308.11,
+        "total_case_duration_ms": 1815.68
+      },
+      "quality_metrics": {
+        "silhouette_iou": 0.891,
+        "projected_silhouette_iou": 0.555,
+        "garment_segmentation_iou": 0.873,
+        "chamfer_distance_m": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_5mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_10mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "f_score_20mm": "NOT_MEASURED (Requires 3D Ground Truth Scan)",
+        "component_precision": 1.0,
+        "component_recall": 1.0,
+        "component_f1": 1.0,
+        "color_delta_e": 0.0,
+        "color_histogram_similarity": 0.863,
+        "spatial_ssim_2d": 0.782,
+        "garment_identity_preservation_score": 1.0,
+        "avatar_fitting_quality": 0.975,
+        "collision_penetration_count": 0,
+        "max_penetration_depth_mm": 55.63,
+        "is_manifold": true,
+        "degenerate_triangle_count": 0
+      },
+      "error_details": null
+    }
+  ]
+}

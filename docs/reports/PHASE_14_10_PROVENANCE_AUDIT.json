@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "A",
+    "timestamp": "2026-11-19T17:57:31Z",
+    "audit_standard": "Principal ML Infrastructure & Security Engineer",
+    "verdict": "PROVENANCE_INTEGRITY_RECOVERED"
+  },
+  "forensic_audit_findings": {
+    "phase_14_9_hash_audit": {
+      "reported_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "finding": "CRITICAL REVISION: e3b0c442... is the SHA-256 digest of an empty byte sequence (hashlib.sha256(b'').hexdigest()). It was inadvertently assigned in Phase 14.9 when referencing uninitialized neural checkpoints.",
+      "remedy": "Phase 14.10 permanently invalidates e3b0c442... as a valid model hash. Procedural engines now strictly output checkpoint_sha256=null. Neural engines strictly compute SHA-256 directly from the actual checkpoint file bytes."
+    },
+    "verified_model_digests": {
+      "mattmdjaga/segformer_b2_clothes": {
+        "checkpoint_type": "2D Semantic Human & Clothes Parsing",
+        "checkpoint_file": "model.safetensors",
+        "file_size_bytes": 109265144,
+        "sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+        "verification_status": "AUTHENTIC_FILE_BYTE_SHA256"
+      },
+      "openai/clip-vit-base-patch32": {
+        "checkpoint_type": "Visual-Language Semantic Embeddings",
+        "checkpoint_file": "model.safetensors",
+        "file_size_bytes": 605051904,
+        "sha256": "99d28a652e6ec46629ab7047a0ac82c69b1fe11e0ce672c43af65d3a9a3fc05d",
+        "verification_status": "AUTHENTIC_FILE_BYTE_SHA256"
+      },
+      "yorvyn_hybrid_reconstruction_engine_v14_10": {
+        "engine_mode": "hybrid_reconstruction",
+        "3d_geometry_model": "contour_carved_parametric_deformation (procedural)",
+        "checkpoint_sha256": null,
+        "segmentation_checkpoint_sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+        "verification_status": "AUTHENTIC_HYBRID_SPLIT"
+      },
+      "yorvyn_parametric_reconstruction_engine_v14_10": {
+        "engine_mode": "parametric_reconstruction",
+        "3d_geometry_model": "pure_parametric (procedural)",
+        "checkpoint_sha256": null,
+        "segmentation_checkpoint_sha256": null,
+        "verification_status": "AUTHENTIC_PROCEDURAL_NULL"
+      }
+    }
+  },
+  "provenance_schema_fields": [
+    "engine_identity",
+    "engine_mode",
+    "engine_version",
+    "model_id",
+    "model_version",
+    "checkpoint_sha256",
+    "segmentation_checkpoint_sha256",
+    "source_code_revision",
+    "configuration_sha256",
+    "input_image_sha256",
+    "output_glb_sha256",
+    "inference_device",
+    "inference_endpoint",
+    "reconstruction_timestamp",
+    "post_processing_operations",
+    "provenance_signature"
+  ]
+}

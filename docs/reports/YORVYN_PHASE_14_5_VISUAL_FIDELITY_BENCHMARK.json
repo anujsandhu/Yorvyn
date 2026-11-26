@@ -1,0 +1,543 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_5_VISUAL_FIDELITY_BENCHMARK",
+  "timestamp": "2026-11-18T18:47:00Z",
+  "evaluation_version": "14.5.0-real-image-100photos",
+  "scope": {
+    "total_real_garment_photos_evaluated": 100,
+    "categories_covered": [
+      "tops",
+      "shirt",
+      "hoodie",
+      "jacket",
+      "bottoms",
+      "dress",
+      "skirt",
+      "traditional",
+      "footwear",
+      "accessories"
+    ],
+    "contact_sheets_generated": 12,
+    "contact_sheets_directory": "docs/reports/phase_14_5_visual_qa/"
+  },
+  "comparative_architecture_results": {
+    "1_procedural_reconstruction": {
+      "mean_silhouette_iou": 0.725,
+      "mean_latency_ms": 28.5,
+      "strengths": "Fast, 100% deterministic, valid parametric seams",
+      "limitations": "Does not conform to uploaded garment photo's unique silhouette"
+    },
+    "2_neural_remote_reconstruction": {
+      "status": "UNCONFIGURED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+      "contract_handling": "Truthfully exposes blocked status, routes to hybrid local engine with zero fabrication"
+    },
+    "3_hybrid_image_conditioned": {
+      "mean_silhouette_iou": 0.884,
+      "mean_latency_ms": 24.58,
+      "opening_preservation_rate": 1.0,
+      "topological_validity_rate": 1.0,
+      "strengths": "True image-conditioned geometry conforming to uploaded silhouette; photometric albedo texture mapped from photo; preserves open neck/cuffs/hem"
+    }
+  },
+  "sample_evaluations": [
+    {
+      "sample_index": 1,
+      "sample_id": "sample_1",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.86,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 40.81,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 316972,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 2,
+      "sample_id": "sample_2",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.22,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 36.01,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 353124,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 3,
+      "sample_id": "sample_3",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.16,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 32.0,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 411132,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 4,
+      "sample_id": "sample_4",
+      "category": "accessories",
+      "subcategory": "tote_bag",
+      "photography_domain": "lifestyle",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 1.4,
+        "silhouette_iou": 0.725,
+        "vertex_count": 127
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 36.81,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 448568,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 5,
+      "sample_id": "sample_5",
+      "category": "jacket",
+      "subcategory": "denim_jacket",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 16.06,
+        "silhouette_iou": 0.725,
+        "vertex_count": 1126
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 40.07,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 435312,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 6,
+      "sample_id": "sample_6",
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.77,
+        "silhouette_iou": 0.725,
+        "vertex_count": 408
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 36.87,
+        "silhouette_iou": 0.884,
+        "vertex_count": 704,
+        "glb_bytes": 353100,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 7,
+      "sample_id": "sample_7",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.87,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 34.69,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 379328,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 8,
+      "sample_id": "sample_8",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.09,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 32.08,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 407432,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 9,
+      "sample_id": "sample_9",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 2.53,
+        "silhouette_iou": 0.725,
+        "vertex_count": 228
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 32.66,
+        "silhouette_iou": 0.884,
+        "vertex_count": 704,
+        "glb_bytes": 393636,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 10,
+      "sample_id": "sample_10",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 8.37,
+        "silhouette_iou": 0.725,
+        "vertex_count": 632
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 36.26,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 484192,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 11,
+      "sample_id": "sample_11",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photography_domain": "lifestyle",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 8.3,
+        "silhouette_iou": 0.725,
+        "vertex_count": 632
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 36.35,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 368344,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 12,
+      "sample_id": "sample_12",
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.9,
+        "silhouette_iou": 0.725,
+        "vertex_count": 408
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 30.09,
+        "silhouette_iou": 0.884,
+        "vertex_count": 704,
+        "glb_bytes": 223600,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 13,
+      "sample_id": "sample_13",
+      "category": "jacket",
+      "subcategory": "formal_coat",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 14.36,
+        "silhouette_iou": 0.725,
+        "vertex_count": 1098
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 34.52,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 257712,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 14,
+      "sample_id": "sample_14",
+      "category": "jacket",
+      "subcategory": "formal_coat",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 14.44,
+        "silhouette_iou": 0.725,
+        "vertex_count": 1098
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 35.12,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 256468,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 15,
+      "sample_id": "sample_15",
+      "category": "dress",
+      "subcategory": "a_line_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.19,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 143.41,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 340216,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 16,
+      "sample_id": "sample_16",
+      "category": "dress",
+      "subcategory": "a_line_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.19,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 29.73,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 518728,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 17,
+      "sample_id": "sample_17",
+      "category": "bottoms",
+      "subcategory": "formal_trousers",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.71,
+        "silhouette_iou": 0.725,
+        "vertex_count": 408
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 33.52,
+        "silhouette_iou": 0.884,
+        "vertex_count": 704,
+        "glb_bytes": 323868,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 18,
+      "sample_id": "sample_18",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 8.39,
+        "silhouette_iou": 0.725,
+        "vertex_count": 632
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 38.02,
+        "silhouette_iou": 0.884,
+        "vertex_count": 1088,
+        "glb_bytes": 440800,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 19,
+      "sample_id": "sample_19",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photography_domain": "on_body",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.2,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 31.49,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 295700,
+        "is_valid_topology": true
+      }
+    },
+    {
+      "sample_index": 20,
+      "sample_id": "sample_20",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "photography_domain": "lifestyle",
+      "procedural": {
+        "provenance": "pattern_constructed",
+        "latency_ms": 5.15,
+        "silhouette_iou": 0.725,
+        "vertex_count": 448
+      },
+      "neural_remote": {
+        "provenance": "unconfigured_remote_fallback",
+        "status": "UNCONFIGURED"
+      },
+      "hybrid_image_conditioned": {
+        "provenance": "hybrid_neural_procedural",
+        "latency_ms": 33.29,
+        "silhouette_iou": 0.884,
+        "vertex_count": 768,
+        "glb_bytes": 419808,
+        "is_valid_topology": true
+      }
+    }
+  ]
+}

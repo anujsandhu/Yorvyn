@@ -1,0 +1,1118 @@
+{
+  "phase": "16.1",
+  "pilot_manifest_status": {
+    "evaluation_state": "REAL_DATASET_INCOMPLETE",
+    "total_samples": 0,
+    "verified_samples": 0,
+    "rejected_samples": 0,
+    "rejected_sample_ids": [],
+    "failures": [],
+    "category_distribution": {},
+    "view_distribution": {},
+    "split_distribution": {},
+    "coverage": {},
+    "identity_overlap": {},
+    "duplicate_image_hashes": [],
+    "missing_assets": [],
+    "verified_sample_ids": []
+  },
+  "scientific_acceptance_status": "BLOCKED_INCOMPLETE_PILOT_MANIFEST",
+  "real_photo_execution_evidence": {
+    "count": 7,
+    "samples": [
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+        "sha256": "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61",
+        "category": "jacket",
+        "subcategory": "denim_jacket",
+        "latency_ms": 9281.35,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "button": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.744,
+            "uncertainty": 0.2056,
+            "bbox": [
+              0.2474,
+              0.4574,
+              0.7917,
+              0.5504
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "button_placket": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.774,
+            "uncertainty": 0.192,
+            "bbox": [
+              0.2474,
+              0.4574,
+              0.7917,
+              0.5504
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "chest_pocket": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.86,
+            "uncertainty": 0.1502,
+            "bbox": [
+              0.2956,
+              0.1969,
+              0.5078,
+              0.8109
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "collar": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.9,
+            "uncertainty": 0.129,
+            "bbox": [
+              0.1016,
+              0.3339,
+              0.2478,
+              0.6738
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "cuff": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.76,
+            "uncertainty": 0.1984,
+            "bbox": [
+              0.8255,
+              0.0326,
+              0.9128,
+              0.1643
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "front_body": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.65,
+            "uncertainty": 0.4154,
+            "bbox": [
+              0.1979,
+              0.1643,
+              0.9062,
+              0.8434
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "hem": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.45,
+            "uncertainty": 0.6709,
+            "bbox": [
+              0.832,
+              0.1643,
+              0.9128,
+              0.8434
+            ],
+            "decision": "REQUIRE_MORE_EVIDENCE"
+          },
+          "left_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.88,
+            "uncertainty": 0.1398,
+            "bbox": [
+              0.2812,
+              0.0326,
+              0.9128,
+              0.1643
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "right_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.88,
+            "uncertainty": 0.1398,
+            "bbox": [
+              0.2969,
+              0.8434,
+              0.8906,
+              0.9752
+            ],
+            "decision": "SAFE_TO_USE"
+          }
+        },
+        "not_observed_components": [
+          "back_body",
+          "flap_pocket",
+          "lapel",
+          "shoulder_seam",
+          "side_pocket",
+          "welt_pocket",
+          "zipper"
+        ],
+        "graph_nodes": 16,
+        "graph_edges": 39,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately.",
+          "Part of the hem is covered or cropped out of frame."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+        "sha256": "e7f000791cf77dd4d3c4832f3b597a10046757cf45beeec7804c9452cc6ad144",
+        "category": "hoodie",
+        "subcategory": "pullover_hoodie",
+        "latency_ms": 629.05,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "cuff": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.76,
+            "uncertainty": 0.1984,
+            "bbox": [
+              0.8724,
+              0.1024,
+              0.9922,
+              0.1719
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "front_body": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.65,
+            "uncertainty": 0.5869,
+            "bbox": [
+              0.2344,
+              0.1719,
+              0.9987,
+              0.6094
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "hood": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.7773,
+            "uncertainty": 0.1904,
+            "bbox": [
+              0.0156,
+              0.2378,
+              0.3099,
+              0.3438
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "kangaroo_pocket": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.7441,
+            "uncertainty": 0.2056,
+            "bbox": [
+              0.5664,
+              0.2639,
+              0.8815,
+              0.5174
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "left_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.88,
+            "uncertainty": 0.1398,
+            "bbox": [
+              0.1328,
+              0.0712,
+              0.9922,
+              0.1719
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "neck_opening": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.636,
+            "uncertainty": 0.2529,
+            "bbox": [
+              0.0156,
+              0.2188,
+              0.3099,
+              0.3438
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "right_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.62,
+            "uncertainty": 0.5997,
+            "bbox": [
+              0.4766,
+              0.6094,
+              0.9987,
+              0.7101
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "zipper": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.7064,
+            "uncertainty": 0.2224,
+            "bbox": [
+              0.1927,
+              0.3594,
+              0.8516,
+              0.4219
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          }
+        },
+        "not_observed_components": [
+          "back_body",
+          "drawstring",
+          "hem",
+          "hood_opening",
+          "ribbing"
+        ],
+        "graph_nodes": 14,
+        "graph_edges": 34,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately.",
+          "Part of the front body, right sleeve, waistband is covered or cropped out of frame."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+        "sha256": "ccd40d9746c3d1782cf832a283d90fb619215bc50e53591156be99f0e1929573",
+        "category": "shirt",
+        "subcategory": "formal_shirt",
+        "latency_ms": 283.45,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "chest_pocket": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.6833,
+            "uncertainty": 0.2325,
+            "bbox": [
+              0.25,
+              0.194,
+              0.5039,
+              0.8209
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "collar": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.8841,
+            "uncertainty": 0.1376,
+            "bbox": [
+              0.0156,
+              0.3328,
+              0.1914,
+              0.6821
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "cuff": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.76,
+            "uncertainty": 0.1984,
+            "bbox": [
+              0.875,
+              0.032,
+              0.9844,
+              0.1599
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "front_body": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.9,
+            "uncertainty": 0.129,
+            "bbox": [
+              0.1328,
+              0.1599,
+              0.9909,
+              0.855
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "hem": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.87,
+            "uncertainty": 0.1451,
+            "bbox": [
+              0.8932,
+              0.1599,
+              0.9909,
+              0.855
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "left_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.88,
+            "uncertainty": 0.1398,
+            "bbox": [
+              0.1953,
+              0.0235,
+              0.9844,
+              0.1599
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "right_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.88,
+            "uncertainty": 0.1398,
+            "bbox": [
+              0.1328,
+              0.855,
+              0.9844,
+              0.9915
+            ],
+            "decision": "SAFE_TO_USE"
+          }
+        },
+        "not_observed_components": [
+          "back_body",
+          "button",
+          "collar_stand",
+          "shoulder_seam"
+        ],
+        "graph_nodes": 12,
+        "graph_edges": 29,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+        "sha256": "69a2376afd593df8dc5383299b5941375ffb320cb6ed2cf077a782f18877218f",
+        "category": "tops",
+        "subcategory": "tshirt",
+        "latency_ms": 252.52,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "collar": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.6452,
+            "uncertainty": 0.589,
+            "bbox": [
+              0.2109,
+              0.2638,
+              0.3473,
+              0.5001
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "cuff": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.76,
+            "uncertainty": 0.4323,
+            "bbox": [
+              0.875,
+              0.1094,
+              0.9674,
+              0.2431
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "front_body": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.65,
+            "uncertainty": 0.5869,
+            "bbox": [
+              0.3359,
+              0.4219,
+              0.3828,
+              0.4861
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "hem": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.45,
+            "uncertainty": 0.5341,
+            "bbox": [
+              0.8919,
+              0.2778,
+              0.9674,
+              0.4861
+            ],
+            "decision": "REQUIRE_MORE_EVIDENCE"
+          },
+          "hood": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.8009,
+            "uncertainty": 0.5193,
+            "bbox": [
+              0.2109,
+              0.3125,
+              0.3828,
+              0.5382
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "left_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.62,
+            "uncertainty": 0.4936,
+            "bbox": [
+              0.3008,
+              0.0556,
+              0.9674,
+              0.2587
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "right_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.62,
+            "uncertainty": 0.5997,
+            "bbox": [
+              0.3359,
+              0.4861,
+              0.375,
+              0.5399
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          }
+        },
+        "not_observed_components": [
+          "back_body",
+          "button",
+          "button_placket",
+          "chest_pocket",
+          "collar_stand",
+          "shoulder_seam"
+        ],
+        "graph_nodes": 14,
+        "graph_edges": 32,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately.",
+          "Part of the collar, front body, right sleeve is covered or cropped out of frame."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_25_trousers_chinos.jpg",
+        "sha256": "ca1cbba0270b94bcd0774cf7bfc875de86586545916f7c2e7152b8a70f0f1c8e",
+        "category": "bottoms",
+        "subcategory": "chinos",
+        "latency_ms": 168.36,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "fly": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.9,
+            "uncertainty": 0.129,
+            "bbox": [
+              0.1719,
+              0.3355,
+              0.293,
+              0.4197
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "left_leg": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.72,
+            "uncertainty": 0.5564,
+            "bbox": [
+              0.1719,
+              0.0781,
+              0.6465,
+              0.3776
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "leg_opening": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.45,
+            "uncertainty": 0.6709,
+            "bbox": [
+              0.6035,
+              0.0781,
+              0.6465,
+              0.6784
+            ],
+            "decision": "REQUIRE_MORE_EVIDENCE"
+          },
+          "lower_waistband": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.86,
+            "uncertainty": 0.1502,
+            "bbox": [
+              0.1016,
+              0.0859,
+              0.1719,
+              0.5859
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "right_leg": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.72,
+            "uncertainty": 0.2164,
+            "bbox": [
+              0.1719,
+              0.3776,
+              0.6465,
+              0.6784
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          }
+        },
+        "not_observed_components": [
+          "back_pocket",
+          "back_rise",
+          "belt_loops",
+          "button",
+          "crotch_seam",
+          "front_pocket",
+          "front_rise",
+          "hem",
+          "inseam",
+          "outseam",
+          "zipper"
+        ],
+        "graph_nodes": 16,
+        "graph_edges": 28,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately.",
+          "Part of the left leg, leg opening is covered or cropped out of frame."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+        "sha256": "3e03a3399cdb388bc4e5059da696ccaeb7f8f2fdf709b35f8e26497c2d85eab7",
+        "category": "dress",
+        "subcategory": "a_line_dress",
+        "latency_ms": 234.31,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "bodice": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.86,
+            "uncertainty": 0.1502,
+            "bbox": [
+              0.1172,
+              0.1043,
+              0.4401,
+              0.8957
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "hem": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.45,
+            "uncertainty": 0.4947,
+            "bbox": [
+              0.8997,
+              0.1043,
+              0.9674,
+              0.8957
+            ],
+            "decision": "REQUIRE_MORE_EVIDENCE"
+          },
+          "neckline": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.8,
+            "uncertainty": 0.1798,
+            "bbox": [
+              0.1172,
+              0.3215,
+              0.2449,
+              0.6724
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "skirt": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.87,
+            "uncertainty": 0.1451,
+            "bbox": [
+              0.4401,
+              0.1656,
+              0.9674,
+              0.8712
+            ],
+            "decision": "SAFE_TO_USE"
+          },
+          "waistline": {
+            "detection_state": "DETECTED",
+            "visibility": "FULLY_VISIBLE",
+            "confidence": 0.78,
+            "uncertainty": 0.1891,
+            "bbox": [
+              0.406,
+              0.1043,
+              0.4742,
+              0.8957
+            ],
+            "decision": "SAFE_TO_USE"
+          }
+        },
+        "not_observed_components": [
+          "button",
+          "dress_closures",
+          "dress_panels",
+          "left_sleeve",
+          "right_sleeve",
+          "straps",
+          "zipper"
+        ],
+        "graph_nodes": 12,
+        "graph_edges": 19,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately."
+        ]
+      },
+      {
+        "file": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+        "sha256": "d6eb274d39104104f2bae0fb7e2fe201327bd5acfbd64146f1b3dceb23ca352c",
+        "category": "traditional",
+        "subcategory": "kurta",
+        "latency_ms": 248.21,
+        "backends_executed": [
+          "segformer_b2_clothes"
+        ],
+        "detected_components": {
+          "button": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.85,
+            "uncertainty": 0.3768,
+            "bbox": [
+              0.3906,
+              0.4983,
+              0.888,
+              0.5642
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "button_placket": {
+            "detection_state": "DETECTED",
+            "visibility": "PARTIALLY_VISIBLE",
+            "confidence": 0.89,
+            "uncertainty": 0.356,
+            "bbox": [
+              0.3906,
+              0.4983,
+              0.888,
+              0.5642
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "collar": {
+            "detection_state": "DETECTED",
+            "visibility": "OCCLUDED",
+            "confidence": 0.7267,
+            "uncertainty": 0.5534,
+            "bbox": [
+              0.2578,
+              0.4103,
+              0.3914,
+              0.6522
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "cuff": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.76,
+            "uncertainty": 0.5384,
+            "bbox": [
+              0.9284,
+              0.2812,
+              0.9987,
+              0.3108
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "front_body": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.65,
+            "uncertainty": 0.5869,
+            "bbox": [
+              0.3464,
+              0.3108,
+              0.9987,
+              0.7517
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "left_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.62,
+            "uncertainty": 0.5997,
+            "bbox": [
+              0.4922,
+              0.1962,
+              0.9987,
+              0.3108
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          },
+          "right_sleeve": {
+            "detection_state": "DETECTED",
+            "visibility": "OUT_OF_FRAME",
+            "confidence": 0.62,
+            "uncertainty": 0.5997,
+            "bbox": [
+              0.7656,
+              0.7517,
+              0.9987,
+              0.8663
+            ],
+            "decision": "USE_WITH_UNCERTAINTY"
+          }
+        },
+        "not_observed_components": [
+          "back_body",
+          "collar_stand",
+          "side_seam",
+          "sleeve_opening"
+        ],
+        "graph_nodes": 12,
+        "graph_edges": 29,
+        "clarification_prompts": [
+          "The back of the garment is not shown yet\u2014add a rear photo if you want back details included accurately.",
+          "Part of the collar, front body, hem is covered or cropped out of frame."
+        ]
+      }
+    ]
+  },
+  "fashionpedia_single_view_validation": {
+    "status": "ACADEMIC_SINGLE_VIEW_PART_EVALUATION",
+    "dataset": "detection-datasets/fashionpedia (val parquet)",
+    "license_note": "CC BY 4.0 HF card / CC BY-NC-SA 4.0 internal policy; single-view 2D part boxes only.",
+    "missing_axes": [
+      "No ground-truth visibility state annotations (OCCLUDED vs OUT_OF_FRAME vs FULLY_VISIBLE)",
+      "No multi-view pairs or cross-view garment identity IDs",
+      "No garment seam/inseam/outseam/cuff/fly/waistband part boxes in this coarse mapping"
+    ],
+    "sample_count": 50,
+    "sample_ids_first_10": [
+      2083,
+      5593,
+      6410,
+      7487,
+      7731,
+      7780,
+      8081,
+      8337,
+      8457,
+      8519
+    ],
+    "localization_metrics_iou_0_30": {
+      "macro_precision": 0.1186,
+      "macro_recall": 0.1289,
+      "macro_f1": 0.1178,
+      "macro_iou": 0.1893,
+      "macro_bbox_iou": 0.1893,
+      "macro_mask_iou": null,
+      "landmark_error": null,
+      "visibility_accuracy": null,
+      "false_absence_rate": 0.0,
+      "per_view_consistency": null,
+      "evidence_completeness": null,
+      "calibration_ece": 0.1267,
+      "calibration_brier": 0.1843,
+      "components": {
+        "collar": {
+          "precision": 0.1,
+          "recall": 0.25,
+          "f1": 0.1429,
+          "mean_iou": 0.1794,
+          "bbox_iou": 0.1794,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 1,
+          "fp": 9,
+          "fn": 3,
+          "tn": 37,
+          "support_positive": 6,
+          "evaluated_samples": 50
+        },
+        "hood": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.0,
+          "bbox_iou": null,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "tn": 47,
+          "support_positive": 1,
+          "evaluated_samples": 50
+        },
+        "lapel": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.277,
+          "bbox_iou": 0.277,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 4,
+          "tn": 44,
+          "support_positive": 5,
+          "evaluated_samples": 50
+        },
+        "neck_opening": {
+          "precision": 0.4444,
+          "recall": 0.4615,
+          "f1": 0.4528,
+          "mean_iou": 0.2851,
+          "bbox_iou": 0.2851,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 12,
+          "fp": 15,
+          "fn": 14,
+          "tn": 9,
+          "support_positive": 40,
+          "evaluated_samples": 50
+        },
+        "pocket": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.0069,
+          "bbox_iou": 0.0069,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 3,
+          "fn": 11,
+          "tn": 36,
+          "support_positive": 13,
+          "evaluated_samples": 50
+        },
+        "sleeve": {
+          "precision": 0.2857,
+          "recall": 0.1905,
+          "f1": 0.2286,
+          "mean_iou": 0.1981,
+          "bbox_iou": 0.1981,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 4,
+          "fp": 10,
+          "fn": 17,
+          "tn": 19,
+          "support_positive": 28,
+          "evaluated_samples": 50
+        },
+        "zipper": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.0,
+          "bbox_iou": null,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 47,
+          "support_positive": 3,
+          "evaluated_samples": 50
+        }
+      },
+      "sample_count": 50,
+      "dataset_kind": "fashionpedia_val_academic_single_view",
+      "evaluation_status": "EVALUATED_AGAINST_PROVIDED_ANNOTATIONS"
+    },
+    "presence_metrics_no_box_threshold": {
+      "macro_precision": 0.4593,
+      "macro_recall": 0.271,
+      "macro_f1": 0.3158,
+      "macro_iou": 0.1893,
+      "macro_bbox_iou": 0.1893,
+      "macro_mask_iou": null,
+      "landmark_error": null,
+      "visibility_accuracy": null,
+      "false_absence_rate": 0.0,
+      "per_view_consistency": null,
+      "evidence_completeness": null,
+      "calibration_ece": 0.1267,
+      "calibration_brier": 0.1843,
+      "components": {
+        "collar": {
+          "precision": 0.3,
+          "recall": 0.5,
+          "f1": 0.375,
+          "mean_iou": 0.1794,
+          "bbox_iou": 0.1794,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 3,
+          "fp": 7,
+          "fn": 3,
+          "tn": 37,
+          "support_positive": 6,
+          "evaluated_samples": 50
+        },
+        "hood": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.0,
+          "bbox_iou": null,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 1,
+          "tn": 47,
+          "support_positive": 1,
+          "evaluated_samples": 50
+        },
+        "lapel": {
+          "precision": 0.5,
+          "recall": 0.2,
+          "f1": 0.2857,
+          "mean_iou": 0.277,
+          "bbox_iou": 0.277,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 1,
+          "fp": 1,
+          "fn": 4,
+          "tn": 44,
+          "support_positive": 5,
+          "evaluated_samples": 50
+        },
+        "neck_opening": {
+          "precision": 0.963,
+          "recall": 0.65,
+          "f1": 0.7761,
+          "mean_iou": 0.2851,
+          "bbox_iou": 0.2851,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 26,
+          "fp": 1,
+          "fn": 14,
+          "tn": 9,
+          "support_positive": 40,
+          "evaluated_samples": 50
+        },
+        "pocket": {
+          "precision": 0.6667,
+          "recall": 0.1538,
+          "f1": 0.2499,
+          "mean_iou": 0.0069,
+          "bbox_iou": 0.0069,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 2,
+          "fp": 1,
+          "fn": 11,
+          "tn": 36,
+          "support_positive": 13,
+          "evaluated_samples": 50
+        },
+        "sleeve": {
+          "precision": 0.7857,
+          "recall": 0.3929,
+          "f1": 0.5238,
+          "mean_iou": 0.1981,
+          "bbox_iou": 0.1981,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 11,
+          "fp": 3,
+          "fn": 17,
+          "tn": 19,
+          "support_positive": 28,
+          "evaluated_samples": 50
+        },
+        "zipper": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "mean_iou": 0.0,
+          "bbox_iou": null,
+          "mask_iou": null,
+          "visibility_accuracy": null,
+          "false_absence_rate": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 47,
+          "support_positive": 3,
+          "evaluated_samples": 50
+        }
+      },
+      "sample_count": 50,
+      "dataset_kind": "fashionpedia_val_academic_single_view",
+      "evaluation_status": "EVALUATED_AGAINST_PROVIDED_ANNOTATIONS"
+    }
+  }
+}
