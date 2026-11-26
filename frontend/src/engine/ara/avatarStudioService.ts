@@ -16,9 +16,33 @@ export function bakeCharacterClips(rig: Rig, face?: { names: string[]; defaults:
   const animator = new Animator(rig, face);
   const clipSpecs = [
     { id: 'idle', name: 'Idle' },
+    { id: 'walk', name: 'Walk' },
+    { id: 'run', name: 'Run' },
+    { id: 'sit_down', name: 'Sit Down' },
+    { id: 'sit_idle', name: 'Sit' },
+    { id: 'stand_up', name: 'Stand Up' },
+    { id: 'crouch', name: 'Bend' },
+    { id: 'thumbs_up', name: 'Thumbs Up' },
+    { id: 'thumbs_down', name: 'Thumbs Down' },
     { id: 'wave', name: 'Wave' },
     { id: 'cheer', name: 'Cheer' },
-    { id: 'turn_360', name: 'Turn' }
+    { id: 'nod', name: 'Nod' },
+    { id: 'head_shake', name: 'Head Shake' },
+    { id: 'thinking', name: 'Thinking' },
+    { id: 'curious', name: 'Curious' },
+    { id: 'present_single', name: 'Present Outfit' },
+    { id: 'present_both', name: 'Present Both' },
+    { id: 'point_outfit', name: 'Point at Outfit' },
+    { id: 'look_garment', name: 'Look at Garment' },
+    { id: 'inspect_outfit', name: 'Inspect Outfit' },
+    { id: 'suggest_alt', name: 'Suggest Alternative' },
+    { id: 'welcome', name: 'Welcome' },
+    { id: 'listening', name: 'Listening' },
+    { id: 'excited', name: 'Excited' },
+    { id: 'confused', name: 'Confused' },
+    { id: 'turn_360', name: 'Turn' },
+    { id: 'talk', name: 'Talk' },
+    { id: 'laugh', name: 'Laugh' },
   ];
 
   const baked: BakedClip[] = [];
@@ -28,7 +52,7 @@ export function bakeCharacterClips(rig: Rig, face?: { names: string[]; defaults:
       console.warn(`[AraService] Clip "${spec.id}" not found in Ara 3D Gen catalog`);
       continue;
     }
-    const bakedData = animator.bake(clip, 30, { rootMotion: false });
+    const bakedData = animator.bake(clip, 60, { rootMotion: false });
     baked.push({
       name: spec.name,
       loop: clip.loop,
@@ -132,6 +156,33 @@ export class AraEngineBridge {
     const ch = character || this.currentCharacter;
     if (!ch || !this.lib) throw new Error('No character built for export');
     const textures = new Map<string, Uint8Array>();
+
+    // Embed all available diffuse and normal maps into the GLB container
+    const promises: Promise<void>[] = [];
+    for (const m of ch.mesh.materials) {
+      if (m.map && !textures.has(m.map)) {
+        promises.push(
+          this.lib.texture(m.map)
+            .then((data) => {
+              if (data) textures.set(m.map!, data);
+            })
+            .catch(() => {})
+        );
+      }
+      if (m.normalMap && !textures.has(m.normalMap)) {
+        promises.push(
+          this.lib.texture(m.normalMap)
+            .then((data) => {
+              if (data) textures.set(m.normalMap!, data);
+            })
+            .catch(() => {})
+        );
+      }
+    }
+    if (promises.length > 0) {
+      await Promise.all(promises);
+    }
+
     const clips = (includeAnimations && ch.rig) ? bakeCharacterClips(ch.rig, ch.face) : [];
     return exportGLB(ch.mesh, ch.params.name || 'yorvyn_avatar', textures, ch.rig, clips, { meshless: false });
   }

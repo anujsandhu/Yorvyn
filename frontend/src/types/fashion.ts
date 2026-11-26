@@ -4,6 +4,8 @@
 
 export type GarmentCategory = 'top' | 'bottom' | 'outerwear' | 'footwear' | 'accessory' | 'one_piece';
 
+export type GarmentAssetType = '2d_image' | '3d_mesh' | 'fitted_garment' | 'processing' | 'unavailable';
+
 export interface Garment {
   id: string;
   name: string;
@@ -24,6 +26,8 @@ export interface Garment {
   favorite: boolean;
   created_at?: string;
   // 3D Garment Generation Extensions
+  asset_type?: GarmentAssetType;
+  fitting_status?: 'ready' | 'in_progress' | 'unsupported' | 'failed';
   is_custom_3d?: boolean;
   glb_url?: string;
   thumbnail_url?: string;
@@ -178,4 +182,36 @@ export interface ClosetAnalytics {
   color_palette_distribution: Record<string, number>;
   most_worn_staples: Garment[];
   closet_utilization_rate: number;
+}
+
+// ── Customizable Wardrobe Category Types (Phase 1) ──
+export type CategoryItemType =
+  | 'clothing'
+  | 'accessory'
+  | 'footwear'
+  | 'jewelry'
+  | 'watch'
+  | 'bag'
+  | 'fragrance'
+  | 'beauty'
+  | 'gadget'
+  | 'collectible'
+  | 'custom';
+
+export type CategoryIconType = 'preset' | 'custom_svg' | 'custom_image';
+
+export interface WardrobeCategory {
+  id: string;
+  label: string;
+  itemType: CategoryItemType;
+  iconType: CategoryIconType;
+  iconKey?: string; // Phosphor icon identifier (e.g. 'SquaresFour', 'CoatHanger', 'Pants', 'Sneaker', 'Watch')
+  customSvg?: string; // Sanitized inline SVG XML
+  customImageUrl?: string;
+  isDefault?: boolean;
+  isVisible?: boolean;
+  isPinned?: boolean;
+  sortOrder: number;
+  count?: number;
+  description?: string;
 }

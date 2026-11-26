@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Menu, Plus, Zap } from 'lucide-react'
+import { List as Menu, Plus, Lightning as Zap } from './icons'
 import { useApp } from '../context/AppContext'
 import { Logo } from './Logo'
 import './TopNav.css'

@@ -40,9 +40,10 @@ export class AraAnimationController {
     this.availableClips.clear();
 
     clips.forEach(clip => {
-      this.availableClips.set(clip.name.toLowerCase(), clip);
+      const normKey = clip.name.toLowerCase().trim().replace(/[\s-]+/g, '_');
+      this.availableClips.set(normKey, clip);
       const action = this.mixer!.clipAction(clip);
-      this.actions.set(clip.name.toLowerCase(), action);
+      this.actions.set(normKey, action);
     });
 
     console.log('[AraAnimationController] Initialized with real animation clips:', 
@@ -77,22 +78,68 @@ export class AraAnimationController {
    */
   private resolveAction(name: string): { action: THREE.AnimationAction; clip: THREE.AnimationClip } | null {
     if (!name) return null;
-    const lower = name.toLowerCase().trim();
+    const lower = name.toLowerCase().trim().replace(/[\s-]+/g, '_');
 
     // Direct match
     if (this.actions.has(lower) && this.availableClips.has(lower)) {
       return { action: this.actions.get(lower)!, clip: this.availableClips.get(lower)! };
     }
 
-    // Substring / alias resolution
+    // Common alias normalization
+    const aliasMap: Record<string, string> = {
+      thumbsup: 'thumbs_up',
+      thumb_up: 'thumbs_up',
+      approval: 'thumbs_up',
+      thumbsdown: 'thumbs_down',
+      thumb_down: 'thumbs_down',
+      disapproval: 'thumbs_down',
+      dislike: 'thumbs_down',
+      nod: 'nod',
+      agree: 'nod',
+      headshake: 'head_shake',
+      head_shake: 'head_shake',
+      shake: 'head_shake',
+      disagree: 'head_shake',
+      think: 'thinking',
+      thinking: 'thinking',
+      curious: 'curious',
+      present: 'present_single',
+      present_outfit: 'present_single',
+      present_both: 'present_both',
+      point: 'point_outfit',
+      point_outfit: 'point_outfit',
+      look: 'look_garment',
+      look_garment: 'look_garment',
+      inspect: 'inspect_outfit',
+      inspect_outfit: 'inspect_outfit',
+      shrug: 'suggest_alt',
+      suggest: 'suggest_alt',
+      suggest_alt: 'suggest_alt',
+      welcome: 'welcome',
+      greet: 'welcome',
+      listen: 'listening',
+      listening: 'listening',
+      excite: 'excited',
+      excited: 'excited',
+      confuse: 'confused',
+      confused: 'confused',
+      turn: 'turn_360',
+      spin: 'turn_360',
+      pose: 'idle'
+    };
+
+    const targetKey = aliasMap[lower] || lower;
+    if (this.actions.has(targetKey) && this.availableClips.has(targetKey)) {
+      return { action: this.actions.get(targetKey)!, clip: this.availableClips.get(targetKey)! };
+    }
+
+    // Substring / fuzzy resolution
     for (const [key, action] of this.actions.entries()) {
       const clip = this.availableClips.get(key)!;
       if (
-        key === lower ||
-        key.includes(lower) ||
-        lower.includes(key) ||
-        (lower === 'turn' && (key.includes('turn') || key.includes('360'))) ||
-        (lower === 'pose' && (key.includes('turn') || key.includes('idle')))
+        key === targetKey ||
+        key.includes(targetKey) ||
+        targetKey.includes(key)
       ) {
         return { action, clip };
       }
@@ -127,19 +174,23 @@ export class AraAnimationController {
 
     const { action, clip } = resolved;
     const isLoop = options.loop ?? (clipName.toLowerCase() === 'idle');
-    const fadeDuration = options.crossfadeDuration ?? 0.35;
+    const fadeDuration = options.crossfadeDuration ?? 0.4;
 
     if (this.currentAction === action && action.isRunning()) {
       return true; // Already actively playing
     }
 
     action.reset();
+    action.enabled = true;
+    action.setEffectiveTimeScale(1);
+    action.setEffectiveWeight(1);
+
     if (isLoop) {
       action.setLoop(THREE.LoopRepeat, Infinity);
       action.clampWhenFinished = false;
     } else {
       action.setLoop(THREE.LoopOnce, 1);
-      action.clampWhenFinished = !!options.clampWhenFinished;
+      action.clampWhenFinished = options.clampWhenFinished !== undefined ? options.clampWhenFinished : true;
     }
 
     if (this.currentAction && this.currentAction !== action) {
@@ -150,7 +201,6 @@ export class AraAnimationController {
     this.currentAction = action;
     this.currentClipName = clip.name.toLowerCase();
 
-    // Fallback timer if mixer finished event is missed (e.g. tab backgrounded)
     if (!isLoop && options.onComplete) {
       this.pendingReturnTimeout = setTimeout(() => {
         options.onComplete?.();
@@ -161,23 +211,37 @@ export class AraAnimationController {
   }
 
   /**
-   * Plays an animation once (e.g. Wave, Cheer, Turn) then smoothly crossfades back to Idle.
+   * Plays an animation once with seamless early exit transition into Idle.
+   * Begins crossfading back to Idle before the clip ends so there is zero pause or snap.
    */
-  playOneShot(clipName: string, returnTo: string = 'Idle', crossfadeDuration = 0.35): boolean {
+  playOneShot(clipName: string, returnTo: string = 'Idle', crossfadeDuration = 0.45): boolean {
     const resolved = this.resolveAction(clipName);
     if (!resolved) {
       console.warn(`[AraAnimationController] Cannot play one-shot: clip "${clipName}" is not exported.`);
       return false;
     }
 
+    if (this.pendingReturnTimeout) {
+      clearTimeout(this.pendingReturnTimeout);
+      this.pendingReturnTimeout = null;
+    }
+
+    const { clip } = resolved;
+    const fadeDuration = Math.min(crossfadeDuration, clip.duration * 0.4);
+    const exitTime = Math.max(0.1, clip.duration - fadeDuration);
+
     const played = this.play(clipName, {
       loop: false,
-      crossfadeDuration,
+      crossfadeDuration: fadeDuration,
       clampWhenFinished: false,
-      onComplete: () => {
-        this.returnToIdle(crossfadeDuration, returnTo);
-      }
     });
+
+    if (played) {
+      // Seamless early exit transition: start blending into Idle at exitTime
+      this.pendingReturnTimeout = setTimeout(() => {
+        this.returnToIdle(fadeDuration, returnTo);
+      }, exitTime * 1000);
+    }
 
     return played;
   }
@@ -185,7 +249,7 @@ export class AraAnimationController {
   /**
    * Smoothly crossfades back to the Idle animation.
    */
-  returnToIdle(crossfadeDuration = 0.4, idleName: string = 'Idle'): void {
+  returnToIdle(crossfadeDuration = 0.45, idleName: string = 'Idle'): void {
     if (this.currentClipName === 'idle' && this.currentAction?.isRunning()) {
       return;
     }
@@ -220,6 +284,13 @@ export class AraAnimationController {
    */
   getCurrentClipName(): string | null {
     return this.currentClipName;
+  }
+
+  /**
+   * Checks whether the animation controller has an active playing action.
+   */
+  isPlaying(): boolean {
+    return this.currentAction !== null;
   }
 
   /**

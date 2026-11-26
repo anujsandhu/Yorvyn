@@ -1,8 +1,19 @@
 import {
-  Heart, Trash2, X, LogOut, Settings, Sliders,
-  MoreHorizontal, User,
-  HelpCircle, BookOpen, Sparkles, Layers, Grid, Box
-} from 'lucide-react'
+  Heart, 
+  Trash as Trash2, 
+  X, 
+  SignOut as LogOut, 
+  Gear as Settings, 
+  SlidersHorizontal as Sliders,
+  DotsThree as MoreHorizontal, 
+  User,
+  Question as HelpCircle, 
+  BookOpen, 
+  Sparkle as Sparkles, 
+  Stack as Layers, 
+  GridFour as Grid, 
+  Cube as Box
+} from './icons'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -343,9 +354,9 @@ function WelcomeToast() {
     setHasShown(true)
     const name = userProfile.nickname || user.displayName?.split(' ')[0] || 'there'
     if (isNewUser) {
-      toast.success(`Welcome to Yorvyn, ${name}! 🌸 Let's find your perfect scent.`, { duration: 4000, icon: '✨' })
+      toast.success(`Welcome to Yorvyn, ${name}! Let's find your signature aesthetic.`, { duration: 3500 })
     } else {
-      toast.success(`Welcome back, ${name}! 👋 Ready to explore more fragrances?`, { duration: 3500, icon: '🌸' })
+      toast.success(`Welcome back, ${name}!`, { duration: 2500 })
     }
   }, [user, isNewUser, hasShown, userProfile.nickname])
 

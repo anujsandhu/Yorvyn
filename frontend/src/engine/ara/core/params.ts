@@ -113,7 +113,7 @@ export const DEFAULT_PARAMS: HumanParams = {
   tattooInk: '#1c2128',
   earrings: 'none',
   earringMetal: 'gold',
-  outfit: 'male_casualsuit01',
+  outfit: 'male_elegantsuit01',
   top: 'none',
   bottom: 'none',
   underwear: true,

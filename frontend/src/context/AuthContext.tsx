@@ -2,7 +2,7 @@ import {
   createContext, useContext, useEffect, useState, ReactNode, useCallback,
 } from 'react'
 import { Session, User as SupabaseUser } from '@supabase/supabase-js'
-import { supabase, isSupabaseConfigured } from '../utils/supabase'
+import { supabase, isSupabaseConfigured, isSupabaseDatabaseAvailable, markSupabaseDatabaseUnavailable } from '../utils/supabase'
 import { profileService, OnboardingProfileData, DEFAULT_ONBOARDING_PROFILE } from '../services/profile/profileService'
 
 export interface YorvynUser {
@@ -28,6 +28,7 @@ interface AuthContextValue {
   signUpWithEmail: (email: string, password: string, displayName?: string) => Promise<{ error: any }>
   resetPassword: (email: string) => Promise<{ error: any }>
   signOut: () => Promise<void>
+  deleteAccount: () => Promise<{ success?: boolean; error?: any }>
 }
 
 const AuthCtx = createContext<AuthContextValue | null>(null)
@@ -87,13 +88,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session)
       const mappedUser = mapSupabaseUser(session?.user ?? null)
-      setUser(mappedUser)
-      if (mappedUser?.id) {
-        await loadUserProfile(mappedUser.id)
+      if (mappedUser) {
+        setUser(mappedUser)
+        if (mappedUser?.id) {
+          await loadUserProfile(mappedUser.id)
+        }
+      } else {
+        const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+        const isSignedOut = typeof window !== 'undefined' && localStorage.getItem('yorvyn_signed_out') === 'true'
+        const isDemo = urlParams?.get('demo') === 'true' || Boolean(typeof window !== 'undefined' && localStorage.getItem('yorvyn_dev_user')) || (import.meta.env.DEV && !isSignedOut)
+        if (isDemo && import.meta.env.DEV) {
+          const mockUser: YorvynUser = {
+            id: 'dev_user_1',
+            uid: 'dev_user_1',
+            email: 'anujsandhu747@gmail.com',
+            displayName: 'Anuj Sandhu',
+            photoURL: '',
+            provider: 'email'
+          }
+          setUser(mockUser)
+          setOnboardingCompleted(true)
+        } else {
+          setUser(null)
+        }
       }
       setLoading(false)
     }).catch(err => {
       console.warn('Could not retrieve Supabase session:', err)
+      setUser(null)
       setLoading(false)
     })
 
@@ -119,16 +141,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [loadUserProfile])
 
   const syncInitialProfile = async (sbUser: SupabaseUser | null) => {
-    if (!sbUser || !isSupabaseConfigured) return
+    if (!sbUser || !isSupabaseDatabaseAvailable()) return
     try {
-      await supabase.from('yorvyn_profiles').upsert({
+      const { error } = await supabase.from('yorvyn_profiles').upsert({
         user_id: sbUser.id,
         email: sbUser.email,
         display_name: sbUser.user_metadata?.full_name || sbUser.email?.split('@')[0],
         avatar_url: sbUser.user_metadata?.avatar_url || '',
         last_seen_at: new Date().toISOString()
       }, { onConflict: 'user_id' })
+      if (error && (error.code === 'PGRST205' || (error as any).status === 404)) {
+        markSupabaseDatabaseUnavailable()
+      }
     } catch (e) {
+      markSupabaseDatabaseUnavailable()
       console.warn('Initial profile sync warning:', e)
     }
   }
@@ -195,11 +221,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     setIsNewUser(false)
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('yorvyn_guest_session')
+      localStorage.setItem('yorvyn_signed_out', 'true')
+    }
     await supabase.auth.signOut()
     setUser(null)
     setSession(null)
     setProfile(null)
     setOnboardingCompleted(false)
+  }
+
+  const deleteAccount = async () => {
+    if (!user?.id) return { error: 'No user session found' }
+    try {
+      if (isSupabaseConfigured) {
+        // Delete related user feedback and profile records in Supabase
+        await supabase.from('avatar_feedback').delete().eq('user_id', user.id)
+        await supabase.from('user_profiles').delete().eq('user_id', user.id)
+      }
+      // Clear all local caches
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('yorvyn_avatar_cache')
+        localStorage.removeItem('yorvyn_avatar_feedback_cache')
+        localStorage.removeItem('yorvyn_avatar_character')
+        localStorage.removeItem('yorvyn_local_profile')
+      }
+      // Sign out
+      await supabase.auth.signOut()
+      setUser(null)
+      setSession(null)
+      setProfile(null)
+      setOnboardingCompleted(false)
+      return { success: true }
+    } catch (err: any) {
+      console.warn('Error deleting account:', err)
+      return { error: err.message || 'Failed to delete account' }
+    }
   }
 
   return (
@@ -216,7 +274,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signInWithEmail,
       signUpWithEmail,
       resetPassword,
-      signOut
+      signOut,
+      deleteAccount
     }}>
       {children}
     </AuthCtx.Provider>
@@ -227,4 +286,8 @@ export function useAuth() {
   const ctx = useContext(AuthCtx)
   if (!ctx) throw new Error('useAuth must be inside AuthProvider')
   return ctx
+}
+
+export function useOptionalAuth() {
+  return useContext(AuthCtx)
 }

@@ -142,7 +142,11 @@ export function placeBones(defs: BoneDef[], joint: (name: string) => Vec3): RigB
       tail = add(heads[i], pd.map((x) => x * 0.03) as Vec3);
     }
     let dir = sub(tail, heads[i]);
-    if (len(dir) < 1e-5) {
+    if (d.name === 'Hips') {
+      // Standard game-engine humanoid convention: Root Hips bone is always upright [0, 1, 0]
+      dir = [0, 1, 0];
+      tail = add(heads[i], [0, 0.06, 0] as Vec3);
+    } else if (len(dir) < 1e-5) {
       dir = parent >= 0 ? sub(bones[parent].tail, bones[parent].head) : [0, 1, 0];
       tail = add(heads[i], norm(dir).map((x) => x * 0.03) as Vec3);
     }

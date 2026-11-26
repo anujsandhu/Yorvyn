@@ -35,6 +35,25 @@
   animation: photo3dSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.photo3d-embedded-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo3d-embedded-container {
+  background: transparent;
+  border-radius: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  border: none;
+  overflow-y: visible;
+}
+
 @keyframes photo3dSlideUp {
   from { transform: translateY(24px) scale(0.97); }
   to { transform: translateY(0) scale(1); }
@@ -50,29 +69,11 @@
 }
 
 .photo3d-header-title h2 {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #0f172a;
-  margin: 0.2rem 0 0 0;
+  margin: 0;
   letter-spacing: -0.02em;
-}
-
-.photo3d-brand-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #0284c7;
-  background: #f0f9ff;
-  padding: 3px 8px;
-  border-radius: 999px;
-}
-
-.sparkle-icon {
-  color: #0284c7;
 }
 
 .photo3d-close-btn {
@@ -292,36 +293,12 @@
   opacity: 1;
 }
 
-/* ── Privacy Guarantee Card ── */
-.photo3d-privacy-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.privacy-badge-icon {
-  color: #0284c7;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.privacy-text strong {
-  display: block;
-  font-size: 0.86rem;
-  color: #1e293b;
-  margin-bottom: 0.2rem;
-}
-
-.privacy-text p {
+/* ── Privacy Notice (Simple Clean Black Text) ── */
+.photo3d-simple-privacy-text {
   font-size: 0.80rem;
-  color: #64748b;
+  color: #0f172a;
   line-height: 1.45;
-  margin: 0;
+  margin: 0.75rem 0 1.25rem;
 }
 
 /* ── Footer ── */
@@ -582,12 +559,12 @@
 .meta-category-badge {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
-  color: #0284c7;
-  background: #f0f9ff;
-  padding: 3px 8px;
-  border-radius: 999px;
+  color: #0f172a;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   margin-bottom: 0.4rem;
 }
 
@@ -646,26 +623,8 @@
 .attr-val-text {
   font-size: 0.84rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #0f172a;
   text-transform: capitalize;
-}
-
-.attr-val-text.green {
-  color: #10b981;
-}
-
-.photo3d-privacy-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 10px;
-  padding: 0.65rem 0.85rem;
-  color: #166534;
-  font-size: 0.76rem;
-  font-weight: 500;
-  margin-bottom: 1.25rem;
 }
 
 .photo3d-preview-actions {
@@ -694,4 +653,516 @@
   .photo3d-upload-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Phase 9: Reconstruction Review Studio Additions ── */
+.photo3d-upload-grid.three-views {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.85rem;
+}
+
+.photo3d-camera-controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 4px 6px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.photo3d-cam-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.photo3d-cam-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.photo3d-cam-btn.active {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.photo3d-fabric-select-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.photo3d-fabric-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1e293b;
+  background: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.photo3d-fabric-select:focus {
+  border-color: #0f172a;
+}
+
+.photo3d-simple-warnings {
+  padding: 0.5rem 1.5rem;
+  color: #0f172a;
+  font-size: 0.8rem;
+}
+
+.photo3d-simple-black-text {
+  color: #0f172a;
+  font-size: 0.8rem;
+  margin: 0.25rem 0;
+}
+
+/* ── PHASE 5: RECONSTRUCTION REVIEW INTERFACE TABS & DIAGNOSTICS ── */
+.photo3d-review-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 4px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.photo3d-review-tab {
+  padding: 6px 14px;
+  border-radius: 9px;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo3d-review-tab:hover {
+  color: #0f172a;
+}
+
+.photo3d-review-tab.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.photo3d-diagnostics-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.photo3d-diag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.photo3d-diag-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.photo3d-diag-card.wide {
+  grid-column: span 2;
+}
+
+.photo3d-diag-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.photo3d-diag-thumb {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo3d-diag-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.photo3d-diag-thumb.checkered-bg {
+  background-image: 
+    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
+    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+.atlas-placeholder {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.photo3d-diag-note {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.photo3d-diag-components-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.photo3d-comp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 6px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.comp-name {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.comp-tag {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.comp-tag.observed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.comp-tag.inferred {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.comp-tag.procedural {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.photo3d-quality-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 120px;
+  justify-content: center;
+}
+
+.q-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #15803d;
+}
+
+.photo3d-diag-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   AI-First Automatic Garment Understanding Styling
+   ========================================================================== */
+
+.photo3d-ai-scanning-card {
+  background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.08);
+  animation: photo3dPulse 2s infinite ease-in-out;
+}
+
+@keyframes photo3dPulse {
+  0% { border-color: #bbf7d0; }
+  50% { border-color: #86efac; box-shadow: 0 4px 20px rgba(34, 197, 94, 0.16); }
+  100% { border-color: #bbf7d0; }
+}
+
+.photo3d-ai-scan-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.photo3d-sparkle-spin {
+  animation: photo3dSpin 3s linear infinite;
+  color: #16a34a;
+}
+
+@keyframes photo3dSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.photo3d-ai-scan-sub {
+  font-size: 0.8rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Compact AI Detection Result Panel */
+.photo3d-ai-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+.photo3d-ai-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.photo3d-ai-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.photo3d-ai-detected-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.photo3d-ai-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.photo3d-ai-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.photo3d-ai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.photo3d-ai-attr {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.photo3d-ai-attr-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+.photo3d-ai-attr-val {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.photo3d-color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+.photo3d-ai-components-section {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.85rem;
+}
+
+.photo3d-ai-components-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.photo3d-comp-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0.65rem;
+}
+
+.photo3d-comp-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.photo3d-comp-chip.status-detected {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.photo3d-comp-chip.status-estimated {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #bfdbfe;
+}
+
+.photo3d-comp-chip.status-inferred {
+  background: #fefce8;
+  color: #854d0e;
+  border-color: #fef08a;
+}
+
+.photo3d-comp-chip.status-not_detected {
+  background: #f8fafc;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  text-decoration: line-through;
+}
+
+.photo3d-comp-chip.status-needs_another_photograph {
+  background: #faf5ff;
+  color: #6b21a8;
+  border-color: #e9d5ff;
+}
+
+.photo3d-ai-disclaimer {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-style: italic;
+  margin: 0.35rem 0 0 0;
+  line-height: 1.4;
+}
+
+/* Optional User Correction Accordion */
+.photo3d-correction-wrap {
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.photo3d-correction-toggle {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo3d-correction-toggle:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.photo3d-correction-body {
+  padding: 1rem;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.photo3d-correction-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem;
 }

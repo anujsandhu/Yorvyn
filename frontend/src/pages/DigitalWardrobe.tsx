@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Plus, 
-  Trash2, 
+  Trash, 
   Heart, 
-  Sparkles
-} from 'lucide-react';
+  Sparkle,
+  UploadSimple,
+  X
+} from '../components/icons';
 import toast from 'react-hot-toast';
 import { fashionApi } from '../services/fashionApi';
+import {
+  intelligenceApi,
+  type ExternalWebReference,
+  type HybridRecommendationItem,
+  type WardrobeRecommendationItem,
+} from '../services/intelligenceApi';
 import { Garment, ClosetAnalytics, GarmentCategory } from '../types/fashion';
 import './DigitalWardrobe.css';
 
@@ -14,6 +22,13 @@ export const DigitalWardrobe: React.FC = () => {
   const [items, setItems] = useState<Garment[]>([]);
   const [analytics, setAnalytics] = useState<ClosetAnalytics | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [matchedIds, setMatchedIds] = useState<string[] | null>(null);
+  const [recommendations, setRecommendations] = useState<WardrobeRecommendationItem[]>([]);
+  const [hybridRecs, setHybridRecs] = useState<HybridRecommendationItem[]>([]);
+  const [exploreCategories, setExploreCategories] = useState<string[]>([]);
+  const [trendRefs, setTrendRefs] = useState<ExternalWebReference[]>([]);
+  const [recColdStart, setRecColdStart] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,10 +40,119 @@ export const DigitalWardrobe: React.FC = () => {
   const [newItemWarmth, setNewItemWarmth] = useState(5);
   const [newItemFormality, setNewItemFormality] = useState(5);
   const [newItemImageUrl, setNewItemImageUrl] = useState('');
+  const [newItemImageName, setNewItemImageName] = useState('');
+  const [newItemInputMode, setNewItemInputMode] = useState<'upload' | 'url'>('upload');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please upload an image file (PNG, JPG, or WEBP)');
+      return;
+    }
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error('Image file exceeds 15MB limit');
+      return;
+    }
+    setNewItemImageName(file.name);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setNewItemImageUrl(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      toast.error('Please upload an image file (PNG, JPG, or WEBP)');
+      return;
+    }
+    if (file.size > 15 * 1024 * 1024) {
+      toast.error('Image file exceeds 15MB limit');
+      return;
+    }
+    setNewItemImageName(file.name);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setNewItemImageUrl(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleClearImage = () => {
+    setNewItemImageUrl('');
+    setNewItemImageName('');
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   useEffect(() => {
     loadWardrobeData();
   }, [selectedCategory]);
+
+  const refreshWardrobeRecommendations = (anchor?: Garment) => {
+    intelligenceApi.getHybridRecommendations({
+      mode: 'neural_hybrid',
+      surface: 'wardrobe',
+      anchorItem: anchor ? (anchor as any) : undefined,
+      topK: 4,
+    })
+      .then((res) => {
+        setHybridRecs(res.recommendations || []);
+        setExploreCategories(Object.keys(res.category_recommendations || {}).slice(0, 3));
+        setRecColdStart(Boolean(res.cold_start_mode));
+      })
+      .catch(() => {
+        intelligenceApi.getWardrobeRecommendations().then(setRecommendations).catch(() => {});
+      });
+  };
+
+  useEffect(() => {
+    refreshWardrobeRecommendations();
+  }, []);
+
+  const handleRecommendationFeedback = async (rec: HybridRecommendationItem, interactionType: 'liked' | 'recommendation_dismissed') => {
+    try {
+      await intelligenceApi.recordRecommendationFeedback({
+        interactionType,
+        itemData: rec as any,
+        sessionId: 'wardrobe_discovery',
+      });
+      toast.success(interactionType === 'liked' ? `Saved style signal for "${rec.name}"` : `Dismissed "${rec.name}"`);
+      refreshWardrobeRecommendations();
+    } catch {
+      toast.error('Could not update recommendation preference');
+    }
+  };
+
+  const handleSmartSearch = async (queryText: string) => {
+    setSearchQuery(queryText);
+    const trimmed = queryText.trim();
+    if (!trimmed) {
+      setMatchedIds(null);
+      return;
+    }
+    try {
+      const matches = await intelligenceApi.rankWardrobeSearch(trimmed, items, 20);
+      setMatchedIds(matches.filter((m) => m.similarity_score > 0.05).map((m) => m.item_id));
+    } catch {
+      const lower = trimmed.toLowerCase();
+      setMatchedIds(
+        items
+          .filter((it) => `${it.name} ${it.color} ${it.brand} ${it.category}`.toLowerCase().includes(lower))
+          .map((it) => String(it.id)),
+      );
+    }
+  };
 
   const loadWardrobeData = async () => {
     try {
@@ -147,28 +271,155 @@ export const DigitalWardrobe: React.FC = () => {
         </div>
       )}
 
-      {/* Category Tabs */}
-      <div className="wardrobe-tabs-bar">
-        {categories.map(c => (
-          <button
-            key={c.key}
-            className={`wardrobe-tab ${selectedCategory === c.key ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(c.key)}
-          >
-            {c.label}
-          </button>
-        ))}
+      {/* Category Tabs + Smart Wardrobe Search */}
+      <div className="wardrobe-tabs-bar" style={{ justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {categories.map(c => (
+            <button
+              key={c.key}
+              className={`wardrobe-tab ${selectedCategory === c.key ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(c.key)}
+            >
+              {c.label}
+            </button>
+          ))}
+        </div>
+        <input
+          type="search"
+          aria-label="Smart wardrobe search"
+          placeholder="Smart search (e.g. navy denim jacket, minimal)"
+          value={searchQuery}
+          onChange={(e) => handleSmartSearch(e.target.value)}
+          style={{
+            minWidth: 250,
+            padding: '8px 12px',
+            borderRadius: 10,
+            border: '1px solid rgba(255,255,255,0.14)',
+            background: 'rgba(15, 23, 42, 0.72)',
+            color: '#f8fafc',
+            fontSize: '0.84rem',
+          }}
+        />
       </div>
+
+      {(hybridRecs.length > 0 || recommendations.length > 0) && (
+        <div
+          data-testid="wardrobe-smart-recommendations"
+          style={{
+            marginBottom: 16,
+            padding: '10px 14px',
+            borderRadius: 12,
+            background: 'rgba(212, 175, 55, 0.08)',
+            border: '1px solid rgba(212, 175, 55, 0.22)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            flexWrap: 'wrap',
+            fontSize: '0.8rem',
+            color: '#e2e8f0',
+          }}
+        >
+          <Sparkle size={15} color="#d4af37" />
+          <strong>Curated for your wardrobe{recColdStart ? ' (Discovery Baseline)' : ''}:</strong>
+          {hybridRecs.length > 0
+            ? hybridRecs.slice(0, 3).map((rec) => (
+                <span
+                  key={rec.item_id}
+                  style={{
+                    padding: '4px 10px',
+                    borderRadius: 999,
+                    background: 'rgba(15, 23, 42, 0.65)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                  }}
+                  title={rec.reasons.map((r) => r.message).join(' • ')}
+                >
+                  <span>
+                    {rec.name} ({rec.color})
+                    {rec.is_exploration ? ' • Explore' : ''}
+                  </span>
+                  <button
+                    type="button"
+                    aria-label={`Like ${rec.name}`}
+                    onClick={() => handleRecommendationFeedback(rec, 'liked')}
+                    style={{ background: 'transparent', border: 'none', color: '#4ade80', cursor: 'pointer', padding: 0, fontSize: '0.75rem' }}
+                  >
+                    +
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={`Dismiss ${rec.name}`}
+                    onClick={() => handleRecommendationFeedback(rec, 'recommendation_dismissed')}
+                    style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, fontSize: '0.75rem' }}
+                  >
+                    ×
+                  </button>
+                </span>
+              ))
+            : recommendations.slice(0, 3).map((rec) => (
+                <span
+                  key={rec.item_id}
+                  style={{
+                    padding: '3px 9px',
+                    borderRadius: 999,
+                    background: 'rgba(15, 23, 42, 0.65)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                  }}
+                  title={rec.rationale.join(' • ')}
+                >
+                  {rec.name} ({rec.color})
+                </span>
+              ))}
+          {exploreCategories.length > 0 && (
+            <span style={{ fontSize: '0.74rem', color: '#cbd5e1' }}>
+              Explore categories: {exploreCategories.join(' · ')}
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              intelligenceApi
+                .searchExternalWeb(`${selectedCategory === 'all' ? 'seasonal capsule wardrobe' : selectedCategory} fashion trends`, true, 2)
+                .then((res) => setTrendRefs(res.external_evidence || []))
+                .catch(() => {});
+            }}
+            style={{
+              padding: '3px 9px',
+              borderRadius: 999,
+              background: 'rgba(15, 23, 42, 0.75)',
+              border: '1px solid rgba(147,197,253,0.3)',
+              color: '#93c5fd',
+              fontSize: '0.72rem',
+              cursor: 'pointer',
+            }}
+          >
+            Seasonal Trend Context
+          </button>
+          {trendRefs.slice(0, 1).map((t, idx) => (
+            <a
+              key={idx}
+              href={t.source_url}
+              target="_blank"
+              rel="noreferrer"
+              style={{ fontSize: '0.72rem', color: '#93c5fd' }}
+            >
+              [External Web Reference — Unverified] {t.source_title || t.domain}
+            </a>
+          ))}
+        </div>
+      )}
 
       {/* Garments Grid */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: '60px', color: '#94a3b8' }}>
-          <Sparkles size={28} className="animate-spin" color="#d4af37" style={{ marginBottom: '12px' }} />
+          <Sparkle size={28} className="animate-spin" color="#d4af37" style={{ marginBottom: '12px' }} />
           <div>Synchronizing Digital Wardrobe State...</div>
         </div>
       ) : (
         <div className="garments-grid">
-          {items.map(item => (
+          {(matchedIds ? items.filter((it) => matchedIds.includes(String(it.id))) : items).map(item => (
             <div key={item.id} className="garment-card">
               <div className="garment-image-box">
                 <img src={item.image_url} alt={item.name} className="garment-img" />
@@ -207,7 +458,7 @@ export const DigitalWardrobe: React.FC = () => {
                     onClick={(e) => handleDeleteItem(item.id, e)}
                     title="Remove piece"
                   >
-                    <Trash2 size={15} />
+                    <Trash size={15} />
                   </button>
                 </div>
               </div>
@@ -227,7 +478,7 @@ export const DigitalWardrobe: React.FC = () => {
                 <input 
                   type="text" 
                   className="form-input" 
-                  placeholder="e.g. Vintage Double-Breasted Wool Blazer"
+                  placeholder="e.g. Embroidered Bandhgala, Raw Silk Kurta, Linen Nehru Jacket"
                   value={newItemName}
                   onChange={e => setNewItemName(e.target.value)}
                   required
@@ -255,7 +506,7 @@ export const DigitalWardrobe: React.FC = () => {
                   <input 
                     type="text" 
                     className="form-input" 
-                    placeholder="e.g. Camel, Navy, Charcoal"
+                    placeholder="e.g. Royal Blue, Emerald Green, Marigold, Crimson"
                     value={newItemColor}
                     onChange={e => setNewItemColor(e.target.value)}
                     required
@@ -266,7 +517,7 @@ export const DigitalWardrobe: React.FC = () => {
                   <input 
                     type="text" 
                     className="form-input" 
-                    placeholder="e.g. Loro Piana, COS"
+                    placeholder="e.g. Manyavar, Fabindia, Sabyasachi, Anita Dongre"
                     value={newItemBrand}
                     onChange={e => setNewItemBrand(e.target.value)}
                   />
@@ -299,14 +550,105 @@ export const DigitalWardrobe: React.FC = () => {
               </div>
 
               <div className="form-group">
-                <label className="form-label">Image URL (Optional)</label>
-                <input 
-                  type="url" 
-                  className="form-input" 
-                  placeholder="https://images.unsplash.com/..."
-                  value={newItemImageUrl}
-                  onChange={e => setNewItemImageUrl(e.target.value)}
-                />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <label className="form-label" style={{ margin: 0 }}>Cloth Photograph</label>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    <button
+                      type="button"
+                      style={{
+                        padding: '3px 8px',
+                        fontSize: '0.72rem',
+                        borderRadius: '6px',
+                        border: '1px solid #cbd5e1',
+                        background: newItemInputMode === 'upload' ? '#0f172a' : '#f8fafc',
+                        color: newItemInputMode === 'upload' ? '#ffffff' : '#64748b',
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => setNewItemInputMode('upload')}
+                    >
+                      Upload File
+                    </button>
+                    <button
+                      type="button"
+                      style={{
+                        padding: '3px 8px',
+                        fontSize: '0.72rem',
+                        borderRadius: '6px',
+                        border: '1px solid #cbd5e1',
+                        background: newItemInputMode === 'url' ? '#0f172a' : '#f8fafc',
+                        color: newItemInputMode === 'url' ? '#ffffff' : '#64748b',
+                        cursor: 'pointer'
+                      }}
+                      onClick={() => setNewItemInputMode('url')}
+                    >
+                      Image URL
+                    </button>
+                  </div>
+                </div>
+
+                {newItemInputMode === 'upload' ? (
+                  <div
+                    style={{
+                      border: '2px dashed #cbd5e1',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      textAlign: 'center',
+                      background: newItemImageUrl ? '#f0fdf4' : '#f8fafc',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onDragOver={e => e.preventDefault()}
+                    onDrop={handleDrop}
+                    onClick={() => !newItemImageUrl && fileInputRef.current?.click()}
+                  >
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/jpg"
+                      style={{ display: 'none' }}
+                      onChange={handleFileChange}
+                    />
+                    {newItemImageUrl ? (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', textAlign: 'left' }}>
+                        <img 
+                          src={newItemImageUrl} 
+                          alt="Cloth Preview" 
+                          style={{ width: '56px', height: '56px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #e2e8f0' }} 
+                        />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <p style={{ margin: 0, fontSize: '0.82rem', fontWeight: 600, color: '#0f172a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                            {newItemImageName || 'Cloth photo'}
+                          </p>
+                          <span style={{ fontSize: '0.72rem', color: '#16a34a', fontWeight: 600 }}>Ready to save</span>
+                        </div>
+                        <button
+                          type="button"
+                          style={{ background: '#f1f5f9', border: 'none', borderRadius: '50%', width: '28px', height: '28px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleClearImage();
+                          }}
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                        <UploadSimple size={24} style={{ color: '#64748b' }} />
+                        <span style={{ fontSize: '0.82rem', fontWeight: 600, color: '#334155' }}>Click to browse cloth photo, or drag & drop</span>
+                        <span style={{ fontSize: '0.72rem', color: '#94a3b8' }}>PNG, JPG, or WEBP up to 15MB</span>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <input 
+                    type="url" 
+                    className="form-input" 
+                    placeholder="https://images.unsplash.com/..."
+                    value={newItemImageUrl}
+                    onChange={e => setNewItemImageUrl(e.target.value)}
+                  />
+                )}
               </div>
 
               <div className="modal-actions">

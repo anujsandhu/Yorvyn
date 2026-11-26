@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, 
+  Sparkle, 
   Heart, 
-  RefreshCw,
+  ArrowClockwise,
   Palette
-} from 'lucide-react';
+} from '../components/icons';
 import toast from 'react-hot-toast';
 import { fashionApi } from '../services/fashionApi';
 import { Outfit } from '../types/fashion';
@@ -148,7 +148,7 @@ export const OutfitStudio: React.FC = () => {
           onClick={fetchOutfits}
           disabled={loading}
         >
-          <RefreshCw size={17} className={loading ? "animate-spin" : ""} />
+          <ArrowClockwise size={17} className={loading ? "animate-spin" : ""} />
           Generate Ensembles
         </button>
       </div>
@@ -156,7 +156,7 @@ export const OutfitStudio: React.FC = () => {
       {/* Lookbook Canvas Grid */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: '80px', color: '#94a3b8' }}>
-          <Sparkles size={32} color="#d4af37" className="animate-spin" style={{ marginBottom: '14px' }} />
+          <Sparkle size={32} color="#d4af37" className="animate-spin" style={{ marginBottom: '14px' }} />
           <div>Synthesizing layer combinations and color harmonies...</div>
         </div>
       ) : (

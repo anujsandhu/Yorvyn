@@ -1,0 +1,310 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Yorvyn Studio — Luxury Skeleton Loading System
+   Replaces generic spinners with anatomical wireframe avatar scan & card shimmers.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. AVATAR WIREFRAME SKELETON LOADER ── */
+.avatar-skeleton-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: transparent !important;
+}
+
+.avatar-skeleton-container.theme-dark,
+.avatar-skeleton-container.theme-light {
+  background: transparent !important;
+}
+
+/* ── Default 3D Dummy Character Mannequin Stage ── */
+.avatar-dummy-stage {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-dummy-figure-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: mannequinBreathingFloat 3.6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.avatar-dummy-figure {
+  width: auto;
+  height: 290px;
+  max-width: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.5));
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: filter 0.3s ease;
+}
+
+.theme-light .avatar-dummy-figure {
+  filter: drop-shadow(0 14px 26px rgba(15, 23, 42, 0.18));
+}
+
+/* Soft Studio Pedestal Ground Shadow */
+.avatar-dummy-pedestal-shadow {
+  position: absolute;
+  bottom: 22px;
+  width: 140px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 50%, transparent 80%);
+  animation: pedestalShadowPulse 3.6s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.theme-light .avatar-dummy-pedestal-shadow {
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.24) 0%, rgba(15, 23, 42, 0.08) 50%, transparent 80%);
+}
+
+/* Subtle Studio Lighting Aura */
+.avatar-dummy-glimmer {
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(circle at 50% 35%, rgba(56, 189, 248, 0.14) 0%, transparent 68%);
+  pointer-events: none;
+  animation: dummyLightGlimmer 4.2s ease-in-out infinite alternate;
+}
+
+.theme-light .avatar-dummy-glimmer {
+  background: radial-gradient(circle at 50% 35%, rgba(14, 165, 233, 0.10) 0%, transparent 68%);
+}
+
+@keyframes mannequinBreathingFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+@keyframes pedestalShadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(0.84);
+    opacity: 0.45;
+  }
+}
+
+@keyframes dummyLightGlimmer {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.04);
+  }
+}
+
+/* ── Minimalist Floating Status Glass Pill ── */
+.avatar-skeleton-status-pill {
+  position: absolute;
+  bottom: 6.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+.theme-dark .avatar-skeleton-status-pill {
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.theme-light .avatar-skeleton-status-pill {
+  background: rgba(255, 255, 255, 0.88);
+  color: #0f172a;
+  border-color: rgba(226, 232, 240, 0.95);
+  box-shadow: 0 8px 24px rgba(50, 95, 140, 0.12);
+}
+
+.status-live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: liveDotPulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.theme-light .status-live-pulse-dot {
+  background: #0284c7;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.6);
+}
+
+@keyframes liveDotPulse {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+.status-label-bold {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.theme-light .status-label-bold {
+  color: #0f172a;
+}
+
+.status-separator-dot {
+  opacity: 0.4;
+}
+
+.status-stage-text {
+  color: #94a3b8;
+  font-size: 12.5px;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.theme-light .status-stage-text {
+  color: #64748b;
+}
+
+/* ── 2. CATALOG SQUIRCLE CARD SKELETON ── */
+.skeleton-card-item {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+  aspect-ratio: 1;
+  padding: 0.85rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Base Shimmer Animation */
+.shimmer-block {
+  position: relative;
+  overflow: hidden;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.shimmer-block::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 100%
+  );
+  animation: shimmerSweep 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.card-skeleton-image {
+  width: 72%;
+  height: 60%;
+  border-radius: 12px;
+  background: #f8fafc;
+  margin-top: 4px;
+}
+
+.card-skeleton-brand {
+  width: 58%;
+  height: 12px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.card-skeleton-price {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+/* ── 3. CHAT SKELETON (AI STYLIST) ── */
+.stylist-chat-skeleton-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 85%;
+  margin-bottom: 14px;
+}
+
+.chat-skeleton-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chat-skeleton-body {
+  flex: 1;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px 16px 16px 4px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+}
+
+.chat-skeleton-line.w-full { width: 92%; }
+.chat-skeleton-line.w-med { width: 75%; }
+.chat-skeleton-line.w-short { width: 45%; }

@@ -182,9 +182,9 @@ const weave = (u: number, v: number, f = 96) => {
 
 export type Pattern =
   | 'solid' | 'camo' | 'kente' | 'asooke' | 'ankara' | 'shuka' | 'leather' | 'hide' | 'leopard' | 'fur'
-  | 'techwear' | 'molle' | 'tattered' | 'beadbands' | 'khaki' | 'adire' | 'adire_panel';
+  | 'techwear' | 'molle' | 'tattered' | 'beadbands' | 'khaki' | 'adire' | 'adire_panel' | 'striped';
 
-export const PATTERNS: Pattern[] = ['solid', 'khaki', 'camo', 'kente', 'asooke', 'ankara', 'adire', 'adire_panel', 'shuka', 'leather', 'hide', 'leopard', 'techwear', 'tattered'];
+export const PATTERNS: Pattern[] = ['solid', 'khaki', 'camo', 'kente', 'asooke', 'ankara', 'adire', 'adire_panel', 'shuka', 'leather', 'hide', 'leopard', 'techwear', 'tattered', 'striped'];
 
 const S = 512;
 
@@ -198,6 +198,16 @@ export function makePattern(p: Pattern, c1: string, c2: string, seed = 1): TexOu
         const w = weave(u, v, p === 'khaki' ? 128 : 96);
         return { c: mul(A, 0.88 + 0.16 * n + 0.04 * w), h: w * 0.6 + n };
       }, false, 2.5);
+    case 'striped': {
+      // Horizontal rugby / polo stripes: clean alternating bands of base color A and accent B
+      return render(S, (u, v) => {
+        const stripeFreq = 10;
+        const isStripe = frac(v * stripeFreq) < 0.50;
+        const c = isStripe ? B : A;
+        const w = weave(u, v, 128);
+        return { c: mul(c, 0.92 + 0.08 * w), h: (isStripe ? 0.15 : -0.15) + w * 0.5 };
+      }, false, 2.5);
+    }
     case 'camo': {
       const pal: RGB[] = [A, B, mixc(A, [40, 34, 24], 0.55), mixc(B, [200, 190, 150], 0.35)];
       return render(S, (u, v) => {
@@ -322,10 +332,17 @@ export function makePattern(p: Pattern, c1: string, c2: string, seed = 1): TexOu
       }, true);
     case 'techwear':
       return render(S, (u, v) => {
-        const panel = frac(u * 3) < 0.008 || frac(v * 2.5) < 0.008;
+        // Modular tactical paneling with cyber/racing accent stripes from color B
+        const seam = frac(u * 3) < 0.012 || frac(v * 2.5) < 0.012;
+        const accentStripe = (frac(u * 3) > 0.012 && frac(u * 3) < 0.065) || (frac(v * 5) > 0.46 && frac(v * 5) < 0.54);
         const n = fbm(u, v, 16, seed, 3);
         const w = weave(u, v, 200);
-        return { c: mul(A, (0.9 + 0.15 * n) * (panel ? 0.55 : 1)), h: w * 0.4 + (panel ? -1 : 0) };
+        const base = accentStripe ? B : A;
+        const panelLight = seam ? 0.45 : (frac(u * 3) > 0.5 ? 0.94 : 1.06);
+        return {
+          c: mul(base, (0.88 + 0.16 * n) * panelLight),
+          h: w * 0.4 + (seam ? -1 : accentStripe ? 0.8 : 0)
+        };
       }, false, 2.5);
     case 'molle':
       return render(S, (u, v) => {
