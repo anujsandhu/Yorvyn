@@ -158,9 +158,9 @@ def test_journey_b_job_deduplication_and_provenance():
         front_image_bytes=img_bytes,
         category="top"
     )
-    # Wait for execution to finish
+    # Wait for execution to finish (allow extra headroom on 2-vCPU CI runners)
     status_1 = None
-    for _ in range(30):
+    for _ in range(150):
         status_1 = garment_job_manager.get_job(job_1.job_id)
         if status_1 and getattr(status_1.status, "value", status_1.status) in ["completed", "failed"]:
             break

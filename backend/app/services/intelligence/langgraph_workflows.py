@@ -45,6 +45,85 @@ WORKFLOW_SCHEMA_VERSION = "17.4.0"
 MAX_WORKFLOW_STEPS = 8
 DEFAULT_CONFIRMATION_TTL_S = 1800.0
 
+_PG_SCHEMA_LOCK = threading.Lock()
+_PG_SCHEMA_INITIALIZED_DSNS: Set[str] = set()
+
+
+async def _ensure_langgraph_pg_tables(conn, dsn: str) -> None:
+    """Idempotently creates LangGraph + checkpoint mirror tables under an advisory lock."""
+    with _PG_SCHEMA_LOCK:
+        if dsn in _PG_SCHEMA_INITIALIZED_DSNS:
+            return
+    async with conn.transaction():
+        await conn.execute("SELECT pg_advisory_xact_lock(7410021);")
+        await conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS yip_langgraph_cp_tuples (
+                thread_id TEXT NOT NULL,
+                checkpoint_ns TEXT NOT NULL DEFAULT '',
+                checkpoint_id TEXT NOT NULL,
+                parent_checkpoint_id TEXT,
+                owner_id TEXT NOT NULL DEFAULT '',
+                checkpoint_type TEXT NOT NULL,
+                checkpoint_blob BYTEA NOT NULL,
+                metadata_type TEXT NOT NULL,
+                metadata_blob BYTEA NOT NULL,
+                created_at TIMESTAMPTZ DEFAULT NOW(),
+                PRIMARY KEY (thread_id, checkpoint_ns, checkpoint_id)
+            );
+            CREATE TABLE IF NOT EXISTS yip_langgraph_cp_writes (
+                thread_id TEXT NOT NULL,
+                checkpoint_ns TEXT NOT NULL DEFAULT '',
+                checkpoint_id TEXT NOT NULL,
+                task_id TEXT NOT NULL,
+                idx INTEGER NOT NULL,
+                channel TEXT NOT NULL,
+                value_type TEXT NOT NULL,
+                value_blob BYTEA NOT NULL,
+                task_path TEXT NOT NULL DEFAULT '',
+                created_at TIMESTAMPTZ DEFAULT NOW(),
+                PRIMARY KEY (thread_id, checkpoint_ns, checkpoint_id, task_id, idx)
+            );
+            CREATE TABLE IF NOT EXISTS yip_langgraph_checkpoints (
+                thread_id TEXT PRIMARY KEY,
+                owner_id TEXT NOT NULL,
+                workflow_name TEXT NOT NULL,
+                status TEXT NOT NULL,
+                payload_json JSONB NOT NULL,
+                workflow_version TEXT NOT NULL DEFAULT '17.4.0',
+                checkpoint_id TEXT,
+                checkpoint_ns TEXT NOT NULL DEFAULT '',
+                pending_writes JSONB NOT NULL DEFAULT '[]'::jsonb,
+                interrupt_state JSONB,
+                resume_metadata JSONB,
+                operation_hash TEXT,
+                confirmation_expires_at TIMESTAMPTZ,
+                confirmation_idempotency_key TEXT,
+                version INTEGER NOT NULL DEFAULT 1,
+                created_at TIMESTAMPTZ DEFAULT NOW(),
+                updated_at TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE TABLE IF NOT EXISTS yip_langgraph_node_events (
+                event_id BIGSERIAL PRIMARY KEY,
+                thread_id TEXT NOT NULL,
+                workflow_version TEXT NOT NULL,
+                owner_correlation_id TEXT NOT NULL,
+                node_name TEXT NOT NULL,
+                start_ts TIMESTAMPTZ NOT NULL,
+                end_ts TIMESTAMPTZ NOT NULL,
+                status TEXT NOT NULL,
+                retry_count INTEGER NOT NULL DEFAULT 0,
+                checkpoint_id TEXT,
+                interrupt_reason TEXT,
+                failure_category TEXT,
+                external_credits_used INTEGER NOT NULL DEFAULT 0,
+                duration_ms DOUBLE PRECISION NOT NULL DEFAULT 0.0
+            );
+            """
+        )
+    with _PG_SCHEMA_LOCK:
+        _PG_SCHEMA_INITIALIZED_DSNS.add(dsn)
+
 FORBIDDEN_STATE_KEY_FRAGMENTS: Set[str] = {
     "api_key", "secret", "password", "token", "bearer", "body_measurements",
     "raw_measurements", "biometric", "ssn", "credit_card",
@@ -265,36 +344,7 @@ class YIPPostgresLangGraphSaver(MemorySaver):
         self.last_pg_sync_ok: bool = False
 
     async def _ensure_tables(self, conn) -> None:
-        await conn.execute(
-            """
-            CREATE TABLE IF NOT EXISTS yip_langgraph_cp_tuples (
-                thread_id TEXT NOT NULL,
-                checkpoint_ns TEXT NOT NULL DEFAULT '',
-                checkpoint_id TEXT NOT NULL,
-                parent_checkpoint_id TEXT,
-                owner_id TEXT NOT NULL DEFAULT '',
-                checkpoint_type TEXT NOT NULL,
-                checkpoint_blob BYTEA NOT NULL,
-                metadata_type TEXT NOT NULL,
-                metadata_blob BYTEA NOT NULL,
-                created_at TIMESTAMPTZ DEFAULT NOW(),
-                PRIMARY KEY (thread_id, checkpoint_ns, checkpoint_id)
-            );
-            CREATE TABLE IF NOT EXISTS yip_langgraph_cp_writes (
-                thread_id TEXT NOT NULL,
-                checkpoint_ns TEXT NOT NULL DEFAULT '',
-                checkpoint_id TEXT NOT NULL,
-                task_id TEXT NOT NULL,
-                idx INTEGER NOT NULL,
-                channel TEXT NOT NULL,
-                value_type TEXT NOT NULL,
-                value_blob BYTEA NOT NULL,
-                task_path TEXT NOT NULL DEFAULT '',
-                created_at TIMESTAMPTZ DEFAULT NOW(),
-                PRIMARY KEY (thread_id, checkpoint_ns, checkpoint_id, task_id, idx)
-            );
-            """
-        )
+        await _ensure_langgraph_pg_tables(conn, self.dsn)
 
     async def _pg_put_tuple(
         self,
@@ -364,6 +414,7 @@ class YIPPostgresLangGraphSaver(MemorySaver):
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await self._ensure_tables(conn)
             if checkpoint_id:
                 row = await conn.fetchrow(
                     "SELECT * FROM yip_langgraph_cp_tuples WHERE thread_id=$1 AND checkpoint_ns=$2 AND checkpoint_id=$3",
@@ -500,6 +551,7 @@ class YIPPostgresCheckpointMirror:
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await _ensure_langgraph_pg_tables(conn, self.dsn)
             async with conn.transaction():
                 expires_dt = (
                     datetime.fromtimestamp(rec.confirmation_expires_at, tz=timezone.utc)
@@ -592,6 +644,7 @@ class YIPPostgresCheckpointMirror:
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await _ensure_langgraph_pg_tables(conn, self.dsn)
             row = await conn.fetchrow(
                 "SELECT payload_json, version FROM yip_langgraph_checkpoints WHERE thread_id = $1",
                 thread_id,
@@ -613,6 +666,7 @@ class YIPPostgresCheckpointMirror:
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await _ensure_langgraph_pg_tables(conn, self.dsn)
             async with conn.transaction():
                 for ev in events:
                     await conn.execute(
@@ -644,6 +698,7 @@ class YIPPostgresCheckpointMirror:
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await _ensure_langgraph_pg_tables(conn, self.dsn)
             rows = await conn.fetch(
                 "SELECT * FROM yip_langgraph_node_events WHERE thread_id = $1 ORDER BY start_ts ASC",
                 thread_id,
@@ -673,6 +728,7 @@ class YIPPostgresCheckpointMirror:
         import asyncpg
         conn = await asyncpg.connect(self.dsn, timeout=2.0)
         try:
+            await _ensure_langgraph_pg_tables(conn, self.dsn)
             async with conn.transaction():
                 res = await conn.execute(
                     """
