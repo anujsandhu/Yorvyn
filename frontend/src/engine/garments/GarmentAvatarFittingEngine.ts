@@ -187,6 +187,17 @@ export class GarmentAvatarFittingEngine {
     const isMultiComponent = extractedComponents.length > 1;
     const rawCat = (options.category || 'top').toLowerCase();
     const rawSubcat = (options.subcategory || '').toLowerCase();
+    const normalizedName = garmentSource.name?.toLowerCase() || '';
+
+    const componentHasHood = extractedComponents.some(
+      (c) => c.semanticTag === 'hood' || c.name.toLowerCase().includes('hood') || c.userData?.semantic_type === 'hood'
+    );
+    const subcategory = rawSubcat;
+    // Never assume every single-mesh top or jacket has a hood unless explicit metadata/geometry confirms one
+    const isHoodie =
+      componentHasHood ||
+      subcategory.includes('hood') ||
+      normalizedName.includes('hoodie');
 
     const componentHasBodice = extractedComponents.some(
       (c) => c.name === 'upper_bodice' || c.userData?.semantic_type === 'bodice'
@@ -215,16 +226,6 @@ export class GarmentAvatarFittingEngine {
       category = 'top';
     }
 
-    const subcategory = rawSubcat || (category === 'top' && !isMultiComponent ? 'hoodie' : '');
-    const componentHasHood = extractedComponents.some(
-      (c) => c.semanticTag === 'hood' || c.name.includes('hood') || c.userData?.semantic_type === 'hood'
-    );
-    const isHoodie =
-      componentHasHood ||
-      subcategory.includes('hood') ||
-      (!isMultiComponent && subcategory === 'jacket');
-
-    // Analyze composite bounding box across all components so scales/offsets share one coherent coordinate frame
     const garmentLandmarks = this.analyzeGarmentGeometries(
       extractedComponents,
       isHoodie
@@ -984,44 +985,61 @@ export class GarmentAvatarFittingEngine {
     const calculatedWaistY = hipsPos.y !== 0 ? hipsPos.y : (hipsCount > 0 ? hipsY / hipsCount : 0.815);
     const calculatedNeckY = neckPos.y !== 0 ? neckPos.y : (neckCount > 0 ? neckY / neckCount : 1.280);
     const armDistance = leftArmPos.distanceTo(rightArmPos);
-    const shoulderSpan = armDistance > 0.1 ? Math.max(armDistance + 0.10, 0.36) : 0.36;
+    // Use true anatomical shoulder joint span (humeral distance + 3cm soft-tissue allowance, not +10cm inflation)
+    const shoulderSpan = armDistance > 0.1 ? THREE.MathUtils.clamp(armDistance + 0.03, 0.32, 0.48) : 0.38;
 
-    // Measure actual torso ribcage, sternum/bust Z envelope, and hips slice from bind bodyGeometry
+    // Sample torso/chest/hips exclusively on arm-free core body geometry so hanging arms/wrists never inflate widths
+    const sampleGeo = (bodyGeometry.attributes.position?.count || 0) > 400
+      ? this.getOrBuildCoreBodyGeometry(bodyGeometry, skeleton)
+      : bodyGeometry;
+    const isArmFreeCore = sampleGeo !== bodyGeometry;
+    const sampleIdx = sampleGeo.index;
+    const samplePos = sampleGeo.attributes.position;
+    const coreVertexSet = new Set<number>();
+    if (sampleIdx && isArmFreeCore) {
+      for (let i = 0; i < sampleIdx.count; i++) {
+        coreVertexSet.add(sampleIdx.getX(i));
+      }
+    }
+
     const torsoSpanY = Math.max(0.25, calculatedNeckY - calculatedWaistY);
     const armHalfSpan = armDistance > 0.08
       ? Math.max(Math.abs(leftArmPos.x - rightArmPos.x) * 0.5, 0.145)
       : 0.18;
     const chestBandY = calculatedWaistY + torsoSpanY * 0.62;
     const solarBandY = calculatedWaistY + torsoSpanY * 0.42;
-    const shLowY = calculatedNeckY - torsoSpanY * 0.30;
+    const shLowY = calculatedNeckY - torsoSpanY * 0.24;
     const shHighY = calculatedNeckY - 0.025;
+    const chestMaxAbsX = isArmFreeCore ? 0.34 : Math.max(0.26, armHalfSpan * 1.25);
+    const hipMaxAbsX = isArmFreeCore ? 0.36 : Math.max(0.26, armHalfSpan * 1.25);
 
     let solarMinX = Infinity, solarMaxX = -Infinity, solarCount = 0;
     let shMinX = Infinity, shMaxX = -Infinity, shCount = 0;
     let chestMinZ = Infinity, chestMaxZ = -Infinity, chestZCount = 0;
     let hipsMinX = Infinity, hipsMaxX = -Infinity, hipsMinZ = Infinity, hipsMaxZ = -Infinity, hipsSliceCount = 0;
 
-    for (let i = 0; i < pos.count; i++) {
-      const vx = pos.getX(i);
-      const vy = pos.getY(i);
-      const vz = pos.getZ(i);
+    for (let i = 0; i < samplePos.count; i++) {
+      if (coreVertexSet.size > 0 && !coreVertexSet.has(i)) continue;
+      const vx = samplePos.getX(i);
+      const vy = samplePos.getY(i);
+      const vz = samplePos.getZ(i);
 
-      if (Math.abs(vy - solarBandY) <= 0.075 && Math.abs(vx) <= armHalfSpan * 1.15) {
+      if (Math.abs(vy - solarBandY) <= 0.085 && Math.abs(vx) <= chestMaxAbsX) {
         if (vx < solarMinX) solarMinX = vx;
         if (vx > solarMaxX) solarMaxX = vx;
         solarCount++;
       }
-      if (vy >= shLowY && vy <= shHighY && Math.abs(vx) <= 0.26) {
+      if (vy >= shLowY && vy <= shHighY && Math.abs(vx) <= chestMaxAbsX) {
         if (vx < shMinX) shMinX = vx;
         if (vx > shMaxX) shMaxX = vx;
         shCount++;
       }
-      if (Math.abs(vy - chestBandY) <= 0.075 && Math.abs(vx) <= Math.min(0.155, armHalfSpan * 0.90)) {
+      if (Math.abs(vy - chestBandY) <= 0.085 && Math.abs(vx) <= Math.min(0.20, chestMaxAbsX)) {
         if (vz < chestMinZ) chestMinZ = vz;
         if (vz > chestMaxZ) chestMaxZ = vz;
         chestZCount++;
       }
-      if (Math.abs(vy - calculatedWaistY) <= 0.075 && Math.abs(vx) <= Math.max(0.225, armHalfSpan * 1.35)) {
+      if (Math.abs(vy - calculatedWaistY) <= 0.085 && Math.abs(vx) <= hipMaxAbsX) {
         if (vx < hipsMinX) hipsMinX = vx;
         if (vx > hipsMaxX) hipsMaxX = vx;
         if (vz < hipsMinZ) hipsMinZ = vz;
@@ -1030,16 +1048,22 @@ export class GarmentAvatarFittingEngine {
       }
     }
 
-    const measuredShoulderWidth = shCount >= 8 ? Math.max(0.32, shMaxX - shMinX) : 0;
-    const finalShoulderSpan = Math.max(shoulderSpan, measuredShoulderWidth);
-    const measuredChestWidth = solarCount >= 8 ? Math.max(0.24, solarMaxX - solarMinX) : 0;
-    const chestWidth = Math.max(Math.abs(leftArmPos.x - rightArmPos.x) * 0.92, measuredChestWidth, 0.29);
-    const chestDepth = chestZCount >= 6 ? Math.max(0.16, chestMaxZ - chestMinZ) : chestWidth * 0.64;
+    const measuredShoulderWidth = shCount >= 6 ? THREE.MathUtils.clamp(shMaxX - shMinX, 0.30, 0.54) : 0;
+    const finalShoulderSpan = measuredShoulderWidth > 0
+      ? THREE.MathUtils.clamp((shoulderSpan + measuredShoulderWidth) * 0.5, 0.32, 0.52)
+      : shoulderSpan;
+    const measuredChestWidth = solarCount >= 6 ? THREE.MathUtils.clamp(solarMaxX - solarMinX, 0.24, 0.52) : 0;
+    const chestWidth = THREE.MathUtils.clamp(
+      measuredChestWidth > 0 ? measuredChestWidth : Math.max(Math.abs(leftArmPos.x - rightArmPos.x) * 0.88, 0.28),
+      0.26,
+      0.52
+    );
+    const chestDepth = chestZCount >= 6 ? THREE.MathUtils.clamp(chestMaxZ - chestMinZ, 0.15, 0.32) : chestWidth * 0.64;
     const chestCenterZ = chestZCount >= 6 ? (chestMinZ + chestMaxZ) * 0.5 : spine2Pos.z;
 
     const waistWidth = chestWidth * 0.86;
-    const hipsWidth = hipsSliceCount >= 8 ? Math.max(0.26, hipsMaxX - hipsMinX) : chestWidth * 0.96;
-    const hipsDepth = hipsSliceCount >= 8 ? Math.max(0.16, hipsMaxZ - hipsMinZ) : chestDepth * 0.96;
+    const hipsWidth = hipsSliceCount >= 8 ? THREE.MathUtils.clamp(hipsMaxX - hipsMinX, 0.24, 0.46) : chestWidth * 0.95;
+    const hipsDepth = hipsSliceCount >= 8 ? THREE.MathUtils.clamp(hipsMaxZ - hipsMinZ, 0.15, 0.32) : chestDepth * 0.95;
     const hipsCenterZ = hipsSliceCount >= 8 ? (hipsMinZ + hipsMaxZ) * 0.5 : hipsPos.z;
 
     return {
@@ -2171,17 +2195,23 @@ export class GarmentAvatarFittingEngine {
     const garmentTorsoMinY = garmentLandmarks.minY;
     const collarY = isHoodie ? garmentTorsoMinY + garmentTorsoHeight : garmentLandmarks.maxY - 0.05;
 
-    const chestEase = Math.max(options.easeTorso ?? 1.12, 1.12);
-    const scaleChestX = (Math.max(avatar.chestWidth, 0.28) * chestEase) / Math.max(0.24, garmentLandmarks.torsoWidth);
-    const scaleHipX = Math.max(scaleChestX, (Math.max(avatar.hipsWidth, 0.28) * 1.18) / Math.max(0.24, garmentLandmarks.torsoWidth));
-    const scaleShoulderX = Math.max(scaleChestX, (avatar.shoulderSpan * 1.07) / Math.max(0.24, garmentLandmarks.torsoWidth));
+    const chestEase = THREE.MathUtils.clamp(options.easeTorso ?? 1.06, 1.0, 1.18);
+    const shoulderEase = THREE.MathUtils.clamp(options.easeShoulder ?? 1.03, 1.0, 1.14);
 
-    const scaleChestZ = (Math.max(avatar.chestDepth, 0.18) * 1.18) / Math.max(0.16, garmentLandmarks.torsoDepth);
-    const scaleHipZ = Math.max(scaleChestZ, (Math.max(avatar.hipsDepth, 0.18) * 1.24) / Math.max(0.16, garmentLandmarks.torsoDepth));
+    // Bounded anatomical scaling ratios (prevents inflated shoulders/torso when garment already includes ease)
+    const garmentTorsoW = Math.max(0.24, garmentLandmarks.torsoWidth);
+    const garmentTorsoD = Math.max(0.16, garmentLandmarks.torsoDepth);
+    const scaleChestX = THREE.MathUtils.clamp((Math.max(avatar.chestWidth, 0.26) * chestEase) / garmentTorsoW, 0.72, 1.24);
+    const scaleHipX = THREE.MathUtils.clamp((Math.max(avatar.hipsWidth, 0.26) * 1.08) / garmentTorsoW, 0.72, 1.24);
+    const garmentShoulderRef = Math.max(garmentTorsoW * 1.12, Math.min(garmentLandmarks.shoulderSpan * 0.68, garmentTorsoW * 1.28), 0.30);
+    const scaleShoulderX = THREE.MathUtils.clamp((avatar.shoulderSpan * shoulderEase) / garmentShoulderRef, 0.72, 1.20);
+
+    const scaleChestZ = THREE.MathUtils.clamp((Math.max(avatar.chestDepth, 0.16) * 1.08) / garmentTorsoD, 0.78, 1.20);
+    const scaleHipZ = THREE.MathUtils.clamp((Math.max(avatar.hipsDepth, 0.16) * 1.10) / garmentTorsoD, 0.78, 1.22);
 
     const scaleTorsoX = scaleChestX;
     const scaleTorsoZ = scaleChestZ;
-    const scaleTorsoY = targetTorsoHeight / garmentTorsoHeight;
+    const scaleTorsoY = THREE.MathUtils.clamp(targetTorsoHeight / garmentTorsoHeight, 0.75, 1.25);
 
     const lArm = avatar.leftArmPos;
     const lArmStart = (avatar.leftShoulderPos && avatar.leftShoulderPos.lengthSq() > 1e-4)
@@ -2323,14 +2353,17 @@ export class GarmentAvatarFittingEngine {
       }
 
       if (tag === 'hood') {
-        const t = THREE.MathUtils.clamp((gy - collarY) / Math.max(0.1, garmentLandmarks.maxY - collarY), 0, 1);
-        const fy = targetNeckY - 0.015 + t * 0.19;
-        const fx = (gx - garmentLandmarks.centerX) * scaleTorsoX;
-        const hoodBaseZ = THREE.MathUtils.lerp(avatar.chestCenterZ, avatar.neckPos.z, 0.65);
-        let fz = hoodBaseZ - 0.03 * Math.sin(t * Math.PI * 0.8) + (gz - garmentLandmarks.torsoCenterZ) * scaleTorsoZ * 0.82;
-        if (fz > avatar.neckPos.z + 0.055) {
-          fz = avatar.neckPos.z + 0.055;
-        }
+        const hoodSpan = Math.max(0.06, garmentLandmarks.maxY - collarY);
+        const t = THREE.MathUtils.clamp((gy - collarY) / hoodSpan, 0, 1);
+        const proportionalHoodH = THREE.MathUtils.clamp(hoodSpan * scaleTorsoY, 0.11, 0.23);
+        const fy = targetNeckY + t * proportionalHoodH;
+        const hoodScaleX = THREE.MathUtils.clamp((scaleShoulderX + scaleTorsoX) * 0.5, 0.80, 1.15);
+        const fx = (gx - garmentLandmarks.centerX) * hoodScaleX;
+        // Anchor hood base continuously to neckline Z so hood never tears away from collar
+        const neckZ = avatar.neckPos.z !== 0 ? avatar.neckPos.z : avatar.chestCenterZ;
+        const baseZ = THREE.MathUtils.lerp(avatar.chestCenterZ, neckZ, 1.0 - THREE.MathUtils.smoothstep(t, 0.0, 0.25));
+        const rawFz = baseZ + (gz - garmentLandmarks.torsoCenterZ) * scaleTorsoZ * 0.88 - 0.02 * Math.sin(t * Math.PI * 0.75);
+        const fz = Math.min(rawFz, neckZ + 0.065);
 
         transformedPositions[i * 3] = fx;
         transformedPositions[i * 3 + 1] = fy;

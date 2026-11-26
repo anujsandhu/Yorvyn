@@ -3364,6 +3364,7 @@ export const AvatarStudio: React.FC<AvatarStudioProps> = ({ defaultTab = 'fashio
             onRetry={initializeEngine}
             customGarmentGlbUrl={activeCustomGarment?.glb_url || null}
             customGarmentCategory={activeCustomGarment?.category || null}
+            customGarmentSubcategory={activeCustomGarment?.subcategory || null}
             onCustomGarmentFitResult={(result) => {
               if (!result.fitted) {
                 setActiveCustomGarment((prev) => (prev?.glb_url === result.url ? null : prev));

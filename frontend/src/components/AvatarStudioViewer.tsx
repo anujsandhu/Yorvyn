@@ -26,7 +26,7 @@ import {
 } from '../engine/motionCore';
 import { calculateCameraFraming } from '../../../packages/three-renderer/index';
 import { AvatarSkeletonLoader } from './SkeletonLoader';
-import { GarmentAvatarFittingEngine } from '../engine/garments';
+import { GarmentAvatarFittingEngine, UniversalGarmentFittingOrchestrator } from '../engine/garments';
 import { GarmentGeometryProcessor } from '../engine/garmentReconstruction/GarmentGeometryProcessor';
 import './AvatarStudioViewer.css';
 
@@ -79,6 +79,7 @@ export interface AvatarStudioViewerProps {
   onAnimationTriggered?: (animName: string) => void;
   customGarmentGlbUrl?: string | null;
   customGarmentCategory?: string | null;
+  customGarmentSubcategory?: string | null;
   onCustomGarmentFitResult?: (result: {
     url: string;
     fitted: boolean;
@@ -110,6 +111,7 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
   onAnimationTriggered,
   customGarmentGlbUrl = null,
   customGarmentCategory = null,
+  customGarmentSubcategory = null,
   onCustomGarmentFitResult,
   heightCm,
   bodySilhouetteId,
@@ -1073,40 +1075,44 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
           // Atomic detach before attaching to prevent duplicate garments on rapid switches
           GarmentAvatarFittingEngine.detachGarment(modelRoot);
 
-          // Master 9-step virtual try-on fitting & skinning pipeline
-          const fitResult = GarmentAvatarFittingEngine.fitAndAttachGarment(
+          // Unified Phase 17.5 Universal Garment & Accessory Fitting Pipeline
+          const orchResult = UniversalGarmentFittingOrchestrator.fitAndAttach(
             garmentGroup,
             modelRoot,
             {
               category: normCategory,
+              subcategory: customGarmentSubcategory || undefined,
               wireframe,
               attachmentMode: 'auto',
-              minClearanceMeters: 0.0030
+              minClearanceMeters: 0.0030,
+              preserveOtherLayers: true,
             }
           );
 
-          if (!fitResult.success || !modelRoot.getObjectById(fitResult.attachedMesh.id)) {
-            throw new Error('The fitted mesh was not attached to the avatar.');
+          if (!orchResult.success || !orchResult.attachedObject) {
+            throw new Error(orchResult.error || 'The fitted mesh was not attached to the avatar.');
           }
-          customGarmentRef.current = fitResult.attachedMesh;
+          customGarmentRef.current = orchResult.attachedObject;
           setGarmentFit({url: customGarmentGlbUrl, fitted: true});
 
           // Double check base clothing visibility after attachment
           GarmentAvatarFittingEngine.updateAvatarClothingVisibility(modelRoot, normCategory, true);
 
           // Attach fitted single-mesh OR multi-component garment cleanly to MotionCore dynamics
-          motionCoreRef.current?.attachGarment(fitResult.attachedMesh, normCategory, {
-            fabricHint: fabricProfileId || undefined,
-            hasConstructionSeams: true,
-          });
+          if (orchResult.attachmentType === 'skinned' || orchResult.attachmentType === 'bone_parented') {
+            motionCoreRef.current?.attachGarment(orchResult.attachedObject, normCategory, {
+              fabricHint: fabricProfileId || undefined,
+              hasConstructionSeams: true,
+            });
+          }
 
           onCustomGarmentFitResult?.({
             url: customGarmentGlbUrl,
             fitted: true,
-            attachmentType: fitResult.attachmentType,
-            penetrationCount: fitResult.diagnostics.penetrationCount,
-            maxPenetrationMm: fitResult.diagnostics.maxPenetrationMm,
-            majorPenetrationDetected: fitResult.diagnostics.majorPenetrationDetected,
+            attachmentType: orchResult.attachmentType === 'skinned' ? 'skinned' : 'bone_parented',
+            penetrationCount: orchResult.diagnostics.penetrationCount,
+            maxPenetrationMm: orchResult.diagnostics.maxPenetrationMm,
+            majorPenetrationDetected: orchResult.diagnostics.majorPenetrationDetected,
           });
 
           // Only celebrate if this is a newly equipped garment (not a character reload)
@@ -1140,7 +1146,7 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
       isCancelled = true;
       abort();
     };
-  }, [customGarmentGlbUrl, customGarmentCategory, avatarModel, wireframe, fabricProfileId]);
+  }, [customGarmentGlbUrl, customGarmentCategory, customGarmentSubcategory, avatarModel, wireframe, fabricProfileId]);
 
   // Update Camera based on viewMode and character height
   useEffect(() => {

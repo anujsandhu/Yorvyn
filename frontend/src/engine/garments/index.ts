@@ -21,3 +21,6 @@ export * from './AvatarBodyMeasurementEngine';
 export * from './GarmentEaseEngine';
 export * from './GarmentCollisionEngine';
 export * from './UniversalGarmentFittingEngine';
+export * from './GarmentCategoryRegistry';
+export * from './GarmentAssetInspector';
+export * from './UniversalGarmentFittingOrchestrator';

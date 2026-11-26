@@ -32,7 +32,7 @@ export class GarmentCollisionResolver {
     options: CollisionResolutionOptions = {}
   ): CollisionResolutionResult {
     const minClearance = options.minClearanceMeters ?? 0.0028; // 2.8 mm
-    const maxProjection = options.maxProjectionMeters ?? 0.16; // 160 mm
+    const maxProjection = options.maxProjectionMeters ?? 0.045; // 45 mm bounded projection prevents spiky cross-surface snaps
     const stiffness = options.stiffness ?? 1.0;
 
     // Ensure BVH tree exists on body geometry
@@ -127,7 +127,7 @@ export class GarmentCollisionResolver {
     options: CollisionResolutionOptions = {}
   ): CollisionResolutionResult {
     const minClearance = options.minClearanceMeters ?? 0.0028; // 2.8 mm
-    const maxProjection = options.maxProjectionMeters ?? 0.16; // 160 mm
+    const maxProjection = options.maxProjectionMeters ?? 0.045; // 45 mm bounded projection prevents spiky cross-surface snaps
     const stiffness = options.stiffness ?? 1.0;
 
     const gCount = garmentPositions.length / 3;

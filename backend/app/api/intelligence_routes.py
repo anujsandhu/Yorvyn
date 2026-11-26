@@ -1300,3 +1300,49 @@ def cancel_capture_session(
         _raise_capture_http(exc)
 
 
+@router.get("/fitting/taxonomy")
+def get_universal_fitting_taxonomy(
+    current_user: UserContext = Depends(get_current_user),
+):
+    """Returns Phase 17.5 garment & accessory fitting capability matrix from YIP registry."""
+    fitting_caps = [
+        cap.model_dump()
+        for cap in garment_capabilities.entries()
+        if cap.id.startswith(("garment.asset.", "garment.fit.", "garment.layer.", "fitting.", "avatar.attach"))
+    ]
+    return {
+        "taxonomy_version": "17.5.0",
+        "owner_id": current_user.user_id,
+        "capabilities": fitting_caps,
+        "supported_domains": ["upper_body", "lower_body", "full_body", "footwear", "headwear", "accessory"],
+    }
+
+
+@router.post("/fitting/plan")
+def plan_universal_fitting(
+    req: FitAnalyzeRequest,
+    current_user: UserContext = Depends(get_current_user),
+):
+    """Plans garment/accessory fitting strategy, preconditions, and limitations."""
+    cat = (req.category or "top").lower()
+    cap_name = "garment.fit.upper_body"
+    if any(k in cat for k in ("bottom", "pant", "trouser", "jean", "short", "skirt", "salwar", "dhoti")):
+        cap_name = "garment.fit.lower_body"
+    elif any(k in cat for k in ("dress", "gown", "jumpsuit", "saree", "lehenga", "outfit")):
+        cap_name = "garment.fit.full_body"
+    elif any(k in cat for k in ("shoe", "boot", "sneaker", "footwear", "heel", "sandal")):
+        cap_name = "garment.fit.footwear"
+    elif any(k in cat for k in ("hat", "cap", "beanie", "glass", "belt", "bag", "watch", "jewel", "scarf", "glove", "accessor")):
+        cap_name = "garment.fit.accessory"
+
+    cap = garment_capabilities.get(cap_name)
+    return {
+        "owner_id": current_user.user_id,
+        "category": cat,
+        "avatar_profile_id": req.avatar_profile_id,
+        "capability": cap.model_dump(),
+        "verified": cap.availability.value == "VERIFIED",
+    }
+
+
+
