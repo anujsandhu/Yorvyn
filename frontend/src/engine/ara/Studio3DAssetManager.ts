@@ -12,6 +12,7 @@
 
 import * as THREE from 'three';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { supabase } from '../../utils/supabase';
 
 export type AssetPriority = 'critical' | 'high' | 'normal' | 'low';
 
@@ -186,21 +187,46 @@ export class Studio3DAssetManager {
     const loader = this.gltfLoader;
 
     const execute = () => {
-      const loadPromise = new Promise<GLTF>((resolve, reject) => {
-        loader.load(
-          url,
-          (gltf) => {
-            // Keep pristine master copy in cache; return independent clone to caller
-            this.gltfCache.set(url, { gltf, timestamp: Date.now() });
-            this.evictCacheIfNeeded();
-            resolve({
-              ...gltf,
-              scene: gltf.scene.clone(true)
-            });
-          },
-          undefined,
-          (err) => reject(err)
-        );
+      const loadPromise = new Promise<GLTF>(async (resolve, reject) => {
+        try {
+          const isInternalApiUrl = url.startsWith('/api/') || url.includes('/api/fashion/garment-gen/assets/');
+          if (isInternalApiUrl) {
+            try {
+              const {
+                data: { session },
+              } = await supabase.auth.getSession();
+              if (session?.access_token) {
+                loader.setRequestHeader({ Authorization: `Bearer ${session.access_token}` });
+              } else {
+                loader.setRequestHeader({});
+              }
+            } catch {
+              loader.setRequestHeader({});
+            }
+          } else {
+            loader.setRequestHeader({});
+          }
+
+          loader.load(
+            url,
+            (gltf) => {
+              // Keep pristine master copy in cache; return independent clone to caller
+              this.gltfCache.set(url, { gltf, timestamp: Date.now() });
+              this.evictCacheIfNeeded();
+              resolve({
+                ...gltf,
+                scene: gltf.scene.clone(true)
+              });
+            },
+            undefined,
+            (err) => {
+              const msg = err instanceof Error ? err.message : String(err || 'Failed to load GLB asset');
+              reject(new Error(`GLB load failed for ${url}: ${msg}`));
+            }
+          );
+        } catch (err) {
+          reject(err);
+        }
       });
 
       this.inFlightGLTFs.set(url, loadPromise);

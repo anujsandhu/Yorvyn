@@ -3364,6 +3364,17 @@ export const AvatarStudio: React.FC<AvatarStudioProps> = ({ defaultTab = 'fashio
             onRetry={initializeEngine}
             customGarmentGlbUrl={activeCustomGarment?.glb_url || null}
             customGarmentCategory={activeCustomGarment?.category || null}
+            onCustomGarmentFitResult={(result) => {
+              if (!result.fitted) {
+                setActiveCustomGarment((prev) => (prev?.glb_url === result.url ? null : prev));
+                toast.error(result.error || 'Could not place garment on avatar.');
+              } else if (result.majorPenetrationDetected) {
+                toast(
+                  `Garment fitted with minor body overlap (${(result.maxPenetrationMm ?? 0).toFixed(1)}mm).`,
+                  { icon: '⚠️' }
+                );
+              }
+            }}
             heightCm={(profile?.heightUnit === 'ft' ? Math.round(profile.heightValue * 30.48) : profile?.heightValue) || 178}
             bodySilhouetteId={profile?.bodyType || 'regular'}
             clothSimulationEnabled={true}

@@ -79,6 +79,15 @@ export interface AvatarStudioViewerProps {
   onAnimationTriggered?: (animName: string) => void;
   customGarmentGlbUrl?: string | null;
   customGarmentCategory?: string | null;
+  onCustomGarmentFitResult?: (result: {
+    url: string;
+    fitted: boolean;
+    error?: string;
+    attachmentType?: 'skinned' | 'bone_parented';
+    penetrationCount?: number;
+    maxPenetrationMm?: number;
+    majorPenetrationDetected?: boolean;
+  }) => void;
   heightCm?: number;
   bodySilhouetteId?: string;
   isOnboarding?: boolean;
@@ -101,6 +110,7 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
   onAnimationTriggered,
   customGarmentGlbUrl = null,
   customGarmentCategory = null,
+  onCustomGarmentFitResult,
   heightCm,
   bodySilhouetteId,
   isOnboarding = false,
@@ -1055,11 +1065,14 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
 
     loadPromise.then(
       (gltf) => {
-        if (isCancelled) return;
+        if (isCancelled || currentModelRef.current !== modelRoot) return;
         const garmentGroup = gltf.scene;
         garmentGroup.name = 'custom_ai_garment';
 
         try {
+          // Atomic detach before attaching to prevent duplicate garments on rapid switches
+          GarmentAvatarFittingEngine.detachGarment(modelRoot);
+
           // Master 9-step virtual try-on fitting & skinning pipeline
           const fitResult = GarmentAvatarFittingEngine.fitAndAttachGarment(
             garmentGroup,
@@ -1087,6 +1100,15 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
             hasConstructionSeams: true,
           });
 
+          onCustomGarmentFitResult?.({
+            url: customGarmentGlbUrl,
+            fitted: true,
+            attachmentType: fitResult.attachmentType,
+            penetrationCount: fitResult.diagnostics.penetrationCount,
+            maxPenetrationMm: fitResult.diagnostics.maxPenetrationMm,
+            majorPenetrationDetected: fitResult.diagnostics.majorPenetrationDetected,
+          });
+
           // Only celebrate if this is a newly equipped garment (not a character reload)
           const isFreshEquip = lastEquippedUrlRef.current !== customGarmentGlbUrl;
           lastEquippedUrlRef.current = customGarmentGlbUrl;
@@ -1094,16 +1116,22 @@ export const AvatarStudioViewer = forwardRef<AvatarStudioViewerHandle, AvatarStu
             motionCoreRef.current?.transitionTo('TURN');
           }
         } catch (fitErr) {
+          const errMsg = fitErr instanceof Error ? fitErr.message : 'Could not fit garment onto avatar.';
           console.error('[AraAvatarViewer] GarmentAvatarFittingEngine failed:', fitErr);
+          GarmentAvatarFittingEngine.detachGarment(modelRoot);
           GarmentAvatarFittingEngine.updateAvatarClothingVisibility(modelRoot, null, false);
           setGarmentFit({url: customGarmentGlbUrl, fitted: false});
+          onCustomGarmentFitResult?.({ url: customGarmentGlbUrl, fitted: false, error: errMsg });
         }
       },
       (err) => {
         if (!isCancelled) {
+          const errMsg = err instanceof Error ? err.message : 'Failed to load custom garment GLB.';
           console.error('[AraAvatarViewer] Failed to load custom garment GLB:', err);
+          GarmentAvatarFittingEngine.detachGarment(modelRoot);
           GarmentAvatarFittingEngine.updateAvatarClothingVisibility(modelRoot, null, false);
           setGarmentFit({url: customGarmentGlbUrl, fitted: false});
+          onCustomGarmentFitResult?.({ url: customGarmentGlbUrl, fitted: false, error: errMsg });
         }
       }
     );

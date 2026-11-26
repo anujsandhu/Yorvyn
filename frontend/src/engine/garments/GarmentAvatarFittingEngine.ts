@@ -153,6 +153,7 @@ export interface GarmentAvatarFitResult {
     appliedOffset: [number, number, number];
     penetrationCount: number;
     maxPenetrationMm: number;
+    majorPenetrationDetected?: boolean;
     resolvedVerticesCount: number;
     componentCount?: number;
     componentNames?: string[];
@@ -388,6 +389,7 @@ export class GarmentAvatarFittingEngine {
           appliedOffset: [appliedOffset[0], appliedOffset[1], appliedOffset[2]],
           penetrationCount: collisionResult.penetrationCount,
           maxPenetrationMm: collisionResult.maxPenetrationMeters * 1000,
+          majorPenetrationDetected: collisionResult.maxPenetrationMeters * 1000 > 8.0 || collisionResult.penetrationCount > 25,
           resolvedVerticesCount: primary.clonedGeometry.attributes.position.count,
           componentCount: 1,
           componentNames: [primary.name]
@@ -612,6 +614,7 @@ export class GarmentAvatarFittingEngine {
         appliedOffset: [appliedOffset[0], appliedOffset[1], appliedOffset[2]],
         penetrationCount: totalPenetrationCount,
         maxPenetrationMm: overallMaxPenetrationMeters * 1000,
+        majorPenetrationDetected: overallMaxPenetrationMeters * 1000 > 8.0 || totalPenetrationCount > 25,
         resolvedVerticesCount: totalResolvedVertices,
         componentCount: extractedComponents.length,
         componentNames

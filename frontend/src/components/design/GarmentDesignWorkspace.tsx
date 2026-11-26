@@ -436,7 +436,21 @@ export function GarmentDesignWorkspace({
   const handleExportGLB = async (applyToAvatar = false) => {
     let blob: Blob | null = null;
     try {
-      const srcResp = await fetch(glbUrl);
+      const fetchHeaders: Record<string, string> = {};
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+        if (session?.access_token) {
+          fetchHeaders.Authorization = `Bearer ${session.access_token}`;
+        }
+      } catch {
+        // Proceed without auth header if no session exists
+      }
+      const srcResp = await fetch(glbUrl, { headers: fetchHeaders });
+      if (!srcResp.ok) {
+        throw new Error(`Failed to fetch garment GLB (${srcResp.status})`);
+      }
       const srcBuf = new Uint8Array(await srcResp.arrayBuffer());
       let binStr = '';
       for (let i = 0; i < srcBuf.length; i += 8192) {
