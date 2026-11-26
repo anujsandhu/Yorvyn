@@ -118,3 +118,34 @@ Observed prior to Phase 17.6 changes:
 - **Backend Multi-Tier Cache, HTTP Compression/ETag, AI Reuse & Tests:** **PASS (Unit & Integration Verified)**
 - **Frontend SW Security Fix, Data LRU, Auth Cache Clear, 3D Cache Stats & Vite Bundle Split:** **PASS (Build & Test Verified)**
 - **Production CDN / DB Load Verification:** **PENDING DEPLOYMENT**
+
+---
+
+## 16. GitHub Delivery & Remote Backup
+
+- **Repository:** `https://github.com/anujsandhu/Yorvyn.git` (`origin`)
+- **Branch:** `release/stabilize-17.4`
+- **Phase 17.6 Implementation Commit Message:** `feat(phase-17.6): implement multi-layer L1/Redis/AI cache, private ETag/GZip, safe SW/CDN rules, and Vite bundle split`
+- **Phase 17.6 Implementation Commit SHA (Verified Remote):** `f48e2e20fecb27f8035ceec26e0696a0d6573ae3`
+- **Push Status:** `COMPLETED` (non-force `git push -u origin release/stabilize-17.4`)
+- **Files Included (16):**
+  - `backend/app/core/cache_service.py`
+  - `backend/app/services/ai/ai_computation_cache.py`
+  - `backend/app/main.py`
+  - `backend/app/api/billing_routes.py`
+  - `backend/app/api/garment_generation_routes.py`
+  - `backend/app/api/ops_routes.py`
+  - `backend/app/services/garments/orchestration/unified_state_machine.py`
+  - `backend/tests/test_phase17_6_caching_and_performance.py`
+  - `frontend/public/sw.js`
+  - `firebase.json`
+  - `frontend/vite.config.ts`
+  - `frontend/src/services/fashionApi.ts`
+  - `frontend/src/engine/ara/Studio3DAssetManager.ts`
+  - `frontend/src/context/AuthContext.tsx`
+  - `frontend/src/engine/ara/__tests__/phase17_6_cachingAndBundle.test.ts`
+  - `docs/engineering/YORVYN_PHASE_17_6_PERFORMANCE_AND_CACHING_ENGINE.md`
+- **Test Results:**
+  - Frontend: `33/33` test files, `393/393` tests passed; `tsc && vite build` exited `0` (`16.79s`).
+  - Backend: `23/23` passed (`test_phase17_6_caching_and_performance.py`, `test_phase17_5_universal_fitting.py`, `test_phase1_security.py`).
+- **Remaining Blockers / Pending Items:** Live Chrome DevTools WebGL screenshot verification (Phase 17.5 Gate I) and live Firebase CDN / production PostgreSQL `EXPLAIN ANALYZE` checks upon deploy.
