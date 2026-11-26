@@ -63,9 +63,10 @@ frontend/node_modules/
 # Vite build output
 frontend/dist/
 
-# Jupyter Notebook
+# Jupyter Notebook (keep tracked operational notebooks in notebooks/)
 .ipynb_checkpoints/
 *.ipynb
+!notebooks/*.ipynb
 
 # Private / tool config
 private/
