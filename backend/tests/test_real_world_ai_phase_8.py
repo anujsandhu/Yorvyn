@@ -31,6 +31,7 @@ from backend.app.services.garments.reconstruction.neural import neural_reconstru
 
 
 class TestModelCapabilityAuditor:
+    @pytest.mark.requires_local_assets
     def test_audit_system_integrity(self):
         audit = model_capability_auditor.audit_system()
         assert audit["audited_models_count"] == 9

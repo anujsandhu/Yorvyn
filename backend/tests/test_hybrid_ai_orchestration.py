@@ -85,6 +85,7 @@ class TestModelRegistry:
         assert unified_model_registry.verify_checksum(test_data, expected_hash) is True
         assert unified_model_registry.verify_checksum(test_data, "bad_hash_value") is False
 
+    @pytest.mark.requires_local_assets
     def test_verify_real_server_checkpoints_on_disk(self):
         # 1. Universal garment classifier
         res_ugc = unified_model_registry.verify_server_checkpoint("universal-garment-classifier")
@@ -109,6 +110,7 @@ class TestModelRegistry:
         assert path is None
         assert "Path traversal" in err
 
+    @pytest.mark.requires_local_assets
     def test_registry_health_report(self):
         report = unified_model_registry.get_registry_health_report()
         expected = {m["model_id"] for m in unified_model_registry.list_models()}

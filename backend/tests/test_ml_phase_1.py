@@ -345,6 +345,7 @@ Enjoy your day!
     assert model_inst.silhouette == "athletic"
 
 
+@pytest.mark.requires_local_assets
 def test_unified_intelligence_service_multi_turn():
     user_id = "test_user_service_turn"
     res = intelligence_service.process_message(
@@ -402,6 +403,7 @@ def test_api_fashion_dna_endpoints():
     assert "olive" in evolve_resp.json()["fashion_dna"]["colour_profile"]["preferred_colours"]
 
 
+@pytest.mark.requires_local_assets
 def test_api_intelligent_chat_endpoint():
     resp = client.post(
         "/api/fashion/chat/intelligent",

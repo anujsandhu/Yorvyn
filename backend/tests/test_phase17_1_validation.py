@@ -68,6 +68,7 @@ def _make_fitted_jacket_glb(*, add_degenerate: bool = False, joint_oob: bool = F
     )
 
 
+@pytest.mark.requires_local_assets
 def test_phase17_1_benchmark_manifest_and_classifier_provenance():
     manifest_p = ROOT / "data/datasets/manifests/yorvyn_phase17_1_real_benchmark.json"
     if manifest_p.is_file():
@@ -143,6 +144,7 @@ def test_phase17_1_owned_job_glb_route_security():
     assert exc.value.status_code == 400
 
 
+@pytest.mark.requires_local_assets
 @pytest.mark.asyncio
 async def test_phase17_1_orchestrator_concurrent_burst_and_rag_safety(monkeypatch):
     monkeypatch.setenv("YORVYN_DISABLE_DINOV2", "1")

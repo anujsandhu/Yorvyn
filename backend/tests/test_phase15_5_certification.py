@@ -115,6 +115,7 @@ def test_reject_unpinned_or_modified_bytes(tmp_path, monkeypatch):
         assert not receipt["valid"] and weights is None
 
 
+@pytest.mark.requires_local_assets
 def test_real_photo_through_release_classifier():
     from backend.app.services.garments.intelligence.universal_garment_classifier import (
         NEURAL_CATEGORIES, NEURAL_SUBCATEGORIES, universal_garment_classifier as classifier)
@@ -133,6 +134,7 @@ def test_real_photo_through_release_classifier():
     print("Neural prediction:", result["model_prediction"]["raw_category"], result["model_confidence"])
 
 
+@pytest.mark.requires_local_assets
 @pytest.mark.parametrize("case", ["simulated", "cached", "missing_model"])
 def test_preflight_rejects_vision_results_without_live_evidence(monkeypatch, case):
     from backend.app.services.ai.base import AIProviderResponse, ModelMetadata

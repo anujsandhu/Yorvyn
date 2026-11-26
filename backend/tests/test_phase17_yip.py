@@ -84,6 +84,7 @@ def _make_valid_glb_bytes() -> bytes:
     )
 
 
+@pytest.mark.requires_local_assets
 def test_stage1_unified_model_registry_and_capabilities():
     catalog = unified_model_registry.get_yip_model_catalog()
     by_id = {m.model_id: m for m in catalog}

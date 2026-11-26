@@ -16,6 +16,7 @@ import os
 import time
 
 import numpy as np
+import pytest
 from fastapi.testclient import TestClient
 from PIL import Image, ImageDraw, ImageFilter
 
@@ -59,6 +60,7 @@ def _make_clean_garment_bytes(rgb=(112, 145, 171), size=(320, 400), clip_bottom=
     return buf.getvalue()
 
 
+@pytest.mark.requires_local_assets
 def test_1_capture_modes_and_quality_defect_detection():
     store = CaptureSessionStore()
 
@@ -108,6 +110,7 @@ def test_1_capture_modes_and_quality_defect_detection():
     assert v_real_clip.quality.primary_issue == "bottom_cut_off"
 
 
+@pytest.mark.requires_local_assets
 def test_2_multiview_consistency_missing_back_and_real_photo_quality():
     store = CaptureSessionStore()
     sess = store.create_session(owner_id="cap_u2", garment_category="outerwear", capture_mode=CaptureMode.HANGER)
@@ -146,6 +149,7 @@ def test_2_multiview_consistency_missing_back_and_real_photo_quality():
     assert r_contra.outcome == ReadinessOutcome.RETAKE_REQUIRED
 
 
+@pytest.mark.requires_local_assets
 def test_3_end_to_end_real_photo_capture_to_durable_glb_handoff():
     # Real Wikimedia denim jacket front + matching dark denim back -> approved handoff -> real GLB + validation
     store = CaptureSessionStore()
@@ -198,6 +202,7 @@ def test_3_end_to_end_real_photo_capture_to_durable_glb_handoff():
     assert bool(getattr(val_res, "passed", getattr(val_res, "is_valid", False))) is True
 
 
+@pytest.mark.requires_local_assets
 def test_4_capabilities_and_fastapi_auth_owner_isolation():
     for cid in (
         "capture.session.create",

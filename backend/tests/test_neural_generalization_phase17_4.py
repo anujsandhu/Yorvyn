@@ -17,6 +17,7 @@ from __future__ import annotations
 import os
 import tempfile
 
+import pytest
 from fastapi.testclient import TestClient
 
 from backend.app.core.security import UserContext, get_current_user
@@ -48,6 +49,7 @@ from backend.app.services.intelligence.recommendation_profile import PreferenceP
 from backend.app.services.ml.model_registry import unified_model_registry
 
 
+@pytest.mark.requires_local_assets
 def test_1_expanded_dataset_provenance_and_governance():
     wiki_items = load_real_wikimedia_garment_catalog()
     assert len(wiki_items) >= 60
@@ -66,6 +68,7 @@ def test_1_expanded_dataset_provenance_and_governance():
     assert all(2 <= len(o["items"]) <= 4 for o in outfits)
 
 
+@pytest.mark.requires_local_assets
 def test_2_phase17_4_benchmark_stages_1_through_9(tmp_path):
     report = run_phase17_4_generalization_benchmark(
         seeds=(42, 77),
@@ -113,6 +116,7 @@ def test_2_phase17_4_benchmark_stages_1_through_9(tmp_path):
         assert "minimum_real_volume" in dec.failed_gates
 
 
+@pytest.mark.requires_local_assets
 def test_3_sequential_short_history_and_neural_outfit_adapter(tmp_path):
     ds = build_expanded_benchmark_dataset(seed=42)
     catalog = ds["catalog_items"]

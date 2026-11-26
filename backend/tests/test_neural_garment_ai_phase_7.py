@@ -56,6 +56,7 @@ def create_test_image(color=(50, 80, 140), size=(256, 256)) -> Image.Image:
 class TestUniversalGarmentIntelligenceModel:
     """Verifies PyTorch multi-task network and specialized category heads."""
 
+    @pytest.mark.requires_local_assets
     def test_model_initialization_and_checkpoint(self):
         model = UniversalGarmentIntelligenceModel()
         assert model.device.type in ["mps", "cpu"]

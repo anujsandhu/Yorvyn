@@ -442,6 +442,7 @@ class TestReferenceGarmentsCasesARegression:
         assert resolved.category == "bottoms"
         assert resolved.subcategory in ["jeans", "trousers", "straight_jeans"]
 
+    @pytest.mark.requires_local_assets
     def test_case_f_dress(self):
         img = Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/01_original_uploaded_image.png")
         mask = np.array(Image.open("docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/02_garment_segmentation_mask.png"))

@@ -15,6 +15,7 @@ from backend.app.services.ml.fashion_classifier import (
 from backend.app.api.fashion_routes import get_fashion_ml_metrics
 
 
+@pytest.mark.requires_local_assets
 def test_fashion_dataset_loader():
     """Validates real dataset parsing and array dimensions."""
     X_train, y_train, X_test, y_test = load_dataset()
@@ -29,6 +30,7 @@ def test_fashion_dataset_loader():
     assert np.max(X_train) <= 1.0
 
 
+@pytest.mark.requires_local_assets
 def test_fashion_ml_prediction():
     """Validates real ML prediction on dummy 28x28 garment tensor."""
     dummy_input = np.ones((28, 28), dtype=np.float32) * 0.5
