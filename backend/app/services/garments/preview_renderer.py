@@ -79,16 +79,75 @@ class PreviewRenderer:
         screen_y = height * 0.52 - rotated_pos[:, 1] * scale
         screen_z = rotated_pos[:, 2] # Depth for painter's sort
         
-        # 3. Ambient studio shadow under garment
+        # 3. Mannequin Dress-Form Stand (Backdrop & Structure behind garment)
+        # Floor contact shadow under circular mannequin base
         shadow_img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
         s_draw = ImageDraw.Draw(shadow_img)
         s_draw.ellipse(
-            (int(width * 0.28), int(height * 0.88), int(width * 0.72), int(height * 0.94)),
-            fill=(15, 23, 42, 45)
+            (int(width * 0.28), int(height * 0.89), int(width * 0.72), int(height * 0.95)),
+            fill=(15, 23, 42, 50)
         )
-        shadow_blur = shadow_img.filter(ImageFilter.GaussianBlur(radius=14))
+        shadow_blur = shadow_img.filter(ImageFilter.GaussianBlur(radius=12))
         canvas.alpha_composite(shadow_blur)
-        
+
+        # Draw dress-form mannequin components behind the garment
+        stand_draw = ImageDraw.Draw(canvas)
+        cx = int(width * 0.5)
+        top_y = int(screen_y.min())
+        bot_y = int(screen_y.max())
+
+        # (a) Circular wooden base at the floor
+        base_y = int(height * 0.90)
+        base_w = int(width * 0.22)
+        base_h = int(height * 0.035)
+        stand_draw.ellipse(
+            (cx - base_w, base_y - base_h, cx + base_w, base_y + base_h),
+            fill=(110, 72, 38, 255) # Polished beechwood
+        )
+        # Subtle rim highlight on wood base
+        stand_draw.arc(
+            (cx - base_w, base_y - base_h, cx + base_w, base_y + base_h),
+            start=200, end=340, fill=(180, 130, 85, 255), width=2
+        )
+
+        # (b) Gunmetal / brass pedestal pole extending up into torso
+        pole_w = max(int(width * 0.016), 4)
+        stand_draw.rectangle(
+            (cx - pole_w, int(height * 0.45), cx + pole_w, base_y),
+            fill=(30, 41, 59, 255) # Cast gunmetal
+        )
+        # Metallic specular stripe on pole
+        stand_draw.line(
+            (cx - pole_w + 2, int(height * 0.45), cx - pole_w + 2, base_y),
+            fill=(100, 116, 139, 255), width=1
+        )
+
+        # (c) Porcelain bisque neck cylinder
+        neck_w = int(width * 0.055)
+        neck_top = max(int(top_y - height * 0.07), int(height * 0.14))
+        neck_bot = int(top_y + height * 0.04)
+        stand_draw.rounded_rectangle(
+            (cx - neck_w, neck_top, cx + neck_w, neck_bot),
+            radius=6, fill=(238, 236, 232, 255) # Porcelain bisque
+        )
+        # Neck shading (left-to-right soft shadow)
+        stand_draw.rectangle(
+            (cx + int(neck_w * 0.2), neck_top, cx + neck_w, neck_bot),
+            fill=(210, 206, 200, 255)
+        )
+
+        # (d) Turned wooden neck finial / cap
+        finial_w = int(width * 0.04)
+        finial_h = int(height * 0.035)
+        stand_draw.ellipse(
+            (cx - finial_w, neck_top - finial_h, cx + finial_w, neck_top + int(finial_h * 0.3)),
+            fill=(139, 90, 43, 255) # Warm beechwood cap
+        )
+        stand_draw.ellipse(
+            (cx - int(finial_w * 0.5), neck_top - finial_h - int(finial_h * 0.4), cx + int(finial_w * 0.5), neck_top - finial_h + 2),
+            fill=(110, 72, 38, 255) # Finial top bead
+        )
+
         # 4. Painter's algorithm triangle rendering with PBR directional lighting
         tri_indices = mesh.indices
         tri_depths = screen_z[tri_indices].mean(axis=1)
@@ -105,18 +164,21 @@ class PreviewRenderer:
         
         for tri_idx in sorted_tri_order:
             v_idx = tri_indices[tri_idx]
-            
-            p0 = (screen_x[v_idx[0]], screen_y[v_idx[0]])
-            p1 = (screen_x[v_idx[1]], screen_y[v_idx[1]])
-            p2 = (screen_x[v_idx[2]], screen_y[v_idx[2]])
-            
-            # Surface normal
+
+            # Surface normal & backface culling so rear interior faces don't fight front faces
             n = rotated_norms[v_idx].mean(axis=0)
             n_len = np.linalg.norm(n)
             if n_len > 1e-5:
                 n = n / n_len
             else:
                 n = np.array([0, 0, 1], dtype=np.float32)
+
+            if n[2] < -0.10:
+                continue
+
+            p0 = (screen_x[v_idx[0]], screen_y[v_idx[0]])
+            p1 = (screen_x[v_idx[1]], screen_y[v_idx[1]])
+            p2 = (screen_x[v_idx[2]], screen_y[v_idx[2]])
                 
             # Diffuse lighting calculation (Lambertian + ambient)
             ndotl = max(0.0, float(np.dot(n, key_light)))

@@ -83,9 +83,12 @@ def _ddg_search(query: str, max_results: int = 12, timeout: float = 3.0) -> list
         import warnings
         warnings.filterwarnings("ignore")
         try:
-            from duckduckgo_search import DDGS
+            from duckduckgo_search import DDGS  # type: ignore
         except ImportError:
-            from ddgs import DDGS  # type: ignore
+            try:
+                from ddgs import DDGS  # type: ignore
+            except ImportError:
+                DDGS = None  # type: ignore
 
         candidates: list[str] = []
         deadline = time.time() + timeout

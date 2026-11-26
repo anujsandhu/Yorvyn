@@ -9,6 +9,9 @@ from PIL import Image, ImageFilter, ImageStat
 import numpy as np
 import math
 from backend.app.models.garment_models import DetectedGarmentFeatures, GarmentCategory
+from backend.app.models.garment_intelligence_models import GarmentIntelligenceV2Result, GarmentDiagnosticsV2
+from backend.app.services.garments.intelligence.garment_intelligence_service import garment_intelligence_service
+from backend.app.services.garments.segmentation import segmenter_registry, GarmentSegmentationOutput
 
 # Curated reference color map for fashion classification
 FASHION_COLOR_NAMES = {
@@ -27,6 +30,9 @@ FASHION_COLOR_NAMES = {
     "#fef08a": "pale yellow",
     "#b45309": "camel",
     "#78350f": "warm brown",
+    "#4a2e18": "dark espresso brown",
+    "#5c3a21": "chestnut brown",
+    "#8c5932": "caramel brown",
     "#f5f5f4": "cream",
     "#d6d3d1": "sand beige",
     "#b91c1c": "crimson red",
@@ -72,7 +78,17 @@ def find_closest_fashion_color(rgb: Tuple[int, int, int]) -> Tuple[str, str]:
 class GarmentAnalyzer:
     """Performs garment segmentation, feature extraction, and silhouette analysis."""
 
-    def analyze(self, image_path: str, category_hint: str = "top") -> Tuple[DetectedGarmentFeatures, Image.Image]:
+    def __init__(self):
+        self.latest_intelligence_v2: Optional[GarmentIntelligenceV2Result] = None
+        self.latest_diagnostics_v2: Optional[GarmentDiagnosticsV2] = None
+
+    def analyze(
+        self,
+        image_path: str,
+        category_hint: Optional[str] = None,
+        subcategory_hint: Optional[str] = None,
+        job_id: str = "transient_analysis"
+    ) -> Tuple[DetectedGarmentFeatures, Image.Image]:
         with Image.open(image_path) as img:
             rgb_img = img.convert("RGB")
             
@@ -81,60 +97,45 @@ class GarmentAnalyzer:
             if width < 120 or height < 120:
                 raise ValueError("Image resolution is too low for 3D garment reconstruction (min 120x120px required).")
                 
-            # Resize working copy for fast, robust analytical processing
-            max_dim = 768
-            scale = min(max_dim / width, max_dim / height, 1.0)
-            work_w, work_h = int(width * scale), int(height * scale)
-            work_img = rgb_img.resize((work_w, work_h), Image.Resampling.LANCZOS)
-            
-            # Segment foreground garment from background
-            mask, segmented_img = self._segment_garment(work_img)
-            
-            # Extract dominant colors & palette
-            palette_hex = self._extract_palette(segmented_img, mask)
-            primary_hex = palette_hex[0] if palette_hex else "#1e293b"
-            secondary_hex = palette_hex[1] if len(palette_hex) > 1 else palette_hex[0]
-            
-            p_name, p_hex = find_closest_fashion_color(hex_to_rgb(primary_hex))
-            s_name, s_hex = find_closest_fashion_color(hex_to_rgb(secondary_hex))
-            
-            # Analyze silhouette features
-            features = self._analyze_silhouette(mask, category_hint)
-            
-            # Pattern analysis (variance & frequency)
-            pattern_type = self._detect_pattern(segmented_img, mask)
-            
-            # Quality assessment
+            # Execute master neural/geometric intelligence pipeline
+            intel, diag, seg_out = garment_intelligence_service.analyze(
+                front_image=rgb_img,
+                job_id=job_id,
+                category_hint=category_hint,
+                subcategory_hint=subcategory_hint
+            )
+            self.latest_intelligence_v2 = intel
+            self.latest_diagnostics_v2 = diag
+
+            # Adapt to canonical DetectedGarmentFeatures contract
             quality_notes = []
-            requires_more = False
-            if scale < 0.35:
-                quality_notes.append("High-resolution input processed.")
-            elif width < 300 or height < 300:
-                quality_notes.append("Lower resolution input. Back view recommended.")
-                requires_more = True
-                
+            if intel.requires_confirmation:
+                quality_notes.append("Multiple category interpretations possible; verification advised.")
+            if intel.warnings:
+                quality_notes.extend(intel.warnings)
+
             detected = DetectedGarmentFeatures(
-                category=category_hint.lower(),
-                subcategory=features.get("subcategory", "tshirt"),
-                primary_color_name=p_name,
-                primary_color_hex=primary_hex,
-                secondary_color_name=s_name if s_hex != p_hex else None,
-                secondary_color_hex=secondary_hex if s_hex != p_hex else None,
-                palette=palette_hex[:5],
-                pattern=pattern_type,
-                material_hint=features.get("material_hint", "cotton"),
-                neckline_type=features.get("neckline", "crewneck"),
-                sleeve_length=features.get("sleeve_length", "short"),
-                hem_length=features.get("hem_length", "standard"),
-                fit=features.get("fit", "regular"),
-                formality=features.get("formality", 4),
-                warmth=features.get("warmth", 4),
-                confidence_score=0.90 if not requires_more else 0.75,
-                requires_additional_view=requires_more,
+                category=intel.category,
+                subcategory=intel.subcategory,
+                primary_color_name=intel.primary_color_name,
+                primary_color_hex=intel.primary_color_hex,
+                secondary_color_name=intel.secondary_color_name,
+                secondary_color_hex=intel.secondary_color_hex,
+                palette=intel.palette[:5],
+                pattern=intel.pattern,
+                material_hint=intel.material_hint,
+                neckline_type=intel.neckline_type,
+                sleeve_length=intel.sleeve_length,
+                hem_length=intel.hem_length,
+                fit=intel.fit,
+                formality=intel.formality,
+                warmth=intel.warmth,
+                confidence_score=intel.category_confidence,
+                requires_additional_view=intel.requires_confirmation,
                 quality_notes=" ".join(quality_notes) if quality_notes else "Optimal garment silhouette captured."
             )
-            
-            return detected, segmented_img
+
+            return detected, seg_out.segmented_image
 
     def _segment_garment(self, img: Image.Image) -> Tuple[np.ndarray, Image.Image]:
         """Isolates the clothing item from the background using edge and border color sampling."""
@@ -277,24 +278,29 @@ class GarmentAnalyzer:
             
             if span_ratio > 1.35 or aspect_ratio > 1.05:
                 sleeve = "long"
-                sub = "long_sleeve"
-                warmth = 5
+                # Check for hood contour (profile extending above neckline or high aspect ratio)
+                is_hoodie = aspect_ratio > 1.15 or "hood" in category.lower()
+                sub = "hoodie" if is_hoodie else "long_sleeve"
+                material = "fleece" if is_hoodie else "cotton"
+                warmth = 6 if is_hoodie else 5
             elif span_ratio < 0.90:
                 sleeve = "sleeveless"
                 sub = "tank_top"
+                material = "cotton"
                 warmth = 2
             else:
                 sleeve = "short"
                 sub = "tshirt"
+                material = "cotton"
                 warmth = 3
                 
             return {
                 "subcategory": sub,
                 "sleeve_length": sleeve,
-                "neckline": "crewneck",
-                "fit": "regular",
-                "material_hint": "cotton",
-                "formality": 4,
+                "neckline": "hoodie_collar" if sub == "hoodie" else "crewneck",
+                "fit": "relaxed" if sub == "hoodie" else "regular",
+                "material_hint": material,
+                "formality": 3 if sub == "hoodie" else 4,
                 "warmth": warmth
             }
 

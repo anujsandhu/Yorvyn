@@ -18,6 +18,7 @@ class GarmentGenJobStatus(str, Enum):
     COMPLETED = "completed"
     FAILED = "failed"
     CANCELLED = "cancelled"
+    TIMED_OUT = "timed_out"
 
 
 class GarmentCategory(str, Enum):
@@ -51,6 +52,7 @@ class DetectedGarmentFeatures(BaseModel):
 
 
 class GarmentGenResult(BaseModel):
+    intelligence_execution: Optional[Dict[str, Any]] = None
     model_config = ConfigDict(protected_namespaces=())
     job_id: str
     garment_name: str
@@ -65,6 +67,10 @@ class GarmentGenResult(BaseModel):
     features: DetectedGarmentFeatures
     model_version: str = "yorvyn-garment3d-v2.0"
     created_at: str
+    cost_usd: float = 0.0000
+    duration_ms: float = 0.0
+    reconstruction_provenance: str = "hybrid_neural_procedural"
+    is_cached: bool = False
     rig_compatibility: Dict[str, Any] = Field(default_factory=lambda: {
         "engine": "Ara 3D Gen",
         "rig_type": "standard_humanoid",
@@ -82,5 +88,12 @@ class GarmentGenJob(BaseModel):
     created_at: datetime
     updated_at: datetime
     error: Optional[str] = None
+    category: Optional[str] = None
+    subcategory: Optional[str] = None
+    detection_metadata: Optional[Dict[str, Any]] = None
     result: Optional[GarmentGenResult] = None
     temporary_files: List[str] = Field(default_factory=list)
+    asset_sha256: Optional[str] = None
+    input_sha256: Optional[str] = None
+    retry_count: int = 0
+    priority: int = 3  # 1=Studio, 2=Pro, 3=Explorer

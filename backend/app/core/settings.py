@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from pydantic import model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -47,6 +48,12 @@ class Settings(BaseSettings):
     hf_api_key: str = ""
     hf_model: str = "HuggingFaceH4/zephyr-7b-beta"
 
+    # ── External Web Intelligence Provider (Tavily) ───────────────────
+    tavily_api_key: str = ""
+    tavily_base_url: str = "https://api.tavily.com"
+    tavily_timeout_seconds: float = 12.0
+    tavily_monthly_credit_budget: int = 1000
+
     ai_fallback_enabled: bool = True
     ai_max_response_tokens: int = 1500
     ai_cache_ttl: int = 3600
@@ -62,12 +69,30 @@ class Settings(BaseSettings):
     supabase_anon_key: str = ""
     supabase_service_role_key: str = ""
     supabase_jwt_secret: str = ""
+    next_public_supabase_url: str = ""
+    next_public_supabase_publishable_key: str = ""
+
+    @model_validator(mode="after")
+    def populate_supabase_credentials(self) -> Settings:
+        if not self.supabase_url and self.next_public_supabase_url:
+            self.supabase_url = self.next_public_supabase_url
+        if not self.supabase_anon_key and self.next_public_supabase_publishable_key:
+            self.supabase_anon_key = self.next_public_supabase_publishable_key
+        return self
 
     # ── Cloudinary Media Storage ──────────────────────────────────────
     cloudinary_cloud_name: str = ""
     cloudinary_api_key: str = ""
     cloudinary_api_secret: str = ""
     cloudinary_secure: bool = True
+
+    # ── Stripe Billing & Subscriptions ────────────────────────────────
+    stripe_secret_key: str = ""
+    stripe_publishable_key: str = ""
+    stripe_webhook_secret: str = ""
+    stripe_pro_price_id: str = "price_yorvyn_pro_monthly"
+    stripe_studio_price_id: str = "price_yorvyn_studio_monthly"
+    stripe_test_mode: bool = True
 
     # ── External Context & Services ───────────────────────────────────
     open_meteo_url: str = "https://api.open-meteo.com/v1/forecast"
@@ -107,6 +132,10 @@ class Settings(BaseSettings):
         return bool(self.hf_api_key)
 
     @property
+    def has_tavily(self) -> bool:
+        return bool(self.tavily_api_key or os.getenv("TAVILY_API_KEY"))
+
+    @property
     def any_ai_available(self) -> bool:
         return (
             self.has_groq
@@ -117,16 +146,13 @@ class Settings(BaseSettings):
         )
 
     def log_status(self) -> None:
-        def mask(k: str) -> str:
-            return (k[:6] + "..." + k[-4:]) if len(k) > 10 else ("set" if k else "not set")
-
         print("── Yorvyn Fashion AI Status ──")
         print(f"  Environment  : {self.environment}")
-        print(f"  Database     : {self.database_url.split('@')[-1] if '@' in self.database_url else self.database_url}")
-        print(f"  Groq API     : {'✅ ' + mask(self.groq_api_key) if self.has_groq else '❌ not set'}")
-        print(f"  Gemini API   : {'✅ ' + mask(self.effective_google_key) if self.has_gemini else '❌ not set'}")
-        print(f"  OpenRouter   : {'✅ ' + mask(self.openrouter_api_key) if self.has_openrouter else '❌ not set'}")
-        print(f"  OpenAI API   : {'✅ ' + mask(self.openai_api_key) if self.has_openai else '❌ not set'}")
+        print("  Database     :", "configured" if self.database_url else "unset")
+        print(f"  Groq API     : {'configured' if self.has_groq else '❌ not set'}")
+        print(f"  Gemini API   : {'configured' if self.has_gemini else '❌ not set'}")
+        print(f"  OpenRouter   : {'configured' if self.has_openrouter else '❌ not set'}")
+        print(f"  OpenAI API   : {'configured' if self.has_openai else '❌ not set'}")
         print("───────────────────────────────")
 
 

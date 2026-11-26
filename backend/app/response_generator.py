@@ -153,7 +153,7 @@ HOOKS = {
     VibeStyle.LUXURY: [
         "Alright, going premium — you want something that screams quality.",
         "Got you — luxury vibes, something with presence and depth.",
-        "Okay, high-end territory — let's find something with real character.",
+        "Okay, high-end luxury territory — let's find something with real character.",
     ],
     VibeStyle.FRESH: [
         "Fresh and clean — got it, something light and easy to wear.",

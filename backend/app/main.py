@@ -3,13 +3,15 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
+import time
+import uuid
 import logging
 from .core.settings import settings
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s [%(levelname)s] [%(name)s] %(message)s'
 )
 logger = logging.getLogger(__name__)
 
@@ -29,9 +31,15 @@ allowed_origins = ["*"] if settings.debug else [
     "http://localhost:5173",
 ]
 
-# Custom CORS middleware wrapper — ensures CORS headers on ALL responses
-class CORSHeaderMiddleware(BaseHTTPMiddleware):
+# Custom CORS & Observability middleware wrapper
+class ObservabilityAndCORSMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
+        start_time = time.perf_counter()
+        correlation_id = (
+            request.headers.get("X-Correlation-ID")
+            or request.headers.get("X-Request-ID")
+            or f"req_{uuid.uuid4().hex[:12]}"
+        )
         origin = request.headers.get("origin")
         
         # For development, allow all origins; for production, check whitelist
@@ -48,9 +56,11 @@ class CORSHeaderMiddleware(BaseHTTPMiddleware):
                 "Access-Control-Allow-Origin": allowed or origin or "*",
                 "Access-Control-Allow-Credentials": send_credentials,
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS, PATCH",
-                "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
-                "Access-Control-Expose-Headers": "*",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With, X-Request-ID, X-Correlation-ID",
+                "Access-Control-Expose-Headers": "X-Request-ID, X-Correlation-ID, X-Response-Time, *",
                 "Access-Control-Max-Age": "86400",
+                "X-Request-ID": correlation_id,
+                "X-Correlation-ID": correlation_id,
             }
             return JSONResponse(content={"status": "ok"}, headers=headers)
         
@@ -58,29 +68,36 @@ class CORSHeaderMiddleware(BaseHTTPMiddleware):
         try:
             response = await call_next(request)
         except Exception as e:
-            logger.error(f"Request error: {e}", exc_info=True)
+            elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+            logger.error(f"[{correlation_id}] Request error on {request.method} {request.url.path} after {elapsed_ms:.2f}ms: {e}", exc_info=settings.debug)
+            detail_msg = str(e) if settings.debug else "An internal server error occurred. Please try again later."
             response = JSONResponse(
                 status_code=500,
-                content={"detail": str(e), "type": type(e).__name__}
+                content={"detail": detail_msg, "type": type(e).__name__, "request_id": correlation_id, "correlation_id": correlation_id}
             )
+        
+        elapsed_ms = (time.perf_counter() - start_time) * 1000.0
+        response.headers["X-Request-ID"] = correlation_id
+        response.headers["X-Correlation-ID"] = correlation_id
+        response.headers["X-Response-Time"] = f"{elapsed_ms:.2f}ms"
         
         # Add CORS headers to response
         if allowed:
             response.headers["Access-Control-Allow-Origin"] = allowed
             response.headers["Access-Control-Allow-Credentials"] = send_credentials
-            response.headers["Access-Control-Expose-Headers"] = "*"
+            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
         elif not settings.debug:
-            # For non-debug mode, still send CORS headers to avoid blocking
             response.headers["Access-Control-Allow-Origin"] = origin or allowed_origins[0]
-            response.headers["Access-Control-Expose-Headers"] = "*"
+            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
         else:
             response.headers["Access-Control-Allow-Origin"] = "*"
-            response.headers["Access-Control-Expose-Headers"] = "*"
+            response.headers["Access-Control-Expose-Headers"] = "X-Request-ID, X-Correlation-ID, X-Response-Time, *"
         
+        logger.info(f"[{correlation_id}] {request.method} {request.url.path} -> {response.status_code} ({elapsed_ms:.2f}ms)")
         return response
 
-# Add custom CORS middleware FIRST (before other middleware)
-app.add_middleware(CORSHeaderMiddleware)
+# Add custom observability & CORS middleware FIRST
+app.add_middleware(ObservabilityAndCORSMiddleware)
 
 # Standard CORS middleware (provides automatic OPTIONS handling via starlette)
 app.add_middleware(
@@ -98,15 +115,56 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     settings.log_status()
+    try:
+        from backend.app.services.garments.job_manager import garment_job_manager
+        recovered = garment_job_manager.recover_stranded_jobs()
+        if recovered > 0:
+            logger.info(f"🧹 Recovered {recovered} stranded jobs on startup.")
+        garment_job_manager.start_outbox_dispatcher()
+    except Exception as e:
+        logger.warning(f"Startup job recovery notice: {e}")
     logger.info("🚀 Yorvyn Fashion Intelligence Core ready")
+
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    try:
+        from backend.app.services.garments.job_manager import garment_job_manager
+        garment_job_manager.stop_outbox_dispatcher()
+    except Exception:
+        pass
 
 # Mount Fashion Intelligence routes
 from backend.app.api.fashion_routes import router as fashion_router
 from backend.app.api.garment_generation_routes import router as garment_3d_router
 from backend.app.api.speech_routes import router as speech_router
+from backend.app.api.billing_routes import router as billing_router
+from backend.app.api.beta_routes import router as beta_router
+from backend.app.api.ops_routes import router as ops_router
+from backend.app.api.ai_session_routes import router as ai_session_router
+from backend.app.api.learning_routes import router as learning_router
+from backend.app.api.ai_orchestration_routes import router as ai_orchestration_router
+from backend.app.api.garment_identification_routes import router as garment_identification_router
+from backend.app.api.intelligence_routes import router as intelligence_router
+
 app.include_router(fashion_router)
 app.include_router(garment_3d_router)
+app.include_router(garment_identification_router)
 app.include_router(speech_router)
+app.include_router(billing_router)
+app.include_router(beta_router)
+app.include_router(ops_router)
+app.include_router(ai_session_router)
+from backend.app.api.conversational_garments import router as conversational_garments_router
+from backend.app.api.garment_design_routes import router as garment_design_router
+from backend.app.api.motion_routes import router as motion_router
+app.include_router(conversational_garments_router)
+app.include_router(garment_design_router)
+app.include_router(motion_router)
+app.include_router(learning_router)
+app.include_router(intelligence_router)
+app.include_router(ai_orchestration_router)
+app.include_router(ai_orchestration_router, prefix="/api/fashion")
 
 
 
@@ -135,7 +193,41 @@ def health():
         "status": "ready",
         "service": "Yorvyn Fashion Intelligence Core",
         "version": "3.0.0",
-        "fashion_domains": ["profile", "wardrobe", "outfits", "stylist", "avatar"],
+        "environment": settings.environment,
+        "database": "supabase" if (settings.supabase_url and "supabase" in settings.supabase_url) else "sqlite_local",
+        "storage": "cloudinary" if settings.cloudinary_cloud_name else "local_disk",
+        "ai_providers": {
+            "groq": settings.has_groq,
+            "gemini": settings.has_gemini,
+            "openrouter": settings.has_openrouter,
+            "openai": settings.has_openai,
+            "hf": settings.has_hf
+        },
+        "fashion_domains": ["profile", "wardrobe", "outfits", "stylist", "avatar", "cloth_physics", "3d_reconstruction"],
+    }
+
+
+@app.get("/metrics")
+@app.get("/api/metrics")
+def get_system_metrics():
+    """Provides operational metrics, hardware RSS, and AI job queue telemetry."""
+    import sys
+    import resource
+    from backend.app.services.garments.job_manager import garment_job_manager
+    rss_mb = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024.0 / 1024.0, 2)
+    job_health = garment_job_manager.get_health_status()
+
+    return {
+        "status": "healthy",
+        "service": "Yorvyn Platform Metrics",
+        "system": {
+            "platform": sys.platform,
+            "python_version": sys.version.split()[0],
+            "peak_rss_mb": rss_mb
+        },
+        "worker_telemetry": job_health,
+        "database_connected": bool(settings.supabase_url and not settings.supabase_url.startswith("https://demo")),
+        "timestamp": time.time()
     }
 
 
