@@ -87,3 +87,8 @@ research/experiments/weights/
 # Runtime generated local assets & temporary uploads
 backend/data/wardrobe_assets/
 backend/data/temp_processing/
+models/generated_3d/
+models/checkpoints/*.pt
+dump.rdb
+backend.sock
+scratch/
