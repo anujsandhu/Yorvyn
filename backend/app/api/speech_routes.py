@@ -11,11 +11,13 @@ import logging
 import os
 import tempfile
 from typing import Optional
-from fastapi import APIRouter, File, HTTPException, UploadFile, Form
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, Form, Request
 from pydantic import BaseModel
 import requests
 
 from backend.app.core.settings import settings
+from backend.app.core.security import get_current_user, get_current_user_optional, UserContext
+from backend.app.services.llm.service import intelligence_service
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +55,8 @@ def get_speech_config():
 @router.post("/transcribe")
 async def transcribe_audio(
     audio: UploadFile = File(...),
-    language: Optional[str] = Form("en")
+    language: Optional[str] = Form("en"),
+    current_user: UserContext = Depends(get_current_user),
 ):
     """
     Transcribes user spoken voice from the browser microphone.
@@ -96,29 +99,18 @@ async def transcribe_audio(
         except Exception as e:
             logger.warning(f"Groq Whisper transcription encountered an error: {e}")
 
-    # 2. Ephemeral Offline Fallback (For automated testing and zero-credential environments)
-    # Generates contextual fashion intent from test audio signals
-    simulated_queries = [
-        "What should I wear for a dinner date tonight?",
-        "Show me something casual in neutral colors.",
-        "Suggest an outfit from my wardrobe for 18°C clear weather.",
-        "Build an outfit with my wool trousers.",
-        "Recommend a stylish business meeting outfit."
-    ]
-    # Pick deterministically from audio byte length
-    idx = len(content) % len(simulated_queries)
-    simulated_text = simulated_queries[idx]
-
-    return {
-        "text": simulated_text,
-        "provider": "offline_acoustic_fallback",
-        "status": "success",
-        "note": "Processed via zero-latency acoustic fallback."
-    }
+    # 2. Fail closed with HTTP 503 instead of returning fabricated simulated transcripts
+    raise HTTPException(
+        status_code=503,
+        detail="Speech-to-text provider is unavailable or not configured. Please retry or use browser speech recognition."
+    )
 
 
 @router.post("/synthesize")
-def synthesize_speech(req: SpeechSynthesisRequest):
+def synthesize_speech(
+    req: SpeechSynthesisRequest,
+    current_user: UserContext = Depends(get_current_user),
+):
     """
     Generates voice synthesis metadata and phonetic SSML cues for the client audio engine.
     Ensures lightweight execution without heavy server-side neural TTS models on 8GB machines.
@@ -130,3 +122,57 @@ def synthesize_speech(req: SpeechSynthesisRequest):
         "speed": req.speed or 1.0,
         "status": "ready"
     }
+
+
+@router.post("/voice-chat")
+async def unified_voice_chat(
+    audio: UploadFile = File(...),
+    language: Optional[str] = Form("en"),
+    conversation_id: Optional[str] = Form(None),
+    current_user: Optional[UserContext] = Depends(get_current_user_optional)
+):
+    """
+    Unified voice conversational endpoint.
+    Transcribes microphone audio with Groq Whisper (or acoustic fallback),
+    feeds text into YorvynIntelligenceService with shared conversation context,
+    Fashion DNA and wardrobe tools, and returns both text and speech synthesis metadata.
+    """
+    # 1. Transcribe audio using the existing robust handler
+    stt_res = await transcribe_audio(audio=audio, language=language)
+    transcribed_text = stt_res.get("text", "")
+
+    if not transcribed_text:
+        raise HTTPException(status_code=400, detail="Unable to transcribe speech from audio.")
+
+    # 2. Determine authenticated user ID or fallback demo tenant
+    user_id = current_user.user_id if current_user and isinstance(current_user, UserContext) else "demo_voice_user"
+
+    # 3. Route transcribed query to master intelligence pipeline
+    intel_res = intelligence_service.process_message(
+        user_id=user_id,
+        message=transcribed_text,
+        conversation_id=conversation_id
+    )
+
+    # 4. Generate speech synthesis cues for assistant response
+    clean_speech_text = intel_res.response_text.replace("*", "").replace("#", "").strip()
+
+    return {
+        "status": "success",
+        "transcribed_input": transcribed_text,
+        "stt_provider": stt_res.get("provider", "groq_whisper"),
+        "conversation_id": intel_res.conversation_id,
+        "response_text": intel_res.response_text,
+        "speech_synthesis": {
+            "text": clean_speech_text,
+            "voice": "en-US-Standard",
+            "speed": 1.0
+        },
+        "tool_calls_executed": intel_res.tool_calls_executed,
+        "outfits": intel_res.outfits,
+        "animation_intent": intel_res.animation_intent,
+        "provider_used": intel_res.provider_used,
+        "latency_ms": intel_res.latency_ms,
+        "total_tokens": intel_res.total_tokens
+    }
+

@@ -1,0 +1,248 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_7_NEURAL_PROVENANCE",
+  "phase": "14.7",
+  "timestamp": "2026-11-19 14:01:55 UTC",
+  "auditor": "Principal Neural 3D Engineer & ML Research Engineer",
+  "model_checkpoints_audited": [
+    {
+      "model_name": "mattmdjaga/segformer_b2_clothes",
+      "role": "Garment & Human Semantic Parsing (18 fashion classes)",
+      "architecture": "SegFormer-B2 (Hierarchical Transformer Encoder + MLP Decoder)",
+      "parameter_count": 24700000,
+      "weight_file": "model.safetensors",
+      "file_size_bytes": 109493236,
+      "sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+      "license": "Apache 2.0",
+      "device_support": "Apple Silicon MPS & CUDA"
+    },
+    {
+      "model_name": "openai/clip-vit-base-patch32",
+      "role": "Multimodal Garment Visual-Language Embedding & Category Reasoning",
+      "architecture": "Vision Transformer ViT-B/32 (12 layers, 768 hidden dimension)",
+      "parameter_count": 87800000,
+      "weight_file": "model.safetensors",
+      "file_size_bytes": 605157884,
+      "sha256": "99d28a652e6ec46629ab7047a0ac82c69b1fe11e0ce672c43af65d3a9a3fc05d",
+      "license": "MIT",
+      "device_support": "Apple Silicon MPS & CUDA"
+    }
+  ],
+  "reconstruction_engine_metadata": {
+    "engine_name": "ImageConditionedReconstructionEngine",
+    "provenance_classification": "Image-Conditioned Parametric Template Deformation & Albedo Projection",
+    "description": "Constructs category-conforming quad/cylinder 3D hulls conditioned on contour aspect ratio and silhouette bounding envelope; projects photograph diffuse texture onto UV parameterization.",
+    "neural_conditioning_inputs": [
+      "SegFormer semantic segmentation mask for garment boundary isolation",
+      "Contour boundary landmarks (neckline, shoulder, hemline, waist, cuffs)",
+      "Photo RGB albedo map projection via cylindrical/orthographic UV mapping"
+    ],
+    "cuda_blocker_for_pure_neural_3d": {
+      "pure_3d_models": [
+        "stabilityai/stable-fast-3d",
+        "microsoft/trellis",
+        "VAST-AI/TripoSR"
+      ],
+      "blocker_reason": "Stable Fast 3D, TripoSR, and TRELLIS rely on custom CUDA C++ extensions (diff-gaussian-rasterization, CUDA marching cubes) that do not compile or run under Apple Silicon Metal Performance Shaders (MPS).",
+      "status": "BLOCKED on local macOS Apple Silicon; requires dedicated remote NVIDIA CUDA cloud worker."
+    }
+  },
+  "input_sensitivity_experiment": {
+    "pairs_evaluated": 5,
+    "all_pairs_distinct": true,
+    "mean_vertex_displacement_across_pairs_mm": 173.16,
+    "mean_texture_l1_difference": 0.3174,
+    "results": [
+      {
+        "pair": "Pair 1: Tops (T-Shirt vs Tank Top)",
+        "category": "tops",
+        "garment_a": {
+          "name": "T-Shirt (Sleeved)",
+          "subcategory": "tshirt",
+          "image": "fp_tr_1007_01_tshirt.jpg",
+          "bbox_dims_m": [
+            1.1397,
+            0.54,
+            0.3565
+          ],
+          "vertex_count": 1088
+        },
+        "garment_b": {
+          "name": "Tank Top (Sleeveless)",
+          "subcategory": "top",
+          "image": "fp_tr_1004_03_tank_top.jpg",
+          "bbox_dims_m": [
+            0.7766,
+            0.89,
+            0.3565
+          ],
+          "vertex_count": 1088
+        },
+        "delta_bbox_dims_m": [
+          0.3631,
+          0.35,
+          0.0
+        ],
+        "mean_vertex_displacement_m": 0.1678,
+        "max_vertex_displacement_m": 0.35,
+        "percentage_vertices_modified": 95.3,
+        "texture_l1_difference": 0.3127,
+        "is_geometry_distinct": true,
+        "provenance_verdict": "PASS_CONDITIONED_ON_INPUT"
+      },
+      {
+        "pair": "Pair 2: Bottoms (Shorts vs Straight Jeans)",
+        "category": "bottoms",
+        "garment_a": {
+          "name": "Shorts (Short Inseam)",
+          "subcategory": "shorts",
+          "image": "fp_tr_1000_00_shorts.jpg",
+          "bbox_dims_m": [
+            0.42,
+            0.45,
+            0.28
+          ],
+          "vertex_count": 704
+        },
+        "garment_b": {
+          "name": "Straight Jeans (Full Inseam)",
+          "subcategory": "straight_jeans",
+          "image": "fp_tr_1002_09_straight_jeans.jpg",
+          "bbox_dims_m": [
+            0.42,
+            0.93,
+            0.28
+          ],
+          "vertex_count": 704
+        },
+        "delta_bbox_dims_m": [
+          0.0,
+          0.48,
+          0.0
+        ],
+        "mean_vertex_displacement_m": 0.1527,
+        "max_vertex_displacement_m": 0.48,
+        "percentage_vertices_modified": 59.1,
+        "texture_l1_difference": 0.3473,
+        "is_geometry_distinct": true,
+        "provenance_verdict": "PASS_CONDITIONED_ON_INPUT"
+      },
+      {
+        "pair": "Pair 3: Dress (Bodycon Mini vs Maxi Dress)",
+        "category": "dress",
+        "garment_a": {
+          "name": "Bodycon Dress (Short)",
+          "subcategory": "bodycon_dress",
+          "image": "fp_tr_1001_00_bodycon_dress.jpg",
+          "bbox_dims_m": [
+            0.72,
+            0.72,
+            0.52
+          ],
+          "vertex_count": 768
+        },
+        "garment_b": {
+          "name": "Maxi Dress (Floor Length)",
+          "subcategory": "maxi_dress",
+          "image": "fp_tr_1005_00_maxi_dress.jpg",
+          "bbox_dims_m": [
+            0.72,
+            1.22,
+            0.52
+          ],
+          "vertex_count": 768
+        },
+        "delta_bbox_dims_m": [
+          0.0,
+          0.5,
+          0.0
+        ],
+        "mean_vertex_displacement_m": 0.25,
+        "max_vertex_displacement_m": 0.5,
+        "percentage_vertices_modified": 95.8,
+        "texture_l1_difference": 0.3203,
+        "is_geometry_distinct": true,
+        "provenance_verdict": "PASS_CONDITIONED_ON_INPUT"
+      },
+      {
+        "pair": "Pair 4: Jacket (Blazer vs Formal Coat)",
+        "category": "jacket",
+        "garment_a": {
+          "name": "Blazer (Mid Length)",
+          "subcategory": "blazer",
+          "image": "fp_tr_1002_00_blazer.jpg",
+          "bbox_dims_m": [
+            1.1397,
+            0.62,
+            0.3565
+          ],
+          "vertex_count": 1088
+        },
+        "garment_b": {
+          "name": "Formal Coat (Long Line)",
+          "subcategory": "formal_coat",
+          "image": "fp_tr_100_09_formal_coat.jpg",
+          "bbox_dims_m": [
+            1.1397,
+            0.89,
+            0.3565
+          ],
+          "vertex_count": 1088
+        },
+        "delta_bbox_dims_m": [
+          0.0,
+          0.27,
+          0.0
+        ],
+        "mean_vertex_displacement_m": 0.0953,
+        "max_vertex_displacement_m": 0.27,
+        "percentage_vertices_modified": 67.6,
+        "texture_l1_difference": 0.2509,
+        "is_geometry_distinct": true,
+        "provenance_verdict": "PASS_CONDITIONED_ON_INPUT"
+      },
+      {
+        "pair": "Pair 5: Skirt (Pleated Skirt vs Mini Skirt)",
+        "category": "skirt",
+        "garment_a": {
+          "name": "Pleated Skirt (Midi Flare)",
+          "subcategory": "pleated_skirt",
+          "image": "fp_tr_1008_04_pleated_skirt.jpg",
+          "bbox_dims_m": [
+            0.68,
+            0.7,
+            0.48
+          ],
+          "vertex_count": 768
+        },
+        "garment_b": {
+          "name": "Mini Skirt (Short Fitted)",
+          "subcategory": "mini_skirt",
+          "image": "fp_tr_1096_03_mini_skirt.jpg",
+          "bbox_dims_m": [
+            0.68,
+            0.3,
+            0.48
+          ],
+          "vertex_count": 768
+        },
+        "delta_bbox_dims_m": [
+          0.0,
+          0.4,
+          0.0
+        ],
+        "mean_vertex_displacement_m": 0.2,
+        "max_vertex_displacement_m": 0.4,
+        "percentage_vertices_modified": 95.8,
+        "texture_l1_difference": 0.3557,
+        "is_geometry_distinct": true,
+        "provenance_verdict": "PASS_CONDITIONED_ON_INPUT"
+      }
+    ]
+  },
+  "verdict": {
+    "neural_provenance": "PASS_WITH_QUALIFICATIONS",
+    "input_conditioning_authenticity": "PASS",
+    "remote_cuda_neural_generative_3d": "BLOCKED",
+    "justification": "Output 3D geometry and texture mappings genuinely vary with input photo contours, aspect ratio, and colorways (mean dV > 15mm between distinct garments in same category). However, local execution uses hybrid parametric deformation rather than a monolithic end-to-end 3D diffusion model due to CUDA MPS incompatibility."
+  }
+}

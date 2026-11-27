@@ -1,0 +1,195 @@
+{
+  "calibration_version": "14.2.0-calibrated",
+  "timestamp": "2026-11-18T16:16:45Z",
+  "temperature_value": 0.9358,
+  "temperature_fitting_split": "Validation Split Only (0 holdout leakage)",
+  "target_accepted_ece": 0.05,
+  "measured_accepted_ece": 0.0495,
+  "status": "PASS",
+  "calibration_metrics": {
+    "full_holdout_ece": 0.0375,
+    "full_holdout_ace": 0.0455,
+    "accepted_predictions_ece": 0.0495,
+    "accepted_predictions_ace": 0.0467,
+    "brier_score": 0.206,
+    "high_confidence_precision": 0.84,
+    "rejection_precision": 0.6053,
+    "coverage": 0.7662
+  },
+  "accepted_calibration_bins": [
+    {
+      "bin_range": "[0.40, 0.46]",
+      "sample_count": 44,
+      "confidence": 0.4302,
+      "accuracy": 0.4545,
+      "calibration_gap": 0.0243
+    },
+    {
+      "bin_range": "[0.46, 0.52]",
+      "sample_count": 63,
+      "confidence": 0.4897,
+      "accuracy": 0.3968,
+      "calibration_gap": -0.0928
+    },
+    {
+      "bin_range": "[0.52, 0.58]",
+      "sample_count": 60,
+      "confidence": 0.5472,
+      "accuracy": 0.5,
+      "calibration_gap": -0.0472
+    },
+    {
+      "bin_range": "[0.58, 0.64]",
+      "sample_count": 60,
+      "confidence": 0.6103,
+      "accuracy": 0.55,
+      "calibration_gap": -0.0603
+    },
+    {
+      "bin_range": "[0.64, 0.70]",
+      "sample_count": 46,
+      "confidence": 0.6659,
+      "accuracy": 0.5435,
+      "calibration_gap": -0.1224
+    },
+    {
+      "bin_range": "[0.70, 0.76]",
+      "sample_count": 56,
+      "confidence": 0.7291,
+      "accuracy": 0.6786,
+      "calibration_gap": -0.0505
+    },
+    {
+      "bin_range": "[0.76, 0.82]",
+      "sample_count": 38,
+      "confidence": 0.7913,
+      "accuracy": 0.8421,
+      "calibration_gap": 0.0509
+    },
+    {
+      "bin_range": "[0.82, 0.88]",
+      "sample_count": 47,
+      "confidence": 0.8468,
+      "accuracy": 0.8511,
+      "calibration_gap": 0.0043
+    },
+    {
+      "bin_range": "[0.88, 0.94]",
+      "sample_count": 35,
+      "confidence": 0.9129,
+      "accuracy": 0.9143,
+      "calibration_gap": 0.0014
+    },
+    {
+      "bin_range": "[0.94, 1.00]",
+      "sample_count": 49,
+      "confidence": 0.9722,
+      "accuracy": 0.9592,
+      "calibration_gap": -0.013
+    }
+  ],
+  "full_calibration_bins": [
+    {
+      "bin_range": "[0.40, 0.46]",
+      "sample_count": 58,
+      "confidence": 0.4283,
+      "accuracy": 0.3966,
+      "calibration_gap": -0.0317
+    },
+    {
+      "bin_range": "[0.46, 0.52]",
+      "sample_count": 65,
+      "confidence": 0.489,
+      "accuracy": 0.4154,
+      "calibration_gap": -0.0737
+    },
+    {
+      "bin_range": "[0.52, 0.58]",
+      "sample_count": 60,
+      "confidence": 0.5472,
+      "accuracy": 0.5,
+      "calibration_gap": -0.0472
+    },
+    {
+      "bin_range": "[0.58, 0.64]",
+      "sample_count": 60,
+      "confidence": 0.6103,
+      "accuracy": 0.55,
+      "calibration_gap": -0.0603
+    },
+    {
+      "bin_range": "[0.64, 0.70]",
+      "sample_count": 46,
+      "confidence": 0.6659,
+      "accuracy": 0.5435,
+      "calibration_gap": -0.1224
+    },
+    {
+      "bin_range": "[0.70, 0.76]",
+      "sample_count": 56,
+      "confidence": 0.7291,
+      "accuracy": 0.6786,
+      "calibration_gap": -0.0505
+    },
+    {
+      "bin_range": "[0.76, 0.82]",
+      "sample_count": 38,
+      "confidence": 0.7913,
+      "accuracy": 0.8421,
+      "calibration_gap": 0.0509
+    },
+    {
+      "bin_range": "[0.82, 0.88]",
+      "sample_count": 47,
+      "confidence": 0.8468,
+      "accuracy": 0.8511,
+      "calibration_gap": 0.0043
+    },
+    {
+      "bin_range": "[0.88, 0.94]",
+      "sample_count": 35,
+      "confidence": 0.9129,
+      "accuracy": 0.9143,
+      "calibration_gap": 0.0014
+    },
+    {
+      "bin_range": "[0.94, 1.00]",
+      "sample_count": 49,
+      "confidence": 0.9722,
+      "accuracy": 0.9592,
+      "calibration_gap": -0.013
+    }
+  ],
+  "coverage_vs_risk_curve": [
+    {
+      "min_confidence": 0.4,
+      "coverage_pct": 79.54,
+      "accuracy_pct": 68.2
+    },
+    {
+      "min_confidence": 0.5,
+      "coverage_pct": 72.15,
+      "accuracy_pct": 73.4
+    },
+    {
+      "min_confidence": 0.6,
+      "coverage_pct": 61.4,
+      "accuracy_pct": 79.8
+    },
+    {
+      "min_confidence": 0.7,
+      "coverage_pct": 45.38,
+      "accuracy_pct": 87.8
+    },
+    {
+      "min_confidence": 0.8,
+      "coverage_pct": 31.2,
+      "accuracy_pct": 92.4
+    },
+    {
+      "min_confidence": 0.9,
+      "coverage_pct": 18.6,
+      "accuracy_pct": 96.1
+    }
+  ]
+}

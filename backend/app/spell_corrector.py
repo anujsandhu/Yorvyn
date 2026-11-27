@@ -190,7 +190,20 @@ NOTE_CORRECTIONS = {
 
 def similarity_score(a: str, b: str) -> float:
     """Calculate similarity between two strings (0.0-1.0)."""
-    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+    a_lower, b_lower = a.lower(), b.lower()
+    if a_lower == b_lower:
+        return 1.0
+    ratio = SequenceMatcher(None, a_lower, b_lower).ratio()
+    # Check for adjacent transposition / single swap
+    if len(a_lower) == len(b_lower) and sorted(a_lower) == sorted(b_lower):
+        diffs = sum(1 for x, y in zip(a_lower, b_lower) if x != y)
+        if diffs == 2:
+            return max(ratio, 0.85)
+    # Penalize low shared character counts for different words
+    shared = set(a_lower).intersection(set(b_lower))
+    if len(shared) <= 2 and max(len(a_lower), len(b_lower)) >= 5:
+        ratio = min(ratio, 0.25)
+    return ratio
 
 
 def fuzzy_match(word: str, candidates: List[str], threshold: float = 0.75) -> Optional[str]:
@@ -237,13 +250,14 @@ def correct_brand_name(brand: str) -> Tuple[str, bool]:
     
     # Direct lookup
     if brand_lower in BRAND_CORRECTIONS:
-        return BRAND_CORRECTIONS[brand_lower], True
+        corrected = BRAND_CORRECTIONS[brand_lower]
+        return corrected, (corrected != brand_lower)
     
     # Fuzzy match against known brands
     known_brands = list(set(BRAND_CORRECTIONS.values()))
     match = fuzzy_match(brand_lower, known_brands, threshold=0.8)
     if match:
-        return match, True
+        return match, (match != brand_lower)
     
     return brand, False
 
@@ -262,13 +276,14 @@ def correct_perfume_name(perfume: str) -> Tuple[str, bool]:
     
     # Direct lookup
     if perfume_lower in PERFUME_CORRECTIONS:
-        return PERFUME_CORRECTIONS[perfume_lower], True
+        corrected = PERFUME_CORRECTIONS[perfume_lower]
+        return corrected, (corrected != perfume_lower)
     
     # Fuzzy match against known perfumes
     known_perfumes = list(set(PERFUME_CORRECTIONS.values()))
     match = fuzzy_match(perfume_lower, known_perfumes, threshold=0.8)
     if match:
-        return match, True
+        return match, (match != perfume_lower)
     
     return perfume, False
 
@@ -287,13 +302,14 @@ def correct_note(note: str) -> Tuple[str, bool]:
     
     # Direct lookup
     if note_lower in NOTE_CORRECTIONS:
-        return NOTE_CORRECTIONS[note_lower], True
+        corrected = NOTE_CORRECTIONS[note_lower]
+        return corrected, (corrected != note_lower)
     
     # Fuzzy match against known notes
     known_notes = list(set(NOTE_CORRECTIONS.values()))
     match = fuzzy_match(note_lower, known_notes, threshold=0.8)
     if match:
-        return match, True
+        return match, (match != note_lower)
     
     return note, False
 
@@ -354,7 +370,8 @@ def extract_brand_and_perfume(text: str) -> Tuple[Optional[str], Optional[str]]:
     Returns:
         (brand, perfume_name)
     """
-    text_lower = text.lower()
+    corrected_text, _ = correct_text(text)
+    text_lower = corrected_text.lower()
     
     # Pattern: "brand perfume" or "perfume by brand"
     # Example: "dior sauvage" or "sauvage by dior"

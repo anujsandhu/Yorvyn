@@ -1,0 +1,50 @@
+{
+  "evaluation_version": "14.2.0-selective-prediction",
+  "timestamp": "2026-11-18T16:16:45Z",
+  "total_holdout_samples": 650,
+  "outcome_distribution": {
+    "accepted_high_confidence": 225,
+    "accepted_low_confidence": 273,
+    "rejected_ambiguous": 152,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0
+  },
+  "accounting_reconciliation": {
+    "accepted_high_confidence": 225,
+    "accepted_low_confidence": 273,
+    "rejected_ambiguous": 152,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0,
+    "total_accounted": 650,
+    "holdout_count": 650,
+    "status": "RECONCILED_EXACT (Sum == 650 exactly)"
+  },
+  "target_metrics": {
+    "target_high_confidence_precision": 0.9,
+    "measured_high_confidence_precision": 0.84,
+    "target_rejection_precision": 0.9,
+    "measured_rejection_precision": 0.6053,
+    "target_coverage": 0.75,
+    "measured_coverage": 0.7662
+  },
+  "selective_performance_metrics": {
+    "high_confidence_precision": 0.84,
+    "high_confidence_precision_percent": "84.0%",
+    "rejection_precision": 0.6053,
+    "rejection_precision_percent": "60.53%",
+    "selective_coverage": 0.7662,
+    "selective_coverage_percent": "76.62%",
+    "false_acceptance_rate": 0.16,
+    "false_rejection_rate": 0.3947
+  },
+  "mece_decision_rules": {
+    "accepted_high_confidence": "Calibrated confidence >= 0.70 with valid bounding box and mask",
+    "accepted_low_confidence": "Calibrated confidence in [0.40, 0.70) with clear category margin",
+    "rejected_ambiguous": "Entropy > 1.8 or top confidence < 0.40, routed to user clarification UI",
+    "rejected_invalid_input": "Corrupted, empty, or non-image payloads",
+    "rejected_unsupported": "Out-of-domain categories outside 10 canonical domains",
+    "inference_failure": "Runtime engine exceptions or hardware timeout"
+  }
+}

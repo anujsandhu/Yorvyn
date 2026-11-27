@@ -1,0 +1,32 @@
+{
+  "evaluation_version": "14.2.0-multigarment-scene",
+  "timestamp": "2026-11-18T16:05:47Z",
+  "multi_garment_scene_metrics": {
+    "multi_garment_scenes_evaluated": 71,
+    "multi_garment_scenes_detected": 34,
+    "multi_garment_detection_rate": 0.4789,
+    "multi_garment_detection_rate_percent": "47.89%",
+    "outfit_grid_scenes_evaluated": 34,
+    "outfit_grid_pairing_detected": 20,
+    "outfit_grid_pairing_accuracy": 0.5882,
+    "outfit_grid_pairing_accuracy_percent": "58.82%",
+    "single_garment_scenes_evaluated": 29,
+    "single_garment_accuracy": 1.0,
+    "total_instances_extracted": 168,
+    "average_instances_per_image": 1.68
+  },
+  "supported_outfit_combinations": [
+    "shirt + trousers",
+    "t-shirt + jeans",
+    "dress + footwear",
+    "jacket + inner shirt",
+    "hoodie + joggers",
+    "skirt + blouse",
+    "outerwear + footwear + accessories"
+  ],
+  "multi_instance_guarantees": {
+    "discrete_instance_records": "Every detected garment produces independent bounding box, mask, and classification",
+    "zero_global_blending": "Ensembles are never merged into a single generic top-level classification",
+    "independent_3d_tryon_routing": "User selects individual instance for dedicated 3D reconstruction"
+  }
+}

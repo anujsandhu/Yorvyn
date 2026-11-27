@@ -1,0 +1,3156 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_7_MULTIGARMENT_EVALUATION",
+  "phase": "14.7",
+  "timestamp": "2026-11-19 14:14:20 UTC",
+  "auditor": "Principal Computer Vision Research Engineer",
+  "benchmark_summary": {
+    "total_scenes_evaluated": 60,
+    "total_ground_truth_garments": 208,
+    "total_true_positives": 128,
+    "total_false_positives": 108,
+    "benchmark_duration_seconds": 30.4,
+    "mean_latency_ms_per_scene": 506.7
+  },
+  "raw_measured_metrics": {
+    "per_instance_recall_pct": 61.54,
+    "per_instance_precision_pct": 54.24,
+    "complete_scene_recovery_rate_pct": 18.33,
+    "false_positive_rate_per_image": 1.8,
+    "underlayer_extraction_rate_pct": 33.33,
+    "outfit_pairing_accuracy_pct": 93.1
+  },
+  "discrepancy_05_resolution": "The artificial max/min clamping in evaluate_phase_14_6_multigarment.py (max(recall, 88.54), min(fp, 0.183)) was removed entirely. All figures above represent raw, empirical counts directly from SegFormer-B2 and instance contours.",
+  "failure_analysis": {
+    "underlayer_failures_count": 4,
+    "examples": [
+      {
+        "scene_id": "scene_0000",
+        "failure_type": "underlayer_extraction_missed",
+        "gt_categories": [
+          "jacket",
+          "shirt"
+        ],
+        "detected_categories": [
+          "tops",
+          "shirt"
+        ]
+      },
+      {
+        "scene_id": "scene_0006",
+        "failure_type": "underlayer_extraction_missed",
+        "gt_categories": [
+          "bottoms",
+          "tops",
+          "accessories",
+          "jacket"
+        ],
+        "detected_categories": [
+          "jacket",
+          "jacket",
+          "bottoms",
+          "bottoms"
+        ]
+      },
+      {
+        "scene_id": "scene_0020",
+        "failure_type": "underlayer_extraction_missed",
+        "gt_categories": [
+          "skirt",
+          "tops",
+          "jacket",
+          "footwear",
+          "footwear"
+        ],
+        "detected_categories": [
+          "traditional",
+          "shirt",
+          "skirt"
+        ]
+      },
+      {
+        "scene_id": "scene_0064",
+        "failure_type": "underlayer_extraction_missed",
+        "gt_categories": [
+          "shirt",
+          "jacket",
+          "tops",
+          "bottoms",
+          "footwear",
+          "footwear",
+          "jacket"
+        ],
+        "detected_categories": [
+          "jacket",
+          "jacket",
+          "bottoms",
+          "footwear",
+          "footwear"
+        ]
+      }
+    ],
+    "common_failure_modes": [
+      "Heavily buttoned/zipped outerwear occluding the interior shirt neckline",
+      "Monochromatic tone-on-tone outfits (e.g. black top inside black coat) blending into single contour",
+      "Accessory overlap at waistband region confusing vertical separation"
+    ]
+  },
+  "overall_verdict": "PASS_WITH_QUALIFICATIONS",
+  "per_scene_records": [
+    {
+      "scene_id": "scene_0000",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "jacket",
+        "shirt"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 3756.7
+    },
+    {
+      "scene_id": "scene_0001",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "accessories",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 426.6
+    },
+    {
+      "scene_id": "scene_0002",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "bottoms",
+        "jacket"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "formal_coat",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 530.5
+    },
+    {
+      "scene_id": "scene_0003",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "footwear",
+        "footwear",
+        "bottoms"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 452.1
+    },
+    {
+      "scene_id": "scene_0004",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "jacket",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_shirt",
+          "category": "shirt",
+          "subcategory": "casual_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 396.5
+    },
+    {
+      "scene_id": "scene_0005",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "shirt"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_shirt",
+          "category": "shirt",
+          "subcategory": "casual_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 2,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 393.5
+    },
+    {
+      "scene_id": "scene_0006",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "bottoms",
+        "tops",
+        "accessories",
+        "jacket"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 2,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 455.3
+    },
+    {
+      "scene_id": "scene_0007",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_accessories",
+          "category": "accessories",
+          "subcategory": "denim_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 398.2
+    },
+    {
+      "scene_id": "scene_0008",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 440.0
+    },
+    {
+      "scene_id": "scene_0009",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 413.5
+    },
+    {
+      "scene_id": "scene_0010",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_garments": [
+        "shirt",
+        "footwear",
+        "footwear",
+        "bottoms"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_shirt",
+          "category": "shirt",
+          "subcategory": "casual_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 396.7
+    },
+    {
+      "scene_id": "scene_0012",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_accessories",
+          "category": "accessories",
+          "subcategory": "scarf",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_bottoms",
+          "category": "bottoms",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_6_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_7_accessories",
+          "category": "accessories",
+          "subcategory": "cap",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 6,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 533.4
+    },
+    {
+      "scene_id": "scene_0013",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "skirt",
+        "tops",
+        "accessories"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "mini_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 2,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 490.9
+    },
+    {
+      "scene_id": "scene_0014",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "skirt",
+        "tops",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_accessories",
+          "category": "accessories",
+          "subcategory": "belt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 0,
+      "false_positives": 3,
+      "missed_count": 4,
+      "is_complete_scene": false,
+      "latency_ms": 397.9
+    },
+    {
+      "scene_id": "scene_0015",
+      "image_size": [
+        633,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 415.7
+    },
+    {
+      "scene_id": "scene_0016",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "bottoms",
+        "footwear",
+        "footwear",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 415.3
+    },
+    {
+      "scene_id": "scene_0017",
+      "image_size": [
+        768,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 402.7
+    },
+    {
+      "scene_id": "scene_0018",
+      "image_size": [
+        677,
+        1024
+      ],
+      "gt_garments": [
+        "jacket",
+        "footwear",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 4,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 440.2
+    },
+    {
+      "scene_id": "scene_0019",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 388.0
+    },
+    {
+      "scene_id": "scene_0020",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "skirt",
+        "tops",
+        "jacket",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_shirt",
+          "category": "shirt",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 4,
+      "is_complete_scene": false,
+      "latency_ms": 466.3
+    },
+    {
+      "scene_id": "scene_0021",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_accessories",
+          "category": "accessories",
+          "subcategory": "tote_bag",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 399.0
+    },
+    {
+      "scene_id": "scene_0022",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "jacket",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "bomber_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 3,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 501.1
+    },
+    {
+      "scene_id": "scene_0023",
+      "image_size": [
+        785,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "crop_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 498.6
+    },
+    {
+      "scene_id": "scene_0025",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "formal_coat",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "formal_coat",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 2,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 420.8
+    },
+    {
+      "scene_id": "scene_0027",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "bottoms",
+        "shirt"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_shirt",
+          "category": "shirt",
+          "subcategory": "formal_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 426.5
+    },
+    {
+      "scene_id": "scene_0029",
+      "image_size": [
+        632,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 382.5
+    },
+    {
+      "scene_id": "scene_0031",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 397.8
+    },
+    {
+      "scene_id": "scene_0032",
+      "image_size": [
+        1024,
+        823
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 491.6
+    },
+    {
+      "scene_id": "scene_0034",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "oversized_hoodie",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_skirt",
+          "category": "skirt",
+          "subcategory": "skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 4,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 435.7
+    },
+    {
+      "scene_id": "scene_0035",
+      "image_size": [
+        633,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_shirt",
+          "category": "shirt",
+          "subcategory": "oxford_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "maxi_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 406.2
+    },
+    {
+      "scene_id": "scene_0036",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "dress",
+        "accessories",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_skirt",
+          "category": "skirt",
+          "subcategory": "mini_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 2,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 438.2
+    },
+    {
+      "scene_id": "scene_0037",
+      "image_size": [
+        550,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "denim_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_bottoms",
+          "category": "bottoms",
+          "subcategory": "formal_trousers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 360.2
+    },
+    {
+      "scene_id": "scene_0039",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_accessories",
+          "category": "accessories",
+          "subcategory": "mini_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 2,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 432.3
+    },
+    {
+      "scene_id": "scene_0040",
+      "image_size": [
+        618,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "mini_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 366.6
+    },
+    {
+      "scene_id": "scene_0041",
+      "image_size": [
+        768,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 461.9
+    },
+    {
+      "scene_id": "scene_0042",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "jacket",
+        "accessories",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_shirt",
+          "category": "shirt",
+          "subcategory": "formal_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_dresses_and_skirts",
+          "category": "dresses_and_skirts",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 3,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 461.1
+    },
+    {
+      "scene_id": "scene_0044",
+      "image_size": [
+        493,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_bottoms",
+          "category": "bottoms",
+          "subcategory": "formal_trousers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 340.8
+    },
+    {
+      "scene_id": "scene_0045",
+      "image_size": [
+        1024,
+        819
+      ],
+      "gt_garments": [
+        "tops",
+        "skirt",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 493.6
+    },
+    {
+      "scene_id": "scene_0046",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 447.6
+    },
+    {
+      "scene_id": "scene_0047",
+      "image_size": [
+        680,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "dress"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 418.4
+    },
+    {
+      "scene_id": "scene_0048",
+      "image_size": [
+        834,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "skirt",
+        "accessories",
+        "jacket"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 597.1
+    },
+    {
+      "scene_id": "scene_0049",
+      "image_size": [
+        875,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_6_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 4,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 763.4
+    },
+    {
+      "scene_id": "scene_0050",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "accessories",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "maxi_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_skirt",
+          "category": "skirt",
+          "subcategory": "pencil_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 619.7
+    },
+    {
+      "scene_id": "scene_0051",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear",
+        "accessories"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "formal_coat",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 496.3
+    },
+    {
+      "scene_id": "scene_0052",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "bottoms",
+        "dress",
+        "jacket"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_hoodie",
+          "category": "hoodie",
+          "subcategory": "pullover_hoodie",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 417.8
+    },
+    {
+      "scene_id": "scene_0053",
+      "image_size": [
+        681,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 466.7
+    },
+    {
+      "scene_id": "scene_0054",
+      "image_size": [
+        680,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "tops",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 422.9
+    },
+    {
+      "scene_id": "scene_0055",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "gt_garments": [
+        "footwear",
+        "footwear",
+        "bottoms",
+        "tops",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 4,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 866.4
+    },
+    {
+      "scene_id": "scene_0056",
+      "image_size": [
+        681,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 4,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 461.6
+    },
+    {
+      "scene_id": "scene_0057",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_garments": [
+        "dress",
+        "jacket",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "kurta",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 2,
+      "missed_count": 3,
+      "is_complete_scene": false,
+      "latency_ms": 449.8
+    },
+    {
+      "scene_id": "scene_0059",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 481.5
+    },
+    {
+      "scene_id": "scene_0060",
+      "image_size": [
+        430,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 1,
+      "missed_count": 0,
+      "is_complete_scene": true,
+      "latency_ms": 284.5
+    },
+    {
+      "scene_id": "scene_0062",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "shift_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 404.6
+    },
+    {
+      "scene_id": "scene_0063",
+      "image_size": [
+        651,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "pleated_skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 357.4
+    },
+    {
+      "scene_id": "scene_0064",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "shirt",
+        "jacket",
+        "tops",
+        "bottoms",
+        "footwear",
+        "footwear",
+        "jacket"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_jacket",
+          "category": "jacket",
+          "subcategory": "blazer",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "slim_jeans",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 5,
+      "false_positives": 0,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 444.8
+    },
+    {
+      "scene_id": "scene_0065",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_hoodie",
+          "category": "hoodie",
+          "subcategory": "pullover_hoodie",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_skirt",
+          "category": "skirt",
+          "subcategory": "skirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_footwear",
+          "category": "footwear",
+          "subcategory": "sneakers",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 3,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 450.7
+    },
+    {
+      "scene_id": "scene_0066",
+      "image_size": [
+        1024,
+        731
+      ],
+      "gt_garments": [
+        "footwear",
+        "bottoms",
+        "footwear",
+        "tops"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_shirt",
+          "category": "shirt",
+          "subcategory": "formal_shirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_tops",
+          "category": "tops",
+          "subcategory": "casual_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_3_shirt",
+          "category": "shirt",
+          "subcategory": "tshirt",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_4_bottoms",
+          "category": "bottoms",
+          "subcategory": "shorts",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_5_footwear",
+          "category": "footwear",
+          "subcategory": "boots",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 3,
+      "false_positives": 3,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 486.2
+    },
+    {
+      "scene_id": "scene_0067",
+      "image_size": [
+        1024,
+        720
+      ],
+      "gt_garments": [
+        "dress",
+        "jacket",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_traditional",
+          "category": "traditional",
+          "subcategory": "saree",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_jacket",
+          "category": "jacket",
+          "subcategory": "leather_jacket",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 411.2
+    },
+    {
+      "scene_id": "scene_0069",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_garments": [
+        "tops",
+        "bottoms",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_jacket",
+          "category": "jacket",
+          "subcategory": "tote_bag",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_bottoms",
+          "category": "bottoms",
+          "subcategory": "chinos",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_2_tops",
+          "category": "tops",
+          "subcategory": "tank_top",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 2,
+      "false_positives": 1,
+      "missed_count": 1,
+      "is_complete_scene": false,
+      "latency_ms": 407.2
+    },
+    {
+      "scene_id": "scene_0070",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_garments": [
+        "dress",
+        "footwear",
+        "footwear"
+      ],
+      "detected_instances": [
+        {
+          "instance_id": "inst_0_dress",
+          "category": "dress",
+          "subcategory": "a_line_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        },
+        {
+          "instance_id": "inst_1_dress",
+          "category": "dress",
+          "subcategory": "bodycon_dress",
+          "confidence": 0.7,
+          "occlusion_ratio": 0.0,
+          "visibility_ratio": 1.0
+        }
+      ],
+      "true_positives": 1,
+      "false_positives": 1,
+      "missed_count": 2,
+      "is_complete_scene": false,
+      "latency_ms": 404.8
+    }
+  ]
+}

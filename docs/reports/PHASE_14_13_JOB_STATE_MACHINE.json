@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Unified Job State Machine",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "states_enforced": [
+      "SUBMITTED",
+      "QUEUED",
+      "CLAIMED",
+      "PROCESSING",
+      "COMPLETED",
+      "FAILED",
+      "CANCELLED",
+      "DEAD_LETTERED"
+    ],
+    "terminal_states": [
+      "DEAD_LETTERED",
+      "CANCELLED",
+      "COMPLETED"
+    ],
+    "verdict": "PASS"
+  },
+  "legal_transitions": {
+    "SUBMITTED": [
+      "QUEUED",
+      "CANCELLED"
+    ],
+    "QUEUED": [
+      "CLAIMED",
+      "DEAD_LETTERED",
+      "CANCELLED"
+    ],
+    "CLAIMED": [
+      "QUEUED",
+      "PROCESSING",
+      "FAILED",
+      "DEAD_LETTERED",
+      "CANCELLED"
+    ],
+    "PROCESSING": [
+      "FAILED",
+      "DEAD_LETTERED",
+      "CANCELLED",
+      "COMPLETED"
+    ],
+    "COMPLETED": [],
+    "FAILED": [
+      "QUEUED",
+      "DEAD_LETTERED"
+    ],
+    "CANCELLED": [],
+    "DEAD_LETTERED": []
+  },
+  "tests": [
+    {
+      "test_id": "SM-14-13-01",
+      "name": "Legal State Progression (Happy Path)",
+      "path": "SUBMITTED -> QUEUED -> CLAIMED -> PROCESSING -> COMPLETED",
+      "expected": "COMPLETED",
+      "actual": "COMPLETED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-02",
+      "name": "Terminal State Immutability",
+      "description": "Verify COMPLETED jobs reject any subsequent state transitions",
+      "expected": "Transitions rejected, status remains COMPLETED",
+      "actual": "t_cancel=False, t_fail=False, state=COMPLETED",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-03",
+      "name": "Illegal State Skip Prevention",
+      "description": "Verify SUBMITTED -> COMPLETED without processing is rejected",
+      "expected": "Transition rejected",
+      "actual": "allowed=False, msg=Illegal transition: 'SUBMITTED' -> 'COMPLETED' is not allowed",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-04",
+      "name": "Lease Expiration & Abandoned Claim Recovery",
+      "description": "Verify expired worker claims are detected and safely re-queued",
+      "expected": "expired=True, re-queued with retry_count=1",
+      "actual": "expired=True, recovered=True, state=QUEUED, retries=1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-05",
+      "name": "Worker Heartbeat Lease Renewal & Rogue Prevention",
+      "description": "Verify claiming worker can renew lease, foreign workers are rejected",
+      "expected": "renewed=True, unexpired=True, rogue_rejected=True",
+      "actual": "renewed=True, active=True, rogue_blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-06",
+      "name": "Bounded Retries Exhaustion -> DEAD_LETTERED",
+      "description": "Verify jobs exceeding max_retries transition strictly to DEAD_LETTERED",
+      "expected": "DEAD_LETTERED",
+      "actual": "state=DEAD_LETTERED, retries=2",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SM-14-13-07",
+      "name": "Tenant Ownership Boundary Assertion",
+      "description": "Verify job ownership rejects cross-tenant requests and unauthorized callers",
+      "expected": "alice=True, mallory=False, anon=False",
+      "actual": "alice=True, mallory_blocked=True, anon_blocked=True",
+      "status": "PASS"
+    }
+  ]
+}

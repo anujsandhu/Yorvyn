@@ -1,0 +1,5822 @@
+{
+  "phase": "13.7",
+  "timestamp": "2026-11-14T18:42:31Z",
+  "specification": {
+    "coordinate_space": "Three.js bind space (meters)",
+    "min_clearance_envelope_guaranteed_mm": 3.0,
+    "tested_poses": [
+      "idle",
+      "walking",
+      "arm_raising",
+      "arm_bending",
+      "sitting",
+      "squatting"
+    ],
+    "evaluated_anatomical_regions": [
+      "chest",
+      "bust",
+      "upper_back",
+      "lower_back",
+      "waist",
+      "abdomen",
+      "hips",
+      "crotch",
+      "left_shoulder",
+      "right_shoulder",
+      "left_bicep",
+      "right_bicep",
+      "left_thigh",
+      "right_thigh",
+      "left_calf",
+      "right_calf"
+    ],
+    "multi_archetypes_tested": [
+      "slim_lean",
+      "standard_175",
+      "athletic_broad",
+      "plus_curvy"
+    ]
+  },
+  "records": [
+    {
+      "sample_id": "REPO_01_HOODIE",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 152,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.64,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 89,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.12,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.0,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.38,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.66,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.59,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 47,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 88,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.54,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.38,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.77,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.74,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.32,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.53,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 13.05,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.51,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 13.03,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "REPO_02_GRAPHIC_TEE",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 44,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.12,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.16,
+          "p95_clearance_mm": 5.56,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.98,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.42,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.42,
+          "p95_clearance_mm": 4.93,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.73,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.73,
+          "p95_clearance_mm": 4.57,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.6,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.6,
+          "p95_clearance_mm": 4.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.68,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.01,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.12,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.6,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.68,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.63,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.72,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "REPO_03_BLUE_JEANS",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.88,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 30,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.27,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.88,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.95,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.25,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.98,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.03,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.85,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.85,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.86,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "REPO_04_FORMAL_SHIRT",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 82,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.07,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 64,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.46,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.49,
+          "p95_clearance_mm": 4.8,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.03,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 69,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.56,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.56,
+          "p95_clearance_mm": 4.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 52,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.89,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.89,
+          "p95_clearance_mm": 4.09,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 57,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.66,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.73,
+          "p95_clearance_mm": 4.29,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 138,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.11,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.22,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.96,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.39,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.65,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_01_DENIM_JACKET_GM",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.88,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 26,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.98,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.72,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.97,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 42,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.06,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.46,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.08,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_02_DENIM_JACKET_FLAT",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 98,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.17,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 61,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.08,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.08,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.09,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.6,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 16,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.7,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.7,
+          "p95_clearance_mm": 4.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 100,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.61,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.52,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.55,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.28,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.78,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.14,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.77,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_04_BLAZER_GM",
+      "category": "outerwear",
+      "subcategory": "blazer",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 88,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.17,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.89,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 72,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.07,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.55,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.25,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.56,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.59,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.6,
+          "p95_clearance_mm": 4.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.45,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 100,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.3,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.79,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.8,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.69,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 38,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.68,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.16,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 38,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.67,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.16,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_05_HOODIE_DARK_HANG",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 88,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.5,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.64,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 64,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.43,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.49,
+          "p95_clearance_mm": 4.77,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 64,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.34,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.3,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 69,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.55,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.55,
+          "p95_clearance_mm": 4.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.76,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.8,
+          "p95_clearance_mm": 4.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.63,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.64,
+          "p95_clearance_mm": 4.36,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 144,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.33,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.0,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.96,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.39,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.65,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_06_HOODIE_WHITE_ZIP",
+      "category": "outerwear",
+      "subcategory": "blazer",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 88,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.17,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.88,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 65,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.08,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.55,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.25,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 56,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.58,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 16,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.68,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.68,
+          "p95_clearance_mm": 4.32,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.45,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 117,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.59,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.81,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.8,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.7,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.65,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.24,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.64,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.25,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_07_HOODIE_BACK_ONBODY",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 76,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.02,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 64,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.45,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.48,
+          "p95_clearance_mm": 4.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.04,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 69,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.55,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.55,
+          "p95_clearance_mm": 4.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.81,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.85,
+          "p95_clearance_mm": 4.12,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.63,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.63,
+          "p95_clearance_mm": 4.36,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 143,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.21,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.11,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.97,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.39,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.66,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_09_TARTAN_DRESS",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 72,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.53,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.58,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 54,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.7,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.58,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.8,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.11,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.19,
+          "p95_clearance_mm": 5.39,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.36,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.36,
+          "p95_clearance_mm": 4.83,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.19,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.28,
+          "p95_clearance_mm": 5.38,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 114,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.29,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.04,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.11,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.96,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.44,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.96,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_10_NORDIC_SWEATER",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 56,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.12,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.01,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.01,
+          "p95_clearance_mm": 5.61,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.69,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.22,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.23,
+          "p95_clearance_mm": 5.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.63,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.63,
+          "p95_clearance_mm": 4.88,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 23,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.43,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.43,
+          "p95_clearance_mm": 5.16,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.26,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.78,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.53,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.06,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.59,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.34,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.99,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.32,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.04,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_11_KHAKI_WORK_SHIRT",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.68,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.17,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.18,
+          "p95_clearance_mm": 5.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.08,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.69,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.38,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.38,
+          "p95_clearance_mm": 5.01,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 17,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.85,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.86,
+          "p95_clearance_mm": 4.34,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.57,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.57,
+          "p95_clearance_mm": 4.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.3,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 26,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.11,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.97,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 26,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.04,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_12_PLAID_SHIRT_FOLDED",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 86,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.88,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.61,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 54,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.06,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.99,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.9,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.71,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 51,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.02,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.17,
+          "p95_clearance_mm": 5.35,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.25,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.25,
+          "p95_clearance_mm": 4.99,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 50,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.13,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.27,
+          "p95_clearance_mm": 5.09,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 117,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.17,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.46,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.84,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.57,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.85,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.45,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 38,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.35,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_13_PLAID_COAT_ONBODY",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.76,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.56,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 10,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.55,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.56,
+          "p95_clearance_mm": 5.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.76,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.77,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 17,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.31,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.31,
+          "p95_clearance_mm": 5.03,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 9,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.78,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.78,
+          "p95_clearance_mm": 4.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 56,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.7,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.91,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 21,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.99,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.5,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.43,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.63,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 6,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 6,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.34,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_14_MINT_SHIRT_FOLDED",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 107,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.72,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.36,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.32,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.4,
+          "p95_clearance_mm": 5.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 84,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.76,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.52,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 72,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.42,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.43,
+          "p95_clearance_mm": 4.43,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.73,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.76,
+          "p95_clearance_mm": 4.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.63,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.63,
+          "p95_clearance_mm": 4.34,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 141,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.28,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.76,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 34,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.57,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.89,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.6,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.91,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_15_BLUE_DRESS_SHIRT",
+      "category": "outerwear",
+      "subcategory": "blazer",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 76,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.51,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 69,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.25,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.16,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 50,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.73,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 16,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.66,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.68,
+          "p95_clearance_mm": 4.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.5,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 100,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.25,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.48,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.82,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.77,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.05,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.12,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_17_PINK_TEE_HANG",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 107,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.65,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.17,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.47,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.57,
+          "p95_clearance_mm": 4.86,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 92,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.74,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.33,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 78,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.47,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.47,
+          "p95_clearance_mm": 4.46,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.78,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.82,
+          "p95_clearance_mm": 4.12,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.64,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.65,
+          "p95_clearance_mm": 4.35,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 147,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.98,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.14,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.12,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.69,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 44,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.43,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.68,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_18_GREEN_TEE_FLAT",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 61,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.28,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.07,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.17,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.27,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.01,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.04,
+          "p95_clearance_mm": 5.87,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.12,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.13,
+          "p95_clearance_mm": 5.08,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 47,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.11,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.25,
+          "p95_clearance_mm": 5.24,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 114,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.21,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.96,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.6,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.99,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.48,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 52,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.35,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.44,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.34,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.55,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_19_BEIGE_CHINOS_FLAT",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.88,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 26,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.14,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.0,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.2,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 28,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 34,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.95,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_20_CORAL_CHINOS_FOLD",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.73,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.73,
+          "p95_clearance_mm": 4.52,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.36,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.91,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 21,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.27,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 18,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.97,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.71,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 5,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.9,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.88,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 8,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.77,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.56,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_21_OLIVE_CARGO_PANTS",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 73,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.04,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 54,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.71,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 59,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.95,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 53,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.1,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.19,
+          "p95_clearance_mm": 5.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.35,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.35,
+          "p95_clearance_mm": 4.83,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 46,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.28,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.29,
+          "p95_clearance_mm": 5.36,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 114,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.22,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.96,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.96,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.97,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.03,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.91,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.96,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_22_KHAKI_CARGO_SHORTS",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.73,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.73,
+          "p95_clearance_mm": 4.52,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 22,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.12,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.06,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.1,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 22,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.0,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.83,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 7,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 8,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.75,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.51,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_23_PATTERN_SKIRT",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 105,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.16,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.83,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 68,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.09,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 55,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.03,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.59,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 16,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.7,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.7,
+          "p95_clearance_mm": 4.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.01,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 100,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.24,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.48,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.63,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.58,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.02,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 37,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.73,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.17,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 38,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.68,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 14.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_24_DARK_SKIRT_ONBODY",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.88,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 61,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.35,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.49,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.94,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.07,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.94,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.02,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_25_GOLD_PLEATED_SKIRT",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 108,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.43,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.78,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.4,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.41,
+          "p95_clearance_mm": 4.77,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 91,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.45,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.93,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 83,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.52,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.53,
+          "p95_clearance_mm": 4.48,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.67,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.7,
+          "p95_clearance_mm": 4.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 67,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.67,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.67,
+          "p95_clearance_mm": 4.35,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 138,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.28,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.02,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.0,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.87,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.34,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.65,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.97,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.66,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_26_BEIGE_DRESS_GM",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 15,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.49,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 10,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.47,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.48,
+          "p95_clearance_mm": 5.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 11,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.14,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.14,
+          "p95_clearance_mm": 5.4,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 10,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.73,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.73,
+          "p95_clearance_mm": 4.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 8,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.56,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.57,
+          "p95_clearance_mm": 4.41,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 9,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.74,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.74,
+          "p95_clearance_mm": 4.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 34,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.5,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.1,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 21,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 22,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.06,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.49,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.43,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 6,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.31,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 6,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.35,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_27_KURTA_YELLOW_HANG",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 15,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.02,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.49,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 10,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.48,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.48,
+          "p95_clearance_mm": 5.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 11,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.14,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.15,
+          "p95_clearance_mm": 5.39,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 10,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.74,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.74,
+          "p95_clearance_mm": 4.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 8,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.54,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.55,
+          "p95_clearance_mm": 4.42,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 9,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.74,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.74,
+          "p95_clearance_mm": 4.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 34,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.48,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.07,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 21,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 22,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.06,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 19,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.49,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 20,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.43,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 4,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.8,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.8,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 4,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.89,
+          "p95_clearance_mm": 4.14,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_28_KURTA_WHITE_ONBODY",
+      "category": "tops",
+      "subcategory": "sweater",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 47,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 26,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.38,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.38,
+          "p95_clearance_mm": 5.17,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.24,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.57,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.58,
+          "p95_clearance_mm": 4.41,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.69,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.74,
+          "p95_clearance_mm": 4.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.74,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.74,
+          "p95_clearance_mm": 4.3,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 66,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.27,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.87,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 30,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.06,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.19,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.11,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 44,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.41,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.65,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.48,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_29_KURTA_CREAM_MUSEUM",
+      "category": "tops",
+      "subcategory": "sweater",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 48,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.25,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.3,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.3,
+          "p95_clearance_mm": 5.21,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.49,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.5,
+          "p95_clearance_mm": 4.44,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.71,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.72,
+          "p95_clearance_mm": 4.69,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 27,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.72,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.72,
+          "p95_clearance_mm": 4.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 70,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.44,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 31,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 33,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.56,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 44,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.4,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.63,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.49,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_30_JEANS_WRINKLED_FLAT",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 12,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.88,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.88,
+          "p95_clearance_mm": 4.23,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 42,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.34,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.84,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.92,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.69,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 24,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.92,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.66,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 8.18,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_31_BLACK_FLORAL_DRESS",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 85,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.94,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.47,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.47,
+          "p95_clearance_mm": 4.83,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 69,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.18,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.87,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 80,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.49,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.49,
+          "p95_clearance_mm": 4.47,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 60,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.8,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.81,
+          "p95_clearance_mm": 4.13,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 68,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.6,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.67,
+          "p95_clearance_mm": 4.36,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 134,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.13,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.52,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.1,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.32,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 29,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.07,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.37,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 43,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.44,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.67,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 45,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.39,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 10.66,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_32_RED_KNIT_CARDIGAN",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 62,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.19,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.05,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 47,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.04,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.57,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 50,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.14,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.01,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.02,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.17,
+          "p95_clearance_mm": 5.11,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 32,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.04,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.04,
+          "p95_clearance_mm": 4.95,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 41,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.25,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.25,
+          "p95_clearance_mm": 4.82,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 114,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.2,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 6.95,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 46,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.78,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.99,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 46,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.79,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 35,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.11,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.07,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 34,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.09,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 11.95,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "sample_id": "WM_34_WHITE_TEE_ONBODY",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "base_clearance_mm": 4.0,
+      "min_clearance_guaranteed_mm": 3.0,
+      "penetration_count": 0,
+      "regional_clearances": {
+        "chest": {
+          "vertex_count": 87,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.65,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.26,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "bust": {
+          "vertex_count": 52,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.05,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 5.85,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "upper_back": {
+          "vertex_count": 77,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.71,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "lower_back": {
+          "vertex_count": 49,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.13,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.22,
+          "p95_clearance_mm": 5.29,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "waist": {
+          "vertex_count": 40,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.09,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.1,
+          "p95_clearance_mm": 5.05,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "abdomen": {
+          "vertex_count": 42,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.23,
+          "mean_clearance_mm": 4.0,
+          "p05_clearance_mm": 3.28,
+          "p95_clearance_mm": 4.93,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "hips": {
+          "vertex_count": 116,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 4.23,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 7.24,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "crotch": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.15,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_shoulder": {
+          "vertex_count": 36,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 5.16,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 9.79,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.07,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.55,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_bicep": {
+          "vertex_count": 39,
+          "coverage_status": "ACTIVE_COVERED",
+          "min_clearance_mm": 3.0,
+          "mean_clearance_mm": 6.08,
+          "p05_clearance_mm": 3.0,
+          "p95_clearance_mm": 12.59,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_thigh": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "left_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        },
+        "right_calf": {
+          "vertex_count": 0,
+          "coverage_status": "NOT_COVERED_BY_GARMENT",
+          "min_clearance_mm": null,
+          "mean_clearance_mm": null,
+          "p05_clearance_mm": null,
+          "p95_clearance_mm": null,
+          "penetration_count": 0,
+          "status": "PASS"
+        }
+      }
+    }
+  ]
+}

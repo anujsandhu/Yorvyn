@@ -1,0 +1,141 @@
+{
+  "benchmark_version": "14.0.0",
+  "timestamp": "2026-11-17T17:33:12Z",
+  "total_categories_verified": 8,
+  "total_archetypes_verified": 4,
+  "contact_sheets_directory": "docs/reports/phase_14_0_visual_qa/",
+  "categories": [
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "display_name": "Oversized Pullover Hoodie",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_hoodie.png",
+      "contact_sheet_sha256": "62141d9090d9d124c7600e94763a0613f70770c8d5256608cbb21a4fed6f5f58",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "formal_shirt",
+      "subcategory": "formal_shirt",
+      "display_name": "Tailored Oxford Formal Shirt",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_formal_shirt.png",
+      "contact_sheet_sha256": "598e3880001e9d280570db5ff0b1ea8278461c81b962b20b6caf3203a295f074",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "denim_jacket",
+      "subcategory": "denim_jacket",
+      "display_name": "Rigid Trucker Denim Jacket",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_denim_jacket.png",
+      "contact_sheet_sha256": "8b01ccaef5e27ac7765c30bc2197ef6205ad2cd47cc7b44ab3c11f8b98d9105a",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "trousers",
+      "subcategory": "formal_trousers",
+      "display_name": "Tailored Pleated Trousers",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_trousers.png",
+      "contact_sheet_sha256": "7e009c732291c062a77be9478016812b6f4e2e328d6e675db45ba6aa43e928c2",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "shorts",
+      "subcategory": "shorts",
+      "display_name": "Casual Bermuda Shorts",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_shorts.png",
+      "contact_sheet_sha256": "7c95d715b03f6929ddf6cab174561d7991a1cfe130f47e93d5f56459359d7400",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "maxi_dress",
+      "subcategory": "maxi_dress",
+      "display_name": "Flared A-Line Maxi Dress",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_maxi_dress.png",
+      "contact_sheet_sha256": "966d4dc63ae72072119790074fc3489da36c382eaaf2e8e2503b2a9865a70870",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "display_name": "Pleated A-Line Midi Skirt",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_skirt.png",
+      "contact_sheet_sha256": "d2c70fa9a7a5074d22f475c1115949e465f45fd620b600f13600b7fb0d9c235d",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    },
+    {
+      "category": "kurta",
+      "subcategory": "kurta",
+      "display_name": "Traditional Embroidered Kurta",
+      "contact_sheet": "docs/reports/phase_14_0_visual_qa/contact_sheet_kurta.png",
+      "contact_sheet_sha256": "d889961719cd44fccbde49dffeb372f21b9f91ae8a7cef01187e20e9e049ac01",
+      "archetypes_verified": [
+        "standard_175",
+        "slim_lean",
+        "athletic_broad",
+        "plus_curvy"
+      ],
+      "normal_inversions": 0,
+      "penetrations": 0,
+      "status": "PASS"
+    }
+  ],
+  "studio_preview": {
+    "image_path": "docs/reports/phase_14_0_visual_qa/live_studio_ui_overview.png",
+    "sha256_checksum": "3ccbd3d85bbfab0bab1e2cc68b5cd45c87fdab90934b8c4b0255e3ed4081ed71"
+  }
+}

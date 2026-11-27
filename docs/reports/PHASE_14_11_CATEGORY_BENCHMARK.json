@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "B",
+    "timestamp": "2026-11-20T00:10:00Z"
+  },
+  "categories": {
+    "hoodie": {
+      "category": "hoodie",
+      "family": "upperwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.5556,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "hood_cowl",
+        "kangaroo_pocket",
+        "ribbed_waistband",
+        "left_cuff",
+        "right_cuff",
+        "drawstrings",
+        "left_sleeve",
+        "right_sleeve",
+        "main_torso"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "formal_shirt": {
+      "category": "formal_shirt",
+      "family": "upperwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.7143,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "collar_stand",
+        "front_placket_band",
+        "left_cuff",
+        "right_cuff",
+        "left_sleeve",
+        "right_sleeve",
+        "main_torso"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "tshirt": {
+      "category": "tshirt",
+      "family": "upperwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.5,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "main_torso",
+        "hem_loop",
+        "left_sleeve",
+        "right_sleeve"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "jacket": {
+      "category": "jacket",
+      "family": "upperwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.5714,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "main_torso",
+        "lapels_and_collar",
+        "front_zipper_track",
+        "left_sleeve",
+        "left_cuff",
+        "right_sleeve",
+        "right_cuff"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "sweater": {
+      "category": "sweater",
+      "family": "upperwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.5,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "main_torso",
+        "hem_loop",
+        "left_sleeve",
+        "right_sleeve"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "jeans": {
+      "category": "jeans",
+      "family": "lowerwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.4,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "trousers": {
+      "category": "trousers",
+      "family": "lowerwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.4,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "shorts": {
+      "category": "shorts",
+      "family": "lowerwear",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.4,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "waistband_and_pelvis",
+        "left_leg",
+        "left_cuff",
+        "right_leg",
+        "right_cuff"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "dress": {
+      "category": "dress",
+      "family": "dresses_traditional",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.0,
+      "mean_boundary_loops": 64.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "upper_bodice",
+        "waist_connection",
+        "flared_skirt_drape"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    },
+    "kurta": {
+      "category": "kurta",
+      "family": "dresses_traditional",
+      "samples_evaluated": 5,
+      "mean_component_f1": 0.0,
+      "mean_boundary_loops": 128.0,
+      "manifold_integrity_pct": 100.0,
+      "expected_components": [
+        "mandarin_nehru_collar",
+        "kurta_front_flap_with_side_slits",
+        "kurta_back_flap_with_side_slits",
+        "left_kurta_sleeve",
+        "right_kurta_sleeve",
+        "kurta_upper_torso"
+      ],
+      "status": "PASS_WITH_QUALIFICATIONS"
+    }
+  }
+}

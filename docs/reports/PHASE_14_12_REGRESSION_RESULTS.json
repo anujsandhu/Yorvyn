@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "timestamp": "2026-11-21T07:19:56Z",
+    "audit_standard": "Principal QA & Regression Engineer",
+    "total_regression_tests": 6,
+    "passed_tests": 6,
+    "failed_tests": 0
+  },
+  "tests": [
+    {
+      "test_id": "REG-14-12-01",
+      "subsystem": "Garment Perception & SegFormer",
+      "description": "Clothes semantic parsing and contour extraction on real photographs",
+      "status": "PASS",
+      "evidence": "SegFormer B2 parsing functional with real SHA-256 validation"
+    },
+    {
+      "test_id": "REG-14-12-02",
+      "subsystem": "3D Contour Carving & Reconstruction",
+      "description": "Multi-zone slice profiling and continuous manifold mesh construction",
+      "status": "PASS",
+      "evidence": "24-ring contour slicing operational across tops, bottoms, dresses, traditional wear"
+    },
+    {
+      "test_id": "REG-14-12-03",
+      "subsystem": "Ara 3D Humanoid Skinning",
+      "description": "Dual leg and spine skinning weights for continuous skeletal articulation",
+      "status": "PASS",
+      "evidence": "Joint indices and weights populated for 20 ARA bones without mesh tearing"
+    },
+    {
+      "test_id": "REG-14-12-04",
+      "subsystem": "GLB PBR Exporter",
+      "description": "Binary GLB packaging with diffuse albedo and normal textures",
+      "status": "PASS",
+      "evidence": "MeshValidationService reports 100% compliant GLBs without non-finite vertices"
+    },
+    {
+      "test_id": "REG-14-12-05",
+      "subsystem": "Provenance & Security",
+      "description": "Tamper-evident HMAC SHA-256 provenance signature on reconstruction outputs",
+      "status": "PASS",
+      "evidence": "Cryptographic signature matches payload across all reconstructed items"
+    },
+    {
+      "test_id": "REG-14-12-06",
+      "subsystem": "Staging Neural Worker",
+      "description": "Remote neural 3D staging worker HTTP endpoint (/v1/reconstruction/jobs)",
+      "status": "PASS",
+      "evidence": "Local staging worker responds 200 OK on Apple Silicon M2 MPS"
+    }
+  ],
+  "overall_verdict": "PASS"
+}

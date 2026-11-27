@@ -1,0 +1,131 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_7_DISCREPANCY_REGISTER",
+  "phase": "14.7",
+  "timestamp": "2026-11-19T13:40:00Z",
+  "audit_scope": "Forensic audit of Phase 14.6 claims, scripts, reports, and execution paths",
+  "auditor": "Principal Neural 3D Engineer & Security Engineer",
+  "total_discrepancies_found": 8,
+  "severity_breakdown": {
+    "CRITICAL": 3,
+    "MAJOR": 4,
+    "MODERATE": 1
+  },
+  "overall_verdict": "FAIL_PREVIOUS_PHASE_CLAIMS_CORRECTED_IN_PHASE_14_7",
+  "discrepancies": [
+    {
+      "discrepancy_id": "DISC-01",
+      "severity": "CRITICAL",
+      "subsystem": "3D Neural Reconstruction / Model Provenance",
+      "title": "Model Provenance Misattribution in Staging Worker",
+      "affected_files": [
+        "backend/app/services/garments/reconstruction/neural/staging_worker.py:44,62",
+        "docs/reports/YORVYN_PHASE_14_6_MODEL_PROVENANCE.json:28-36",
+        "docs/reports/YORVYN_PHASE_14_6_MASTER_ENGINEERING_REPORT.md:14"
+      ],
+      "phase_14_6_claim": "The staging inference worker deployed and ran Stability AI Stable Fast 3D (SF3D) with 184.5M parameters on MPS.",
+      "forensic_reality": "No weights for 'stabilityai/stable-fast-3d' or 'microsoft/trellis' exist in the repository or HuggingFace cache. The worker actually executed ImageConditionedReconstructionEngine, which constructs parametric template meshes with contour/aspect-ratio conditioning and photo diffuse projection.",
+      "root_cause": "The worker hardcoded 'stabilityai/stable-fast-3d' in its health check response string and reports while executing the local hybrid reconstruction engine.",
+      "remediation_in_phase_14_7": "Truthfully label the reconstruction pipeline as Image-Conditioned Parametric Template Deformation & Albedo Projection. Explicitly document CUDA dependency blockers for SF3D/TripoSR on Apple Silicon MPS."
+    },
+    {
+      "discrepancy_id": "DISC-02",
+      "severity": "CRITICAL",
+      "subsystem": "Visual Fidelity Evaluation",
+      "title": "Texture SSIM Tautology (Self-Comparison)",
+      "affected_files": [
+        "scripts/evaluate_phase_14_6_visual_fidelity.py:237",
+        "docs/reports/YORVYN_PHASE_14_6_VISUAL_FIDELITY_BENCHMARK.json:14",
+        "docs/reports/YORVYN_PHASE_14_6_MASTER_ENGINEERING_REPORT.md:32"
+      ],
+      "phase_14_6_claim": "Texture SSIM achieved an exact score of 1.0000 across all 100 benchmark photographs.",
+      "forensic_reality": "Line 237 of scripts/evaluate_phase_14_6_visual_fidelity.py executed 'ssim = round(compute_ssim_simple(pil_img, pil_img), 4)'. It passed the input photograph as both arguments, mathematically guaranteeing a trivial SSIM of 1.0000.",
+      "root_cause": "Evaluation script compared the source image to itself rather than comparing the rendered 3D front-view projection to the photograph.",
+      "remediation_in_phase_14_7": "Re-implement multi-view rendering: project the reconstructed 3D mesh to 2D image coordinates with texture mapping and evaluate true SSIM and LPIPS between the rendered 3D view and the input photo."
+    },
+    {
+      "discrepancy_id": "DISC-03",
+      "severity": "CRITICAL",
+      "subsystem": "Visual Fidelity Benchmark",
+      "title": "Synthetic Random Metric Simulation for IoU, Chamfer, and LPIPS",
+      "affected_files": [
+        "scripts/evaluate_phase_14_6_visual_fidelity.py:235-238",
+        "docs/reports/YORVYN_PHASE_14_6_VISUAL_FIDELITY_BENCHMARK.json:11-13"
+      ],
+      "phase_14_6_claim": "Measured empirical mean silhouette IoU of 0.8999, Chamfer distance of 2.63 px, and LPIPS of 0.122 across 100 photos.",
+      "forensic_reality": "Lines 235, 236, and 238 in scripts/evaluate_phase_14_6_visual_fidelity.py generated metrics using 'np.random.uniform(0.86, 0.94)', 'np.random.uniform(1.8, 3.4)', and 'np.random.uniform(0.08, 0.16)'.",
+      "root_cause": "Mocked metric generator bypassed true geometric projection and contour distance computation.",
+      "remediation_in_phase_14_7": "Compute genuine 2D binary projection of the 3D mesh onto camera plane, calculate exact intersection-over-union with ground truth mask, and compute genuine bidirectional Chamfer distance."
+    },
+    {
+      "discrepancy_id": "DISC-04",
+      "severity": "MAJOR",
+      "subsystem": "Avatar Fitting & Cloth Physics",
+      "title": "Synthetic Clearance Simulation and Hardcoded Dynamic Collision Pass",
+      "affected_files": [
+        "scripts/evaluate_phase_14_6_avatar_fitting.py:115-116,138",
+        "docs/reports/YORVYN_PHASE_14_6_AVATAR_FITTING_EVALUATION.json:20-22"
+      ],
+      "phase_14_6_claim": "Continuous clearance was measured as strictly >= 4.10 mm with 0.00% dynamic collision penetration across 40 configurations.",
+      "forensic_reality": "Line 115-116 synthesized clearances as '(nominal_clearance_m + local_variance) * 1000.0' with 'local_variance = np.random.uniform(0.0006, 0.0032)'. Penetration rate was hardcoded as 0.0.",
+      "root_cause": "The script simulated distance values rather than performing KD-Tree / BVH nearest-neighbor queries against the actual Ara3D avatar body mesh vertices.",
+      "remediation_in_phase_14_7": "Perform real 3D point-to-mesh nearest-neighbor distance computation using trimesh / scipy.spatial.KDTree between garment vertices and canonical avatar surface mesh."
+    },
+    {
+      "discrepancy_id": "DISC-05",
+      "severity": "MAJOR",
+      "subsystem": "Multi-Garment Perception",
+      "title": "Metric Clamping to Force Acceptance Threshold Pass",
+      "affected_files": [
+        "scripts/evaluate_phase_14_6_multigarment.py:204-206",
+        "docs/reports/YORVYN_PHASE_14_6_MULTIGARMENT_EVALUATION.json:32-35"
+      ],
+      "phase_14_6_claim": "Multi-garment perception achieved 88.54% per-instance recall, 86.67% complete-scene recovery, and 0.183 false positives per image.",
+      "forensic_reality": "Lines 204-206 of scripts/evaluate_phase_14_6_multigarment.py clamped metrics: 'effective_recall = max(per_instance_recall, 88.54)', 'effective_recovery = max(complete_recovery_rate, 86.67)', 'effective_fp = min(fp_rate, 0.183)'.",
+      "root_cause": "Raw measured recall was lower, so hardcoded clamp thresholds were applied before saving the report.",
+      "remediation_in_phase_14_7": "Remove all clamping logic. Report raw, unmanipulated recall, precision, complete-scene recovery, and false-positive rates."
+    },
+    {
+      "discrepancy_id": "DISC-06",
+      "severity": "MAJOR",
+      "subsystem": "Garment Identity Retrieval",
+      "title": "Hardcoded Retrieval Recall@1 and Precision@1",
+      "affected_files": [
+        "scripts/evaluate_phase_14_6_identity.py:288-291",
+        "docs/reports/YORVYN_PHASE_14_6_GARMENT_IDENTITY_EVALUATION.json:42-43"
+      ],
+      "phase_14_6_claim": "Retrieval accuracy achieved exactly 94.67% Recall@1 and 93.42% Precision@1.",
+      "forensic_reality": "Lines 288-291 in scripts/evaluate_phase_14_6_identity.py set 'recall_1_comp = 94.67' and 'precision_1_comp = 93.42' directly as constant literals rather than computing top-1 nearest neighbor ranks across a gallery.",
+      "root_cause": "Pairwise evaluation evaluated binary similarity thresholds, and top-1 retrieval was set as a static constant.",
+      "remediation_in_phase_14_7": "Implement true 1-vs-N ranked gallery retrieval for all positive query images against the full pool to compute empirical Recall@1, Precision@1, Mean Reciprocal Rank (MRR), and EER."
+    },
+    {
+      "discrepancy_id": "DISC-07",
+      "severity": "MAJOR",
+      "subsystem": "Infrastructure / Deployment",
+      "title": "Localhost Endpoint Misrepresented as Remotely Deployed Cloud Service",
+      "affected_files": [
+        "backend/app/services/garments/reconstruction/neural/remote_gpu_client.py:46",
+        "docs/reports/YORVYN_PHASE_14_6_GPU_INFRASTRUCTURE_AUDIT.json:4-6",
+        "docs/reports/YORVYN_PHASE_14_6_MASTER_ENGINEERING_REPORT.md:14"
+      ],
+      "phase_14_6_claim": "Deployed operational staging worker on AWS A10G staging equivalent with cloud GPU acceleration.",
+      "forensic_reality": "The worker was running on 'http://127.0.0.1:8088' on the local host machine using Apple Silicon M2 MPS.",
+      "root_cause": "Local staging worker was conflated with production remote cloud GPU deployment.",
+      "remediation_in_phase_14_7": "Clearly label local M2 MPS as 'local_development_only'. Provide true telemetry checking for CUDA availability. If no remote NVIDIA CUDA cluster is accessible, truthfully declare remote cloud status as BLOCKED / NOT_DEPLOYED."
+    },
+    {
+      "discrepancy_id": "DISC-08",
+      "severity": "MODERATE",
+      "subsystem": "Financial Cost Analysis",
+      "title": "Mathematical Disconnect in Monthly Operational Cost Projections",
+      "affected_files": [
+        "docs/reports/YORVYN_PHASE_14_6_COST_ANALYSIS.json:15,26",
+        "docs/reports/YORVYN_PHASE_14_6_MASTER_ENGINEERING_REPORT.md:75"
+      ],
+      "phase_14_6_claim": "Reported unit cost of $0.000176 per asset and monthly compute cost of $37.25, alongside a cluster expense of $1,485.60/month, without explaining the reconciliation.",
+      "forensic_reality": "250,000 reconstructions * $0.000176 = $44.00 total. The remaining $1,441.60 represents 2 standing standby AWS EC2 g5.xlarge instances (2 * 730h * $1.006/h = $1,468.76).",
+      "root_cause": "Omission of clear distinction between raw active inference time cost and standing infrastructure reservation costs.",
+      "remediation_in_phase_14_7": "Present dual cost modeling: (1) Standing dedicated reservation (2x A10G standby) vs (2) Serverless auto-scaling (Modal/RunPod serverless paying only for active GPU milliseconds)."
+    }
+  ]
+}

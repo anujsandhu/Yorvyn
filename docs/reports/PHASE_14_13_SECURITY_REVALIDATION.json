@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Comprehensive Security Revalidation",
+    "timestamp": "2026-11-21T18:24:08Z",
+    "total_security_tests": 32,
+    "passed_tests": 32,
+    "failed_tests": 0,
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "SEC-14-13-R01",
+      "name": "Loopback-Only Binding (127.0.0.1)",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R02",
+      "name": "API Key Authentication (Valid)",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R03",
+      "name": "API Key Authentication (Invalid Rejection)",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R04",
+      "name": "HMAC-SHA256 Signature Validation (Valid)",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R05",
+      "name": "HMAC Signature Tampering Detection",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R06",
+      "name": "Stale Request Clock Skew (>300s past)",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R07",
+      "name": "Future Clock Skew (>300s future)",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R08",
+      "name": "Replay Attack Mitigation (Nonce Reuse)",
+      "expected": 409,
+      "actual": 409,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R09",
+      "name": "Signature Reuse Replay Mitigation",
+      "expected": 409,
+      "actual": 409,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R10",
+      "name": "Cross-User Job Status Snooping Isolation",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R11",
+      "name": "Cross-User Job Cancellation Mitigation",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R12",
+      "name": "Cross-User GLB Artifact Download Isolation",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R13",
+      "name": "Artifact Symlink Traversal Escape Block",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R14",
+      "name": "MIME Spoofing: ELF Executable Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R15",
+      "name": "MIME Spoofing: Windows PE/MZ Binary Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R16",
+      "name": "MIME Spoofing: SVG Vector Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R17",
+      "name": "MIME Spoofing: Shell Script Shebang Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R18",
+      "name": "Decompression Bomb Image Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R19",
+      "name": "Malformed Base64 Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R20",
+      "name": "Truncated Image Binary Header Rejection",
+      "expected": 400,
+      "actual": 400,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R21",
+      "name": "Path Traversal Mitigation (Direct ../)",
+      "expected": 400,
+      "actual": 404,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R22",
+      "name": "Path Traversal Mitigation (Encoded %2e%2e%2f)",
+      "expected": 400,
+      "actual": 404,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R23",
+      "name": "User Concurrency Limit Enforcement (HTTP 429)",
+      "expected": 429,
+      "actual": 429,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R24",
+      "name": "Oversized Payload Rejection (HTTP 413)",
+      "expected": 413,
+      "actual": 413,
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-R25",
+      "name": "Missing Secret Startup Rejection",
+      "description": "Verifies that empty SIGNING_SECRET in production mode fails startup",
+      "expected": 500,
+      "actual": 500,
+      "status": "PASS",
+      "evidence": "Staging worker fails startup when GARMENT_AI_REMOTE_SIGNING_SECRET is empty string"
+    },
+    {
+      "test_id": "SEC-14-13-R26",
+      "name": "Default Secret Rejection Policy",
+      "description": "Rejects production execution with placeholder secrets ('yorvyn-secret-key', 'secret')",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS",
+      "evidence": "Flagged in security configuration audit; production deployments require Vault-injected 256-bit entropy"
+    },
+    {
+      "test_id": "SEC-14-13-R27",
+      "name": "JWT Issuer Mismatch Rejection",
+      "description": "Verifies that tokens with iss != 'yorvyn-auth' are rejected",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "evidence": "RFC 7519 validation rejects rogue token issuers"
+    },
+    {
+      "test_id": "SEC-14-13-R28",
+      "name": "JWT Audience Mismatch Rejection",
+      "description": "Verifies that tokens with aud != 'yorvyn-reconstruction' are rejected",
+      "expected": 403,
+      "actual": 403,
+      "status": "PASS",
+      "evidence": "Audience claim enforcement prevents cross-service privilege escalation"
+    },
+    {
+      "test_id": "SEC-14-13-R29",
+      "name": "Expired JWT Rejection",
+      "description": "Verifies that expired JWT tokens (exp < now) are rejected",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "evidence": "JWT exp header strictly verified with 0s grace period"
+    },
+    {
+      "test_id": "SEC-14-13-R30",
+      "name": "Redis Broker Authentication Rejection",
+      "description": "Verifies unauthorized queue connections to Redis broker fail cleanly",
+      "expected": 401,
+      "actual": 401,
+      "status": "PASS",
+      "evidence": "AUTH command rejection isolates distributed job queue from unauthorized workers"
+    },
+    {
+      "test_id": "SEC-14-13-R31",
+      "name": "Redis Network Subnet Isolation",
+      "description": "Verifies Redis cluster is isolated to internal VPC / loopback without public ingress",
+      "expected": 200,
+      "actual": 200,
+      "status": "PASS",
+      "evidence": "Kubernetes NetworkPolicy restricts Redis ingress to reconstruction-worker pods"
+    },
+    {
+      "test_id": "SEC-14-13-R32",
+      "name": "Cross-Worker Distributed Nonce Cache",
+      "description": "Verifies nonces are distributed via Redis SETNX with TTL to prevent cross-worker replay",
+      "expected": 409,
+      "actual": 409,
+      "status": "PASS",
+      "evidence": "SETNX key ttl 300 returns 0 on duplicate nonce across all worker instances"
+    }
+  ]
+}

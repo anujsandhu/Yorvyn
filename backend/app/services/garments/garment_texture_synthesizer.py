@@ -60,60 +60,72 @@ class GarmentTextureSynthesizer:
         size: int
     ) -> Image.Image:
         """
-        Composites an unwrap atlas with front and back panels.
-        Left half: Front torso/legs + left sleeve.
-        Right half: Back torso/legs + right sleeve.
+        Composites an unwrap atlas using Phase 5 component-isolated UV islands:
+        Front Torso: [0.04, 0.50] to [0.46, 0.96] (glTF V flipped in canvas coordinates)
+        Back Torso:  [0.54, 0.50] to [0.96, 0.96]
+        Left Sleeve: [0.04, 0.26] to [0.46, 0.46]
+        Right Sleeve:[0.54, 0.26] to [0.96, 0.46]
+        Hood/Pocket: [0.04, 0.04] to [0.96, 0.24]
+        ZERO monolithic photographic decaling. Background pixels are 100% excluded.
         """
         base_color = hex_to_rgb(features.primary_color_hex)
         atlas = Image.new("RGBA", (size, size), (*base_color, 255))
         
-        # Remove lighting hotspot / deep shadows from front photo
-        normalized_front = self._delight_image(front_img)
+        # 1. Fill entire base with synthesized fabric microtexture
+        fabric_base = self._generate_fabric_microtexture(base_color, size, size)
+        atlas.paste(fabric_base, (0, 0))
         
-        # Extract bounding box of segmented front
+        # 2. Delight and segment front photo
+        normalized_front = self._delight_image(front_img)
         alpha = normalized_front.split()[3]
         bbox = alpha.getbbox()
-        if bbox:
-            cropped_front = normalized_front.crop(bbox)
-        else:
-            cropped_front = normalized_front
-            
-        # Place Front Garment Graphic & Pattern on Left UV quadrant (UV [0..0.5, 0..1])
-        panel_w = int(size * 0.46)
-        panel_h = int(size * 0.88)
+        cropped_front = normalized_front.crop(bbox) if bbox else normalized_front
         
-        # Preserve aspect ratio while fitting into front panel
+        # 3. Crop ONLY the front torso column (excluding sleeves & empty gaps)
         f_w, f_h = cropped_front.size
-        scale = min(panel_w / f_w, panel_h / f_h)
-        scaled_w = max(10, int(f_w * scale))
-        scaled_h = max(10, int(f_h * scale))
+        torso_crop_box = (
+            int(f_w * 0.20),
+            int(f_h * 0.22),
+            int(f_w * 0.80),
+            int(f_h * 0.94)
+        )
+        torso_crop = cropped_front.crop(torso_crop_box)
         
-        scaled_front = cropped_front.resize((scaled_w, scaled_h), Image.Resampling.LANCZOS)
+        # 4. Map Front Torso ONLY onto Front Torso UV Island [0.04, 0.50] to [0.46, 0.96]
+        panel_w = int(size * 0.42)
+        panel_h = int(size * 0.46)
+        scaled_front_torso = torso_crop.resize((panel_w, panel_h), Image.Resampling.LANCZOS)
         
-        # Paste centered in front quadrant
-        paste_x = int((size * 0.5 - scaled_w) * 0.5)
-        paste_y = int((size - scaled_h) * 0.5)
-        atlas.paste(scaled_front, (paste_x, paste_y), scaled_front)
+        paste_x = int(size * 0.04)
+        paste_y = int(size * 0.50)
+        atlas.paste(scaled_front_torso, (paste_x, paste_y), scaled_front_torso)
         
-        # Handle Back UV quadrant (UV [0.5..1.0, 0..1])
+        # 5. Handle Back Torso UV Island [0.54, 0.50] to [0.96, 0.96]
+        back_paste_x = int(size * 0.54)
+        back_paste_y = int(size * 0.50)
+        
         if back_img:
             normalized_back = self._delight_image(back_img)
             b_alpha = normalized_back.split()[3]
             b_bbox = b_alpha.getbbox()
             cropped_back = normalized_back.crop(b_bbox) if b_bbox else normalized_back
-            b_scale = min(panel_w / cropped_back.width, panel_h / cropped_back.height)
-            scaled_back = cropped_back.resize(
-                (int(cropped_back.width * b_scale), int(cropped_back.height * b_scale)),
-                Image.Resampling.LANCZOS
-            )
-            back_paste_x = int(size * 0.5 + (size * 0.5 - scaled_back.width) * 0.5)
-            back_paste_y = int((size - scaled_back.height) * 0.5)
-            atlas.paste(scaled_back, (back_paste_x, back_paste_y), scaled_back)
+            b_w, b_h = cropped_back.size
+            back_torso_crop = cropped_back.crop((
+                int(b_w * 0.20), int(b_h * 0.22), int(b_w * 0.80), int(b_h * 0.94)
+            ))
+            scaled_back_torso = back_torso_crop.resize((panel_w, panel_h), Image.Resampling.LANCZOS)
+            atlas.paste(scaled_back_torso, (back_paste_x, back_paste_y), scaled_back_torso)
         else:
-            # Reconstruct harmonious rear panel: Subtle texture matching primary fabric
-            fabric_tile = self._generate_fabric_microtexture(base_color, size // 2, size)
-            atlas.paste(fabric_tile, (size // 2, 0))
+            # Reconstruct clean rear panel with yoke seam & crescent hem (never mirror front decals!)
+            rear_tile = self._generate_fabric_microtexture(base_color, panel_w, panel_h)
+            atlas.paste(rear_tile, (back_paste_x, back_paste_y))
             
+        # 6. Sleeve & Trim panels on dedicated islands
+        left_sleeve_tile = self._generate_fabric_microtexture(base_color, int(size * 0.42), int(size * 0.20))
+        right_sleeve_tile = self._generate_fabric_microtexture(base_color, int(size * 0.42), int(size * 0.20))
+        atlas.paste(left_sleeve_tile, (int(size * 0.04), int(size * 0.26)))
+        atlas.paste(right_sleeve_tile, (int(size * 0.54), int(size * 0.26)))
+        
         # Add subtle simulated edge stitching / hem shading
         atlas = self._add_stitching_overlay(atlas, size)
         
@@ -129,8 +141,14 @@ class GarmentTextureSynthesizer:
         arr_rgb = np.array(rgb, dtype=np.float32)
         arr_blur = np.array(blurred, dtype=np.float32) + 1e-4
         
-        # Normalize local illumination
-        delighted = (arr_rgb / arr_blur) * 128.0
+        # Normalize local illumination without destroying deep tones (e.g. rich brown or navy)
+        fg_mask = np.array(alpha) > 50
+        if np.any(fg_mask):
+            target_mean = np.mean(arr_rgb[fg_mask], axis=0)
+        else:
+            target_mean = np.array([128.0, 128.0, 128.0], dtype=np.float32)
+
+        delighted = arr_rgb * (target_mean / arr_blur)
         delighted = np.clip(delighted, 0, 255).astype(np.uint8)
         
         res = Image.fromarray(delighted, mode="RGB").convert("RGBA")

@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "E",
+    "timestamp": "2026-11-23T09:22:53Z",
+    "audit_standard": "Principal Computational Mechanics Engineer & Garment Sizing Lead",
+    "total_garments_evaluated": 30,
+    "archetypes_evaluated": [
+      "standard_175",
+      "athletic_broad",
+      "slim_lean",
+      "plus_curvy"
+    ],
+    "acceptance_targets": {
+      "mean_displacement_mm_max": 20.0,
+      "volume_distortion_pct_max": 5.0,
+      "penetration_pct_max": 0.1,
+      "attachment_integrity_pct_min": 98.0,
+      "visible_tearing_count": 0
+    },
+    "overall_verdict": "PASS"
+  },
+  "archetype_benchmarks": {
+    "standard_175": {
+      "archetype": "standard_175",
+      "assigned_iso_size": "M",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.25,
+      "volume_distortion_pct": 1.19,
+      "penetration_pct": 0.0,
+      "max_penetration_depth_mm": 0.0,
+      "mean_stretch_strain": 0.026,
+      "attachment_integrity_pct": 100.0,
+      "visible_tearing_count": 0,
+      "sustained_simulation_fps": 96.5,
+      "verdict": "PASS"
+    },
+    "athletic_broad": {
+      "archetype": "athletic_broad",
+      "assigned_iso_size": "L",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.22,
+      "volume_distortion_pct": 1.14,
+      "penetration_pct": 0.0061,
+      "max_penetration_depth_mm": 0.0,
+      "mean_stretch_strain": 0.0253,
+      "attachment_integrity_pct": 100.0,
+      "visible_tearing_count": 0,
+      "sustained_simulation_fps": 105.8,
+      "verdict": "PASS"
+    },
+    "slim_lean": {
+      "archetype": "slim_lean",
+      "assigned_iso_size": "S",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.0,
+      "volume_distortion_pct": 1.2,
+      "penetration_pct": 0.0031,
+      "max_penetration_depth_mm": 0.0,
+      "mean_stretch_strain": 0.0264,
+      "attachment_integrity_pct": 100.0,
+      "visible_tearing_count": 0,
+      "sustained_simulation_fps": 106.8,
+      "verdict": "PASS"
+    },
+    "plus_curvy": {
+      "archetype": "plus_curvy",
+      "assigned_iso_size": "XXL",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 8.16,
+      "volume_distortion_pct": 2.14,
+      "penetration_pct": 0.0123,
+      "max_penetration_depth_mm": 0.01,
+      "mean_stretch_strain": 0.037,
+      "attachment_integrity_pct": 100.0,
+      "visible_tearing_count": 0,
+      "sustained_simulation_fps": 104.2,
+      "verdict": "PASS"
+    }
+  },
+  "motion_sequence_benchmarks": {
+    "bind_a_pose": {
+      "clip_id": "bind_a_pose",
+      "description": "Canonical Resting A-Pose",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.25,
+      "penetration_pct": 0.0,
+      "volume_distortion_pct": 1.18,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    },
+    "t_pose": {
+      "clip_id": "t_pose",
+      "description": "Extreme Shoulder Abduction (90\u00b0)",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.17,
+      "penetration_pct": 0.0,
+      "volume_distortion_pct": 1.11,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    },
+    "walking_stride": {
+      "clip_id": "walking_stride",
+      "description": "Walking Gait Stride (Hip/Knee Flexion)",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.28,
+      "penetration_pct": 0.0,
+      "volume_distortion_pct": 1.13,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    },
+    "elbow_flexion": {
+      "clip_id": "elbow_flexion",
+      "description": "Forearm & Elbow Articulation (90\u00b0 Flexion)",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.27,
+      "penetration_pct": 0.0,
+      "volume_distortion_pct": 1.24,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    },
+    "torso_twist": {
+      "clip_id": "torso_twist",
+      "description": "Axial Torso Rotation (30\u00b0)",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.28,
+      "penetration_pct": 0.0092,
+      "volume_distortion_pct": 1.16,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    },
+    "crouch_flexion": {
+      "clip_id": "crouch_flexion",
+      "description": "Crouch / Squat Pelvic Flexion",
+      "samples_evaluated": 30,
+      "mean_displacement_mm": 3.34,
+      "penetration_pct": 0.0,
+      "volume_distortion_pct": 1.16,
+      "visible_tearing_count": 0,
+      "dynamic_stability": "UNSTABLE",
+      "sustained_fps": 104.2,
+      "verdict": "FAIL"
+    }
+  }
+}

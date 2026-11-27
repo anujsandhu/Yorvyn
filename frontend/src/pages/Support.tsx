@@ -1,10 +1,21 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Mail, Github, Linkedin, Instagram, MessageSquare,
-  Bug, Lightbulb, Heart, ChevronDown, ChevronUp,
-  ExternalLink, Send, CheckCircle, Star,
-} from 'lucide-react'
+  EnvelopeSimple as Mail, 
+  GithubLogo as Github, 
+  LinkedinLogo as Linkedin, 
+  InstagramLogo as Instagram, 
+  ChatCircleText as MessageSquare,
+  Bug, 
+  Lightbulb, 
+  Heart, 
+  CaretDown as ChevronDown, 
+  CaretUp as ChevronUp,
+  ArrowSquareOut as ExternalLink, 
+  PaperPlaneTilt as Send, 
+  CheckCircle, 
+  Star,
+} from '../components/icons'
 import { Logo } from '../components/Logo'
 import './Support.css'
 
@@ -128,8 +139,8 @@ function FeedbackForm({ type, onClose }: { type: FormType; onClose: () => void }
       )}
 
       <div className="sp-form-row">
-        <input className="sp-input" type="text" placeholder="Your name (optional)" value={name} onChange={e => setName(e.target.value)} />
-        <input className="sp-input" type="email" placeholder="Your email (optional)" value={email} onChange={e => setEmail(e.target.value)} />
+        <input className="sp-input" type="text" placeholder="Your name (e.g. Priya Sharma)" value={name} onChange={e => setName(e.target.value)} />
+        <input className="sp-input" type="email" placeholder="Your email (e.g. priya@example.in)" value={email} onChange={e => setEmail(e.target.value)} />
       </div>
       <textarea
         className="sp-textarea"

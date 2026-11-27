@@ -1,0 +1,1208 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "B",
+    "timestamp": "2026-11-19T17:17:03Z",
+    "total_provenance_records": 30,
+    "modes_audited": [
+      "hybrid_reconstruction",
+      "parametric_reconstruction",
+      "neural_reconstruction"
+    ],
+    "zero_leakage_hash_validation": true
+  },
+  "records": [
+    {
+      "sample_id": "tops_hoodie_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "input_image_hash": "c2d731e7b4844bb065350c80b547430c14fa054e6a43619fdd08dcbf83bf912a",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:51Z",
+      "reconstruction_time_ms": 4424.5,
+      "raw_model_output_location": "staging_jobs/c2d731e7b4844bb0.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "kangaroo_pocket",
+        "hood_shell",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_hoodie_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "input_image_hash": "c2d731e7b4844bb065350c80b547430c14fa054e6a43619fdd08dcbf83bf912a",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:55Z",
+      "reconstruction_time_ms": 130.67,
+      "raw_model_output_location": "staging_jobs/c2d731e7b4844bb0.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "kangaroo_pocket",
+        "hood_shell",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_hoodie_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_05_hoodie_pullover.jpg",
+      "input_image_hash": "c2d731e7b4844bb065350c80b547430c14fa054e6a43619fdd08dcbf83bf912a",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:55Z",
+      "reconstruction_time_ms": 335.9,
+      "raw_model_output_location": "staging_jobs/c2d731e7b4844bb0.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "kangaroo_pocket",
+        "hood_shell",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_jacket_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "input_image_hash": "93234e24706027c4e8eb814d5a844860eace2927d2aefdde57f2b665528899a8",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:56Z",
+      "reconstruction_time_ms": 256.34,
+      "raw_model_output_location": "staging_jobs/93234e24706027c4.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_jacket_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "input_image_hash": "93234e24706027c4e8eb814d5a844860eace2927d2aefdde57f2b665528899a8",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:56Z",
+      "reconstruction_time_ms": 75.19,
+      "raw_model_output_location": "staging_jobs/93234e24706027c4.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_jacket_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+      "input_image_hash": "93234e24706027c4e8eb814d5a844860eace2927d2aefdde57f2b665528899a8",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:56Z",
+      "reconstruction_time_ms": 263.63,
+      "raw_model_output_location": "staging_jobs/93234e24706027c4.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_shirt_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "input_image_hash": "977263f92f56b5432305bc6ba3dd4771c6e645f907e1c38fa9141df8febe81a8",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:56Z",
+      "reconstruction_time_ms": 359.79,
+      "raw_model_output_location": "staging_jobs/977263f92f56b543.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_shirt_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "input_image_hash": "977263f92f56b5432305bc6ba3dd4771c6e645f907e1c38fa9141df8febe81a8",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:57Z",
+      "reconstruction_time_ms": 127.38,
+      "raw_model_output_location": "staging_jobs/977263f92f56b543.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_shirt_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_17_shirt_formal.jpg",
+      "input_image_hash": "977263f92f56b5432305bc6ba3dd4771c6e645f907e1c38fa9141df8febe81a8",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:57Z",
+      "reconstruction_time_ms": 347.86,
+      "raw_model_output_location": "staging_jobs/977263f92f56b543.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_tshirt_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "input_image_hash": "995cbc3ed1ebc864f5a61fdf50a6db67b3ea3299bd350b64d7814cb0254be382",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:57Z",
+      "reconstruction_time_ms": 335.51,
+      "raw_model_output_location": "staging_jobs/995cbc3ed1ebc864.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_tshirt_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "input_image_hash": "995cbc3ed1ebc864f5a61fdf50a6db67b3ea3299bd350b64d7814cb0254be382",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:57Z",
+      "reconstruction_time_ms": 121.25,
+      "raw_model_output_location": "staging_jobs/995cbc3ed1ebc864.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_tshirt_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_21_tshirt_graphic.jpg",
+      "input_image_hash": "995cbc3ed1ebc864f5a61fdf50a6db67b3ea3299bd350b64d7814cb0254be382",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:58Z",
+      "reconstruction_time_ms": 334.72,
+      "raw_model_output_location": "staging_jobs/995cbc3ed1ebc864.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "front_placket",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_sweater_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_09_sweater_knit.jpg",
+      "input_image_hash": "7cbfea5786dbc056ec3c3b686df1a5e626c801a1897f25ab3a09fd8fffc715f7",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:58Z",
+      "reconstruction_time_ms": 237.56,
+      "raw_model_output_location": "staging_jobs/7cbfea5786dbc056.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_sweater_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_09_sweater_knit.jpg",
+      "input_image_hash": "7cbfea5786dbc056ec3c3b686df1a5e626c801a1897f25ab3a09fd8fffc715f7",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:58Z",
+      "reconstruction_time_ms": 54.36,
+      "raw_model_output_location": "staging_jobs/7cbfea5786dbc056.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_sweater_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_09_sweater_knit.jpg",
+      "input_image_hash": "7cbfea5786dbc056ec3c3b686df1a5e626c801a1897f25ab3a09fd8fffc715f7",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:58Z",
+      "reconstruction_time_ms": 223.54,
+      "raw_model_output_location": "staging_jobs/7cbfea5786dbc056.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_jeans_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "input_image_hash": "41837d2f541c8db39cb4ca175dc640ce63e7c6f52d802ecb15f99413f2e65ab6",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:58Z",
+      "reconstruction_time_ms": 333.28,
+      "raw_model_output_location": "staging_jobs/41837d2f541c8db3.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_jeans_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "input_image_hash": "41837d2f541c8db39cb4ca175dc640ce63e7c6f52d802ecb15f99413f2e65ab6",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:59Z",
+      "reconstruction_time_ms": 125.02,
+      "raw_model_output_location": "staging_jobs/41837d2f541c8db3.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_jeans_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_29_jeans_denim.jpg",
+      "input_image_hash": "41837d2f541c8db39cb4ca175dc640ce63e7c6f52d802ecb15f99413f2e65ab6",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:16:59Z",
+      "reconstruction_time_ms": 343.78,
+      "raw_model_output_location": "staging_jobs/41837d2f541c8db3.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_shorts_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "input_image_hash": "c907b957824349263176caf960965fb3d1318d44f44d2767029b2e41e4f3bb10",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:16:59Z",
+      "reconstruction_time_ms": 350.7,
+      "raw_model_output_location": "staging_jobs/c907b95782434926.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_shorts_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "input_image_hash": "c907b957824349263176caf960965fb3d1318d44f44d2767029b2e41e4f3bb10",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:00Z",
+      "reconstruction_time_ms": 134.17,
+      "raw_model_output_location": "staging_jobs/c907b95782434926.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "bottoms_shorts_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_33_shorts_casual.jpg",
+      "input_image_hash": "c907b957824349263176caf960965fb3d1318d44f44d2767029b2e41e4f3bb10",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:17:00Z",
+      "reconstruction_time_ms": 340.82,
+      "raw_model_output_location": "staging_jobs/c907b95782434926.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 704,
+        "triangle_count": 1280,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.551
+      },
+      "components_registered": [
+        "waistband_root",
+        "waistband_rim",
+        "fly_closure",
+        "crotch_geometry",
+        "leg_left",
+        "ankle_cuff_left",
+        "leg_right",
+        "ankle_cuff_right"
+      ]
+    },
+    {
+      "sample_id": "skirt_pleated_skirt_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "input_image_hash": "2091544482708add777230b72a11f67005d60989c69a0eba05fd0a6f7d661271",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:00Z",
+      "reconstruction_time_ms": 239.11,
+      "raw_model_output_location": "staging_jobs/2091544482708add.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "skirt_root",
+        "waistband_rim",
+        "skirt_drape",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "skirt_pleated_skirt_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "input_image_hash": "2091544482708add777230b72a11f67005d60989c69a0eba05fd0a6f7d661271",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:00Z",
+      "reconstruction_time_ms": 72.66,
+      "raw_model_output_location": "staging_jobs/2091544482708add.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "skirt_root",
+        "waistband_rim",
+        "skirt_drape",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "skirt_pleated_skirt_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_37_skirt_pleated.jpg",
+      "input_image_hash": "2091544482708add777230b72a11f67005d60989c69a0eba05fd0a6f7d661271",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:17:00Z",
+      "reconstruction_time_ms": 258.96,
+      "raw_model_output_location": "staging_jobs/2091544482708add.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "skirt_root",
+        "waistband_rim",
+        "skirt_drape",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "dress_aline_dress_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "input_image_hash": "690b88c5fce92e2c9d167fd00c4daeeed1b6a4affa88c7a28a5ef2dcf770bc1a",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:01Z",
+      "reconstruction_time_ms": 566.4,
+      "raw_model_output_location": "staging_jobs/690b88c5fce92e2c.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "dress_root",
+        "bodice_shell",
+        "waist_transition",
+        "skirt_flare",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "dress_aline_dress_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "input_image_hash": "690b88c5fce92e2c9d167fd00c4daeeed1b6a4affa88c7a28a5ef2dcf770bc1a",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:01Z",
+      "reconstruction_time_ms": 219.59,
+      "raw_model_output_location": "staging_jobs/690b88c5fce92e2c.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "dress_root",
+        "bodice_shell",
+        "waist_transition",
+        "skirt_flare",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "dress_aline_dress_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_41_dress_aline.jpg",
+      "input_image_hash": "690b88c5fce92e2c9d167fd00c4daeeed1b6a4affa88c7a28a5ef2dcf770bc1a",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:17:02Z",
+      "reconstruction_time_ms": 553.76,
+      "raw_model_output_location": "staging_jobs/690b88c5fce92e2c.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 768,
+        "triangle_count": 1472,
+        "boundary_loops_preserved": 64,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.531
+      },
+      "components_registered": [
+        "dress_root",
+        "bodice_shell",
+        "waist_transition",
+        "skirt_flare",
+        "hemline"
+      ]
+    },
+    {
+      "sample_id": "tops_kurta_hybrid_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+      "input_image_hash": "89df5e41553d8363c1be67fbfbbacccf4a65c7a3bba47c1d4b805b84dc495ffc",
+      "engine_identity": "hybrid_reconstruction",
+      "mode_requested": "hybrid_reconstruction",
+      "model_id": "mattmdjaga/segformer_b2_clothes",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "6857598c30be7bdff1defee44d3ea1999102d767176543a4b4a883f02376ea16",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:02Z",
+      "reconstruction_time_ms": 340.04,
+      "raw_model_output_location": "staging_jobs/89df5e41553d8363.glb",
+      "post_processing_operations": [
+        "segformer_b2_parsing",
+        "contour_slice_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_kurta_parametric_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+      "input_image_hash": "89df5e41553d8363c1be67fbfbbacccf4a65c7a3bba47c1d4b805b84dc495ffc",
+      "engine_identity": "parametric_reconstruction",
+      "mode_requested": "parametric_reconstruction",
+      "model_id": "yorvyn/contour-carved-parametric-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "1a91e6ba55996fe6745a3a43c2118fa39a7fb45fbfed4264550211ba56a062c8",
+      "inference_device": "mps",
+      "inference_endpoint": "local_mps_in_process",
+      "reconstruction_timestamp": "2026-11-19T17:17:02Z",
+      "reconstruction_time_ms": 128.84,
+      "raw_model_output_location": "staging_jobs/89df5e41553d8363.glb",
+      "post_processing_operations": [
+        "parametric_contour_profiling",
+        "open_boundary_carving",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.57
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    },
+    {
+      "sample_id": "tops_kurta_neural_reconstruction",
+      "input_image_path": "data/datasets/phase_13_6_real_photos/wm_45_kurta_ethnic.jpg",
+      "input_image_hash": "89df5e41553d8363c1be67fbfbbacccf4a65c7a3bba47c1d4b805b84dc495ffc",
+      "engine_identity": "neural_reconstruction",
+      "mode_requested": "neural_reconstruction",
+      "model_id": "yorvyn/neural-3d-reconstruction-v14.9",
+      "model_version": "14.9.0",
+      "checkpoint_sha256": "272f299921a45aad8d89263823ebf8f0ddd2c8f254c6f38f7453be5625bcdbc4",
+      "inference_device": "mps",
+      "inference_endpoint": "http://127.0.0.1:8088/v1/reconstruction/jobs",
+      "reconstruction_timestamp": "2026-11-19T17:17:02Z",
+      "reconstruction_time_ms": 456.83,
+      "raw_model_output_location": "staging_jobs/89df5e41553d8363.glb",
+      "post_processing_operations": [
+        "neural_field_carving",
+        "open_boundary_preservation",
+        "ara_skeletal_skinning",
+        "glb_export_pbr"
+      ],
+      "fallback_reason": null,
+      "mesh_metrics": {
+        "vertex_count": 1088,
+        "triangle_count": 2048,
+        "boundary_loops_preserved": 128,
+        "is_manifold": true,
+        "observed_surface_ratio": 0.605
+      },
+      "components_registered": [
+        "torso_root",
+        "collar_curve",
+        "chest_yoke",
+        "mid_torso",
+        "hemline_ribbing",
+        "sleeve_left",
+        "cuff_left",
+        "sleeve_right",
+        "cuff_right"
+      ]
+    }
+  ]
+}

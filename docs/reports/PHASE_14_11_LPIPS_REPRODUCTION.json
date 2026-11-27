@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "E",
+    "timestamp": "2026-11-19T21:17:52Z",
+    "audit_standard": "Principal ML Research Engineer"
+  },
+  "reproduction_protocol": {
+    "frozen_dataset": "100 genuine photos across 10 categories",
+    "color_space": "Linear RGB + Grayscale gradient tensor",
+    "sobel_kernel_size": 3,
+    "mask_mode": "Isolated Garment Alpha Mask",
+    "phase_14_10_reproduced_lpips": 0.2435,
+    "phase_14_11_measured_lpips": 0.201,
+    "delta_lpips": -0.0425,
+    "relative_improvement_pct": 17.45,
+    "verdict": "PASS"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "job_id": "job_p12_case_a_hoodie_5f40c187",
+  "case_id": "case_a_hoodie",
+  "case_name": "Dark Brown Oversized Pullover Hoodie",
+  "image_type": "isolated_product",
+  "category": "tops",
+  "subcategory": "hoodie",
+  "confidence": 0.802,
+  "primary_color_name": "dark chocolate brown",
+  "primary_color_hex": "#2b2323",
+  "secondary_color_name": "dark chocolate brown",
+  "secondary_color_hex": "#342b2b",
+  "palette": [
+    "#2b2323",
+    "#342b2b",
+    "#2c2423",
+    "#241c1b",
+    "#1c1514"
+  ],
+  "pattern": "solid",
+  "material_hint": "fleece",
+  "silhouette": "oversized",
+  "sleeve_length": "long",
+  "neckline_type": "hooded",
+  "detection_duration_ms": 1649.97
+}

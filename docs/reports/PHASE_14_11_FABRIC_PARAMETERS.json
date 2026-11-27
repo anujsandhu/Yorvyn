@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "A",
+    "timestamp": "2026-11-20T00:05:00Z",
+    "audit_standard": "Principal Cloth Simulation & Computational Mechanics Engineer",
+    "simulation_model": "Extended Position-Based Dynamics (XPBD)",
+    "supported_textiles_count": 8
+  },
+  "fabrics": {
+    "cotton": {
+      "name": "Cotton (Jersey / Poplin)",
+      "density_g_m2": 180.0,
+      "stretch_compliance_alpha": 0.00015,
+      "bending_compliance_beta": 0.0025,
+      "shear_stiffness": 0.65,
+      "velocity_damping": 0.92,
+      "thickness_offset_mm": 1.8,
+      "coulomb_friction": 0.45,
+      "aerodynamic_drag": 0.06,
+      "max_elastic_strain": 0.25,
+      "recommended_ease_margin_mm": 16.0
+    },
+    "denim": {
+      "name": "Heavyweight Denim (12-14 oz)",
+      "density_g_m2": 420.0,
+      "stretch_compliance_alpha": 2e-05,
+      "bending_compliance_beta": 0.08,
+      "shear_stiffness": 0.88,
+      "velocity_damping": 0.96,
+      "thickness_offset_mm": 3.5,
+      "coulomb_friction": 0.6,
+      "aerodynamic_drag": 0.03,
+      "max_elastic_strain": 0.12,
+      "recommended_ease_margin_mm": 22.0
+    },
+    "wool": {
+      "name": "Worsted / Felted Wool",
+      "density_g_m2": 340.0,
+      "stretch_compliance_alpha": 8e-05,
+      "bending_compliance_beta": 0.03,
+      "shear_stiffness": 0.72,
+      "velocity_damping": 0.95,
+      "thickness_offset_mm": 3.0,
+      "coulomb_friction": 0.55,
+      "aerodynamic_drag": 0.05,
+      "max_elastic_strain": 0.2,
+      "recommended_ease_margin_mm": 20.0
+    },
+    "knitwear": {
+      "name": "Ribbed / Cable Knitwear",
+      "density_g_m2": 260.0,
+      "stretch_compliance_alpha": 0.0006,
+      "bending_compliance_beta": 0.0012,
+      "shear_stiffness": 0.42,
+      "velocity_damping": 0.88,
+      "thickness_offset_mm": 3.2,
+      "coulomb_friction": 0.4,
+      "aerodynamic_drag": 0.08,
+      "max_elastic_strain": 0.5,
+      "recommended_ease_margin_mm": 12.0
+    },
+    "polyester": {
+      "name": "Technical Polyester / Synthetic",
+      "density_g_m2": 140.0,
+      "stretch_compliance_alpha": 4e-05,
+      "bending_compliance_beta": 0.008,
+      "shear_stiffness": 0.6,
+      "velocity_damping": 0.94,
+      "thickness_offset_mm": 1.4,
+      "coulomb_friction": 0.3,
+      "aerodynamic_drag": 0.07,
+      "max_elastic_strain": 0.35,
+      "recommended_ease_margin_mm": 14.0
+    },
+    "silk": {
+      "name": "Mulberry Silk / Charmeuse",
+      "density_g_m2": 75.0,
+      "stretch_compliance_alpha": 0.0001,
+      "bending_compliance_beta": 0.0004,
+      "shear_stiffness": 0.3,
+      "velocity_damping": 0.85,
+      "thickness_offset_mm": 0.9,
+      "coulomb_friction": 0.2,
+      "aerodynamic_drag": 0.14,
+      "max_elastic_strain": 0.18,
+      "recommended_ease_margin_mm": 18.0
+    },
+    "leather": {
+      "name": "Supple Calfskin Leather",
+      "density_g_m2": 580.0,
+      "stretch_compliance_alpha": 5e-06,
+      "bending_compliance_beta": 0.18,
+      "shear_stiffness": 0.95,
+      "velocity_damping": 0.98,
+      "thickness_offset_mm": 4.5,
+      "coulomb_friction": 0.65,
+      "aerodynamic_drag": 0.02,
+      "max_elastic_strain": 0.08,
+      "recommended_ease_margin_mm": 25.0
+    },
+    "linen": {
+      "name": "Pure Flax Linen",
+      "density_g_m2": 210.0,
+      "stretch_compliance_alpha": 3e-05,
+      "bending_compliance_beta": 0.045,
+      "shear_stiffness": 0.7,
+      "velocity_damping": 0.93,
+      "thickness_offset_mm": 2.2,
+      "coulomb_friction": 0.5,
+      "aerodynamic_drag": 0.06,
+      "max_elastic_strain": 0.15,
+      "recommended_ease_margin_mm": 20.0
+    }
+  }
+}

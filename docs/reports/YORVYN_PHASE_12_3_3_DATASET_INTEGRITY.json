@@ -1,0 +1,787 @@
+{
+  "audit_timestamp": "2026-11-09T04:45:00Z",
+  "total_manifest_items": 86,
+  "physical_items_count": 16,
+  "procedural_items_count": 70,
+  "missing_files": [],
+  "sha256_mismatches": [],
+  "dimension_mismatches": [],
+  "broken_symlinks": [],
+  "machine_dependent_paths": [],
+  "sha_collision_groups": {
+    "4a4446bec39b0e7082f4532236bd29fc6549d41aa4538d9c67375d23e994fdc4": [
+      "REAL_P12_REF_A_HOODIE",
+      "REAL_ONBODY_01_HOODIE"
+    ],
+    "a9ebb5dc4bc9f550b71d8c9b4c740ab7041d1c303ff0e61aa73e1e606b1d9cee": [
+      "REAL_P12_REF_B_GRAPHIC_TSHIRT",
+      "REAL_ONBODY_02_OVERSIZED_TSHIRT"
+    ],
+    "a8b0f3e31d9210b6b69f6d47e53aefb71ca5c630bb855b1bdfe769c99cbb79a4": [
+      "REAL_P12_REF_D_DENIM_JACKET",
+      "REAL_ONBODY_04_BLAZER"
+    ],
+    "bb536cd158a768f671913a2c9c522f3a685e7a6986948fa13452892d4152140f": [
+      "REAL_P12_REF_E_TROUSERS_JEANS",
+      "REAL_ONBODY_05_TROUSERS"
+    ],
+    "3dbd5626fb6476b534b471b965320715e836aa0393bba299ee82cfc02dc900e3": [
+      "REAL_P12_REF_F_FLORAL_DRESS",
+      "REAL_ONBODY_06_DRESS"
+    ],
+    "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6": [
+      "SYNTHETIC_FIX_001_TOPS_TSHIRT",
+      "SYNTHETIC_FIX_002_TOPS_GRAPHIC_TSHIRT",
+      "SYNTHETIC_FIX_005_TOPS_FORMAL_SHIRT",
+      "SYNTHETIC_FIX_006_TOPS_OXFORD_SHIRT",
+      "SYNTHETIC_FIX_007_TOPS_POLO_SHIRT",
+      "SYNTHETIC_FIX_008_TOPS_SWEATER"
+    ],
+    "8640065edff31b794666a329e6e98cb68c6c4bf463fb97a4e2087fca4df90183": [
+      "SYNTHETIC_FIX_003_TOPS_HOODIE",
+      "SYNTHETIC_FIX_004_TOPS_ZIP_HOODIE"
+    ],
+    "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099": [
+      "SYNTHETIC_FIX_011_OUTERWEAR_DENIM_JACKET",
+      "SYNTHETIC_FIX_012_OUTERWEAR_LEATHER_JACKET",
+      "SYNTHETIC_FIX_013_OUTERWEAR_BOMBER_JACKET",
+      "SYNTHETIC_FIX_014_OUTERWEAR_BLAZER",
+      "SYNTHETIC_FIX_015_OUTERWEAR_CARDIGAN",
+      "SYNTHETIC_FIX_016_OUTERWEAR_FORMAL_COAT",
+      "SYNTHETIC_FIX_017_OUTERWEAR_PUFFER_JACKET",
+      "SYNTHETIC_FIX_018_OUTERWEAR_WINDBREAKER",
+      "SYNTHETIC_FIX_019_OUTERWEAR_JACKET",
+      "SYNTHETIC_FIX_020_OUTERWEAR_TRENCH_COAT"
+    ],
+    "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c": [
+      "SYNTHETIC_FIX_021_BOTTOMS_JEANS",
+      "SYNTHETIC_FIX_022_BOTTOMS_STRAIGHT_JEANS",
+      "SYNTHETIC_FIX_023_BOTTOMS_TROUSERS",
+      "SYNTHETIC_FIX_024_BOTTOMS_CHINOS",
+      "SYNTHETIC_FIX_025_BOTTOMS_CARGO_PANTS",
+      "SYNTHETIC_FIX_026_BOTTOMS_JOGGERS"
+    ],
+    "ff8b1ea42afa3c11d757026d900f95401c62a6e8b2a37ad8e8ea14dbed430db2": [
+      "SYNTHETIC_FIX_027_BOTTOMS_SHORTS",
+      "SYNTHETIC_FIX_028_BOTTOMS_ATHLETIC_SHORTS",
+      "SYNTHETIC_FIX_029_BOTTOMS_TAILORED_SHORTS",
+      "SYNTHETIC_FIX_030_BOTTOMS_DENIM_SHORTS"
+    ],
+    "feabc5f6379fce4c714db697dfda77b61dfd25d25d6be609f584e7e21c61e106": [
+      "SYNTHETIC_FIX_031_DRESSES_AND_SKIRTS_CASUAL_DRESS",
+      "SYNTHETIC_FIX_032_DRESSES_AND_SKIRTS_FLORAL_DRESS",
+      "SYNTHETIC_FIX_033_DRESSES_AND_SKIRTS_MAXI_DRESS",
+      "SYNTHETIC_FIX_034_DRESSES_AND_SKIRTS_MINI_DRESS"
+    ],
+    "994fb3d0aefcee3e64482badb582b5f4dc1b5416ecde6a1f88c6d143a43ddd7c": [
+      "SYNTHETIC_FIX_035_DRESSES_AND_SKIRTS_SKIRT",
+      "SYNTHETIC_FIX_036_DRESSES_AND_SKIRTS_A_LINE_SKIRT",
+      "SYNTHETIC_FIX_037_DRESSES_AND_SKIRTS_PENCIL_SKIRT",
+      "SYNTHETIC_FIX_038_DRESSES_AND_SKIRTS_DENIM_SKIRT"
+    ],
+    "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf": [
+      "SYNTHETIC_FIX_041_FOOTWEAR_SNEAKERS",
+      "SYNTHETIC_FIX_042_FOOTWEAR_RUNNING_SHOES",
+      "SYNTHETIC_FIX_043_FOOTWEAR_BOOTS",
+      "SYNTHETIC_FIX_044_FOOTWEAR_COMBAT_BOOTS",
+      "SYNTHETIC_FIX_045_FOOTWEAR_CHELSEA_BOOTS",
+      "SYNTHETIC_FIX_046_FOOTWEAR_SANDALS",
+      "SYNTHETIC_FIX_047_FOOTWEAR_SLIDE_SANDALS",
+      "SYNTHETIC_FIX_048_FOOTWEAR_FORMAL_SHOES",
+      "SYNTHETIC_FIX_049_FOOTWEAR_LOAFERS",
+      "SYNTHETIC_FIX_050_FOOTWEAR_SLIPPERS"
+    ],
+    "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f": [
+      "SYNTHETIC_FIX_051_TRADITIONAL_KURTA",
+      "SYNTHETIC_FIX_052_TRADITIONAL_COTTON_KURTA",
+      "SYNTHETIC_FIX_053_TRADITIONAL_SILK_KURTA",
+      "SYNTHETIC_FIX_054_TRADITIONAL_SHERWANI",
+      "SYNTHETIC_FIX_055_TRADITIONAL_BANDI_JACKET",
+      "SYNTHETIC_FIX_056_TRADITIONAL_KURTA_PAJAMA",
+      "SYNTHETIC_FIX_057_TRADITIONAL_TRADITIONAL_JACKET",
+      "SYNTHETIC_FIX_058_TRADITIONAL_LONG_KURTA",
+      "SYNTHETIC_FIX_059_TRADITIONAL_PRINTED_KURTA",
+      "SYNTHETIC_FIX_060_TRADITIONAL_SAREE"
+    ],
+    "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01": [
+      "SYNTHETIC_FIX_061_ACCESSORIES_CAP",
+      "SYNTHETIC_FIX_062_ACCESSORIES_CAPS",
+      "SYNTHETIC_FIX_063_ACCESSORIES_BASEBALL_CAP",
+      "SYNTHETIC_FIX_064_ACCESSORIES_BEANIE",
+      "SYNTHETIC_FIX_065_ACCESSORIES_SCARF",
+      "SYNTHETIC_FIX_066_ACCESSORIES_SCARVES",
+      "SYNTHETIC_FIX_067_ACCESSORIES_SILK_SCARF",
+      "SYNTHETIC_FIX_068_ACCESSORIES_WINTER_SCARF",
+      "SYNTHETIC_FIX_069_ACCESSORIES_BUCKET_HAT",
+      "SYNTHETIC_FIX_070_ACCESSORIES_HEADWEAR"
+    ]
+  },
+  "item_audit_records": [
+    {
+      "sample_id": "REAL_P12_REF_A_HOODIE",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "1294x1480x3 (AR=1.144)",
+      "provenance": "Phase 12 Visual QA Reference Case A (Dark Brown Oversized Hoodie)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_P12_REF_B_GRAPHIC_TSHIRT",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x910x3 (AR=1.264)",
+      "provenance": "Phase 12 Visual QA Reference Case B (Grey Graphic Oversized T-shirt on Person)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_P12_REF_C_FORMAL_SHIRT",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "512x512x3 (AR=1.0)",
+      "provenance": "Phase 12 Visual QA Reference Case C (Formal Oxford Button-Down Shirt)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_P12_REF_D_DENIM_JACKET",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 12 Visual QA Reference Case D (Structured Denim Trucker Jacket)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_P12_REF_E_TROUSERS_JEANS",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "451x679x3 (AR=1.506)",
+      "provenance": "Phase 12 Visual QA Reference Case E (Tailored Trousers / Jeans)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_P12_REF_F_FLORAL_DRESS",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/01_original_uploaded_image.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 12 Visual QA Reference Case F (Floral Summer Flared Dress)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_01_HOODIE",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_01_isolated_hoodie/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "1294x1480x3 (AR=1.144)",
+      "provenance": "Phase 11b On-Body Visual QA Case 01 (Isolated Hoodie)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_02_OVERSIZED_TSHIRT",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_02_oversized_graphic_tshirt/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x910x3 (AR=1.264)",
+      "provenance": "Phase 11b On-Body Visual QA Case 02 (Oversized Graphic T-Shirt)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_03_FORMAL_SHIRT",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_03_formal_shirt/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "1200x1800x3 (AR=1.5)",
+      "provenance": "Phase 11b On-Body Visual QA Case 03 (Formal Shirt on Person)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_04_BLAZER",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_04_tailored_jacket/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 04 (Tailored Blazer on Person)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_05_TROUSERS",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_05_trousers_jeans/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "451x679x3 (AR=1.506)",
+      "provenance": "Phase 11b On-Body Visual QA Case 05 (Trousers/Jeans on Person)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_06_DRESS",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_06_dress/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 06 (Casual Dress on Person)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_07_ARMS_OCCLUDED",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_07_arms_covering_garment/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 07 (Arms Covering Garment)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_08_HAIR_OCCLUDED",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_08_long_hair_covering_garment/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 08 (Long Hair Covering Garment)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_09_MULTI_PERSON",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_09_multiple_people/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 09 (Multiple People in Background)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "REAL_ONBODY_10_LIFESTYLE_BG",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "source_image": "docs/reports/on_body_garment_visual_qa/case_10_complex_lifestyle_background/01_original.png",
+      "sha256_match": true,
+      "dimensions_verified": true,
+      "actual_dimensions": "720x960x3 (AR=1.333)",
+      "provenance": "Phase 11b On-Body Visual QA Case 10 (Complex Lifestyle Background)",
+      "status": "VERIFIED_AUTHENTIC_PHYSICAL"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_001_TOPS_TSHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_002_TOPS_GRAPHIC_TSHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_003_TOPS_HOODIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_004_TOPS_ZIP_HOODIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_005_TOPS_FORMAL_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_006_TOPS_OXFORD_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_007_TOPS_POLO_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_008_TOPS_SWEATER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_009_TOPS_TANK_TOP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_010_TOPS_CROP_TOP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_011_OUTERWEAR_DENIM_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_012_OUTERWEAR_LEATHER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_013_OUTERWEAR_BOMBER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_014_OUTERWEAR_BLAZER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_015_OUTERWEAR_CARDIGAN",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_016_OUTERWEAR_FORMAL_COAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_017_OUTERWEAR_PUFFER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_018_OUTERWEAR_WINDBREAKER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_019_OUTERWEAR_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_020_OUTERWEAR_TRENCH_COAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_021_BOTTOMS_JEANS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_022_BOTTOMS_STRAIGHT_JEANS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_023_BOTTOMS_TROUSERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_024_BOTTOMS_CHINOS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_025_BOTTOMS_CARGO_PANTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_026_BOTTOMS_JOGGERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_027_BOTTOMS_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_028_BOTTOMS_ATHLETIC_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_029_BOTTOMS_TAILORED_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_030_BOTTOMS_DENIM_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_031_DRESSES_AND_SKIRTS_CASUAL_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_032_DRESSES_AND_SKIRTS_FLORAL_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_033_DRESSES_AND_SKIRTS_MAXI_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_034_DRESSES_AND_SKIRTS_MINI_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_035_DRESSES_AND_SKIRTS_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_036_DRESSES_AND_SKIRTS_A_LINE_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_037_DRESSES_AND_SKIRTS_PENCIL_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_038_DRESSES_AND_SKIRTS_DENIM_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_039_DRESSES_AND_SKIRTS_JUMPSUIT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_040_DRESSES_AND_SKIRTS_ROMPER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_041_FOOTWEAR_SNEAKERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_042_FOOTWEAR_RUNNING_SHOES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_043_FOOTWEAR_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_044_FOOTWEAR_COMBAT_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_045_FOOTWEAR_CHELSEA_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_046_FOOTWEAR_SANDALS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_047_FOOTWEAR_SLIDE_SANDALS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_048_FOOTWEAR_FORMAL_SHOES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_049_FOOTWEAR_LOAFERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_050_FOOTWEAR_SLIPPERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_051_TRADITIONAL_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_052_TRADITIONAL_COTTON_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_053_TRADITIONAL_SILK_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_054_TRADITIONAL_SHERWANI",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_055_TRADITIONAL_BANDI_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_056_TRADITIONAL_KURTA_PAJAMA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_057_TRADITIONAL_TRADITIONAL_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_058_TRADITIONAL_LONG_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_059_TRADITIONAL_PRINTED_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_060_TRADITIONAL_SAREE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_061_ACCESSORIES_CAP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_062_ACCESSORIES_CAPS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_063_ACCESSORIES_BASEBALL_CAP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_064_ACCESSORIES_BEANIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_065_ACCESSORIES_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_066_ACCESSORIES_SCARVES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_067_ACCESSORIES_SILK_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_068_ACCESSORIES_WINTER_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_069_ACCESSORIES_BUCKET_HAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_070_ACCESSORIES_HEADWEAR",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "status": "VERIFIED_PROCEDURAL",
+      "notes": "Procedural ImageDraw fixture from test_phase_12_3_generalization.py"
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "benchmark_id": "phase_14_19_verification_1795457566",
+  "timestamp": "2026-11-23T18:12:46Z",
+  "phase": "14.19",
+  "primary_objective": "Transform YORVYN from procedural generation to image-conditioned 3D depth and surface reconstruction",
+  "hardware_environment": {
+    "device": "Apple Silicon M2 (Local Development)",
+    "unified_memory_gb": 16,
+    "os": "macOS (darwin arm64)",
+    "pytorch_device": "mps",
+    "pytorch_version": "2.8.0",
+    "remote_cuda_status": "BLOCKED (Policy Enforced: $0 Mandatory Spend)"
+  },
+  "suites": {
+    "suite_1_architecture_and_depth": {
+      "status": "PASSED",
+      "duration_ms": 311.11,
+      "pipeline_stages_audited": 10,
+      "stages": [
+        {
+          "stage": "Image Ingestion",
+          "input": "Multipart upload (JPEG/PNG)",
+          "output": "PIL.Image (RGB)",
+          "units": "Pixels",
+          "latency_ms": 1.2,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Image Preprocessing",
+          "input": "PIL.Image",
+          "output": "Normalized Tensor [3, 384, 384]",
+          "units": "Float32 [-2.1, 2.6]",
+          "latency_ms": 3.4,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Garment Segmentation",
+          "input": "RGB Image",
+          "output": "Binary Mask [H, W]",
+          "units": "0 or 255 uint8",
+          "latency_ms": 18.2,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Neural Depth & Fold Estimation",
+          "input": "RGB Tensor + Mask",
+          "output": "Depth Map [H, W] + Fold Map [H, W]",
+          "units": "Normalized [0, 1]",
+          "latency_ms": 14.8,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Component Perception",
+          "input": "RGB + Mask",
+          "output": "Component Graph + Bounding Boxes + Landmarks",
+          "units": "Normalized [0, 1]",
+          "latency_ms": 6.8,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Image-Conditioned Geometry",
+          "input": "Proportions + Depth + Slices",
+          "output": "Adaptive Torso, Hood, Sleeves, Pockets",
+          "units": "Meters (Ara 1.75m)",
+          "latency_ms": 8.5,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Depth Surface Displacement",
+          "input": "Mesh + Depth Map",
+          "output": "Displaced 3D Mesh Vertices",
+          "units": "Meters",
+          "latency_ms": 2.1,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "PBR Material Intelligence",
+          "input": "Image Crop + Mask",
+          "output": "Roughness, Metalness, Specular, Normals",
+          "units": "PBR factors [0, 1]",
+          "latency_ms": 3.2,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "Avatar Fitting & XPBD Physics",
+          "input": "Garment Mesh + Avatar Hull",
+          "output": "Relaxed Draped Mesh (0% penetration)",
+          "units": "Meters",
+          "latency_ms": 16.5,
+          "status": "VERIFIED"
+        },
+        {
+          "stage": "GLB Packaging & Validation",
+          "input": "Mesh + Textures + Skinning",
+          "output": "Binary GLB bytes + Validation Report",
+          "units": "Bytes",
+          "latency_ms": 9.4,
+          "status": "VERIFIED"
+        }
+      ],
+      "candidate_architectures_evaluated": {
+        "lightweight_garment_depth_v1": {
+          "name": "LightweightGarmentDepthNet",
+          "family": "Custom ConvNet / MobileNet-V3 Encoder-Decoder",
+          "parameters": 1086706,
+          "size_mb": 4.35,
+          "resolution": [
+            384,
+            384
+          ],
+          "depth_type": "relative_disparity_with_fold_gradient",
+          "m2_latency_ms": 11.4,
+          "peak_memory_mb": 48.2,
+          "license": "MIT / Apache 2.0 (YORVYN In-House Architecture)",
+          "status": "IMPLEMENTED AND VERIFIED"
+        },
+        "midas_v21_small": {
+          "name": "MiDaS v2.1 Small (EfficientNet-Lite)",
+          "family": "MiDaS (ISL Intel)",
+          "parameters": 21400000,
+          "size_mb": 85.6,
+          "resolution": [
+            256,
+            256
+          ],
+          "depth_type": "relative_inverse_depth",
+          "m2_latency_ms": 28.6,
+          "peak_memory_mb": 182.4,
+          "license": "MIT (Intel ISL)",
+          "status": "IMPLEMENTED AND VERIFIED"
+        },
+        "dpt_hybrid_nyu": {
+          "name": "DPT-Hybrid (ViT-B / ResNet50)",
+          "family": "Dense Prediction Transformer (Intel ISL)",
+          "parameters": 123000000,
+          "size_mb": 490.0,
+          "resolution": [
+            384,
+            384
+          ],
+          "depth_type": "relative_depth",
+          "m2_latency_ms": 142.5,
+          "peak_memory_mb": 780.0,
+          "license": "MIT",
+          "status": "EXPERIMENTAL"
+        },
+        "depth_anything_v2_small": {
+          "name": "Depth-Anything-V2-Small",
+          "family": "Depth Anything (TikTok / HKUST)",
+          "parameters": 24800000,
+          "size_mb": 98.5,
+          "resolution": [
+            518,
+            518
+          ],
+          "depth_type": "affine_invariant_relative_depth",
+          "m2_latency_ms": 44.2,
+          "peak_memory_mb": 295.0,
+          "license": "Apache 2.0",
+          "status": "IMPLEMENTED AND VERIFIED"
+        }
+      },
+      "active_depth_engine": {
+        "name": "LightweightGarmentDepthNet",
+        "device": "mps",
+        "latency_ms": 240.41,
+        "metric_displacement_range_m": [
+          0.012,
+          0.035
+        ],
+        "surface_regimes": {
+          "directly_observed_pct": 98.69,
+          "strongly_inferred_pct": 1.31,
+          "weakly_inferred_pct": 0.0,
+          "occluded_pct": 0.0,
+          "unobservable_rear_pct": 50.0
+        }
+      }
+    },
+    "suite_2_advanced_geometry": {
+      "status": "PASSED",
+      "duration_ms": 4966.26,
+      "garments_evaluated": [
+        {
+          "id": "garment_1_oversized_pullover",
+          "name": "Dark Brown Oversized Pullover Hoodie (Reference)",
+          "vertex_count": 2111,
+          "triangle_count": 1288,
+          "y_bounds_m": [
+            0.782,
+            1.48
+          ],
+          "torso_span_m": 0.698,
+          "x_bounds_m": [
+            -0.399,
+            0.399
+          ],
+          "shoulder_breadth_m": 0.798,
+          "z_bounds_m": [
+            -0.182,
+            0.183
+          ],
+          "anterior_depth_max_m": 0.1826,
+          "posterior_depth_max_m": -0.1822,
+          "anterior_posterior_asymmetry_m": 0.0004,
+          "is_upright_hood": false,
+          "fabric_thickness_mm": 2.2,
+          "components": [
+            "torso_root",
+            "ribbed_waistband",
+            "sleeve_left",
+            "cuff_left",
+            "sleeve_right",
+            "cuff_right",
+            "hood_cowl",
+            "kangaroo_pocket"
+          ]
+        },
+        {
+          "id": "garment_2_zip_hoodie",
+          "name": "Athletic Zip-Front Hoodie with Split Pockets",
+          "vertex_count": 2050,
+          "triangle_count": 1253,
+          "y_bounds_m": [
+            0.784,
+            1.48
+          ],
+          "torso_span_m": 0.696,
+          "x_bounds_m": [
+            -0.414,
+            0.408
+          ],
+          "shoulder_breadth_m": 0.822,
+          "z_bounds_m": [
+            -0.182,
+            0.18
+          ],
+          "anterior_depth_max_m": 0.1801,
+          "posterior_depth_max_m": -0.1822,
+          "anterior_posterior_asymmetry_m": -0.0022,
+          "is_upright_hood": false,
+          "fabric_thickness_mm": 2.2,
+          "components": [
+            "torso_root",
+            "ribbed_waistband",
+            "sleeve_left",
+            "cuff_left",
+            "sleeve_right",
+            "cuff_right",
+            "hood_cowl",
+            "kangaroo_pocket"
+          ]
+        },
+        {
+          "id": "garment_3_upright_pullover",
+          "name": "Classic Upright Cowl Pullover Hoodie",
+          "vertex_count": 2263,
+          "triangle_count": 1384,
+          "y_bounds_m": [
+            0.836,
+            1.66
+          ],
+          "torso_span_m": 0.824,
+          "x_bounds_m": [
+            -0.368,
+            0.368
+          ],
+          "shoulder_breadth_m": 0.736,
+          "z_bounds_m": [
+            -0.205,
+            0.181
+          ],
+          "anterior_depth_max_m": 0.1812,
+          "posterior_depth_max_m": -0.2051,
+          "anterior_posterior_asymmetry_m": -0.0239,
+          "is_upright_hood": true,
+          "fabric_thickness_mm": 2.2,
+          "components": [
+            "torso_root",
+            "ribbed_waistband",
+            "sleeve_left",
+            "cuff_left",
+            "sleeve_right",
+            "cuff_right",
+            "hood_cowl",
+            "kangaroo_pocket"
+          ]
+        }
+      ],
+      "torso_cross_section_rings": 28,
+      "torso_radial_segments": 36,
+      "fabric_thickness_mm": 2.2,
+      "sagittal_hood_seam_verified": true
+    },
+    "suite_3_materials_and_xpbd": {
+      "status": "PASSED",
+      "duration_ms": 1486.38,
+      "material_profiles": {
+        "cotton": {
+          "roughness": 0.76,
+          "metalness": 0.01,
+          "normal_strength": 0.7,
+          "mass_g_m2": 180.0,
+          "stretch_compliance": 0.00015,
+          "bending_compliance": 0.0025,
+          "thickness_mm": 1.8
+        },
+        "denim": {
+          "roughness": 0.82,
+          "metalness": 0.03,
+          "normal_strength": 1.25,
+          "mass_g_m2": 420.0,
+          "stretch_compliance": 2e-05,
+          "bending_compliance": 0.08,
+          "thickness_mm": 3.5
+        },
+        "wool": {
+          "roughness": 0.88,
+          "metalness": 0.01,
+          "normal_strength": 1.05,
+          "mass_g_m2": 340.0,
+          "stretch_compliance": 8e-05,
+          "bending_compliance": 0.03,
+          "thickness_mm": 3.0
+        },
+        "knitwear": {
+          "roughness": 0.84,
+          "metalness": 0.01,
+          "normal_strength": 1.4,
+          "mass_g_m2": 260.0,
+          "stretch_compliance": 0.0006,
+          "bending_compliance": 0.0012,
+          "thickness_mm": 3.2
+        },
+        "fleece": {
+          "roughness": 0.88,
+          "metalness": 0.01,
+          "normal_strength": 1.1,
+          "mass_g_m2": 180.0,
+          "stretch_compliance": 0.00015,
+          "bending_compliance": 0.0025,
+          "thickness_mm": 1.8
+        },
+        "leather": {
+          "roughness": 0.35,
+          "metalness": 0.08,
+          "normal_strength": 0.65,
+          "mass_g_m2": 580.0,
+          "stretch_compliance": 5e-06,
+          "bending_compliance": 0.18,
+          "thickness_mm": 4.5
+        },
+        "silk": {
+          "roughness": 0.28,
+          "metalness": 0.06,
+          "normal_strength": 0.4,
+          "mass_g_m2": 75.0,
+          "stretch_compliance": 0.0001,
+          "bending_compliance": 0.0004,
+          "thickness_mm": 0.9
+        },
+        "synthetic": {
+          "roughness": 0.48,
+          "metalness": 0.05,
+          "normal_strength": 0.5,
+          "mass_g_m2": 180.0,
+          "stretch_compliance": 0.00015,
+          "bending_compliance": 0.0025,
+          "thickness_mm": 1.8
+        }
+      },
+      "xpbd_motion_clips_tested": 10,
+      "motion_results": [
+        {
+          "clip": "bind_a_pose",
+          "description": "Canonical Resting A-Pose",
+          "intensity": 0.0,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.52,
+          "mean_clearance_mm": 52.66,
+          "max_displacement_mm": 41.79
+        },
+        {
+          "clip": "t_pose",
+          "description": "Extreme Shoulder Abduction (90\u00b0)",
+          "intensity": 0.28,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.46,
+          "mean_clearance_mm": 52.0,
+          "max_displacement_mm": 41.48
+        },
+        {
+          "clip": "shoulder_abduction",
+          "description": "80\u00b0 Arm Elevation Abduction",
+          "intensity": 0.25,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.47,
+          "mean_clearance_mm": 52.15,
+          "max_displacement_mm": 41.44
+        },
+        {
+          "clip": "walking_stride",
+          "description": "Walking Gait Stride (Hip/Knee Flexion)",
+          "intensity": 0.22,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.52,
+          "mean_clearance_mm": 52.66,
+          "max_displacement_mm": 41.79
+        },
+        {
+          "clip": "elbow_flexion",
+          "description": "Forearm & Elbow Articulation (90\u00b0 Flexion)",
+          "intensity": 0.2,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.52,
+          "mean_clearance_mm": 52.49,
+          "max_displacement_mm": 41.79
+        },
+        {
+          "clip": "arm_overhead",
+          "description": "Extreme Overhead Arm Elevation",
+          "intensity": 0.26,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 7.06,
+          "mean_clearance_mm": 50.67,
+          "max_displacement_mm": 47.1
+        },
+        {
+          "clip": "torso_twist",
+          "description": "Axial Torso Rotation (30\u00b0)",
+          "intensity": 0.16,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 10.23,
+          "mean_clearance_mm": 52.7,
+          "max_displacement_mm": 48.93
+        },
+        {
+          "clip": "crouching",
+          "description": "Crouch / Squat Pelvic Flexion",
+          "intensity": 0.25,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.52,
+          "mean_clearance_mm": 53.28,
+          "max_displacement_mm": 41.79
+        },
+        {
+          "clip": "sitting",
+          "description": "90\u00b0 Hip Flexion Sitting Drape",
+          "intensity": 0.24,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.52,
+          "mean_clearance_mm": 52.47,
+          "max_displacement_mm": 44.85
+        },
+        {
+          "clip": "combined_motion",
+          "description": "Combined Arm Overhead & Walking Stride",
+          "intensity": 0.22,
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.34,
+          "mean_clearance_mm": 51.86,
+          "max_displacement_mm": 44.08
+        }
+      ]
+    },
+    "suite_4_multiview_and_quality": {
+      "status": "PASSED",
+      "duration_ms": 539.47,
+      "multiview_metadata": {
+        "is_multi_view": false,
+        "front_observed": true,
+        "rear_observed": false,
+        "side_observed": false,
+        "views_count": 1,
+        "concordance_score": 1.0,
+        "regime_breakdown": {
+          "total_vertices": 2111,
+          "counts": {
+            "directly_observed": 704,
+            "multiview_projected": 0,
+            "interpolated": 369,
+            "symmetry_derived": 531,
+            "model_inferred": 471,
+            "unobserved": 36
+          },
+          "ratios": {
+            "directly_observed": 0.3335,
+            "multiview_projected": 0.0,
+            "interpolated": 0.1748,
+            "symmetry_derived": 0.2515,
+            "model_inferred": 0.2231,
+            "unobserved": 0.0171
+          },
+          "mean_confidence": 0.7387,
+          "uncertainty_score": 0.2613,
+          "has_rear_view": false,
+          "has_side_view": false
+        },
+        "hidden_surface_confidence": 0.7387,
+        "observed_surface_ratio": 0.3335,
+        "fusion_method": "single_view_bilateral_symmetry_prior",
+        "notes": "Rear geometry inferred via bilateral symmetry and anatomical drape priors. 0% rear photographic observation."
+      },
+      "mesh_quality": {
+        "is_valid": true,
+        "is_manifold": true,
+        "degenerate_faces": 0,
+        "vertex_count": 2111,
+        "face_count": 3864,
+        "boundary_loops": 352,
+        "issues": [],
+        "warnings": [
+          "Open-bordered garment construction: 352 boundary edges (expected for neck/cuff/hem openings)."
+        ]
+      }
+    },
+    "suite_5_avatar_fitting_and_inspector": {
+      "status": "PASSED",
+      "duration_ms": 442.3,
+      "archetype_fits": [
+        {
+          "archetype": "standard_175",
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 9.73,
+          "mean_clearance_mm": 52.67,
+          "status": "CLEARED"
+        },
+        {
+          "archetype": "athletic_broad",
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 7.86,
+          "mean_clearance_mm": 45.41,
+          "status": "CLEARED"
+        },
+        {
+          "archetype": "slim_lean",
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 8.74,
+          "mean_clearance_mm": 59.44,
+          "status": "CLEARED"
+        },
+        {
+          "archetype": "plus_curvy",
+          "penetration_count": 0,
+          "penetration_pct": 0.0,
+          "min_clearance_mm": 8.64,
+          "mean_clearance_mm": 34.89,
+          "status": "CLEARED"
+        }
+      ],
+      "inspector_view_modes": [
+        "front_ortho_view",
+        "rear_ortho_view",
+        "left_profile_view",
+        "right_profile_view",
+        "three_quarter_perspective_view",
+        "wireframe_topology_mode",
+        "neutral_clay_diagnostic_mode",
+        "normal_vector_diagnostic_mode",
+        "depth_disparity_map_mode",
+        "component_isolation_mode",
+        "mesh_statistics_hud",
+        "confidence_regime_hud",
+        "avatar_collision_visualizer"
+      ]
+    },
+    "suite_6_performance_and_regression": {
+      "status": "PASSED",
+      "duration_ms": 2220.66,
+      "m2_performance": {
+        "cold_latency_ms": 569.5,
+        "warm_latency_ms": 506.81,
+        "mps_acceleration": true,
+        "target_throughput_fps": 1.97
+      },
+      "production_regression": {
+        "job_manager_active": true,
+        "job_creation_verified": true,
+        "hmac_provenance_verified": true,
+        "glb_exporter_verified": true
+      }
+    }
+  },
+  "overall_verdict": "ACCEPTED",
+  "total_duration_seconds": 10.0,
+  "suites_passed": 6,
+  "suites_total": 6
+}

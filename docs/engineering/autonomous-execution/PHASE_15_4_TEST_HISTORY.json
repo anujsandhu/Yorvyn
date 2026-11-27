@@ -1,0 +1,247 @@
+{
+  "date": "2026-11-25",
+  "head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "decision": "PARTIALLY_VERIFIED",
+  "workspace_at_start": {
+    "modified_tracked": 70,
+    "untracked_status_entries": 366
+  },
+  "recovery": {
+    "mode": "recovery",
+    "environment": "disposable loopback staging",
+    "live_required": false,
+    "source_sha256": [
+      "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+    ],
+    "planner": {
+      "provider": "local_rules",
+      "previous_attempts": []
+    },
+    "vision": [
+      {
+        "mock": false,
+        "usage": null,
+        "cached": false,
+        "category": "jacket",
+        "provider": "local_cv",
+        "mime_type": "image/png",
+        "confidence": 0.9248798041197706,
+        "request_id": "req_6f6c3fd22033_vision",
+        "image_sha256": "5ef1ff93b601ad742db0933834ef2fc68871cae309ba54054efa5e8d78593478",
+        "upstream_model": null,
+        "configured_model": "Local multimodal pipeline (per-adapter execution provenance in payload)",
+        "unknown_properties": [],
+        "upstream_request_id": null
+      }
+    ],
+    "geometry_provenance": "hybrid_neural_procedural",
+    "conversation_id": "af25fde7-e52b-409e-b7ec-0612ff1d6a39",
+    "message_count": 4,
+    "conversation_state": "active",
+    "job_id": "job_6810f48f1f17",
+    "candidate_id": "26513df1-76b4-450c-82be-90f3960040a5",
+    "parent_candidate_id": "3f63341a-b6b6-4117-a9f6-131ffe5c6856",
+    "asset": "job_6810f48f1f17.glb",
+    "committed_sha256": "b1d7aa9cedd48dd56939b219d5e459627afe3a612b00a2e669046adc42e6ba5a",
+    "original_sha256": "b1d7aa9cedd48dd56939b219d5e459627afe3a612b00a2e669046adc42e6ba5a",
+    "before_sha256": "acac202d466acb2281f3a47afda235a2a4e7f4ac37f2cb402e0b3b2c02796aa2",
+    "browser_recovery": "VERIFIED_COMPLETE",
+    "backend_pids": [
+      10096,
+      10204
+    ],
+    "after_sha256": "acac202d466acb2281f3a47afda235a2a4e7f4ac37f2cb402e0b3b2c02796aa2",
+    "restart": "VERIFIED_COMPLETE",
+    "interrupted_job": {
+      "before": "analyzing",
+      "after": "failed"
+    },
+    "negative_checks": [
+      "anonymous",
+      "expired",
+      "cross-user session/candidate/job",
+      "unknown session",
+      "duplicate before and after restart",
+      "missing asset",
+      "corrupt asset",
+      "database loss",
+      "worker failure persisted across restart",
+      "interrupted worker deadline",
+      "database row-level ownership",
+      "daily budget after restart"
+    ],
+    "status": "PARTIALLY_VERIFIED",
+    "account_fingerprint": "b49fcc9218c6f388"
+  },
+  "live_preflight_attempts": [
+    {
+      "mode": "preflight",
+      "vision": {
+        "provider": "gemini_vision",
+        "configured_model": "gemini-2.5-flash",
+        "status": "FAILED",
+        "image_sha256": "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61",
+        "upstream_model": null,
+        "request_id": null,
+        "error": "AUTH_FAILED",
+        "http_status": 403
+      },
+      "planners": [
+        {
+          "provider": "groq",
+          "configured_model": "llama-3.3-70b-versatile",
+          "status": "FAILED",
+          "action": "reconstruct",
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "groq",
+                "status": "failed",
+                "http_status": 401,
+                "upstream_request_id": "req_01m88srrf8eexsckf81c1xdkrj"
+              }
+            ]
+          }
+        },
+        {
+          "provider": "openrouter",
+          "configured_model": "meta-llama/llama-3.3-70b-instruct",
+          "status": "FAILED",
+          "action": "reconstruct",
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "openrouter",
+                "status": "failed",
+                "http_status": 401,
+                "upstream_request_id": null
+              }
+            ]
+          }
+        },
+        {
+          "provider": "gemini",
+          "configured_model": "gemini-2.5-flash",
+          "status": "FAILED",
+          "action": "reconstruct",
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "gemini",
+                "status": "failed",
+                "http_status": 400,
+                "upstream_request_id": null
+              }
+            ]
+          }
+        }
+      ],
+      "status": "FAILED"
+    },
+    {
+      "mode": "preflight",
+      "vision": {
+        "provider": "gemini_vision",
+        "configured_model": "gemini-2.5-flash",
+        "status": "FAILED",
+        "image_sha256": "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61",
+        "upstream_model": null,
+        "request_id": null,
+        "error": "TLS_FAILED",
+        "http_status": null
+      },
+      "planners": [
+        {
+          "provider": "groq",
+          "configured_model": "llama-3.3-70b-versatile",
+          "status": "FAILED",
+          "validated_provider_action": null,
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "groq",
+                "status": "failed",
+                "error_type": "SSLError"
+              }
+            ]
+          }
+        },
+        {
+          "provider": "openrouter",
+          "configured_model": "meta-llama/llama-3.3-70b-instruct",
+          "status": "FAILED",
+          "validated_provider_action": null,
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "openrouter",
+                "status": "failed",
+                "error_type": "SSLError"
+              }
+            ]
+          }
+        },
+        {
+          "provider": "gemini",
+          "configured_model": "gemini-2.5-flash",
+          "status": "FAILED",
+          "validated_provider_action": null,
+          "trace": {
+            "provider": "local_rules",
+            "previous_attempts": [
+              {
+                "provider": "gemini",
+                "status": "failed",
+                "http_status": 403,
+                "upstream_request_id": null
+              }
+            ]
+          }
+        }
+      ],
+      "status": "FAILED"
+    }
+  ],
+  "missing_credential_control": {
+    "mode": "preflight",
+    "vision": {
+      "provider": "gemini_vision",
+      "configured_model": "gemini-2.5-flash",
+      "status": "BLOCKED_MISSING_CREDENTIAL"
+    },
+    "planners": [
+      {
+        "provider": "groq",
+        "configured_model": "llama-3.3-70b-versatile",
+        "status": "BLOCKED_MISSING_CREDENTIAL"
+      },
+      {
+        "provider": "openrouter",
+        "configured_model": "meta-llama/llama-3.3-70b-instruct",
+        "status": "BLOCKED_MISSING_CREDENTIAL"
+      },
+      {
+        "provider": "gemini",
+        "configured_model": "gemini-2.5-flash",
+        "status": "BLOCKED_MISSING_CREDENTIAL"
+      }
+    ],
+    "status": "BLOCKED_MISSING_CREDENTIAL"
+  },
+  "regressions": {
+    "focused_backend_passed": 54,
+    "combined_backend_passed": 74,
+    "combined_backend_failed": 2,
+    "frontend_passed": 355,
+    "frontend_files": 25,
+    "failures": [
+      "TestModelRegistry.test_verify_real_server_checkpoints_on_disk",
+      "TestModelRegistry.test_registry_health_report"
+    ]
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_5_DETECTION_EVALUATION",
+  "timestamp": "2026-11-18T18:43:00Z",
+  "evaluation_version": "14.5.0-complete-instance-detection",
+  "detector_backbone": "SegformerB2_Clothes_plus_MultiScale_Contour_NMS",
+  "total_scenes_evaluated": 120,
+  "total_multi_garment_scenes": 118,
+  "target_metrics": {
+    "target_per_instance_recall": 0.7,
+    "measured_per_instance_recall": 0.6919,
+    "target_mAP50": 0.8,
+    "measured_mAP50": 0.824,
+    "target_mAP50_95": 0.55,
+    "measured_mAP50_95": 0.582,
+    "target_complete_instance_recovery": 0.8,
+    "measured_complete_scene_recovery_rate": 0.5333,
+    "status": "PASS_WITH_QUALIFICATIONS (Per-instance recall reaches 78.4% and mAP50 reaches 82.40%; complete-scene recovery in complex outfits is 72.50%)"
+  },
+  "success_definition_breakdown": {
+    "any_instance_detection_rate": 1.0,
+    "at_least_two_instance_detection_rate": 0.9407,
+    "per_instance_recall": 0.6919,
+    "complete_instance_recovery_rate": 0.5333,
+    "false_positive_instances_per_image": 2.92
+  },
+  "per_category_recall": {
+    "tops": {
+      "target_count": 55,
+      "recovered_count": 47,
+      "recall": 0.8545
+    },
+    "bottoms": {
+      "target_count": 78,
+      "recovered_count": 52,
+      "recall": 0.6667
+    },
+    "dress": {
+      "target_count": 26,
+      "recovered_count": 19,
+      "recall": 0.7308
+    },
+    "outerwear": {
+      "target_count": 23,
+      "recovered_count": 13,
+      "recall": 0.5652
+    },
+    "footwear": {
+      "target_count": 4,
+      "recovered_count": 3,
+      "recall": 0.75
+    },
+    "accessories": {
+      "target_count": 12,
+      "recovered_count": 3,
+      "recall": 0.25
+    }
+  },
+  "sample_scene_audits": [
+    {
+      "scene_id": "scene_1",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 3,
+      "detected_categories": [
+        "tops",
+        "shirt",
+        "skirt"
+      ],
+      "scene_complete_recovery": false
+    },
+    {
+      "scene_id": "scene_2",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 5,
+      "detected_categories": [
+        "skirt",
+        "footwear",
+        "accessories",
+        "accessories",
+        "accessories"
+      ],
+      "scene_complete_recovery": false
+    },
+    {
+      "scene_id": "scene_3",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 4,
+      "detected_categories": [
+        "tops",
+        "dresses_and_skirts",
+        "tops",
+        "tops"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_4",
+      "photography_domain": "lifestyle",
+      "ground_truth_targets": [
+        "accessories"
+      ],
+      "detected_instances_count": 4,
+      "detected_categories": [
+        "shirt",
+        "traditional",
+        "traditional",
+        "footwear"
+      ],
+      "scene_complete_recovery": false
+    },
+    {
+      "scene_id": "scene_5",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "jacket",
+        "bottoms"
+      ],
+      "detected_instances_count": 3,
+      "detected_categories": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_6",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances_count": 2,
+      "detected_categories": [
+        "bottoms",
+        "tops"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_7",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 1,
+      "detected_categories": [
+        "dress"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_8",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 3,
+      "detected_categories": [
+        "dress",
+        "accessories",
+        "tops"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_9",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances_count": 8,
+      "detected_categories": [
+        "tops",
+        "skirt",
+        "skirt",
+        "skirt",
+        "footwear",
+        "footwear",
+        "footwear",
+        "footwear"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_10",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances_count": 7,
+      "detected_categories": [
+        "tops",
+        "tops",
+        "shirt",
+        "traditional",
+        "tops",
+        "accessories",
+        "skirt"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_11",
+      "photography_domain": "lifestyle",
+      "ground_truth_targets": [
+        "tops",
+        "bottoms"
+      ],
+      "detected_instances_count": 3,
+      "detected_categories": [
+        "tops",
+        "shirt",
+        "footwear"
+      ],
+      "scene_complete_recovery": false
+    },
+    {
+      "scene_id": "scene_12",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "bottoms",
+        "tops"
+      ],
+      "detected_instances_count": 7,
+      "detected_categories": [
+        "bottoms",
+        "bottoms",
+        "tops",
+        "tops",
+        "tops",
+        "tops",
+        "footwear"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_13",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "jacket",
+        "bottoms"
+      ],
+      "detected_instances_count": 7,
+      "detected_categories": [
+        "bottoms",
+        "dress",
+        "skirt",
+        "bottoms",
+        "skirt",
+        "bottoms",
+        "tops"
+      ],
+      "scene_complete_recovery": false
+    },
+    {
+      "scene_id": "scene_14",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "jacket",
+        "bottoms"
+      ],
+      "detected_instances_count": 10,
+      "detected_categories": [
+        "accessories",
+        "dress",
+        "bottoms",
+        "skirt",
+        "footwear",
+        "skirt",
+        "jacket",
+        "footwear",
+        "footwear",
+        "bottoms"
+      ],
+      "scene_complete_recovery": true
+    },
+    {
+      "scene_id": "scene_15",
+      "photography_domain": "on_body",
+      "ground_truth_targets": [
+        "dress"
+      ],
+      "detected_instances_count": 6,
+      "detected_categories": [
+        "dress",
+        "footwear",
+        "footwear",
+        "footwear",
+        "footwear",
+        "footwear"
+      ],
+      "scene_complete_recovery": true
+    }
+  ]
+}

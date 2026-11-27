@@ -276,7 +276,7 @@ def _generate_template_response(
             top = recommendations[0]
             return f"🎁 Nice! For gifting, **{top['name']}** is a great choice - it's got {top.get('accords', 'amazing')[:40]} notes and people love it (rated {top.get('rating', 4.0):.1f}/5 ⭐). Who's it for? That'll help me narrow it down even more."
         else:
-            return f"🎁 Nice! Let me help you find the perfect gift.\n\n👤 **Who's it for?**\n• For him 👨\n• For her 👩\n\n💫 **What's their style?**\n• Fresh & citrusy 🍋\n• Warm & woody 🌲\n• Sweet & floral 🌸\n• Bold & spicy 🔥"
+            return "🎁 Nice! Let me help you find the perfect gift.\n\n👤 **Who's it for?**\n• For him 👨\n• For her 👩\n\n💫 **What's their style?**\n• Fresh & citrusy 🍋\n• Warm & woody 🌲\n• Sweet & floral 🌸\n• Bold & spicy 🔥"
     
     # If we have recommendations
     if has_recommendations and recommendations:

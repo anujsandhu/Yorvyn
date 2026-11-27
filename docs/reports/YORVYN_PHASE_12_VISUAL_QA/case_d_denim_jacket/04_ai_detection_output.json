@@ -1,0 +1,26 @@
+{
+  "job_id": "job_p12_case_d_denim_jacket_900c9350",
+  "case_id": "case_d_denim_jacket",
+  "case_name": "Structured Denim Jacket",
+  "image_type": "lifestyle_fashion",
+  "category": "outerwear",
+  "subcategory": "denim_jacket",
+  "confidence": 0.643,
+  "primary_color_name": "charcoal",
+  "primary_color_hex": "#1f2f4b",
+  "secondary_color_name": "charcoal",
+  "secondary_color_hex": "#20304c",
+  "palette": [
+    "#1f2f4b",
+    "#20304c",
+    "#18263e",
+    "#121c2e",
+    "#e2c6b4"
+  ],
+  "pattern": "solid",
+  "material_hint": "selvedge_denim",
+  "silhouette": "regular",
+  "sleeve_length": "short",
+  "neckline_type": "crewneck",
+  "detection_duration_ms": 484.03
+}

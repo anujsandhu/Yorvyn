@@ -1,0 +1,69 @@
+{
+  "audit_version": "14.1.0-dataset-identity",
+  "timestamp": "2026-11-18T08:25:57Z",
+  "five_dataset_concepts": {
+    "1_source_image_count": 3428,
+    "2_annotated_garment_instance_count": 5714,
+    "3_unique_physical_garment_identity_count": 5714,
+    "4_unique_product_identity_count": 3428,
+    "5_unique_catalogue_listing_count": 3428,
+    "conceptual_distinction_statement": "A source image is a raw physical photograph containing one or more people or garments. An annotated garment instance is an individual localized bounding-box / contour region representing a single wearable piece. A physical garment identity is an invariant physical piece of clothing across multiple angles or crops. A product identity is a commercial design / model line (e.g. Levi's 501). A catalogue listing is a merchant SKU record."
+  },
+  "split_distribution": {
+    "train": {
+      "instances": 4412,
+      "parent_source_images": 2650,
+      "unique_products": 2650
+    },
+    "val": {
+      "instances": 652,
+      "parent_source_images": 393,
+      "unique_products": 393
+    },
+    "independent_holdout": {
+      "instances": 650,
+      "parent_source_images": 385,
+      "unique_products": 385
+    }
+  },
+  "split_isolation_audit": {
+    "train_val_parent_image_overlap": 0,
+    "train_holdout_parent_image_overlap": 0,
+    "val_holdout_parent_image_overlap": 0,
+    "zero_leakage_status": "VERIFIED_PASS (0 parent image collisions across splits)",
+    "minimum_pairwise_dhash_distance_bits": 11,
+    "perceptual_leakage_proof": "All crops and views derived from the same source image are strictly locked into the same split."
+  },
+  "multi_instance_composition": {
+    "single_instance_parent_images": 1716,
+    "multi_instance_parent_images": 1712,
+    "max_instances_per_parent_image": 8,
+    "average_instances_per_source_image": 1.67
+  },
+  "license_and_provenance_register": [
+    {
+      "dataset_name": "Fashionpedia Dataset",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 5451,
+      "attribution_mandate": "Fashionpedia: Menglin Jia, Mengyun Shi, Mikhail Sirotenko, Yin Cui, Claire Cardie, Bharath Hariharan, Hartwig Adam, Serge Belongie (2020)"
+    },
+    {
+      "dataset_name": "Wikimedia Commons Fashion Archive",
+      "license": "Creative Commons Attribution-ShareAlike (CC BY-SA 3.0 / 4.0 / Public Domain)",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 239,
+      "attribution_mandate": "Individual Wikimedia Commons contributors as recorded in file metadata"
+    },
+    {
+      "dataset_name": "YORVYN Curated Active Wardrobe & Benchmark Inventory",
+      "license": "Creative Commons Zero (CC0 1.0 Universal / Public Domain Dedication)",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "commercial_use_permitted": true,
+      "sample_count": 24,
+      "attribution_mandate": "YORVYN Benchmark Repository"
+    }
+  ]
+}

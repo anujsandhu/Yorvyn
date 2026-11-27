@@ -1,0 +1,17 @@
+{
+  "status": "PASSED",
+  "browser": "headless_chromium_swiftshader",
+  "photo": "/Users/anujsandhu/Projects/yorvyn/data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+  "telemetry_hud": "Backend: webgl2 (high) | WebGPU: adapterFPS: 60 (16.67ms) | Calls: 20 | Tris: 7808",
+  "measurements_before_2d_edit": "Synced Measurements: Chest 54.0 cm | Length 68.0 cm | Sleeve 62.0 cm",
+  "measurements_after_2d_edit": "Synced Measurements: Chest 61.5 cm | Length 68.0 cm | Sleeve 62.0 cm",
+  "undo_restored": true,
+  "redo_reapplied": true,
+  "exported_glb_bytes": 1631028,
+  "exported_glb_sha256": "bd059b97e03e62ae55d31de3cdf56eb6669e24c699449de12f342cf7fd8e854f",
+  "context_loss_recovery_tested": true,
+  "resize_tested": true,
+  "avatar_fit_verified": true,
+  "page_errors": [],
+  "console_error_count": 8
+}

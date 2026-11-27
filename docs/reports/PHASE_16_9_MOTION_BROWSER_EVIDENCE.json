@@ -1,0 +1,133 @@
+{
+  "status": "PASSED",
+  "environment": "headless_chromium_swiftshader_not_native_gpu",
+  "photo": "/Users/anujsandhu/Projects/yorvyn/data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+  "skeleton_compatible": true,
+  "bone_count": 69,
+  "loaded_clip_count": 28,
+  "fitted_garment_vertices": 4352,
+  "garment_vertices_finite_after_motion": true,
+  "paused_state_verified": true,
+  "reset_state_verified": true,
+  "fabric_profile": {
+    "id": "jacket_cotton",
+    "category": "jacket",
+    "fabricFamily": "cotton",
+    "arealDensityKgM2": 0.22,
+    "stretchResistance": 0.88,
+    "shearResistance": 0.6,
+    "bendingResistance": 0.42,
+    "damping": 0.93,
+    "friction": 0.45,
+    "thicknessM": 0.0025,
+    "anisotropyRatio": 1.12,
+    "seamStiffness": 0.94,
+    "secondarySwayGain": 0.42,
+    "surfaceRoughnessVisual": 0.65,
+    "isMeasuredPhysical": false,
+    "constructionProvenance": "single_view_with_inferred_back"
+  },
+  "final_telemetry": {
+    "state": "IDLE",
+    "qualityTier": "low",
+    "renderBackend": "webgl2",
+    "physicsBackend": "cpu_xpbd",
+    "webgpuExperimentalOnly": true,
+    "isSoftwareRendered": false,
+    "renderFrameMs": 3.6,
+    "simulationStepMs": 3.5,
+    "p50FrameMs": 3.6,
+    "p95FrameMs": 48.3,
+    "p99FrameMs": 48.3,
+    "fps": 51.3,
+    "droppedFrames": 3,
+    "activeClothVertices": 4352,
+    "constraintCount": 23424,
+    "collisionCount": 2604,
+    "secondaryNodeCount": 0,
+    "workerExecutionMs": 0,
+    "memoryMb": 415.3
+  },
+  "export_validation": {
+    "isValid": true,
+    "exportKind": "skeletal_animation_export",
+    "clipCount": 28,
+    "sampleClipNames": [
+      "Idle",
+      "Walk",
+      "Run",
+      "Sit Down",
+      "Sit",
+      "Stand Up",
+      "Bend",
+      "Thumbs Up",
+      "Thumbs Down",
+      "Wave",
+      "Cheer",
+      "Nod"
+    ],
+    "boneCount": 69,
+    "hasBakedClothDeformation": false,
+    "byteLength": 11989084
+  },
+  "exported_animated_glb_bytes": 11989084,
+  "state_samples_summary": {
+    "Walk": {
+      "state": "WALK",
+      "p50": 0.2,
+      "p95": 348.5,
+      "simMs": 0.8,
+      "activeVerts": 4352,
+      "collisions": 0
+    },
+    "Run": {
+      "state": "RUN",
+      "p50": 2.8,
+      "p95": 348.5,
+      "simMs": 3,
+      "activeVerts": 4352,
+      "collisions": 2188
+    },
+    "Raise Arms": {
+      "state": "RAISE_ARMS",
+      "p50": 3,
+      "p95": 7.1,
+      "simMs": 11.3,
+      "activeVerts": 4352,
+      "collisions": 4392
+    },
+    "Bend": {
+      "state": "BEND",
+      "p50": 3,
+      "p95": 127.3,
+      "simMs": 5.1,
+      "activeVerts": 4352,
+      "collisions": 484
+    },
+    "Sit": {
+      "state": "SIT",
+      "p50": 4,
+      "p95": 127.3,
+      "simMs": 5,
+      "activeVerts": 4352,
+      "collisions": 1612
+    },
+    "Stand": {
+      "state": "STAND",
+      "p50": 3.6,
+      "p95": 127.3,
+      "simMs": 2.7,
+      "activeVerts": 4352,
+      "collisions": 412
+    },
+    "Turn": {
+      "state": "TURN",
+      "p50": 3.3,
+      "p95": 7.1,
+      "simMs": 342.4,
+      "activeVerts": 4352,
+      "collisions": 35640
+    }
+  },
+  "page_errors": []
+}

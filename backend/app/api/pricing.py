@@ -13,7 +13,6 @@ Fallback rate: 84 INR/USD (updated periodically in code)
 """
 import time
 import threading
-from typing import Optional
 
 # ── Exchange rate cache ───────────────────────────────────────────────
 _fx_lock   = threading.Lock()
@@ -23,11 +22,12 @@ _FX_TTL    = 21600   # 6 hours
 def _fetch_usd_inr() -> float:
     """Fetch live USD→INR rate. Returns cached fallback on any error."""
     try:
-        import urllib.request, json
+        import requests
         # Free endpoint — no API key required
         url = "https://open.er-api.com/v6/latest/USD"
-        with urllib.request.urlopen(url, timeout=4) as resp:
-            data = json.loads(resp.read())
+        resp = requests.get(url, timeout=4)
+        resp.raise_for_status()
+        data = resp.json()
         rate = float(data["rates"]["INR"])
         if 70 <= rate <= 110:   # sanity check
             return rate
@@ -144,7 +144,6 @@ BRAND_TIERS: dict[str, tuple[int, int]] = {
     "chopard":            (4000,  12000),
     "boucheron":          (5000,  15000),
     "van cleef":          (8000,  25000),
-    "bulgari":            (5000,  15000),
     "tiffany":            (5000,  15000),
     "tiffany & co":       (5000,  15000),
 
@@ -157,7 +156,6 @@ BRAND_TIERS: dict[str, tuple[int, int]] = {
     "nike":               (1000,  3000),
     "puma":               (800,   2500),
     "playboy":            (800,   2500),
-    "davidoff":           (2500,  8000),
     "nautica":            (2000,  6000),
     "kenneth cole":       (2500,  7000),
     "tommy hilfiger":     (2500,  8000),
@@ -217,7 +215,6 @@ BRAND_TIERS: dict[str, tuple[int, int]] = {
     "goutal paris":       (7000,  22000),
     "miller harris":      (6000,  20000),
     "ormonde jayne":      (8000,  25000),
-    "clive christian":    (30000, 120000),
     "henry jacques":      (20000, 80000),
 
     # Arabic / Oud houses (₹2,000–₹30,000)
@@ -228,7 +225,6 @@ BRAND_TIERS: dict[str, tuple[int, int]] = {
     "swiss arabian":      (2000,  10000),
     "armaf":              (1500,  6000),
     "fragrance world":    (1500,  6000),
-    "oud elite":          (3000,  15000),
     "nabeel":             (2000,  8000),
     "ard al zaafaran":    (1500,  6000),
     "maison alhambra":    (1500,  6000),
@@ -237,15 +233,12 @@ BRAND_TIERS: dict[str, tuple[int, int]] = {
     "fa paris":           (2000,  8000),
     "hamidi":             (1500,  6000),
     "surrati":            (2000,  8000),
-    "oud mood":           (2000,  8000),
     "arabiyat":           (1500,  6000),
     "khalis":             (1500,  6000),
     "rihanah":            (1500,  6000),
     "emper":              (1000,  4000),
     "pendora":            (1500,  6000),
     "paris corner":       (1500,  6000),
-    "oud elite":          (3000,  15000),
-    "oud mood":           (2000,  8000),
     "oud":                (2000,  10000),
 }
 

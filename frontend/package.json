@@ -8,23 +8,33 @@
     "build": "tsc && vite build",
     "build:prod": "tsc && vite build --mode production",
     "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@mediapipe/tasks-vision": "^1.2.2",
+    "@phosphor-icons/react": "^2.1.10",
     "@supabase/supabase-js": "^2.118.0",
     "axios": "^1.6.2",
     "fflate": "^0.8.3",
     "firebase": "^12.12.1",
     "framer-motion": "11.18.2",
-    "lucide-react": "^0.294.0",
+    "gsap": "^3.15.0",
+    "onnxruntime-web": "^1.31.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.20.0",
     "three": "^0.186.1",
+    "three-mesh-bvh": "^0.9.17",
     "vanta": "^0.5.24",
     "zustand": "^4.4.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.14.7"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
@@ -34,6 +44,7 @@
     "@vitejs/plugin-react": "^4.2.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vite-plugin-pwa": "^0.20.0"
+    "vite-plugin-pwa": "^0.20.0",
+    "vitest": "^4.1.12"
   }
 }

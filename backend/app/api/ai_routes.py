@@ -47,7 +47,7 @@ BLOCKED_HOSTS = [
 
 
 def _cache_key(name: str, brand: str) -> str:
-    return hashlib.md5(f"{brand.lower().strip()}|{name.lower().strip()}".encode()).hexdigest()
+    return hashlib.sha256(f"{brand.lower().strip()}|{name.lower().strip()}".encode()).hexdigest()
 
 
 def _is_valid_url(url: str) -> bool:
@@ -83,9 +83,12 @@ def _ddg_search(query: str, max_results: int = 12, timeout: float = 3.0) -> list
         import warnings
         warnings.filterwarnings("ignore")
         try:
-            from duckduckgo_search import DDGS
+            from duckduckgo_search import DDGS  # type: ignore
         except ImportError:
-            from ddgs import DDGS  # type: ignore
+            try:
+                from ddgs import DDGS  # type: ignore
+            except ImportError:
+                DDGS = None  # type: ignore
 
         candidates: list[str] = []
         deadline = time.time() + timeout

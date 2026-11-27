@@ -1,0 +1,243 @@
+{
+  "schema_version": "011_continuous_learning_and_personalization",
+  "migration_file": "backend/migrations/011_continuous_learning_and_personalization.sql",
+  "generated_at": "2026-11-07T07:40:00Z",
+  "database": "Supabase PostgreSQL 15+",
+  "entities": {
+    "yorvyn_user_preferences": {
+      "table_name": "yorvyn_user_preferences",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "foreign_keys": [
+        {
+          "column": "user_id",
+          "references": "auth.users(id)",
+          "on_delete": "CASCADE"
+        }
+      ],
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID NOT NULL",
+        "preference_category": "TEXT NOT NULL (CHECK IN ('fit', 'style', 'colour', 'fabric', 'brand', 'occasion', 'budget', 'outfit', 'shopping', 'general'))",
+        "preference_key": "TEXT NOT NULL",
+        "preference_value": "JSONB NOT NULL",
+        "source": "TEXT NOT NULL (CHECK IN ('explicit', 'behavioral', 'temporary', 'inferred', 'correction'))",
+        "confidence": "FLOAT NOT NULL DEFAULT 0.5 (CHECK BETWEEN 0.0 AND 1.0)",
+        "evidence_count": "INTEGER NOT NULL DEFAULT 1 (CHECK >= 1)",
+        "status": "TEXT NOT NULL DEFAULT 'active' (CHECK IN ('active', 'inactive', 'archived', 'deleted'))",
+        "last_confirmed_at": "TIMESTAMPTZ",
+        "created_at": "TIMESTAMPTZ NOT NULL DEFAULT now()",
+        "updated_at": "TIMESTAMPTZ NOT NULL DEFAULT now()"
+      },
+      "constraints": [
+        "CONSTRAINT yorvyn_user_preferences_unique_pref UNIQUE (user_id, preference_category, preference_key)"
+      ],
+      "indexes": [
+        "idx_yorvyn_user_pref_user_id ON yorvyn_user_preferences(user_id)",
+        "idx_yorvyn_user_pref_category ON yorvyn_user_preferences(user_id, preference_category)",
+        "idx_yorvyn_user_pref_status ON yorvyn_user_preferences(user_id, status)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Users view own preferences: auth.uid() = user_id",
+          "Users insert own preferences: auth.uid() = user_id",
+          "Users update own preferences: auth.uid() = user_id",
+          "Users delete own preferences: auth.uid() = user_id"
+        ]
+      }
+    },
+    "yorvyn_ai_feedback": {
+      "table_name": "yorvyn_ai_feedback",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "foreign_keys": [
+        {
+          "column": "user_id",
+          "references": "auth.users(id)",
+          "on_delete": "CASCADE"
+        },
+        {
+          "column": "session_id",
+          "references": "yorvyn_ai_sessions(id)",
+          "on_delete": "SET NULL"
+        },
+        {
+          "column": "message_id",
+          "references": "yorvyn_ai_messages(id)",
+          "on_delete": "SET NULL"
+        },
+        {
+          "column": "search_id",
+          "references": "yorvyn_ai_searches(id)",
+          "on_delete": "SET NULL"
+        }
+      ],
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID NOT NULL",
+        "session_id": "UUID",
+        "message_id": "UUID",
+        "search_id": "UUID",
+        "feedback_type": "TEXT NOT NULL (CHECK IN ('positive', 'negative', 'correction', 'preference', 'accepted_recommendation', 'rejected_recommendation', 'edited_result', 'confirmed_result', 'reported_error'))",
+        "rating": "SMALLINT (CHECK BETWEEN 1 AND 5)",
+        "original_output": "JSONB",
+        "corrected_output": "JSONB",
+        "feedback_text": "TEXT",
+        "metadata": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "consent_snapshot": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "created_at": "TIMESTAMPTZ NOT NULL DEFAULT now()"
+      },
+      "indexes": [
+        "idx_yorvyn_ai_feedback_user ON yorvyn_ai_feedback(user_id)",
+        "idx_yorvyn_ai_feedback_session ON yorvyn_ai_feedback(session_id)",
+        "idx_yorvyn_ai_feedback_message ON yorvyn_ai_feedback(message_id)",
+        "idx_yorvyn_ai_feedback_type ON yorvyn_ai_feedback(feedback_type)",
+        "idx_yorvyn_ai_feedback_created ON yorvyn_ai_feedback(created_at DESC)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Users view own feedback: auth.uid() = user_id",
+          "Users insert own feedback: auth.uid() = user_id",
+          "Users delete own feedback: auth.uid() = user_id"
+        ]
+      }
+    },
+    "yorvyn_learning_examples": {
+      "table_name": "yorvyn_learning_examples",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "foreign_keys": [
+        {
+          "column": "source_feedback_id",
+          "references": "yorvyn_ai_feedback(id)",
+          "on_delete": "SET NULL"
+        }
+      ],
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "source_feedback_id": "UUID",
+        "task_type": "TEXT NOT NULL (CHECK IN ('classification', 'subcategorization', 'segmentation', 'human_parsing', 'component_detection', 'fabric_estimation', 'color_pattern', 'silhouette_prediction', 'reconstruction', 'avatar_fitting', 'recommendation_ranking', 'preference_prediction', 'response_quality'))",
+        "input_reference": "JSONB NOT NULL",
+        "target_output": "JSONB NOT NULL",
+        "quality_score": "FLOAT NOT NULL DEFAULT 0.0 (CHECK BETWEEN 0.0 AND 1.0)",
+        "validation_status": "TEXT NOT NULL DEFAULT 'pending' (CHECK IN ('pending', 'validated', 'rejected', 'quarantined'))",
+        "consent_scope": "TEXT NOT NULL (CHECK IN ('personalization_only', 'global_model_training', 'research_internal'))",
+        "dataset_version": "TEXT",
+        "exclusion_reason": "TEXT",
+        "created_at": "TIMESTAMPTZ NOT NULL DEFAULT now()",
+        "validated_at": "TIMESTAMPTZ"
+      },
+      "indexes": [
+        "idx_yorvyn_learn_ex_task ON yorvyn_learning_examples(task_type, validation_status)",
+        "idx_yorvyn_learn_ex_status ON yorvyn_learning_examples(validation_status)",
+        "idx_yorvyn_learn_ex_dataset ON yorvyn_learning_examples(dataset_version)",
+        "idx_yorvyn_learn_ex_created ON yorvyn_learning_examples(created_at DESC)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Service role full access on learning_examples: auth.jwt() ->> 'role' = 'service_role'"
+        ]
+      }
+    },
+    "yorvyn_model_registry": {
+      "table_name": "yorvyn_model_registry",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "model_name": "TEXT NOT NULL",
+        "model_version": "TEXT NOT NULL",
+        "task_type": "TEXT NOT NULL",
+        "artifact_uri": "TEXT",
+        "artifact_checksum": "TEXT",
+        "base_model": "TEXT",
+        "training_dataset_version": "TEXT",
+        "evaluation_metrics": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "status": "TEXT NOT NULL DEFAULT 'candidate' (CHECK IN ('candidate', 'training', 'evaluation', 'approved', 'deployed', 'rejected', 'archived'))",
+        "deployed_at": "TIMESTAMPTZ",
+        "created_at": "TIMESTAMPTZ NOT NULL DEFAULT now()"
+      },
+      "constraints": [
+        "CONSTRAINT yorvyn_model_registry_unique_ver UNIQUE (model_name, model_version)"
+      ],
+      "indexes": [
+        "idx_yorvyn_model_name_ver ON yorvyn_model_registry(model_name, model_version)",
+        "idx_yorvyn_model_status ON yorvyn_model_registry(task_type, status)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Users view deployed models: status = 'deployed' OR auth.jwt() ->> 'role' = 'service_role'",
+          "Service role full access on model_registry: auth.jwt() ->> 'role' = 'service_role'"
+        ]
+      }
+    },
+    "yorvyn_training_jobs": {
+      "table_name": "yorvyn_training_jobs",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "model_name": "TEXT NOT NULL",
+        "task_type": "TEXT NOT NULL",
+        "dataset_version": "TEXT NOT NULL",
+        "status": "TEXT NOT NULL DEFAULT 'queued' (CHECK IN ('queued', 'running', 'validating', 'completed', 'failed', 'cancelled'))",
+        "training_config": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "evaluation_results": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "resource_usage": "JSONB NOT NULL DEFAULT '{}'::jsonb",
+        "failure_reason": "TEXT",
+        "started_at": "TIMESTAMPTZ",
+        "completed_at": "TIMESTAMPTZ",
+        "created_at": "TIMESTAMPTZ NOT NULL DEFAULT now()"
+      },
+      "indexes": [
+        "idx_yorvyn_train_jobs_status ON yorvyn_training_jobs(status, created_at DESC)",
+        "idx_yorvyn_train_jobs_task ON yorvyn_training_jobs(task_type)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Service role full access on training_jobs: auth.jwt() ->> 'role' = 'service_role'"
+        ]
+      }
+    },
+    "yorvyn_learning_consent": {
+      "table_name": "yorvyn_learning_consent",
+      "primary_key": "id UUID (DEFAULT gen_random_uuid())",
+      "foreign_keys": [
+        {
+          "column": "user_id",
+          "references": "auth.users(id)",
+          "on_delete": "CASCADE"
+        }
+      ],
+      "columns": {
+        "id": "UUID PRIMARY KEY",
+        "user_id": "UUID UNIQUE NOT NULL",
+        "personalization_enabled": "BOOLEAN NOT NULL DEFAULT true",
+        "global_model_training_enabled": "BOOLEAN NOT NULL DEFAULT false",
+        "image_training_enabled": "BOOLEAN NOT NULL DEFAULT false",
+        "conversation_training_enabled": "BOOLEAN NOT NULL DEFAULT false",
+        "consent_version": "TEXT NOT NULL DEFAULT 'v1.0'",
+        "consent_updated_at": "TIMESTAMPTZ NOT NULL DEFAULT now()"
+      },
+      "indexes": [
+        "idx_yorvyn_consent_user ON yorvyn_learning_consent(user_id)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          "Users view own consent: auth.uid() = user_id",
+          "Users insert own consent: auth.uid() = user_id",
+          "Users update own consent: auth.uid() = user_id",
+          "Users delete own consent: auth.uid() = user_id"
+        ]
+      }
+    }
+  },
+  "audit_verifications": {
+    "foreign_key_referential_integrity": "Passed (ON DELETE CASCADE on users, ON DELETE SET NULL on sessions/feedback)",
+    "rls_isolation_verified": "Passed (Zero cross-user data exposure in test_18)",
+    "sensitive_data_redaction": "Passed (Bearer tokens, emails, phone numbers stripped prior to example generation)",
+    "poisoning_quarantine_enforced": "Passed (Contradictory and XSS payloads isolated from training pool in test_08 and test_10)"
+  }
+}
+

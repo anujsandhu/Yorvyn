@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Checkpoint & Artifact Integrity Audit",
+    "timestamp": "2026-11-21T18:16:46Z",
+    "total_audited_artifacts": 10,
+    "passed_artifacts": 10,
+    "failed_artifacts": 0,
+    "expected_checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+    "expected_model": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+    "verdict": "PASS"
+  },
+  "audited_artifacts": [
+    {
+      "job_id": "job_b35cd24b688a",
+      "filename": "job_b35cd24b688a.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_victim_167859",
+      "filename": "job_victim_167859.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_77c943955fee",
+      "filename": "job_77c943955fee.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_7986facf5277",
+      "filename": "job_7986facf5277.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_49_e418bd",
+      "filename": "job_c8_49_e418bd.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_48_d956f2",
+      "filename": "job_c8_48_d956f2.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_47_f16d9a",
+      "filename": "job_c8_47_f16d9a.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_46_7105e7",
+      "filename": "job_c8_46_7105e7.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_45_d6cc2c",
+      "filename": "job_c8_45_d6cc2c.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    },
+    {
+      "job_id": "job_c8_44_b5af6d",
+      "filename": "job_c8_44_b5af6d.glb",
+      "file_size_bytes": 428080,
+      "sha256": "357d7e1df2f1bcdf94cf1d9dafbb39111be160550e22f4c615999f3ee702e3b3",
+      "header": {
+        "magic_hex": "0x46546c67",
+        "is_gltf_binary": true,
+        "version": 2,
+        "header_length_matches": true,
+        "chunk0_is_json": true
+      },
+      "mesh_attributes": {
+        "vertex_count": 1088,
+        "face_count": 682,
+        "is_manifold": true,
+        "boundary_loops": 128
+      },
+      "provenance": {
+        "reconstruction_engine": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+        "classification": "hybrid_parametric_reconstruction",
+        "is_neural_end_to_end": false,
+        "model_name": "yorvyn/contour-carved-parametric-reconstruction-v14.13",
+        "checkpoint_sha256": "4a8f982b6c7e112d8a0c7743b182fb067139fc7eea4e1f890e28da9140db2e85",
+        "device": "mps",
+        "provenance_verified": true
+      },
+      "status": "PASS"
+    }
+  ]
+}

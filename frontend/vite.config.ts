@@ -73,6 +73,30 @@ export default defineConfig(async () => {
         '@yorvyn': path.resolve(__dirname, '../packages'),
       },
     },
+    build: {
+      chunkSizeWarningLimit: 900,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react-dom') || id.includes('/react/') || id.includes('react-router')) return 'react-vendor';
+              if (id.includes('three') || id.includes('three-mesh-bvh')) return 'three-vendor';
+              if (id.includes('onnxruntime-web')) return 'onnx-runtime';
+              if (id.includes('@mediapipe')) return 'mediapipe-vision';
+              if (id.includes('@phosphor-icons')) return 'icons-vendor';
+              if (id.includes('@supabase')) return 'supabase-vendor';
+              if (id.includes('framer-motion') || id.includes('react-hot-toast')) return 'ui-vendor';
+              if (id.includes('axios')) return 'vendor-utils';
+            } else {
+              if (id.includes('src/engine/clothPhysics')) return 'cloth-physics';
+              if (id.includes('src/engine/stylistAI')) return 'stylist-ai';
+              if (id.includes('src/engine/garments')) return 'garment-engine';
+              if (id.includes('src/engine/ara/core/anim')) return 'ara-animations';
+            }
+          }
+        }
+      }
+    },
     server: {
       port: 5174,
       cors: true,

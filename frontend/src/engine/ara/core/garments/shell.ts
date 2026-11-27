@@ -198,16 +198,19 @@ export function buildShell(body: Body, faceVerts: Uint32Array, spec: ShellSpec):
   }
 
   // Smooth the hem: relax boundary vertices along their boundary loop so the
-  // edge follows a clean curve instead of the base mesh's quad stair-steps.
-  const bnbr = new Map<number, number[]>();
+  // edge follows a clean curve without spikes or stair-steps.
+  const bnbr = new Map<number, Set<number>>();
   for (const f of faces)
     for (let k = 0; k < 4; k++) {
       const a = faceVerts[f + k], b = faceVerts[f + ((k + 1) % 4)];
       if (edgeCount.get(ekey(a, b)) !== 1) continue;
       for (const [x, y] of [[a, b], [b, a]]) {
-        const l = bnbr.get(x);
-        if (l) l.push(y);
-        else bnbr.set(x, [y]);
+        let set = bnbr.get(x);
+        if (!set) {
+          set = new Set<number>();
+          bnbr.set(x, set);
+        }
+        set.add(y);
       }
     }
   const bp = new Map<number, [number, number, number]>();
@@ -215,29 +218,58 @@ export function buildShell(body: Body, faceVerts: Uint32Array, spec: ShellSpec):
     const i = remap.get(v)!;
     bp.set(v, [pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]]);
   }
-  for (let it = 0; it < 24; it++) {
+  // 6 iterations of gentle Laplacian smoothing without skipping junctions
+  for (let it = 0; it < 6; it++) {
     const next = new Map<number, [number, number, number]>();
-    for (const [v, nb] of bnbr) {
+    for (const [v, nbSet] of bnbr) {
       const p = bp.get(v)!;
-      if (nb.length !== 2) {
+      const nb = Array.from(nbSet);
+      if (nb.length === 0) {
         next.set(v, p);
         continue;
       }
-      const a = bp.get(nb[0])!, c = bp.get(nb[1])!;
-      next.set(v, [p[0] * 0.5 + (a[0] + c[0]) * 0.25, p[1] * 0.5 + (a[1] + c[1]) * 0.25, p[2] * 0.5 + (a[2] + c[2]) * 0.25]);
+      // Average all neighbors (handles degree 2, 3, 4 without creating sharp spikes)
+      let sx = 0, sy = 0, sz = 0;
+      for (const nid of nb) {
+        const np = bp.get(nid)!;
+        sx += np[0];
+        sy += np[1];
+        sz += np[2];
+      }
+      const inv = 1 / nb.length;
+      const avgX = sx * inv, avgY = sy * inv, avgZ = sz * inv;
+      // Gentle 30% blend per iteration preserves outer circumference
+      next.set(v, [
+        p[0] * 0.7 + avgX * 0.3,
+        p[1] * 0.7 + avgY * 0.3,
+        p[2] * 0.7 + avgZ * 0.3,
+      ]);
     }
     for (const [v, p] of next) bp.set(v, p);
   }
   const shift = new Map<number, [number, number, number]>();
   for (const [v, p] of bp) {
     const i = remap.get(v)!;
-    shift.set(v, [p[0] - pos[i * 3], p[1] - pos[i * 3 + 1], p[2] - pos[i * 3 + 2]]);
-    pos[i * 3] = p[0];
-    pos[i * 3 + 1] = p[1];
-    pos[i * 3 + 2] = p[2];
+    // Re-project along surface normal to guarantee clothing clearance above skin
+    const off = offsetOf(v);
+    const nx = N[v * 3], ny = N[v * 3 + 1], nz = N[v * 3 + 2];
+    const cx = C[v * 3], cy = C[v * 3 + 1], cz = C[v * 3 + 2];
+    // Project smoothed point back out along the normal if Laplacian smoothing shrank it radially
+    const dot = (p[0] - cx) * nx + (p[1] - cy) * ny + (p[2] - cz) * nz;
+    let finalX = p[0], finalY = p[1], finalZ = p[2];
+    if (dot < off) {
+      const diff = off - dot;
+      finalX += nx * diff;
+      finalY += ny * diff;
+      finalZ += nz * diff;
+    }
+    shift.set(v, [finalX - pos[i * 3], finalY - pos[i * 3 + 1], finalZ - pos[i * 3 + 2]]);
+    pos[i * 3] = finalX;
+    pos[i * 3 + 1] = finalY;
+    pos[i * 3 + 2] = finalZ;
   }
 
-  // Rims: boundary edges get a strip back down to the skin.
+  // Rims: boundary edges get a strip back down to a clean hem clearance.
   const inner = new Map<number, number>();
   const innerVert = (v: number) => {
     let i = inner.get(v);
@@ -245,9 +277,14 @@ export function buildShell(body: Body, faceVerts: Uint32Array, spec: ShellSpec):
       i = pos.length / 3;
       inner.set(v, i);
       ref.push(v);
-      const o = Math.min(offsetOf(v) * 0.15, 0.01);
+      // Hem sits at a minimum 1.8mm above the skin to completely eliminate poke-through
+      const o = Math.max(offsetOf(v) * 0.45, 0.0018);
       const s = shift.get(v) ?? [0, 0, 0];
-      pos.push(C[v * 3] + N[v * 3] * o + s[0], C[v * 3 + 1] + N[v * 3 + 1] * o + s[1], C[v * 3 + 2] + N[v * 3 + 2] * o + s[2]);
+      pos.push(
+        C[v * 3] + N[v * 3] * o + s[0] * 0.5,
+        C[v * 3 + 1] + N[v * 3 + 1] * o + s[1] * 0.5,
+        C[v * 3 + 2] + N[v * 3 + 2] * o + s[2] * 0.5
+      );
     }
     return i;
   };

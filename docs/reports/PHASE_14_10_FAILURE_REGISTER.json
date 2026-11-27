@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "J",
+    "timestamp": "2026-11-19T18:35:00Z",
+    "audit_standard": "Principal ML Reliability Engineer"
+  },
+  "failures": [
+    {
+      "failure_id": "FAIL-14-10-01",
+      "severity": "HIGH",
+      "domain": "Neural 3D Cloud Infrastructure",
+      "title": "Remote NVIDIA CUDA GPU Unprovisioned in Development Sandbox",
+      "root_cause": "Development environment is Apple Silicon M2 hardware with Metal/MPS. Remote CUDA endpoint is unprovisioned.",
+      "mitigation": "Staging worker provides fully functional local MPS inference; base reconstruction engine cleanly falls back to high-resolution parametric engine; cloud status truthfully declared as BLOCKED.",
+      "tracking_status": "OPEN_DOCUMENTED"
+    },
+    {
+      "failure_id": "FAIL-14-10-02",
+      "severity": "MEDIUM",
+      "domain": "Avatar Fitting & Deformation",
+      "title": "Visual Distortion on Broad/Plus Avatar Archetypes Under Extreme Motion",
+      "root_cause": "Current avatar push-out operates via geometric vertex projection along body normals. While achieving 0.00% penetration, extreme body shape differences require excessive vertex displacement (>100mm) without mass-spring relaxation.",
+      "mitigation": "Documented in PHASE_14_10_MOTION_QA.md. Recommended cloth simulation relaxation pass for Phase 15.0.",
+      "tracking_status": "OPEN_MITIGATED"
+    },
+    {
+      "failure_id": "FAIL-14-10-03",
+      "severity": "LOW",
+      "domain": "Garment Identity Retrieval",
+      "title": "Pair Verification PR-AUC Under Extreme Class Imbalance",
+      "root_cause": "Global thresholding across diverse garment categories with a 1:5 positive-to-negative ratio depresses PR-AUC to 0.8729 despite 100% Rank-1 gallery retrieval.",
+      "mitigation": "Formally proven in PHASE_14_10_RETRIEVAL_PROTOCOL.md. Production deployment enforces gallery ranking rather than unconditioned binary verification.",
+      "tracking_status": "RESOLVED_EXPLAINED"
+    },
+    {
+      "failure_id": "FAIL-14-10-04",
+      "severity": "MEDIUM",
+      "domain": "Feedforward Neural 3D Models",
+      "title": "Watertight Genus-0 Output on Real Clothing Inputs",
+      "root_cause": "Pre-trained TripoSR / LRM models are trained on watertight solid assets. Raw inference yields solid volumetric meshes with capped neck and sleeve openings.",
+      "mitigation": "Implemented automatic boundary loop carving and double-sided manifold shell recovery in image_conditioned_reconstruction.py, recovering 64 boundary edges.",
+      "tracking_status": "RESOLVED_MITIGATED"
+    },
+    {
+      "failure_id": "FAIL-14-10-05",
+      "severity": "LOW",
+      "domain": "Multi-View Surface Confidence",
+      "title": "Unobserved Posterior Surface in Single-View E-Commerce Uploads",
+      "root_cause": "In standard single frontal photographs, 56.7% of the garment surface area is unobserved by the camera sensor.",
+      "mitigation": "Enforced strict 6-regime taxonomy (Direct, Multi-view, Interpolated, Symmetry, Model Inferred, Unobserved). Model-inferred posterior faces receive diffuse micro-weave PBR shading and elastic simulation weighting.",
+      "tracking_status": "RESOLVED_STANDARDIZED"
+    }
+  ]
+}

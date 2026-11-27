@@ -1,0 +1,109 @@
+{
+  "phase": "14.27",
+  "benchmark_title": "Multi-View Garment Intelligence & Reliability Verification",
+  "timestamp": "2026-11-25T14:48:58Z",
+  "environment": {
+    "platform": "darwin",
+    "python_version": "3.9.6",
+    "cloud_spend_mandatory": "$0.00",
+    "git_baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267"
+  },
+  "test_categories": [
+    {
+      "category": "run_category_a_unit_tests",
+      "passed": false,
+      "error": "Expected 0 errors for valid spec, got: [\"Property 'hood' references unknown image IDs: ['img_front_01'].\"]"
+    },
+    {
+      "category": "run_category_b_integration_tests",
+      "passed": false,
+      "error": ""
+    },
+    {
+      "category": "Category C: Reliability & Latency Trace Tests",
+      "passed": true,
+      "latency_ms": 22778.887625,
+      "details": {
+        "concurrency_circuit_breaker": {
+          "passed": true,
+          "states_tested": [
+            "CLOSED -> OPEN -> HALF_OPEN -> CLOSED"
+          ],
+          "thread_workers": 8,
+          "iterations_per_worker": 50
+        },
+        "latency_trace_breakdown": {
+          "passed": true,
+          "stages_cold_ms": {
+            "1_request_validation": 0.0,
+            "2_image_decoding": 148.99,
+            "3_preprocessing": 10.33,
+            "4_view_classification": 20.04,
+            "5_local_cv_perception": 20458.51,
+            "6_embedding_inference": 275.6,
+            "7_external_provider_req": 0.35,
+            "8_evidence_fusion": 55.25,
+            "9_schema_validation": 0.07,
+            "10_reconstruction_handoff": 0.08,
+            "11_serialization": 4.73
+          },
+          "total_cold_ms": 20973.96,
+          "stages_warm_ms": {
+            "1_request_validation": 0.0,
+            "2_image_decoding": 4.89,
+            "3_preprocessing": 7.62,
+            "4_view_classification": 2.51,
+            "5_local_cv_perception": 1684.97,
+            "6_embedding_inference": 58.55,
+            "7_external_provider_req": 0.1,
+            "8_evidence_fusion": 32.67,
+            "9_schema_validation": 0.05,
+            "10_reconstruction_handoff": 0.02,
+            "11_serialization": 0.38
+          },
+          "total_warm_ms": 1791.75,
+          "warm_speedup_factor": 11.71
+        }
+      }
+    },
+    {
+      "category": "run_category_d_accuracy_tests",
+      "passed": false,
+      "error": "All registered models must be commercially compliant"
+    },
+    {
+      "category": "Category E: Security & Privacy Tests",
+      "passed": true,
+      "latency_ms": 111.64300000000082,
+      "details": {
+        "mime_type_enforcement": {
+          "passed": true,
+          "status_code": 400
+        },
+        "empty_payload_enforcement": {
+          "passed": true,
+          "status_code": 422
+        },
+        "batch_count_enforcement": {
+          "passed": true,
+          "status_code": 400
+        },
+        "decompression_bomb_protection": {
+          "passed": true,
+          "max_pixels": 50000000
+        },
+        "api_key_redaction": {
+          "passed": true,
+          "checked_patterns": [
+            "AIzaSy",
+            "gsk_",
+            "hf_"
+          ]
+        }
+      }
+    }
+  ],
+  "total_runtime_seconds": 44.995783292,
+  "all_passed": false,
+  "verdict": "FAIL"
+}

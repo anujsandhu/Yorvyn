@@ -269,16 +269,18 @@ export async function buildHuman(lib: AssetLibrary, p: HumanParams, opts: BuildO
   const bodyNormals = vertexNormals(fullBody);
   const gparts = buildGarments(lib, coords, bodyNormals, fv, pieces);
 
-  // --- Body (hide skin that clothes cover, to avoid poke-through) ---
-  // Asset proxies hide any face touching one of their deleted vertices (MakeHuman behaviour);
-  // fitted garments hide faces they fully cover.
+  // --- Persistent Base Body (Phase 5: Virtual Try-On Base Body Architecture) ---
+  // The base avatar body is ALWAYS geometrically complete and anatomically continuous.
+  // It spans head, neck, torso, arms, hands, pelvis, legs, and feet.
+  // We NEVER physically excise or delete body faces so garments can be put on, replaced,
+  // or taken off without causing gaping holes, broken geometry, or floating limbs.
   const assetDel = new Uint8Array(lib.base.meta.vertexCount);
-  for (const px of [pOutfit, pShoes, pHat]) if (px) for (const v of px.arrays.deleteVerts as Uint32Array) assetDel[v] = 1;
+  for (const px of [pShoes, pHat]) if (px) for (const v of px.arrays.deleteVerts as Uint32Array) assetDel[v] = 1;
   const coveredFaces = new Uint8Array(fv.length / 4);
   for (const g of gparts) if (g.hides) for (let f = 0; f < coveredFaces.length; f++) coveredFaces[f] |= g.hides[f];
   let body: PolyMesh = pBody
     ? proxyMesh(pBody, coords, bskin, faceD)
-    : compact(fullBody, (f, c) => !(assetDel[c[0]] | assetDel[c[1]] | assetDel[c[2]] | assetDel[c[3]]) && !coveredFaces[f]);
+    : fullBody;
   const hd = p.detail === 'high';
   if (hd) body = subdivide(body);
 
@@ -356,6 +358,15 @@ export async function buildHuman(lib: AssetLibrary, p: HumanParams, opts: BuildO
     if (brim < Infinity) {
       const P = m.positions;
       m = compact(m, (_, c) => c.reduce((s, v) => s + P[v * 3 + 1], 0) / c.length < brim + 0.05);
+    }
+    // Long hair drape clearance: hair cascading over back garments should smoothly drape over shirts without mesh intersection
+    const P = m.positions;
+    for (let i = 0; i < P.length; i += 3) {
+      const y = P[i + 1];
+      const z = P[i + 2];
+      if (y < 1.50 && z < -0.015) {
+        P[i + 2] -= 0.008; // 8mm outward clearance towards the back
+      }
     }
     parts.push([m, { ...mat, name: 'Hair', color: tint(mat.color, p.hairTint), doubleSided: true }]);
   }

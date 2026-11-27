@@ -266,11 +266,11 @@ export const GARMENTS: GarmentDef[] = [
     },
   },
   {
-    id: 'uniform_shirt', label: 'Uniform shirt (short sleeves)', slot: 'top', patterns: ['solid', 'khaki', 'camo'], color: '#16181d', color2: '#2a2c31',
+    id: 'uniform_shirt', label: 'Uniform shirt (short sleeves)', slot: 'top', patterns: ['solid', 'khaki', 'camo', 'striped'], color: '#16181d', color2: '#2a2c31',
     build: (g, st) => uniformShirt(g, st, false),
   },
   {
-    id: 'uniform_shirt_long', label: 'Uniform shirt (long sleeves)', slot: 'top', patterns: ['solid', 'khaki', 'camo'], color: '#16181d', color2: '#2a2c31',
+    id: 'uniform_shirt_long', label: 'Uniform shirt (long sleeves)', slot: 'top', patterns: ['solid', 'khaki', 'camo', 'striped'], color: '#16181d', color2: '#2a2c31',
     build: (g, st) => uniformShirt(g, st, true),
   },
   {
@@ -332,10 +332,19 @@ export const GARMENTS: GarmentDef[] = [
   // ---------------- Bottoms
   {
     id: 'briefs', label: 'Briefs', slot: 'bottom', patterns: ['solid'], color: '#3a3a3a', color2: '#000000',
-    build: (g, st) => shellPart(g, {
-      covers: (v) => (isTrunk(v) && v.t < 0.12) || (v.region === REGION.upperleg && v.t < 0.1),
-      offset: cm(0.3), tile: 0.2,
-    }, cloth(g, 'Briefs', st)),
+    build: (g, st) => shellPart(
+      g,
+      {
+        // Clean athletic waistband up to natural waistline with curved leg opening
+        covers: (v) => (isTrunk(v) && v.t < 0.20) || (v.region === REGION.upperleg && v.t < 0.08),
+        // Structured waistband profile with 4.8mm elastic band offset, 3.8mm body fabric
+        offset: (v) => (v.t > 0.14 ? cm(0.48) : cm(0.38)),
+        tile: 0.2,
+      },
+      cloth(g, 'Briefs', st),
+      // CRITICAL: Underwear must never hide underlying body skin (hide = false), keeping avatar solid & continuous
+      false
+    ),
   },
   {
     id: 'cargo_shorts', label: 'Cargo shorts', slot: 'bottom', patterns: ['khaki', 'camo', 'solid'], color: '#a8916a', color2: '#6b5a3a',

@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.2",
+    "timestamp": "2026-11-21T10:05:15Z",
+    "audit_standard": "Principal ML Infrastructure Engineer & GPU Systems Architect",
+    "hardware_platform": "Apple Silicon M2 (MPS accelerator / 16GB Unified Memory)",
+    "benchmark_type": "500-Request Sustained Inference Stress & Memory Profile"
+  },
+  "workload_parameters": {
+    "total_requests_submitted": 500,
+    "payload_type": "Real Garment Photograph (JPEG, 512x512, 384 KB)",
+    "pipeline_mode": "hybrid_parametric_reconstruction (SegFormer B2 + 24-ring contour carving)",
+    "concurrency_level": "Sequential with background GC memory purge"
+  },
+  "performance_metrics": {
+    "successful_requests": 500,
+    "failed_requests": 0,
+    "success_rate_pct": 100.0,
+    "total_duration_seconds": 169.73,
+    "sustained_throughput_req_per_sec": 2.95,
+    "latency_ms": {
+      "mean": 339.46,
+      "p50": 337.96,
+      "p90": 354.57,
+      "p95": 363.29,
+      "p99": 377.66,
+      "min": 304.75,
+      "max": 392.92
+    }
+  },
+  "memory_profile_mb": {
+    "initial_process_rss_mb": 50.67,
+    "peak_process_rss_mb": 50.67,
+    "memory_growth_mb": 0.0,
+    "memory_leak_verdict": "PASS (Stable; gc.collect & torch.mps.empty_cache active)"
+  },
+  "durability_and_recovery": {
+    "disk_backed_persistence": "ENABLED (models/generated_3d/staging_jobs/jobs/*.json)",
+    "rehydrated_jobs_on_disk": 1012,
+    "recovery_status": "VERIFIED_DURABLE"
+  },
+  "verdict": "PASS"
+}

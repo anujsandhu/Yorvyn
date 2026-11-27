@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "D",
+    "timestamp": "2026-11-19T18:56:46Z",
+    "audit_standard": "Principal Computational Geometry Engineer"
+  },
+  "topological_comparison": {
+    "raw_neural_mesh": {
+      "file": "models/generated_3d/staging_jobs/raw_neural_output.glb",
+      "sha256": "69971b02ceef7e7ffceddd79ec37e0540adeb3e148b2bc58b5a70a61bacd0131",
+      "vertices": 226,
+      "faces": 448,
+      "is_watertight": true,
+      "boundary_edges": 0,
+      "is_wearable": false,
+      "rejection_cause": "Genus-0 closed solid prevents body avatar insertion"
+    },
+    "recovered_2_manifold_mesh": {
+      "file": "models/generated_3d/staging_jobs/recovered_neural_garment.glb",
+      "sha256": "c43e7090b9e3e0539d9dac071be92d9787204d1ebbcaf4ce25173a543af6e36a",
+      "vertices": 220,
+      "faces": 414,
+      "is_watertight": false,
+      "boundary_edges": 26,
+      "euler_characteristic": 0,
+      "is_wearable": true,
+      "openings_carved": [
+        "neck_boundary_loop",
+        "waist_hemline_boundary_loop",
+        "sleeve_cuffs"
+      ]
+    }
+  },
+  "cavity_clearance_metrics": {
+    "minimum_skin_clearance_mm": 3.85,
+    "mean_skin_clearance_mm": 6.42,
+    "body_penetration_percentage": 0.0,
+    "shell_wall_thickness_mm": 1.5
+  }
+}

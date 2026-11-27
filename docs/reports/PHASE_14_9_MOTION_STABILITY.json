@@ -1,0 +1,1528 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "F",
+    "timestamp": "2026-11-19T17:28:56Z",
+    "audit_standard": "Principal Animation & Cloth Simulation Engineer",
+    "total_motion_clips_evaluated": 6,
+    "overall_motion_stability_score": 1.0,
+    "post_pushout_penetration_target": "0.00%",
+    "post_pushout_penetration_measured": "0.00%"
+  },
+  "motion_clip_summaries": {
+    "bind_a_pose": {
+      "motion_name": "Canonical Resting A-Pose",
+      "initial_penetration_mean_pct": 27.61,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 1.0,
+      "pass_rate_pct": 100.0
+    },
+    "t_pose": {
+      "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+      "initial_penetration_mean_pct": 26.64,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 0.995,
+      "pass_rate_pct": 90.0
+    },
+    "walking_stride": {
+      "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+      "initial_penetration_mean_pct": 27.24,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 1.0,
+      "pass_rate_pct": 100.0
+    },
+    "shoulder_abduction": {
+      "motion_name": "Dynamic Arm Raise (70\u00b0)",
+      "initial_penetration_mean_pct": 26.75,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 1.0,
+      "pass_rate_pct": 100.0
+    },
+    "torso_twist": {
+      "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+      "initial_penetration_mean_pct": 27.33,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 1.0,
+      "pass_rate_pct": 100.0
+    },
+    "crouch_flexion": {
+      "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+      "initial_penetration_mean_pct": 31.44,
+      "post_pushout_penetration_pct": 0.0,
+      "mean_stability_score": 1.0,
+      "pass_rate_pct": 100.0
+    }
+  },
+  "evaluations": [
+    {
+      "asset_index": 1,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 20.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 20.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 20.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 20.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 19.4,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 18.62,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 2,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 39.89,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 34.65,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 39.98,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 35.94,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 39.52,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 40.44,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 3,
+      "category": "bottoms",
+      "subcategory": "chinos",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 45.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 45.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 42.19,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 45.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 46.02,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 44.32,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 4,
+      "category": "accessories",
+      "subcategory": "scarf",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 39.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 5,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 35.02,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 33.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 35.02,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 32.44,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 34.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 33.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 6,
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 17.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 16.67,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 17.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 16.93,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 18.1,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 15.62,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 7,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 30.73,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 30.34,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 30.21,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 30.08,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 30.34,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 31.77,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 8,
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 19.53,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 19.53,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 19.79,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 19.53,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 19.27,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 12.37,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 9,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 37.78,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 33.27,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 38.14,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 34.65,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 37.59,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 38.24,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 10,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 26.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 26.95,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 26.56,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 26.95,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 26.04,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 27.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 11,
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 47.59,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 47.59,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 44.74,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 47.59,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 47.59,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 45.03,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 12,
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 31.8,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 30.33,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 31.8,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 29.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 31.25,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 33.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 13,
+      "category": "accessories",
+      "subcategory": "cap",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 39.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 14,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 22.53,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 22.92,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 22.92,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 23.18,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 22.79,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 21.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 15,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 32.54,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 31.34,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 32.54,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 30.97,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 30.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 34.56,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 16,
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 33.95,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 33.95,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 32.67,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 33.95,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 33.66,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 57.1,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 17,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 29.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 30.21,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 29.17,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 30.73,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 29.56,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 28.78,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 18,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 24.87,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 25.52,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 24.74,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 25.52,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 25.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 25.39,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 19,
+      "category": "tops",
+      "subcategory": "polo_shirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 33.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 33.18,
+          "post_pushout_penetration_pct": 0.09,
+          "stability_score": 0.85,
+          "status": "FAIL"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 33.82,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 32.54,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 32.08,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 35.02,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 20,
+      "category": "tops",
+      "subcategory": "tank_top",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 34.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 30.42,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 34.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 30.79,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 34.93,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 36.76,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 21,
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 44.74,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 44.74,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 42.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 44.74,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 44.89,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 42.47,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 22,
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 25.13,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 24.87,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 25.13,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 23.96,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 25.78,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 19.66,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 23,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 38.79,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 34.1,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 39.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 35.66,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 38.33,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 39.25,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 24,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 19.92,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 18.36,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 19.92,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 18.75,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 20.57,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 18.75,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 25,
+      "category": "jacket",
+      "subcategory": "leather_jacket",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 32.81,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 30.88,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 32.81,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 31.53,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 32.72,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 32.08,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 26,
+      "category": "accessories",
+      "subcategory": "tote_bag",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 0.0,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 39.06,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 27,
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 11.72,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 11.72,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 11.72,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 11.72,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 11.33,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 9.77,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 28,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 40.35,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 37.5,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 40.35,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 37.68,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 38.42,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 38.42,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 29,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 26.69,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 27.21,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 25.78,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 26.43,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 26.43,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 26.43,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    },
+    {
+      "asset_index": 30,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "motion_results": {
+        "bind_a_pose": {
+          "motion_name": "Canonical Resting A-Pose",
+          "initial_motion_penetration_pct": 23.05,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "motion_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "initial_motion_penetration_pct": 23.18,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "motion_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+          "initial_motion_penetration_pct": 23.05,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "motion_name": "Dynamic Arm Raise (70\u00b0)",
+          "initial_motion_penetration_pct": 23.44,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "motion_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+          "initial_motion_penetration_pct": 23.05,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        },
+        "crouch_flexion": {
+          "motion_name": "Crouching / Hip Flexion (75\u00b0)",
+          "initial_motion_penetration_pct": 18.1,
+          "post_pushout_penetration_pct": 0.0,
+          "stability_score": 1.0,
+          "status": "PASS"
+        }
+      }
+    }
+  ]
+}

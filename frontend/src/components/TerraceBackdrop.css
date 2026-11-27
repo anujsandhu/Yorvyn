@@ -1,0 +1,110 @@
+/* ==========================================================================
+   TERRACE BACKDROP — Sunlit Luxury Architectural Terrace & Ocean Horizon
+   ========================================================================== */
+
+.terrace-backdrop-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 1. Sky & Daylight Gradient */
+.terrace-sky-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  background: linear-gradient(180deg, #93c5fd 0%, #bae6fd 28%, #dbeafe 60%, #e0f2fe 85%, #f0f9ff 100%);
+  opacity: 0.95;
+}
+
+/* 2. Ocean & Coastal Horizon */
+.terrace-ocean-layer {
+  position: absolute;
+  top: 38%;
+  left: 0;
+  right: 0;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.terrace-mountains-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+
+/* 3. Luxury Architecture Elements */
+.terrace-architecture-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Modernist Arch Portal (Left-curving White Wall) */
+.arch-portal-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 72%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.88) 100%);
+  border-bottom-right-radius: 90px;
+  box-shadow: 4px 12px 40px rgba(15, 23, 42, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+  mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+}
+
+/* Balustrade Horizon Rail */
+.terrace-balustrade-rail {
+  position: absolute;
+  top: 61%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, rgba(203, 213, 225, 0.5) 0%, rgba(226, 232, 240, 0.8) 50%, rgba(255, 255, 255, 0.6) 100%);
+}
+
+/* Potted Olive Plant on Left */
+.terrace-potted-plant {
+  position: absolute;
+  left: 4.5rem;
+  top: 42%;
+  width: 120px;
+  height: 220px;
+  opacity: 0.88;
+  filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.06));
+}
+
+.potted-plant-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 4. Polished High-Gloss White Terrace Floor */
+.terrace-floor-layer {
+  position: absolute;
+  top: 61%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 75%, #cbd5e1 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.terrace-floor-gloss {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 55% at 45% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.4) 60%, transparent 100%);
+  pointer-events: none;
+}
+

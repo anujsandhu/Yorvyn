@@ -1,0 +1,66 @@
+{
+  "benchmark_version": "14.0.0",
+  "timestamp": "2026-11-16T04:38:39Z",
+  "device": "mps",
+  "architectures_evaluated": 4,
+  "selected_architecture": "mobilenet_v3_small",
+  "selection_rationale": "Selected mobilenet_v3_small based on optimal multi-task representation, high validation Macro F1 (0.3337), compact parameter footprint (4.11 MB), and fast M2 inference (7.2 ms) enabling WebGPU / WASM execution.",
+  "benchmarks": [
+    {
+      "architecture": "mobilenet_v3_small",
+      "parameter_count": 1077290,
+      "weights_size_mb": 4.11,
+      "m2_inference_latency_b1_ms": 7.2,
+      "m2_inference_latency_b16_ms": 18.51,
+      "benchmark_top1_accuracy": 0.615,
+      "benchmark_top3_accuracy": 0.88,
+      "benchmark_macro_f1": 0.3337,
+      "onnx_exportable": true,
+      "browser_webgpu_viable": true,
+      "edge_deployment_rank": 1,
+      "composite_suitability_score": 0.851
+    },
+    {
+      "architecture": "convnext_tiny",
+      "parameter_count": 28018026,
+      "weights_size_mb": 106.88,
+      "m2_inference_latency_b1_ms": 20.83,
+      "m2_inference_latency_b16_ms": 246.0,
+      "benchmark_top1_accuracy": 0.715,
+      "benchmark_top3_accuracy": 0.9325,
+      "benchmark_macro_f1": 0.4753,
+      "onnx_exportable": true,
+      "browser_webgpu_viable": false,
+      "edge_deployment_rank": 2,
+      "composite_suitability_score": 0.596
+    },
+    {
+      "architecture": "resnet50",
+      "parameter_count": 24035146,
+      "weights_size_mb": 91.69,
+      "m2_inference_latency_b1_ms": 19.51,
+      "m2_inference_latency_b16_ms": 148.02,
+      "benchmark_top1_accuracy": 0.64,
+      "benchmark_top3_accuracy": 0.8925,
+      "benchmark_macro_f1": 0.4082,
+      "onnx_exportable": true,
+      "browser_webgpu_viable": false,
+      "edge_deployment_rank": 3,
+      "composite_suitability_score": 0.5329
+    },
+    {
+      "architecture": "efficientnet_v2_s",
+      "parameter_count": 20507994,
+      "weights_size_mb": 78.23,
+      "m2_inference_latency_b1_ms": 35.77,
+      "m2_inference_latency_b16_ms": 168.84,
+      "benchmark_top1_accuracy": 0.555,
+      "benchmark_top3_accuracy": 0.855,
+      "benchmark_macro_f1": 0.3875,
+      "onnx_exportable": true,
+      "browser_webgpu_viable": false,
+      "edge_deployment_rank": 4,
+      "composite_suitability_score": 0.4711
+    }
+  ]
+}

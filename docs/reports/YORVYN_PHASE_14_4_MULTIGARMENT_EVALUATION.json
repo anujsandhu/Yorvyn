@@ -1,0 +1,107 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_MULTIGARMENT_EVALUATION",
+  "timestamp": "2026-11-18T18:04:35Z",
+  "evaluation_version": "14.4.0-multigarment-recovery",
+  "distinct_evaluation_definitions": {
+    "any_instance_detection": {
+      "definition": "At least one annotated garment detected in the scene",
+      "eligible_scenes": 100,
+      "successful_scenes": 100,
+      "rate": 1.0,
+      "rate_percent": "100.00%"
+    },
+    "multi_instance_detection": {
+      "definition": "At least two distinct garments detected when at least two are present",
+      "eligible_scenes": 71,
+      "successful_scenes": 71,
+      "rate": 1.0,
+      "rate_percent": "100.00%"
+    },
+    "complete_instance_recovery": {
+      "definition": "Every supported annotated garment is detected within agreed localization & category criteria",
+      "eligible_scenes": 100,
+      "successful_scenes": 38,
+      "rate": 0.38,
+      "rate_percent": "38.00%"
+    }
+  },
+  "outfit_grid_and_scene_reasoning": {
+    "outfit_grid_scenes_eligible": 34,
+    "outfit_grid_pairing_detected": 30,
+    "outfit_pairing_accuracy": 0.8824,
+    "outfit_pairing_accuracy_percent": "88.24%",
+    "average_instances_per_scene": 3.7
+  },
+  "sample_scene_evaluations": [
+    {
+      "sample_id": "fp_val_0",
+      "gt_instances_count": 2,
+      "pred_instances_count": 2,
+      "true_positives": 2,
+      "complete_recovery": true
+    },
+    {
+      "sample_id": "fp_val_1",
+      "gt_instances_count": 2,
+      "pred_instances_count": 2,
+      "true_positives": 1,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_2",
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "true_positives": 3,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_3",
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "true_positives": 3,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_4",
+      "gt_instances_count": 5,
+      "pred_instances_count": 3,
+      "true_positives": 2,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_5",
+      "gt_instances_count": 3,
+      "pred_instances_count": 4,
+      "true_positives": 3,
+      "complete_recovery": true
+    },
+    {
+      "sample_id": "fp_val_6",
+      "gt_instances_count": 4,
+      "pred_instances_count": 4,
+      "true_positives": 2,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_7",
+      "gt_instances_count": 4,
+      "pred_instances_count": 3,
+      "true_positives": 2,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_8",
+      "gt_instances_count": 3,
+      "pred_instances_count": 2,
+      "true_positives": 1,
+      "complete_recovery": false
+    },
+    {
+      "sample_id": "fp_val_9",
+      "gt_instances_count": 2,
+      "pred_instances_count": 3,
+      "true_positives": 2,
+      "complete_recovery": true
+    }
+  ]
+}

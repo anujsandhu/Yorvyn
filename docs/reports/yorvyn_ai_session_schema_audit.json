@@ -1,0 +1,202 @@
+{
+  "migration": "010_persistent_ai_sessions.sql",
+  "generated_at": "2026-11-07T07:23:00Z",
+  "version": "1.0.0",
+  "tables": [
+    {
+      "name": "public.yorvyn_ai_sessions",
+      "purpose": "Stores persistent multi-turn AI conversation sessions with permanent UUIDs",
+      "primary_key": "id UUID",
+      "foreign_keys": [
+        "user_id REFERENCES auth.users(id) ON DELETE CASCADE"
+      ],
+      "columns": [
+        {"name": "id", "type": "UUID", "nullable": false, "default": "gen_random_uuid()"},
+        {"name": "user_id", "type": "UUID", "nullable": false},
+        {"name": "title", "type": "TEXT", "nullable": false, "default": "'New conversation'"},
+        {"name": "description", "type": "TEXT", "nullable": true},
+        {"name": "session_type", "type": "TEXT", "nullable": false, "default": "'general'", "constraint": "CHECK (session_type IN ('general', 'fashion_stylist', 'garment_reconstruction', 'wardrobe', 'avatar', 'shopping', 'outfit_recommendation'))"},
+        {"name": "status", "type": "TEXT", "nullable": false, "default": "'active'", "constraint": "CHECK (status IN ('active', 'archived', 'deleted'))"},
+        {"name": "metadata", "type": "JSONB", "nullable": false, "default": "'{}'::jsonb"},
+        {"name": "context_summary", "type": "TEXT", "nullable": true},
+        {"name": "message_count", "type": "INTEGER", "nullable": false, "default": 0},
+        {"name": "search_count", "type": "INTEGER", "nullable": false, "default": 0},
+        {"name": "last_message_at", "type": "TIMESTAMPTZ", "nullable": true},
+        {"name": "created_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"},
+        {"name": "updated_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"},
+        {"name": "archived_at", "type": "TIMESTAMPTZ", "nullable": true},
+        {"name": "deleted_at", "type": "TIMESTAMPTZ", "nullable": true}
+      ],
+      "indexes": [
+        "idx_ai_sessions_user_updated (user_id, updated_at DESC)",
+        "idx_ai_sessions_user_status (user_id, status)",
+        "idx_ai_sessions_user_type (user_id, session_type)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          {"name": "ai_sessions_owner_select", "action": "SELECT", "using": "auth.uid() = user_id"},
+          {"name": "ai_sessions_owner_insert", "action": "INSERT", "with_check": "auth.uid() = user_id"},
+          {"name": "ai_sessions_owner_update", "action": "UPDATE", "using": "auth.uid() = user_id", "with_check": "auth.uid() = user_id"},
+          {"name": "ai_sessions_owner_delete", "action": "DELETE", "using": "auth.uid() = user_id"}
+        ]
+      }
+    },
+    {
+      "name": "public.yorvyn_ai_messages",
+      "purpose": "Persists conversation messages with sequence allocation, rich attachments, and idempotency",
+      "primary_key": "id UUID",
+      "foreign_keys": [
+        "session_id REFERENCES public.yorvyn_ai_sessions(id) ON DELETE CASCADE",
+        "user_id REFERENCES auth.users(id) ON DELETE CASCADE",
+        "parent_message_id REFERENCES public.yorvyn_ai_messages(id) ON DELETE SET NULL"
+      ],
+      "columns": [
+        {"name": "id", "type": "UUID", "nullable": false, "default": "gen_random_uuid()"},
+        {"name": "session_id", "type": "UUID", "nullable": false},
+        {"name": "user_id", "type": "UUID", "nullable": false},
+        {"name": "role", "type": "TEXT", "nullable": false, "constraint": "CHECK (role IN ('user', 'assistant', 'system', 'tool'))"},
+        {"name": "content", "type": "TEXT", "nullable": false, "default": "''"},
+        {"name": "content_type", "type": "TEXT", "nullable": false, "default": "'text'", "constraint": "CHECK (content_type IN ('text', 'image_reference', 'outfit_recommendation', 'garment_analysis', 'reconstruction_result', 'tool_call', 'tool_result', 'error'))"},
+        {"name": "attachments", "type": "JSONB", "nullable": false, "default": "'[]'::jsonb"},
+        {"name": "metadata", "type": "JSONB", "nullable": false, "default": "'{}'::jsonb"},
+        {"name": "request_id", "type": "TEXT", "nullable": true},
+        {"name": "parent_message_id", "type": "UUID", "nullable": true},
+        {"name": "sequence_number", "type": "BIGINT", "nullable": false, "default": 1},
+        {"name": "status", "type": "TEXT", "nullable": false, "default": "'completed'", "constraint": "CHECK (status IN ('pending', 'processing', 'completed', 'failed'))"},
+        {"name": "created_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"},
+        {"name": "updated_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"}
+      ],
+      "indexes": [
+        "idx_ai_messages_user_req UNIQUE (user_id, request_id) WHERE request_id IS NOT NULL",
+        "idx_ai_messages_session_created (session_id, created_at ASC)",
+        "idx_ai_messages_user_created (user_id, created_at DESC)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          {"name": "ai_messages_owner_select", "action": "SELECT", "using": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_messages_owner_insert", "action": "INSERT", "with_check": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_messages_owner_update", "action": "UPDATE", "using": "auth.uid() = user_id", "with_check": "auth.uid() = user_id"},
+          {"name": "ai_messages_owner_delete", "action": "DELETE", "using": "auth.uid() = user_id"}
+        ]
+      }
+    },
+    {
+      "name": "public.yorvyn_ai_searches",
+      "purpose": "Tracks distinct search operations, queries, result summaries, and AI execution provenance",
+      "primary_key": "id UUID",
+      "foreign_keys": [
+        "session_id REFERENCES public.yorvyn_ai_sessions(id) ON DELETE CASCADE",
+        "user_id REFERENCES auth.users(id) ON DELETE CASCADE",
+        "message_id REFERENCES public.yorvyn_ai_messages(id) ON DELETE SET NULL"
+      ],
+      "columns": [
+        {"name": "id", "type": "UUID", "nullable": false, "default": "gen_random_uuid()"},
+        {"name": "session_id", "type": "UUID", "nullable": false},
+        {"name": "user_id", "type": "UUID", "nullable": false},
+        {"name": "message_id", "type": "UUID", "nullable": true},
+        {"name": "search_type", "type": "TEXT", "nullable": false, "constraint": "CHECK (search_type IN ('general', 'garment', 'outfit', 'wardrobe', 'product', 'stylist', 'image_analysis', 'reconstruction'))"},
+        {"name": "query", "type": "TEXT", "nullable": false},
+        {"name": "normalized_query", "type": "TEXT", "nullable": true},
+        {"name": "status", "type": "TEXT", "nullable": false, "default": "'pending'", "constraint": "CHECK (status IN ('pending', 'processing', 'completed', 'failed'))"},
+        {"name": "result_summary", "type": "TEXT", "nullable": true},
+        {"name": "result_metadata", "type": "JSONB", "nullable": false, "default": "'{}'::jsonb"},
+        {"name": "provider", "type": "TEXT", "nullable": true},
+        {"name": "model_name", "type": "TEXT", "nullable": true},
+        {"name": "execution_provenance", "type": "TEXT", "nullable": true},
+        {"name": "error_code", "type": "TEXT", "nullable": true},
+        {"name": "error_message", "type": "TEXT", "nullable": true},
+        {"name": "started_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"},
+        {"name": "completed_at", "type": "TIMESTAMPTZ", "nullable": true},
+        {"name": "created_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"}
+      ],
+      "indexes": [
+        "idx_ai_searches_session_created (session_id, created_at DESC)",
+        "idx_ai_searches_user_created (user_id, created_at DESC)",
+        "idx_ai_searches_user_type_status (user_id, search_type, status)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          {"name": "ai_searches_owner_select", "action": "SELECT", "using": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_searches_owner_insert", "action": "INSERT", "with_check": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_searches_owner_update", "action": "UPDATE", "using": "auth.uid() = user_id", "with_check": "auth.uid() = user_id"},
+          {"name": "ai_searches_owner_delete", "action": "DELETE", "using": "auth.uid() = user_id"}
+        ]
+      }
+    },
+    {
+      "name": "public.yorvyn_ai_session_events",
+      "purpose": "Auditable log of session lifecycle events and context summarizations",
+      "primary_key": "id UUID",
+      "foreign_keys": [
+        "session_id REFERENCES public.yorvyn_ai_sessions(id) ON DELETE CASCADE",
+        "user_id REFERENCES auth.users(id) ON DELETE CASCADE"
+      ],
+      "columns": [
+        {"name": "id", "type": "UUID", "nullable": false, "default": "gen_random_uuid()"},
+        {"name": "session_id", "type": "UUID", "nullable": false},
+        {"name": "user_id", "type": "UUID", "nullable": false},
+        {"name": "event_type", "type": "TEXT", "nullable": false, "constraint": "CHECK (event_type IN ('session_created', 'message_sent', 'search_started', 'search_completed', 'search_failed', 'session_renamed', 'session_archived', 'session_restored', 'session_deleted', 'context_summarized'))"},
+        {"name": "event_data", "type": "JSONB", "nullable": false, "default": "'{}'::jsonb"},
+        {"name": "created_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"}
+      ],
+      "indexes": [
+        "idx_ai_session_events_session (session_id, created_at DESC)",
+        "idx_ai_session_events_user (user_id, created_at DESC)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          {"name": "ai_events_owner_select", "action": "SELECT", "using": "auth.uid() = user_id"},
+          {"name": "ai_events_owner_insert", "action": "INSERT", "with_check": "auth.uid() = user_id"}
+        ]
+      }
+    },
+    {
+      "name": "public.yorvyn_ai_attachments",
+      "purpose": "Secure asset references and metadata for conversation attachments",
+      "primary_key": "id UUID",
+      "foreign_keys": [
+        "session_id REFERENCES public.yorvyn_ai_sessions(id) ON DELETE CASCADE",
+        "user_id REFERENCES auth.users(id) ON DELETE CASCADE",
+        "message_id REFERENCES public.yorvyn_ai_messages(id) ON DELETE SET NULL"
+      ],
+      "columns": [
+        {"name": "id", "type": "UUID", "nullable": false, "default": "gen_random_uuid()"},
+        {"name": "session_id", "type": "UUID", "nullable": false},
+        {"name": "user_id", "type": "UUID", "nullable": false},
+        {"name": "message_id", "type": "UUID", "nullable": true},
+        {"name": "storage_path", "type": "TEXT", "nullable": false},
+        {"name": "file_name", "type": "TEXT", "nullable": false},
+        {"name": "media_type", "type": "TEXT", "nullable": false},
+        {"name": "file_size", "type": "BIGINT", "nullable": false, "default": 0},
+        {"name": "processing_status", "type": "TEXT", "nullable": false, "default": "'uploaded'", "constraint": "CHECK (processing_status IN ('uploaded', 'processing', 'processed', 'failed'))"},
+        {"name": "metadata", "type": "JSONB", "nullable": false, "default": "'{}'::jsonb"},
+        {"name": "created_at", "type": "TIMESTAMPTZ", "nullable": false, "default": "NOW()"}
+      ],
+      "indexes": [
+        "idx_ai_attachments_session (session_id, created_at DESC)",
+        "idx_ai_attachments_user (user_id, created_at DESC)"
+      ],
+      "row_level_security": {
+        "enabled": true,
+        "policies": [
+          {"name": "ai_attachments_owner_select", "action": "SELECT", "using": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_attachments_owner_insert", "action": "INSERT", "with_check": "auth.uid() = user_id AND EXISTS (SELECT 1 FROM yorvyn_ai_sessions s WHERE s.id = session_id AND s.user_id = auth.uid())"},
+          {"name": "ai_attachments_owner_update", "action": "UPDATE", "using": "auth.uid() = user_id", "with_check": "auth.uid() = user_id"},
+          {"name": "ai_attachments_owner_delete", "action": "DELETE", "using": "auth.uid() = user_id"}
+        ]
+      }
+    }
+  ],
+  "audit_summary": {
+    "total_tables_audited": 5,
+    "rls_enforcement": "100% strictly enforced with auth.uid()",
+    "uuid_primary_keys": "100% compliant",
+    "cascade_deletion_on_user": "100% compliant",
+    "idempotency_guarantee": "Unique constraint on (user_id, request_id)"
+  }
+}
+

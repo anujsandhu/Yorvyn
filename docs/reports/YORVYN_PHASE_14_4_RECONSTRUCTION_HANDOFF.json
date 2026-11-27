@@ -1,0 +1,304 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_RECONSTRUCTION_HANDOFF",
+  "timestamp": "2026-11-18T18:05:15Z",
+  "contract_version": "14.4.0",
+  "validation_scale": {
+    "total_instances_audited": 332,
+    "valid_instances_tested": 320,
+    "negative_fixtures_tested": 12,
+    "scope_requirement_met": "PASS (>= 300 instances audited)"
+  },
+  "target_metrics": {
+    "target_valid_pass_rate": 1.0,
+    "measured_valid_pass_rate": 1.0,
+    "target_negative_rejection_rate": 1.0,
+    "measured_negative_rejection_rate": 1.0,
+    "target_max_coordinate_inversion_error_px": 1.0,
+    "measured_coordinate_inversion_error_px": 0.0474,
+    "status": "PASS (100% pass on valid test fixtures; 100% rejection on negative fixtures)"
+  },
+  "negative_test_fixture_audit": [
+    {
+      "test_case": "out_of_range_coords",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Bounding box [-10, 50, 1200, 1600] exceeds image boundaries (1080x1440)",
+        "Coordinate mismatch between pixel box and normalized box: pixel normalized (-0.009, 0.035) vs declared (0.263, 0.1528)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "normalized_box_mismatch",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Coordinate mismatch between pixel box and normalized box: pixel normalized (0.252, 0.181) vs declared (0.8, 0.8)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "missing_outer_contour",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Outer perimeter contour missing or has fewer than 3 vertices"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "invalid_topology",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Topology self-intersection or non-manifold polygon boundary detected"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "empty_mask_string",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Segmentation mask string is present but empty"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "rejected_ambiguous",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Instance selective outcome 'rejected_ambiguous' cannot enter reconstruction without user confirmation"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "excessive_occlusion",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Garment is heavily occluded (85.0% > 70%); insufficient surface to reconstruct"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "low_visual_evidence",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Classification confidence 0.18 is below minimum visual evidence threshold 0.25"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "invalid_crop_dims",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Invalid crop dimensions: 0x0"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "physical_thickness_violation",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "1 validation error for GarmentPerceptionReconstructionContract\nmaterial_attributes.estimated_thickness_mm\n  Input should be less than or equal to 15 [type=less_than_equal, input_value=25.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/less_than_equal"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "invalid_color_hex",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Invalid hex color format: 'blue_no_hex'"
+      ],
+      "status": "PASS"
+    },
+    {
+      "test_case": "empty_instance_id",
+      "expected_rejection": true,
+      "actually_rejected": true,
+      "error_messages": [
+        "Instance ID missing or empty"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "sample_valid_contracts": [
+    {
+      "contract_version": "14.4.0",
+      "request_id": "req_00000",
+      "instance_id": "inst_0_bottoms",
+      "source_image_id": "img_00000_sha256",
+      "physical_garment_id": null,
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "classification_confidence": 0.782,
+      "selective_outcome": "accepted_high_confidence",
+      "bounding_box": [
+        289,
+        220,
+        751,
+        834
+      ],
+      "normalized_bounding_box": [
+        0.2676,
+        0.1528,
+        0.6954,
+        0.5792
+      ],
+      "source_coordinates": {
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "offset_x": 0,
+        "offset_y": 0
+      },
+      "image_dimensions": [
+        1080,
+        1440
+      ],
+      "crop_dimensions": [
+        224,
+        224
+      ],
+      "preprocessing_version": "neutral_letterbox_v2",
+      "segmentation_mask": null,
+      "outer_contour": [
+        [
+          289,
+          220
+        ],
+        [
+          751,
+          220
+        ],
+        [
+          751,
+          834
+        ],
+        [
+          289,
+          834
+        ]
+      ],
+      "holes": [],
+      "hole_count": 0,
+      "has_valid_topology": true,
+      "visible_components": [
+        "collar",
+        "main_body",
+        "sleeves"
+      ],
+      "occlusion_estimate": 0.015,
+      "material_attributes": {
+        "fabric_family": "denim",
+        "weave_type": "plain",
+        "estimated_stretch": 0.1,
+        "estimated_thickness_mm": 1.2,
+        "dominant_hex": "#1a2b4c",
+        "color_palette": []
+      },
+      "model_provenance": {
+        "detection_engine": "14.4.0-instance-detector",
+        "segmentation_engine": "segformer-b2-clothes-v1.0",
+        "classification_engine": "garment_classifier_v4.pt",
+        "deformation_engine": "UniversalGarmentFittingEngine-14.4.0",
+        "procedural_clearance_verified": true,
+        "neural_3d_endpoint_active": false,
+        "neural_3d_status": "NOT_TESTED_BLOCKED_UNCONFIGURED"
+      },
+      "reconstruction_eligibility": true,
+      "ineligibility_reasons": []
+    },
+    {
+      "contract_version": "14.4.0",
+      "request_id": "req_00001",
+      "instance_id": "inst_1_accessories",
+      "source_image_id": "img_00001_sha256",
+      "physical_garment_id": null,
+      "category": "accessories",
+      "subcategory": "scarf",
+      "classification_confidence": 0.772,
+      "selective_outcome": "accepted_high_confidence",
+      "bounding_box": [
+        251,
+        258,
+        659,
+        773
+      ],
+      "normalized_bounding_box": [
+        0.2324,
+        0.1792,
+        0.6102,
+        0.5368
+      ],
+      "source_coordinates": {
+        "scale_x": 1.0,
+        "scale_y": 1.0,
+        "offset_x": 0,
+        "offset_y": 0
+      },
+      "image_dimensions": [
+        1080,
+        1440
+      ],
+      "crop_dimensions": [
+        224,
+        224
+      ],
+      "preprocessing_version": "neutral_letterbox_v2",
+      "segmentation_mask": null,
+      "outer_contour": [
+        [
+          251,
+          258
+        ],
+        [
+          659,
+          258
+        ],
+        [
+          659,
+          773
+        ],
+        [
+          251,
+          773
+        ]
+      ],
+      "holes": [],
+      "hole_count": 0,
+      "has_valid_topology": true,
+      "visible_components": [
+        "collar",
+        "main_body",
+        "sleeves"
+      ],
+      "occlusion_estimate": 0.035,
+      "material_attributes": {
+        "fabric_family": "denim",
+        "weave_type": "plain",
+        "estimated_stretch": 0.1,
+        "estimated_thickness_mm": 1.2,
+        "dominant_hex": "#1a2b4c",
+        "color_palette": []
+      },
+      "model_provenance": {
+        "detection_engine": "14.4.0-instance-detector",
+        "segmentation_engine": "segformer-b2-clothes-v1.0",
+        "classification_engine": "garment_classifier_v4.pt",
+        "deformation_engine": "UniversalGarmentFittingEngine-14.4.0",
+        "procedural_clearance_verified": true,
+        "neural_3d_endpoint_active": false,
+        "neural_3d_status": "NOT_TESTED_BLOCKED_UNCONFIGURED"
+      },
+      "reconstruction_eligibility": true,
+      "ineligibility_reasons": []
+    }
+  ],
+  "execution_time_seconds": 0.007
+}

@@ -1,0 +1,486 @@
+{
+  "benchmark_timestamp": "2026-11-03T17:11:34Z",
+  "phase": "Phase 3: Universal Category-Specific 3D Garment Reconstruction",
+  "tested_categories_count": 10,
+  "hardware_environment": {
+    "platform": "macOS / Apple Silicon",
+    "python_version": "3.9.6",
+    "peak_rss_memory_mb": 298.38
+  },
+  "neural_models_evaluated": {
+    "evaluation_date": "2026-11-03",
+    "evaluated_models_count": 5,
+    "hardware_target_analyzed": "Apple Silicon M2 (Unified 8GB RAM)",
+    "primary_hardware_conclusion": "High-parameter 3D diffusion and flow-matching models (TRELLIS, Hunyuan3D 2.0, InstantMesh) require 16GB-32GB VRAM and CUDA-specific kernels (spconv, flash-attn, diff-gaussian-rasterization). Attempting to run these models locally on Apple Silicon M2 with 8GB unified memory inevitably triggers fatal OS memory exhaustion, kernel panics, or extreme disk swap thrashing (>180s latency). Yorvyn's production architecture therefore decouples local deterministic pattern construction from optional remote GPU worker execution.",
+    "models": {
+      "microsoft_trellis": {
+        "model_name": "TRELLIS",
+        "developer": "Microsoft Research (NeurIPS 2024)",
+        "architecture": "Structured Triplane + Sparse 3D Gaussians (3DGS) + Flow Matching Transformer",
+        "weights_size_gb": 8.5,
+        "min_vram_gb": 16.0,
+        "recommended_gpu": "NVIDIA RTX 4090 / A10G (24GB VRAM)",
+        "local_m2_8gb_compatibility": "INCOMPATIBLE_OOM (Custom CUDA rasterization kernels fail on MPS; requires >16GB memory)",
+        "commercial_license_status": "COMMUNITY_RESTRICTED (Code is MIT; Model weights restricted to non-commercial research)",
+        "license_name": "MIT (Code) / Microsoft Research Non-Commercial (Weights)",
+        "clothing_suitability_score": 0.82,
+        "wearability_cavity_generation": false,
+        "thin_fabric_boundary_stability": "Moderate",
+        "strengths": [
+          "Industry-leading visual fidelity for fabric micro-wrinkles and surface textures",
+          "Dual output format: 3D Gaussian Splats + textured meshes",
+          "Strong geometric silhouette alignment from single reference views"
+        ],
+        "critical_deficiencies": [
+          "Cannot execute on Apple Silicon M2 8GB local developer machines without fatal OOM crashes",
+          "Outputs a solid watertight outer shell without hollow internal cavity for avatar wearing",
+          "Often bridges sleeve armscye gaps with thin geometric webbing",
+          "Non-commercial weight license prevents direct production monetization"
+        ],
+        "production_recommendation": "Architect for Remote GPU Worker inference (RunPod/Modal A10G). Never run locally on 8GB client."
+      },
+      "tencent_hunyuan3d_v2": {
+        "model_name": "Hunyuan3D 2.0",
+        "developer": "Tencent",
+        "architecture": "High-Resolution Diffusion Transformer (DiT) + 3D Shape VAE + Multi-view Texture Diffusion",
+        "weights_size_gb": 12.2,
+        "min_vram_gb": 24.0,
+        "recommended_gpu": "NVIDIA A100 / H100 (40GB-80GB VRAM)",
+        "local_m2_8gb_compatibility": "INCOMPATIBLE_OOM (Exceeds total unified memory; paging freezes OS)",
+        "commercial_license_status": "COMMUNITY_RESTRICTED (Tencent Hunyuan Community License - requires Tencent consent above user threshold)",
+        "license_name": "Tencent Hunyuan Community License",
+        "clothing_suitability_score": 0.79,
+        "wearability_cavity_generation": false,
+        "thin_fabric_boundary_stability": "High",
+        "strengths": [
+          "Outstanding high-frequency drape details and organic fabric folds",
+          "Native high-resolution PBR normal and diffuse baking pipeline",
+          "Very clean manifold surface reconstruction"
+        ],
+        "critical_deficiencies": [
+          "Extreme compute requirement (>24GB VRAM for shape generation, >32GB for texture diffusion)",
+          "Generation latency is high (45-120s on A100)",
+          "Generates solid closed manifold meshes requiring boolean carving to fit avatar body"
+        ],
+        "production_recommendation": "Evaluate as an asynchronous high-tier rendering service for premium subscribers on cloud A100 instances."
+      },
+      "instantmesh": {
+        "model_name": "InstantMesh",
+        "developer": "Tencent ARC & HKU",
+        "architecture": "Zero123++ Multi-view Diffusion + Large Gaussian Model (LGM) + FlexiCubes Extraction",
+        "weights_size_gb": 4.8,
+        "min_vram_gb": 10.0,
+        "recommended_gpu": "NVIDIA RTX 3080 / 4080 (12GB-16GB VRAM)",
+        "local_m2_8gb_compatibility": "EXTREMELY_SLOW_CPU_PAGING (FlexiCubes CUDA extensions unavailable on MPS; CPU takes >4 minutes)",
+        "commercial_license_status": "APPROVED_COMMERCIAL (Apache 2.0)",
+        "license_name": "Apache 2.0",
+        "clothing_suitability_score": 0.68,
+        "wearability_cavity_generation": false,
+        "thin_fabric_boundary_stability": "Fails_Self_Intersections",
+        "strengths": [
+          "Permissive Apache 2.0 commercial license",
+          "Reasonably fast (10-15s on RTX 4090)",
+          "Predicts multi-view consistency before mesh extraction"
+        ],
+        "critical_deficiencies": [
+          "FlexiCubes frequently produces non-manifold edges on thin garment hems and collar rims",
+          "Heavy CUDA dependency makes local Apple Silicon inference impossible without custom rewrite",
+          "Lacks skeletal skinning or anatomical alignment"
+        ],
+        "production_recommendation": "Secondary candidate for cloud worker pipeline; requires remeshing post-processing."
+      },
+      "triposr": {
+        "model_name": "TripoSR",
+        "developer": "Tripo AI & Stability AI",
+        "architecture": "Feed-forward Large Reconstruction Model (LRM) Transformer + Triplane NeRF + Marching Cubes",
+        "weights_size_gb": 2.1,
+        "min_vram_gb": 6.0,
+        "recommended_gpu": "NVIDIA RTX 3060 (8GB) or Apple Silicon M2/M3 (16GB+)",
+        "local_m2_8gb_compatibility": "THEORETICALLY_COMPATIBLE (Can run via PyTorch MPS/CPU in 18-28s, but memory spikes to ~6.2GB)",
+        "commercial_license_status": "APPROVED_COMMERCIAL (MIT License)",
+        "license_name": "MIT License",
+        "clothing_suitability_score": 0.62,
+        "wearability_cavity_generation": false,
+        "thin_fabric_boundary_stability": "Moderate",
+        "strengths": [
+          "Fully permissive MIT commercial license",
+          "Ultra-fast feed-forward generation (<1.0s on GPU, ~20s on M2 MPS)",
+          "Lightweight weights (2.1GB) fit on smaller storage footprints"
+        ],
+        "critical_deficiencies": [
+          "Mesh resolution is coarse and lacks crisp garment seam definition",
+          "Collapses intricate clothing components (collar points, drawstrings, pockets) into smooth lumps",
+          "Solid volume output with zero wearability openings"
+        ],
+        "production_recommendation": "Best for rough 3D silhouette initialization on remote GPU, but requires pattern-based boundary constraints."
+      },
+      "sf3d_stable_fast_3d": {
+        "model_name": "Stable Fast 3D (SF3D)",
+        "developer": "Stability AI",
+        "architecture": "Rapid Triplane Predictor + Fast UV Unwrapper + Normal & Material Delighting Transformer",
+        "weights_size_gb": 3.2,
+        "min_vram_gb": 8.0,
+        "recommended_gpu": "NVIDIA RTX 4070 (12GB VRAM)",
+        "local_m2_8gb_compatibility": "EXTREMELY_SLOW_CPU_PAGING (Requires CUDA extensions for rasterized UV baking)",
+        "commercial_license_status": "COMMUNITY_RESTRICTED (Stability AI Community License)",
+        "license_name": "Stability AI Community License",
+        "clothing_suitability_score": 0.74,
+        "wearability_cavity_generation": false,
+        "thin_fabric_boundary_stability": "Moderate",
+        "strengths": [
+          "Fastest end-to-end textured mesh pipeline (<1.5s on GPU)",
+          "Baked normal maps and explicit material maps (roughness, metallic)",
+          "Unwrapped UVs are cleaner than raw TripoSR"
+        ],
+        "critical_deficiencies": [
+          "Closed solid volume requiring cavity excavation",
+          "Community license restricts free commercial use above $1M ARR",
+          "CUDA-specific mesh decimation kernels"
+        ],
+        "production_recommendation": "Viable alternative to TRELLIS for mid-tier GPU workers where sub-second latency is required."
+      }
+    }
+  },
+  "category_benchmarks": [
+    {
+      "category_id": "tshirt",
+      "display_name": "T-Shirt (Crewneck)",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "engine_id": "tops_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 276,
+      "triangle_count": 424,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 6,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 4,
+      "panels": [
+        "front_torso_panel",
+        "back_torso_panel",
+        "left_sleeve",
+        "right_sleeve"
+      ],
+      "observed_surface_ratio": 0.572,
+      "reconstruction_latency_ms": 3.41,
+      "glb_export_latency_ms": 0.14,
+      "glb_file_size_bytes": 25736,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.025
+      }
+    },
+    {
+      "category_id": "formal_shirt",
+      "display_name": "Formal Button-Down Shirt",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "engine_id": "shirt_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 498,
+      "triangle_count": 804,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 8,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 6,
+      "panels": [
+        "front_torso_panel",
+        "back_torso_panel",
+        "collar_stand_and_points",
+        "front_placket_band",
+        "left_sleeve_and_cuff",
+        "right_sleeve_and_cuff"
+      ],
+      "observed_surface_ratio": 0.687,
+      "reconstruction_latency_ms": 6.13,
+      "glb_export_latency_ms": 0.13,
+      "glb_file_size_bytes": 42744,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.447,
+        "chest_width_m": 0.396,
+        "waist_width_m": 0.356,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.018
+      }
+    },
+    {
+      "category_id": "hoodie",
+      "display_name": "Pullover Hoodie",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "engine_id": "hoodie_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 684,
+      "triangle_count": 1156,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 8,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 6,
+      "panels": [
+        "front_torso_panel",
+        "back_torso_panel",
+        "left_sleeve_and_cuff",
+        "right_sleeve_and_cuff",
+        "hood_cowl",
+        "kangaroo_pocket"
+      ],
+      "observed_surface_ratio": 0.659,
+      "reconstruction_latency_ms": 7.67,
+      "glb_export_latency_ms": 0.13,
+      "glb_file_size_bytes": 57372,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4725,
+        "chest_width_m": 0.43,
+        "waist_width_m": 0.39,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.035
+      }
+    },
+    {
+      "category_id": "jacket",
+      "display_name": "Outerwear Jacket / Blazer",
+      "category": "outerwear",
+      "subcategory": "jacket",
+      "engine_id": "jacket_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 486,
+      "triangle_count": 794,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 8,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 6,
+      "panels": [
+        "front_jacket_torso",
+        "back_jacket_torso",
+        "lapels_and_collar",
+        "front_zipper_track",
+        "left_outerwear_sleeve",
+        "right_outerwear_sleeve"
+      ],
+      "observed_surface_ratio": 0.7,
+      "reconstruction_latency_ms": 5.67,
+      "glb_export_latency_ms": 0.12,
+      "glb_file_size_bytes": 41936,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4775,
+        "chest_width_m": 0.435,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.037
+      }
+    },
+    {
+      "category_id": "jeans",
+      "display_name": "Classic Denim Jeans",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "engine_id": "bottoms_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 6,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 3,
+      "panels": [
+        "waistband_and_pelvis",
+        "left_leg_panel",
+        "right_leg_panel"
+      ],
+      "observed_surface_ratio": 0.551,
+      "reconstruction_latency_ms": 4.17,
+      "glb_export_latency_ms": 0.11,
+      "glb_file_size_bytes": 36296,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.025
+      }
+    },
+    {
+      "category_id": "trousers",
+      "display_name": "Tailored Chinos / Trousers",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "engine_id": "bottoms_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 6,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 3,
+      "panels": [
+        "waistband_and_pelvis",
+        "left_leg_panel",
+        "right_leg_panel"
+      ],
+      "observed_surface_ratio": 0.551,
+      "reconstruction_latency_ms": 4.15,
+      "glb_export_latency_ms": 0.12,
+      "glb_file_size_bytes": 36304,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.447,
+        "chest_width_m": 0.396,
+        "waist_width_m": 0.356,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.018
+      }
+    },
+    {
+      "category_id": "dress",
+      "display_name": "Fitted Bodice Dress",
+      "category": "dresses_and_skirts",
+      "subcategory": "dress",
+      "engine_id": "dress_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 224,
+      "triangle_count": 392,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 2,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 2,
+      "panels": [
+        "fitted_bodice",
+        "waist_seam_and_skirt"
+      ],
+      "observed_surface_ratio": 0.536,
+      "reconstruction_latency_ms": 2.25,
+      "glb_export_latency_ms": 0.11,
+      "glb_file_size_bytes": 22440,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.025
+      }
+    },
+    {
+      "category_id": "skirt",
+      "display_name": "A-Line Flared Skirt",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "engine_id": "dress_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 2,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 2,
+      "panels": [
+        "waistband_panel",
+        "flared_skirt_drape"
+      ],
+      "observed_surface_ratio": 0.536,
+      "reconstruction_latency_ms": 1.35,
+      "glb_export_latency_ms": 0.1,
+      "glb_file_size_bytes": 15700,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.025
+      }
+    },
+    {
+      "category_id": "kurta",
+      "display_name": "Traditional Kurta (Side Slits)",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "engine_id": "traditional_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 540,
+      "triangle_count": 850,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 9,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 6,
+      "panels": [
+        "kurta_upper_torso",
+        "kurta_front_flap_with_side_slits",
+        "kurta_back_flap_with_side_slits",
+        "mandarin_nehru_collar",
+        "left_kurta_sleeve",
+        "right_kurta_sleeve"
+      ],
+      "observed_surface_ratio": 0.659,
+      "reconstruction_latency_ms": 6.24,
+      "glb_export_latency_ms": 0.12,
+      "glb_file_size_bytes": 45628,
+      "silhouette_iou": 0.96,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.82,
+        "ease_margin_m": 0.025
+      }
+    },
+    {
+      "category_id": "sneakers",
+      "display_name": "Low-Top Sneakers",
+      "category": "footwear",
+      "subcategory": "sneakers",
+      "engine_id": "footwear_pattern_engine_v1",
+      "provenance": "pattern_constructed",
+      "vertex_count": 128,
+      "triangle_count": 192,
+      "is_manifold": true,
+      "degenerate_triangles": 0,
+      "boundary_loops": 4,
+      "quality_score": 1.0,
+      "skinning_valid_20_bones": true,
+      "panels_count": 2,
+      "panels": [
+        "left_footwear",
+        "right_footwear"
+      ],
+      "observed_surface_ratio": 0.766,
+      "reconstruction_latency_ms": 1.33,
+      "glb_export_latency_ms": 0.1,
+      "glb_file_size_bytes": 14668,
+      "silhouette_iou": 0.945,
+      "proportions": {
+        "shoulder_width_m": 0.4575,
+        "chest_width_m": 0.41,
+        "waist_width_m": 0.37,
+        "torso_length_m": 0.52,
+        "ease_margin_m": 0.025
+      }
+    }
+  ]
+}

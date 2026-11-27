@@ -1,0 +1,20 @@
+{
+  "evaluation_version": "14.1.0",
+  "timestamp": "2026-11-18T09:05:00Z",
+  "architecture": "HierarchicalMultiTaskGarmentNetwork-v6",
+  "backbone": "mobilenet_v3_small",
+  "total_parameters": 1163695,
+  "training_schedule": {
+    "stage_1_epochs": 8,
+    "stage_1_lr": 0.0015,
+    "stage_2_epochs": 8,
+    "stage_2_backbone_lr": 4e-05,
+    "stage_2_trunk_lr": 0.0003,
+    "scheduler": "CosineAnnealingLR"
+  },
+  "optimal_calibrated_temperature": 0.9358,
+  "best_validation_domain_accuracy": 0.6457,
+  "best_validation_subcategory_accuracy": 0.4432,
+  "best_validation_macro_f1": 0.486,
+  "status": "TRAINING_COMPLETE_AND_EXPORTED"
+}

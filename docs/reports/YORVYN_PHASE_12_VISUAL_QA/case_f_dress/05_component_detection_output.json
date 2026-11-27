@@ -1,0 +1,49 @@
+{
+  "components": [
+    {
+      "component_type": "bodice",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.25416666666666665,
+        "ymin": 0.22708333333333333,
+        "xmax": 0.7472222222222222,
+        "ymax": 0.44895833333333335
+      }
+    },
+    {
+      "component_type": "skirt_flare",
+      "status": "detected",
+      "confidence": 0.94,
+      "bbox": {
+        "xmin": 0.25416666666666665,
+        "ymin": 0.44895833333333335,
+        "xmax": 0.7472222222222222,
+        "ymax": 0.8114583333333333
+      }
+    },
+    {
+      "component_type": "neckline",
+      "status": "detected",
+      "confidence": 0.91,
+      "bbox": {
+        "xmin": 0.4263888888888889,
+        "ymin": 0.22708333333333333,
+        "xmax": 0.5736111111111111,
+        "ymax": 0.296875
+      }
+    },
+    {
+      "component_type": "hem",
+      "status": "detected",
+      "confidence": 0.93,
+      "bbox": {
+        "xmin": 0.25416666666666665,
+        "ymin": 0.753125,
+        "xmax": 0.7472222222222222,
+        "ymax": 0.8114583333333333
+      }
+    }
+  ],
+  "total_detected": 4
+}

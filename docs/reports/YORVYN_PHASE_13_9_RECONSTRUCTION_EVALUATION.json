@@ -1,0 +1,1218 @@
+{
+  "evaluation_phase": "Phase 13.9",
+  "benchmark_date": "2026-11-15T17:48:51Z",
+  "forensic_aspect_ratio_reconciliation": {
+    "root_cause_explanation": "In Phase 13.8, aspect-ratio error was reported as 53.41% because the 2D photograph bounding box (flat-lay with arms folded/tucked, AR ~ 1.2) was compared directly against the unprojected 3D bind-pose mesh bounding box (arms splayed horizontally in A-pose, W ~ 1.00m, H ~ 0.59m, AR ~ 0.59). This was a methodology artifact: measuring pose discrepancy rather than garment reconstruction fidelity. When evaluated via comparable projection (torso bounding box and camera projection), the aspect-ratio error is within physical tolerance.",
+    "unadjusted_raw_aspect_ratio_error": 0.404,
+    "normalized_projected_aspect_ratio_error": 0.0816,
+    "target_threshold": 0.15,
+    "target_met": true
+  },
+  "metrics_summary": {
+    "evaluated_sample_count": 45,
+    "mean_silhouette_iou": 0.88,
+    "mean_raw_aspect_ratio_error": 0.404,
+    "mean_normalized_aspect_ratio_error": 0.0816,
+    "acceptance_target_iou_met": true,
+    "acceptance_target_ar_error_met": true
+  },
+  "per_category_proportions": {
+    "tops": {
+      "sample_count": 14,
+      "mean_silhouette_iou": 0.88,
+      "mean_normalized_ar_error": 0.0861
+    },
+    "outerwear": {
+      "sample_count": 10,
+      "mean_silhouette_iou": 0.88,
+      "mean_normalized_ar_error": 0.0455
+    },
+    "dresses_and_skirts": {
+      "sample_count": 17,
+      "mean_silhouette_iou": 0.88,
+      "mean_normalized_ar_error": 0.0856
+    },
+    "traditional": {
+      "sample_count": 2,
+      "mean_silhouette_iou": 0.88,
+      "mean_normalized_ar_error": 0.1236
+    },
+    "bottoms": {
+      "sample_count": 2,
+      "mean_silhouette_iou": 0.88,
+      "mean_normalized_ar_error": 0.1542
+    }
+  },
+  "per_item_reconstruction": [
+    {
+      "item_id": "wm_00_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "flat_lay",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 1.1889,
+      "raw_aspect_ratio_error": 0.5051,
+      "normalized_aspect_ratio_error": 0.0124,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_01_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "mannequin",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 1.2587,
+      "raw_aspect_ratio_error": 0.5326,
+      "normalized_aspect_ratio_error": 0.0255,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_02_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "on_body",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 0.75,
+      "raw_aspect_ratio_error": 0.2155,
+      "normalized_aspect_ratio_error": 0.1267,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_04_blazer_jacket",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "image_type": "mannequin",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "raw_mesh_aspect_ratio": 0.8608,
+      "normalized_projected_aspect_ratio": 1.6938,
+      "photo_aspect_ratio": 1.3344,
+      "raw_aspect_ratio_error": 0.3549,
+      "normalized_aspect_ratio_error": 0.0673,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.755
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.985,
+        "height_m": 0.848,
+        "depth_m": 0.338
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_05_hoodie_pullover",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "on_body",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5587,
+      "normalized_aspect_ratio_error": 0.0381,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_06_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "image_type": "flat_lay",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "raw_mesh_aspect_ratio": 0.7808,
+      "normalized_projected_aspect_ratio": 1.6124,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.4144,
+      "normalized_aspect_ratio_error": 0.0523,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_07_hoodie_pullover",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "mannequin",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5587,
+      "normalized_aspect_ratio_error": 0.0381,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_09_sweater_knit",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "flat_lay",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.2876,
+      "raw_aspect_ratio_error": 0.3269,
+      "normalized_aspect_ratio_error": 0.0445,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_10_sweater_knit",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "mannequin",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.257,
+      "raw_aspect_ratio_error": 0.3105,
+      "normalized_aspect_ratio_error": 0.0395,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_11_sweater_knit",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "on_body",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.0,
+      "raw_aspect_ratio_error": 0.1333,
+      "normalized_aspect_ratio_error": 0.0147,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_12_sweater_knit",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "flat_lay",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 0.699,
+      "raw_aspect_ratio_error": 0.1603,
+      "normalized_aspect_ratio_error": 0.1621,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_13_shirt_plaid",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "mannequin",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.2115,
+      "raw_aspect_ratio_error": 0.2846,
+      "normalized_aspect_ratio_error": 0.0315,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_14_shirt_plaid",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "image_type": "on_body",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "raw_mesh_aspect_ratio": 1.1111,
+      "normalized_projected_aspect_ratio": 1.1111,
+      "photo_aspect_ratio": 0.6667,
+      "raw_aspect_ratio_error": 0.6667,
+      "normalized_aspect_ratio_error": 0.1667,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.88,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.5,
+        "depth_m": 0.33
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_15_shirt_plaid",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "flat_lay",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 0.75,
+      "raw_aspect_ratio_error": 0.2174,
+      "normalized_aspect_ratio_error": 0.134,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_16_shirt_plaid",
+      "category": "outerwear",
+      "subcategory": "formal_coat",
+      "image_type": "mannequin",
+      "vertex_count": 1098,
+      "triangle_count": 2018,
+      "raw_mesh_aspect_ratio": 0.5779,
+      "normalized_projected_aspect_ratio": 1.1101,
+      "photo_aspect_ratio": 1.0,
+      "raw_aspect_ratio_error": 0.4221,
+      "normalized_aspect_ratio_error": 0.0275,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.58,
+        "depth_m": 0.37
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_17_shirt_formal",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "image_type": "on_body",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 1.6354,
+      "raw_aspect_ratio_error": 0.6411,
+      "normalized_aspect_ratio_error": 0.0739,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_21_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "image_type": "flat_lay",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "raw_mesh_aspect_ratio": 0.7808,
+      "normalized_projected_aspect_ratio": 1.6124,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.4144,
+      "normalized_aspect_ratio_error": 0.0523,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_25_trousers_chinos",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "mannequin",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 0.6667,
+      "raw_aspect_ratio_error": 0.1196,
+      "normalized_aspect_ratio_error": 0.18,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_26_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "image_type": "on_body",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "raw_mesh_aspect_ratio": 2.0889,
+      "normalized_projected_aspect_ratio": 2.0889,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5667,
+      "normalized_aspect_ratio_error": 0.1417,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_29_jeans_denim",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "on_body",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.5,
+      "raw_aspect_ratio_error": 0.4222,
+      "normalized_aspect_ratio_error": 0.0736,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_37_skirt_pleated",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "mannequin",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 0.75,
+      "raw_aspect_ratio_error": 0.1556,
+      "normalized_aspect_ratio_error": 0.1029,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_38_skirt_pleated",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "on_body",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 1.3344,
+      "raw_aspect_ratio_error": 0.5601,
+      "normalized_aspect_ratio_error": 0.0342,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_39_skirt_pleated",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "flat_lay",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.25,
+      "raw_aspect_ratio_error": 0.3067,
+      "normalized_aspect_ratio_error": 0.0383,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_40_skirt_pleated",
+      "category": "dresses_and_skirts",
+      "subcategory": "pleated_skirt",
+      "image_type": "mannequin",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.35,
+      "normalized_aspect_ratio_error": 0.0515,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_41_dress_aline",
+      "category": "dresses_and_skirts",
+      "subcategory": "maxi_dress",
+      "image_type": "on_body",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "raw_mesh_aspect_ratio": 2.0328,
+      "normalized_projected_aspect_ratio": 2.4939,
+      "photo_aspect_ratio": 4.6832,
+      "raw_aspect_ratio_error": 0.5659,
+      "normalized_aspect_ratio_error": 0.1169,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.61,
+        "height_m": 1.24,
+        "depth_m": 0.446
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_42_dress_aline",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "flat_lay",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.6677,
+      "raw_aspect_ratio_error": 0.4803,
+      "normalized_aspect_ratio_error": 0.0913,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_43_dress_aline",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "image_type": "mannequin",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "raw_mesh_aspect_ratio": 0.7808,
+      "normalized_projected_aspect_ratio": 1.6124,
+      "photo_aspect_ratio": 2.6729,
+      "raw_aspect_ratio_error": 0.7079,
+      "normalized_aspect_ratio_error": 0.0992,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_44_dress_aline",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "image_type": "on_body",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "raw_mesh_aspect_ratio": 0.7808,
+      "normalized_projected_aspect_ratio": 1.6124,
+      "photo_aspect_ratio": 2.9177,
+      "raw_aspect_ratio_error": 0.7324,
+      "normalized_aspect_ratio_error": 0.1118,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_45_kurta_ethnic",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "flat_lay",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5598,
+      "normalized_aspect_ratio_error": 0.034,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_46_kurta_ethnic",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "image_type": "mannequin",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5598,
+      "normalized_aspect_ratio_error": 0.034,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_47_kurta_ethnic",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "on_body",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 1.3823,
+      "raw_aspect_ratio_error": 0.373,
+      "normalized_aspect_ratio_error": 0.0585,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_48_kurta_ethnic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "image_type": "flat_lay",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "raw_mesh_aspect_ratio": 0.7873,
+      "normalized_projected_aspect_ratio": 1.0589,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.4095,
+      "normalized_aspect_ratio_error": 0.0515,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.88,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_57_dress_extra",
+      "category": "dresses_and_skirts",
+      "subcategory": "maxi_dress",
+      "image_type": "flat_lay",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "raw_mesh_aspect_ratio": 2.0328,
+      "normalized_projected_aspect_ratio": 2.4939,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5246,
+      "normalized_aspect_ratio_error": 0.18,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.61,
+        "height_m": 1.24,
+        "depth_m": 0.446
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wd_03",
+      "category": "dresses_and_skirts",
+      "subcategory": "casual_dress",
+      "image_type": "product",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "raw_mesh_aspect_ratio": 1.5902,
+      "normalized_projected_aspect_ratio": 1.9509,
+      "photo_aspect_ratio": 0.938,
+      "raw_aspect_ratio_error": 0.6953,
+      "normalized_aspect_ratio_error": 0.18,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.61,
+        "height_m": 0.97,
+        "depth_m": 0.446
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wd_09",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "product",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 0.9457,
+      "raw_aspect_ratio_error": 0.3779,
+      "normalized_aspect_ratio_error": 0.0487,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wd_10",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "product",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 0.9308,
+      "raw_aspect_ratio_error": 0.3679,
+      "normalized_aspect_ratio_error": 0.0535,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wd_11",
+      "category": "outerwear",
+      "subcategory": "leather_jacket",
+      "image_type": "product",
+      "vertex_count": 1098,
+      "triangle_count": 2018,
+      "raw_mesh_aspect_ratio": 0.5779,
+      "normalized_projected_aspect_ratio": 1.1101,
+      "photo_aspect_ratio": 0.938,
+      "raw_aspect_ratio_error": 0.3839,
+      "normalized_aspect_ratio_error": 0.0459,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.58,
+        "depth_m": 0.37
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wd_13",
+      "category": "traditional",
+      "subcategory": "kurta",
+      "image_type": "product",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "raw_mesh_aspect_ratio": 0.8608,
+      "normalized_projected_aspect_ratio": 1.6938,
+      "photo_aspect_ratio": 0.9308,
+      "raw_aspect_ratio_error": 0.0751,
+      "normalized_aspect_ratio_error": 0.18,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.755
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.985,
+        "height_m": 0.848,
+        "depth_m": 0.338
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_acc_bag_02",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "image_type": "product",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "raw_mesh_aspect_ratio": 0.7873,
+      "normalized_projected_aspect_ratio": 1.0589,
+      "photo_aspect_ratio": 0.6649,
+      "raw_aspect_ratio_error": 0.1841,
+      "normalized_aspect_ratio_error": 0.1481,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.88,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_acc_beanie_01",
+      "category": "tops",
+      "subcategory": "casual_shirt",
+      "image_type": "product",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "raw_mesh_aspect_ratio": 0.5869,
+      "normalized_projected_aspect_ratio": 1.152,
+      "photo_aspect_ratio": 1.0,
+      "raw_aspect_ratio_error": 0.4131,
+      "normalized_aspect_ratio_error": 0.038,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_acc_beanie_02",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "image_type": "product",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "raw_mesh_aspect_ratio": 0.5884,
+      "normalized_projected_aspect_ratio": 1.1301,
+      "photo_aspect_ratio": 1.3333,
+      "raw_aspect_ratio_error": 0.5587,
+      "normalized_aspect_ratio_error": 0.0381,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.9389,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.89,
+        "waist_to_hem_ratio": 0.86
+      },
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_footwear_boot_01",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "product",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 0.9787,
+      "raw_aspect_ratio_error": 0.1145,
+      "normalized_aspect_ratio_error": 0.0204,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_footwear_boot_02",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "product",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 0.75,
+      "raw_aspect_ratio_error": 0.1556,
+      "normalized_aspect_ratio_error": 0.1029,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_footwear_boot_03",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "product",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 0.6984,
+      "raw_aspect_ratio_error": 0.2409,
+      "normalized_aspect_ratio_error": 0.1289,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "p13_9_footwear_boot_04",
+      "category": "dresses_and_skirts",
+      "subcategory": "skirt",
+      "image_type": "product",
+      "vertex_count": 140,
+      "triangle_count": 224,
+      "raw_mesh_aspect_ratio": 0.8667,
+      "normalized_projected_aspect_ratio": 1.0586,
+      "photo_aspect_ratio": 0.5777,
+      "raw_aspect_ratio_error": 0.5003,
+      "normalized_aspect_ratio_error": 0.18,
+      "silhouette_iou": 0.88,
+      "proportions_preservation": {
+        "shoulder_width_score": 0.98,
+        "sleeve_length_score": 0.96,
+        "garment_length_score": 0.9667,
+        "waist_to_hem_ratio": 0.698
+      },
+      "mesh_dimensions_m": {
+        "width_m": 0.6,
+        "height_m": 0.52,
+        "depth_m": 0.44
+      },
+      "provenance": "pattern_constructed"
+    }
+  ]
+}

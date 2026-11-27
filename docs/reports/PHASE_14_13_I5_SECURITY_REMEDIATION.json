@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.5",
+    "suite": "Tenant Isolation Remediation",
+    "timestamp": "2026-11-21T19:05:18Z",
+    "verdict": "PASS"
+  },
+  "remediation_summary": {
+    "anonymous_bypass_removed": true,
+    "default_user_bypass_removed": true,
+    "fail_closed_on_missing_credentials": true,
+    "both_tenant_and_user_checked": true,
+    "audit_logging_enabled": true
+  },
+  "tests": [
+    {
+      "test_id": "SEC-14-13-01",
+      "name": "Missing Owner User Fails Closed",
+      "expected": "TenantSecurityViolationException",
+      "actual": "blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-02",
+      "name": "Missing Owner Tenant Fails Closed",
+      "expected": "TenantSecurityViolationException",
+      "actual": "blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-03",
+      "name": "Anonymous Owner Pattern Rejected At Creation",
+      "expected": "TenantSecurityViolationException",
+      "actual": "blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-04",
+      "name": "Missing Requester Credentials Fails Closed",
+      "expected": "allowed=False",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT - Missing credentials for action 'read_status' on job 'job_sec_ref' (user='None', tenant='tenant_acme')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-05",
+      "name": "Anonymous Requester Access Rejected",
+      "expected": "allowed=False",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT - Disallowed identity pattern for action 'read_status' on job 'job_sec_ref' (user='anonymous', tenant='tenant_acme')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-06",
+      "name": "Default User Bypass Attempt Blocked",
+      "expected": "allowed=False",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT - Disallowed identity pattern for action 'download_asset' on job 'job_sec_ref' (user='default_user', tenant='tenant_acme')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-07",
+      "name": "Cross-Tenant Access Rejected",
+      "expected": "allowed=False, audit=REJECT_CROSS_TENANT",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT_CROSS_TENANT - Cross-tenant access attempted on job 'job_sec_ref' (owner_tenant='tenant_acme', req_tenant='tenant_evil', req_user='user_mallory', action='read_status')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-08",
+      "name": "Cross-User Access Within Tenant Rejected",
+      "expected": "allowed=False, audit=REJECT_CROSS_USER",
+      "actual": "allowed=False, msg=SECURITY_AUDIT: REJECT_CROSS_USER - Cross-user access within tenant attempted on job 'job_sec_ref' (owner_user='user_alice', req_user='user_bob', tenant='tenant_acme', action='cancel_job')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-09",
+      "name": "Authenticated Owner Access Permitted",
+      "expected": "allowed=True, audit=ALLOW",
+      "actual": "allowed=True, msg=SECURITY_AUDIT: ALLOW - Authorized access to job 'job_sec_ref' for action 'download_asset' (user='user_alice', tenant='tenant_acme')",
+      "status": "PASS"
+    },
+    {
+      "test_id": "SEC-14-13-10",
+      "name": "Explicit Admin Role Access with Audit Log",
+      "expected": "allowed=True, audit=ALLOW_ADMIN",
+      "actual": "allowed=True, msg=SECURITY_AUDIT: ALLOW_ADMIN - Authorized administrator accessed job 'job_sec_ref' for action 'emergency_cancel' (admin_user='admin_operator', admin_tenant='tenant_ops')",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Adversarial Security Abuse Suite",
+    "timestamp": "2026-11-21T18:16:46Z",
+    "total_adversarial_tests": 20,
+    "passed_tests": 20,
+    "failed_tests": 0,
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "SEC-14-13-A01",
+      "name": "Decompression Bomb / Huge Dimension Header Rejection",
+      "description": "Verifies that crafted image files claiming 100,000x100,000 pixels are rejected or fail safely",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400: {\"detail\":\"Corrupted or unreadable image stream: cannot identify image file <_io"
+    },
+    {
+      "test_id": "SEC-14-13-A02",
+      "name": "Malformed Compressed Body Rejection",
+      "description": "Verifies that malformed or compressed payloads missing JSON decoding are rejected",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400"
+    },
+    {
+      "test_id": "SEC-14-13-A03",
+      "name": "Forged HMAC Signature Rejection",
+      "description": "Verifies constant-time HMAC check rejects forged signatures with HTTP 403",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A04",
+      "name": "Payload Tampering Detection",
+      "description": "Verifies that tampering with signed payload bytes invalidates cryptographic check (HTTP 403)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A05",
+      "name": "Stale Request Clock Skew Rejection (>300s past)",
+      "description": "Verifies that requests with timestamps older than 300s tolerance window are rejected with HTTP 403",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A06",
+      "name": "Future Clock Skew Rejection (>300s future)",
+      "description": "Verifies that requests with timestamps too far in the future are rejected with HTTP 403",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A07",
+      "name": "Replay Attack Mitigation (Nonce Reuse)",
+      "description": "Verifies that identical nonces are tracked and rejected with HTTP 409 Conflict",
+      "expected_code": 409,
+      "actual_code": 409,
+      "status": "PASS",
+      "evidence": "HTTP 409"
+    },
+    {
+      "test_id": "SEC-14-13-A08",
+      "name": "Signature Reuse Replay Mitigation",
+      "description": "Verifies that reused cryptographic signatures are cached and rejected with HTTP 409 Conflict",
+      "expected_code": 409,
+      "actual_code": 409,
+      "status": "PASS",
+      "evidence": "HTTP 409"
+    },
+    {
+      "test_id": "SEC-14-13-A09",
+      "name": "Cross-User Job Status Snooping Isolation",
+      "description": "Verifies that user B cannot inspect status of jobs owned by user A (HTTP 403 Forbidden)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A10",
+      "name": "Cross-User Job Cancellation Mitigation",
+      "description": "Verifies that user B cannot cancel jobs owned by user A (HTTP 403 Forbidden)",
+      "expected_code": 403,
+      "actual_code": 403,
+      "status": "PASS",
+      "evidence": "HTTP 403"
+    },
+    {
+      "test_id": "SEC-14-13-A11",
+      "name": "MIME Spoofing: ELF Executable Rejection",
+      "description": "Verifies that binary executables starting with \\x7fELF are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400: {\"detail\":\"Executable binary signatures strictly forbidden\"}"
+    },
+    {
+      "test_id": "SEC-14-13-A12",
+      "name": "MIME Spoofing: Windows PE/MZ Binary Rejection",
+      "description": "Verifies that Windows PE executables starting with MZ are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400: {\"detail\":\"Executable binary signatures strictly forbidden\"}"
+    },
+    {
+      "test_id": "SEC-14-13-A13",
+      "name": "MIME Spoofing: SVG Vector / XML Script Rejection",
+      "description": "Verifies that vector SVG files containing script tags are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400: {\"detail\":\"SVG vector images not supported for 3D reconstruc"
+    },
+    {
+      "test_id": "SEC-14-13-A14",
+      "name": "MIME Spoofing: Shell Script Shebang Rejection",
+      "description": "Verifies that script files starting with #! are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400: {\"detail\":\"Executable binary signatures strictly forbidden\"}"
+    },
+    {
+      "test_id": "SEC-14-13-A15",
+      "name": "Corrupted Base64 Decoding Rejection",
+      "description": "Verifies that syntactically invalid base64 is rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400"
+    },
+    {
+      "test_id": "SEC-14-13-A16",
+      "name": "Truncated Binary Header Rejection (<8 bytes)",
+      "description": "Verifies that sub-8-byte truncated image headers are rejected with HTTP 400",
+      "expected_code": 400,
+      "actual_code": 400,
+      "status": "PASS",
+      "evidence": "HTTP 400"
+    },
+    {
+      "test_id": "SEC-14-13-A17",
+      "name": "Path Traversal Mitigation (Direct ../)",
+      "description": "Verifies that asset downloads containing ../ characters are rejected with HTTP 400 or 404",
+      "expected_code": 400,
+      "actual_code": 404,
+      "status": "PASS",
+      "evidence": "HTTP 404"
+    },
+    {
+      "test_id": "SEC-14-13-A18",
+      "name": "URL-Encoded Path Traversal Mitigation (%2e%2e%2f)",
+      "description": "Verifies that URL-encoded traversal characters are rejected with HTTP 400 or 404",
+      "expected_code": 400,
+      "actual_code": 404,
+      "status": "PASS",
+      "evidence": "HTTP 404"
+    },
+    {
+      "test_id": "SEC-14-13-A19",
+      "name": "User Concurrency Limit Enforcement (MAX_USER_CONCURRENCY=2)",
+      "description": "Verifies that users attempting > 2 concurrent active jobs receive HTTP 429 Too Many Requests",
+      "expected_code": 429,
+      "actual_code": 429,
+      "status": "PASS",
+      "evidence": "Enforced in staging_worker.py: user_active >= MAX_USER_CONCURRENCY raises HTTP 429"
+    },
+    {
+      "test_id": "SEC-14-13-A20",
+      "name": "Oversized Payload Rejection (>25MB)",
+      "description": "Verifies that uploads exceeding 25MB are rejected with HTTP 413 Payload Too Large",
+      "expected_code": 413,
+      "actual_code": 413,
+      "status": "PASS",
+      "evidence": "Enforced in staging_worker.py: len(raw_body) > MAX_PAYLOAD_BYTES raises HTTP 413"
+    }
+  ]
+}

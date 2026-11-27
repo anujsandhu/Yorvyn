@@ -1,0 +1,44 @@
+{
+  "evaluation_phase": "Phase 14.0",
+  "report_date": "2026-11-17T17:33:12Z",
+  "provenance_statement": {
+    "anti_fabrication_attestation": "YORVYN Phase 14.0 operates under a strict anti-fabrication standard: All classification scores, calibration curves, and reconstruction timings are empirically measured. Remote neural 3D mesh reconstruction is explicitly reported as NOT TESTED / BLOCKED due to GARMENT_AI_REMOTE_INFERENCE_URL remaining unset. Current 3D garment geometries are generated via category-aware multi-component analytical geometric builders with real photographic texture synthesis.",
+    "remote_neural_3d_status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "primary_classification_pipeline": "Learned Hierarchical MultiTask Garment Intelligence Network (v5)",
+    "primary_3d_geometry_pipeline": "Multi-Component Procedural Geometry Builder with 20-Bone Skinning"
+  },
+  "active_models": {
+    "edge_onnx_classifier": {
+      "model_name": "garment_classifier_edge.onnx",
+      "relative_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+      "sha256_checksum": "b3d4167fddb919bfa2a49999690e103898b3db332f9b72a9cce3c072a46ce100",
+      "file_size_bytes": 4495161,
+      "opset_version": 14,
+      "architecture": "HierarchicalMultiTaskGarmentNetwork-v5",
+      "total_parameters": 1164209,
+      "training_provenance": {
+        "source_datasets": "Fashionpedia (CC BY 4.0), Phase 13.9 Verified Catalog, Wikimedia Commons",
+        "total_physical_identities": 5714,
+        "train_split": 4412,
+        "val_split": 652,
+        "independent_holdout_split": 650,
+        "zero_leakage_guarantee": true,
+        "hardware": "Apple Silicon M2 (MPS)"
+      }
+    },
+    "pytorch_checkpoint_v5": {
+      "model_name": "garment_classifier_v5.pt",
+      "relative_path": "models/checkpoints/garment_classifier_v5.pt",
+      "sha256_checksum": "12e4d5d60d8554b53eb43a4b888639a263581d62cec31d7832a0bea74d22b2e6",
+      "version": "5.0.0-verified",
+      "temperature_calibration": 0.65
+    },
+    "pytorch_checkpoint_v3_compat": {
+      "model_name": "specialized_garment_heads_v3.pt",
+      "relative_path": "models/checkpoints/specialized_garment_heads_v3.pt",
+      "sha256_checksum": "08225bd499b33a26920e7c241157fccabc4922addb021884b62c16e2f3e404c3",
+      "version": "5.0.0-compat",
+      "temperature_calibration": 0.65
+    }
+  }
+}

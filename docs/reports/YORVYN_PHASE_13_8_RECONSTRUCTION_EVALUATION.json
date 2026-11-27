@@ -1,0 +1,609 @@
+{
+  "schema_version": "13.8.0",
+  "title": "YORVYN Phase 13.8 Garment Proportion & Visual Reconstruction Evaluation",
+  "evaluation_timestamp": "2026-11-15T15:48:00+05:30",
+  "metrics_summary": {
+    "evaluated_sample_count": 35,
+    "mean_silhouette_iou": 0.9534,
+    "mean_aspect_ratio_error": 0.5341,
+    "acceptance_target_iou_met": true,
+    "acceptance_target_ar_error_met": false
+  },
+  "per_item_reconstruction": [
+    {
+      "item_id": "wm_00_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "component_count": 8,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5052,
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "observed_surface_ratio": 0.645,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_01_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "component_count": 8,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5327,
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "observed_surface_ratio": 0.645,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_02_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "component_count": 8,
+      "silhouette_iou": 0.9527,
+      "aspect_ratio_error": 0.2152,
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "observed_surface_ratio": 0.645,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_03_jacket_denim",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "component_count": 8,
+      "silhouette_iou": 0.9679,
+      "aspect_ratio_error": 0.1142,
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "observed_surface_ratio": 0.645,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_04_blazer_jacket",
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "component_count": 8,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5592,
+      "mesh_dimensions_m": {
+        "width_m": 1.003,
+        "height_m": 0.59,
+        "depth_m": 0.371
+      },
+      "observed_surface_ratio": 0.645,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_05_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "component_count": 10,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.4145,
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "observed_surface_ratio": 0.634,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_06_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "component_count": 10,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.4145,
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "observed_surface_ratio": 0.634,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_07_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "component_count": 10,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.4145,
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "observed_surface_ratio": 0.634,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_08_hoodie_pullover",
+      "category": "tops",
+      "subcategory": "hoodie",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "component_count": 10,
+      "silhouette_iou": 0.9592,
+      "aspect_ratio_error": 0.1718,
+      "mesh_dimensions_m": {
+        "width_m": 1.037,
+        "height_m": 0.81,
+        "depth_m": 0.4
+      },
+      "observed_surface_ratio": 0.634,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_09_sweater_knit",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.3887,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_10_sweater_knit",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.3738,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_11_sweater_knit",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.9685,
+      "aspect_ratio_error": 0.1103,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.313
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_12_sweater_knit",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.966,
+      "aspect_ratio_error": 0.1269,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_13_shirt_plaid",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5156,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_14_shirt_plaid",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.9671,
+      "aspect_ratio_error": 0.1191,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_15_shirt_plaid",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.9524,
+      "aspect_ratio_error": 0.2171,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.286
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_16_shirt_plaid",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.4131,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_17_shirt_formal",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.6412,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_18_shirt_formal",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5599,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_19_shirt_formal",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5599,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_20_shirt_formal",
+      "category": "tops",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "component_count": 7,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5599,
+      "mesh_dimensions_m": {
+        "width_m": 0.975,
+        "height_m": 0.572,
+        "depth_m": 0.289
+      },
+      "observed_surface_ratio": 0.64,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_21_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.4097,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_22_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.8294,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_23_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.9775,
+      "aspect_ratio_error": 0.0501,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.314
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_24_tshirt_graphic",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "component_count": 4,
+      "silhouette_iou": 0.9566,
+      "aspect_ratio_error": 0.1894,
+      "mesh_dimensions_m": {
+        "width_m": 0.666,
+        "height_m": 0.524,
+        "depth_m": 0.317
+      },
+      "observed_surface_ratio": 0.579,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_25_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 2.135,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_26_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5663,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_27_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 2.1848,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_28_trousers_chinos",
+      "category": "bottoms",
+      "subcategory": "trousers",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5663,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_29_jeans_denim",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.3921,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_30_jeans_denim",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5663,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_31_jeans_denim",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 1.7862,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_32_jeans_denim",
+      "category": "bottoms",
+      "subcategory": "jeans",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.5667,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.94,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.551,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_33_shorts_casual",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.2621,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.5,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.548,
+      "provenance": "pattern_constructed"
+    },
+    {
+      "item_id": "wm_34_shorts_casual",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "component_count": 5,
+      "silhouette_iou": 0.95,
+      "aspect_ratio_error": 0.2621,
+      "mesh_dimensions_m": {
+        "width_m": 0.45,
+        "height_m": 0.5,
+        "depth_m": 0.33
+      },
+      "observed_surface_ratio": 0.548,
+      "provenance": "pattern_constructed"
+    }
+  ]
+}

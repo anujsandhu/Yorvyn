@@ -1,0 +1,38 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_5_DATASET_AUDIT",
+  "timestamp": "2026-11-18T18:48:00Z",
+  "audit_version": "14.5.0-dataset-integrity",
+  "manifest_path": "data/datasets/YORVYN_PHASE_14_0_DATASET_MANIFEST.json",
+  "manifest_sha256": "386127c932c894dce154f1765241e1f0ae1d0a6877d1e53893f5e1e61f87ad7a",
+  "total_records": 5714,
+  "split_distribution": {
+    "training_set": 4412,
+    "validation_set": 652,
+    "independent_holdout_set": 650
+  },
+  "photography_domains": {
+    "on_body": 3900,
+    "product": 156,
+    "lifestyle": 1581,
+    "mannequin": 25,
+    "flat_lay": 52
+  },
+  "category_distribution": {
+    "dress": 1492,
+    "tops": 967,
+    "bottoms": 975,
+    "accessories": 463,
+    "skirt": 435,
+    "shirt": 264,
+    "jacket": 938,
+    "footwear": 133,
+    "hoodie": 35,
+    "traditional": 12
+  },
+  "leakage_verification": {
+    "identity_disjoint_guarantee": "Zero SKU or image overlap between training, validation, and independent holdout",
+    "near_duplicate_audit": "pHash and embedding distance thresholding removed 12 duplicate crops",
+    "independent_holdout_purity": "650 samples reserved exclusively for evaluation; never exposed to gradient updates or calibration"
+  },
+  "status": "PASS (Identity-disjoint 3-way split verified across 5,714 records; zero data contamination)"
+}

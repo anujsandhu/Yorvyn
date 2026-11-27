@@ -1,0 +1,47 @@
+{
+  "audit_version": "13.9.0",
+  "timestamp_iso": "2026-11-15T16:18:29Z",
+  "total_audited_identities": 263,
+  "split_summary": {
+    "train_samples": 132,
+    "val_samples": 26,
+    "independent_holdout_samples": 105
+  },
+  "holdout_acceptance_threshold": ">= 100 unique physical garments",
+  "holdout_status": "PASSED",
+  "identity_leakage_audit": {
+    "exact_duplicate_sha256_across_splits": 0,
+    "perceptual_duplicates_across_splits": 0,
+    "leakage_detected": false
+  },
+  "phase_13_8_flaw_remediation": {
+    "corrupted_references_in_13_8": "rw_05 through rw_20 pointing to real_ref_01_case_a_hoodie.png",
+    "resolution": "Corrupted references isolated and removed; all 13.9 items have verified distinct physical identities with real photographic files."
+  },
+  "holdout_coverage": {
+    "categories": {
+      "jacket": 16,
+      "hoodie": 4,
+      "tops": 10,
+      "shirt": 8,
+      "bottoms": 14,
+      "skirt": 7,
+      "dress": 8,
+      "traditional": 5,
+      "footwear": 14,
+      "accessories": 19
+    },
+    "image_types": {
+      "product": 37,
+      "flat_lay": 33,
+      "lifestyle": 5,
+      "mannequin": 19,
+      "on_body": 11
+    }
+  },
+  "licensing_summary": {
+    "Wikimedia_Commons": "CC BY-SA 4.0 / CC BY 3.0 / CC0 Public Domain",
+    "YORVYN_Active_Wardrobe": "Proprietary Commercial Approved",
+    "Benchmark_Catalog": "CC0 Public Domain"
+  }
+}

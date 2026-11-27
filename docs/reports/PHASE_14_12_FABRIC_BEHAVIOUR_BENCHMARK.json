@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "phase": "14.12",
+    "workstream": "D",
+    "timestamp": "2026-11-21T07:16:49Z",
+    "audit_standard": "Principal Computational Textile Mechanics Engineer",
+    "fabrics_count": 8,
+    "testing_standards": [
+      "ASTM D1388 Cantilever Bending Stiffness",
+      "ISO 13934-1 Tensile Properties",
+      "ISO 9073-10 Drapeability Index"
+    ]
+  },
+  "gates": {
+    "all_fabrics_validated": {
+      "target": "8/8 fabrics parameterised and stable",
+      "measured": "8/8 PASS",
+      "verdict": "PASS"
+    },
+    "mean_elastic_recovery": {
+      "target": ">= 90.0%",
+      "measured": "96.53%",
+      "verdict": "PASS"
+    },
+    "motion_stability": {
+      "target": "Zero divergence or explosive tearing across all 8 fabrics",
+      "measured": "100.0% STABLE",
+      "verdict": "PASS"
+    }
+  },
+  "fabric_evaluations": {
+    "cotton": {
+      "name": "Cotton (Jersey / Poplin)",
+      "areal_density_g_m2": 180.0,
+      "thickness_mm": 1.8,
+      "stretch_compliance_m_per_N": 0.00015,
+      "bending_compliance_rad2_per_Nm": 0.0025,
+      "shear_stiffness_ratio": 0.65,
+      "coulomb_friction": 0.45,
+      "max_elastic_strain": 0.25,
+      "target_ease_margin_mm": 16.0,
+      "cusick_drape_coefficient": 0.449,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0007,
+        "elastic_recovery_pct": 99.51
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "denim": {
+      "name": "Heavyweight Denim (12-14 oz)",
+      "areal_density_g_m2": 420.0,
+      "thickness_mm": 3.5,
+      "stretch_compliance_m_per_N": 2e-05,
+      "bending_compliance_rad2_per_Nm": 0.08,
+      "shear_stiffness_ratio": 0.88,
+      "coulomb_friction": 0.6,
+      "max_elastic_strain": 0.12,
+      "target_ease_margin_mm": 22.0,
+      "cusick_drape_coefficient": 0.433,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0144,
+        "elastic_recovery_pct": 90.4
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "wool": {
+      "name": "Worsted / Felted Wool",
+      "areal_density_g_m2": 340.0,
+      "thickness_mm": 3.0,
+      "stretch_compliance_m_per_N": 8e-05,
+      "bending_compliance_rad2_per_Nm": 0.03,
+      "shear_stiffness_ratio": 0.72,
+      "coulomb_friction": 0.55,
+      "max_elastic_strain": 0.2,
+      "target_ease_margin_mm": 20.0,
+      "cusick_drape_coefficient": 0.379,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0005,
+        "elastic_recovery_pct": 99.66
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "knitwear": {
+      "name": "Ribbed / Cable Knitwear",
+      "areal_density_g_m2": 260.0,
+      "thickness_mm": 3.2,
+      "stretch_compliance_m_per_N": 0.0006,
+      "bending_compliance_rad2_per_Nm": 0.0012,
+      "shear_stiffness_ratio": 0.42,
+      "coulomb_friction": 0.4,
+      "max_elastic_strain": 0.5,
+      "target_ease_margin_mm": 12.0,
+      "cusick_drape_coefficient": 0.366,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.001,
+        "elastic_recovery_pct": 99.31
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "polyester": {
+      "name": "Technical Polyester / Synthetic",
+      "areal_density_g_m2": 140.0,
+      "thickness_mm": 1.4,
+      "stretch_compliance_m_per_N": 4e-05,
+      "bending_compliance_rad2_per_Nm": 0.008,
+      "shear_stiffness_ratio": 0.6,
+      "coulomb_friction": 0.3,
+      "max_elastic_strain": 0.35,
+      "target_ease_margin_mm": 14.0,
+      "cusick_drape_coefficient": 0.386,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0006,
+        "elastic_recovery_pct": 99.61
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "silk": {
+      "name": "Mulberry Silk / Charmeuse",
+      "areal_density_g_m2": 75.0,
+      "thickness_mm": 0.9,
+      "stretch_compliance_m_per_N": 0.0001,
+      "bending_compliance_rad2_per_Nm": 0.0004,
+      "shear_stiffness_ratio": 0.3,
+      "coulomb_friction": 0.2,
+      "max_elastic_strain": 0.18,
+      "target_ease_margin_mm": 18.0,
+      "cusick_drape_coefficient": 0.521,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0013,
+        "elastic_recovery_pct": 99.17
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "leather": {
+      "name": "Supple Calfskin Leather",
+      "areal_density_g_m2": 580.0,
+      "thickness_mm": 4.5,
+      "stretch_compliance_m_per_N": 5e-06,
+      "bending_compliance_rad2_per_Nm": 0.18,
+      "shear_stiffness_ratio": 0.95,
+      "coulomb_friction": 0.65,
+      "max_elastic_strain": 0.08,
+      "target_ease_margin_mm": 25.0,
+      "cusick_drape_coefficient": 0.453,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0296,
+        "elastic_recovery_pct": 85.0
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    },
+    "linen": {
+      "name": "Pure Flax Linen",
+      "areal_density_g_m2": 210.0,
+      "thickness_mm": 2.2,
+      "stretch_compliance_m_per_N": 3e-05,
+      "bending_compliance_rad2_per_Nm": 0.045,
+      "shear_stiffness_ratio": 0.7,
+      "coulomb_friction": 0.5,
+      "max_elastic_strain": 0.15,
+      "target_ease_margin_mm": 20.0,
+      "cusick_drape_coefficient": 0.372,
+      "cyclic_loading_recovery": {
+        "applied_strain": 0.15,
+        "residual_plastic_strain": 0.0007,
+        "elastic_recovery_pct": 99.56
+      },
+      "motion_stability": "VERIFIED_STABLE"
+    }
+  }
+}

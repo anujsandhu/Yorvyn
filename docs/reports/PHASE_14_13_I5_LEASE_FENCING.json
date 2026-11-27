@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.5",
+    "suite": "Fenced Leases & Stale Worker Protection",
+    "timestamp": "2026-11-21T19:05:18Z",
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "LF-14-13-01",
+      "name": "Claim Assigns Monotonic Fencing Generation",
+      "expected": "claimed=True, lease_generation=1",
+      "actual": "claimed=True, gen=1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "LF-14-13-02",
+      "name": "Matching Worker & Generation Extends Lease",
+      "expected": "heartbeat=True",
+      "actual": "ok=True, msg=Lease extended by 0.3s (generation 1)",
+      "status": "PASS"
+    },
+    {
+      "test_id": "LF-14-13-03",
+      "name": "Stale Generation Heartbeat Rejected",
+      "expected": "heartbeat=False",
+      "actual": "ok=False, msg=Heartbeat rejected: Stale fencing token 0 (current is 1)",
+      "status": "PASS"
+    },
+    {
+      "test_id": "LF-14-13-04",
+      "name": "Re-Claim Assigns Incrementing Fencing Generation",
+      "expected": "expired=True, recovered=True, lease_generation=2",
+      "actual": "expired=True, recovered=True, gen=2",
+      "status": "PASS"
+    },
+    {
+      "test_id": "LF-14-13-05",
+      "name": "Stale Worker Commit Rejected (Fencing Token Protection)",
+      "expected": "commit=False, msg contains 'Stale lease generation'",
+      "actual": "commit=False, msg=Commit rejected: Stale lease generation 1 (active is 2)",
+      "status": "PASS"
+    },
+    {
+      "test_id": "LF-14-13-06",
+      "name": "Active Worker Generation Commit Accepted",
+      "expected": "commit=True, current_state=COMPLETED",
+      "actual": "commit=True, state=COMPLETED",
+      "status": "PASS"
+    }
+  ]
+}

@@ -154,7 +154,7 @@ def clean_dataset(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     retention_rate = (final_count / original_count * 100) if original_count > 0 else 0
     
     if verbose:
-        print(f"\n   📊 Cleaning Summary:")
+        print("\n   📊 Cleaning Summary:")
         print(f"      Original: {original_count:,} entries")
         print(f"      Cleaned:  {final_count:,} entries")
         print(f"      Removed:  {total_removed:,} entries ({100 - retention_rate:.1f}%)")
@@ -269,7 +269,7 @@ if __name__ == "__main__":
     # Validate
     validation = validate_dataset(cleaned_df)
     if validation['valid']:
-        print(f"   ✅ Dataset validation passed")
+        print("   ✅ Dataset validation passed")
         print(f"      Unique brands: {validation['unique_brands']:,}")
         print(f"      Unique perfumes: {validation['unique_perfumes']:,}")
         if validation['avg_rating']:

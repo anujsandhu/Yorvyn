@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Observability & Telemetry",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "verdict": "PASS"
+  },
+  "observability_snapshot": {
+    "telemetry_timestamp": "2026-11-21T18:50:51Z",
+    "queue_depth": 0,
+    "job_counters": {
+      "total_recorded_spans": 50,
+      "completed_jobs": 50,
+      "failed_jobs": 0,
+      "cancelled_jobs": 0,
+      "dead_lettered_jobs": 0,
+      "retried_jobs_total": 1,
+      "artifact_persistence_failures": 0
+    },
+    "latency_breakdown_ms": {
+      "queue_waiting_time": {
+        "p50_ms": 110.0,
+        "p95_ms": 190.0
+      },
+      "job_execution_time": {
+        "p50_ms": 340.0,
+        "p95_ms": 340.0
+      },
+      "end_to_end_latency": {
+        "p50_ms": 465.0,
+        "p95_ms": 545.0
+      }
+    },
+    "worker_resource_telemetry": {
+      "process_rss_mb": 197.72,
+      "worker_utilization_pct": 0.0,
+      "correlation_id_tracing_enabled": true
+    }
+  },
+  "tests": [
+    {
+      "test_id": "OBS-14-13-01",
+      "name": "Separated Stage Latency Telemetry",
+      "description": "Verify separate recording of API ingress, queue wait, and inference execution times",
+      "expected": "Separate P50/P95 for queue_wait and inference_exec",
+      "actual": "wait_p50=110.0ms, exec_p50=340.0ms",
+      "status": "PASS"
+    },
+    {
+      "test_id": "OBS-14-13-02",
+      "name": "Correlation ID Tracing & Counters",
+      "description": "Verify every job span has traceable correlation ID and accurate counters",
+      "expected": "completed=50, retried=1",
+      "actual": "completed=50, retried=1",
+      "status": "PASS"
+    }
+  ]
+}

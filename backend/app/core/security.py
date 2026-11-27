@@ -6,6 +6,7 @@ Provides Supabase JWT verification and FastAPI security dependencies.
 from __future__ import annotations
 
 import logging
+import time
 from typing import Optional
 from fastapi import HTTPException, Request, status
 from jose import JWTError, jwt
@@ -31,6 +32,7 @@ def verify_supabase_jwt(token: str) -> dict:
     """
     Decodes and verifies a Supabase access token (JWT).
     Uses the configured Supabase JWT secret or project secret key.
+    Enforces signature, expiration, and audience claims.
     """
     secret = settings.supabase_jwt_secret or settings.secret_key
 
@@ -42,6 +44,22 @@ def verify_supabase_jwt(token: str) -> dict:
             algorithms=["HS256"],
             options={"verify_aud": False}
         )
+        # Verify audience if present
+        aud = payload.get("aud")
+        if aud and aud not in ("authenticated", "anon"):
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail=f"Invalid token audience claim '{aud}'.",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+        # Verify issued-at timestamp is not in the future (tampered token check)
+        iat = payload.get("iat")
+        if iat and isinstance(iat, (int, float)) and iat > time.time() + 300:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Token issued-at timestamp is invalid or in the future.",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
         return payload
     except jwt.ExpiredSignatureError:
         raise HTTPException(
@@ -50,18 +68,9 @@ def verify_supabase_jwt(token: str) -> dict:
             headers={"WWW-Authenticate": "Bearer"},
         )
     except JWTError:
-        # In development/test environments or unverified demo keys, attempt unverified claims extraction
-        if settings.debug or settings.environment == "development":
-            try:
-                payload = jwt.get_unverified_claims(token)
-                if payload and "sub" in payload:
-                    return payload
-            except Exception:
-                pass
-
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid authentication token credentials.",
+            detail="Invalid authentication token credentials or tampered signature.",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
@@ -99,16 +108,28 @@ async def get_current_user(request: Request) -> UserContext:
             headers={"WWW-Authenticate": "Bearer"},
         )
 
-    email = payload.get("email", "")
+    aud = payload.get("aud")
     role = payload.get("role", "authenticated")
+
+    # Reconciled Phase 11 policy: Anonymous guest tokens (aud == 'anon' or role == 'anon')
+    # are strictly forbidden from performing protected registered user operations.
+    if aud == "anon" or role == "anon":
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Authenticated user token required. Anonymous tokens cannot access protected user resources.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    email = payload.get("email", "")
 
     return UserContext(user_id=str(user_id), email=str(email), role=str(role))
 
 
 async def get_current_user_optional(request: Request) -> Optional[UserContext]:
     """
-    Optional authentication: returns UserContext if valid token is provided,
-    otherwise returns None for guest or public interactions.
+    Optional authentication: returns UserContext if valid token is provided.
+    If no Authorization header is present, returns None for guest/public browsing.
+    If an Authorization header is provided but invalid/expired, strictly raises HTTP 401.
     """
     auth_header = request.headers.get("Authorization")
     if not auth_header:
@@ -116,18 +137,23 @@ async def get_current_user_optional(request: Request) -> Optional[UserContext]:
 
     parts = auth_header.split()
     if len(parts) != 2 or parts[0].lower() != "bearer":
-        return None
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authorization header format. Expected 'Bearer <token>'",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
-    try:
-        payload = verify_supabase_jwt(parts[1])
-        user_id = payload.get("sub")
-        if user_id:
-            return UserContext(
-                user_id=str(user_id),
-                email=str(payload.get("email", "")),
-                role=str(payload.get("role", "authenticated"))
-            )
-    except Exception:
-        return None
+    payload = verify_supabase_jwt(parts[1])
+    user_id = payload.get("sub")
+    if not user_id:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token missing subject identifier (sub)",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
 
-    return None
+    return UserContext(
+        user_id=str(user_id),
+        email=str(payload.get("email", "")),
+        role=str(payload.get("role", "authenticated"))
+    )

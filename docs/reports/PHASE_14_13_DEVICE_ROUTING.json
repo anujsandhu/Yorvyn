@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Device-Aware Execution Routing",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "detected_hardware": "Apple M2 (MPS / Unified Memory 16GB)",
+    "classification": "APPLE_MPS",
+    "concurrency_policy": "single_worker_global_lock",
+    "verdict": "PASS"
+  },
+  "telemetry": {
+    "device_classification": "APPLE_MPS",
+    "device_name": "Apple M2 (MPS / Unified Memory 16GB)",
+    "total_memory_mb": 16384,
+    "mps_allocated_memory_mb": 0.0,
+    "active_workloads": 0,
+    "concurrency_policy": "single_worker_global_lock",
+    "cloud_deployment_status": "BLOCKED (NVIDIA CUDA unavailable on local development host)",
+    "global_lock_active": false
+  },
+  "tests": [
+    {
+      "test_id": "DEV-14-13-01",
+      "name": "Runtime Hardware Inspection (No Env-Var Inference)",
+      "description": "Verify device router inspects physical torch driver APIs rather than trusting env vars",
+      "expected": "APPLE_MPS",
+      "actual": "APPLE_MPS",
+      "status": "PASS",
+      "device_name": "Apple M2 (MPS / Unified Memory 16GB)"
+    },
+    {
+      "test_id": "DEV-14-13-02",
+      "name": "Physical Memory Telemetry Reporting",
+      "description": "Verify physical memory capacity and active MPS allocations are tracked",
+      "expected": ">= 16384 MB total memory",
+      "actual": "16384 MB (MPS allocated: 0.0 MB)",
+      "status": "PASS"
+    },
+    {
+      "test_id": "DEV-14-13-03",
+      "name": "Local MPS Global Lock Preservation",
+      "description": "Verify Apple Silicon MPS enforces engine_lock to prevent simultaneous kernel panics",
+      "expected": "lock_active=True during execution, lock_released=True after release",
+      "actual": "active=True, released=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "DEV-14-13-04",
+      "name": "Transparent Remote CUDA Deployment Classification",
+      "description": "Verify remote CUDA status is honestly reported as BLOCKED without physical hardware",
+      "expected": "Contains 'BLOCKED'",
+      "actual": "BLOCKED (NVIDIA CUDA unavailable on local development host)",
+      "status": "PASS"
+    }
+  ]
+}

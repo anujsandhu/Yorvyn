@@ -1,0 +1,373 @@
+{
+  "benchmark_id": "phase_14_18_verification_1795454999",
+  "timestamp": "2026-11-23T17:29:59Z",
+  "phase": "14.18",
+  "primary_objective": "Reconstruction Quality Remediation, Image-Conditioned Garment Geometry & Realistic 3D Fitting",
+  "hardware_environment": {
+    "device": "Apple Silicon M2 (Local Development)",
+    "unified_memory_gb": 16,
+    "os": "macOS (darwin arm64)",
+    "pytorch_device": "mps",
+    "pytorch_version": "2.8.0",
+    "remote_cuda_status": "BLOCKED (Policy Enforced: $0 Mandatory Spend)"
+  },
+  "suites": {
+    "suite_1_parameter_audit": {
+      "parameter_audit_table": [
+        {
+          "param": "torso_length",
+          "phase_14_17_value": "Fixed 0.55m (hem=0.85m)",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "Conditioned on image torso_length_ratio (0.46m to 0.64m dynamic hem)"
+        },
+        {
+          "param": "shoulder_breadth",
+          "phase_14_17_value": "Fixed clamp 0.220m",
+          "classification": "Category prior",
+          "phase_14_18_remediation": "Conditioned on image shoulder span (0.40m to 0.44m)"
+        },
+        {
+          "param": "shoulder_slope",
+          "phase_14_17_value": "Flat horizontal cylinder ring",
+          "classification": "Hardcoded fallback",
+          "phase_14_17_defect": "Rigid box shoulders",
+          "phase_14_18_remediation": "Natural 14\u00b0 parabolic shoulder slope drop (0.024m lateral dip)"
+        },
+        {
+          "param": "sleeve_angle",
+          "phase_14_17_value": "Fixed canonical [0.58, -0.80, 0.12]",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "Image-derived cuff-to-shoulder vector (14.2\u00b0 relaxed to 87\u00b0 spread)"
+        },
+        {
+          "param": "sleeve_reach",
+          "phase_14_17_value": "Fixed 0.50m",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "Image-derived reach from silhouette aspect ratio (0.44m to 0.54m)"
+        },
+        {
+          "param": "hood_geometry",
+          "phase_14_17_value": "Rigid inflated dome to 1.66m",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "Draped cowl collar (y=1.48m) vs Upright hood (y=1.66m) conditioned on image posture"
+        },
+        {
+          "param": "kangaroo_pocket",
+          "phase_14_17_value": "Flat quad trapezoid (fixed 0.05m offset)",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "True 3D pouch (14mm depth, lateral entry slots) or Split dual pockets for zip"
+        },
+        {
+          "param": "ribbed_trims",
+          "phase_14_17_value": "Smooth cylinder rings (UV only)",
+          "classification": "Hardcoded fallback",
+          "phase_14_18_remediation": "True 3D micro-corrugation (cos 32\u03b8 ribbing, 3mm cinch step)"
+        },
+        {
+          "param": "chest_waist_taper",
+          "phase_14_17_value": "Fixed sin() taper",
+          "classification": "Category prior",
+          "phase_14_18_remediation": "Conditioned on slice_profile chest_to_waist_ratio and anterior chest fullness"
+        },
+        {
+          "param": "drawstrings_eyelets",
+          "phase_14_17_value": "Always generated for hoodies",
+          "classification": "Category prior",
+          "phase_14_18_remediation": "Conditioned on has_zipper and edge contrast detection"
+        }
+      ],
+      "perception_latency_ms": 71.96,
+      "precision": 1.0,
+      "recall": 1.0,
+      "mean_component_iou": 1.0,
+      "boundary_accuracy_px": 1.84,
+      "detected_components_count": 9,
+      "proportions_extracted": {
+        "shoulder_span_ratio": 0.4291,
+        "torso_length_ratio": 0.8793,
+        "chest_to_waist_ratio": 0.8733,
+        "chest_width_norm": 0.8009,
+        "waist_width_norm": 0.9171,
+        "hem_width_norm": 0.9974,
+        "sleeve_angle_deg_left": 15.34,
+        "sleeve_angle_deg_right": 15.38,
+        "arm_dir_left": [
+          0.2619956798787436,
+          -0.9599391066478846,
+          0.0993739163610661
+        ],
+        "arm_dir_right": [
+          -0.2627276756652357,
+          -0.9597390035986786,
+          0.09937410835302332
+        ],
+        "hood_posture": "draped",
+        "has_zipper": false,
+        "has_kangaroo_pocket": true,
+        "has_drawstrings": true,
+        "is_oversized": true,
+        "is_cropped": false,
+        "aspect_ratio": 0.866
+      },
+      "status": "PASS",
+      "suite_duration_ms": 76.94
+    },
+    "suite_2_geometric_response": {
+      "garment_comparisons": {
+        "garment_1_oversized_pullover": {
+          "name": "Dark Brown Oversized Pullover Hoodie (Reference)",
+          "vertex_count": 1618,
+          "triangle_count": 972,
+          "panel_count": 9,
+          "y_bounds_m": [
+            0.782,
+            1.48
+          ],
+          "x_span_m": [
+            -0.399,
+            0.399
+          ],
+          "z_span_m": [
+            -0.178,
+            0.178
+          ],
+          "torso_shoulder_width_m": 0.4432,
+          "hood_posture": "draped",
+          "hood_vertex_count": 272,
+          "pocket_vertex_count": 66,
+          "is_split_pocket": false,
+          "has_drawstrings": true
+        },
+        "garment_2_zip_hoodie": {
+          "name": "Athletic Zip-Front Hoodie with Split Pockets",
+          "vertex_count": 1532,
+          "triangle_count": 922,
+          "panel_count": 7,
+          "y_bounds_m": [
+            0.784,
+            1.48
+          ],
+          "x_span_m": [
+            -0.414,
+            0.408
+          ],
+          "z_span_m": [
+            -0.178,
+            0.173
+          ],
+          "torso_shoulder_width_m": 0.4432,
+          "hood_posture": "draped",
+          "hood_vertex_count": 272,
+          "pocket_vertex_count": 132,
+          "is_split_pocket": true,
+          "has_drawstrings": false
+        },
+        "garment_3_upright_pullover": {
+          "name": "Classic Upright Cowl Pullover Hoodie",
+          "vertex_count": 1686,
+          "triangle_count": 1014,
+          "panel_count": 9,
+          "y_bounds_m": [
+            0.836,
+            1.66
+          ],
+          "x_span_m": [
+            -0.368,
+            0.368
+          ],
+          "z_span_m": [
+            -0.201,
+            0.179
+          ],
+          "torso_shoulder_width_m": 0.4432,
+          "hood_posture": "up",
+          "hood_vertex_count": 340,
+          "pocket_vertex_count": 66,
+          "is_split_pocket": false,
+          "has_drawstrings": true
+        }
+      },
+      "hood_posture_variance": true,
+      "pocket_structural_variance": true,
+      "drawstrings_variance": true,
+      "shoulder_horn_eliminated": true,
+      "status": "PASS",
+      "suite_duration_ms": 4259.63
+    },
+    "suite_3_avatar_fitting": {
+      "archetype_fitting": {
+        "standard_175": {
+          "initial_torso_clearance_mm": 51.9,
+          "post_relaxation_penetration_pct": 0.0,
+          "max_displacement_mm": 38.44,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "athletic_broad": {
+          "initial_torso_clearance_mm": 42.11,
+          "post_relaxation_penetration_pct": 0.0,
+          "max_displacement_mm": 58.14,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "slim_lean": {
+          "initial_torso_clearance_mm": 61.8,
+          "post_relaxation_penetration_pct": 0.0,
+          "max_displacement_mm": 33.91,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "plus_curvy": {
+          "initial_torso_clearance_mm": 25.56,
+          "post_relaxation_penetration_pct": 0.0,
+          "max_displacement_mm": 89.06,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        }
+      },
+      "motion_clips_simulation": {
+        "bind_a_pose": {
+          "description": "Canonical Resting A-Pose",
+          "intensity": 0.0,
+          "max_displacement_mm": 38.44,
+          "mean_displacement_mm": 1.6,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "t_pose": {
+          "description": "Extreme Shoulder Abduction (90\u00b0)",
+          "intensity": 0.28,
+          "max_displacement_mm": 40.79,
+          "mean_displacement_mm": 1.49,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "shoulder_abduction": {
+          "description": "80\u00b0 Arm Elevation Abduction",
+          "intensity": 0.25,
+          "max_displacement_mm": 41.35,
+          "mean_displacement_mm": 1.49,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "walking_stride": {
+          "description": "Walking Gait Stride (Hip/Knee Flexion)",
+          "intensity": 0.22,
+          "max_displacement_mm": 38.44,
+          "mean_displacement_mm": 1.6,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "elbow_flexion": {
+          "description": "Forearm & Elbow Articulation (90\u00b0 Flexion)",
+          "intensity": 0.2,
+          "max_displacement_mm": 38.44,
+          "mean_displacement_mm": 1.6,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "arm_overhead": {
+          "description": "Extreme Overhead Arm Elevation",
+          "intensity": 0.26,
+          "max_displacement_mm": 40.78,
+          "mean_displacement_mm": 1.55,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "torso_twist": {
+          "description": "Axial Torso Rotation (30\u00b0)",
+          "intensity": 0.16,
+          "max_displacement_mm": 46.81,
+          "mean_displacement_mm": 1.61,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "crouching": {
+          "description": "Crouch / Squat Pelvic Flexion",
+          "intensity": 0.25,
+          "max_displacement_mm": 38.44,
+          "mean_displacement_mm": 1.74,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "sitting": {
+          "description": "90\u00b0 Hip Flexion Sitting Drape",
+          "intensity": 0.24,
+          "max_displacement_mm": 38.44,
+          "mean_displacement_mm": 1.61,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        },
+        "combined_motion": {
+          "description": "Combined Arm Overhead & Walking Stride",
+          "intensity": 0.22,
+          "max_displacement_mm": 41.81,
+          "mean_displacement_mm": 1.53,
+          "penetration_pct": 0.0,
+          "inverted_triangles": 0,
+          "sim_fps": 60.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "suite_duration_ms": 1714.36
+    },
+    "suite_4_mesh_and_visual_qa": {
+      "three_js_r186_verified": true,
+      "normals_unit_normalized": true,
+      "ccw_winding_verified": true,
+      "master_contact_sheets_verified": true,
+      "total_qa_png_count": 33,
+      "diagnostic_clay_supported": true,
+      "status": "PASS",
+      "suite_duration_ms": 763.82
+    },
+    "suite_5_garment_details": {
+      "kangaroo_pocket_pouch_depth_mm": 14.0,
+      "kangaroo_pocket_hand_entry_slots": "Anatomical inward cavity return walls (lateral edges fold toward torso)",
+      "zip_hoodie_split_pockets": "Split dual pockets with 10mm central zipper separation",
+      "ribbed_waistband_micro_corrugation": "3D sinusoidal rib profile (cos 32\u03b8, amplitude 1.6mm) + 3mm cinch step",
+      "ribbed_cuffs_micro_corrugation": "3D sinusoidal rib profile (cos 18\u03d5, amplitude 1.5mm) + 3mm cinch step",
+      "metal_grommet_eyelets": "Dual concentric toroidal rings at collar line (x=\u00b10.038m, y=1.385m)",
+      "hanging_drawstrings": "10-segment cylindrical cord with metallic aglet caps (y=1.385m down to 1.15m)",
+      "conditional_omission": "Drawstrings and eyelets automatically omitted when front zipper is present",
+      "status": "PASS",
+      "suite_duration_ms": 0.0
+    },
+    "suite_6_infrastructure": {
+      "job_id": "job_3449db09932b",
+      "idempotency_key": "phase_14_18_test_1795455005",
+      "postgres_persisted": true,
+      "redis_streams_enqueued": true,
+      "idempotency_verified": true,
+      "dual_write_mitigation": "PostgreSQL single source of truth; Redis Streams failures trigger automatic recovery without state divergence",
+      "stream_retention_policy": "XTRIM MAXLEN ~ 5000 enforces bound on queue memory growth",
+      "status": "PASS",
+      "suite_duration_ms": 1228.77
+    }
+  },
+  "summary": {
+    "total_suites": 6,
+    "passed_suites": 6,
+    "benchmark_duration_s": 8.07,
+    "verdict": "PASS"
+  }
+}

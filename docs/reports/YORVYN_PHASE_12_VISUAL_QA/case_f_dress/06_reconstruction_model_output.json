@@ -1,0 +1,29 @@
+{
+  "engine_id": "dress_pattern_engine_v1",
+  "provenance": "pattern_constructed",
+  "vertex_count": 448,
+  "triangle_count": 840,
+  "panels_count": 3,
+  "panels": [
+    "upper_bodice_panel",
+    "waist_connection",
+    "flared_skirt_drape"
+  ],
+  "quality_report": {
+    "is_valid": true,
+    "is_manifold": true,
+    "quality_score": 1.0,
+    "degenerate_triangle_count": 0,
+    "boundary_loops": 2,
+    "issues": []
+  },
+  "proportions": {
+    "shoulder_width_m": 0.4725,
+    "chest_width_m": 0.43,
+    "waist_width_m": 0.39,
+    "torso_length_m": 0.52,
+    "sleeve_length_m": 0.52,
+    "ease_margin_m": 0.035
+  },
+  "reconstruction_duration_ms": 4.84
+}

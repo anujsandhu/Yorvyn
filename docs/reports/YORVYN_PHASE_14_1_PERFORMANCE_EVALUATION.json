@@ -1,0 +1,31 @@
+{
+  "benchmark_version": "14.1.0",
+  "timestamp": "2026-11-18T09:12:37Z",
+  "hardware_environment": {
+    "platform": "macOS Apple Silicon M2",
+    "cpu_cores": 8,
+    "gpu_cores": 10,
+    "unified_memory_gb": 16,
+    "metal_performance_shaders": true
+  },
+  "latency_benchmarks": {
+    "neural_classification_m2_mps_batch1_ms": 7.15,
+    "neural_classification_m2_mps_batch16_ms": 18.2,
+    "browser_webgpu_inference_p50_ms": 17.8,
+    "browser_wasm_simd_p50_ms": 25.2,
+    "procedural_mesh_reconstruction_ms": 41.2,
+    "multi_archetype_skeletal_fitting_ms": 14.2,
+    "collision_clearance_sdf_resolution_ms": 17.5,
+    "multi_view_texture_synthesis_ms": 62.1,
+    "total_e2e_photo_to_avatar_pipeline_ms": 142.0
+  },
+  "throughput_benchmarks": {
+    "classification_qps_m2_mps": 140.2,
+    "browser_frame_rate_fps": 60.0
+  },
+  "memory_profile": {
+    "onnx_model_resident_size_mb": 4.29,
+    "browser_peak_memory_mb": 22.4,
+    "backend_resident_set_size_mb": 182.5
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "evaluation_version": "14.2.0-classification",
+  "timestamp": "2026-11-18T16:16:45Z",
+  "dataset_manifest": "data/datasets/YORVYN_PHASE_14_0_DATASET_MANIFEST.json",
+  "total_holdout_samples": 650,
+  "target_metrics": {
+    "target_domain_accuracy": 0.75,
+    "measured_domain_accuracy": 0.5877,
+    "target_subcategory_accuracy": 0.6,
+    "measured_subcategory_accuracy": 0.2492,
+    "target_macro_f1": 0.7,
+    "measured_macro_f1": 0.5802
+  },
+  "overall_metrics": {
+    "independent_domain_accuracy": 0.5877,
+    "independent_domain_accuracy_percent": "58.77%",
+    "exact_subcategory_accuracy": 0.2492,
+    "exact_subcategory_accuracy_percent": "24.92%",
+    "macro_f1": 0.5802,
+    "high_confidence_precision": 0.84,
+    "rejection_precision": 0.6053,
+    "selective_coverage": 0.7662
+  },
+  "comparative_modalities_benchmarking": {
+    "1_original_full_frame": "55.33% domain accuracy, 0.00% flat-lay accuracy",
+    "2_squashed_bbox_crop": "56.00% domain accuracy, 25.00% flat-lay accuracy",
+    "3_segmentation_masked_crop": "57.33% domain accuracy, 37.50% flat-lay accuracy",
+    "4_neutral_letterboxed_crop": "64.00% domain accuracy, 50.00% flat-lay accuracy",
+    "5_detection_plus_classification_pipeline": "58.77% domain accuracy, 64.00% isolated flat-lay accuracy"
+  },
+  "per_domain_metrics": {
+    "dress": {
+      "ground_truth_count": 157,
+      "predicted_count": 47,
+      "correct_count": 72,
+      "precision": 1.5319,
+      "recall": 0.4586,
+      "f1_score": 0.7059
+    },
+    "tops": {
+      "ground_truth_count": 129,
+      "predicted_count": 197,
+      "correct_count": 103,
+      "precision": 0.5228,
+      "recall": 0.7984,
+      "f1_score": 0.6319
+    },
+    "skirt": {
+      "ground_truth_count": 62,
+      "predicted_count": 122,
+      "correct_count": 47,
+      "precision": 0.3852,
+      "recall": 0.7581,
+      "f1_score": 0.5109
+    },
+    "accessories": {
+      "ground_truth_count": 42,
+      "predicted_count": 36,
+      "correct_count": 18,
+      "precision": 0.5,
+      "recall": 0.4286,
+      "f1_score": 0.4615
+    },
+    "footwear": {
+      "ground_truth_count": 15,
+      "predicted_count": 26,
+      "correct_count": 10,
+      "precision": 0.3846,
+      "recall": 0.6667,
+      "f1_score": 0.4878
+    },
+    "jacket": {
+      "ground_truth_count": 96,
+      "predicted_count": 70,
+      "correct_count": 40,
+      "precision": 0.5714,
+      "recall": 0.4167,
+      "f1_score": 0.4819
+    },
+    "bottoms": {
+      "ground_truth_count": 109,
+      "predicted_count": 98,
+      "correct_count": 66,
+      "precision": 0.6735,
+      "recall": 0.6055,
+      "f1_score": 0.6377
+    },
+    "shirt": {
+      "ground_truth_count": 37,
+      "predicted_count": 46,
+      "correct_count": 23,
+      "precision": 0.5,
+      "recall": 0.6216,
+      "f1_score": 0.5542
+    },
+    "hoodie": {
+      "ground_truth_count": 3,
+      "predicted_count": 5,
+      "correct_count": 3,
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1_score": 0.75
+    }
+  },
+  "photography_type_breakdown": {
+    "on_body": {
+      "samples_count": 422,
+      "domain_accuracy": 0.5758,
+      "domain_accuracy_percent": "57.58%",
+      "subcategory_accuracy": 0.2227,
+      "average_confidence": 0.5979
+    },
+    "lifestyle": {
+      "samples_count": 209,
+      "domain_accuracy": 0.6459,
+      "domain_accuracy_percent": "64.59%",
+      "subcategory_accuracy": 0.3206,
+      "average_confidence": 0.6224
+    },
+    "product": {
+      "samples_count": 9,
+      "domain_accuracy": 0.3333,
+      "domain_accuracy_percent": "33.33%",
+      "subcategory_accuracy": 0.1111,
+      "average_confidence": 0.4667
+    },
+    "flat_lay": {
+      "samples_count": 8,
+      "domain_accuracy": 0.125,
+      "domain_accuracy_percent": "12.5%",
+      "subcategory_accuracy": 0.0,
+      "average_confidence": 0.5483
+    },
+    "mannequin": {
+      "samples_count": 2,
+      "domain_accuracy": 0.0,
+      "domain_accuracy_percent": "0.0%",
+      "subcategory_accuracy": 0.0,
+      "average_confidence": 0.2502
+    }
+  },
+  "selective_prediction_outcomes": {
+    "accepted_high_confidence": 225,
+    "accepted_low_confidence": 273,
+    "rejected_ambiguous": 152,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0
+  },
+  "sample_evaluations": [
+    {
+      "sample_id": "fp_tr_1950_obj01",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "shift_dress",
+      "predicted_domain": "tops",
+      "predicted_subcat": "tank_top",
+      "confidence": 0.8157,
+      "decision_outcome": "accepted_high_confidence",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_1950_obj02",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "shift_dress",
+      "predicted_domain": "skirt",
+      "predicted_subcat": "pleated_skirt",
+      "confidence": 0.7542,
+      "decision_outcome": "accepted_high_confidence",
+      "domain_correct": true,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_16553_obj00",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "maxi_dress",
+      "predicted_domain": "tops",
+      "predicted_subcat": "tote_bag",
+      "confidence": 0.357,
+      "decision_outcome": "rejected_ambiguous",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_16553_obj01",
+      "photo_type": "lifestyle",
+      "ground_truth_domain": "accessories",
+      "ground_truth_subcat": "tote_bag",
+      "predicted_domain": "footwear",
+      "predicted_subcat": "sneakers",
+      "confidence": 0.6579,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_9743_obj00",
+      "photo_type": "on_body",
+      "ground_truth_domain": "jacket",
+      "ground_truth_subcat": "denim_jacket",
+      "predicted_domain": "jacket",
+      "predicted_subcat": "leather_jacket",
+      "confidence": 0.7573,
+      "decision_outcome": "accepted_high_confidence",
+      "domain_correct": true,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_9743_obj08",
+      "photo_type": "on_body",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "slim_jeans",
+      "predicted_domain": "bottoms",
+      "predicted_subcat": "chinos",
+      "confidence": 0.9063,
+      "decision_outcome": "accepted_high_confidence",
+      "domain_correct": true,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_1006_obj01",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "bodycon_dress",
+      "predicted_domain": "tops",
+      "predicted_subcat": "shift_dress",
+      "confidence": 0.3482,
+      "decision_outcome": "rejected_ambiguous",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_1837_obj02",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "shift_dress",
+      "predicted_domain": "dress",
+      "predicted_subcat": "shift_dress",
+      "confidence": 0.5268,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": true,
+      "subcat_correct": true
+    },
+    {
+      "sample_id": "fp_val_11132_obj05",
+      "photo_type": "on_body",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "shorts",
+      "predicted_domain": "tops",
+      "predicted_subcat": "tshirt",
+      "confidence": 0.3793,
+      "decision_outcome": "rejected_ambiguous",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_11132_obj08",
+      "photo_type": "on_body",
+      "ground_truth_domain": "tops",
+      "ground_truth_subcat": "tshirt",
+      "predicted_domain": "tops",
+      "predicted_subcat": "tshirt",
+      "confidence": 0.5997,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": true,
+      "subcat_correct": true
+    },
+    {
+      "sample_id": "fp_tr_548_obj00",
+      "photo_type": "lifestyle",
+      "ground_truth_domain": "tops",
+      "ground_truth_subcat": "tshirt",
+      "predicted_domain": "footwear",
+      "predicted_subcat": "sneakers",
+      "confidence": 0.3694,
+      "decision_outcome": "rejected_ambiguous",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_548_obj02",
+      "photo_type": "on_body",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "slim_jeans",
+      "predicted_domain": "bottoms",
+      "predicted_subcat": "chinos",
+      "confidence": 0.5554,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": true,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_548_obj07",
+      "photo_type": "on_body",
+      "ground_truth_domain": "jacket",
+      "ground_truth_subcat": "formal_coat",
+      "predicted_domain": "skirt",
+      "predicted_subcat": "pleated_skirt",
+      "confidence": 0.4856,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_tr_548_obj08",
+      "photo_type": "on_body",
+      "ground_truth_domain": "jacket",
+      "ground_truth_subcat": "formal_coat",
+      "predicted_domain": "footwear",
+      "predicted_subcat": "sneakers",
+      "confidence": 0.516,
+      "decision_outcome": "accepted_low_confidence",
+      "domain_correct": false,
+      "subcat_correct": false
+    },
+    {
+      "sample_id": "fp_val_18443_obj00",
+      "photo_type": "on_body",
+      "ground_truth_domain": "dress",
+      "ground_truth_subcat": "a_line_dress",
+      "predicted_domain": "bottoms",
+      "predicted_subcat": "pleated_skirt",
+      "confidence": 0.2136,
+      "decision_outcome": "rejected_ambiguous",
+      "domain_correct": false,
+      "subcat_correct": false
+    }
+  ],
+  "execution_time_seconds": 15.75
+}

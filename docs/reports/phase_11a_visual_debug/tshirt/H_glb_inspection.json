@@ -1,0 +1,28 @@
+{
+  "item_id": "rw_01_graphic_tshirt",
+  "glb_size_bytes": 496368,
+  "vertex_count": 632,
+  "triangle_count": 1128,
+  "is_manifold_2_manifold": true,
+  "degenerate_triangles": 0,
+  "textures_count": 3,
+  "texture_names": [
+    "baseColorTexture",
+    "normalTexture",
+    "metallicRoughnessTexture"
+  ],
+  "has_base_color_texture": true,
+  "base_color_factor": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "metallic_factor": 0.01,
+  "roughness_factor": 0.76,
+  "has_normal_texture": true,
+  "has_metallic_roughness_texture": true,
+  "skin_joint_count": 20,
+  "collision_max_penetration_mm": 50.66,
+  "collision_penetration_count": 0
+}

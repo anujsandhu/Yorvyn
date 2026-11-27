@@ -1,0 +1,1123 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-11-25",
+  "repository_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "tasks": [
+    {
+      "task_id": "YOR-15.1-001",
+      "phase": "15.1",
+      "description": "Build fail-closed sample-level evaluation dataset loader, provenance/integrity validation, identity split checks, metric readiness gates and empty pilot manifest.",
+      "dependencies": [],
+      "priority": "P0",
+      "implementation_status": "VERIFIED_COMPLETE",
+      "files_affected": [
+        "backend/app/services/garments/evaluation/dataset_manifest.py",
+        "backend/tests/test_phase15_evaluation_integrity.py",
+        "data/datasets/manifests/garment_evaluation_manifest_v1.schema.json",
+        "data/datasets/manifests/garment_evaluation_pilot_v1.json"
+      ],
+      "acceptance_criteria": [
+        "Assets are hash verified",
+        "License, consent and annotation provenance are required",
+        "Identity split leakage blocks evaluation",
+        "Synthetic manifests cannot enter real evaluation",
+        "Empty pilot reports incomplete",
+        "Metric gates require corresponding reference data"
+      ],
+      "validation_results": [
+        "backend/venv/bin/python -m pytest backend/tests/test_phase15_evaluation_integrity.py -q: 14 passed in 4.13s",
+        "python3 -m py_compile backend/app/services/garments/evaluation/dataset_manifest.py: passed"
+      ],
+      "remaining_defects": [
+        "No real evaluation samples are populated",
+        "Near-duplicate image detection is not implemented",
+        "Reference mesh format/camera/landmark coordinate validation needs expansion"
+      ],
+      "status": "VERIFIED_COMPLETE"
+    },
+    {
+      "task_id": "YOR-15.2-001",
+      "phase": "15.2",
+      "description": "Implement deterministic reference-based surface geometry, silhouette, landmark, camera projection, and mesh structural metric primitives.",
+      "dependencies": [
+        "YOR-15.1-001"
+      ],
+      "priority": "P1",
+      "implementation_status": "IMPLEMENTED",
+      "files_affected": [
+        "backend/app/services/garments/evaluation/geometric_evaluator.py",
+        "backend/app/services/garments/evaluation/ground_truth_evaluator.py",
+        "backend/tests/test_phase15_evaluation_integrity.py"
+      ],
+      "acceptance_criteria": [
+        "Surface sampling is deterministic and area weighted",
+        "Reference metric calls require coordinate and dataset contracts for real status",
+        "Synthetic tests remain explicitly smoke-only",
+        "Silhouette, landmark and camera primitives reject invalid inputs"
+      ],
+      "validation_results": [
+        "backend/venv/bin/python -m pytest backend/tests/test_phase15_evaluation_integrity.py backend/tests/test_real_world_ai_phase_8.py -q: 29 passed",
+        "py_compile of geometric_evaluator.py and ground_truth_evaluator.py: passed"
+      ],
+      "remaining_defects": [
+        "No camera-conditioned mesh rasterizer or multi-view reprojection aggregation",
+        "No real pilot samples",
+        "Sample-linked metric provenance contract incomplete",
+        "Closest-surface distance remains sampled approximation"
+      ],
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "YOR-CHAT-001",
+      "phase": "Conversational garment intelligence",
+      "description": "Run reconstruction, validation, editing, export and avatar fitting through the existing Stylist chat.",
+      "dependencies": [],
+      "priority": "P1",
+      "implementation_status": "LOCAL_WORKFLOW_VERIFIED",
+      "files_affected": [
+        "backend/app/api/conversational_garments.py",
+        "backend/app/main.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/services/garments/chat_candidate.py",
+        "backend/app/api/garment_identification_routes.py",
+        "backend/app/services/ai/multiview/fusion_engine.py",
+        "backend/app/api/garment_generation_routes.py",
+        "backend/app/services/garments/job_manager.py",
+        "frontend/src/pages/AvatarStudio.tsx",
+        "frontend/src/services/aiSessionService.ts",
+        "frontend/src/components/ai/GarmentJobMessage.tsx",
+        "frontend/src/components/AvatarStudioViewer.tsx",
+        "frontend/src/components/PhotoTo3DGarmentModal.tsx",
+        "backend/tests/test_garment_chat_edits.py",
+        "scripts/verify_conversational_garment.py",
+        "scripts/verify_garment_browser.cjs"
+      ],
+      "acceptance_criteria": [
+        "Generate a real candidate from chat and independently inspect it",
+        "Edit and restore a candidate, export it and attach it to the avatar",
+        "Verify live multimodal inference and production session persistence"
+      ],
+      "validation_results": [
+        "56 passed, 350 warnings in 102.29s (0:01:42)",
+        "Frontend: 355 tests passed in 25 files; production build passed.",
+        "Local HTTP and Chromium workflow passed with the real denim jacket photograph."
+      ],
+      "remaining_defects": [
+        "Live provider checks: Groq and OpenRouter returned HTTP 401; Gemini was unconfigured.",
+        "Hosted durable chat restoration and distributed failover unverified.",
+        "No reference-backed quality evaluation for the photographed garment.",
+        "Fold and cloth-thickness edits unsupported."
+      ],
+      "report": "docs/engineering/autonomous-execution/CONVERSATIONAL_GARMENT_INTELLIGENCE.md",
+      "status": "IN_PROGRESS"
+    },
+    {
+      "task_id": "YOR-15.4-001",
+      "phase": "15.4",
+      "description": "Credentialed staging acceptance and durable conversational garment recovery.",
+      "dependencies": [
+        "YOR-CHAT-001"
+      ],
+      "priority": "P0",
+      "implementation_status": "PARTIALLY_VERIFIED",
+      "files_affected": [
+        "backend/app/api/ai_session_routes.py",
+        "backend/app/api/conversational_garments.py",
+        "backend/app/api/garment_generation_routes.py",
+        "backend/app/core/settings.py",
+        "backend/app/models/garment_models.py",
+        "backend/app/services/database/supabase_repository.py",
+        "backend/migrations/012_durable_conversation_sequence.sql",
+        "backend/app/services/garments/job_manager.py",
+        "backend/app/services/ai/base.py",
+        "backend/app/services/ai/orchestration/orchestrator.py",
+        "backend/app/services/ai/orchestration/fallback_manager.py",
+        "backend/app/services/ai/providers/gemini_provider.py",
+        "backend/app/services/ai/providers/groq_provider.py",
+        "backend/app/services/llm/base.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/services/llm/providers/gemini_provider.py",
+        "backend/app/services/llm/providers/groq_provider.py",
+        "backend/app/services/llm/providers/openrouter_provider.py",
+        "scripts/verify_staging_garment.py",
+        "scripts/verify_garment_browser.cjs",
+        "backend/tests/test_phase15_4_staging.py"
+      ],
+      "acceptance_criteria": [
+        "Verify real vision and planner execution for the chat turn",
+        "Compare user-owned candidate bytes after a complete backend restart",
+        "Reject unauthorized access and corrupt or missing assets"
+      ],
+      "validation_results": [
+        "Full process restart, browser download, database persistence, RLS and failure checks passed locally.",
+        "54 focused backend tests passed; combined backend run 74 passed, 2 model-registry failures; 355 frontend tests passed."
+      ],
+      "remaining_defects": [
+        "External vision and planner gates failed.",
+        "Hosted staging has not been exercised.",
+        "Classifier checkpoint and registry count assertions remain unresolved."
+      ],
+      "report": "docs/engineering/autonomous-execution/PHASE_15_4_STAGING_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_15_4_TEST_HISTORY.json",
+      "status": "PARTIALLY_VERIFIED"
+    },
+    {
+      "task_id": "YOR-15.5-001",
+      "phase": "15.5",
+      "description": "Certify the active local classifier, reconcile the hybrid registry, validate provider diagnostics and repeat conversational recovery.",
+      "dependencies": [
+        "YOR-15.4-001"
+      ],
+      "priority": "P0",
+      "implementation_status": "VERIFIED_COMPLETE",
+      "external_provider_acceptance": "BLOCKED",
+      "status": "PARTIALLY_VERIFIED",
+      "files_affected": [
+        "Dockerfile.backend",
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/services/garments/intelligence/universal_garment_classifier.py",
+        "backend/app/services/garments/intelligence/universal_garment_intelligence_model.py",
+        "backend/app/services/ai/provider_diagnostics.py",
+        "backend/app/services/ai/providers/gemini_provider.py",
+        "backend/app/services/ai/providers/groq_provider.py",
+        "backend/app/services/llm/base.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/services/llm/registry.py",
+        "backend/app/services/llm/error_handler.py",
+        "backend/app/services/llm/service.py",
+        "backend/app/services/llm/providers/gemini_provider.py",
+        "backend/app/services/llm/providers/groq_provider.py",
+        "backend/app/services/llm/providers/openrouter_provider.py",
+        "scripts/verify_staging_garment.py",
+        "scripts/benchmark_phase_14_26_hybrid_ai.py",
+        "backend/tests/test_hybrid_ai_orchestration.py",
+        "backend/tests/test_phase15_5_certification.py",
+        "backend/tests/test_phase15_4_staging.py",
+        "backend/tests/test_garment_chat_edits.py",
+        "backend/tests/test_neural_garment_ai_phase_7.py",
+        "docs/engineering/autonomous-execution/PHASE_15_5_AI_INFRASTRUCTURE_CERTIFICATION.md",
+        "docs/engineering/autonomous-execution/PHASE_15_5_TEST_HISTORY.json",
+        "docs/engineering/autonomous-execution/EXECUTION_LEDGER.json"
+      ],
+      "validation_results": [
+        "Original two failures reproduced, then both passed.",
+        "Active Phase 14.1 v6 digest, taxonomy, strict load and real-photo inference verified.",
+        "128 relevant backend tests and 355 frontend tests passed. Frontend build passed.",
+        "Local Stylist, undo, GLB, durable recovery, ownership and failure checks passed."
+      ],
+      "remaining_defects": [
+        "Credentialed inference blocked by Gemini 403 and Groq/OpenRouter 401. Earlier attempts also encountered TLS failures.",
+        "Legacy v3 artifact unavailable for historical recertification. Auxiliary model has partial trained-weight coverage.",
+        "Optional server models, backend image and hosted environment have no new execution certification."
+      ],
+      "report": "docs/engineering/autonomous-execution/PHASE_15_5_AI_INFRASTRUCTURE_CERTIFICATION.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_15_5_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "YOR-16.0-001",
+      "phase": "16.0",
+      "priority": "P0",
+      "description": "Local-first capability dispatch and independent garment quality governance in the existing Stylist.",
+      "dependencies": [
+        "YOR-15.5-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scope": "Local architecture and browser workflow",
+      "external_provider_acceptance": "BLOCKED",
+      "files_affected": [
+        "backend/app/api/conversational_garments.py",
+        "backend/app/api/garment_identification_routes.py",
+        "backend/app/models/garment_models.py",
+        "backend/app/services/ai/multiview/fusion_engine.py",
+        "backend/app/services/ai/orchestration/orchestrator.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/services/garments/job_manager.py",
+        "backend/app/services/garments/garment_mesh_builder.py",
+        "backend/app/services/garments/reconstruction/traditional_engine.py",
+        "backend/app/services/garments/reconstruction/neural/neural_reconstruction_engine.py",
+        "backend/app/services/garments/intelligence/local_multimodal_identification_engine.py",
+        "backend/app/services/ai/providers/gemini_provider.py",
+        "backend/app/services/ai/providers/groq_provider.py",
+        "backend/app/services/llm/providers/groq_provider.py",
+        "backend/app/services/llm/providers/gemini_provider.py",
+        "backend/app/services/llm/providers/openrouter_provider.py",
+        "backend/app/services/intelligence/garment_execution.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/garment_policy.py",
+        "backend/app/services/intelligence/garment_adapters.py",
+        "backend/app/services/intelligence/provider_meter.py",
+        "backend/app/services/intelligence/local_perception.py",
+        "scripts/verify_staging_garment.py",
+        "backend/tests/test_phase16_intelligence.py",
+        "docs/engineering/phase-16/CAPABILITY_REGISTRY.md",
+        "docs/engineering/phase-16/COST_GOVERNANCE.md",
+        "docs/engineering/phase-16/MODEL_VERIFICATION_MATRIX.md",
+        "docs/engineering/phase-16/PHASE_16_0_ACCEPTANCE.md",
+        "docs/engineering/phase-16/PHASE_16_0_ARCHITECTURE.md",
+        "docs/engineering/phase-16/ROUTING_DECISIONS.md",
+        "docs/engineering/autonomous-execution/EXECUTION_LEDGER.json"
+      ],
+      "validation_results": [
+        "207 backend tests passed, 31 warnings; 355 frontend tests passed; frontend production build passed.",
+        "Local browser verified upload, edit, undo, export, history and avatar attachment.",
+        "Local durable browser recovery, row ownership and failure handling passed; credential-free preflight exited 2 as expected."
+      ],
+      "recovery_evidence": {
+        "conversation_id": "62dcc45c-23f2-4ffb-a110-4bdfe913c40d",
+        "job_id": "job_281355795ac1",
+        "source_sha256": [
+          "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+        ],
+        "committed_sha256": "ee40176044654ab19ff21808b46316cd27a4010896b72883d80bd855b7750141",
+        "before_sha256": "0b8ed9dd98dc7a4e2852888504f74d1578967de66b0c12b1cdc8ab64967fd81b",
+        "after_sha256": "0b8ed9dd98dc7a4e2852888504f74d1578967de66b0c12b1cdc8ab64967fd81b",
+        "browser_recovery": "VERIFIED_COMPLETE",
+        "restart": "VERIFIED_COMPLETE",
+        "negative_checks": [
+          "anonymous",
+          "expired",
+          "cross-user session/candidate/job",
+          "unknown session",
+          "duplicate before and after restart",
+          "missing asset",
+          "corrupt asset",
+          "database loss",
+          "worker failure persisted across restart",
+          "interrupted worker deadline",
+          "database row-level ownership",
+          "daily budget after restart"
+        ],
+        "intelligence_execution": {
+          "job_id": "job_281355795ac1",
+          "quality": {
+            "operation": "COMPLETED",
+            "fit_accuracy": "NOT_EVALUATED",
+            "mesh_structure": "NOT_EVALUATED",
+            "asset_integrity": "NOT_EVALUATED",
+            "visual_accuracy": "NOT_EVALUATED",
+            "geometry_accuracy": "NOT_EVALUATED",
+            "material_accuracy": "NOT_EVALUATED"
+          },
+          "task_id": "5e6aac8e-9526-49be-a14e-6ee477061f2c",
+          "user_id": "22715ab1-8049-4cc2-bc89-0882e815910d",
+          "decision": "EXECUTE_LOCAL",
+          "accounting": {
+            "turn_ms": 7601.321,
+            "fallback_count": 0,
+            "job_report_ref": "job_281355795ac1",
+            "gpu_utilization": null,
+            "turn_thread_cpu_ms": 1569.975,
+            "provider_billed_usd": 0,
+            "provider_retry_count": 0,
+            "external_input_tokens": 0,
+            "external_output_tokens": 0,
+            "process_peak_rss_bytes": 643334144,
+            "provider_request_count": 0,
+            "classifier_inference_ms": 92.189
+          },
+          "garment_id": "garment_818d534c",
+          "operations": [
+            {
+              "status": "COMPLETED",
+              "task_id": "5e6aac8e-9526-49be-a14e-6ee477061f2c",
+              "timeout_s": 45.0,
+              "input_refs": [
+                "62dcc45c-23f2-4ffb-a110-4bdfe913c40d:5e6aac8e-9526-49be-a14e-6ee477061f2c"
+              ],
+              "parameters": {
+                "action": null,
+                "category": null,
+                "view_count": 1,
+                "subcategory": null
+              },
+              "result_ref": "turn:5e6aac8e-9526-49be-a14e-6ee477061f2c/operations/0",
+              "validation": "closed action vocabulary",
+              "duration_ms": 0.854,
+              "max_retries": 0,
+              "algorithm_id": "garment-intent-v1",
+              "operation_id": "3dc9f341-1c2d-43f2-8db5-4cddd1de1380",
+              "capability_id": "intent.plan",
+              "thread_cpu_ms": 0.523,
+              "schema_version": "16.0"
+            },
+            {
+              "status": "COMPLETED",
+              "task_id": "5e6aac8e-9526-49be-a14e-6ee477061f2c",
+              "timeout_s": 90.0,
+              "input_refs": [
+                "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+              ],
+              "parameters": {
+                "action": null,
+                "category": null,
+                "view_count": 0,
+                "subcategory": null
+              },
+              "result_ref": "turn:5e6aac8e-9526-49be-a14e-6ee477061f2c/operations/1",
+              "validation": "one subject or choices",
+              "duration_ms": 2683.133,
+              "max_retries": 0,
+              "algorithm_id": "instance-detector",
+              "operation_id": "fbed24c3-2034-4b04-bf31-272a36035534",
+              "capability_id": "subject.select",
+              "thread_cpu_ms": 1569.452,
+              "schema_version": "16.0"
+            },
+            {
+              "status": "COMPLETED",
+              "task_id": "5e6aac8e-9526-49be-a14e-6ee477061f2c",
+              "timeout_s": 240.0,
+              "input_refs": [
+                "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+              ],
+              "parameters": {
+                "action": null,
+                "category": null,
+                "view_count": 1,
+                "subcategory": null
+              },
+              "result_ref": "garment_818d534c",
+              "validation": "source-cited V2 contract",
+              "duration_ms": 4816.154,
+              "max_retries": 0,
+              "algorithm_id": "multiview-v2",
+              "operation_id": "ddceb467-d9d5-4b1a-8d05-a1b06e640c33",
+              "capability_id": "views.identify",
+              "schema_version": "16.0"
+            },
+            {
+              "status": "COMPLETED",
+              "task_id": "5e6aac8e-9526-49be-a14e-6ee477061f2c",
+              "timeout_s": 90.0,
+              "input_refs": [
+                "garment_818d534c",
+                "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+              ],
+              "parameters": {
+                "action": null,
+                "category": "jacket",
+                "view_count": 1,
+                "subcategory": "denim_jacket"
+              },
+              "result_ref": "job_281355795ac1",
+              "validation": "front view, source hashes, entitlement and job ID",
+              "duration_ms": 84.655,
+              "max_retries": 0,
+              "algorithm_id": "category-engine-registry",
+              "operation_id": "13c0ed8c-1b2e-4453-952e-4cef3d9785dc",
+              "capability_id": "geometry.submit",
+              "schema_version": "16.0"
+            }
+          ],
+          "classifiers": [
+            {
+              "device": "mps",
+              "sha256": "1cc5d8a9afddb8113ec90258d73e51f8382418f5c7e053ba037286db2a49c3fc",
+              "category": "jacket",
+              "model_id": "universal-garment-classifier",
+              "confidence": 0.9077969193458557,
+              "calibration": "no deployment holdout calibration established",
+              "duration_ms": 92.189,
+              "subcategory": "denim_jacket"
+            }
+          ],
+          "input_sha256": [
+            "f87ac6c4b1a7a0279635afe249f8cf519be80f3336b5395fe83e878e9bcb0e61"
+          ],
+          "parent_turn_id": null,
+          "schema_version": "16.0",
+          "conversation_id": "62dcc45c-23f2-4ffb-a110-4bdfe913c40d",
+          "candidate_sha256": null,
+          "provider_requests": []
+        },
+        "worker_execution": {
+          "schema_version": "16.0",
+          "strategy": "image_conditioned",
+          "engine": "neural_garment_reconstruction_engine_v3",
+          "fallback_reason": null,
+          "geometry_ms": 930.9528749999992,
+          "render_ms": 78.10662500000021,
+          "evaluation_ms": 240.6639580000025,
+          "structural_repair": false,
+          "mesh_structure": "PASSED",
+          "mesh_report": {
+            "is_valid": true,
+            "is_watertight": false,
+            "vertex_count": 19584,
+            "face_count": 7808,
+            "is_manifold": true,
+            "connected_components": 18,
+            "degenerate_faces": 0,
+            "duplicate_faces": 0,
+            "boundary_edges_count": 896,
+            "non_manifold_edges_count": 0,
+            "is_winding_consistent": true,
+            "bounds_min": [
+              -0.6066,
+              0.7901,
+              -0.174
+            ],
+            "bounds_max": [
+              0.6063,
+              1.44,
+              0.174
+            ],
+            "extents": [
+              1.2129,
+              0.6499,
+              0.348
+            ],
+            "volume_m3": 0.0,
+            "issues": [],
+            "warnings": [
+              "Open-bordered garment construction: 896 boundary edges (expected for neck/cuff/hem openings).",
+              "Mesh has 18 disconnected sub-components (trims, buttons, or loose panels)."
+            ]
+          },
+          "committed_sha256": "ee40176044654ab19ff21808b46316cd27a4010896b72883d80bd855b7750141",
+          "geometry_accuracy": "NOT_EVALUATED",
+          "visual_accuracy": "NOT_EVALUATED",
+          "material_accuracy": "NOT_EVALUATED",
+          "fit_accuracy": "NOT_EVALUATED"
+        }
+      },
+      "remaining_defects": [
+        "Credentialed external inference blocked at previous staging check.",
+        "No independent holdout accuracy, material or physical fit certification. Camera-conditioned evaluation remains open.",
+        "Hosted load testing and cross-worker capacity governance unverified."
+      ],
+      "next_task": "16.1 source-cited component perception and held-out annotation evaluation",
+      "report": "docs/engineering/phase-16/PHASE_16_0_ACCEPTANCE.md"
+    },
+    {
+      "task_id": "YOR-16.1-001",
+      "phase": "16.1",
+      "priority": "P0",
+      "description": "Deep garment component taxonomy, localized component evidence, multi-view fusion, structure graph, Stylist clarification, and independent evaluation.",
+      "dependencies": [
+        "YOR-16.0-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scientific_acceptance": "BLOCKED",
+      "files_affected": [
+        "backend/app/services/intelligence/component_taxonomy.py",
+        "backend/app/services/intelligence/garment_structure_graph.py",
+        "backend/app/services/intelligence/component_evidence.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/garment_adapters.py",
+        "backend/app/services/ai/contracts.py",
+        "backend/app/services/ai/multiview/view_classifier.py",
+        "backend/app/services/ai/multiview/fusion_engine.py",
+        "backend/app/services/ai/evaluation/component_evaluator.py",
+        "backend/app/api/garment_identification_routes.py",
+        "backend/app/api/conversational_garments.py",
+        "frontend/src/services/aiSessionService.ts",
+        "frontend/src/components/ai/GarmentJobMessage.tsx",
+        "backend/tests/test_phase16_1_components.py",
+        "scripts/evaluate_phase_16_1_components.py",
+        "docs/engineering/phase-16/PHASE_16_1_COMPONENT_INTELLIGENCE.md",
+        "docs/engineering/phase-16/COMPONENT_TAXONOMY.md",
+        "docs/engineering/phase-16/COMPONENT_EVIDENCE_SCHEMA.md",
+        "docs/engineering/phase-16/MULTIVIEW_EVIDENCE_POLICY.md",
+        "docs/engineering/phase-16/COMPONENT_EVALUATION_REPORT.md",
+        "docs/engineering/phase-16/PHASE_16_1_ACCEPTANCE.md",
+        "docs/engineering/autonomous-execution/PHASE_16_1_TEST_HISTORY.json",
+        "docs/reports/PHASE_16_1_EVALUATION_EVIDENCE.json"
+      ],
+      "validation_results": [
+        "218 backend tests across 14 suites passed.",
+        "355 frontend tests in 25 files passed; production Vite build passed.",
+        "Disposable PostgreSQL + Redis real-photo Stylist workflow passed (wm_00_jacket_denim.jpg, 1631020-byte GLB, edit & undo).",
+        "7 YORVYN real category photos and 50 cached Fashionpedia validation images evaluated."
+      ],
+      "remaining_defects": [
+        "Pilot evaluation manifest garment_evaluation_pilot_v1.json remains empty; scientific holdout accuracy with visibility/multi-view/seam references is BLOCKED.",
+        "Single-view Fashionpedia coarse box IoU (0.1893) shows dedicated trained part-detection checkpoints are still needed before trusting tight small-part geometry boxes."
+      ],
+      "next_task": "16.2 pattern construction graph integration and 16.1 real-pilot component annotations",
+      "report": "docs/engineering/phase-16/PHASE_16_1_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_16_1_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "YOR-16.2-001",
+      "phase": "16.2",
+      "priority": "P0",
+      "description": "Garment Pattern Intelligence, 2D computational pattern geometry (CCW, B\u00e9ziers, darts, slits, grainlines, allowances), seam topology, Kahn DAG assembly validation, SVG/DXF/JSON export verification, and ConstructionToGeometryHandoff integration.",
+      "dependencies": [
+        "YOR-16.1-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scientific_acceptance": "BLOCKED",
+      "files_affected": [
+        "backend/app/services/garments/reconstruction/pattern_geometry.py",
+        "backend/app/services/intelligence/pattern_construction_engine.py",
+        "backend/app/services/garments/reconstruction/pattern_exporter.py",
+        "backend/app/services/garments/evaluation/pattern_evaluator.py",
+        "backend/app/services/garments/reconstruction/engine_registry.py",
+        "backend/app/services/garments/reconstruction/universal_construction_graph.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/garment_adapters.py",
+        "backend/app/api/garment_identification_routes.py",
+        "backend/tests/test_phase16_2_construction.py",
+        "scripts/evaluate_phase_16_2_construction.py",
+        "docs/engineering/phase-16/PHASE_16_2_CONSTRUCTION_INTELLIGENCE.md",
+        "docs/engineering/phase-16/PATTERN_GEOMETRY_SCHEMA.md",
+        "docs/engineering/phase-16/SEAM_AND_PANEL_MODEL.md",
+        "docs/engineering/phase-16/CONSTRUCTION_INFERENCE_POLICY.md",
+        "docs/engineering/phase-16/PATTERN_EVALUATION_REPORT.md",
+        "docs/engineering/phase-16/PHASE_16_2_ACCEPTANCE.md",
+        "docs/engineering/phase-16/CAPABILITY_REGISTRY.md",
+        "docs/engineering/phase-16/MODEL_VERIFICATION_MATRIX.md",
+        "docs/engineering/phase-16/PHASE_16_0_ARCHITECTURE.md",
+        "docs/engineering/autonomous-execution/PHASE_16_2_TEST_HISTORY.json",
+        "docs/reports/PHASE_16_2_EVALUATION_EVIDENCE.json"
+      ],
+      "validation_results": [
+        "237 backend tests across 15 suites passed (including 19 new Phase 16.2 construction tests).",
+        "355 frontend tests across 25 files passed; production TypeScript + Vite build passed.",
+        "Disposable PostgreSQL + Redis real-photo Stylist workflow passed (wm_00_jacket_denim.jpg, 1631020-byte GLB).",
+        "7/7 real YORVYN photos passed Phase 16.1 -> 16.2 -> JSON/SVG/DXF export -> ReconstructionEngineRegistry handoff with 0 rear-leakage violations."
+      ],
+      "remaining_defects": [
+        "Pilot evaluation manifest garment_evaluation_pilot_v1.json remains empty (0 samples); independent 2D sewing-pattern & seam-graph accuracy certification is BLOCKED.",
+        "shapely/ezdxf/svgwrite absent from runtime; external commercial CAD desktop reader compatibility is uncertified beyond deterministic XML and ASCII DXF R12 entity checks."
+      ],
+      "next_task": "16.3 evidence-conditioned 3D garment geometry reconstruction consuming ConstructionToGeometryHandoff",
+      "report": "docs/engineering/phase-16/PHASE_16_2_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_16_2_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "YOR-16.3-001",
+      "phase": "16.3",
+      "priority": "P0",
+      "description": "Real-Time Graphics & Interactive Garment Design Engine: upgraded Three.js 3D editor, independent Canvas2D pattern CAD, DesignStateEngine with compact undo/redo, synchronized 2D/3D edits, versioned PostgreSQL design revisions, rig-preserving candidate-edit-gl & multi-format exports, Stylist command integration, and real Chromium E2E performance verification.",
+      "dependencies": [
+        "YOR-16.2-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scientific_acceptance": "BLOCKED",
+      "files_affected": [
+        "frontend/src/engine/designStudio/DesignStateEngine.ts",
+        "frontend/src/engine/designStudio/GraphicsCapabilityService.ts",
+        "frontend/src/engine/designStudio/RealtimeMeshEditor.ts",
+        "frontend/src/components/design/InteractiveGarment3DEditor.tsx",
+        "frontend/src/components/design/Pattern2DEditor.tsx",
+        "frontend/src/components/design/GarmentDesignWorkspace.tsx",
+        "frontend/src/components/AvatarStudioViewer.tsx",
+        "frontend/src/components/ai/GarmentJobMessage.tsx",
+        "frontend/src/services/aiSessionService.ts",
+        "backend/app/services/garments/design_revisions.py",
+        "backend/app/services/garments/chat_candidate.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/api/conversational_garments.py",
+        "backend/app/api/garment_design_routes.py",
+        "backend/app/main.py",
+        "backend/tests/test_phase16_3_realtime_design.py",
+        "frontend/src/engine/designStudio/__tests__/designStudioPhase16_3.test.ts",
+        "scripts/verify_phase16_3_browser.py",
+        "scripts/verify_phase16_3_browser.cjs",
+        "docs/engineering/phase-16/PHASE_16_3_REALTIME_GRAPHICS.md",
+        "docs/engineering/phase-16/GRAPHICS_ENGINE_ARCHITECTURE.md",
+        "docs/engineering/phase-16/REALTIME_DESIGN_STATE.md",
+        "docs/engineering/phase-16/PATTERN_EDITOR_SPECIFICATION.md",
+        "docs/engineering/phase-16/GRAPHICS_PERFORMANCE_REPORT.md",
+        "docs/engineering/phase-16/PHASE_16_3_ACCEPTANCE.md",
+        "docs/engineering/autonomous-execution/PHASE_16_3_TEST_HISTORY.json",
+        "docs/reports/PHASE_16_3_BROWSER_PERF_EVIDENCE.json"
+      ],
+      "validation_results": [
+        "241 backend tests across 16 suites passed (including 4 new Phase 16.3 tests).",
+        "360 frontend tests across 26 files passed (including 5 new Phase 16.3 tests); production tsc + Vite build passed.",
+        "Real Chromium Playwright E2E test (verify_phase16_3_browser.py on wm_00_jacket_denim.jpg) passed: 60 FPS (16.67ms), 20 draw calls, 7,808 triangles, 2D-to-3D measurement sync (54.0 cm -> 61.5 cm), Undo/Redo, Save Revision v1, 1,631,028-byte GLB export, context-loss recovery, resize, and Avatar fitting."
+      ],
+      "remaining_defects": [
+        "WebGPU rendering remains capability-probed and gated to WebGL2 production path pending full browser/TSL parity.",
+        "Independent physical fabric & camera-calibrated pattern holdout certification remains blocked without ground-truth datasets."
+      ],
+      "next_task": "16.4 high-fidelity appearance, procedural stitch/weave maps, and UV alignment",
+      "report": "docs/engineering/phase-16/PHASE_16_3_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_16_3_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "YOR-16.3.1-001",
+      "phase": "16.3.1",
+      "priority": "P0",
+      "description": "Semantic Pattern-to-Mesh Correspondence (v16.3.1), explicit MeasurementScope dimensional reconciliation, 7-state SyncStatus & topology invalidation, category-filtered component transforms, extended construction validation, and candidate-first 13-stage atomic TransactionalDesignEngine with PostgreSQL/in-memory rollback & idempotency.",
+      "dependencies": [
+        "YOR-16.3-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scientific_acceptance": "BLOCKED",
+      "files_affected": [
+        "backend/app/services/intelligence/semantic_correspondence.py",
+        "backend/app/services/garments/design_revisions.py",
+        "backend/app/services/garments/chat_candidate.py",
+        "backend/app/services/garments/transactional_design_engine.py",
+        "backend/app/services/llm/garment_plan.py",
+        "backend/app/api/garment_design_routes.py",
+        "frontend/src/engine/designStudio/SemanticCorrespondenceEngine.ts",
+        "frontend/src/engine/designStudio/RealtimeMeshEditor.ts",
+        "frontend/src/engine/designStudio/DesignStateEngine.ts",
+        "frontend/src/components/design/Pattern2DEditor.tsx",
+        "frontend/src/components/design/GarmentDesignWorkspace.tsx",
+        "backend/tests/test_phase16_3_1_transactional_sync.py",
+        "frontend/src/engine/designStudio/__tests__/designStudioPhase16_3_1.test.ts",
+        "frontend/src/engine/designStudio/__tests__/designStudioPhase16_3.test.ts",
+        "scripts/verify_phase16_3_browser.py",
+        "scripts/verify_phase16_3_browser.cjs",
+        "docs/engineering/phase-16/SEMANTIC_PATTERN_MESH_MAPPING.md",
+        "docs/engineering/phase-16/DESIGN_SYNCHRONIZATION_CONTRACT.md",
+        "docs/engineering/phase-16/CONSTRUCTION_CONSTRAINT_VALIDATION.md",
+        "docs/engineering/phase-16/TRANSACTIONAL_DESIGN_ENGINE.md",
+        "docs/engineering/phase-16/PHASE_16_3_1_TEST_REPORT.md",
+        "docs/engineering/phase-16/PHASE_16_3_1_ACCEPTANCE.md",
+        "docs/engineering/autonomous-execution/PHASE_16_3_1_TEST_HISTORY.json",
+        "docs/reports/PHASE_16_3_1_BROWSER_EVIDENCE.json"
+      ],
+      "validation_results": [
+        "246 backend tests across 17 suites passed (including 5 new Phase 16.3.1 semantic correspondence, validator, and transactional tests).",
+        "364 frontend tests across 27 files passed (including 4 new Phase 16.3.1 TypeScript correspondence & scope tests); tsc + Vite production build exited 0.",
+        "Live Chromium Playwright E2E (wm_00_jacket_denim.jpg) passed: scoped +3 cm ease reconciled Panel 21.8 -> 24.8 cm, Half Chest 43.5 -> 49.5 cm, Circumference 87.0 -> 99.0 cm, Sync: SYNCHRONIZED_WITH_UNCERTAINTY, Undo/Redo, Save Revision v1, 1,631,028-byte GLB export, Avatar fit, and 0 page errors."
+      ],
+      "remaining_defects": [
+        "Physical garment tailor/sewing accuracy and calibrated camera holdout certification remain BLOCKED without annotated physical benchmark datasets.",
+        "WebGPU rendering remains capability-probed and gated to WebGL2 production path pending full browser/TSL parity."
+      ],
+      "next_task": "16.4 high-fidelity appearance, procedural stitch/weave maps, and UV alignment",
+      "report": "docs/engineering/phase-16/PHASE_16_3_1_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_16_3_1_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "YOR-16.9-001",
+      "phase": "16.9",
+      "priority": "P0",
+      "description": "YORVYN MotionCore Unified Character Animation, Retargeting, Damped IK, Pose Input, Synchronized XPBD Cloth Simulation, Spatial Self-Collision, Adaptive Material Profiles (estimated), Secondary Motion, Hardware Compute Policy, Phase 16.0 Capability Registry & Avatar Studio Integration.",
+      "dependencies": [
+        "YOR-16.3.1-001"
+      ],
+      "implementation_status": "VERIFIED_COMPLETE",
+      "status": "VERIFIED_COMPLETE",
+      "scientific_acceptance": "BLOCKED",
+      "files_affected": [
+        "backend/app/services/motion/__init__.py",
+        "backend/app/services/motion/motion_core.py",
+        "backend/app/api/motion_routes.py",
+        "backend/app/main.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/garment_adapters.py",
+        "frontend/src/engine/motionCore/MotionTypes.ts",
+        "frontend/src/engine/motionCore/MotionStateManager.ts",
+        "frontend/src/engine/motionCore/CharacterMotionEngine.ts",
+        "frontend/src/engine/motionCore/GarmentDynamicsEngine.ts",
+        "frontend/src/engine/motionCore/ComputeOrchestrator.ts",
+        "frontend/src/engine/motionCore/MotionValidator.ts",
+        "frontend/src/engine/motionCore/MotionCoreOrchestrator.ts",
+        "frontend/src/engine/motionCore/index.ts",
+        "frontend/src/engine/ara/avatarStudioService.ts",
+        "frontend/src/components/AvatarStudioViewer.tsx",
+        "frontend/src/pages/AvatarStudio.tsx",
+        "backend/tests/test_phase16_9_motion_core.py",
+        "frontend/src/engine/motionCore/__tests__/motionCore.test.ts",
+        "scripts/verify_phase16_9_motion_browser.py",
+        "scripts/verify_phase16_9_motion_browser.cjs",
+        "docs/engineering/phase-16/MOTIONCORE_ARCHITECTURE.md",
+        "docs/engineering/phase-16/MOTIONCORE_TECHNOLOGY_AUDIT.md",
+        "docs/engineering/phase-16/MOTIONCORE_SECURITY_AND_VALIDATION_PLAN.md",
+        "docs/engineering/phase-16/PHASE_16_9_PERFORMANCE_AND_ACCEPTANCE.md",
+        "docs/engineering/autonomous-execution/PHASE_16_9_TEST_HISTORY.json",
+        "docs/reports/PHASE_16_9_MOTION_BROWSER_EVIDENCE.json"
+      ],
+      "validation_results": [
+        "251 backend tests across 18 suites passed (including 5 new Phase 16.9 MotionCore tests covering capability registry, FSM, Mixamo retargeting, 11-category adaptive fabric estimates, WebGPU gating, security validator, and /api/motion/* routes).",
+        "368 frontend tests across 28 files passed (including 4 MotionCore engine tests); tsc + Vite build exited 0.",
+        "Live Chromium Playwright E2E (wm_00_jacket_denim.jpg, 4,352 garment vertices, 23,424 constraints, 69 bones, 28 clips) passed WALK/RUN/RAISE_ARMS/BEND/SIT/STAND/TURN + Pause/Resume/Reset Pose + 11,989,084-byte animated GLB export with 0 page errors."
+      ],
+      "remaining_defects": [
+        "Live webcam pose estimation (motion.capture) remains DEGRADED offline pending live MediaPipe delegate/camera session.",
+        "Physical tailor drape accuracy and multi-camera ground-truth benchmark certification remain BLOCKED without annotated physical datasets.",
+        "WebGPU compute path remains gated behind webgpuExperimentalOnly=true on Three.js WebGL2 primary path."
+      ],
+      "next_task": "Physical mocap & Kawabata textile reference validation when benchmark datasets are connected",
+      "report": "docs/engineering/phase-16/PHASE_16_9_PERFORMANCE_AND_ACCEPTANCE.md",
+      "test_history": "docs/engineering/autonomous-execution/PHASE_16_9_TEST_HISTORY.json"
+    },
+    {
+      "task_id": "DURABLE-JOB-FIX-001",
+      "phase": "Critical Bug Fix",
+      "recorded_at": "2026-11-25T17:17:00Z",
+      "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "summary": "Permanent fix for Reconstruction failed: Reconstruction has no durable job record for publication.",
+      "root_causes": [
+        "1. multiviewIdentify/multiviewReconstruct used raw axios (no auth interceptor), stripping Authorization header; effective_user_id resolved to default_user (banned identity)",
+        "2. garment_identification_routes.py used allow_guest=True; UnifiedJobState rejected banned identities but exception was swallowed",
+        "3. create_job split register_idempotency + create_job across two non-atomic calls; both exceptions swallowed; job enqueued to Redis with no PostgreSQL row; API returned 200 OK",
+        "4. _process_job swallowed load_job failure; ran 21s of 3D compute on nonexistent job; crashed only at publication gate",
+        "5. retry_job only mutated in-memory _jobs without DB transition; recover_stranded_jobs only scanned in-memory _jobs (empty on restart)"
+      ],
+      "changes_applied": {
+        "backend/app/services/garments/orchestration/unified_state_machine.py": "Added create_job_atomic (atomic ACID idempotency+insert), list_non_terminal_jobs, compensate_enqueue_failure",
+        "backend/app/services/garments/job_manager.py": [
+          "Added DurablePersistenceUnavailableError (code=DURABLE_JOB_PERSISTENCE_UNAVAILABLE)",
+          "Added QueueEnqueueError (code=QUEUE_ENQUEUE_FAILED)",
+          "Added TenantSecurityViolationException import",
+          "create_job: atomic create_job_atomic BEFORE temp file writes and Redis enqueue; propagates TenantSecurityViolationException and IdempotencyConflictException; raises DurablePersistenceUnavailableError on DB failure; raises QueueEnqueueError on Redis failure with compensate_enqueue_failure rollback; phantom cached job_id fixed to load from persisted COMPLETED DB row",
+          "_process_job: mandatory DB presence gate before 3D compute; owner/tenant mismatch check; terminal state skip; atomic CLAIMED/PROCESSING with active_lease_gen; strict VALIDATING/PUBLISHING transitions; fenced publication; commit_completion with lease_gen check; Redis acknowledge; failure closure on job.error",
+          "retry_job: loads persisted DB state; enforces DB FAILED state and retry_count < max_retries; transitions DB FAILED->QUEUED first; then Redis enqueue; returns None when temp files purged (preserves test_garment_chat_edits contract)",
+          "recover_stranded_jobs: added DB-backed recovery via list_non_terminal_jobs; CLAIMED/PROCESSING/VALIDATING/PUBLISHING transitioned to FAILED; orphaned QUEUED rows closed; artifact reconciliation via startup_reconciliation; in-memory behavior preserved for test_production_platform_phase_10 compatibility"
+        ],
+        "backend/app/api/garment_identification_routes.py": "allow_guest=False; explicit 401 on TenantSecurityViolationException, 409 on IdempotencyConflictException, 429 on queue limits, 503 on DurablePersistenceUnavailableError/QueueEnqueueError",
+        "backend/app/api/garment_generation_routes.py": "Same structured error mapping in create_generation_job",
+        "frontend/src/services/fashionApi.ts": "Added garmentsApi (auth-intercepted Axios for /api/garments/*); added buildStructuredApiError helper (code, retryable, status); multiviewIdentify, getGarmentEvidence, validateGarmentSpecification, multiviewReconstruct switched to garmentsApi; getGarment3DJobStatus and retryGarmentGenJob use buildStructuredApiError",
+        "frontend/src/context/AuthContext.tsx": "Added useOptionalAuth() export",
+        "frontend/src/components/PhotoTo3DGarmentModal.tsx": "useOptionalAuth() for user?.id; submissionInFlightRef (duplicate-click guard); idempotencyKeyRef (per-evidence key, cleared on 409); isSubmitting state; errorMeta (retryable, code, status, failedJobId); handleRetryFailedSubmission; multiviewIdentify/Reconstruct pass userId and idempotencyKey; polling handles timed_out; retryable error banner with Retry button; evidence_review error step instead of upload step"
+      },
+      "tests": {
+        "new_suite": "backend/tests/test_durable_job_publication_fix.py",
+        "new_suite_cases": 30,
+        "new_suite_result": "30 passed in 4.17s",
+        "regression_phase_10": "20 passed",
+        "regression_tenant_security": "7 passed",
+        "regression_garment_chat_edits": "8 passed",
+        "pre_existing_failures_unrelated": [
+          "test_phase_12_3_2_remediation.py (5 cases) - IdempotencyConflictException from live PostgreSQL test data leftover + synthetic image blurriness",
+          "test_production_platform_phase_11.py::test_ephemeral_purging_on_completed_job - race condition with synthetic blurry images, pre-existing on baseline"
+        ],
+        "frontend_build": "exit code 0, built in 7.06s"
+      },
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "DURABLE-JOB-FIX-002",
+      "phase": "Critical Bug Fix",
+      "recorded_at": "2026-11-26T05:35:00Z",
+      "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "depends_on": "DURABLE-JOB-FIX-001",
+      "summary": "Transactional outbox, Redis delivery recovery, concurrent idempotency fix, and compensation safety hardening.",
+      "changes_applied": {
+        "backend/app/services/garments/orchestration/outbox_migration.sql": "Additive SQL migration creating yorvyn_job_outbox table and partial indexes idx_outbox_undelivered, idx_outbox_unacked, idx_outbox_job_id",
+        "backend/app/services/garments/orchestration/unified_state_machine.py": [
+          "Added yorvyn_job_outbox additive DDL in _init_tables",
+          "Updated create_job_atomic with ON CONFLICT DO NOTHING idempotency insert (fixes concurrent UniqueViolationError) + atomic outbox insert",
+          "Added retry_job_atomic (atomic FAILED->QUEUED transition + JOB_RETRY outbox upsert)",
+          "Added claim_pending_outbox_entries (transactional SELECT ... FOR UPDATE OF o SKIP LOCKED joined with yorvyn_jobs), mark_outbox_delivered, record_outbox_delivery_failure (exponential backoff + EXHAUSTED), reconcile_terminal_outbox_entries, mark_outbox_acknowledged, load_outbox_entry, load_latest_outbox_entry, get_outbox_stats",
+          "Hardened compensate_enqueue_failure returning bool with strict state, lease_generation==0, retry_count==0, ownership, and scoped idempotency deletion checks"
+        ],
+        "backend/app/services/garments/orchestration/queue_broker.py": "Added event_id and correlation_id fields in RedisStreamsQueueBroker.enqueue and get_last_message_id helper",
+        "backend/app/services/garments/job_manager.py": [
+          "Added background outbox dispatcher start/stop lifecycle and _dispatch_outbox_pending with terminal reconciliation and bounded retry backoff",
+          "Updated create_job to compute deterministic view paths prior to create_job_atomic and tolerate transient Redis failures via PENDING outbox",
+          "Updated recover_stranded_jobs to dispatch outbox first and preserve recoverable QUEUED jobs",
+          "Updated retry_job to use retry_job_atomic",
+          "Added outbox stats under get_health_status()['outbox'] and mark_outbox_acknowledged after worker ACK"
+        ],
+        "backend/app/main.py": "Started and stopped background outbox dispatcher on FastAPI startup/shutdown",
+        "backend/app/services/garments/reconstruction/neural/staging_worker.py": "Enforced durable DB record, terminal/active-lease duplicate skip, checked CLAIMED/PROCESSING/VALIDATING/PUBLISHING mutation outcomes, and called mark_outbox_acknowledged",
+        "backend/tests/test_durable_job_publication_fix.py": "Updated stub load_job persistence and aligned Cases 5/16/17 with DURABLE-JOB-FIX-002 transactional outbox and backpressure compensation contract"
+      },
+      "tests": {
+        "new_suite": "backend/tests/test_durable_job_outbox_fault_injection.py",
+        "new_suite_cases": 13,
+        "new_suite_result": "13 passed",
+        "combined_backend_suite": "78 passed in 8.71s (13 fault-injection + 30 durable-job + 7 tenant-security + 20 phase-10 + 8 chat-edits)",
+        "frontend_build": "exit code 0, built in 5.71s"
+      },
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "DURABLE-JOB-FIX-002-E2E",
+      "phase": "Live End-to-End Acceptance",
+      "recorded_at": "2026-11-26T06:20:00Z",
+      "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "depends_on": "DURABLE-JOB-FIX-002",
+      "summary": "Live authenticated Wardrobe browser E2E, negative auth, isolated Redis outage recovery, worker restart fencing, idempotency conflict, PG/outbox audit, and regression suite.",
+      "live_evidence": {
+        "wardrobe_job_id": "job_dcc9ac3ac423",
+        "outbox_id": "f597c364-8e78-4ea4-9a3b-4736c75770a2",
+        "redis_message_id": "1795673943086-0",
+        "asset_sha256": "4b2d60cc12f59891ba52b8fa1ea954f60d7a5f0cf3228b3f616954c32af1f73a",
+        "canonical_glb_bytes": 1580672,
+        "redis_outage_job_id": "job_1d7fd3120938",
+        "worker_restart_job_id": "job_s5_restart_2014f3d2",
+        "idempotency_job_id": "job_2c168dfe91df"
+      },
+      "fixes_discovered_during_e2e": [
+        "frontend/src/components/PhotoTo3DGarmentModal.tsx: authenticated arraybuffer GLB load for GLTFLoader, view-file snapshot ref preventing JPEG->WebP hash mismatch 409 race, localStorage job recovery across browser refresh",
+        "frontend/src/pages/AvatarStudio.tsx: preserved /wardrobe route on closeTrayWorkflow and user-scoped Wardrobe reload on auth resolution",
+        "backend/app/services/garments/job_manager.py & unified_state_machine.py: pre-generated event_id correlated between outbox_id and Redis stream fields",
+        "backend/app/api/garment_identification_routes.py & garment_generation_routes.py: mapped PermissionError quota rejections cleanly to HTTP 403"
+      ],
+      "tests": {
+        "backend_regression": "104 passed in 7.27s (6 suites)",
+        "frontend_modal_handoff": "6 passed (PhotoTo3DGarmentModalHandoff.test.tsx)",
+        "frontend_build": "exit code 0, built in 5.65s"
+      },
+      "report": "docs/engineering/phase-16/DURABLE_JOB_PUBLICATION_E2E_ACCEPTANCE_002.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-0-YIP",
+      "phase": "Phase 17.0 — YORVYN AI-Native Intelligence Platform (YIP)",
+      "recorded_at": "2026-11-26T06:45:00Z",
+      "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "depends_on": "DURABLE-JOB-FIX-002-E2E",
+      "summary": "Implemented unified YIP orchestrator, extended UnifiedModelRegistry (HF cache verification, hardware & latency telemetry), Multimodal & Fashion v17 intelligence, Fit intelligence, Hybrid Knowledge RAG (with prompt-injection firewall), Independent multi-domain critic & bounded optimizer, Offline dataset curator & PyTorch trainer, owner-isolated personalization, FastAPI /api/intelligence/* routes, and product-wide UI integration.",
+      "artifacts_modified_or_created": [
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/services/intelligence/inference_adapters.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/multimodal_intelligence.py",
+        "backend/app/services/intelligence/fashion_intelligence_v17.py",
+        "backend/app/services/intelligence/fit_intelligence.py",
+        "backend/app/services/intelligence/knowledge_rag.py",
+        "backend/app/services/intelligence/evaluation_critic.py",
+        "backend/app/services/intelligence/candidate_optimizer.py",
+        "backend/app/services/intelligence/personalization_engine.py",
+        "backend/app/services/learning/dataset_curator.py",
+        "backend/app/services/intelligence/yip_orchestrator.py",
+        "backend/app/services/intelligence/garment_adapters.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/app/main.py",
+        "frontend/src/services/intelligenceApi.ts",
+        "frontend/src/pages/DigitalWardrobe.tsx",
+        "frontend/src/components/design/GarmentDesignWorkspace.tsx",
+        "frontend/src/pages/AvatarStudio.tsx",
+        "frontend/src/pages/StylistChat.tsx",
+        "backend/tests/test_phase17_yip.py",
+        "frontend/src/components/__tests__/IntelligencePlatformIntegration.test.ts",
+        "docs/engineering/phase-17/YORVYN_PHASE_17_0_AI_PLATFORM_REPORT.md"
+      ],
+      "benchmarks": {
+        "rss_peak_mb": 583.0,
+        "classifier_v6_p50_ms": 21.064,
+        "dinov2_small_p50_ms": 32.291,
+        "rag_search_p50_ms": 0.696,
+        "fit_analysis_p50_ms": 44.175,
+        "independent_critic_p50_ms": 55.555,
+        "warm_yip_orchestrate_p50_ms": 593.38
+      },
+      "tests": {
+        "backend_suite": "112 passed in 11.66s (7 suites including 8 Phase 17 tests)",
+        "frontend_vitest": "9 passed (2 test files)",
+        "frontend_build": "exit code 0, built in 5.97s",
+        "browser_e2e": "PLAYWRIGHT_YIP_E2E ok=true, pageErrors=[], authenticated /api/intelligence/* 200, unauthenticated 401"
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_0_AI_PLATFORM_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-1-VALIDATION",
+      "title": "Real-World Intelligence Validation & Garment Quality Engineering",
+      "status": "COMPLETED_WITH_VERIFIED_LIMITATIONS",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "fixes_implemented": [
+        "backend/app/services/intelligence/evaluation_critic.py",
+        "backend/app/services/intelligence/fit_intelligence.py",
+        "backend/app/services/intelligence/candidate_optimizer.py",
+        "backend/app/services/intelligence/yip_orchestrator.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_phase17_1_validation.py"
+      ],
+      "benchmarks": {
+        "manifest": "data/datasets/manifests/yorvyn_phase17_1_real_benchmark.json",
+        "fashionpedia_holdout_count": 650,
+        "cc_real_photos_count": 66,
+        "classifier_fashionpedia_category_accuracy": 0.5015,
+        "classifier_wikimedia_ood_category_accuracy": 0.6364,
+        "dinov2_wikimedia_category_recall_at_5": 0.9242,
+        "segformer_b2_mean_iou_16": 0.8622,
+        "critic_defect_precision_11": 1.0,
+        "critic_defect_recall_11": 1.0,
+        "rag_recall_at_1_3_5": 1.0,
+        "warm_orchestrations_100_p50_ms": 545.253,
+        "warm_orchestrations_100_p95_ms": 692.629,
+        "concurrent_burst_8_wall_ms": 1872.5
+      },
+      "verification": {
+        "backend_pytest": "118 passed, 4 warnings in 20.29s",
+        "frontend_vitest": "2 test files, 9 passed",
+        "frontend_build": "built in 5.02s",
+        "live_e2e_job_id": "job_44a8c22ce1b0"
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_1_VALIDATION_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-0-RECOMMENDATION-INTELLIGENCE",
+      "title": "Personalized Fashion Discovery, Preference Learning & Hybrid Recommendation Intelligence",
+      "status": "VERIFIED_WITH_CF_GATED",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "modules_created_or_updated": [
+        "backend/app/services/intelligence/recommendation_taxonomy.py",
+        "backend/app/services/intelligence/recommendation_profile.py",
+        "backend/app/services/intelligence/recommendation_algorithms.py",
+        "backend/app/services/intelligence/recommendation_engine.py",
+        "backend/app/services/intelligence/recommendation_evaluation.py",
+        "backend/app/services/intelligence/personalization_engine.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/intelligence/yip_orchestrator.py",
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_fashion_recommendation_intelligence.py",
+        "frontend/src/services/intelligenceApi.ts",
+        "frontend/src/pages/DigitalWardrobe.tsx",
+        "frontend/src/pages/StylistChat.tsx",
+        "frontend/src/components/design/GarmentDesignWorkspace.tsx",
+        "frontend/src/components/__tests__/IntelligencePlatformIntegration.test.ts"
+      ],
+      "verification": {
+        "backend_pytest": "125 passed, 4 warnings in 19.04s",
+        "frontend_vitest": "2 test files, 10 passed",
+        "frontend_build": "built in 5.86s",
+        "offline_benchmark_k5_hybrid_ndcg": 0.4629,
+        "offline_benchmark_k5_content_ndcg": 0.5496,
+        "offline_benchmark_k5_recall": 0.75,
+        "offline_benchmark_k5_coverage": 0.9167
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_0_RECOMMENDATION_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-2-NEURAL-RECOMMENDATION",
+      "title": "Neural Fashion Recommendation & Personalization Intelligence",
+      "status": "EXECUTED_UNPROMOTED_SMALL_DATASET_GATED",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "modules_created_or_updated": [
+        "backend/app/services/intelligence/neural_recommendation_models.py",
+        "backend/app/services/intelligence/neural_recommendation_trainer.py",
+        "backend/app/services/intelligence/recommendation_algorithms.py",
+        "backend/app/services/intelligence/recommendation_engine.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_neural_recommendation_intelligence.py",
+        "frontend/src/services/intelligenceApi.ts",
+        "frontend/src/pages/DigitalWardrobe.tsx",
+        "frontend/src/components/__tests__/IntelligencePlatformIntegration.test.ts"
+      ],
+      "benchmark": {
+        "k": 5,
+        "accepted_events": 42,
+        "small_dataset_limitation": true,
+        "two_tower_ndcg_at_5": 0.7413,
+        "neural_ranker_ndcg_at_5": 0.7413,
+        "neural_ranker_ece": 0.1686,
+        "sequential_transformer_ndcg_at_5": 0.2617,
+        "graph_model_ndcg_at_5": 0.7413,
+        "content_focus_baseline_ndcg_at_5": 0.5345,
+        "promoted_to_production": false
+      },
+      "verification": {
+        "backend_pytest": "129 passed, 4 warnings in 21.10s",
+        "frontend_vitest": "2 test files, 10 passed",
+        "frontend_build": "built in 5.47s"
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_2_NEURAL_RECOMMENDATION_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-3-LANGGRAPH-TAVILY",
+      "title": "Advanced AI Orchestration & External Web Intelligence (LangGraph & Tavily)",
+      "status": "VERIFIED_LOCAL_WORKFLOWS_TAVILY_MOCKED_BLOCKED_NO_KEY",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "dependencies_added": [
+        "langgraph==0.6.9 (MIT, Python >=3.9)"
+      ],
+      "modules_created_or_updated": [
+        "backend/requirements.txt",
+        "backend/app/core/settings.py",
+        "backend/app/services/intelligence/tavily_web_adapter.py",
+        "backend/app/services/intelligence/unified_knowledge.py",
+        "backend/app/services/intelligence/langgraph_workflows.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/services/intelligence/yip_orchestrator.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_langgraph_tavily_phase17_3.py",
+        "frontend/src/services/intelligenceApi.ts",
+        "frontend/src/pages/StylistChat.tsx",
+        "frontend/src/pages/DigitalWardrobe.tsx",
+        "frontend/src/components/design/GarmentDesignWorkspace.tsx",
+        "frontend/src/components/__tests__/IntelligencePlatformIntegration.test.ts"
+      ],
+      "verification": {
+        "backend_pytest": "134 passed, 5 warnings in 20.94s",
+        "frontend_vitest": "2 test files, 10 passed",
+        "frontend_build": "built in 5.74s",
+        "langgraph_15_run_p50_ms": 10.987,
+        "pg_checkpoints_verified": 15,
+        "tavily_live_verification": "BLOCKED_NO_CREDENTIALS"
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_3_LANGGRAPH_TAVILY_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-4-NEURAL-READINESS",
+      "title": "Neural Recommendation Generalization & Production Readiness",
+      "status": "COMPLETED_PROMOTION_GATED",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "modules_created_or_updated": [
+        "backend/app/services/intelligence/neural_recommendation_models.py",
+        "backend/app/services/intelligence/recommendation_dataset_builder.py",
+        "backend/app/services/intelligence/recommendation_experiments.py",
+        "backend/app/services/intelligence/neural_generalization_benchmark.py",
+        "backend/app/services/intelligence/recommendation_profile.py",
+        "backend/app/services/intelligence/recommendation_algorithms.py",
+        "backend/app/services/intelligence/recommendation_engine.py",
+        "backend/app/services/ml/model_registry.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_neural_generalization_phase17_4.py"
+      ],
+      "verification": {
+        "benchmark_catalog_items": 71,
+        "accepted_simulation_events": 332,
+        "is_real_production_traffic": false,
+        "neural_outfit_holdout_accuracy": 0.9762,
+        "neural_outfit_holdout_ece": 0.0253,
+        "promotion_approved": false,
+        "backend_pytest_77_subset": "77 passed (8 suites)"
+      },
+      "report": "docs/engineering/phase-17/YORVYN_PHASE_17_4_NEURAL_READINESS_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    },
+    {
+      "task_id": "PHASE-17-4-WORKFLOW-SECURITY-HARDENING",
+      "title": "Intelligence Workflow Reliability, Security Hardening & Production Readiness",
+      "status": "HARDENED_WITH_EXTERNAL_PROVIDER_BLOCKER",
+      "baseline_head": "7139fc7eea4e1f890e28da9140db2e8550081267",
+      "modules_created_or_updated": [
+        "backend/migrations/013_phase17_4_langgraph_hardening.sql",
+        "backend/app/services/intelligence/langgraph_workflows.py",
+        "backend/app/services/intelligence/tavily_web_adapter.py",
+        "backend/app/services/intelligence/knowledge_rag.py",
+        "backend/app/services/intelligence/unified_knowledge.py",
+        "backend/app/services/intelligence/capability_registry.py",
+        "backend/app/api/intelligence_routes.py",
+        "backend/tests/test_phase17_4_hardening.py",
+        "docs/engineering/autonomous-execution/PHASE_17_4_EXECUTION_PLAN.md",
+        "docs/engineering/phase-17/PHASE_17_4_MASTER_ENGINEERING_REPORT.md",
+        "docs/engineering/phase-17/PHASE_17_4_SECURITY_AUDIT.md",
+        "docs/engineering/phase-17/PHASE_17_4_FAILURE_INJECTION_REPORT.md",
+        "docs/engineering/phase-17/PHASE_17_4_PERFORMANCE_REPORT.md",
+        "docs/engineering/phase-17/PHASE_17_4_CAPABILITY_REGISTRY_DIFF.md",
+        "docs/engineering/phase-17/PHASE_17_4_REMAINING_RISKS.md"
+      ],
+      "verification": {
+        "backend_pytest": "113 passed, 6 warnings in 43.36s (11 suites)",
+        "frontend_vitest": "2 test files, 10 passed in 2.00s",
+        "frontend_build": "tsc && vite build exit 0 in 7.59s",
+        "pg_checkpoint_write_p50_ms": 6.353,
+        "pg_checkpoint_restore_p50_ms": 5.542,
+        "restart_recovery_p50_ms": 79.515,
+        "tavily_live_verification": "BLOCKED_NO_CREDENTIALS"
+      },
+      "report": "docs/engineering/phase-17/PHASE_17_4_MASTER_ENGINEERING_REPORT.md",
+      "baseline_integrity": "git rev-parse HEAD == 7139fc7eea4e1f890e28da9140db2e8550081267 confirmed; no git commit made"
+    }
+  ]
+}

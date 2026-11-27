@@ -15,7 +15,7 @@ export function cyc(keys: number[]): (p: number) => number {
   };
 }
 
-/** Smooth (eased) interpolation through timed keys, clamped at the ends. */
+/** Smooth (Perlin C2-continuous smootherstep) interpolation through timed keys, clamped at the ends. */
 export function track(times: number[], values: number[]): (t: number) => number {
   return (t) => {
     if (t <= times[0]) return values[0];
@@ -24,7 +24,8 @@ export function track(times: number[], values: number[]): (t: number) => number 
     let i = 0;
     while (t > times[i + 1]) i++;
     const f = (t - times[i]) / (times[i + 1] - times[i]);
-    const s = f * f * (3 - 2 * f);
+    // Perlin smootherstep: 6f^5 - 15f^4 + 10f^3 (continuous velocity and acceleration, zero jerk)
+    const s = f * f * f * (f * (f * 6 - 15) + 10);
     return values[i] + (values[i + 1] - values[i]) * s;
   };
 }
@@ -80,6 +81,10 @@ export function grip(out: Record<string, Ch>, side: 'Left' | 'Right', trigger = 
 
 export const v = (x: number, y: number, z: number): [number, number, number] => [x, y, z];
 export const lerp3 = (a: [number, number, number], b: [number, number, number], t: number) => v(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t);
+export const nlerp3 = (a: [number, number, number], b: [number, number, number], t: number): [number, number, number] => {
+  const c = Math.max(0, Math.min(1, t));
+  return normV(lerp3(a, b, c));
+};
 export const crossV = (a: [number, number, number], b: [number, number, number]) =>
   v(a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]);
 export const normV = (a: [number, number, number]) => {

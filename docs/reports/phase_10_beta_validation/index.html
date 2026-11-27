@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yorvyn Phase 10: Private Beta Validation & Visual QA Gallery</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #334155;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+    </style>
+</head>
+<body>
+    <h1>YORVYN — PHASE 10 PRIVATE BETA VALIDATION GALLERY</h1>
+    <div class="subtitle">Complete Visual QA, Stripe Billing, Tenant Isolation & Privacy Telemetry Evidence</div>
+    <div class="grid">
+        <div class="card">
+            <img src="contact_sheet_journey_a_auth_onboarding.png" alt="Journey A">
+            <div class="card-content">
+                <div class="card-title">Journey A: Authentication & Tenant Boundaries</div>
+                <p style="color: #94a3b8; font-size: 14px;">Supabase JWT signature, audience, and expiration verification with cross-tenant isolation.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="contact_sheet_journey_b_reconstruction_pipeline.png" alt="Journey B">
+            <div class="card-content">
+                <div class="card-title">Journey B: Garment Reconstruction & Privacy</div>
+                <p style="color: #94a3b8; font-size: 14px;">5-stage pipeline, PBR texture synthesis, and ephemeral zero-retention raw photo purging.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="contact_sheet_journey_c_avatar_tryon_wardrobe.png" alt="Journey C">
+            <div class="card-content">
+                <div class="card-title">Journey C: Virtual Try-On & Look Curation</div>
+                <p style="color: #94a3b8; font-size: 14px;">Universal avatar fitting, collision resolution, ensemble compatibility rules, and wardrobe storage.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="contact_sheet_journey_d_stripe_billing_entitlements.png" alt="Journey D">
+            <div class="card-content">
+                <div class="card-title">Journey D: Stripe Billing & Entitlements</div>
+                <p style="color: #94a3b8; font-size: 14px;">Explorer ($0), Pro ($19.99), Studio ($99), webhook idempotency, and server-side quotas.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="contact_sheet_journey_e_gdpr_privacy_purge.png" alt="Journey E">
+            <div class="card-content">
+                <div class="card-title">Journey E: GDPR Privacy & Account Erasure</div>
+                <p style="color: #94a3b8; font-size: 14px;">Article 20 machine-readable data portability export and Article 17 cascade purge across 14 tables.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="contact_sheet_journey_f_reliability_recovery.png" alt="Journey F">
+            <div class="card-content">
+                <div class="card-title">Journey F: Reliability & Stranded Job Recovery</div>
+                <p style="color: #94a3b8; font-size: 14px;">Bounded queue capacity (10), abuse limits, cancellation checkpoints, and server restart sweeps.</p>
+                <span class="badge">VERIFIED & TESTED</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

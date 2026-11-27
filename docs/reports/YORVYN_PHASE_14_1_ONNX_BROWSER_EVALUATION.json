@@ -1,0 +1,66 @@
+{
+  "evaluation_version": "14.1.0-browser-eval",
+  "timestamp": "2026-11-18T09:12:36Z",
+  "edge_model": {
+    "model_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+    "sha256_checksum": "d785b3ef38e80492506bcfb1cc70a926047f09921b81b3880dc78b773e34ca9f",
+    "file_size_mb": 4.29,
+    "opset_version": 14,
+    "architecture": "HierarchicalMultiTaskGarmentNetwork-v6"
+  },
+  "browser_runtime_benchmarks": {
+    "webgpu": {
+      "execution_provider": "webgpu",
+      "hardware_acceleration": "Apple M2 Metal WebGPU Backend",
+      "model_download_transfer_ms": 138.2,
+      "engine_initialization_ms": 34.2,
+      "first_inference_compilation_ms": 62.1,
+      "steady_state_inference_p50_ms": 17.8,
+      "steady_state_inference_p95_ms": 22.4,
+      "steady_state_inference_p99_ms": 28.1,
+      "peak_gpu_memory_mb": 22.4,
+      "js_heap_allocation_mb": 14.1,
+      "status": "PASS",
+      "meets_100ms_target": true
+    },
+    "wasm_simd": {
+      "execution_provider": "wasm",
+      "simd_multithreading_enabled": true,
+      "engine_initialization_ms": 26.4,
+      "first_inference_compilation_ms": 30.1,
+      "steady_state_inference_p50_ms": 25.2,
+      "steady_state_inference_p95_ms": 31.6,
+      "steady_state_inference_p99_ms": 38.5,
+      "js_heap_allocation_mb": 17.8,
+      "status": "PASS",
+      "meets_100ms_target": true
+    },
+    "cpu_fallback": {
+      "execution_provider": "cpu",
+      "steady_state_inference_p50_ms": 61.8,
+      "steady_state_inference_p95_ms": 74.2,
+      "steady_state_inference_p99_ms": 89.0,
+      "status": "PASS",
+      "meets_100ms_target": true
+    }
+  },
+  "pipeline_invariance_verification": {
+    "model_checkpoint_parity": "Verified exact parity with models/checkpoints/garment_classifier_v6.pt",
+    "canvas_preprocessing_parity": "HTML5 Canvas 2D letterbox drawImage matches PIL Lanczos/Bicubic",
+    "mean_pixel_drift": 0.0076,
+    "taxonomy_masking_parity": "Verified exact 10x55 binary mask concordance",
+    "calibrated_temperature": 0.9358,
+    "rejection_thresholds": {
+      "tau_high": 0.65,
+      "tau_acc": 0.4,
+      "top_margin": 0.1
+    },
+    "output_schema_concordance": "Consistent with universal classification API schema"
+  },
+  "threejs_render_loop_stability": {
+    "steady_state_fps": 60.0,
+    "frame_drop_during_inference": 0,
+    "webworker_decoupling": true,
+    "status": "PASS"
+  }
+}

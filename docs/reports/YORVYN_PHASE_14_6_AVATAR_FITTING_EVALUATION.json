@@ -1,0 +1,588 @@
+{
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:28:20 UTC",
+  "total_configurations_tested": 40,
+  "target_metrics": {
+    "min_continuous_clearance_mm_requirement": ">= 2.50 mm",
+    "runtime_dynamic_penetration_requirement": "0.00% (Zero runtime penetration)"
+  },
+  "achieved_metrics": {
+    "overall_min_clearance_mm": 4.1,
+    "overall_median_clearance_mm": 6.38,
+    "overall_mean_clearance_mm": 6.65,
+    "overall_max_clearance_mm": 10.7,
+    "continuous_clearance_pass_rate": 100.0,
+    "runtime_dynamic_penetration_rate": 0.0
+  },
+  "system_comparison": {
+    "pure_procedural": {
+      "mean_clearance_mm": 5.42,
+      "min_clearance_mm": 2.85,
+      "runtime_penetration_rate": 0.0,
+      "drape_naturalness_score": 0.84,
+      "fit_score": 0.88
+    },
+    "local_image_conditioned_hybrid": {
+      "mean_clearance_mm": 6.65,
+      "min_clearance_mm": 4.1,
+      "runtime_penetration_rate": 0.0,
+      "drape_naturalness_score": 0.94,
+      "fit_score": 0.95
+    },
+    "remote_neural_reconstruction": {
+      "mean_clearance_mm": 5.86,
+      "min_clearance_mm": 2.92,
+      "runtime_penetration_rate": 0.0,
+      "drape_naturalness_score": 0.96,
+      "fit_score": 0.96
+    }
+  },
+  "avatar_humanoid_skeleton": {
+    "model": "Ara3D_humanoid_canonical_1.75m",
+    "bone_count": 20,
+    "skinning_method": "linear_blend_skinning_4_weights_normalized"
+  },
+  "status": "PASS",
+  "sample_configurations": [
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "archetype": "canonical_175_neutral",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.91,
+        "mean_clearance_mm": 5.91,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 5.9,
+        "shoulder_left": 5.57,
+        "shoulder_right": 6.35,
+        "chest": 5.73,
+        "waist": 5.72,
+        "hip": 6.07,
+        "cuff_left": 5.9,
+        "cuff_right": 6.38,
+        "hem_inseam": 5.79
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "archetype": "slim_athletic",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.86,
+        "mean_clearance_mm": 5.87,
+        "max_clearance_mm": 7.18,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 5.68,
+        "shoulder_left": 6.19,
+        "shoulder_right": 6.08,
+        "chest": 6.08,
+        "waist": 6.39,
+        "hip": 6.07,
+        "cuff_left": 6.33,
+        "cuff_right": 6.28,
+        "hem_inseam": 6.27
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "archetype": "muscular_broad",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.61,
+        "median_clearance_mm": 5.88,
+        "mean_clearance_mm": 5.91,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 5.57,
+        "shoulder_left": 6.03,
+        "shoulder_right": 5.6,
+        "chest": 6.45,
+        "waist": 6.14,
+        "hip": 5.93,
+        "cuff_left": 6.01,
+        "cuff_right": 6.21,
+        "hem_inseam": 5.99
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "archetype": "curvy_hourglass",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.9,
+        "mean_clearance_mm": 5.9,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 5.69,
+        "shoulder_left": 5.63,
+        "shoulder_right": 6.41,
+        "chest": 5.86,
+        "waist": 5.99,
+        "hip": 6.27,
+        "cuff_left": 5.56,
+        "cuff_right": 6.14,
+        "hem_inseam": 6.02
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "archetype": "canonical_175_neutral",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.9,
+        "mean_clearance_mm": 5.9,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 5.99,
+        "shoulder_left": 5.79,
+        "shoulder_right": 5.94,
+        "chest": 6.16,
+        "waist": 5.77,
+        "hip": 5.86,
+        "cuff_left": 6.09,
+        "cuff_right": 6.02,
+        "hem_inseam": 5.77
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "archetype": "slim_athletic",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.92,
+        "mean_clearance_mm": 5.89,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 6.26,
+        "shoulder_left": 5.87,
+        "shoulder_right": 5.96,
+        "chest": 6.14,
+        "waist": 5.54,
+        "hip": 6.15,
+        "cuff_left": 5.61,
+        "cuff_right": 5.93,
+        "hem_inseam": 6.06
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "archetype": "muscular_broad",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.9,
+        "mean_clearance_mm": 5.91,
+        "max_clearance_mm": 7.19,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 6.0,
+        "shoulder_left": 5.55,
+        "shoulder_right": 6.06,
+        "chest": 6.04,
+        "waist": 6.13,
+        "hip": 5.51,
+        "cuff_left": 6.03,
+        "cuff_right": 6.46,
+        "hem_inseam": 5.72
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "shirt",
+      "subcategory": "oxford_shirt",
+      "archetype": "curvy_hourglass",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 4.6,
+        "median_clearance_mm": 5.82,
+        "mean_clearance_mm": 5.86,
+        "max_clearance_mm": 7.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 6.08,
+        "shoulder_left": 6.3,
+        "shoulder_right": 6.22,
+        "chest": 6.07,
+        "waist": 6.09,
+        "hip": 6.06,
+        "cuff_left": 6.25,
+        "cuff_right": 5.72,
+        "hem_inseam": 5.73
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "archetype": "canonical_175_neutral",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 6.6,
+        "median_clearance_mm": 7.96,
+        "mean_clearance_mm": 7.95,
+        "max_clearance_mm": 9.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 8.18,
+        "shoulder_left": 7.81,
+        "shoulder_right": 8.01,
+        "chest": 7.74,
+        "waist": 8.28,
+        "hip": 8.47,
+        "cuff_left": 7.64,
+        "cuff_right": 7.79,
+        "hem_inseam": 8.38
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "archetype": "slim_athletic",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 6.6,
+        "median_clearance_mm": 7.89,
+        "mean_clearance_mm": 7.9,
+        "max_clearance_mm": 9.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 8.33,
+        "shoulder_left": 7.99,
+        "shoulder_right": 8.19,
+        "chest": 7.99,
+        "waist": 8.0,
+        "hip": 7.95,
+        "cuff_left": 8.05,
+        "cuff_right": 7.98,
+        "hem_inseam": 8.48
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "archetype": "muscular_broad",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 6.6,
+        "median_clearance_mm": 7.89,
+        "mean_clearance_mm": 7.88,
+        "max_clearance_mm": 9.19,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 7.98,
+        "shoulder_left": 7.68,
+        "shoulder_right": 8.07,
+        "chest": 8.44,
+        "waist": 8.38,
+        "hip": 8.49,
+        "cuff_left": 7.82,
+        "cuff_right": 8.42,
+        "hem_inseam": 7.81
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "archetype": "curvy_hourglass",
+      "vertex_count": 1088,
+      "clearance_mm": {
+        "min_clearance_mm": 6.6,
+        "median_clearance_mm": 7.89,
+        "mean_clearance_mm": 7.89,
+        "max_clearance_mm": 9.2,
+        "passes_continuous_2_5mm_requirement": true
+      },
+      "zone_clearances_mm": {
+        "neck": 8.36,
+        "shoulder_left": 7.75,
+        "shoulder_right": 7.53,
+        "chest": 8.05,
+        "waist": 7.95,
+        "hip": 7.89,
+        "cuff_left": 7.74,
+        "cuff_right": 7.76,
+        "hem_inseam": 7.77
+      },
+      "dynamic_motion_clips": {
+        "bind_a_pose": {
+          "raw_potential_contacts": 0,
+          "resolved_contacts": 0,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "runway_strut_f30": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        },
+        "fashion_turn_f60": {
+          "raw_potential_contacts": 1,
+          "resolved_contacts": 1,
+          "runtime_dynamic_penetration_rate": 0.0,
+          "collision_status": "CONVERGED_ZERO_PENETRATION"
+        }
+      },
+      "fitting_verdict": "PERFECT_FIT_ZERO_PENETRATION"
+    }
+  ]
+}

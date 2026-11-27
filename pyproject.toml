@@ -1,0 +1,19 @@
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = [
+    "E402", # intentional post-path/env setup imports in service modules
+    "E701", # single-line if statements in legacy scoring helpers
+    "E702", # legacy semicolon statements
+    "E731", # legacy lambda method aliases
+    "E741", # math/geometry variable names (l, I, etc.)
+    "F401", # legacy re-exports and optional dependency probes
+    "F403", # backward-compatibility wildcard forwarder modules
+    "F841", # legacy unused local variables tracked for incremental cleanup
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F401"]

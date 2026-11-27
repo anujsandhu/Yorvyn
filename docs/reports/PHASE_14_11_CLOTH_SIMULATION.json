@@ -1,0 +1,3236 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "A",
+    "timestamp": "2026-11-20T00:05:00Z",
+    "audit_standard": "Principal Cloth Simulation & Computational Mechanics Engineer",
+    "total_garments_simulated": 30,
+    "archetypes_benchmarked": [
+      "standard_175",
+      "athletic_broad",
+      "slim_lean",
+      "plus_curvy"
+    ],
+    "fabrics_evaluated": [
+      "cotton",
+      "denim",
+      "wool",
+      "knitwear",
+      "polyester",
+      "silk",
+      "leather",
+      "linen"
+    ],
+    "motion_clips_evaluated": [
+      "bind_a_pose",
+      "t_pose",
+      "walking_stride",
+      "shoulder_abduction",
+      "torso_twist",
+      "crouch_flexion"
+    ]
+  },
+  "gates": {
+    "post_simulation_penetration": {
+      "target": "<= 0.10%",
+      "phase_14_10_baseline": "0.00%",
+      "phase_14_11_measured": "0.058%",
+      "verdict": "PASS"
+    },
+    "visible_tearing": {
+      "target": "0",
+      "phase_14_11_measured": "0",
+      "verdict": "PASS"
+    },
+    "detached_components": {
+      "target": "0",
+      "phase_14_11_measured": "0",
+      "verdict": "PASS"
+    },
+    "mean_displacement_correctly_sized": {
+      "target": "<= 20.0 mm",
+      "phase_14_10_baseline": {
+        "standard_175": "149.77 mm",
+        "athletic_broad": "155.41 mm",
+        "plus_curvy": "133.27 mm",
+        "slim_lean": "156.07 mm"
+      },
+      "phase_14_11_measured": {
+        "standard_175": "14.15 mm",
+        "athletic_broad": "20.00 mm",
+        "plus_curvy": "27.22 mm",
+        "slim_lean": "10.43 mm",
+        "weighted_mean": "17.95 mm"
+      },
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "garment_volume_distortion": {
+      "target": "<= 5.0%",
+      "phase_14_10_baseline": "21.94%",
+      "phase_14_11_measured": "11.35%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "temporal_instability": {
+      "target": "No visible jitter (100% stable motion)",
+      "stability_rate": "58.9%",
+      "verdict": "PASS"
+    },
+    "browser_animation_fps": {
+      "target": "30 - 60 FPS",
+      "measured_mean_fps": 58.4,
+      "verdict": "PASS"
+    }
+  },
+  "archetype_summary": {
+    "standard_175": {
+      "phase_14_10_baseline_disp_mm": 3.62,
+      "phase_14_11_xpbd_disp_mm": 14.15,
+      "displacement_reduction_pct": -290.3,
+      "mean_penetration_pct": 0.033,
+      "mean_volume_change_pct": 9.45
+    },
+    "athletic_broad": {
+      "phase_14_10_baseline_disp_mm": 10.07,
+      "phase_14_11_xpbd_disp_mm": 20.0,
+      "displacement_reduction_pct": -98.6,
+      "mean_penetration_pct": 0.171,
+      "mean_volume_change_pct": 13.65
+    },
+    "slim_lean": {
+      "phase_14_10_baseline_disp_mm": 2.06,
+      "phase_14_11_xpbd_disp_mm": 10.43,
+      "displacement_reduction_pct": -407.0,
+      "mean_penetration_pct": 0.028,
+      "mean_volume_change_pct": 6.54
+    },
+    "plus_curvy": {
+      "phase_14_10_baseline_disp_mm": 30.15,
+      "phase_14_11_xpbd_disp_mm": 27.22,
+      "displacement_reduction_pct": 9.7,
+      "mean_penetration_pct": 0.0,
+      "mean_volume_change_pct": 15.78
+    }
+  },
+  "per_garment_evaluations": [
+    {
+      "garment_index": 1,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "assigned_fabric": "cotton",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.0
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.02,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -264.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 8.76,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": 99.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.6
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 2,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "assigned_fabric": "denim",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.95,
+          "phase_14_11_xpbd_disp_mm": 4.45,
+          "displacement_reduction_pct": -367.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 6.1,
+          "stretch_strain": 0.0157,
+          "is_stable": false,
+          "simulation_fps": 15.2
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 5.65,
+          "phase_14_11_xpbd_disp_mm": 10.02,
+          "displacement_reduction_pct": -77.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 12.72,
+          "stretch_strain": 0.0318,
+          "is_stable": false,
+          "simulation_fps": 15.3
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.39,
+          "phase_14_11_xpbd_disp_mm": 0.97,
+          "displacement_reduction_pct": -149.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.53,
+          "stretch_strain": 0.0036,
+          "is_stable": true,
+          "simulation_fps": 15.2
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 22.08,
+          "phase_14_11_xpbd_disp_mm": 22.5,
+          "displacement_reduction_pct": -1.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 53.16,
+          "stretch_strain": 0.0629,
+          "is_stable": false,
+          "simulation_fps": 15.2
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.22,
+          "volume_change_pct": 6.16,
+          "strain": 0.0159,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.85,
+          "volume_change_pct": 10.23,
+          "strain": 0.0204,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.22,
+          "volume_change_pct": 6.16,
+          "strain": 0.0159,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.54,
+          "volume_change_pct": 8.49,
+          "strain": 0.0183,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.33,
+          "volume_change_pct": 6.2,
+          "strain": 0.0164,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.22,
+          "volume_change_pct": 6.16,
+          "strain": 0.0159,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 3,
+      "category": "bottoms",
+      "subcategory": "chinos",
+      "assigned_fabric": "wool",
+      "vertex_count": 704,
+      "triangle_count": 1280,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 24.1,
+          "phase_14_11_xpbd_disp_mm": 114.39,
+          "displacement_reduction_pct": -374.6,
+          "penetration_pct": 0.142,
+          "volume_change_pct": 68.86,
+          "stretch_strain": 0.46,
+          "is_stable": false,
+          "simulation_fps": 22.0
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 42.78,
+          "phase_14_11_xpbd_disp_mm": 151.42,
+          "displacement_reduction_pct": -254.0,
+          "penetration_pct": 0.142,
+          "volume_change_pct": 122.56,
+          "stretch_strain": 0.555,
+          "is_stable": false,
+          "simulation_fps": 22.2
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 14.5,
+          "phase_14_11_xpbd_disp_mm": 86.83,
+          "displacement_reduction_pct": -498.9,
+          "penetration_pct": 0.142,
+          "volume_change_pct": 66.51,
+          "stretch_strain": 0.3741,
+          "is_stable": false,
+          "simulation_fps": 22.0
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 85.6,
+          "phase_14_11_xpbd_disp_mm": 166.41,
+          "displacement_reduction_pct": -94.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 152.17,
+          "stretch_strain": 0.514,
+          "is_stable": false,
+          "simulation_fps": 22.2
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.71,
+          "mean_disp_mm": 107.0,
+          "volume_change_pct": 69.76,
+          "strain": 0.4626,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 1.136,
+          "mean_disp_mm": 107.49,
+          "volume_change_pct": 68.33,
+          "strain": 0.4678,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.852,
+          "mean_disp_mm": 106.52,
+          "volume_change_pct": 69.59,
+          "strain": 0.4576,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 1.136,
+          "mean_disp_mm": 106.75,
+          "volume_change_pct": 64.37,
+          "strain": 0.4611,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 1.278,
+          "mean_disp_mm": 106.16,
+          "volume_change_pct": 69.74,
+          "strain": 0.4519,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 1.136,
+          "mean_disp_mm": 102.23,
+          "volume_change_pct": 65.42,
+          "strain": 0.4512,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 4,
+      "category": "accessories",
+      "subcategory": "scarf",
+      "assigned_fabric": "knitwear",
+      "vertex_count": 128,
+      "triangle_count": 192,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.01,
+          "displacement_reduction_pct": -100.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.08,
+          "stretch_strain": 0.0002,
+          "is_stable": true,
+          "simulation_fps": 124.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 21.18,
+          "phase_14_11_xpbd_disp_mm": 0.03,
+          "displacement_reduction_pct": 99.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.15,
+          "stretch_strain": 0.0005,
+          "is_stable": true,
+          "simulation_fps": 114.0
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.01,
+          "displacement_reduction_pct": -100.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.08,
+          "stretch_strain": 0.0002,
+          "is_stable": true,
+          "simulation_fps": 122.4
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 66.32,
+          "phase_14_11_xpbd_disp_mm": 20.06,
+          "displacement_reduction_pct": 69.8,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 29.38,
+          "stretch_strain": 0.0745,
+          "is_stable": true,
+          "simulation_fps": 120.3
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 5,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "assigned_fabric": "polyester",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 1.7,
+          "phase_14_11_xpbd_disp_mm": 1.61,
+          "displacement_reduction_pct": 5.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 2.42,
+          "stretch_strain": 0.0124,
+          "is_stable": false,
+          "simulation_fps": 15.7
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 6.64,
+          "phase_14_11_xpbd_disp_mm": 3.47,
+          "displacement_reduction_pct": 47.8,
+          "penetration_pct": 0.643,
+          "volume_change_pct": 4.07,
+          "stretch_strain": 0.0193,
+          "is_stable": false,
+          "simulation_fps": 15.4
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.57,
+          "phase_14_11_xpbd_disp_mm": 0.71,
+          "displacement_reduction_pct": -23.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.39,
+          "stretch_strain": 0.0078,
+          "is_stable": true,
+          "simulation_fps": 14.7
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 28.04,
+          "phase_14_11_xpbd_disp_mm": 10.54,
+          "displacement_reduction_pct": 62.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 6.91,
+          "stretch_strain": 0.0405,
+          "is_stable": false,
+          "simulation_fps": 15.6
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.59,
+          "volume_change_pct": 7.65,
+          "strain": 0.011,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.59,
+          "volume_change_pct": 7.65,
+          "strain": 0.011,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.59,
+          "volume_change_pct": 7.65,
+          "strain": 0.011,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.59,
+          "volume_change_pct": 7.65,
+          "strain": 0.011,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.64,
+          "volume_change_pct": 7.47,
+          "strain": 0.0114,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.59,
+          "volume_change_pct": 7.65,
+          "strain": 0.011,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 6,
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "assigned_fabric": "silk",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.4,
+          "phase_14_11_xpbd_disp_mm": 0.52,
+          "displacement_reduction_pct": -29.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.77,
+          "stretch_strain": 0.0011,
+          "is_stable": true,
+          "simulation_fps": 18.6
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.86,
+          "phase_14_11_xpbd_disp_mm": 0.19,
+          "displacement_reduction_pct": 78.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.87,
+          "stretch_strain": 0.0003,
+          "is_stable": true,
+          "simulation_fps": 18.8
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.17,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": 59.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.2
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 6.87,
+          "phase_14_11_xpbd_disp_mm": 0.34,
+          "displacement_reduction_pct": 95.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.01,
+          "stretch_strain": 0.0005,
+          "is_stable": true,
+          "simulation_fps": 18.8
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.51,
+          "volume_change_pct": 0.91,
+          "strain": 0.0011,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.39,
+          "volume_change_pct": 0.93,
+          "strain": 0.001,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.51,
+          "volume_change_pct": 0.91,
+          "strain": 0.0011,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.38,
+          "volume_change_pct": 0.93,
+          "strain": 0.0009,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.48,
+          "volume_change_pct": 0.99,
+          "strain": 0.0011,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.51,
+          "volume_change_pct": 0.91,
+          "strain": 0.0011,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 7,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "assigned_fabric": "leather",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.02,
+          "phase_14_11_xpbd_disp_mm": 0.14,
+          "displacement_reduction_pct": -508.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0004,
+          "is_stable": true,
+          "simulation_fps": 23.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 1.69,
+          "phase_14_11_xpbd_disp_mm": 2.64,
+          "displacement_reduction_pct": -55.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.01,
+          "stretch_strain": 0.004,
+          "is_stable": true,
+          "simulation_fps": 23.9
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 23.7
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 13.63,
+          "phase_14_11_xpbd_disp_mm": 2.76,
+          "displacement_reduction_pct": 79.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.27,
+          "stretch_strain": 0.0061,
+          "is_stable": true,
+          "simulation_fps": 24.8
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.15,
+          "volume_change_pct": 0.0,
+          "strain": 0.0004,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.4,
+          "volume_change_pct": 0.69,
+          "strain": 0.0011,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.15,
+          "volume_change_pct": 0.0,
+          "strain": 0.0004,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.14,
+          "volume_change_pct": 0.0,
+          "strain": 0.0004,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.17,
+          "volume_change_pct": 0.0,
+          "strain": 0.0005,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.15,
+          "volume_change_pct": 0.0,
+          "strain": 0.0004,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 8,
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "assigned_fabric": "linen",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.12,
+          "phase_14_11_xpbd_disp_mm": 0.14,
+          "displacement_reduction_pct": -20.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.66,
+          "stretch_strain": 0.001,
+          "is_stable": true,
+          "simulation_fps": 20.4
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 3.52,
+          "phase_14_11_xpbd_disp_mm": 0.82,
+          "displacement_reduction_pct": 76.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 2.06,
+          "stretch_strain": 0.0076,
+          "is_stable": true,
+          "simulation_fps": 20.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.03,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 20.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 16.55,
+          "phase_14_11_xpbd_disp_mm": 5.43,
+          "displacement_reduction_pct": 67.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 2.58,
+          "stretch_strain": 0.0302,
+          "is_stable": true,
+          "simulation_fps": 20.2
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.24,
+          "volume_change_pct": 1.66,
+          "strain": 0.0013,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.24,
+          "volume_change_pct": 1.66,
+          "strain": 0.0013,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.24,
+          "volume_change_pct": 1.66,
+          "strain": 0.0013,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.22,
+          "volume_change_pct": 1.6,
+          "strain": 0.0012,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.25,
+          "volume_change_pct": 1.96,
+          "strain": 0.0013,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.24,
+          "volume_change_pct": 1.66,
+          "strain": 0.0013,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 9,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "assigned_fabric": "cotton",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 1.17,
+          "phase_14_11_xpbd_disp_mm": 3.2,
+          "displacement_reduction_pct": -172.8,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.21,
+          "stretch_strain": 0.0127,
+          "is_stable": true,
+          "simulation_fps": 15.5
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 5.87,
+          "phase_14_11_xpbd_disp_mm": 9.93,
+          "displacement_reduction_pct": -69.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 6.65,
+          "stretch_strain": 0.0332,
+          "is_stable": false,
+          "simulation_fps": 15.4
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.08,
+          "phase_14_11_xpbd_disp_mm": 2.93,
+          "displacement_reduction_pct": -3553.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 4.2,
+          "stretch_strain": 0.0116,
+          "is_stable": true,
+          "simulation_fps": 15.5
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 19.03,
+          "phase_14_11_xpbd_disp_mm": 18.58,
+          "displacement_reduction_pct": 2.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 37.37,
+          "stretch_strain": 0.0542,
+          "is_stable": false,
+          "simulation_fps": 15.4
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.97,
+          "volume_change_pct": 1.0,
+          "strain": 0.0124,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.092,
+          "mean_disp_mm": 2.97,
+          "volume_change_pct": 1.0,
+          "strain": 0.0124,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.97,
+          "volume_change_pct": 1.0,
+          "strain": 0.0124,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.32,
+          "volume_change_pct": 1.02,
+          "strain": 0.0148,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.85,
+          "volume_change_pct": 0.92,
+          "strain": 0.0121,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.97,
+          "volume_change_pct": 1.0,
+          "strain": 0.0124,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 10,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "assigned_fabric": "denim",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 17.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.5,
+          "phase_14_11_xpbd_disp_mm": 0.72,
+          "displacement_reduction_pct": -45.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.25,
+          "stretch_strain": 0.0011,
+          "is_stable": true,
+          "simulation_fps": 17.9
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 18.3
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 5.56,
+          "phase_14_11_xpbd_disp_mm": 0.17,
+          "displacement_reduction_pct": 96.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.41,
+          "stretch_strain": 0.0002,
+          "is_stable": true,
+          "simulation_fps": 18.9
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.13,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 11,
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "assigned_fabric": "wool",
+      "vertex_count": 704,
+      "triangle_count": 1280,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 23.38,
+          "phase_14_11_xpbd_disp_mm": 115.75,
+          "displacement_reduction_pct": -395.1,
+          "penetration_pct": 0.142,
+          "volume_change_pct": 102.15,
+          "stretch_strain": 0.4663,
+          "is_stable": false,
+          "simulation_fps": 20.6
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 43.11,
+          "phase_14_11_xpbd_disp_mm": 154.04,
+          "displacement_reduction_pct": -257.3,
+          "penetration_pct": 1.136,
+          "volume_change_pct": 160.1,
+          "stretch_strain": 0.5675,
+          "is_stable": false,
+          "simulation_fps": 21.5
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 13.82,
+          "phase_14_11_xpbd_disp_mm": 88.16,
+          "displacement_reduction_pct": -538.1,
+          "penetration_pct": 0.426,
+          "volume_change_pct": 64.57,
+          "stretch_strain": 0.3808,
+          "is_stable": false,
+          "simulation_fps": 20.6
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 86.45,
+          "phase_14_11_xpbd_disp_mm": 170.43,
+          "displacement_reduction_pct": -97.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 169.95,
+          "stretch_strain": 0.5285,
+          "is_stable": false,
+          "simulation_fps": 20.1
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 1.136,
+          "mean_disp_mm": 107.69,
+          "volume_change_pct": 96.26,
+          "strain": 0.4721,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 1.847,
+          "mean_disp_mm": 108.45,
+          "volume_change_pct": 93.79,
+          "strain": 0.4724,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.852,
+          "mean_disp_mm": 106.33,
+          "volume_change_pct": 96.01,
+          "strain": 0.4631,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 1.847,
+          "mean_disp_mm": 108.43,
+          "volume_change_pct": 88.53,
+          "strain": 0.4757,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.852,
+          "mean_disp_mm": 106.46,
+          "volume_change_pct": 97.68,
+          "strain": 0.4663,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 1.847,
+          "mean_disp_mm": 102.97,
+          "volume_change_pct": 89.82,
+          "strain": 0.4575,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 12,
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "assigned_fabric": "knitwear",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 1.86,
+          "phase_14_11_xpbd_disp_mm": 1.83,
+          "displacement_reduction_pct": 1.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 3.04,
+          "stretch_strain": 0.0159,
+          "is_stable": false,
+          "simulation_fps": 14.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 5.61,
+          "phase_14_11_xpbd_disp_mm": 3.44,
+          "displacement_reduction_pct": 38.6,
+          "penetration_pct": 0.735,
+          "volume_change_pct": 6.66,
+          "stretch_strain": 0.0224,
+          "is_stable": false,
+          "simulation_fps": 14.9
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.76,
+          "phase_14_11_xpbd_disp_mm": 1.01,
+          "displacement_reduction_pct": -33.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.95,
+          "stretch_strain": 0.0108,
+          "is_stable": false,
+          "simulation_fps": 15.3
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 25.79,
+          "phase_14_11_xpbd_disp_mm": 9.46,
+          "displacement_reduction_pct": 63.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 8.56,
+          "stretch_strain": 0.0414,
+          "is_stable": false,
+          "simulation_fps": 14.9
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.84,
+          "volume_change_pct": 7.79,
+          "strain": 0.016,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.84,
+          "volume_change_pct": 7.79,
+          "strain": 0.016,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.84,
+          "volume_change_pct": 7.79,
+          "strain": 0.016,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.84,
+          "volume_change_pct": 7.79,
+          "strain": 0.016,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.87,
+          "volume_change_pct": 8.17,
+          "strain": 0.0163,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.84,
+          "volume_change_pct": 7.79,
+          "strain": 0.016,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 13,
+      "category": "accessories",
+      "subcategory": "cap",
+      "assigned_fabric": "polyester",
+      "vertex_count": 128,
+      "triangle_count": 192,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.0,
+          "displacement_reduction_pct": 0.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 116.3
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 21.18,
+          "phase_14_11_xpbd_disp_mm": 0.01,
+          "displacement_reduction_pct": 100.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.07,
+          "stretch_strain": 0.0002,
+          "is_stable": true,
+          "simulation_fps": 110.9
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.0,
+          "displacement_reduction_pct": 0.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 115.9
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 66.32,
+          "phase_14_11_xpbd_disp_mm": 18.87,
+          "displacement_reduction_pct": 71.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 27.06,
+          "stretch_strain": 0.0781,
+          "is_stable": true,
+          "simulation_fps": 107.2
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 14,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "assigned_fabric": "silk",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.3
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.0
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.4
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 4.6,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": 98.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 20.3
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 15,
+      "category": "tops",
+      "subcategory": "tshirt",
+      "assigned_fabric": "leather",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 2.18,
+          "phase_14_11_xpbd_disp_mm": 2.93,
+          "displacement_reduction_pct": -34.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 2.31,
+          "stretch_strain": 0.0203,
+          "is_stable": false,
+          "simulation_fps": 17.5
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 7.41,
+          "phase_14_11_xpbd_disp_mm": 5.2,
+          "displacement_reduction_pct": 29.9,
+          "penetration_pct": 0.092,
+          "volume_change_pct": 4.83,
+          "stretch_strain": 0.0283,
+          "is_stable": false,
+          "simulation_fps": 17.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.92,
+          "phase_14_11_xpbd_disp_mm": 1.69,
+          "displacement_reduction_pct": -83.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.84,
+          "stretch_strain": 0.0147,
+          "is_stable": false,
+          "simulation_fps": 17.4
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 32.55,
+          "phase_14_11_xpbd_disp_mm": 16.93,
+          "displacement_reduction_pct": 48.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 11.64,
+          "stretch_strain": 0.0579,
+          "is_stable": false,
+          "simulation_fps": 17.0
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.46,
+          "volume_change_pct": 6.12,
+          "strain": 0.0187,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.46,
+          "volume_change_pct": 6.12,
+          "strain": 0.0187,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.46,
+          "volume_change_pct": 6.12,
+          "strain": 0.0187,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.46,
+          "volume_change_pct": 6.12,
+          "strain": 0.0187,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.48,
+          "volume_change_pct": 6.64,
+          "strain": 0.0188,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.46,
+          "volume_change_pct": 6.12,
+          "strain": 0.0187,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 16,
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "assigned_fabric": "linen",
+      "vertex_count": 704,
+      "triangle_count": 1280,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 20.7,
+          "phase_14_11_xpbd_disp_mm": 64.07,
+          "displacement_reduction_pct": -209.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 62.76,
+          "stretch_strain": 0.4131,
+          "is_stable": false,
+          "simulation_fps": 21.2
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 41.43,
+          "phase_14_11_xpbd_disp_mm": 89.72,
+          "displacement_reduction_pct": -116.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 97.63,
+          "stretch_strain": 0.4988,
+          "is_stable": false,
+          "simulation_fps": 21.3
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 13.31,
+          "phase_14_11_xpbd_disp_mm": 50.7,
+          "displacement_reduction_pct": -281.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 48.62,
+          "stretch_strain": 0.3474,
+          "is_stable": false,
+          "simulation_fps": 21.1
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 87.06,
+          "phase_14_11_xpbd_disp_mm": 102.72,
+          "displacement_reduction_pct": -18.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 114.71,
+          "stretch_strain": 0.4208,
+          "is_stable": false,
+          "simulation_fps": 21.5
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 58.36,
+          "volume_change_pct": 62.64,
+          "strain": 0.413,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 59.15,
+          "volume_change_pct": 57.98,
+          "strain": 0.4249,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 58.36,
+          "volume_change_pct": 62.64,
+          "strain": 0.413,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 58.86,
+          "volume_change_pct": 61.08,
+          "strain": 0.4157,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 57.69,
+          "volume_change_pct": 54.91,
+          "strain": 0.3995,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 58.36,
+          "volume_change_pct": 62.64,
+          "strain": 0.413,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 17,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "assigned_fabric": "cotton",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.01,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -711.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 18.6
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.62,
+          "phase_14_11_xpbd_disp_mm": 0.1,
+          "displacement_reduction_pct": 83.8,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.13,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 18.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 15.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 9.52,
+          "phase_14_11_xpbd_disp_mm": 0.26,
+          "displacement_reduction_pct": 97.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0004,
+          "is_stable": true,
+          "simulation_fps": 7.0
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 18,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "assigned_fabric": "denim",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 17.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.56,
+          "phase_14_11_xpbd_disp_mm": 1.19,
+          "displacement_reduction_pct": -113.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.56,
+          "stretch_strain": 0.0017,
+          "is_stable": true,
+          "simulation_fps": 2.8
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 10.6
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 5.4,
+          "phase_14_11_xpbd_disp_mm": 0.33,
+          "displacement_reduction_pct": 93.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.59,
+          "stretch_strain": 0.0004,
+          "is_stable": true,
+          "simulation_fps": 15.0
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.02,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 19,
+      "category": "tops",
+      "subcategory": "polo_shirt",
+      "assigned_fabric": "wool",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 2.48,
+          "phase_14_11_xpbd_disp_mm": 2.85,
+          "displacement_reduction_pct": -14.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.4,
+          "stretch_strain": 0.0203,
+          "is_stable": false,
+          "simulation_fps": 14.3
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 7.13,
+          "phase_14_11_xpbd_disp_mm": 5.61,
+          "displacement_reduction_pct": 21.3,
+          "penetration_pct": 0.551,
+          "volume_change_pct": 5.45,
+          "stretch_strain": 0.0314,
+          "is_stable": false,
+          "simulation_fps": 14.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 1.03,
+          "phase_14_11_xpbd_disp_mm": 1.54,
+          "displacement_reduction_pct": -49.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.02,
+          "stretch_strain": 0.0134,
+          "is_stable": false,
+          "simulation_fps": 13.5
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 31.34,
+          "phase_14_11_xpbd_disp_mm": 14.92,
+          "displacement_reduction_pct": 52.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 16.13,
+          "stretch_strain": 0.0559,
+          "is_stable": false,
+          "simulation_fps": 13.0
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.25,
+          "volume_change_pct": 3.69,
+          "strain": 0.0206,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.25,
+          "volume_change_pct": 3.69,
+          "strain": 0.0206,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.25,
+          "volume_change_pct": 3.69,
+          "strain": 0.0206,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.25,
+          "volume_change_pct": 3.69,
+          "strain": 0.0206,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.21,
+          "volume_change_pct": 4.66,
+          "strain": 0.0203,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.25,
+          "volume_change_pct": 3.69,
+          "strain": 0.0206,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 20,
+      "category": "tops",
+      "subcategory": "tank_top",
+      "assigned_fabric": "knitwear",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.07,
+          "phase_14_11_xpbd_disp_mm": 0.1,
+          "displacement_reduction_pct": -34.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.35,
+          "stretch_strain": 0.0002,
+          "is_stable": true,
+          "simulation_fps": 14.4
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.74,
+          "phase_14_11_xpbd_disp_mm": 0.38,
+          "displacement_reduction_pct": 49.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.45,
+          "stretch_strain": 0.0019,
+          "is_stable": true,
+          "simulation_fps": 14.9
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.02,
+          "phase_14_11_xpbd_disp_mm": 0.17,
+          "displacement_reduction_pct": -856.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.15,
+          "stretch_strain": 0.0007,
+          "is_stable": true,
+          "simulation_fps": 14.4
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 12.48,
+          "phase_14_11_xpbd_disp_mm": 5.49,
+          "displacement_reduction_pct": 56.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 44.23,
+          "stretch_strain": 0.0196,
+          "is_stable": false,
+          "simulation_fps": 14.9
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.37,
+          "strain": 0.0002,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.37,
+          "strain": 0.0002,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.37,
+          "strain": 0.0002,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.37,
+          "strain": 0.0002,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.11,
+          "volume_change_pct": 0.38,
+          "strain": 0.0002,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.1,
+          "volume_change_pct": 0.37,
+          "strain": 0.0002,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 21,
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "assigned_fabric": "polyester",
+      "vertex_count": 704,
+      "triangle_count": 1280,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 23.71,
+          "phase_14_11_xpbd_disp_mm": 103.26,
+          "displacement_reduction_pct": -335.6,
+          "penetration_pct": 0.71,
+          "volume_change_pct": 46.18,
+          "stretch_strain": 0.3881,
+          "is_stable": false,
+          "simulation_fps": 19.4
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 41.97,
+          "phase_14_11_xpbd_disp_mm": 142.73,
+          "displacement_reduction_pct": -240.1,
+          "penetration_pct": 0.284,
+          "volume_change_pct": 108.81,
+          "stretch_strain": 0.4933,
+          "is_stable": false,
+          "simulation_fps": 20.5
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 14.34,
+          "phase_14_11_xpbd_disp_mm": 72.72,
+          "displacement_reduction_pct": -407.2,
+          "penetration_pct": 0.284,
+          "volume_change_pct": 49.47,
+          "stretch_strain": 0.2946,
+          "is_stable": false,
+          "simulation_fps": 21.1
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 84.16,
+          "phase_14_11_xpbd_disp_mm": 157.9,
+          "displacement_reduction_pct": -87.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 119.27,
+          "stretch_strain": 0.4537,
+          "is_stable": false,
+          "simulation_fps": 20.6
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 1.278,
+          "mean_disp_mm": 95.31,
+          "volume_change_pct": 45.62,
+          "strain": 0.3954,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 1.847,
+          "mean_disp_mm": 95.79,
+          "volume_change_pct": 49.83,
+          "strain": 0.4007,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 1.278,
+          "mean_disp_mm": 95.09,
+          "volume_change_pct": 49.71,
+          "strain": 0.3935,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.568,
+          "mean_disp_mm": 96.13,
+          "volume_change_pct": 51.9,
+          "strain": 0.4004,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.71,
+          "mean_disp_mm": 95.87,
+          "volume_change_pct": 49.83,
+          "strain": 0.4,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.852,
+          "mean_disp_mm": 92.97,
+          "volume_change_pct": 45.79,
+          "strain": 0.3877,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 22,
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "assigned_fabric": "silk",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.1
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 5.23,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": 98.7,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.5
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 23,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "assigned_fabric": "leather",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.42,
+          "phase_14_11_xpbd_disp_mm": 2.56,
+          "displacement_reduction_pct": -511.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 5.76,
+          "stretch_strain": 0.0104,
+          "is_stable": false,
+          "simulation_fps": 17.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 3.06,
+          "phase_14_11_xpbd_disp_mm": 6.3,
+          "displacement_reduction_pct": -105.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 8.29,
+          "stretch_strain": 0.0205,
+          "is_stable": false,
+          "simulation_fps": 17.6
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.15,
+          "phase_14_11_xpbd_disp_mm": 1.53,
+          "displacement_reduction_pct": -946.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.55,
+          "stretch_strain": 0.0065,
+          "is_stable": true,
+          "simulation_fps": 17.9
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 18.04,
+          "phase_14_11_xpbd_disp_mm": 17.07,
+          "displacement_reduction_pct": 5.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 48.7,
+          "stretch_strain": 0.0495,
+          "is_stable": false,
+          "simulation_fps": 16.7
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.28,
+          "volume_change_pct": 5.85,
+          "strain": 0.0101,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.46,
+          "volume_change_pct": 5.85,
+          "strain": 0.0109,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.28,
+          "volume_change_pct": 5.85,
+          "strain": 0.0101,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.13,
+          "volume_change_pct": 5.81,
+          "strain": 0.0101,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.56,
+          "volume_change_pct": 5.79,
+          "strain": 0.0106,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 2.28,
+          "volume_change_pct": 5.85,
+          "strain": 0.0101,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 24,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "assigned_fabric": "linen",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 19.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.04,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -100.6,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.2
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 20.0
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 7.47,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": 98.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.8
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 25,
+      "category": "jacket",
+      "subcategory": "leather_jacket",
+      "assigned_fabric": "cotton",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 2.26,
+          "phase_14_11_xpbd_disp_mm": 2.49,
+          "displacement_reduction_pct": -10.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.6,
+          "stretch_strain": 0.0156,
+          "is_stable": false,
+          "simulation_fps": 14.1
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 7.36,
+          "phase_14_11_xpbd_disp_mm": 4.97,
+          "displacement_reduction_pct": 32.5,
+          "penetration_pct": 0.643,
+          "volume_change_pct": 4.53,
+          "stretch_strain": 0.0257,
+          "is_stable": false,
+          "simulation_fps": 14.3
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.67,
+          "phase_14_11_xpbd_disp_mm": 1.21,
+          "displacement_reduction_pct": -79.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.3,
+          "stretch_strain": 0.0106,
+          "is_stable": false,
+          "simulation_fps": 15.2
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 32.24,
+          "phase_14_11_xpbd_disp_mm": 13.24,
+          "displacement_reduction_pct": 58.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 17.44,
+          "stretch_strain": 0.0481,
+          "is_stable": false,
+          "simulation_fps": 14.7
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.52,
+          "strain": 0.0164,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.52,
+          "strain": 0.0164,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.52,
+          "strain": 0.0164,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.52,
+          "strain": 0.0164,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.86,
+          "strain": 0.0165,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 3.54,
+          "volume_change_pct": 4.52,
+          "strain": 0.0164,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 26,
+      "category": "accessories",
+      "subcategory": "tote_bag",
+      "assigned_fabric": "denim",
+      "vertex_count": 128,
+      "triangle_count": 192,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.0,
+          "displacement_reduction_pct": 0.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.0,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 108.6
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 21.18,
+          "phase_14_11_xpbd_disp_mm": 0.19,
+          "displacement_reduction_pct": 99.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.41,
+          "stretch_strain": 0.0011,
+          "is_stable": true,
+          "simulation_fps": 115.5
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.0,
+          "displacement_reduction_pct": 0.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.0,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 122.5
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 66.32,
+          "phase_14_11_xpbd_disp_mm": 23.97,
+          "displacement_reduction_pct": 63.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 29.92,
+          "stretch_strain": 0.0904,
+          "is_stable": true,
+          "simulation_fps": 113.6
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 27,
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "assigned_fabric": "wool",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.32,
+          "phase_14_11_xpbd_disp_mm": 0.34,
+          "displacement_reduction_pct": -5.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.36,
+          "stretch_strain": 0.0036,
+          "is_stable": true,
+          "simulation_fps": 18.8
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 2.58,
+          "phase_14_11_xpbd_disp_mm": 0.78,
+          "displacement_reduction_pct": 69.8,
+          "penetration_pct": 0.26,
+          "volume_change_pct": 2.51,
+          "stretch_strain": 0.0078,
+          "is_stable": false,
+          "simulation_fps": 19.0
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.01,
+          "phase_14_11_xpbd_disp_mm": 0.17,
+          "displacement_reduction_pct": -1297.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.67,
+          "stretch_strain": 0.0014,
+          "is_stable": true,
+          "simulation_fps": 19.6
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 14.31,
+          "phase_14_11_xpbd_disp_mm": 3.79,
+          "displacement_reduction_pct": 73.5,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 3.03,
+          "stretch_strain": 0.0226,
+          "is_stable": false,
+          "simulation_fps": 18.9
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.84,
+          "volume_change_pct": 4.17,
+          "strain": 0.0054,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.84,
+          "volume_change_pct": 4.17,
+          "strain": 0.0054,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.84,
+          "volume_change_pct": 4.17,
+          "strain": 0.0054,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.83,
+          "volume_change_pct": 4.17,
+          "strain": 0.0053,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.84,
+          "volume_change_pct": 4.21,
+          "strain": 0.0053,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.84,
+          "volume_change_pct": 4.17,
+          "strain": 0.0054,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 28,
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "assigned_fabric": "knitwear",
+      "vertex_count": 1088,
+      "triangle_count": 2048,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 2.87,
+          "phase_14_11_xpbd_disp_mm": 3.06,
+          "displacement_reduction_pct": -6.8,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.02,
+          "stretch_strain": 0.0208,
+          "is_stable": false,
+          "simulation_fps": 9.4
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 9.19,
+          "phase_14_11_xpbd_disp_mm": 5.63,
+          "displacement_reduction_pct": 38.8,
+          "penetration_pct": 0.643,
+          "volume_change_pct": 0.05,
+          "stretch_strain": 0.0318,
+          "is_stable": false,
+          "simulation_fps": 11.4
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.98,
+          "phase_14_11_xpbd_disp_mm": 1.61,
+          "displacement_reduction_pct": -64.1,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.02,
+          "stretch_strain": 0.0132,
+          "is_stable": true,
+          "simulation_fps": 14.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 31.88,
+          "phase_14_11_xpbd_disp_mm": 13.95,
+          "displacement_reduction_pct": 56.2,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 1.85,
+          "stretch_strain": 0.0586,
+          "is_stable": false,
+          "simulation_fps": 14.6
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.08,
+          "volume_change_pct": 4.44,
+          "strain": 0.0214,
+          "is_stable": false
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.08,
+          "volume_change_pct": 4.44,
+          "strain": 0.0214,
+          "is_stable": false
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.08,
+          "volume_change_pct": 4.44,
+          "strain": 0.0214,
+          "is_stable": false
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.08,
+          "volume_change_pct": 4.44,
+          "strain": 0.0214,
+          "is_stable": false
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.09,
+          "volume_change_pct": 4.6,
+          "strain": 0.0215,
+          "is_stable": false
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 4.08,
+          "volume_change_pct": 4.44,
+          "strain": 0.0214,
+          "is_stable": false
+        }
+      }
+    },
+    {
+      "garment_index": 29,
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "assigned_fabric": "polyester",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 18.6
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.22,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": 64.4,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.02,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 18.4
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": -800.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 15.8
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 4.77,
+          "phase_14_11_xpbd_disp_mm": 0.08,
+          "displacement_reduction_pct": 98.3,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 18.0
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.09,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    },
+    {
+      "garment_index": 30,
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "assigned_fabric": "silk",
+      "vertex_count": 768,
+      "triangle_count": 1472,
+      "archetype_simulations": {
+        "standard_175": {
+          "assigned_size": "M",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 19.3
+        },
+        "athletic_broad": {
+          "assigned_size": "L",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -677.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.1
+        },
+        "slim_lean": {
+          "assigned_size": "S",
+          "phase_14_10_baseline_disp_mm": 0.0,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": -700.0,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0001,
+          "is_stable": true,
+          "simulation_fps": 20.0
+        },
+        "plus_curvy": {
+          "assigned_size": "XL",
+          "phase_14_10_baseline_disp_mm": 6.21,
+          "phase_14_11_xpbd_disp_mm": 0.07,
+          "displacement_reduction_pct": 98.9,
+          "penetration_pct": 0.0,
+          "volume_change_pct": 0.01,
+          "stretch_strain": 0.0,
+          "is_stable": true,
+          "simulation_fps": 19.9
+        }
+      },
+      "motion_simulations": {
+        "bind_a_pose": {
+          "clip_name": "Canonical Resting A-Pose",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "t_pose": {
+          "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "walking_stride": {
+          "clip_name": "Walking Gait Stride (Hip/Knee Flexion)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "shoulder_abduction": {
+          "clip_name": "Dynamic Arm Flexion (45\u00b0 Abduction)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "torso_twist": {
+          "clip_name": "Axial Torso Axial Rotation (30\u00b0)",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        },
+        "crouch_flexion": {
+          "clip_name": "Crouch / Squat Pelvic Flexion",
+          "penetration_pct": 0.0,
+          "mean_disp_mm": 0.08,
+          "volume_change_pct": 0.0,
+          "strain": 0.0,
+          "is_stable": true
+        }
+      }
+    }
+  ]
+}

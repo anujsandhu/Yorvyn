@@ -1,0 +1,18 @@
+{
+  "status": "PASSED",
+  "browser": "headless_chromium_swiftshader",
+  "photo": "/Users/anujsandhu/Projects/yorvyn/data/datasets/phase_13_6_real_photos/wm_00_jacket_denim.jpg",
+  "telemetry_hud": "Backend: webgl2 (high) | WebGPU: adapterFPS: 60.1 (16.64ms) | Calls: 20 | Tris: 7808",
+  "sync_status_badge": "Design v5 | Geom v4 | Pattern v5 | Mat v4 | Sync: SYNCHRONIZED_WITH_UNCERTAINTY",
+  "measurements_before_2d_edit": "Synced Measurements (PATTERN_PANEL_HALF): Panel 21.8 cm | Half Chest 43.5 cm | Circumference 87.0 cm | Length 52.0 cm | SA 1.0 cm",
+  "measurements_after_2d_edit": "Synced Measurements (PATTERN_PANEL_HALF): Panel 24.8 cm | Half Chest 49.5 cm | Circumference 99.0 cm | Length 52.0 cm | SA 1.0 cm",
+  "undo_restored": true,
+  "redo_reapplied": true,
+  "exported_glb_bytes": 1631028,
+  "exported_glb_sha256": "afeef09847bbd1734140011fc3dad415babbc5ac43501ef9f7638f032be0d107",
+  "context_loss_recovery_tested": true,
+  "resize_tested": true,
+  "avatar_fit_verified": true,
+  "page_errors": [],
+  "console_error_count": 8
+}

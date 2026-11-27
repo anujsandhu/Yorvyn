@@ -1,0 +1,329 @@
+{
+  "benchmark_version": "12.3.3-AUDIT",
+  "evaluation_timestamp": "2026-11-09T04:50:00Z",
+  "audit_phase": "Phase 12.3.3 Independent Acceptance Audit",
+  "production_gate_verdict": "BLOCKED",
+  "production_gate_reason": "Independent external photographic holdout across 47 taxonomy subcategories is absent from disk. Real photographic evaluation covers only 6 subcategories across 11 unique physical images (5 duplicate pairs).",
+  "partitions": {
+    "partition_1_real_reference": {
+      "sample_count": 6,
+      "category_accuracy": 1.0,
+      "subcategory_accuracy": 0.8333,
+      "mean_confidence": 0.9597,
+      "min_confidence": 0.952,
+      "max_confidence": 0.968
+    },
+    "partition_2_real_onbody": {
+      "sample_count": 10,
+      "category_accuracy": 1.0,
+      "subcategory_accuracy": 0.5,
+      "mean_confidence": 0.9562,
+      "min_confidence": 0.948,
+      "max_confidence": 0.968
+    },
+    "real_photographs_combined": {
+      "sample_count": 16,
+      "category_accuracy": 1.0,
+      "subcategory_accuracy": 0.625,
+      "mean_confidence": 0.9575,
+      "min_confidence": 0.948,
+      "max_confidence": 0.968
+    },
+    "partition_3_synthetic_fixtures": {
+      "sample_count": 70,
+      "category_accuracy": 1.0,
+      "subcategory_accuracy": 0.3286,
+      "mean_confidence": 0.8598,
+      "min_confidence": 0.6,
+      "max_confidence": 0.967
+    },
+    "partition_4_external_holdout": {
+      "sample_count": 0,
+      "status": "NOT_ASSEMBLED_BLOCKED",
+      "reason": "No unconstrained photographic holdout dataset exists on disk."
+    },
+    "all_samples_combined": {
+      "sample_count": 86,
+      "category_accuracy": 1.0,
+      "subcategory_accuracy": 0.3837,
+      "mean_confidence": 0.878,
+      "min_confidence": 0.6,
+      "max_confidence": 0.968
+    }
+  },
+  "macro_performance": {
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0
+  },
+  "per_class_performance": {
+    "tops": {
+      "support": 20,
+      "true_positives": 20,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "outerwear": {
+      "support": 12,
+      "true_positives": 12,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "bottoms": {
+      "support": 12,
+      "true_positives": 12,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "dresses_and_skirts": {
+      "support": 12,
+      "true_positives": 12,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "footwear": {
+      "support": 10,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "traditional": {
+      "support": 10,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "accessories": {
+      "support": 10,
+      "true_positives": 10,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "confusion_matrix": {
+    "tops": {
+      "tops": 20,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "outerwear": {
+      "tops": 0,
+      "outerwear": 12,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "bottoms": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 12,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "dresses_and_skirts": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 12,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "footwear": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 10,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "traditional": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 10,
+      "accessories": 0
+    },
+    "accessories": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 10
+    }
+  },
+  "footwear_evaluation": {
+    "footwear_samples": 10,
+    "non_footwear_samples": 76,
+    "footwear_true_positives": 10,
+    "footwear_false_negatives": 0,
+    "footwear_false_positives": 0,
+    "footwear_false_positive_rate": 0.0,
+    "footwear_false_negative_rate": 0.0
+  },
+  "uncertainty_status_distribution": {
+    "CONFIDENT": {
+      "count": 75,
+      "percentage": 87.21
+    },
+    "LOW_CONFIDENCE": {
+      "count": 11,
+      "percentage": 12.79
+    },
+    "AMBIGUOUS": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "UNSUPPORTED": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "expected_calibration_error": {
+    "ece": 0.122,
+    "num_bins": 10,
+    "bin_details": [
+      {
+        "bin_index": 1,
+        "range": "[0.0, 0.1]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 2,
+        "range": "[0.1, 0.2]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 3,
+        "range": "[0.2, 0.3]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 4,
+        "range": "[0.3, 0.4]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 5,
+        "range": "[0.4, 0.5]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 6,
+        "range": "[0.5, 0.6]",
+        "sample_count": 10,
+        "accuracy": 1.0,
+        "confidence": 0.6,
+        "absolute_calibration_error": 0.4
+      },
+      {
+        "bin_index": 7,
+        "range": "[0.6, 0.7]",
+        "sample_count": 2,
+        "accuracy": 1.0,
+        "confidence": 0.6655,
+        "absolute_calibration_error": 0.3345
+      },
+      {
+        "bin_index": 8,
+        "range": "[0.7, 0.8]",
+        "sample_count": 10,
+        "accuracy": 1.0,
+        "confidence": 0.7417,
+        "absolute_calibration_error": 0.2583
+      },
+      {
+        "bin_index": 9,
+        "range": "[0.8, 0.9]",
+        "sample_count": 0,
+        "accuracy": null,
+        "confidence": null,
+        "absolute_calibration_error": 0.0
+      },
+      {
+        "bin_index": 10,
+        "range": "[0.9, 1.0]",
+        "sample_count": 64,
+        "accuracy": 1.0,
+        "confidence": 0.9494,
+        "absolute_calibration_error": 0.0506
+      }
+    ]
+  },
+  "data_duplication_findings": {
+    "total_photographic_records": 16,
+    "unique_photographic_images": 11,
+    "duplicate_photographic_pairs": 5,
+    "duplicate_pairs_list": [
+      [
+        "REAL_P12_REF_A_HOODIE",
+        "REAL_ONBODY_01_HOODIE"
+      ],
+      [
+        "REAL_P12_REF_B_GRAPHIC_TSHIRT",
+        "REAL_ONBODY_02_OVERSIZED_TSHIRT"
+      ],
+      [
+        "REAL_P12_REF_D_DENIM_JACKET",
+        "REAL_ONBODY_04_BLAZER"
+      ],
+      [
+        "REAL_P12_REF_E_TROUSERS_JEANS",
+        "REAL_ONBODY_05_TROUSERS"
+      ],
+      [
+        "REAL_P12_REF_F_FLORAL_DRESS",
+        "REAL_ONBODY_06_DRESS"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,1713 @@
+{
+  "metadata": {
+    "phase": "14.8",
+    "workstream": "Workstream F: Avatar Fitting & Natural Drape Evaluation",
+    "evaluated_assets": 30,
+    "generated_at": "2026-11-19 16:39:52 UTC",
+    "elapsed_seconds": 12.24,
+    "verdict": "PASS_WITH_QUALIFICATIONS"
+  },
+  "summary": {
+    "mean_initial_penetration_rate_pct": 29.96,
+    "mean_post_pushout_penetration_rate_pct": 0.44,
+    "mean_clearance_ease_mm": 22.69,
+    "post_pushout_penetration_target_met": false,
+    "collision_resolution_stability": "100.0% stable across all 4 motion clips"
+  },
+  "archetypes": {
+    "standard_175": {
+      "mean_initial_penetration_pct": 28.51,
+      "mean_post_pushout_penetration_pct": 0.56,
+      "mean_clearance_ease_mm": 23.23
+    },
+    "athletic_broad": {
+      "mean_initial_penetration_pct": 31.85,
+      "mean_post_pushout_penetration_pct": 0.5,
+      "mean_clearance_ease_mm": 22.2
+    },
+    "slim_lean": {
+      "mean_initial_penetration_pct": 26.68,
+      "mean_post_pushout_penetration_pct": 0.66,
+      "mean_clearance_ease_mm": 27.15
+    },
+    "plus_curvy": {
+      "mean_initial_penetration_pct": 32.81,
+      "mean_post_pushout_penetration_pct": 0.05,
+      "mean_clearance_ease_mm": 18.17
+    }
+  },
+  "motion_clips": {
+    "bind_a_pose": {
+      "name": "Static Canonical A-Pose (Resting)",
+      "mean_initial_penetration_pct": 28.51,
+      "mean_post_penetration_pct": 0.0
+    },
+    "walking_stride": {
+      "name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+      "mean_initial_penetration_pct": 27.43,
+      "mean_post_penetration_pct": 0.0
+    },
+    "arms_raised": {
+      "name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+      "mean_initial_penetration_pct": 26.9,
+      "mean_post_penetration_pct": 0.0
+    },
+    "torso_turn": {
+      "name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+      "mean_initial_penetration_pct": 27.61,
+      "mean_post_penetration_pct": 0.0
+    }
+  },
+  "evaluations": [
+    {
+      "asset_index": 1,
+      "identity_id": "fp_tr_23_obj03",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 27.47,
+          "post_pushout_penetration_rate_pct": 1.04,
+          "mean_clearance_ease_mm": 29.81
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 24.87,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 38.98
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 31.12,
+          "post_pushout_penetration_rate_pct": 1.3,
+          "mean_clearance_ease_mm": 24.65
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 32.03,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 20.74
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 27.47,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7253
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 28.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7188
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 28.65,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7135
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 28.39,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7161
+        }
+      }
+    },
+    {
+      "asset_index": 2,
+      "identity_id": "fp_val_13331_obj00",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 39.15,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 9.31
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 49.72,
+          "post_pushout_penetration_rate_pct": 1.19,
+          "mean_clearance_ease_mm": 1.89
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 33.73,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 16.28
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 36.4,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 9.3
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 39.15,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6085
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 34.74,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6526
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 33.55,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6645
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 34.56,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6544
+        }
+      }
+    },
+    {
+      "asset_index": 3,
+      "identity_id": "fp_val_13331_obj03",
+      "category": "bottoms",
+      "subcategory": "chinos",
+      "vertex_count": 704,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 41.62,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 2.97
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 38.07,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 4.78
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 38.49,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 7.61
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 46.73,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 2.61
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 41.62,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5838
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 45.17,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5483
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 43.47,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5653
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 44.74,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5526
+        }
+      }
+    },
+    {
+      "asset_index": 4,
+      "identity_id": "p13_tr_acc_scarf_11",
+      "category": "accessories",
+      "subcategory": "scarf",
+      "vertex_count": 128,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 33.41
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 14.06,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 15.63
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 46.51
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 56.25,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -2.84
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        }
+      }
+    },
+    {
+      "asset_index": 5,
+      "identity_id": "fp_val_11925_obj00",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 37.59,
+          "post_pushout_penetration_rate_pct": 1.75,
+          "mean_clearance_ease_mm": 11.06
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 39.98,
+          "post_pushout_penetration_rate_pct": 1.75,
+          "mean_clearance_ease_mm": 9.52
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 39.34,
+          "post_pushout_penetration_rate_pct": 2.39,
+          "mean_clearance_ease_mm": 13.39
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 31.53,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 16.31
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 37.59,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6241
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 33.82,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6618
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 33.09,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6691
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 34.38,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6562
+        }
+      }
+    },
+    {
+      "asset_index": 6,
+      "identity_id": "fp_val_11925_obj04",
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 16.15,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 59.03
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 18.75,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 57.26
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 10.42,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 68.49
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 12.5,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 52.05
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 16.15,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8385
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 15.89,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8411
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 15.49,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8451
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 16.54,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8346
+        }
+      }
+    },
+    {
+      "asset_index": 7,
+      "identity_id": "fp_tr_43_obj04",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 28.12,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 25.27
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 30.08,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 26.52
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 20.96,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 34.93
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 23.31,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 29.06
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 28.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7188
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 26.3,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.737
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 25.65,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7435
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 26.17,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7383
+        }
+      }
+    },
+    {
+      "asset_index": 8,
+      "identity_id": "fp_tr_1147_obj03",
+      "category": "skirt",
+      "subcategory": "mini_skirt",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 31.12,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 44.78
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 18.62,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 50.89
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 15.89,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 47.07
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 14.71,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 38.46
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 31.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6888
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 31.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6888
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 31.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6888
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 31.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6888
+        }
+      }
+    },
+    {
+      "asset_index": 9,
+      "identity_id": "fp_tr_1147_obj04",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 35.66,
+          "post_pushout_penetration_rate_pct": 1.1,
+          "mean_clearance_ease_mm": 13.22
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 46.23,
+          "post_pushout_penetration_rate_pct": 1.47,
+          "mean_clearance_ease_mm": 5.96
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 33.64,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 16.02
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 32.26,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 13.19
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 35.66,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6434
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 30.06,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6994
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 30.51,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6949
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 30.33,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6967
+        }
+      }
+    },
+    {
+      "asset_index": 10,
+      "identity_id": "fp_tr_44_obj00",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 25.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 36.6
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 27.08,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 35.45
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 19.53,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 44.14
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 18.49,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 40.03
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 25.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.75
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 23.05,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7695
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 22.92,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7708
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 23.18,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7682
+        }
+      }
+    },
+    {
+      "asset_index": 11,
+      "identity_id": "fp_tr_904_obj03",
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "vertex_count": 704,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 43.89,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 1.83
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 41.19,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 3.37
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 39.49,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 5.99
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 47.44,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 1.83
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 43.89,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5611
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 47.44,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5256
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 45.88,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5412
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 46.88,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5312
+        }
+      }
+    },
+    {
+      "asset_index": 12,
+      "identity_id": "fp_tr_904_obj05",
+      "category": "shirt",
+      "subcategory": "casual_shirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 34.28,
+          "post_pushout_penetration_rate_pct": 1.65,
+          "mean_clearance_ease_mm": 12.58
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 40.26,
+          "post_pushout_penetration_rate_pct": 2.02,
+          "mean_clearance_ease_mm": 10.43
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 36.49,
+          "post_pushout_penetration_rate_pct": 2.39,
+          "mean_clearance_ease_mm": 15.95
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 29.6,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 16.25
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 34.28,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6572
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 31.8,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.682
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 30.61,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6939
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 31.07,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6893
+        }
+      }
+    },
+    {
+      "asset_index": 13,
+      "identity_id": "p13_p13_9_acc_cap_03",
+      "category": "accessories",
+      "subcategory": "cap",
+      "vertex_count": 128,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 33.41
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 14.06,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 15.63
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 46.51
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 56.25,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -2.84
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        }
+      }
+    },
+    {
+      "asset_index": 14,
+      "identity_id": "fp_val_10645_obj02",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 24.87,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 30.66
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 20.57,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 42.11
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 31.38,
+          "post_pushout_penetration_rate_pct": 1.56,
+          "mean_clearance_ease_mm": 23.51
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 30.47,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 23.57
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 24.87,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7513
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 24.09,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7591
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 24.22,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7578
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 24.87,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7513
+        }
+      }
+    },
+    {
+      "asset_index": 15,
+      "identity_id": "fp_tr_1945_obj02",
+      "category": "tops",
+      "subcategory": "tshirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 35.02,
+          "post_pushout_penetration_rate_pct": 1.47,
+          "mean_clearance_ease_mm": 13.44
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 39.52,
+          "post_pushout_penetration_rate_pct": 1.65,
+          "mean_clearance_ease_mm": 9.47
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 34.19,
+          "post_pushout_penetration_rate_pct": 2.3,
+          "mean_clearance_ease_mm": 16.12
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 31.99,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 15.14
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 35.02,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6498
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 33.55,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6645
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 32.72,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6728
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 33.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.67
+        }
+      }
+    },
+    {
+      "asset_index": 16,
+      "identity_id": "fp_tr_1945_obj05",
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "vertex_count": 704,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 40.48,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -1.07
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 53.12,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -5.57
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 37.22,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 7.56
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 60.65,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -11.26
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 40.48,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5952
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 45.31,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5469
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 41.9,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.581
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 46.73,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5327
+        }
+      }
+    },
+    {
+      "asset_index": 17,
+      "identity_id": "fp_val_10362_obj02",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 27.21,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 29.0
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 29.95,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 30.95
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 18.1,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 39.34
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 22.01,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 33.11
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 27.21,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7279
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 24.35,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7565
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 24.61,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7539
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 25.13,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7487
+        }
+      }
+    },
+    {
+      "asset_index": 18,
+      "identity_id": "fp_tr_1654_obj00",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 23.31,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 37.49
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 25.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 37.37
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 19.01,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 45.73
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 17.19,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 39.85
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 23.31,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7669
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 22.4,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.776
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 22.27,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7773
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 22.4,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.776
+        }
+      }
+    },
+    {
+      "asset_index": 19,
+      "identity_id": "fp_val_8980_obj03",
+      "category": "tops",
+      "subcategory": "polo_shirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 36.31,
+          "post_pushout_penetration_rate_pct": 2.02,
+          "mean_clearance_ease_mm": 10.31
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 38.97,
+          "post_pushout_penetration_rate_pct": 1.29,
+          "mean_clearance_ease_mm": 10.28
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 36.86,
+          "post_pushout_penetration_rate_pct": 3.03,
+          "mean_clearance_ease_mm": 13.6
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 34.83,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 12.98
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 36.31,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6369
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 34.28,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6572
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 32.54,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6746
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 34.01,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6599
+        }
+      }
+    },
+    {
+      "asset_index": 20,
+      "identity_id": "fp_tr_921_obj02",
+      "category": "tops",
+      "subcategory": "tank_top",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 32.35,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 15.78
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 43.57,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 10.4
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 28.49,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 21.62
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 30.06,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 14.03
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 32.35,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6765
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 27.85,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7215
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 27.57,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7243
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 28.12,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7188
+        }
+      }
+    },
+    {
+      "asset_index": 21,
+      "identity_id": "fp_tr_921_obj03",
+      "category": "bottoms",
+      "subcategory": "slim_jeans",
+      "vertex_count": 704,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 41.62,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 3.69
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 38.35,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 5.89
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 37.64,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 8.64
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 46.31,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 3.37
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 41.62,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5838
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 44.32,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5568
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 43.61,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5639
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 45.03,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5497
+        }
+      }
+    },
+    {
+      "asset_index": 22,
+      "identity_id": "fp_val_17854_obj00",
+      "category": "dress",
+      "subcategory": "shift_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 30.34,
+          "post_pushout_penetration_rate_pct": 1.56,
+          "mean_clearance_ease_mm": 25.45
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 27.6,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 36.78
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 36.85,
+          "post_pushout_penetration_rate_pct": 1.3,
+          "mean_clearance_ease_mm": 20.46
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 34.9,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 21.28
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 30.34,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6966
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 29.04,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7096
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 28.52,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7148
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 30.08,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6992
+        }
+      }
+    },
+    {
+      "asset_index": 23,
+      "identity_id": "p13_tr_shirt_formal_08",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 37.13,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 12.01
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 46.32,
+          "post_pushout_penetration_rate_pct": 1.1,
+          "mean_clearance_ease_mm": 6.21
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 32.08,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 18.55
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 30.06,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 12.87
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 37.13,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6287
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 32.17,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6783
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 31.16,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6884
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 31.89,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6811
+        }
+      }
+    },
+    {
+      "asset_index": 24,
+      "identity_id": "fp_val_18337_obj03",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 25.65,
+          "post_pushout_penetration_rate_pct": 1.04,
+          "mean_clearance_ease_mm": 29.23
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 27.73,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 34.62
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 32.16,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 22.79
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 31.12,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 21.91
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 25.65,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7435
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 23.7,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.763
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 23.7,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.763
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 23.44,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7656
+        }
+      }
+    },
+    {
+      "asset_index": 25,
+      "identity_id": "fp_tr_796_obj03",
+      "category": "jacket",
+      "subcategory": "leather_jacket",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 35.02,
+          "post_pushout_penetration_rate_pct": 1.1,
+          "mean_clearance_ease_mm": 15.89
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 40.81,
+          "post_pushout_penetration_rate_pct": 1.01,
+          "mean_clearance_ease_mm": 10.99
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 32.26,
+          "post_pushout_penetration_rate_pct": 1.47,
+          "mean_clearance_ease_mm": 18.25
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 31.25,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 14.27
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 35.02,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6498
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 32.81,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6719
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 31.89,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6811
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 33.64,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6636
+        }
+      }
+    },
+    {
+      "asset_index": 26,
+      "identity_id": "fp_tr_796_obj04",
+      "category": "accessories",
+      "subcategory": "tote_bag",
+      "vertex_count": 128,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 33.41
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 14.06,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 15.63
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 0.0,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 46.51
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 56.25,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": -2.84
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 0.0,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 1.0
+        }
+      }
+    },
+    {
+      "asset_index": 27,
+      "identity_id": "fp_val_15604_obj02",
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 14.97,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 57.43
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 8.33,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 65.0
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 13.67,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 47.71
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 8.33,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 40.84
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 14.97,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8503
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 14.97,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8503
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 14.97,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8503
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 14.97,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.8503
+        }
+      }
+    },
+    {
+      "asset_index": 28,
+      "identity_id": "fp_val_15604_obj06",
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "vertex_count": 1088,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 40.35,
+          "post_pushout_penetration_rate_pct": 2.94,
+          "mean_clearance_ease_mm": 5.8
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 45.96,
+          "post_pushout_penetration_rate_pct": 3.49,
+          "mean_clearance_ease_mm": 7.32
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 38.33,
+          "post_pushout_penetration_rate_pct": 2.39,
+          "mean_clearance_ease_mm": 11.26
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 29.6,
+          "post_pushout_penetration_rate_pct": 1.47,
+          "mean_clearance_ease_mm": 11.67
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 40.35,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.5965
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 36.31,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6369
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 36.86,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6314
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 36.95,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.6305
+        }
+      }
+    },
+    {
+      "asset_index": 29,
+      "identity_id": "fp_val_16343_obj00",
+      "category": "dress",
+      "subcategory": "maxi_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 24.87,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 35.75
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 28.65,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 35.03
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 19.66,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 44.43
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 19.53,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 39.36
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 24.87,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7513
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 24.09,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7591
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 22.53,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7747
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 24.09,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7591
+        }
+      }
+    },
+    {
+      "asset_index": 30,
+      "identity_id": "fp_tr_594_obj00",
+      "category": "dress",
+      "subcategory": "bodycon_dress",
+      "vertex_count": 768,
+      "archetype_results": {
+        "standard_175": {
+          "initial_penetration_rate_pct": 25.78,
+          "post_pushout_penetration_rate_pct": 1.04,
+          "mean_clearance_ease_mm": 29.37
+        },
+        "athletic_broad": {
+          "initial_penetration_rate_pct": 24.09,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 37.08
+        },
+        "slim_lean": {
+          "initial_penetration_rate_pct": 33.46,
+          "post_pushout_penetration_rate_pct": 1.56,
+          "mean_clearance_ease_mm": 21.01
+        },
+        "plus_curvy": {
+          "initial_penetration_rate_pct": 32.29,
+          "post_pushout_penetration_rate_pct": 0.0,
+          "mean_clearance_ease_mm": 20.93
+        }
+      },
+      "motion_clip_results": {
+        "bind_a_pose": {
+          "clip_name": "Static Canonical A-Pose (Resting)",
+          "initial_penetration_pct": 25.78,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7422
+        },
+        "walking_stride": {
+          "clip_name": "Walking Stride Cycle (Hip & Knee Flexion \u00b125\u00b0)",
+          "initial_penetration_pct": 26.04,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7396
+        },
+        "arms_raised": {
+          "clip_name": "Arm Movement / Abduction (Shoulder Abduction 70\u00b0)",
+          "initial_penetration_pct": 27.08,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7292
+        },
+        "torso_turn": {
+          "clip_name": "Torso Twist / Bending (Spine Yaw \u00b120\u00b0)",
+          "initial_penetration_pct": 26.56,
+          "post_resolution_penetration_pct": 0.0,
+          "stability_score": 0.7344
+        }
+      }
+    }
+  ]
+}

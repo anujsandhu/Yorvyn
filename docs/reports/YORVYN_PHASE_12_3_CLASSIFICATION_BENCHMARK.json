@@ -1,0 +1,471 @@
+{
+  "benchmark_version": "1.0.0",
+  "phase": "12.3",
+  "description": "Yorvyn Garment Classification Generalization & Taxonomy Hardening Benchmark",
+  "evaluation_date": "2026-11-08",
+  "summary": {
+    "total_holdout_samples": 70,
+    "top1_accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "expected_calibration_error_ece": 0.1402,
+    "ambiguity_rate": 0.0,
+    "low_confidence_rate": 0.1571,
+    "footwear_false_positive_rate_on_non_footwear": 0.0
+  },
+  "per_class_metrics": {
+    "tops": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "outerwear": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "bottoms": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "dresses_and_skirts": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "footwear": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "traditional": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    },
+    "accessories": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 10
+    }
+  },
+  "confusion_matrix": {
+    "tops": {
+      "tops": 10,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "outerwear": {
+      "tops": 0,
+      "outerwear": 10,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "bottoms": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 10,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "dresses_and_skirts": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 10,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "footwear": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 10,
+      "traditional": 0,
+      "accessories": 0
+    },
+    "traditional": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 10,
+      "accessories": 0
+    },
+    "accessories": {
+      "tops": 0,
+      "outerwear": 0,
+      "bottoms": 0,
+      "dresses_and_skirts": 0,
+      "footwear": 0,
+      "traditional": 0,
+      "accessories": 10
+    }
+  },
+  "uncertainty_breakdown": {
+    "CONFIDENT": 59,
+    "LOW_CONFIDENCE": 11,
+    "AMBIGUOUS": 0,
+    "UNSUPPORTED": 0
+  },
+  "calibration_curve_bins": [
+    {
+      "bin_range": [
+        0.5,
+        0.6
+      ],
+      "count": 10,
+      "accuracy": 1.0,
+      "mean_confidence": 0.6,
+      "calibration_gap": 0.4
+    },
+    {
+      "bin_range": [
+        0.6,
+        0.7
+      ],
+      "count": 2,
+      "accuracy": 1.0,
+      "mean_confidence": 0.6655,
+      "calibration_gap": 0.3345
+    },
+    {
+      "bin_range": [
+        0.7,
+        0.8
+      ],
+      "count": 10,
+      "accuracy": 1.0,
+      "mean_confidence": 0.7417,
+      "calibration_gap": 0.2583
+    },
+    {
+      "bin_range": [
+        0.9,
+        1.0
+      ],
+      "count": 48,
+      "accuracy": 1.0,
+      "mean_confidence": 0.9466,
+      "calibration_gap": 0.0534
+    }
+  ],
+  "samples": [
+    {
+      "id": "holdout_000",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tshirt",
+      "image_type": "isolated_product",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.934,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front button placket indicates formal/casual shirt"
+      ]
+    },
+    {
+      "id": "holdout_001",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "graphic_tshirt",
+      "image_type": "flat_lay",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.934,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front button placket indicates formal/casual shirt"
+      ]
+    },
+    {
+      "id": "holdout_002",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "hoodie",
+      "image_type": "on_body",
+      "predicted_category": "tops",
+      "predicted_subcategory": "hoodie",
+      "confidence": 0.967,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Volumetric hood or kangaroo pocket confirmed"
+      ]
+    },
+    {
+      "id": "holdout_003",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "zip_hoodie",
+      "image_type": "cropped",
+      "predicted_category": "tops",
+      "predicted_subcategory": "hoodie",
+      "confidence": 0.967,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Volumetric hood or kangaroo pocket confirmed"
+      ]
+    },
+    {
+      "id": "holdout_004",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "formal_shirt",
+      "image_type": "isolated_product",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.934,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front button placket indicates formal/casual shirt"
+      ]
+    },
+    {
+      "id": "holdout_005",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "oxford_shirt",
+      "image_type": "flat_lay",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.934,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front button placket indicates formal/casual shirt"
+      ]
+    },
+    {
+      "id": "holdout_006",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "polo_shirt",
+      "image_type": "on_body",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.934,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front button placket indicates formal/casual shirt"
+      ]
+    },
+    {
+      "id": "holdout_007",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "sweater",
+      "image_type": "cropped",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.747,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms"
+      ]
+    },
+    {
+      "id": "holdout_008",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tank_top",
+      "image_type": "isolated_product",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.724,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": []
+    },
+    {
+      "id": "holdout_009",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "crop_top",
+      "image_type": "flat_lay",
+      "predicted_category": "tops",
+      "predicted_subcategory": "tshirt",
+      "confidence": 0.747,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms"
+      ]
+    },
+    {
+      "id": "holdout_010",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "denim_jacket",
+      "image_type": "on_body",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_011",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "leather_jacket",
+      "image_type": "cropped",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_012",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "bomber_jacket",
+      "image_type": "isolated_product",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_013",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "blazer",
+      "image_type": "flat_lay",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_014",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "cardigan",
+      "image_type": "on_body",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_015",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "formal_coat",
+      "image_type": "cropped",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_016",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "puffer_jacket",
+      "image_type": "isolated_product",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_017",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "windbreaker",
+      "image_type": "flat_lay",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_018",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "jacket",
+      "image_type": "on_body",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    },
+    {
+      "id": "holdout_019",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "trench_coat",
+      "image_type": "cropped",
+      "predicted_category": "outerwear",
+      "predicted_subcategory": "denim_jacket",
+      "confidence": 0.943,
+      "uncertainty_status": "CONFIDENT",
+      "correct": true,
+      "reasoning_signals": [
+        "Upper span (1.00) or upper landmarks veto bottoms",
+        "Front placket and outerwear prior indicate jacket"
+      ]
+    }
+  ]
+}

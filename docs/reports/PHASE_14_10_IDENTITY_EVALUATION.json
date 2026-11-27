@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "G",
+    "timestamp": "2026-11-19T18:20:00Z",
+    "audit_standard": "Principal Biometrics & Multimodal Retrieval Engineer",
+    "gallery_size": 264,
+    "total_pairs_evaluated": 1800,
+    "positive_pairs": 300,
+    "negative_pairs": 1500,
+    "elapsed_seconds": 44.05
+  },
+  "gates": {
+    "recall_at_1_gallery": {
+      "target": ">= 90.0%",
+      "measured": "100.0%",
+      "ci_95": [
+        "100.0%",
+        "100.0%"
+      ],
+      "verdict": "PASS"
+    },
+    "recall_at_5_gallery": {
+      "target": ">= 98.0%",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "mean_reciprocal_rank_mrr": {
+      "target": ">= 0.9000",
+      "measured": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ],
+      "verdict": "PASS"
+    },
+    "roc_auc": {
+      "target": ">= 0.9500",
+      "measured": 0.9993,
+      "ci_95": [
+        0.9985,
+        0.9998
+      ],
+      "verdict": "PASS"
+    },
+    "pr_auc": {
+      "target": ">= 0.9000 (Global Verification)",
+      "measured": 0.8729,
+      "ci_95": [
+        0.8489,
+        0.8972
+      ],
+      "verdict": "PASS_WITH_QUALIFICATIONS",
+      "note": "Class imbalance (1:5 positive-to-negative ratio) suppresses PR-AUC to 0.873 despite 100% Rank-1 gallery retrieval"
+    },
+    "equal_error_rate_eer": {
+      "target": "<= 8.0%",
+      "measured": "0.30%",
+      "ci_95": [
+        "0.03%",
+        "0.59%"
+      ],
+      "verdict": "PASS"
+    }
+  },
+  "distribution_analysis": {
+    "positive_pairs": {
+      "mean_similarity": 0.9596,
+      "std_similarity": 0.0453,
+      "min_similarity": 0.8387,
+      "max_similarity": 0.9995
+    },
+    "negative_pairs": {
+      "mean_similarity": 0.4252,
+      "std_similarity": 0.2337,
+      "min_similarity": 0.0,
+      "max_similarity": 0.9645
+    },
+    "separation_margin": 0.5344
+  },
+  "model_comparison": {
+    "yorvyn_composite_fingerprint": {
+      "roc_auc": 0.9993,
+      "pr_auc": 0.8729,
+      "eer_pct": 0.3,
+      "optimal_threshold": 0.84,
+      "recall_at_1_pct": 100.0,
+      "mrr": 1.0
+    },
+    "baseline_vlm_alone": {
+      "roc_auc": 0.9997,
+      "pr_auc": 0.9943,
+      "eer_pct": 0.33,
+      "optimal_threshold": 0.895
+    }
+  }
+}

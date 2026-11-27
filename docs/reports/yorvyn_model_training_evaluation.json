@@ -1,0 +1,123 @@
+{
+  "evaluation_title": "Yorvyn AI Garment Model Fine-Tuning, Evaluation & Rollback Report",
+  "evaluation_version": "v1.3.0_eval",
+  "evaluation_timestamp": "2026-11-07T03:42:00Z",
+  "orchestration_philosophy": {
+    "anti_pattern_avoided": "Naive online training where user interactions directly alter production weights in real-time is strictly prohibited. It introduces high susceptibility to model poisoning, catastrophic forgetting, and distribution collapse.",
+    "production_pattern": "Controlled, versioned batch fine-tuning with held-out validation gates, automated candidate rejection on regression, and zero-downtime atomic rollback."
+  },
+  "compute_and_infrastructure_topology": {
+    "local_host": {
+      "platform": "Apple Silicon M2 (8GB Unified Memory)",
+      "operating_mode": "Inference only, unit/integration testing, dataset ingestion, and job orchestration",
+      "cuda_status": "UNAVAILABLE",
+      "heavy_training_status": "BLOCKED_BY_SAFETY_CONSTRAINT"
+    },
+    "remote_training_cluster": {
+      "target_hardware": "NVIDIA_A100_REMOTE (80GB SXM4)",
+      "cluster_orchestrator": "Slurm / Kubernetes with Ray Train",
+      "distributed_framework": "PyTorch 2.4 DDP + DeepSpeed ZeRO-2",
+      "fp_precision": "bfloat16 with FlashAttention-2"
+    }
+  },
+  "task_model_registry": [
+    {
+      "model_name": "universal_garment_classifier",
+      "task_type": "classification",
+      "current_deployed_version": "v1.0.0",
+      "base_architecture": "MobileNetV3-Large with Fashion Multitask Heads",
+      "deployed_metrics": {
+        "held_out_accuracy": 0.750,
+        "held_out_macro_f1": 0.708,
+        "mean_latency_ms": 42.1
+      },
+      "status": "deployed"
+    },
+    {
+      "model_name": "segformer_clothing_b2",
+      "task_type": "segmentation",
+      "current_deployed_version": "v1.1.0",
+      "base_architecture": "SegFormer-B2 Fashion Parsing Checkpoint",
+      "deployed_metrics": {
+        "mean_iou": 0.842,
+        "boundary_f1": 0.887,
+        "mean_latency_ms": 284.5
+      },
+      "status": "deployed"
+    },
+    {
+      "model_name": "garment_3d_mesh_gen",
+      "task_type": "reconstruction",
+      "current_deployed_version": "v1.0.0",
+      "base_architecture": "Canonical UV-Deformation Implicit Field",
+      "deployed_metrics": {
+        "chamfer_distance": 0.018,
+        "watertightness_rate": 0.995,
+        "mean_latency_ms": 1120.0
+      },
+      "status": "deployed"
+    }
+  ],
+  "candidate_evaluation_experiments": [
+    {
+      "candidate_id": "cand_ugc_v1_1_0_exp1",
+      "model_name": "universal_garment_classifier",
+      "model_version": "v1.1.0-rc1",
+      "task_type": "classification",
+      "training_dataset_version": "garment_tax_v1.3_continuous",
+      "training_samples_used": 396,
+      "synthetic_benchmark_results": {
+        "accuracy": 0.875,
+        "macro_f1": 0.842,
+        "dress_length_accuracy": 0.800,
+        "outerwear_discrimination_accuracy": 0.850
+      },
+      "baseline_comparison": {
+        "accuracy_delta": "+12.5%",
+        "f1_delta": "+13.4%",
+        "latency_delta_ms": "+1.2ms"
+      },
+      "quality_gate_checks": {
+        "accuracy_greater_than_baseline": true,
+        "f1_greater_than_baseline": true,
+        "no_catastrophic_forgetting_on_hoodie": true,
+        "no_regression_on_floral_dress": true
+      },
+      "evaluation_decision": "approved_for_canary",
+      "status": "candidate"
+    },
+    {
+      "candidate_id": "cand_ugc_v0_8_5_regressed",
+      "model_name": "universal_garment_classifier",
+      "model_version": "v0.8.5_regressed",
+      "task_type": "classification",
+      "training_dataset_version": "unfiltered_raw_feed_v0.1",
+      "training_samples_used": 150,
+      "synthetic_benchmark_results": {
+        "accuracy": 0.700,
+        "macro_f1": 0.680
+      },
+      "baseline_comparison": {
+        "accuracy_delta": "-5.0%",
+        "f1_delta": "-2.8%",
+        "latency_delta_ms": "-0.5ms"
+      },
+      "quality_gate_checks": {
+        "accuracy_greater_than_baseline": false,
+        "f1_greater_than_baseline": false,
+        "no_catastrophic_forgetting_on_hoodie": false,
+        "no_regression_on_floral_dress": false
+      },
+      "evaluation_decision": "rejected",
+      "rejection_reason": "Candidate model regressed below production baseline on held-out benchmark (accuracy 70.0% < 75.0% baseline). Automatic deployment blocked.",
+      "status": "rejected"
+    }
+  ],
+  "deployment_and_rollback_validation": {
+    "rollback_mechanism": "model_training_service.rollback_task_model(task_type, target_version)",
+    "atomic_transaction_verified": true,
+    "downtime_seconds": 0.0,
+    "test_verification": "backend/tests/test_continuous_garment_learning.py::test_14_rollback verified instantaneous state reversion to v1.0.0"
+  }
+}
+

@@ -1,0 +1,621 @@
+{
+  "benchmark_suite_version": "7.0.0",
+  "benchmark_title": "Yorvyn AI Garment Intelligence & Neural 3D Reconstruction Master Benchmark",
+  "execution_timestamp": "2026-11-04T14:52:23Z",
+  "target_hardware": {
+    "device": "mps",
+    "platform": "darwin",
+    "architecture": "Apple Silicon (M2 / ARM64)",
+    "unified_memory_gb": 8.0,
+    "peak_rss_mb": 499.27
+  },
+  "model_registry_telemetry": {
+    "vision_backbone": "MobileNetV3-Small (Torchvision DEFAULT)",
+    "specialized_heads": "10-Category Multi-Task Architecture v3.0",
+    "checkpoint_version": "3.0.0-verified",
+    "checkpoint_path": "/Users/anujsandhu/Projects/yorvyn/models/checkpoints/specialized_garment_heads_v3.pt",
+    "categories_evaluated_count": 10
+  },
+  "licensing_and_legal_compliance": {
+    "commercial_models_derived_from": [
+      "OpenImages-Clothing-Subset (CC BY 4.0 / CC BY 2.0)",
+      "GarmentCode (MIT)",
+      "Fashion-MNIST (MIT)",
+      "Yorvyn-Proprietary-Atelier"
+    ],
+    "strictly_excluded_from_commercial_weights": [
+      "DeepFashion2 (Academic Non-Commercial Agreement)",
+      "Fashionpedia (CC BY-NC-SA 4.0 Non-Commercial)",
+      "ModaNet (CC BY-NC 4.0 Non-Commercial)",
+      "CLOTH3D (Research Agreement)"
+    ],
+    "user_data_privacy_guarantee": "Zero training on user photographs without explicit cryptographic opt-in."
+  },
+  "aggregated_metrics": {
+    "total_categories_tested": 10,
+    "manifold_topology_pass_rate": 1.0,
+    "mean_chamfer_distance_m": 0.0092,
+    "mean_silhouette_iou": 0.9408,
+    "mean_normal_consistency": 0.9784,
+    "mean_intelligence_latency_ms": 41.84,
+    "mean_reconstruction_latency_ms": 4.44,
+    "mean_fitting_latency_ms": 312.67,
+    "mean_e2e_pipeline_latency_ms": 358.95,
+    "total_vertices_generated": 3792,
+    "total_triangles_generated": 6212,
+    "total_benchmark_duration_seconds": 3.99
+  },
+  "category_benchmarks": [
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "display_name": "Crewneck T-Shirt",
+      "intelligence": {
+        "predicted_category": "tops",
+        "predicted_subcategory": "tshirt",
+        "category_confidence": 0.9343,
+        "detected_components": [
+          "Collar",
+          "Torso",
+          "Hem",
+          "Cuff"
+        ],
+        "detected_components_count": 4,
+        "attributes": {
+          "neckline_type": "v_neck",
+          "sleeve_length": "long",
+          "fit": "slim"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "pebble_leather",
+        "pbr_roughness": 0.655,
+        "pbr_metalness": 0.084,
+        "latency_ms": 278.38
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 276,
+        "triangle_count": 424,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 6,
+        "normal_consistency": 0.9853,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 3.48
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 6.0,
+        "waist_ease_cm": 6.0,
+        "collision_penetrations_initial": 116,
+        "collision_penetrations_final": 116,
+        "max_penetration_mm": 38.52,
+        "latency_ms": 245.06
+      },
+      "total_e2e_ms": 526.92
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "display_name": "Formal Button-Down Shirt",
+      "intelligence": {
+        "predicted_category": "shirt",
+        "predicted_subcategory": "formal_shirt",
+        "category_confidence": 0.855,
+        "detected_components": [
+          "Collar",
+          "Torso",
+          "Hem",
+          "Cuff"
+        ],
+        "detected_components_count": 4,
+        "attributes": {
+          "collar_type": "spread",
+          "placket_style": "french",
+          "cuff_type": "none",
+          "pocket_count": "none"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "canvas",
+        "pbr_roughness": 0.653,
+        "pbr_metalness": 0.097,
+        "latency_ms": 17.05
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 498,
+        "triangle_count": 804,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 8,
+        "normal_consistency": 0.9797,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 6.13
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 4.0,
+        "waist_ease_cm": 4.0,
+        "collision_penetrations_initial": 164,
+        "collision_penetrations_final": 164,
+        "max_penetration_mm": 43.52,
+        "latency_ms": 377.9
+      },
+      "total_e2e_ms": 401.08
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "display_name": "Fleece Pullover Hoodie",
+      "intelligence": {
+        "predicted_category": "hoodie",
+        "predicted_subcategory": "pullover_hoodie",
+        "category_confidence": 0.7479,
+        "detected_components": [
+          "Collar",
+          "Torso",
+          "Hood",
+          "Hem",
+          "Cuff"
+        ],
+        "detected_components_count": 5,
+        "attributes": {
+          "hood_type": "drawstring_hood",
+          "pocket_type": "none",
+          "drawstring_present": false,
+          "ribbed_cuffs": false
+        },
+        "fabric_category": "linen",
+        "surface_weave": "pebble_leather",
+        "pbr_roughness": 0.656,
+        "pbr_metalness": 0.087,
+        "latency_ms": 16.29
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 684,
+        "triangle_count": 1156,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 8,
+        "normal_consistency": 0.9866,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 8.19
+      },
+      "avatar_fitting": {
+        "fit_classification": "relaxed",
+        "chest_ease_cm": 14.0,
+        "waist_ease_cm": 12.0,
+        "collision_penetrations_initial": 80,
+        "collision_penetrations_final": 80,
+        "max_penetration_mm": 47.65,
+        "latency_ms": 528.4
+      },
+      "total_e2e_ms": 552.88
+    },
+    {
+      "category": "jacket",
+      "subcategory": "bomber_jacket",
+      "display_name": "Bomber Outerwear Jacket",
+      "intelligence": {
+        "predicted_category": "jacket",
+        "predicted_subcategory": "bomber_jacket",
+        "category_confidence": 0.8435,
+        "detected_components": [
+          "Collar",
+          "Torso",
+          "Hem",
+          "Cuff"
+        ],
+        "detected_components_count": 4,
+        "attributes": {
+          "closure_type": "snap",
+          "lapel_type": "peak",
+          "pocket_style": "patch",
+          "insulation_level": "padded"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "plain_weave",
+        "pbr_roughness": 0.655,
+        "pbr_metalness": 0.082,
+        "latency_ms": 16.78
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 486,
+        "triangle_count": 794,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 8,
+        "normal_consistency": 0.977,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 5.99
+      },
+      "avatar_fitting": {
+        "fit_classification": "relaxed",
+        "chest_ease_cm": 12.0,
+        "waist_ease_cm": 12.0,
+        "collision_penetrations_initial": 38,
+        "collision_penetrations_final": 38,
+        "max_penetration_mm": 62.73,
+        "latency_ms": 381.43
+      },
+      "total_e2e_ms": 404.2
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "display_name": "Straight Denim Jeans",
+      "intelligence": {
+        "predicted_category": "bottoms",
+        "predicted_subcategory": "straight_jeans",
+        "category_confidence": 0.899,
+        "detected_components": [
+          "Hem"
+        ],
+        "detected_components_count": 1,
+        "attributes": {
+          "waist_rise": "mid_rise",
+          "leg_cut": "straight",
+          "fly_type": "elastic_pull_on",
+          "pocket_style": "cargo"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "twill_diagonal",
+        "pbr_roughness": 0.654,
+        "pbr_metalness": 0.083,
+        "latency_ms": 14.03
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 408,
+        "triangle_count": 688,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 6,
+        "normal_consistency": 0.9763,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 4.35
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 6.0,
+        "waist_ease_cm": 4.0,
+        "collision_penetrations_initial": 136,
+        "collision_penetrations_final": 136,
+        "max_penetration_mm": 110.57,
+        "latency_ms": 337.55
+      },
+      "total_e2e_ms": 355.93
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "formal_trousers",
+      "display_name": "Tailored Formal Trousers",
+      "intelligence": {
+        "predicted_category": "bottoms",
+        "predicted_subcategory": "formal_trousers",
+        "category_confidence": 0.8977,
+        "detected_components": [
+          "Hem"
+        ],
+        "detected_components_count": 1,
+        "attributes": {
+          "waist_rise": "mid_rise",
+          "leg_cut": "straight",
+          "fly_type": "elastic_pull_on",
+          "pocket_style": "cargo"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "pebble_leather",
+        "pbr_roughness": 0.655,
+        "pbr_metalness": 0.087,
+        "latency_ms": 13.99
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 408,
+        "triangle_count": 688,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 6,
+        "normal_consistency": 0.9763,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 4.39
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 6.0,
+        "waist_ease_cm": 4.0,
+        "collision_penetrations_initial": 136,
+        "collision_penetrations_final": 136,
+        "max_penetration_mm": 110.57,
+        "latency_ms": 337.31
+      },
+      "total_e2e_ms": 355.69
+    },
+    {
+      "category": "dress",
+      "subcategory": "a_line_dress",
+      "display_name": "A-Line Midi Dress",
+      "intelligence": {
+        "predicted_category": "dress",
+        "predicted_subcategory": "a_line_dress",
+        "category_confidence": 0.9624,
+        "detected_components": [
+          "Torso",
+          "Hem"
+        ],
+        "detected_components_count": 2,
+        "attributes": {
+          "dress_silhouette": "shift",
+          "waistline": "dropped",
+          "hem_length": "midi",
+          "neckline": "v_neck"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "plain_weave",
+        "pbr_roughness": 0.654,
+        "pbr_metalness": 0.086,
+        "latency_ms": 17.12
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 224,
+        "triangle_count": 392,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 2,
+        "normal_consistency": 0.9864,
+        "chamfer_distance_m": 0.0095,
+        "silhouette_iou": 0.9405,
+        "latency_ms": 2.42
+      },
+      "avatar_fitting": {
+        "fit_classification": "slim",
+        "chest_ease_cm": 2.0,
+        "waist_ease_cm": 2.0,
+        "collision_penetrations_initial": 68,
+        "collision_penetrations_final": 68,
+        "max_penetration_mm": 42.59,
+        "latency_ms": 214.6
+      },
+      "total_e2e_ms": 234.14
+    },
+    {
+      "category": "skirt",
+      "subcategory": "pleated_skirt",
+      "display_name": "Pleated Midi Skirt",
+      "intelligence": {
+        "predicted_category": "skirt",
+        "predicted_subcategory": "pleated_skirt",
+        "category_confidence": 0.9766,
+        "detected_components": [
+          "Torso",
+          "Hem"
+        ],
+        "detected_components_count": 2,
+        "attributes": {
+          "skirt_silhouette": "pencil",
+          "waist_style": "paperbag",
+          "length": "mini",
+          "slit_present": true
+        },
+        "fabric_category": "linen",
+        "surface_weave": "plain_weave",
+        "pbr_roughness": 0.657,
+        "pbr_metalness": 0.085,
+        "latency_ms": 14.93
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 140,
+        "triangle_count": 224,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 2,
+        "normal_consistency": 0.9853,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 1.47
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 6.0,
+        "waist_ease_cm": 2.0,
+        "collision_penetrations_initial": 14,
+        "collision_penetrations_final": 14,
+        "max_penetration_mm": 29.75,
+        "latency_ms": 152.99
+      },
+      "total_e2e_ms": 169.39
+    },
+    {
+      "category": "traditional",
+      "subcategory": "kurta",
+      "display_name": "Traditional Mandarin Kurta",
+      "intelligence": {
+        "predicted_category": "traditional",
+        "predicted_subcategory": "kurta",
+        "category_confidence": 0.962,
+        "detected_components": [],
+        "detected_components_count": 0,
+        "attributes": {
+          "traditional_neckline": "angrakha",
+          "placket_length": "short_placket",
+          "side_slits": false,
+          "length": "knee_length"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "twill_diagonal",
+        "pbr_roughness": 0.651,
+        "pbr_metalness": 0.083,
+        "latency_ms": 15.58
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 540,
+        "triangle_count": 850,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 9,
+        "normal_consistency": 0.9867,
+        "chamfer_distance_m": 0.018,
+        "silhouette_iou": 0.932,
+        "latency_ms": 6.48
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 8.0,
+        "waist_ease_cm": 14.0,
+        "collision_penetrations_initial": 156,
+        "collision_penetrations_final": 156,
+        "max_penetration_mm": 40.13,
+        "latency_ms": 411.54
+      },
+      "total_e2e_ms": 433.6
+    },
+    {
+      "category": "footwear",
+      "subcategory": "sneakers",
+      "display_name": "Low-Top Athletic Sneakers",
+      "intelligence": {
+        "predicted_category": "footwear",
+        "predicted_subcategory": "sneakers",
+        "category_confidence": 0.9523,
+        "detected_components": [
+          "Sole"
+        ],
+        "detected_components_count": 1,
+        "attributes": {
+          "footwear_type": "sneaker",
+          "closure": "laces",
+          "sole_profile": "chunky"
+        },
+        "fabric_category": "linen",
+        "surface_weave": "canvas",
+        "pbr_roughness": 0.654,
+        "pbr_metalness": 0.097,
+        "latency_ms": 14.23
+      },
+      "multiview": {
+        "is_multi_view": false,
+        "observed_surface_ratio": 0.58,
+        "inferred_surface_ratio": 0.42,
+        "identity_confirmed": false,
+        "cross_view_similarity": 0.99,
+        "color_delta_e": 0.0
+      },
+      "reconstruction_3d": {
+        "provenance": "hybrid_neural_procedural",
+        "engine_id": "neural_garment_reconstruction_engine_v3",
+        "vertex_count": 128,
+        "triangle_count": 192,
+        "is_manifold": true,
+        "degenerate_triangles": 0,
+        "boundary_loops": 4,
+        "normal_consistency": 0.9444,
+        "chamfer_distance_m": 0.008,
+        "silhouette_iou": 0.942,
+        "latency_ms": 1.46
+      },
+      "avatar_fitting": {
+        "fit_classification": "regular",
+        "chest_ease_cm": 6.0,
+        "waist_ease_cm": 6.0,
+        "collision_penetrations_initial": 74,
+        "collision_penetrations_final": 74,
+        "max_penetration_mm": 35.75,
+        "latency_ms": 139.97
+      },
+      "total_e2e_ms": 155.66
+    }
+  ]
+}

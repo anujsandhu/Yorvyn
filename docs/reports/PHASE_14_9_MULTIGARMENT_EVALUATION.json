@@ -1,0 +1,1097 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "G",
+    "evaluation_scope": "Multi-Garment Instance Perception & Scene Disambiguation",
+    "evaluation_scenes_count": 80,
+    "total_ground_truth_garments": 144,
+    "timestamp": "2026-11-19T17:30:23Z",
+    "elapsed_seconds": 36.3
+  },
+  "gates": {
+    "instance_recall": {
+      "target": ">= 90.0%",
+      "measured": "84.03%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "instance_precision": {
+      "target": ">= 85.0%",
+      "measured": "58.45%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "complete_scene_detection_rate": {
+      "target": ">= 80.0%",
+      "measured": "75.0%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "false_positives_per_image": {
+      "target": "<= 0.25",
+      "measured": 1.075,
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "underlayer_detection_rate": {
+      "target": ">= 90.0%",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "outfit_pairing_accuracy": {
+      "target": ">= 90.0%",
+      "measured": "86.05%",
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    }
+  },
+  "metrics_summary": {
+    "total_scenes": 80,
+    "total_gt_garments": 144,
+    "total_true_positives": 121,
+    "total_false_positives": 86,
+    "recall_pct": 84.03,
+    "precision_pct": 58.45,
+    "complete_rate_pct": 75.0,
+    "fp_per_image": 1.075,
+    "underlayer_rate_pct": 100.0,
+    "pairing_accuracy_pct": 86.05
+  },
+  "evaluations": [
+    {
+      "scene_id": "scene_0000",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 11325.44
+    },
+    {
+      "scene_id": "scene_0001",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 286.13
+    },
+    {
+      "scene_id": "scene_0002",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 288.05
+    },
+    {
+      "scene_id": "scene_0003",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 301.81
+    },
+    {
+      "scene_id": "scene_0004",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 3,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": false,
+      "latency_ms": 363.78
+    },
+    {
+      "scene_id": "scene_0005",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 4,
+      "tp": 3,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 299.46
+    },
+    {
+      "scene_id": "scene_0006",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 3,
+      "detected_count": 4,
+      "tp": 3,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 342.95
+    },
+    {
+      "scene_id": "scene_0007",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 274.85
+    },
+    {
+      "scene_id": "scene_0008",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 309.39
+    },
+    {
+      "scene_id": "scene_0009",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 282.09
+    },
+    {
+      "scene_id": "scene_0010",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 264.77
+    },
+    {
+      "scene_id": "scene_0012",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 400.6
+    },
+    {
+      "scene_id": "scene_0013",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 4,
+      "tp": 2,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 358.28
+    },
+    {
+      "scene_id": "scene_0014",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 1,
+      "tp": 0,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 284.42
+    },
+    {
+      "scene_id": "scene_0015",
+      "image_size": [
+        633,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 290.87
+    },
+    {
+      "scene_id": "scene_0016",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 279.7
+    },
+    {
+      "scene_id": "scene_0017",
+      "image_size": [
+        768,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 248.74
+    },
+    {
+      "scene_id": "scene_0018",
+      "image_size": [
+        677,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 305.91
+    },
+    {
+      "scene_id": "scene_0019",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 246.38
+    },
+    {
+      "scene_id": "scene_0020",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": false,
+      "latency_ms": 302.01
+    },
+    {
+      "scene_id": "scene_0021",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 264.35
+    },
+    {
+      "scene_id": "scene_0022",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": false,
+      "latency_ms": 372.26
+    },
+    {
+      "scene_id": "scene_0023",
+      "image_size": [
+        785,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 356.38
+    },
+    {
+      "scene_id": "scene_0025",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 0,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 285.17
+    },
+    {
+      "scene_id": "scene_0027",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 290.21
+    },
+    {
+      "scene_id": "scene_0029",
+      "image_size": [
+        632,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 257.09
+    },
+    {
+      "scene_id": "scene_0031",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 261.12
+    },
+    {
+      "scene_id": "scene_0032",
+      "image_size": [
+        1024,
+        823
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 343.97
+    },
+    {
+      "scene_id": "scene_0034",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 5,
+      "tp": 2,
+      "fp": 3,
+      "is_complete_scene": true,
+      "latency_ms": 298.91
+    },
+    {
+      "scene_id": "scene_0035",
+      "image_size": [
+        633,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 278.35
+    },
+    {
+      "scene_id": "scene_0036",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 0,
+      "fp": 2,
+      "is_complete_scene": false,
+      "latency_ms": 296.23
+    },
+    {
+      "scene_id": "scene_0037",
+      "image_size": [
+        550,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 247.34
+    },
+    {
+      "scene_id": "scene_0039",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 291.46
+    },
+    {
+      "scene_id": "scene_0040",
+      "image_size": [
+        618,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 266.21
+    },
+    {
+      "scene_id": "scene_0041",
+      "image_size": [
+        768,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 230.35
+    },
+    {
+      "scene_id": "scene_0042",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 342.46
+    },
+    {
+      "scene_id": "scene_0044",
+      "image_size": [
+        493,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 300.48
+    },
+    {
+      "scene_id": "scene_0045",
+      "image_size": [
+        1024,
+        819
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 326.59
+    },
+    {
+      "scene_id": "scene_0046",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 309.97
+    },
+    {
+      "scene_id": "scene_0047",
+      "image_size": [
+        680,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 302.01
+    },
+    {
+      "scene_id": "scene_0048",
+      "image_size": [
+        834,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 5,
+      "tp": 3,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 421.32
+    },
+    {
+      "scene_id": "scene_0049",
+      "image_size": [
+        875,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 377.74
+    },
+    {
+      "scene_id": "scene_0050",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 390.34
+    },
+    {
+      "scene_id": "scene_0051",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 361.95
+    },
+    {
+      "scene_id": "scene_0052",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 276.57
+    },
+    {
+      "scene_id": "scene_0053",
+      "image_size": [
+        681,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 306.64
+    },
+    {
+      "scene_id": "scene_0054",
+      "image_size": [
+        680,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 291.94
+    },
+    {
+      "scene_id": "scene_0055",
+      "image_size": [
+        1024,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 368.12
+    },
+    {
+      "scene_id": "scene_0056",
+      "image_size": [
+        681,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 0,
+      "fp": 2,
+      "is_complete_scene": false,
+      "latency_ms": 318.57
+    },
+    {
+      "scene_id": "scene_0057",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 299.95
+    },
+    {
+      "scene_id": "scene_0059",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 0,
+      "fp": 2,
+      "is_complete_scene": false,
+      "latency_ms": 323.83
+    },
+    {
+      "scene_id": "scene_0060",
+      "image_size": [
+        430,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 237.49
+    },
+    {
+      "scene_id": "scene_0062",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 262.06
+    },
+    {
+      "scene_id": "scene_0063",
+      "image_size": [
+        651,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 223.07
+    },
+    {
+      "scene_id": "scene_0064",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 5,
+      "detected_count": 3,
+      "tp": 3,
+      "fp": 0,
+      "is_complete_scene": false,
+      "latency_ms": 297.78
+    },
+    {
+      "scene_id": "scene_0065",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 1,
+      "detected_count": 3,
+      "tp": 0,
+      "fp": 3,
+      "is_complete_scene": false,
+      "latency_ms": 305.49
+    },
+    {
+      "scene_id": "scene_0066",
+      "image_size": [
+        1024,
+        731
+      ],
+      "gt_count": 2,
+      "detected_count": 5,
+      "tp": 2,
+      "fp": 3,
+      "is_complete_scene": true,
+      "latency_ms": 336.19
+    },
+    {
+      "scene_id": "scene_0067",
+      "image_size": [
+        1024,
+        720
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": true,
+      "latency_ms": 319.76
+    },
+    {
+      "scene_id": "scene_0069",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 269.03
+    },
+    {
+      "scene_id": "scene_0070",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 263.7
+    },
+    {
+      "scene_id": "scene_0071",
+      "image_size": [
+        682,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 4,
+      "tp": 2,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 334.76
+    },
+    {
+      "scene_id": "scene_0072",
+      "image_size": [
+        733,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 402.73
+    },
+    {
+      "scene_id": "scene_0073",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 235.69
+    },
+    {
+      "scene_id": "scene_0074",
+      "image_size": [
+        632,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 5,
+      "tp": 3,
+      "fp": 2,
+      "is_complete_scene": true,
+      "latency_ms": 357.17
+    },
+    {
+      "scene_id": "scene_0075",
+      "image_size": [
+        1024,
+        683
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 311.04
+    },
+    {
+      "scene_id": "scene_0076",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 313.49
+    },
+    {
+      "scene_id": "scene_0078",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 281.44
+    },
+    {
+      "scene_id": "scene_0080",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 1,
+      "fp": 2,
+      "is_complete_scene": false,
+      "latency_ms": 264.91
+    },
+    {
+      "scene_id": "scene_0081",
+      "image_size": [
+        1024,
+        682
+      ],
+      "gt_count": 2,
+      "detected_count": 1,
+      "tp": 1,
+      "fp": 0,
+      "is_complete_scene": false,
+      "latency_ms": 256.56
+    },
+    {
+      "scene_id": "scene_0082",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 325.89
+    },
+    {
+      "scene_id": "scene_0083",
+      "image_size": [
+        1024,
+        682
+      ],
+      "gt_count": 2,
+      "detected_count": 6,
+      "tp": 2,
+      "fp": 4,
+      "is_complete_scene": true,
+      "latency_ms": 343.1
+    },
+    {
+      "scene_id": "scene_0084",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 3,
+      "detected_count": 4,
+      "tp": 3,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 349.31
+    },
+    {
+      "scene_id": "scene_0085",
+      "image_size": [
+        441,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 240.79
+    },
+    {
+      "scene_id": "scene_0087",
+      "image_size": [
+        1024,
+        680
+      ],
+      "gt_count": 1,
+      "detected_count": 1,
+      "tp": 0,
+      "fp": 1,
+      "is_complete_scene": false,
+      "latency_ms": 278.91
+    },
+    {
+      "scene_id": "scene_0088",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 394.21
+    },
+    {
+      "scene_id": "scene_0089",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 3,
+      "tp": 2,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 372.67
+    },
+    {
+      "scene_id": "scene_0090",
+      "image_size": [
+        1024,
+        682
+      ],
+      "gt_count": 3,
+      "detected_count": 4,
+      "tp": 3,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 340.57
+    },
+    {
+      "scene_id": "scene_0091",
+      "image_size": [
+        1024,
+        682
+      ],
+      "gt_count": 3,
+      "detected_count": 2,
+      "tp": 2,
+      "fp": 0,
+      "is_complete_scene": false,
+      "latency_ms": 253.88
+    },
+    {
+      "scene_id": "scene_0092",
+      "image_size": [
+        680,
+        1024
+      ],
+      "gt_count": 1,
+      "detected_count": 2,
+      "tp": 1,
+      "fp": 1,
+      "is_complete_scene": true,
+      "latency_ms": 282.62
+    },
+    {
+      "scene_id": "scene_0094",
+      "image_size": [
+        683,
+        1024
+      ],
+      "gt_count": 2,
+      "detected_count": 5,
+      "tp": 2,
+      "fp": 3,
+      "is_complete_scene": true,
+      "latency_ms": 369.86
+    }
+  ]
+}

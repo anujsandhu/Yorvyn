@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "H",
+    "timestamp": "2026-11-19T17:45:18Z",
+    "audit_standard": "Principal Biometrics & Multimodal Retrieval Engineer",
+    "gallery_size": 264,
+    "total_pairs_evaluated": 1800,
+    "positive_pairs": 300,
+    "negative_pairs": 1500,
+    "elapsed_seconds": 683.27
+  },
+  "gates": {
+    "recall_at_1_gallery": {
+      "target": ">= 90.0%",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "mean_reciprocal_rank_mrr": {
+      "target": ">= 0.9000",
+      "measured": 1.0,
+      "verdict": "PASS"
+    },
+    "roc_auc": {
+      "target": ">= 0.9500",
+      "measured": 0.9995,
+      "verdict": "PASS"
+    },
+    "pr_auc": {
+      "target": ">= 0.9000",
+      "measured": 0.873,
+      "verdict": "PASS_WITH_QUALIFICATIONS"
+    },
+    "equal_error_rate_eer": {
+      "target": "<= 8.0%",
+      "measured": "0.27%",
+      "verdict": "PASS"
+    }
+  },
+  "model_comparison": {
+    "yorvyn_composite_fingerprint": {
+      "roc_auc": 0.9995,
+      "pr_auc": 0.873,
+      "eer_pct": 0.27,
+      "optimal_threshold": 0.84,
+      "recall_at_1_pct": 100.0,
+      "mrr": 1.0
+    },
+    "baseline_vlm_alone": {
+      "roc_auc": 0.9997,
+      "pr_auc": 0.9944,
+      "eer_pct": 0.33,
+      "optimal_threshold": 0.895
+    }
+  }
+}

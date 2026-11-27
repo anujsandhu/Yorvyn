@@ -1,0 +1,557 @@
+{
+  "phase": "13.1",
+  "audit_type": "INDEPENDENT_ROUTING_POLICY_AND_WORKLOAD_DISPATCH_AUDIT",
+  "audit_timestamp": "2026-11-10T08:05:00Z",
+  "verdict": "FAILED",
+  "summary": {
+    "total_workload_types": 11,
+    "total_routing_policies": 5,
+    "total_combinations_per_tier": 55,
+    "total_evaluated_scenarios": 220,
+    "backend_policy_violations": 8,
+    "frontend_policy_violations": 9,
+    "critical_finding": "Neither frontend (DeviceCapabilityManager.ts) nor backend (hybrid_workload_router.py) evaluates LOCAL_PREFERRED, CLOUD_PREFERRED, or LOCAL_REQUIRED policies. Only CLOUD_REQUIRED is checked, and only in 2 out of 11 workloads (POSE_ESTIMATION and GARMENT_CLASSIFICATION). Furthermore, GARMENT_SEGMENTATION is unhandled in both dispatchers, falling through to CLOUD_GPU without policy inspection."
+  },
+  "workload_definitions": [
+    "IMAGE_PREPROCESS",
+    "BLUR_DETECTION",
+    "COLOR_PALETTE",
+    "GARMENT_CLASSIFICATION",
+    "GARMENT_SEGMENTATION",
+    "POSE_ESTIMATION",
+    "NEURAL_RECONSTRUCTION",
+    "TEXTURE_SYNTHESIS",
+    "MESH_VALIDATION",
+    "CLOTH_SIMULATION",
+    "AVATAR_FITTING"
+  ],
+  "routing_policy_definitions": [
+    "AUTO",
+    "LOCAL_PREFERRED",
+    "CLOUD_PREFERRED",
+    "LOCAL_REQUIRED",
+    "CLOUD_REQUIRED"
+  ],
+  "source_files": {
+    "backend_router": "backend/app/services/orchestration/hybrid_workload_router.py",
+    "frontend_router": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts",
+    "contract_types": "frontend/src/types/hybridAIContracts.ts",
+    "pydantic_contracts": "backend/app/models/hybrid_ai_contracts.py"
+  },
+  "matrix": [
+    {
+      "workload": "IMAGE_PREPROCESS",
+      "expected_local_location": "CLIENT_WORKER",
+      "expected_cloud_location": "CLOUD_CPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT",
+          "notes": "Lightweight canvas resizing and WebP conversion"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT",
+          "notes": "Executes on client (though policy parameter is uninspected)"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION",
+          "notes": "Hardcoded to CLIENT_WORKER; CLOUD_PREFERRED is ignored"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT",
+          "notes": "Executes locally (accidental compliance, policy uninspected)"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Hardcoded to CLIENT_WORKER. Completely violates CLOUD_REQUIRED constraint without fallback."
+        }
+      }
+    },
+    {
+      "workload": "BLUR_DETECTION",
+      "expected_local_location": "CLIENT_WORKER",
+      "expected_cloud_location": "CLOUD_CPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Hardcoded to CLIENT_WORKER; ignores explicit CLOUD_REQUIRED."
+        }
+      }
+    },
+    {
+      "workload": "COLOR_PALETTE",
+      "expected_local_location": "CLIENT_WORKER",
+      "expected_cloud_location": "CLOUD_CPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLIENT_WORKER",
+          "backend_resolved": "CLIENT_WORKER",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Hardcoded to CLIENT_WORKER; ignores explicit CLOUD_REQUIRED."
+        }
+      }
+    },
+    {
+      "workload": "GARMENT_CLASSIFICATION",
+      "expected_local_location": "CLIENT_WEBGPU / CLIENT_WASM",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved_high": "CLIENT_WEBGPU",
+          "frontend_resolved_low": "CLOUD_GPU",
+          "backend_resolved_high": "CLIENT_WEBGPU",
+          "backend_resolved_low": "CLOUD_GPU",
+          "status": "COMPLIANT",
+          "notes": "Tier-based dispatch correctly routes LOW to server GPU and MID/HIGH/ULTRA to edge."
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved_high": "CLIENT_WEBGPU",
+          "frontend_resolved_low": "CLOUD_GPU",
+          "backend_resolved_high": "CLIENT_WEBGPU",
+          "backend_resolved_low": "CLOUD_GPU",
+          "status": "COMPLIANT_WITH_LIMITATION",
+          "notes": "Treated identically to AUTO. If device is LOW tier, routes to CLOUD_GPU regardless of preference."
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved_high": "CLIENT_WEBGPU",
+          "frontend_resolved_low": "CLOUD_GPU",
+          "backend_resolved_high": "CLIENT_WEBGPU",
+          "backend_resolved_low": "CLOUD_GPU",
+          "status": "VIOLATION",
+          "notes": "CLOUD_PREFERRED ignored on MID/HIGH/ULTRA tiers; resolves to local client instead of cloud."
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved_high": "CLIENT_WEBGPU",
+          "frontend_resolved_low": "CLOUD_GPU",
+          "backend_resolved_high": "CLIENT_WEBGPU",
+          "backend_resolved_low": "CLOUD_GPU",
+          "status": "VIOLATION_ON_LOW_TIER",
+          "notes": "CRITICAL VIOLATION: On LOW tier devices, routes to CLOUD_GPU despite LOCAL_REQUIRED policy, violating privacy/offline mandates without returning POLICY_UNSATISFIED error."
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT",
+          "notes": "Explicit check passes: routes to CLOUD_GPU across all tiers."
+        }
+      }
+    },
+    {
+      "workload": "GARMENT_SEGMENTATION",
+      "expected_local_location": "CLIENT_WASM / CLIENT_WEBGPU",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT_BY_FALLTHROUGH",
+          "notes": "Unmatched in if statements in both routers; falls through to default CLOUD_GPU."
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "VIOLATION",
+          "notes": "No local implementation or routing branch exists; falls through to CLOUD_GPU."
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT_BY_FALLTHROUGH"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Unhandled workload falls through to default CLOUD_GPU despite strict LOCAL_REQUIRED requirement."
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT_BY_FALLTHROUGH"
+        }
+      }
+    },
+    {
+      "workload": "POSE_ESTIMATION",
+      "expected_local_location": "CLIENT_WASM",
+      "expected_cloud_location": "CLOUD_CPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WASM",
+          "backend_resolved": "CLIENT_WASM",
+          "status": "COMPLIANT",
+          "notes": "Local MediaPipe Tasks Vision (declared)"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WASM",
+          "backend_resolved": "CLIENT_WASM",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WASM",
+          "backend_resolved": "CLIENT_WASM",
+          "status": "VIOLATION",
+          "notes": "CLOUD_PREFERRED ignored; executes locally as default."
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WASM",
+          "backend_resolved": "CLIENT_WASM",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLOUD_CPU",
+          "backend_resolved": "CLOUD_CPU",
+          "status": "COMPLIANT",
+          "notes": "Explicit check correctly switches to CLOUD_CPU."
+        }
+      }
+    },
+    {
+      "workload": "NEURAL_RECONSTRUCTION",
+      "expected_local_location": "NOT_SUPPORTED",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT_WITH_EXPLANATION",
+          "notes": "Neural reconstruction requires PyTorch server GPU; routes to cloud."
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: When LOCAL_REQUIRED is specified, the system silently routes heavy neural reconstruction to CLOUD_GPU instead of throwing an error or reporting POLICY_UNSATISFIED."
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        }
+      }
+    },
+    {
+      "workload": "TEXTURE_SYNTHESIS",
+      "expected_local_location": "NOT_SUPPORTED",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Silently dispatches to CLOUD_GPU under LOCAL_REQUIRED."
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLOUD_GPU",
+          "backend_resolved": "CLOUD_GPU",
+          "status": "COMPLIANT"
+        }
+      }
+    },
+    {
+      "workload": "MESH_VALIDATION",
+      "expected_local_location": "CLIENT_WASM",
+      "expected_cloud_location": "CLOUD_CPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "HYBRID_COLLABORATIVE",
+          "backend_resolved": "HYBRID_COLLABORATIVE",
+          "status": "COMPLIANT",
+          "notes": "Dual check: client BVH culling + server Trimesh certification."
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "HYBRID_COLLABORATIVE",
+          "backend_resolved": "HYBRID_COLLABORATIVE",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "HYBRID_COLLABORATIVE",
+          "backend_resolved": "HYBRID_COLLABORATIVE",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "HYBRID_COLLABORATIVE",
+          "backend_resolved": "HYBRID_COLLABORATIVE",
+          "status": "VIOLATION",
+          "notes": "Cannot satisfy LOCAL_REQUIRED because HYBRID_COLLABORATIVE calls remote server Trimesh."
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "HYBRID_COLLABORATIVE",
+          "backend_resolved": "HYBRID_COLLABORATIVE",
+          "status": "VIOLATION",
+          "notes": "Cannot satisfy pure CLOUD_REQUIRED because client three-mesh-bvh execution is mandated."
+        }
+      }
+    },
+    {
+      "workload": "CLOTH_SIMULATION",
+      "expected_local_location": "CLIENT_WEBGPU / CLIENT_WASM",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT",
+          "notes": "Interactive 60fps avatar simulation"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "VIOLATION",
+          "notes": "Hardcoded to client; CLOUD_PREFERRED ignored."
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Hardcoded to client; ignores CLOUD_REQUIRED."
+        }
+      }
+    },
+    {
+      "workload": "AVATAR_FITTING",
+      "expected_local_location": "CLIENT_WEBGPU / CLIENT_WASM",
+      "expected_cloud_location": "CLOUD_GPU",
+      "policies": {
+        "AUTO": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT"
+        },
+        "LOCAL_PREFERRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_PREFERRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "VIOLATION"
+        },
+        "LOCAL_REQUIRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "COMPLIANT"
+        },
+        "CLOUD_REQUIRED": {
+          "frontend_resolved": "CLIENT_WEBGPU",
+          "backend_resolved": "CLIENT_WEBGPU",
+          "status": "VIOLATION",
+          "notes": "CRITICAL VIOLATION: Hardcoded to client; ignores CLOUD_REQUIRED."
+        }
+      }
+    }
+  ],
+  "violation_details": {
+    "backend_router_violations": [
+      {
+        "id": "BRV-01",
+        "workload": "IMAGE_PREPROCESS",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:45-54",
+        "issue": "Bypasses policy check, always assigns CLIENT_WORKER."
+      },
+      {
+        "id": "BRV-02",
+        "workload": "BLUR_DETECTION",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:45-54",
+        "issue": "Bypasses policy check, always assigns CLIENT_WORKER."
+      },
+      {
+        "id": "BRV-03",
+        "workload": "COLOR_PALETTE",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:45-54",
+        "issue": "Bypasses policy check, always assigns CLIENT_WORKER."
+      },
+      {
+        "id": "BRV-04",
+        "workload": "CLOTH_SIMULATION",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:57-67",
+        "issue": "Always assigns CLIENT_WEBGPU or CLIENT_WASM regardless of cloud requirement."
+      },
+      {
+        "id": "BRV-05",
+        "workload": "AVATAR_FITTING",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:57-67",
+        "issue": "Always assigns CLIENT_WEBGPU or CLIENT_WASM regardless of cloud requirement."
+      },
+      {
+        "id": "BRV-06",
+        "workload": "NEURAL_RECONSTRUCTION",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:115-124",
+        "issue": "Always assigns CLOUD_GPU even when LOCAL_REQUIRED is specified; no error raised."
+      },
+      {
+        "id": "BRV-07",
+        "workload": "TEXTURE_SYNTHESIS",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:115-124",
+        "issue": "Always assigns CLOUD_GPU even when LOCAL_REQUIRED is specified; no error raised."
+      },
+      {
+        "id": "BRV-08",
+        "workload": "GARMENT_SEGMENTATION",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "backend/app/services/orchestration/hybrid_workload_router.py:140-147",
+        "issue": "WorkloadType 'GARMENT_SEGMENTATION' has no handler; drops to default CLOUD_GPU."
+      }
+    ],
+    "frontend_router_violations": [
+      {
+        "id": "FRV-01",
+        "workload": "IMAGE_PREPROCESS",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:181-191",
+        "issue": "Always returns CLIENT_WORKER regardless of overridePolicy."
+      },
+      {
+        "id": "FRV-02",
+        "workload": "BLUR_DETECTION",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:181-191",
+        "issue": "Always returns CLIENT_WORKER regardless of overridePolicy."
+      },
+      {
+        "id": "FRV-03",
+        "workload": "COLOR_PALETTE",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:181-191",
+        "issue": "Always returns CLIENT_WORKER regardless of overridePolicy."
+      },
+      {
+        "id": "FRV-04",
+        "workload": "CLOTH_SIMULATION",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:194-205",
+        "issue": "Always returns CLIENT_WEBGPU/CLIENT_WASM; ignores CLOUD_REQUIRED."
+      },
+      {
+        "id": "FRV-05",
+        "workload": "AVATAR_FITTING",
+        "policy": "CLOUD_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:194-205",
+        "issue": "Always returns CLIENT_WEBGPU/CLIENT_WASM; ignores CLOUD_REQUIRED."
+      },
+      {
+        "id": "FRV-06",
+        "workload": "NEURAL_RECONSTRUCTION",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:208-218",
+        "issue": "Always returns CLOUD_GPU; does not raise error or indicate unfulfillable policy."
+      },
+      {
+        "id": "FRV-07",
+        "workload": "TEXTURE_SYNTHESIS",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:208-218",
+        "issue": "Always returns CLOUD_GPU; does not raise error or indicate unfulfillable policy."
+      },
+      {
+        "id": "FRV-08",
+        "workload": "GARMENT_CLASSIFICATION",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:222-232",
+        "issue": "On LOW tier devices, line 222 routes to CLOUD_GPU even when policy is LOCAL_REQUIRED."
+      },
+      {
+        "id": "FRV-09",
+        "workload": "GARMENT_SEGMENTATION",
+        "policy": "LOCAL_REQUIRED",
+        "source_line": "frontend/src/engine/orchestration/DeviceCapabilityManager.ts:284-291",
+        "issue": "WorkloadType 'GARMENT_SEGMENTATION' is unhandled; falls through to default CLOUD_GPU."
+      }
+    ]
+  }
+}
+

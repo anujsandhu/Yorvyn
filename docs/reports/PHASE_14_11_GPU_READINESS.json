@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "workstream": "H",
+    "timestamp": "2026-11-21T06:21:08Z",
+    "audit_standard": "Principal ML Infrastructure & Cloud Systems Engineer",
+    "target_sla_p95_ms": 15000.0,
+    "truthful_reporting_enforced": true
+  },
+  "hardware_environment": {
+    "active_worker_url": "http://127.0.0.1:8088",
+    "execution_environment": "local_mps_development",
+    "device": "mps",
+    "hardware_name": "Apple M2 (MPS / Unified Memory 16GB)",
+    "vram_mb": 16384,
+    "cloud_cuda_status": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon; running on local MPS development worker)",
+    "engine_type": "Contour-Carved Parametric Reconstruction & Semantic Albedo Projection",
+    "model": "yorvyn/contour-carved-parametric-reconstruction-v14.8",
+    "uptime_seconds": 83.19
+  },
+  "security_controls": {
+    "hmac_sha256_signatures": "ENFORCED",
+    "nonce_replay_prevention": "ENFORCED",
+    "timestamp_tolerance_seconds": 300,
+    "max_payload_mb": 25,
+    "path_traversal_protection": "ENFORCED"
+  },
+  "gates": {
+    "truthful_hardware_status": {
+      "target": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon)",
+      "measured": "BLOCKED (NVIDIA CUDA unavailable on Apple Silicon; running on local MPS development worker)",
+      "verdict": "PASS"
+    },
+    "hmac_authentication": {
+      "target": "100.0% validation",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "staging_service_health": {
+      "target": "HTTP 200 Healthy",
+      "measured": "HTTP 200 healthy",
+      "verdict": "PASS"
+    }
+  }
+}

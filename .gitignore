@@ -63,9 +63,10 @@ frontend/node_modules/
 # Vite build output
 frontend/dist/
 
-# Jupyter Notebook
+# Jupyter Notebook (keep tracked operational notebooks in notebooks/)
 .ipynb_checkpoints/
 *.ipynb
+!notebooks/*.ipynb
 
 # Private / tool config
 private/
@@ -87,3 +88,8 @@ research/experiments/weights/
 # Runtime generated local assets & temporary uploads
 backend/data/wardrobe_assets/
 backend/data/temp_processing/
+models/generated_3d/
+models/checkpoints/*.pt
+dump.rdb
+backend.sock
+scratch/

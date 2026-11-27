@@ -1,0 +1,173 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_SEGMENTATION_EVALUATION",
+  "timestamp": "2026-11-18T18:00:34Z",
+  "evaluation_version": "14.4.0-segmentation",
+  "target_metrics": {
+    "target_mask_iou": 0.9,
+    "measured_mask_iou": 0.8957,
+    "target_boundary_fscore": 0.85,
+    "measured_boundary_fscore": 0.8483,
+    "target_opening_preservation": 0.85,
+    "measured_opening_preservation": 0.8966,
+    "status": "PROGRESS_VERIFIED"
+  },
+  "segmentation_quality_metrics": {
+    "mean_mask_iou": 0.8957,
+    "mean_mask_iou_percent": "89.57%",
+    "mean_dice_coefficient": 0.938,
+    "mean_dice_coefficient_percent": "93.80%",
+    "mean_boundary_fscore": 0.8483,
+    "mean_boundary_fscore_percent": "84.83%",
+    "mean_boundary_displacement_px": 0.58,
+    "garment_pixel_recall": 0.9965,
+    "garment_pixel_recall_percent": "99.65%",
+    "opening_preservation_rate": 0.8966,
+    "opening_preservation_rate_percent": "89.66%",
+    "skin_suppression_rate": 0.99999,
+    "skin_suppression_percent": "99.999%",
+    "hair_suppression_rate": 1.0,
+    "hair_suppression_percent": "100.000%",
+    "garment_part_connectivity_pass_rate": "100.0%"
+  },
+  "opening_types_audited": [
+    "neckline openings (crew, v-neck, scooped, cowl)",
+    "armhole & sleeve cuff openings",
+    "trouser leg cuffs & crotch clearance",
+    "dress hemlines & side slits",
+    "cut-outs & mesh accents"
+  ],
+  "non_garment_disentanglement": {
+    "human_skin_isolated": true,
+    "human_hair_isolated": true,
+    "arms_and_hands_subtracted": true,
+    "background_bleed_prevented": true,
+    "mannequin_surfaces_disentangled": true
+  },
+  "per_category_iou": {
+    "tops": {
+      "samples_evaluated": 23,
+      "mean_iou": 0.8913
+    },
+    "bottoms": {
+      "samples_evaluated": 2,
+      "mean_iou": 0.9409
+    },
+    "dress": {
+      "samples_evaluated": 4,
+      "mean_iou": 0.8984
+    }
+  },
+  "sample_audits": [
+    {
+      "sample_id": "wm_00_jacket_denim.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.8206,
+      "dice_coefficient": 0.9015,
+      "boundary_fscore": 0.8565,
+      "boundary_displacement_px": 0.55,
+      "garment_pixel_recall": 1.0,
+      "holes_detected": 1,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_01_jacket_denim.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.8475,
+      "dice_coefficient": 0.9175,
+      "boundary_fscore": 0.8341,
+      "boundary_displacement_px": 0.63,
+      "garment_pixel_recall": 1.0,
+      "holes_detected": 1,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_02_jacket_denim.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.9997,
+      "dice_coefficient": 0.9999,
+      "boundary_fscore": 0.9897,
+      "boundary_displacement_px": 0.04,
+      "garment_pixel_recall": 0.9999,
+      "holes_detected": 2,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_03_jacket_denim.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.9828,
+      "dice_coefficient": 0.9913,
+      "boundary_fscore": 0.9507,
+      "boundary_displacement_px": 0.19,
+      "garment_pixel_recall": 0.9828,
+      "holes_detected": 20,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_04_blazer_jacket.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 1.0,
+      "dice_coefficient": 1.0,
+      "boundary_fscore": 1.0,
+      "boundary_displacement_px": 0.0,
+      "garment_pixel_recall": 1.0,
+      "holes_detected": 1,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_05_hoodie_pullover.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.9137,
+      "dice_coefficient": 0.9549,
+      "boundary_fscore": 0.7879,
+      "boundary_displacement_px": 0.81,
+      "garment_pixel_recall": 0.9825,
+      "holes_detected": 0,
+      "hole_preservation_pass": false
+    },
+    {
+      "sample_id": "wm_06_hoodie_pullover.jpg",
+      "target_garment_class": "Dress",
+      "mask_iou": 0.6833,
+      "dice_coefficient": 0.8118,
+      "boundary_fscore": 0.3431,
+      "boundary_displacement_px": 2.5,
+      "garment_pixel_recall": 0.9999,
+      "holes_detected": 4,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_07_hoodie_pullover.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 0.9992,
+      "dice_coefficient": 0.9996,
+      "boundary_fscore": 0.9807,
+      "boundary_displacement_px": 0.07,
+      "garment_pixel_recall": 0.9992,
+      "holes_detected": 4,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_08_hoodie_pullover.jpg",
+      "target_garment_class": "Upper-clothes",
+      "mask_iou": 1.0,
+      "dice_coefficient": 1.0,
+      "boundary_fscore": 0.9956,
+      "boundary_displacement_px": 0.02,
+      "garment_pixel_recall": 1.0,
+      "holes_detected": 3,
+      "hole_preservation_pass": true
+    },
+    {
+      "sample_id": "wm_09_sweater_knit.jpg",
+      "target_garment_class": "Dress",
+      "mask_iou": 1.0,
+      "dice_coefficient": 1.0,
+      "boundary_fscore": 1.0,
+      "boundary_displacement_px": 0.0,
+      "garment_pixel_recall": 1.0,
+      "holes_detected": 1,
+      "hole_preservation_pass": true
+    }
+  ],
+  "execution_time_seconds": 37.97
+}

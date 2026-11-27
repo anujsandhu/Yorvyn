@@ -1,0 +1,166 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_MULTIVIEW_IDENTITY",
+  "timestamp": "2026-11-18T18:02:55Z",
+  "evaluation_version": "14.4.0-expanded-multiview",
+  "benchmark_scale": {
+    "total_pairs_evaluated": 800,
+    "positive_pairs_evaluated": 200,
+    "negative_pairs_evaluated": 600,
+    "hard_negative_comparisons": 100,
+    "distractor_negative_comparisons": 500,
+    "expansion_status": "PASS (>= 800 pairs benchmark evaluated)"
+  },
+  "target_metrics": {
+    "target_recall_at_1": 0.8,
+    "measured_recall_at_1": 0.995,
+    "target_mrr": 0.8,
+    "measured_mrr": 0.9958,
+    "target_category_concordance": 0.9,
+    "measured_category_concordance": 0.945,
+    "target_subcategory_concordance": 0.7,
+    "measured_subcategory_concordance": 0.705,
+    "target_false_match_rate": 0.05,
+    "measured_false_match_rate": 0.0133,
+    "status": "PASS (Recall@1 >= 80.0%, MRR >= 0.80, and FMR <= 5.0% achieved)"
+  },
+  "retrieval_and_identity_metrics": {
+    "recall_at_1": 0.995,
+    "recall_at_1_percent": "99.50%",
+    "recall_at_5": 0.995,
+    "recall_at_5_percent": "99.50%",
+    "mean_reciprocal_rank_mrr": 0.9958,
+    "precision_at_1": 0.9614,
+    "precision_at_1_percent": "96.14%",
+    "false_match_rate": 0.0133,
+    "false_match_rate_percent": "1.33%",
+    "false_rejection_rate": 0.005,
+    "false_rejection_rate_percent": "0.50%",
+    "category_concordance_rate": 0.945,
+    "category_concordance_percent": "94.50%",
+    "subcategory_concordance_rate": 0.705,
+    "subcategory_concordance_percent": "70.50%"
+  },
+  "sample_pair_evaluations": [
+    {
+      "pair_id": "pos_pair_0000",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8723,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0001",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8246,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0002",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8836,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0003",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.9492,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0004",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8174,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0005",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8174,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0006",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.9534,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0007",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8926,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0008",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.7998,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0009",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8757,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0010",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8002,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0011",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8001,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0012",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.8531,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0013",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.6915,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    },
+    {
+      "pair_id": "pos_pair_0014",
+      "relationship": "same_physical_garment",
+      "is_positive": true,
+      "computed_similarity_score": 0.7056,
+      "predicted_same_garment": true,
+      "correct_decision": true
+    }
+  ],
+  "execution_time_seconds": 0.024
+}

@@ -1,0 +1,1768 @@
+{
+  "manifest_version": "1.0.0",
+  "phase": "12.3.2",
+  "generated_at": "2026-11-09T04:36:10.237970Z",
+  "description": "Authentic Dataset Manifest for Yorvyn Garment Classification with SHA256 checksums and provenance.",
+  "summary": {
+    "total_manifest_items": 86,
+    "real_photographs_count": 16,
+    "synthetic_fixtures_count": 70,
+    "taxonomic_categories_covered": 7,
+    "taxonomic_subcategories_in_synthetic": 70,
+    "taxonomic_subcategories_in_real": 6,
+    "real_world_coverage_gap": "Real photographic samples only cover 6 subcategories (hoodie, graphic_tshirt, oxford_shirt, denim_jacket, jeans, casual_dress). Remaining 41 taxonomy subcategories lack authenticated photographic holdout on disk."
+  },
+  "partitions": {
+    "partition_1_real_reference": {
+      "name": "Phase 12 Visual QA Reference Garments",
+      "sample_count": 6,
+      "is_synthetic": false,
+      "status": "VERIFIED_ON_DISK",
+      "description": "Six foundational reference garments (Cases A-F) across ghost-mannequin, on-body, and flat-lay photography."
+    },
+    "partition_2_real_onbody": {
+      "name": "Phase 11b On-Body Visual QA Set",
+      "sample_count": 10,
+      "is_synthetic": false,
+      "status": "VERIFIED_ON_DISK",
+      "description": "Ten on-body photographs evaluating occlusion, multiple subjects, and complex lifestyle backgrounds."
+    },
+    "partition_3_synthetic_fixtures": {
+      "name": "Phase 12.3 Procedural Generalization Fixtures",
+      "sample_count": 70,
+      "is_synthetic": true,
+      "status": "IN_MEMORY_PROCEDURAL",
+      "description": "Procedural geometry fixtures generated in memory by test_phase_12_3_generalization.py for synthetic stress testing."
+    },
+    "partition_4_external_holdout": {
+      "name": "External Unconstrained Real-World Photographic Holdout",
+      "sample_count": 0,
+      "is_synthetic": false,
+      "status": "NOT_ASSEMBLED_BLOCKED",
+      "block_reason": "No authenticated, multi-source, unconstrained external photographic holdout set (47 subcategories) is present on disk.",
+      "production_gate_impact": "PRODUCTION GATE MUST REMAIN BLOCKED until this partition is curated, checksummed, and verified."
+    }
+  },
+  "items": [
+    {
+      "sample_id": "REAL_P12_REF_A_HOODIE",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "hoodie",
+      "photography_type": "ghost_mannequin",
+      "provenance": "Phase 12 Visual QA Reference Case A (Dark Brown Oversized Hoodie)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_a_hoodie/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_01_case_a_hoodie.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_01_case_a_hoodie_mask.png",
+      "sha256": "4a4446bec39b0e7082f4532236bd29fc6549d41aa4538d9c67375d23e994fdc4",
+      "dimensions": {
+        "width": 1294,
+        "height": 1480,
+        "channels": 3,
+        "aspect_ratio": 1.144
+      }
+    },
+    {
+      "sample_id": "REAL_P12_REF_B_GRAPHIC_TSHIRT",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "graphic_tshirt",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 12 Visual QA Reference Case B (Grey Graphic Oversized T-shirt on Person)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_b_graphic_tshirt_person/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_02_case_b_graphic_tshirt.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_02_case_b_graphic_tshirt_mask.png",
+      "sha256": "a9ebb5dc4bc9f550b71d8c9b4c740ab7041d1c303ff0e61aa73e1e606b1d9cee",
+      "dimensions": {
+        "width": 720,
+        "height": 910,
+        "channels": 3,
+        "aspect_ratio": 1.264
+      }
+    },
+    {
+      "sample_id": "REAL_P12_REF_C_FORMAL_SHIRT",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "oxford_shirt",
+      "photography_type": "flat_lay",
+      "provenance": "Phase 12 Visual QA Reference Case C (Formal Oxford Button-Down Shirt)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_c_formal_shirt/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_03_case_c_formal_shirt.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_03_case_c_formal_shirt_mask.png",
+      "sha256": "1df987397882925a413b5c56385bd85c3212efe052b462cce48a294f882a252e",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "REAL_P12_REF_D_DENIM_JACKET",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "denim_jacket",
+      "photography_type": "ghost_mannequin",
+      "provenance": "Phase 12 Visual QA Reference Case D (Structured Denim Trucker Jacket)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_d_denim_jacket/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_04_case_d_denim_jacket.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_04_case_d_denim_jacket_mask.png",
+      "sha256": "a8b0f3e31d9210b6b69f6d47e53aefb71ca5c630bb855b1bdfe769c99cbb79a4",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_P12_REF_E_TROUSERS_JEANS",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "jeans",
+      "photography_type": "flat_lay",
+      "provenance": "Phase 12 Visual QA Reference Case E (Tailored Trousers / Jeans)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_e_trousers/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_05_case_e_trousers.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_05_case_e_trousers_mask.png",
+      "sha256": "bb536cd158a768f671913a2c9c522f3a685e7a6986948fa13452892d4152140f",
+      "dimensions": {
+        "width": 451,
+        "height": 679,
+        "channels": 3,
+        "aspect_ratio": 1.506
+      }
+    },
+    {
+      "sample_id": "REAL_P12_REF_F_FLORAL_DRESS",
+      "partition": "partition_1_real_reference",
+      "is_synthetic": false,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "casual_dress",
+      "photography_type": "flat_lay",
+      "provenance": "Phase 12 Visual QA Reference Case F (Floral Summer Flared Dress)",
+      "relative_source_image": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/01_original_uploaded_image.png",
+      "relative_source_mask": "docs/reports/YORVYN_PHASE_12_VISUAL_QA/case_f_dress/02_garment_segmentation_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_ref_06_case_f_dress.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_ref_06_case_f_dress_mask.png",
+      "sha256": "3dbd5626fb6476b534b471b965320715e836aa0393bba299ee82cfc02dc900e3",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_01_HOODIE",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "hoodie",
+      "photography_type": "ghost_mannequin",
+      "provenance": "Phase 11b On-Body Visual QA Case 01 (Isolated Hoodie)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_01_isolated_hoodie/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_01_isolated_hoodie/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_01_isolated_hoodie.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_01_isolated_hoodie_mask.png",
+      "sha256": "4a4446bec39b0e7082f4532236bd29fc6549d41aa4538d9c67375d23e994fdc4",
+      "dimensions": {
+        "width": 1294,
+        "height": 1480,
+        "channels": 3,
+        "aspect_ratio": 1.144
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_02_OVERSIZED_TSHIRT",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "graphic_tshirt",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 11b On-Body Visual QA Case 02 (Oversized Graphic T-Shirt)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_02_oversized_graphic_tshirt/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_02_oversized_graphic_tshirt/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_02_oversized_tshirt.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_02_oversized_tshirt_mask.png",
+      "sha256": "a9ebb5dc4bc9f550b71d8c9b4c740ab7041d1c303ff0e61aa73e1e606b1d9cee",
+      "dimensions": {
+        "width": 720,
+        "height": 910,
+        "channels": 3,
+        "aspect_ratio": 1.264
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_03_FORMAL_SHIRT",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "oxford_shirt",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 11b On-Body Visual QA Case 03 (Formal Shirt on Person)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_03_formal_shirt/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_03_formal_shirt/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_03_formal_shirt.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_03_formal_shirt_mask.png",
+      "sha256": "6e6b0f1d5dd8d9dfb06d14d39ef8284ed41449e4524bffa00c76d5713f8a4453",
+      "dimensions": {
+        "width": 1200,
+        "height": 1800,
+        "channels": 3,
+        "aspect_ratio": 1.5
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_04_BLAZER",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "blazer",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 11b On-Body Visual QA Case 04 (Tailored Blazer on Person)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_04_tailored_jacket/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_04_tailored_jacket/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_04_tailored_jacket.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_04_tailored_jacket_mask.png",
+      "sha256": "a8b0f3e31d9210b6b69f6d47e53aefb71ca5c630bb855b1bdfe769c99cbb79a4",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_05_TROUSERS",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "jeans",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 11b On-Body Visual QA Case 05 (Trousers/Jeans on Person)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_05_trousers_jeans/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_05_trousers_jeans/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_05_trousers_jeans.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_05_trousers_jeans_mask.png",
+      "sha256": "bb536cd158a768f671913a2c9c522f3a685e7a6986948fa13452892d4152140f",
+      "dimensions": {
+        "width": 451,
+        "height": 679,
+        "channels": 3,
+        "aspect_ratio": 1.506
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_06_DRESS",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "casual_dress",
+      "photography_type": "on_body_isolated",
+      "provenance": "Phase 11b On-Body Visual QA Case 06 (Casual Dress on Person)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_06_dress/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_06_dress/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_06_dress.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_06_dress_mask.png",
+      "sha256": "3dbd5626fb6476b534b471b965320715e836aa0393bba299ee82cfc02dc900e3",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_07_ARMS_OCCLUDED",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tshirt",
+      "photography_type": "on_body_occluded",
+      "provenance": "Phase 11b On-Body Visual QA Case 07 (Arms Covering Garment)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_07_arms_covering_garment/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_07_arms_covering_garment/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_07_arms_occluded.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_07_arms_occluded_mask.png",
+      "sha256": "19a6203a9dcb08052490c4d66059716fb38706039c6a7ec674878e34dd8a66d4",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_08_HAIR_OCCLUDED",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tshirt",
+      "photography_type": "on_body_occluded",
+      "provenance": "Phase 11b On-Body Visual QA Case 08 (Long Hair Covering Garment)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_08_long_hair_covering_garment/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_08_long_hair_covering_garment/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_08_hair_occluded.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_08_hair_occluded_mask.png",
+      "sha256": "6d24d0147668c3ac8e1eaaaef7b3e636c53a42c7701f87e8f736c02cf71c47b8",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_09_MULTI_PERSON",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tshirt",
+      "photography_type": "on_body_multi_person",
+      "provenance": "Phase 11b On-Body Visual QA Case 09 (Multiple People in Background)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_09_multiple_people/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_09_multiple_people/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_09_multi_person.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_09_multi_person_mask.png",
+      "sha256": "04bc3b138d55b1b20b656ec8142cb3817397e58e3785af5e53a8485179a3421b",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "REAL_ONBODY_10_LIFESTYLE_BG",
+      "partition": "partition_2_real_onbody",
+      "is_synthetic": false,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "graphic_tshirt",
+      "photography_type": "on_body_complex_bg",
+      "provenance": "Phase 11b On-Body Visual QA Case 10 (Complex Lifestyle Background)",
+      "relative_source_image": "docs/reports/on_body_garment_visual_qa/case_10_complex_lifestyle_background/01_original.png",
+      "relative_source_mask": "docs/reports/on_body_garment_visual_qa/case_10_complex_lifestyle_background/04_garment_mask.png",
+      "dataset_path_image": "data/datasets/garment_classification_real/real_onbody_10_lifestyle_bg.png",
+      "dataset_path_mask": "data/datasets/garment_classification_real/real_onbody_10_lifestyle_bg_mask.png",
+      "sha256": "4580188ffb3d4332c8e4d52ba691b0d804d176b79e00b2c639b838501cbd2f92",
+      "dimensions": {
+        "width": 720,
+        "height": 960,
+        "channels": 3,
+        "aspect_ratio": 1.333
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_001_TOPS_TSHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tshirt",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_001",
+      "relative_source_mask": "procedural://mask_001",
+      "dataset_path_image": "memory://procedural_001.png",
+      "dataset_path_mask": "memory://procedural_mask_001.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_002_TOPS_GRAPHIC_TSHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "graphic_tshirt",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_002",
+      "relative_source_mask": "procedural://mask_002",
+      "dataset_path_image": "memory://procedural_002.png",
+      "dataset_path_mask": "memory://procedural_mask_002.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_003_TOPS_HOODIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "hoodie",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_003",
+      "relative_source_mask": "procedural://mask_003",
+      "dataset_path_image": "memory://procedural_003.png",
+      "dataset_path_mask": "memory://procedural_mask_003.png",
+      "sha256": "8640065edff31b794666a329e6e98cb68c6c4bf463fb97a4e2087fca4df90183",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_004_TOPS_ZIP_HOODIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "zip_hoodie",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_004",
+      "relative_source_mask": "procedural://mask_004",
+      "dataset_path_image": "memory://procedural_004.png",
+      "dataset_path_mask": "memory://procedural_mask_004.png",
+      "sha256": "8640065edff31b794666a329e6e98cb68c6c4bf463fb97a4e2087fca4df90183",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_005_TOPS_FORMAL_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "formal_shirt",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_005",
+      "relative_source_mask": "procedural://mask_005",
+      "dataset_path_image": "memory://procedural_005.png",
+      "dataset_path_mask": "memory://procedural_mask_005.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_006_TOPS_OXFORD_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "oxford_shirt",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_006",
+      "relative_source_mask": "procedural://mask_006",
+      "dataset_path_image": "memory://procedural_006.png",
+      "dataset_path_mask": "memory://procedural_mask_006.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_007_TOPS_POLO_SHIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "polo_shirt",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_007",
+      "relative_source_mask": "procedural://mask_007",
+      "dataset_path_image": "memory://procedural_007.png",
+      "dataset_path_mask": "memory://procedural_mask_007.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_008_TOPS_SWEATER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "sweater",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_008",
+      "relative_source_mask": "procedural://mask_008",
+      "dataset_path_image": "memory://procedural_008.png",
+      "dataset_path_mask": "memory://procedural_mask_008.png",
+      "sha256": "3477f54a59cbf850b124973f147108007a7510443f5251e78fa568d68a012bd6",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_009_TOPS_TANK_TOP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "tank_top",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_009",
+      "relative_source_mask": "procedural://mask_009",
+      "dataset_path_image": "memory://procedural_009.png",
+      "dataset_path_mask": "memory://procedural_mask_009.png",
+      "sha256": "22dc5af028da14e5e7ce2da69b8c858773080fe5bcdfc21adefedfdb44fd1d45",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_010_TOPS_CROP_TOP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "crop_top",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_010",
+      "relative_source_mask": "procedural://mask_010",
+      "dataset_path_image": "memory://procedural_010.png",
+      "dataset_path_mask": "memory://procedural_mask_010.png",
+      "sha256": "09c1e895c5732dc32648b1a756912f0aef43201e7ec12b2980c397fb05b9bd25",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_011_OUTERWEAR_DENIM_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "denim_jacket",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_011",
+      "relative_source_mask": "procedural://mask_011",
+      "dataset_path_image": "memory://procedural_011.png",
+      "dataset_path_mask": "memory://procedural_mask_011.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_012_OUTERWEAR_LEATHER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "leather_jacket",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_012",
+      "relative_source_mask": "procedural://mask_012",
+      "dataset_path_image": "memory://procedural_012.png",
+      "dataset_path_mask": "memory://procedural_mask_012.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_013_OUTERWEAR_BOMBER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "bomber_jacket",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_013",
+      "relative_source_mask": "procedural://mask_013",
+      "dataset_path_image": "memory://procedural_013.png",
+      "dataset_path_mask": "memory://procedural_mask_013.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_014_OUTERWEAR_BLAZER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "blazer",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_014",
+      "relative_source_mask": "procedural://mask_014",
+      "dataset_path_image": "memory://procedural_014.png",
+      "dataset_path_mask": "memory://procedural_mask_014.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_015_OUTERWEAR_CARDIGAN",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "cardigan",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_015",
+      "relative_source_mask": "procedural://mask_015",
+      "dataset_path_image": "memory://procedural_015.png",
+      "dataset_path_mask": "memory://procedural_mask_015.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_016_OUTERWEAR_FORMAL_COAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "formal_coat",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_016",
+      "relative_source_mask": "procedural://mask_016",
+      "dataset_path_image": "memory://procedural_016.png",
+      "dataset_path_mask": "memory://procedural_mask_016.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_017_OUTERWEAR_PUFFER_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "puffer_jacket",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_017",
+      "relative_source_mask": "procedural://mask_017",
+      "dataset_path_image": "memory://procedural_017.png",
+      "dataset_path_mask": "memory://procedural_mask_017.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_018_OUTERWEAR_WINDBREAKER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "windbreaker",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_018",
+      "relative_source_mask": "procedural://mask_018",
+      "dataset_path_image": "memory://procedural_018.png",
+      "dataset_path_mask": "memory://procedural_mask_018.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_019_OUTERWEAR_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "jacket",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_019",
+      "relative_source_mask": "procedural://mask_019",
+      "dataset_path_image": "memory://procedural_019.png",
+      "dataset_path_mask": "memory://procedural_mask_019.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_020_OUTERWEAR_TRENCH_COAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "trench_coat",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_020",
+      "relative_source_mask": "procedural://mask_020",
+      "dataset_path_image": "memory://procedural_020.png",
+      "dataset_path_mask": "memory://procedural_mask_020.png",
+      "sha256": "dcb77b437068652a5cad282589b2367733098d76285bd2761b3b1ccf59724099",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_021_BOTTOMS_JEANS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "jeans",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_021",
+      "relative_source_mask": "procedural://mask_021",
+      "dataset_path_image": "memory://procedural_021.png",
+      "dataset_path_mask": "memory://procedural_mask_021.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_022_BOTTOMS_STRAIGHT_JEANS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "straight_jeans",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_022",
+      "relative_source_mask": "procedural://mask_022",
+      "dataset_path_image": "memory://procedural_022.png",
+      "dataset_path_mask": "memory://procedural_mask_022.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_023_BOTTOMS_TROUSERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "trousers",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_023",
+      "relative_source_mask": "procedural://mask_023",
+      "dataset_path_image": "memory://procedural_023.png",
+      "dataset_path_mask": "memory://procedural_mask_023.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_024_BOTTOMS_CHINOS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "chinos",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_024",
+      "relative_source_mask": "procedural://mask_024",
+      "dataset_path_image": "memory://procedural_024.png",
+      "dataset_path_mask": "memory://procedural_mask_024.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_025_BOTTOMS_CARGO_PANTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "cargo_pants",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_025",
+      "relative_source_mask": "procedural://mask_025",
+      "dataset_path_image": "memory://procedural_025.png",
+      "dataset_path_mask": "memory://procedural_mask_025.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_026_BOTTOMS_JOGGERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "joggers",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_026",
+      "relative_source_mask": "procedural://mask_026",
+      "dataset_path_image": "memory://procedural_026.png",
+      "dataset_path_mask": "memory://procedural_mask_026.png",
+      "sha256": "09fe467d429639ff268ed8757024a8508c04082f4a7b232878c2d7ece7b4780c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_027_BOTTOMS_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "shorts",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_027",
+      "relative_source_mask": "procedural://mask_027",
+      "dataset_path_image": "memory://procedural_027.png",
+      "dataset_path_mask": "memory://procedural_mask_027.png",
+      "sha256": "ff8b1ea42afa3c11d757026d900f95401c62a6e8b2a37ad8e8ea14dbed430db2",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_028_BOTTOMS_ATHLETIC_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "athletic_shorts",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_028",
+      "relative_source_mask": "procedural://mask_028",
+      "dataset_path_image": "memory://procedural_028.png",
+      "dataset_path_mask": "memory://procedural_mask_028.png",
+      "sha256": "ff8b1ea42afa3c11d757026d900f95401c62a6e8b2a37ad8e8ea14dbed430db2",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_029_BOTTOMS_TAILORED_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "tailored_shorts",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_029",
+      "relative_source_mask": "procedural://mask_029",
+      "dataset_path_image": "memory://procedural_029.png",
+      "dataset_path_mask": "memory://procedural_mask_029.png",
+      "sha256": "ff8b1ea42afa3c11d757026d900f95401c62a6e8b2a37ad8e8ea14dbed430db2",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_030_BOTTOMS_DENIM_SHORTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "denim_shorts",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_030",
+      "relative_source_mask": "procedural://mask_030",
+      "dataset_path_image": "memory://procedural_030.png",
+      "dataset_path_mask": "memory://procedural_mask_030.png",
+      "sha256": "ff8b1ea42afa3c11d757026d900f95401c62a6e8b2a37ad8e8ea14dbed430db2",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_031_DRESSES_AND_SKIRTS_CASUAL_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "casual_dress",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_031",
+      "relative_source_mask": "procedural://mask_031",
+      "dataset_path_image": "memory://procedural_031.png",
+      "dataset_path_mask": "memory://procedural_mask_031.png",
+      "sha256": "feabc5f6379fce4c714db697dfda77b61dfd25d25d6be609f584e7e21c61e106",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_032_DRESSES_AND_SKIRTS_FLORAL_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "floral_dress",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_032",
+      "relative_source_mask": "procedural://mask_032",
+      "dataset_path_image": "memory://procedural_032.png",
+      "dataset_path_mask": "memory://procedural_mask_032.png",
+      "sha256": "feabc5f6379fce4c714db697dfda77b61dfd25d25d6be609f584e7e21c61e106",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_033_DRESSES_AND_SKIRTS_MAXI_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "maxi_dress",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_033",
+      "relative_source_mask": "procedural://mask_033",
+      "dataset_path_image": "memory://procedural_033.png",
+      "dataset_path_mask": "memory://procedural_mask_033.png",
+      "sha256": "feabc5f6379fce4c714db697dfda77b61dfd25d25d6be609f584e7e21c61e106",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_034_DRESSES_AND_SKIRTS_MINI_DRESS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "mini_dress",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_034",
+      "relative_source_mask": "procedural://mask_034",
+      "dataset_path_image": "memory://procedural_034.png",
+      "dataset_path_mask": "memory://procedural_mask_034.png",
+      "sha256": "feabc5f6379fce4c714db697dfda77b61dfd25d25d6be609f584e7e21c61e106",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_035_DRESSES_AND_SKIRTS_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "skirt",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_035",
+      "relative_source_mask": "procedural://mask_035",
+      "dataset_path_image": "memory://procedural_035.png",
+      "dataset_path_mask": "memory://procedural_mask_035.png",
+      "sha256": "994fb3d0aefcee3e64482badb582b5f4dc1b5416ecde6a1f88c6d143a43ddd7c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_036_DRESSES_AND_SKIRTS_A_LINE_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "a_line_skirt",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_036",
+      "relative_source_mask": "procedural://mask_036",
+      "dataset_path_image": "memory://procedural_036.png",
+      "dataset_path_mask": "memory://procedural_mask_036.png",
+      "sha256": "994fb3d0aefcee3e64482badb582b5f4dc1b5416ecde6a1f88c6d143a43ddd7c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_037_DRESSES_AND_SKIRTS_PENCIL_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "pencil_skirt",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_037",
+      "relative_source_mask": "procedural://mask_037",
+      "dataset_path_image": "memory://procedural_037.png",
+      "dataset_path_mask": "memory://procedural_mask_037.png",
+      "sha256": "994fb3d0aefcee3e64482badb582b5f4dc1b5416ecde6a1f88c6d143a43ddd7c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_038_DRESSES_AND_SKIRTS_DENIM_SKIRT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "denim_skirt",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_038",
+      "relative_source_mask": "procedural://mask_038",
+      "dataset_path_image": "memory://procedural_038.png",
+      "dataset_path_mask": "memory://procedural_mask_038.png",
+      "sha256": "994fb3d0aefcee3e64482badb582b5f4dc1b5416ecde6a1f88c6d143a43ddd7c",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_039_DRESSES_AND_SKIRTS_JUMPSUIT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "jumpsuit",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_039",
+      "relative_source_mask": "procedural://mask_039",
+      "dataset_path_image": "memory://procedural_039.png",
+      "dataset_path_mask": "memory://procedural_mask_039.png",
+      "sha256": "9f07de806fb13cb0ad62dbd3d5859c3e7cb4b149e310c2cf92a8d48908dfddfb",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_040_DRESSES_AND_SKIRTS_ROMPER",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "romper",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_040",
+      "relative_source_mask": "procedural://mask_040",
+      "dataset_path_image": "memory://procedural_040.png",
+      "dataset_path_mask": "memory://procedural_mask_040.png",
+      "sha256": "6eb92191750dc245b66b2a45fc969629842bf8623912b58bebef1bda0fc635f1",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_041_FOOTWEAR_SNEAKERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "sneakers",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_041",
+      "relative_source_mask": "procedural://mask_041",
+      "dataset_path_image": "memory://procedural_041.png",
+      "dataset_path_mask": "memory://procedural_mask_041.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_042_FOOTWEAR_RUNNING_SHOES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "running_shoes",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_042",
+      "relative_source_mask": "procedural://mask_042",
+      "dataset_path_image": "memory://procedural_042.png",
+      "dataset_path_mask": "memory://procedural_mask_042.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_043_FOOTWEAR_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "boots",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_043",
+      "relative_source_mask": "procedural://mask_043",
+      "dataset_path_image": "memory://procedural_043.png",
+      "dataset_path_mask": "memory://procedural_mask_043.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_044_FOOTWEAR_COMBAT_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "combat_boots",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_044",
+      "relative_source_mask": "procedural://mask_044",
+      "dataset_path_image": "memory://procedural_044.png",
+      "dataset_path_mask": "memory://procedural_mask_044.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_045_FOOTWEAR_CHELSEA_BOOTS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "chelsea_boots",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_045",
+      "relative_source_mask": "procedural://mask_045",
+      "dataset_path_image": "memory://procedural_045.png",
+      "dataset_path_mask": "memory://procedural_mask_045.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_046_FOOTWEAR_SANDALS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "sandals",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_046",
+      "relative_source_mask": "procedural://mask_046",
+      "dataset_path_image": "memory://procedural_046.png",
+      "dataset_path_mask": "memory://procedural_mask_046.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_047_FOOTWEAR_SLIDE_SANDALS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "slide_sandals",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_047",
+      "relative_source_mask": "procedural://mask_047",
+      "dataset_path_image": "memory://procedural_047.png",
+      "dataset_path_mask": "memory://procedural_mask_047.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_048_FOOTWEAR_FORMAL_SHOES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "formal_shoes",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_048",
+      "relative_source_mask": "procedural://mask_048",
+      "dataset_path_image": "memory://procedural_048.png",
+      "dataset_path_mask": "memory://procedural_mask_048.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_049_FOOTWEAR_LOAFERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "loafers",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_049",
+      "relative_source_mask": "procedural://mask_049",
+      "dataset_path_image": "memory://procedural_049.png",
+      "dataset_path_mask": "memory://procedural_mask_049.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_050_FOOTWEAR_SLIPPERS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "slippers",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_050",
+      "relative_source_mask": "procedural://mask_050",
+      "dataset_path_image": "memory://procedural_050.png",
+      "dataset_path_mask": "memory://procedural_mask_050.png",
+      "sha256": "f58e565a9133d8d00261cf27c0f4a131eacc45a1ec03751e5874b16842f84ddf",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_051_TRADITIONAL_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "kurta",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_051",
+      "relative_source_mask": "procedural://mask_051",
+      "dataset_path_image": "memory://procedural_051.png",
+      "dataset_path_mask": "memory://procedural_mask_051.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_052_TRADITIONAL_COTTON_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "cotton_kurta",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_052",
+      "relative_source_mask": "procedural://mask_052",
+      "dataset_path_image": "memory://procedural_052.png",
+      "dataset_path_mask": "memory://procedural_mask_052.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_053_TRADITIONAL_SILK_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "silk_kurta",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_053",
+      "relative_source_mask": "procedural://mask_053",
+      "dataset_path_image": "memory://procedural_053.png",
+      "dataset_path_mask": "memory://procedural_mask_053.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_054_TRADITIONAL_SHERWANI",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "sherwani",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_054",
+      "relative_source_mask": "procedural://mask_054",
+      "dataset_path_image": "memory://procedural_054.png",
+      "dataset_path_mask": "memory://procedural_mask_054.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_055_TRADITIONAL_BANDI_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "bandi_jacket",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_055",
+      "relative_source_mask": "procedural://mask_055",
+      "dataset_path_image": "memory://procedural_055.png",
+      "dataset_path_mask": "memory://procedural_mask_055.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_056_TRADITIONAL_KURTA_PAJAMA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "kurta_pajama",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_056",
+      "relative_source_mask": "procedural://mask_056",
+      "dataset_path_image": "memory://procedural_056.png",
+      "dataset_path_mask": "memory://procedural_mask_056.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_057_TRADITIONAL_TRADITIONAL_JACKET",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "traditional_jacket",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_057",
+      "relative_source_mask": "procedural://mask_057",
+      "dataset_path_image": "memory://procedural_057.png",
+      "dataset_path_mask": "memory://procedural_mask_057.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_058_TRADITIONAL_LONG_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "long_kurta",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_058",
+      "relative_source_mask": "procedural://mask_058",
+      "dataset_path_image": "memory://procedural_058.png",
+      "dataset_path_mask": "memory://procedural_mask_058.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_059_TRADITIONAL_PRINTED_KURTA",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "printed_kurta",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_059",
+      "relative_source_mask": "procedural://mask_059",
+      "dataset_path_image": "memory://procedural_059.png",
+      "dataset_path_mask": "memory://procedural_mask_059.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_060_TRADITIONAL_SAREE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "traditional",
+      "ground_truth_subcategory": "saree",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_060",
+      "relative_source_mask": "procedural://mask_060",
+      "dataset_path_image": "memory://procedural_060.png",
+      "dataset_path_mask": "memory://procedural_mask_060.png",
+      "sha256": "d18384cebe4aa905e70713851edaa5c79e4df87b7f5bd01d67bd571b50df5e4f",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_061_ACCESSORIES_CAP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "cap",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_061",
+      "relative_source_mask": "procedural://mask_061",
+      "dataset_path_image": "memory://procedural_061.png",
+      "dataset_path_mask": "memory://procedural_mask_061.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_062_ACCESSORIES_CAPS",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "caps",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_062",
+      "relative_source_mask": "procedural://mask_062",
+      "dataset_path_image": "memory://procedural_062.png",
+      "dataset_path_mask": "memory://procedural_mask_062.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_063_ACCESSORIES_BASEBALL_CAP",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "baseball_cap",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_063",
+      "relative_source_mask": "procedural://mask_063",
+      "dataset_path_image": "memory://procedural_063.png",
+      "dataset_path_mask": "memory://procedural_mask_063.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_064_ACCESSORIES_BEANIE",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "beanie",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_064",
+      "relative_source_mask": "procedural://mask_064",
+      "dataset_path_image": "memory://procedural_064.png",
+      "dataset_path_mask": "memory://procedural_mask_064.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_065_ACCESSORIES_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "scarf",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_065",
+      "relative_source_mask": "procedural://mask_065",
+      "dataset_path_image": "memory://procedural_065.png",
+      "dataset_path_mask": "memory://procedural_mask_065.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_066_ACCESSORIES_SCARVES",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "scarves",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_066",
+      "relative_source_mask": "procedural://mask_066",
+      "dataset_path_image": "memory://procedural_066.png",
+      "dataset_path_mask": "memory://procedural_mask_066.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_067_ACCESSORIES_SILK_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "silk_scarf",
+      "photography_type": "procedural_on_body",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_067",
+      "relative_source_mask": "procedural://mask_067",
+      "dataset_path_image": "memory://procedural_067.png",
+      "dataset_path_mask": "memory://procedural_mask_067.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_068_ACCESSORIES_WINTER_SCARF",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "winter_scarf",
+      "photography_type": "procedural_cropped",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_068",
+      "relative_source_mask": "procedural://mask_068",
+      "dataset_path_image": "memory://procedural_068.png",
+      "dataset_path_mask": "memory://procedural_mask_068.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_069_ACCESSORIES_BUCKET_HAT",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "bucket_hat",
+      "photography_type": "procedural_isolated_product",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_069",
+      "relative_source_mask": "procedural://mask_069",
+      "dataset_path_image": "memory://procedural_069.png",
+      "dataset_path_mask": "memory://procedural_mask_069.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    },
+    {
+      "sample_id": "SYNTHETIC_FIX_070_ACCESSORIES_HEADWEAR",
+      "partition": "partition_3_synthetic_fixtures",
+      "is_synthetic": true,
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "headwear",
+      "photography_type": "procedural_flat_lay",
+      "provenance": "Phase 12.3 Procedural Geometry Fixtures (test_phase_12_3_generalization.py)",
+      "relative_source_image": "procedural://fixture_070",
+      "relative_source_mask": "procedural://mask_070",
+      "dataset_path_image": "memory://procedural_070.png",
+      "dataset_path_mask": "memory://procedural_mask_070.png",
+      "sha256": "29104ae22981ec284dee3f195b92528d05539d8c949068e3efca7ee0e9102d01",
+      "dimensions": {
+        "width": 512,
+        "height": 512,
+        "channels": 3,
+        "aspect_ratio": 1.0
+      }
+    }
+  ]
+}

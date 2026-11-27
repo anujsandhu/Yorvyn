@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.4",
+    "suite": "Queue & Worker Separation",
+    "timestamp": "2026-11-21T18:50:51Z",
+    "adapter_type": "disk_durable_file_queue_adapter",
+    "redis_status": "NOT_RUNNING_LOCALLY (Missing redis-py dependency; evaluated via DiskDurableQueueBroker test adapter)",
+    "verdict": "PASS"
+  },
+  "redis_deployment_blueprint": {
+    "broker_type": "Redis Streams & Consumer Groups",
+    "commands": {
+      "enqueue": "XADD yorvyn:stream:jobs * payload <json> priority <int>",
+      "claim": "XREADGROUP GROUP workers <worker_id> COUNT 1 BLOCK 2000 STREAMS yorvyn:stream:jobs >",
+      "heartbeat": "HSET yorvyn:worker:heartbeats <worker_id> <timestamp>; EXPIRE 60",
+      "acknowledge": "XACK yorvyn:stream:jobs workers <message_id>",
+      "reclaim_abandoned": "XAUTOCLAIM yorvyn:stream:jobs workers <worker_id> 60000 0-0 COUNT 10",
+      "dead_letter": "XADD yorvyn:stream:dead_letter * original_id <id> reason <reason>"
+    },
+    "reliability_properties": {
+      "persistence": "AOF (appendfsync everysec) + RDB snapshots every 5 minutes",
+      "clustering": "Redis Sentinel or AWS ElastiCache Multi-AZ with Automatic Failover",
+      "backpressure": "MAXLEN ~ 10000 on XADD prevents unbounded RAM growth"
+    }
+  },
+  "tests": [
+    {
+      "test_id": "QUE-14-13-01",
+      "name": "Durable Job Enqueueing",
+      "description": "Verify job is atomically persisted in queue/incoming",
+      "expected": "enqueued=True, depth=1",
+      "actual": "enqueued=True, depth=1",
+      "status": "PASS"
+    },
+    {
+      "test_id": "QUE-14-13-02",
+      "name": "Bounded Queue Capacity & Backpressure",
+      "description": "Verify queue capacity limit (5) triggers backpressure exception on overflow",
+      "expected": "depth=5, backpressure=True",
+      "actual": "depth=5, overflow_blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "QUE-14-13-03",
+      "name": "Per-User Active Concurrency Limit",
+      "description": "Verify user attempting > 2 active queue slots receives ConcurrencyLimitExceededException",
+      "expected": "Blocked on 3rd job",
+      "actual": "concurrency_blocked=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "QUE-14-13-04",
+      "name": "Atomic Worker Claim & Mutual Exclusion",
+      "description": "Verify only one worker claims incoming job; second worker receives None",
+      "expected": "w1_claimed=True, w2_claimed=False, incoming_depth=0",
+      "actual": "w1=True, w2=False",
+      "status": "PASS"
+    },
+    {
+      "test_id": "QUE-14-13-05",
+      "name": "Durable Completion Acknowledgement",
+      "description": "Verify job is purged from claimed queue only upon verified completion acknowledgement",
+      "expected": "ack=True, claimed_remaining=0",
+      "actual": "ack=True, remaining=0",
+      "status": "PASS"
+    },
+    {
+      "test_id": "QUE-14-13-06",
+      "name": "Worker Crash Recovery via Expired Lease Sweep",
+      "description": "Verify supervisor sweeps dead worker claims and restores them to incoming queue",
+      "expected": "recovered=1, incoming_depth=1",
+      "actual": "recovered=1, depth=1",
+      "status": "PASS"
+    }
+  ]
+}

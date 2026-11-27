@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "D",
+    "timestamp": "2026-11-19T18:06:19Z",
+    "audit_standard": "Principal ML Infrastructure & Security Engineer"
+  },
+  "engine_modes": {
+    "hybrid_reconstruction": {
+      "engine_identity": "yorvyn_hybrid_reconstruction_engine",
+      "engine_mode": "hybrid_reconstruction",
+      "engine_version": "14.10.0",
+      "3d_geometry_method": "contour_carved_parametric_deformation",
+      "checkpoint_sha256": null,
+      "segmentation_checkpoint_sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+      "production_readiness": "OPERATIONAL_STAGING_AND_LOCAL"
+    },
+    "parametric_reconstruction": {
+      "engine_identity": "yorvyn_parametric_reconstruction_engine",
+      "engine_mode": "parametric_reconstruction",
+      "engine_version": "14.10.0",
+      "3d_geometry_method": "pure_parametric_template",
+      "checkpoint_sha256": null,
+      "segmentation_checkpoint_sha256": null,
+      "production_readiness": "OPERATIONAL_DETERMINISTIC_FALLBACK"
+    },
+    "neural_reconstruction": {
+      "engine_identity": "yorvyn_neural_reconstruction_engine",
+      "engine_mode": "neural_reconstruction",
+      "engine_version": "14.10.0",
+      "3d_geometry_method": "triposr_feedforward_lrm",
+      "checkpoint_sha256": "8f86fd90c567afd4370b3cc3a7e81ed767a632b2832a738331af660acc0c4c68",
+      "production_readiness": "BLOCKED_ON_CLOUD_CUDA_PROVISIONING",
+      "fallback_action": "Fall back to hybrid_reconstruction with explicit fallback_reason logging"
+    }
+  }
+}

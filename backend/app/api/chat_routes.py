@@ -772,7 +772,7 @@ def chat(req: ChatRequest):
         web_summary = web_search_info.get("summary", "")
         if web_summary and recs_dicts:
             # Add subtle web search note
-            reply += f"\n\n*Verified with latest online information.*"
+            reply += "\n\n*Verified with latest online information.*"
 
     # IMPORTANT: Don't use LLM fallback if we already have a human-like response
     # The response generator provides better, more consistent responses

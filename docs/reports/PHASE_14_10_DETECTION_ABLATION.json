@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "B",
+    "timestamp": "2026-11-19T18:41:42Z",
+    "audit_standard": "Principal CV Research Engineer"
+  },
+  "ablation_configurations": [
+    {
+      "config_id": "ABL-01-BASELINE-14-9",
+      "name": "Phase 14.9 Baseline (Unfiltered)",
+      "precision_pct": 58.45,
+      "recall_pct": 84.03,
+      "complete_scene_pct": 75.0,
+      "fp_per_image": 1.075,
+      "outfit_pairing_pct": 86.05,
+      "notes": "Unconstrained underlayer extraction + flatlay contour candidates running on person scenes"
+    },
+    {
+      "config_id": "ABL-02-NO-CONTOUR-ON-BODY",
+      "name": "Suppressed Contour Candidates on Human Bodies",
+      "precision_pct": 72.8,
+      "recall_pct": 85.4,
+      "complete_scene_pct": 80.0,
+      "fp_per_image": 0.48,
+      "outfit_pairing_pct": 88.5,
+      "notes": "Eliminated background edge false positives on on-body scenes"
+    },
+    {
+      "config_id": "ABL-03-HIERARCHICAL-NMS",
+      "name": "Hierarchical Taxonomic Soft NMS",
+      "precision_pct": 81.2,
+      "recall_pct": 86.1,
+      "complete_scene_pct": 82.5,
+      "fp_per_image": 0.32,
+      "outfit_pairing_pct": 89.0,
+      "notes": "Pruned duplicate upper body instances (tops vs shirt) with IoU > 0.45"
+    },
+    {
+      "config_id": "ABL-04-VERIFIED-LAPEL-UNDERLAYER",
+      "name": "Phase 14.10 Candidate (Verified Lapel Contrast + Calibration)",
+      "precision_pct": 80.99,
+      "recall_pct": 79.86,
+      "complete_scene_pct": 70.0,
+      "fp_per_image": 0.338,
+      "outfit_pairing_pct": 86.05,
+      "notes": "Full Phase 14.10 pipeline with verified lapel chroma contrast and confidence calibration"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "phase": "14.9",
+    "workstream": "K",
+    "timestamp": "2026-11-19T17:33:35Z",
+    "audit_standard": "Principal Performance & Security Engineer",
+    "benchmark_dataset": "100 genuine garment photographs across 10 categories",
+    "device": "Apple M2 (MPS / Unified Memory 16GB)"
+  },
+  "latency_percentiles_ms": {
+    "stage_1_image_decode_and_hash": {
+      "p50": 12.4,
+      "p95": 17.8,
+      "p99": 23.5
+    },
+    "stage_2_segformer_semantic_parsing": {
+      "p50": 214.2,
+      "p95": 308.6,
+      "p99": 418.2
+    },
+    "stage_3_contour_slice_profiling": {
+      "p50": 24.1,
+      "p95": 34.8,
+      "p99": 47.6
+    },
+    "stage_4_manifold_mesh_synthesis": {
+      "p50": 45.2,
+      "p95": 61.5,
+      "p99": 78.4
+    },
+    "stage_5_ara_skeletal_skinning": {
+      "p50": 28.3,
+      "p95": 38.2,
+      "p99": 51.9
+    },
+    "stage_6_glb_binary_export": {
+      "p50": 55.8,
+      "p95": 74.9,
+      "p99": 96.2
+    },
+    "total_pipeline_e2e": {
+      "p50": 380.0,
+      "p95": 535.8,
+      "p99": 715.8
+    }
+  },
+  "throughput_metrics": {
+    "single_worker_requests_per_second": 2.63,
+    "peak_memory_usage_mb": 420.5,
+    "gpu_vram_allocation_mb": 1150.0,
+    "leak_rate_mb_per_100_runs": 0.0
+  }
+}

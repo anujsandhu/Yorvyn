@@ -1,0 +1,53 @@
+{
+  "evaluation_version": "14.3.0-selective-prediction",
+  "timestamp": "2026-11-18T17:15:00Z",
+  "total_holdout_samples": 650,
+  "outcome_distribution": {
+    "accepted_high_confidence": 253,
+    "accepted_low_confidence": 277,
+    "rejected_ambiguous": 120,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0
+  },
+  "accounting_reconciliation": {
+    "accepted_high_confidence": 253,
+    "accepted_low_confidence": 277,
+    "rejected_ambiguous": 120,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0,
+    "total_accounted": 650,
+    "holdout_count": 650,
+    "status": "RECONCILED_EXACT (Sum == 650 exactly)"
+  },
+  "targets": {
+    "target_high_confidence_precision": 0.9,
+    "measured_high_confidence_precision": 0.9644,
+    "target_rejection_precision": 0.85,
+    "measured_rejection_precision": 0.475,
+    "target_accepted_ece": 0.05,
+    "measured_accepted_ece": 0.1721,
+    "target_coverage": 0.75,
+    "measured_coverage": 0.8154
+  },
+  "selective_performance_metrics": {
+    "high_confidence_precision": 0.9644,
+    "high_confidence_precision_percent": "96.44%",
+    "rejection_precision": 0.475,
+    "rejection_precision_percent": "47.50%",
+    "selective_coverage": 0.8154,
+    "selective_coverage_percent": "81.54%",
+    "accepted_predictions_ece": 0.1721,
+    "full_holdout_ece": 0.1404,
+    "brier_score": 0.1693
+  },
+  "mece_decision_rules": {
+    "accepted_high_confidence": "Calibrated confidence >= 0.70 with valid bounding box and mask",
+    "accepted_low_confidence": "Calibrated confidence in [0.40, 0.70) with clear category margin",
+    "rejected_ambiguous": "Entropy > 1.8 or top confidence < 0.40, routed to user clarification UI",
+    "rejected_invalid_input": "Corrupted, empty, or unreadable image files",
+    "rejected_unsupported": "Out-of-domain categories outside canonical supported fashion taxonomy",
+    "inference_failure": "Runtime engine exceptions or hardware timeout"
+  }
+}

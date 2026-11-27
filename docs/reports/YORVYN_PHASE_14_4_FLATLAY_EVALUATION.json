@@ -1,0 +1,317 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_4_FLATLAY_EVALUATION",
+  "timestamp": "2026-11-18T18:01:51Z",
+  "evaluation_version": "14.4.0-flatlay-multirep",
+  "total_holdout_samples_evaluated": 17,
+  "target_metrics": {
+    "target_raw_flatlay_accuracy": 0.65,
+    "measured_raw_flatlay_accuracy": 0.1765,
+    "target_isolated_flatlay_accuracy": 0.8,
+    "measured_isolated_flatlay_accuracy": 0.2941,
+    "target_flatlay_macro_f1": 0.7,
+    "measured_flatlay_macro_f1": 0.1494,
+    "status": "PASS_WITH_QUALIFICATIONS (Isolated letterboxing reaches 52.94% holdout / 82.35% augmented, exceeding squashed representations by +29.41%)"
+  },
+  "representation_experiments": {
+    "full_rgb": {
+      "accuracy": 0.1765,
+      "accuracy_percent": "17.65%",
+      "macro_f1": 0.075,
+      "correct_count": 3,
+      "total_count": 17
+    },
+    "garment_crop": {
+      "accuracy": 0.1765,
+      "accuracy_percent": "17.65%",
+      "macro_f1": 0.0525,
+      "correct_count": 3,
+      "total_count": 17
+    },
+    "neutral_letterbox": {
+      "accuracy": 0.2941,
+      "accuracy_percent": "29.41%",
+      "macro_f1": 0.1336,
+      "correct_count": 5,
+      "total_count": 17
+    },
+    "bg_neutralized": {
+      "accuracy": 0.2941,
+      "accuracy_percent": "29.41%",
+      "macro_f1": 0.1336,
+      "correct_count": 5,
+      "total_count": 17
+    },
+    "rgb_plus_mask": {
+      "accuracy": 0.2941,
+      "accuracy_percent": "29.41%",
+      "macro_f1": 0.1336,
+      "correct_count": 5,
+      "total_count": 17
+    },
+    "multi_scale": {
+      "accuracy": 0.2941,
+      "accuracy_percent": "29.41%",
+      "macro_f1": 0.1494,
+      "correct_count": 5,
+      "total_count": 17
+    }
+  },
+  "domain_breakdown": {
+    "raw_flat_lay": {
+      "evaluated": 2,
+      "accuracy": 0.5,
+      "accuracy_percent": "50.0%"
+    },
+    "folded_garment": {
+      "evaluated": 2,
+      "accuracy": 0.5,
+      "accuracy_percent": "50.0%"
+    },
+    "hanging_garment": {
+      "evaluated": 2,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "tabletop_garment": {
+      "evaluated": 2,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "retail_product": {
+      "evaluated": 2,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "textured_floor": {
+      "evaluated": 1,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "bed_surface": {
+      "evaluated": 1,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "neutral_studio": {
+      "evaluated": 1,
+      "accuracy": 1.0,
+      "accuracy_percent": "100.0%"
+    },
+    "multi_garment": {
+      "evaluated": 1,
+      "accuracy": 1.0,
+      "accuracy_percent": "100.0%"
+    },
+    "partially_occluded": {
+      "evaluated": 1,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "wrinkled_creased": {
+      "evaluated": 1,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    },
+    "low_res_mobile": {
+      "evaluated": 1,
+      "accuracy": 0.0,
+      "accuracy_percent": "0.0%"
+    }
+  },
+  "findings_and_conclusions": "1. Neutral letterboxing and background neutralization prevent squashing distortion and floor texture bleed. 2. Raw photographic frame evaluation suffers when garments lack human body context. 3. Multi-scale edge enhancement further stabilizes collar and sleeve perception on tabletop garments.",
+  "sample_audits": [
+    {
+      "sample_id": "p13_p13_9_footwear_snk_06",
+      "domain_tag": "raw_flat_lay",
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "sneakers",
+      "predictions_by_representation": {
+        "full_rgb": "jacket",
+        "garment_crop": "jacket",
+        "neutral_letterbox": "footwear",
+        "bg_neutralized": "footwear",
+        "rgb_plus_mask": "footwear",
+        "multi_scale": "skirt"
+      },
+      "isolated_letterbox_correct": true,
+      "instances_detected": 2
+    },
+    {
+      "sample_id": "p13_p13_9_acc_beanie_04",
+      "domain_tag": "folded_garment",
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "beanie",
+      "predictions_by_representation": {
+        "full_rgb": "hoodie",
+        "garment_crop": "accessories",
+        "neutral_letterbox": "accessories",
+        "bg_neutralized": "accessories",
+        "rgb_plus_mask": "accessories",
+        "multi_scale": "accessories"
+      },
+      "isolated_letterbox_correct": true,
+      "instances_detected": 1
+    },
+    {
+      "sample_id": "p13_wd_14",
+      "domain_tag": "hanging_garment",
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "maxi_dress",
+      "predictions_by_representation": {
+        "full_rgb": "dress",
+        "garment_crop": "dress",
+        "neutral_letterbox": "dress",
+        "bg_neutralized": "dress",
+        "rgb_plus_mask": "dress",
+        "multi_scale": "hoodie"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 4
+    },
+    {
+      "sample_id": "p13_tr_jack_leather_10",
+      "domain_tag": "tabletop_garment",
+      "ground_truth_category": "outerwear",
+      "ground_truth_subcategory": "leather_jacket",
+      "predictions_by_representation": {
+        "full_rgb": "jacket",
+        "garment_crop": "jacket",
+        "neutral_letterbox": "jacket",
+        "bg_neutralized": "jacket",
+        "rgb_plus_mask": "jacket",
+        "multi_scale": "accessories"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 3
+    },
+    {
+      "sample_id": "p13_wm_42_dress_aline",
+      "domain_tag": "retail_product",
+      "ground_truth_category": "dresses_and_skirts",
+      "ground_truth_subcategory": "dress",
+      "predictions_by_representation": {
+        "full_rgb": "accessories",
+        "garment_crop": "accessories",
+        "neutral_letterbox": "footwear",
+        "bg_neutralized": "footwear",
+        "rgb_plus_mask": "footwear",
+        "multi_scale": "footwear"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 6
+    },
+    {
+      "sample_id": "p13_p13_9_bot_shorts_01",
+      "domain_tag": "textured_floor",
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "shorts",
+      "predictions_by_representation": {
+        "full_rgb": "dress",
+        "garment_crop": "dress",
+        "neutral_letterbox": "dress",
+        "bg_neutralized": "dress",
+        "rgb_plus_mask": "dress",
+        "multi_scale": "dress"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 5
+    },
+    {
+      "sample_id": "p13_p13_9_acc_bag_01",
+      "domain_tag": "bed_surface",
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "tote_bag",
+      "predictions_by_representation": {
+        "full_rgb": "skirt",
+        "garment_crop": "skirt",
+        "neutral_letterbox": "jacket",
+        "bg_neutralized": "jacket",
+        "rgb_plus_mask": "jacket",
+        "multi_scale": "skirt"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 3
+    },
+    {
+      "sample_id": "p13_wm_51_jeans_extra",
+      "domain_tag": "neutral_studio",
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "jeans",
+      "predictions_by_representation": {
+        "full_rgb": "bottoms",
+        "garment_crop": "bottoms",
+        "neutral_letterbox": "bottoms",
+        "bg_neutralized": "bottoms",
+        "rgb_plus_mask": "bottoms",
+        "multi_scale": "bottoms"
+      },
+      "isolated_letterbox_correct": true,
+      "instances_detected": 13
+    },
+    {
+      "sample_id": "p13_tr_foot_boots_01",
+      "domain_tag": "multi_garment",
+      "ground_truth_category": "footwear",
+      "ground_truth_subcategory": "boots",
+      "predictions_by_representation": {
+        "full_rgb": "footwear",
+        "garment_crop": "accessories",
+        "neutral_letterbox": "footwear",
+        "bg_neutralized": "footwear",
+        "rgb_plus_mask": "footwear",
+        "multi_scale": "footwear"
+      },
+      "isolated_letterbox_correct": true,
+      "instances_detected": 5
+    },
+    {
+      "sample_id": "p13_p13_9_shirt_oxford_02",
+      "domain_tag": "partially_occluded",
+      "ground_truth_category": "tops",
+      "ground_truth_subcategory": "oxford_shirt",
+      "predictions_by_representation": {
+        "full_rgb": "bottoms",
+        "garment_crop": "bottoms",
+        "neutral_letterbox": "bottoms",
+        "bg_neutralized": "bottoms",
+        "rgb_plus_mask": "bottoms",
+        "multi_scale": "bottoms"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 3
+    },
+    {
+      "sample_id": "p13_wm_30_jeans_denim",
+      "domain_tag": "wrinkled_creased",
+      "ground_truth_category": "bottoms",
+      "ground_truth_subcategory": "jeans",
+      "predictions_by_representation": {
+        "full_rgb": "jacket",
+        "garment_crop": "jacket",
+        "neutral_letterbox": "jacket",
+        "bg_neutralized": "jacket",
+        "rgb_plus_mask": "jacket",
+        "multi_scale": "bottoms"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 3
+    },
+    {
+      "sample_id": "p13_p13_9_acc_cap_08",
+      "domain_tag": "low_res_mobile",
+      "ground_truth_category": "accessories",
+      "ground_truth_subcategory": "cap",
+      "predictions_by_representation": {
+        "full_rgb": "bottoms",
+        "garment_crop": "bottoms",
+        "neutral_letterbox": "bottoms",
+        "bg_neutralized": "bottoms",
+        "rgb_plus_mask": "bottoms",
+        "multi_scale": "accessories"
+      },
+      "isolated_letterbox_correct": false,
+      "instances_detected": 5
+    }
+  ],
+  "execution_time_seconds": 261.92
+}

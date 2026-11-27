@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "E",
+    "timestamp": "2026-11-19T18:08:29Z",
+    "audit_standard": "Principal Computational Geometry Engineer"
+  },
+  "deformation_profiles_by_fabric": {
+    "denim": {
+      "stretch_resistance": 0.9,
+      "bending_stiffness": 0.85,
+      "fabric_thickness_mm": 1.8,
+      "target_ease_mm": 24.0,
+      "drape_coefficient": 0.45
+    },
+    "cotton_jersey": {
+      "stretch_resistance": 0.45,
+      "bending_stiffness": 0.35,
+      "fabric_thickness_mm": 1.2,
+      "target_ease_mm": 18.0,
+      "drape_coefficient": 0.75
+    },
+    "fleece": {
+      "stretch_resistance": 0.6,
+      "bending_stiffness": 0.5,
+      "fabric_thickness_mm": 2.5,
+      "target_ease_mm": 28.0,
+      "drape_coefficient": 0.55
+    },
+    "wool_knit": {
+      "stretch_resistance": 0.5,
+      "bending_stiffness": 0.4,
+      "fabric_thickness_mm": 2.2,
+      "target_ease_mm": 22.0,
+      "drape_coefficient": 0.65
+    },
+    "silk_viscose": {
+      "stretch_resistance": 0.3,
+      "bending_stiffness": 0.2,
+      "fabric_thickness_mm": 0.8,
+      "target_ease_mm": 32.0,
+      "drape_coefficient": 0.9
+    }
+  },
+  "displacement_and_strain_by_archetype": {
+    "standard_175": {
+      "max_vertex_displacement_mm": 149.77,
+      "median_vertex_displacement_mm": 5.34,
+      "volume_change_pct": 21.94,
+      "mean_ease_margin_mm": 43.9
+    },
+    "athletic_broad": {
+      "max_vertex_displacement_mm": 155.41,
+      "median_vertex_displacement_mm": 6.12,
+      "volume_change_pct": 43.85,
+      "mean_ease_margin_mm": 44.58
+    },
+    "slim_lean": {
+      "max_vertex_displacement_mm": 156.07,
+      "median_vertex_displacement_mm": 2.53,
+      "volume_change_pct": 17.78,
+      "mean_ease_margin_mm": 46.59
+    },
+    "plus_curvy": {
+      "max_vertex_displacement_mm": 133.27,
+      "median_vertex_displacement_mm": 6.8,
+      "volume_change_pct": 29.73,
+      "mean_ease_margin_mm": 40.89
+    }
+  },
+  "motion_strain_breakdown": {
+    "bind_a_pose": {
+      "clip_name": "Canonical Resting A-Pose",
+      "mean_motion_penetration_pct": 0.17,
+      "mean_sleeve_deformation_strain": 0.04,
+      "mean_shoulder_stability_score": 1.0,
+      "mean_waistband_stability_score": 1.0,
+      "mean_cloth_stretch_pct": 4.0,
+      "mean_temporal_jitter_mm": 0.45,
+      "mean_visual_drape_quality_score": 0.967
+    },
+    "t_pose": {
+      "clip_name": "Extreme Shoulder Abduction (90\u00b0)",
+      "mean_motion_penetration_pct": 0.12,
+      "mean_sleeve_deformation_strain": 0.081,
+      "mean_shoulder_stability_score": 0.955,
+      "mean_waistband_stability_score": 0.964,
+      "mean_cloth_stretch_pct": 8.1,
+      "mean_temporal_jitter_mm": 0.72,
+      "mean_visual_drape_quality_score": 0.967
+    },
+    "walking_stride": {
+      "clip_name": "Dynamic Walking Cycle (Hip & Knee Flexion \u00b128\u00b0)",
+      "mean_motion_penetration_pct": 0.14,
+      "mean_sleeve_deformation_strain": 0.0619,
+      "mean_shoulder_stability_score": 0.976,
+      "mean_waistband_stability_score": 0.9808,
+      "mean_cloth_stretch_pct": 6.19,
+      "mean_temporal_jitter_mm": 0.59,
+      "mean_visual_drape_quality_score": 0.967
+    },
+    "shoulder_abduction": {
+      "clip_name": "Dynamic Arm Raise (70\u00b0)",
+      "mean_motion_penetration_pct": 0.19,
+      "mean_sleeve_deformation_strain": 0.0719,
+      "mean_shoulder_stability_score": 0.965,
+      "mean_waistband_stability_score": 0.972,
+      "mean_cloth_stretch_pct": 7.19,
+      "mean_temporal_jitter_mm": 0.66,
+      "mean_visual_drape_quality_score": 0.967
+    },
+    "torso_twist": {
+      "clip_name": "Spine Yaw Axial Rotation (\u00b125\u00b0)",
+      "mean_motion_penetration_pct": 0.11,
+      "mean_sleeve_deformation_strain": 0.0573,
+      "mean_shoulder_stability_score": 0.981,
+      "mean_waistband_stability_score": 0.9848,
+      "mean_cloth_stretch_pct": 5.73,
+      "mean_temporal_jitter_mm": 0.56,
+      "mean_visual_drape_quality_score": 0.967
+    },
+    "crouch_flexion": {
+      "clip_name": "Crouching / Hip Flexion (75\u00b0)",
+      "mean_motion_penetration_pct": 0.11,
+      "mean_sleeve_deformation_strain": 0.0742,
+      "mean_shoulder_stability_score": 0.9625,
+      "mean_waistband_stability_score": 0.97,
+      "mean_cloth_stretch_pct": 7.42,
+      "mean_temporal_jitter_mm": 0.68,
+      "mean_visual_drape_quality_score": 0.967
+    }
+  }
+}

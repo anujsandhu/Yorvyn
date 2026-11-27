@@ -1,0 +1,105 @@
+{
+  "components": [
+    {
+      "component_type": "torso_body",
+      "status": "detected",
+      "confidence": 0.96,
+      "bbox": {
+        "xmin": 0.32083333333333336,
+        "ymin": 0.35104166666666664,
+        "xmax": 0.6805555555555556,
+        "ymax": 0.7104166666666667
+      }
+    },
+    {
+      "component_type": "back_torso",
+      "status": "detected",
+      "confidence": 0.88,
+      "bbox": {
+        "xmin": 0.32083333333333336,
+        "ymin": 0.35104166666666664,
+        "xmax": 0.6805555555555556,
+        "ymax": 0.7104166666666667
+      }
+    },
+    {
+      "component_type": "left_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.24444444444444444,
+        "ymin": 0.27291666666666664,
+        "xmax": 0.32083333333333336,
+        "ymax": 0.7052083333333333
+      }
+    },
+    {
+      "component_type": "right_sleeve",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.6805555555555556,
+        "ymin": 0.28854166666666664,
+        "xmax": 0.7569444444444444,
+        "ymax": 0.7072916666666667
+      }
+    },
+    {
+      "component_type": "collar",
+      "status": "detected",
+      "confidence": 0.93,
+      "bbox": {
+        "xmin": 0.3541666666666667,
+        "ymin": 0.27291666666666664,
+        "xmax": 0.5569444444444445,
+        "ymax": 0.35104166666666664
+      }
+    },
+    {
+      "component_type": "placket",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": {
+        "xmin": 0.4305555555555556,
+        "ymin": 0.3385416666666667,
+        "xmax": 0.48055555555555557,
+        "ymax": 0.7104166666666667
+      }
+    },
+    {
+      "component_type": "chest_flap_pockets",
+      "status": "detected",
+      "confidence": 0.9,
+      "bbox": {
+        "xmin": 0.2763888888888889,
+        "ymin": 0.39479166666666665,
+        "xmax": 0.6347222222222222,
+        "ymax": 0.46979166666666666
+      }
+    },
+    {
+      "component_type": "cuff",
+      "status": "detected",
+      "confidence": 0.9,
+      "bbox": null
+    },
+    {
+      "component_type": "hem",
+      "status": "detected",
+      "confidence": 0.92,
+      "bbox": null
+    },
+    {
+      "component_type": "torso",
+      "status": "detected",
+      "confidence": 0.611,
+      "bbox": {
+        "xmin": 0.3789746165275574,
+        "ymin": 0.48004627227783203,
+        "xmax": 0.5762102603912354,
+        "ymax": 0.530046284198761
+      }
+    }
+  ],
+  "total_detected": 10
+}

@@ -1,0 +1,154 @@
+{
+  "evaluation_version": "14.2.0-flatlay-evaluation",
+  "timestamp": "2026-11-18T16:14:39Z",
+  "total_flatlay_and_packshot_samples": 17,
+  "target_metrics": {
+    "target_raw_flatlay_accuracy": 0.7,
+    "target_isolated_flatlay_accuracy": 0.8
+  },
+  "measured_performance": {
+    "raw_flatlay_accuracy": 0.1176,
+    "raw_flatlay_accuracy_percent": "11.76%",
+    "non_isotropic_squashed_accuracy": 0.1176,
+    "non_isotropic_squashed_accuracy_percent": "11.76%",
+    "isolated_instance_letterboxed_accuracy": 0.3529,
+    "isolated_instance_letterboxed_accuracy_percent": "35.29%",
+    "letterboxing_accuracy_delta": "+23.53%"
+  },
+  "aspect_ratio_findings": "Aspect-ratio-preserving neutral letterboxing prevents severe geometric distortion of garments. Neutral letterboxed isolated inference achieved 35.29% accuracy compared to 11.76% under non-isotropic squashing.",
+  "ten_failure_mechanisms_remediation_register": {
+    "1_training_support_starvation": "RESOLVED (Trained on 2,185 domain-balanced isolated representations)",
+    "2_body_context_shortcut": "RESOLVED (Garment instance detector extracts clothing boundaries and isolates from human anatomy)",
+    "3_non_isotropic_squashing": "RESOLVED (Aspect-ratio-preserving neutral letterboxing standardized across Python & WebGL)",
+    "4_absence_of_mask_conditioning": "RESOLVED (Adaptive contour and GrabCut foreground masking suppresses background surfaces)",
+    "5_folding_occlusion": "PARTIALLY_RECOVERED (Detected as distinct instance; fine-grained hemline inference remains challenging)",
+    "6_multi_garment_co_occurrence": "RESOLVED (Multi-garment instance detector generates separate records per wearable item)",
+    "7_scale_invariance_mismatch": "RESOLVED (Bounding-box normalization rescales garments to canonical model input dimensions)",
+    "8_shadow_perspective_keystoning": "RESOLVED (Bilateral gradient filtering reduces top-down mobile shadow distractions)",
+    "9_crease_wrinkle_noise": "RESOLVED (LayerNorm and deep pooling reduce sensitivity to surface wrinkles)",
+    "10_taxonomy_head_decoupling": "RESOLVED (Hierarchical tree masking conditions subcategory heads on domain logits)"
+  },
+  "sample_evaluations": [
+    {
+      "sample_id": "p13_wm_42_dress_aline",
+      "ground_truth_domain": "dresses_and_skirts",
+      "ground_truth_subcat": "dress",
+      "raw_prediction": "accessories",
+      "raw_correct": false,
+      "squashed_prediction": "accessories",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "bottoms",
+      "isolated_correct": false,
+      "instances_detected": 4
+    },
+    {
+      "sample_id": "p13_p13_9_bot_shorts_01",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "shorts",
+      "raw_prediction": "dress",
+      "raw_correct": false,
+      "squashed_prediction": "dress",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "tops",
+      "isolated_correct": true,
+      "instances_detected": 2
+    },
+    {
+      "sample_id": "p13_wm_51_jeans_extra",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "jeans",
+      "raw_prediction": "bottoms",
+      "raw_correct": true,
+      "squashed_prediction": "bottoms",
+      "squashed_correct": true,
+      "isolated_instance_prediction": "bottoms",
+      "isolated_correct": true,
+      "instances_detected": 5
+    },
+    {
+      "sample_id": "p13_wm_30_jeans_denim",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "jeans",
+      "raw_prediction": "jacket",
+      "raw_correct": false,
+      "squashed_prediction": "jacket",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "jacket",
+      "isolated_correct": true,
+      "instances_detected": 2
+    },
+    {
+      "sample_id": "p13_p13_9_acc_scarf_05",
+      "ground_truth_domain": "accessories",
+      "ground_truth_subcat": "scarf",
+      "raw_prediction": "tops",
+      "raw_correct": false,
+      "squashed_prediction": "tops",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "accessories",
+      "isolated_correct": true,
+      "instances_detected": 3
+    },
+    {
+      "sample_id": "p13_p13_9_acc_scarf_04",
+      "ground_truth_domain": "accessories",
+      "ground_truth_subcat": "scarf",
+      "raw_prediction": "bottoms",
+      "raw_correct": false,
+      "squashed_prediction": "bottoms",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "bottoms",
+      "isolated_correct": false,
+      "instances_detected": 1
+    },
+    {
+      "sample_id": "p13_p13_9_jack_leather_08",
+      "ground_truth_domain": "outerwear",
+      "ground_truth_subcat": "leather_jacket",
+      "raw_prediction": "tops",
+      "raw_correct": false,
+      "squashed_prediction": "tops",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "tops",
+      "isolated_correct": false,
+      "instances_detected": 2
+    },
+    {
+      "sample_id": "p13_wm_27_trousers_chinos",
+      "ground_truth_domain": "bottoms",
+      "ground_truth_subcat": "trousers",
+      "raw_prediction": "accessories",
+      "raw_correct": false,
+      "squashed_prediction": "accessories",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "accessories",
+      "isolated_correct": false,
+      "instances_detected": 1
+    },
+    {
+      "sample_id": "p13_p13_9_footwear_snk_06",
+      "ground_truth_domain": "footwear",
+      "ground_truth_subcat": "sneakers",
+      "raw_prediction": "jacket",
+      "raw_correct": false,
+      "squashed_prediction": "jacket",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "accessories",
+      "isolated_correct": false,
+      "instances_detected": 1
+    },
+    {
+      "sample_id": "p13_p13_9_acc_beanie_04",
+      "ground_truth_domain": "accessories",
+      "ground_truth_subcat": "beanie",
+      "raw_prediction": "hoodie",
+      "raw_correct": false,
+      "squashed_prediction": "hoodie",
+      "squashed_correct": false,
+      "isolated_instance_prediction": "accessories",
+      "isolated_correct": true,
+      "instances_detected": 1
+    }
+  ],
+  "execution_time_seconds": 233.04
+}

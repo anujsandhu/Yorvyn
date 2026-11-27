@@ -1,0 +1,16 @@
+{
+  "provenance_version": "14.3.0-model-provenance",
+  "timestamp": "2026-11-18T17:07:34Z",
+  "baseline_commit": "7139fc7eea4e1f890e28da9140db2e8550081267",
+  "truthful_provenance_declaration": {
+    "2d_detection_and_segmentation": "Learned SegFormer-B2 (nvidia/segformer-b2-finetuned-fashionpedia) + synergistic salient contour extraction",
+    "2d_garment_classification": "Learned PyTorch CNN checkpoint (garment_classifier_v4.pt / ONNX garment_classifier_edge.onnx)",
+    "3d_mesh_synthesis": "Analytical parametric procedural fitting engine (UniversalGarmentFittingEngine-14.3.0)",
+    "remote_neural_3d_endpoint": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "fabrication_prevention_guarantee": "Under zero circumstances is procedural mesh deformation described as neural 3D inference"
+  },
+  "model_checksums": {
+    "onnx_model": "frontend/public/models/edge/garment_classifier_edge.onnx",
+    "pytorch_classifier": "models/checkpoints/garment_classifier_v4.pt"
+  }
+}

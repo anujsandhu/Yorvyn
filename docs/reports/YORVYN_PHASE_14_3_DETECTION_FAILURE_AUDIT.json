@@ -1,0 +1,389 @@
+{
+  "deliverable_id": "YORVYN_PHASE_14_3_DETECTION_FAILURE_AUDIT",
+  "timestamp": "2026-11-18T16:45:00Z",
+  "total_false_negatives_audited": 169,
+  "total_false_positives_audited": 70,
+  "ten_failure_taxonomy_distribution": {
+    "1_detection_confidence_threshold": {
+      "count": 13,
+      "percentage": "7.69%",
+      "root_cause": "Low model confidence on atypical fabric textures or oblique viewing angles falling below 0.40 threshold"
+    },
+    "2_semantic_parsing_misclassification": {
+      "count": 3,
+      "percentage": "1.78%",
+      "root_cause": "SegFormer parser conflates long tops with dresses or pants with skirts under complex poses"
+    },
+    "3_contour_extraction_gating": {
+      "count": 11,
+      "percentage": "6.51%",
+      "root_cause": "Contour extraction Strategy B was strictly gated behind len(instances) == 0; blocked when single primary top was detected"
+    },
+    "4_grabcut_boundary_leakage": {
+      "count": 0,
+      "percentage": "0.00%",
+      "root_cause": "Textured flooring or patterned bedsheets bleed into GrabCut bounding box initialization"
+    },
+    "5_connected_component_merging": {
+      "count": 0,
+      "percentage": "0.00%",
+      "root_cause": "Left and right footwear or stacked folded garments merged into a single merged component"
+    },
+    "6_minimum_area_filtering": {
+      "count": 108,
+      "percentage": "63.91%",
+      "root_cause": "Primary cause of footwear false negatives: 2.5% area filter for garments and 0.8% for accessories rejected shoes occupying 0.3-0.6% of full-body images"
+    },
+    "7_bounding_box_truncation": {
+      "count": 0,
+      "percentage": "0.00%",
+      "root_cause": "Tight morphological closing clipped sleeve cuffs or garment hems near image boundary"
+    },
+    "8_category_incompatibility": {
+      "count": 0,
+      "percentage": "0.00%",
+      "root_cause": "Fine-grained taxonomic mismatch (e.g., cardigan vs jacket, sweater vs top)"
+    },
+    "9_occlusion_and_layering": {
+      "count": 28,
+      "percentage": "16.57%",
+      "root_cause": "Outerwear (open jackets, blazers, cardigans) partially concealing inner t-shirt or camisole"
+    },
+    "10_dataset_annotation_ambiguity": {
+      "count": 6,
+      "percentage": "3.55%",
+      "root_cause": "Redundant or nested Fashionpedia annotations (e.g., top + outerwear tagged on single layer)"
+    }
+  },
+  "false_positive_breakdown": {
+    "human_limbs_skin_bleed": {
+      "count": 5,
+      "percentage": "7.14%"
+    },
+    "background_floor_wall_texture": {
+      "count": 12,
+      "percentage": "17.14%"
+    },
+    "category_misassignment": {
+      "count": 23,
+      "percentage": "32.86%"
+    },
+    "duplicate_detection": {
+      "count": 0,
+      "percentage": "0.00%"
+    },
+    "non_garment_accessory": {
+      "count": 30,
+      "percentage": "42.86%"
+    }
+  },
+  "sample_failure_audits": [
+    {
+      "sample_id": "fp_val_0",
+      "category": "jacket",
+      "ground_truth_bbox": [
+        84.0,
+        219.0,
+        829.0,
+        682.0
+      ],
+      "estimated_area_ratio": 0.4932,
+      "failure_mechanism": "9_occlusion_and_layering"
+    },
+    {
+      "sample_id": "fp_val_0",
+      "category": "shirt",
+      "ground_truth_bbox": [
+        226.0,
+        210.0,
+        420.0,
+        682.0
+      ],
+      "estimated_area_ratio": 0.1309,
+      "failure_mechanism": "1_detection_confidence_threshold"
+    },
+    {
+      "sample_id": "fp_val_1",
+      "category": "accessories",
+      "ground_truth_bbox": [
+        391.0,
+        304.0,
+        454.0,
+        647.0
+      ],
+      "estimated_area_ratio": 0.0309,
+      "failure_mechanism": "3_contour_extraction_gating"
+    },
+    {
+      "sample_id": "fp_val_2",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        280.0,
+        902.0,
+        343.0,
+        944.0
+      ],
+      "estimated_area_ratio": 0.0038,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_2",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        257.0,
+        841.0,
+        276.0,
+        868.0
+      ],
+      "estimated_area_ratio": 0.0007,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_3",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        301.0,
+        693.0,
+        341.0,
+        773.0
+      ],
+      "estimated_area_ratio": 0.0046,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_3",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        343.0,
+        739.0,
+        393.0,
+        810.0
+      ],
+      "estimated_area_ratio": 0.0051,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_4",
+      "category": "bottoms",
+      "ground_truth_bbox": [
+        566.0,
+        372.0,
+        615.0,
+        451.0
+      ],
+      "estimated_area_ratio": 0.0055,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_4",
+      "category": "tops",
+      "ground_truth_bbox": [
+        565.0,
+        257.0,
+        612.0,
+        389.0
+      ],
+      "estimated_area_ratio": 0.0089,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_4",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        415.0,
+        475.0,
+        487.0,
+        589.0
+      ],
+      "estimated_area_ratio": 0.0117,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_5",
+      "category": "tops",
+      "ground_truth_bbox": [
+        183.0,
+        373.0,
+        427.0,
+        658.0
+      ],
+      "estimated_area_ratio": 0.0994,
+      "failure_mechanism": "1_detection_confidence_threshold"
+    },
+    {
+      "sample_id": "fp_val_6",
+      "category": "tops",
+      "ground_truth_bbox": [
+        281.0,
+        144.0,
+        370.0,
+        407.0
+      ],
+      "estimated_area_ratio": 0.0335,
+      "failure_mechanism": "1_detection_confidence_threshold"
+    },
+    {
+      "sample_id": "fp_val_6",
+      "category": "accessories",
+      "ground_truth_bbox": [
+        44.0,
+        107.0,
+        271.0,
+        540.0
+      ],
+      "estimated_area_ratio": 0.1405,
+      "failure_mechanism": "3_contour_extraction_gating"
+    },
+    {
+      "sample_id": "fp_val_7",
+      "category": "bottoms",
+      "ground_truth_bbox": [
+        494.0,
+        340.0,
+        603.0,
+        471.0
+      ],
+      "estimated_area_ratio": 0.0204,
+      "failure_mechanism": "2_semantic_parsing_misclassification"
+    },
+    {
+      "sample_id": "fp_val_7",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        578.0,
+        621.0,
+        611.0,
+        682.0
+      ],
+      "estimated_area_ratio": 0.0029,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_7",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        527.0,
+        641.0,
+        543.0,
+        682.0
+      ],
+      "estimated_area_ratio": 0.0009,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_8",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        321.0,
+        888.0,
+        369.0,
+        969.0
+      ],
+      "estimated_area_ratio": 0.0056,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_8",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        272.0,
+        845.0,
+        320.0,
+        930.0
+      ],
+      "estimated_area_ratio": 0.0058,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_9",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        302.0,
+        946.0,
+        420.0,
+        1015.0
+      ],
+      "estimated_area_ratio": 0.0117,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_10",
+      "category": "shirt",
+      "ground_truth_bbox": [
+        496.0,
+        130.0,
+        620.0,
+        244.0
+      ],
+      "estimated_area_ratio": 0.0203,
+      "failure_mechanism": "1_detection_confidence_threshold"
+    },
+    {
+      "sample_id": "fp_val_10",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        553.0,
+        644.0,
+        584.0,
+        657.0
+      ],
+      "estimated_area_ratio": 0.0006,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_10",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        442.0,
+        638.0,
+        490.0,
+        655.0
+      ],
+      "estimated_area_ratio": 0.0012,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_12",
+      "category": "bottoms",
+      "ground_truth_bbox": [
+        0.0,
+        488.0,
+        483.0,
+        851.0
+      ],
+      "estimated_area_ratio": 0.2511,
+      "failure_mechanism": "9_occlusion_and_layering"
+    },
+    {
+      "sample_id": "fp_val_13",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        257.0,
+        926.0,
+        314.0,
+        995.0
+      ],
+      "estimated_area_ratio": 0.0056,
+      "failure_mechanism": "6_minimum_area_filtering"
+    },
+    {
+      "sample_id": "fp_val_13",
+      "category": "footwear",
+      "ground_truth_bbox": [
+        346.0,
+        931.0,
+        411.0,
+        1000.0
+      ],
+      "estimated_area_ratio": 0.0064,
+      "failure_mechanism": "6_minimum_area_filtering"
+    }
+  ],
+  "remediation_architecture_plan": {
+    "action_1_hierarchical_dual_pass": "Decouple contour extraction from len(instances)==0; run synergistic dual-pass parser + salient contour clustering",
+    "action_2_scale_adaptive_thresholding": "Lower footwear/accessory area threshold from 0.8% to 0.25%, with high-aspect ratio aspect filters",
+    "action_3_disentangled_shoe_and_component_separation": "Cluster left and right shoes independently using spatial centroids and split bilateral components",
+    "action_4_layered_garment_unpeeling": "Detect inner layers through central torso color discontinuity and edge Sobel energy",
+    "action_5_class_aware_soft_nms": "Apply class-aware Non-Maximum Suppression with adaptive IoU overlap penalties"
+  }
+}

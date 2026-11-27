@@ -1,0 +1,50 @@
+{
+  "1920x1080": {
+    "file": "docs/reports/screenshots/viewport_1920x1080.png",
+    "size": [
+      1920,
+      1080
+    ],
+    "success": true
+  },
+  "1440x900": {
+    "file": "docs/reports/screenshots/viewport_1440x900.png",
+    "size": [
+      1440,
+      900
+    ],
+    "success": true
+  },
+  "1280x800": {
+    "file": "docs/reports/screenshots/viewport_1280x800.png",
+    "size": [
+      1280,
+      800
+    ],
+    "success": true
+  },
+  "1024x768": {
+    "file": "docs/reports/screenshots/viewport_1024x768.png",
+    "size": [
+      1024,
+      768
+    ],
+    "success": true
+  },
+  "768x1024": {
+    "file": "docs/reports/screenshots/viewport_768x1024.png",
+    "size": [
+      768,
+      1024
+    ],
+    "success": true
+  },
+  "390x844": {
+    "file": "docs/reports/screenshots/viewport_390x844.png",
+    "size": [
+      390,
+      844
+    ],
+    "success": true
+  }
+}

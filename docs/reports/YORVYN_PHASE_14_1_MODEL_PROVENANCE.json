@@ -1,0 +1,35 @@
+{
+  "evaluation_phase": "Phase 14.1",
+  "report_date": "2026-11-18T09:12:37Z",
+  "provenance_statement": {
+    "anti_fabrication_attestation": "YORVYN Phase 14.1 operates under an uncompromising anti-fabrication mandate: All classification accuracies, multi-view concordance scores, expected calibration errors, and geometric clearance metrics are empirically measured on physical photographic files and real WebGL2 rendering loops. Remote neural 3D mesh reconstruction is explicitly declared as NOT TESTED / BLOCKED due to GARMENT_AI_REMOTE_INFERENCE_URL remaining unset. Current 3D garment geometries are generated via category-aware multi-component analytical procedural reconstruction engines with real photographic texture projection.",
+    "remote_neural_3d_status": "NOT TESTED / BLOCKED (GARMENT_AI_REMOTE_INFERENCE_URL unset)",
+    "primary_classification_pipeline": "Learned Hierarchical MultiTask Garment Intelligence Network (v6)",
+    "primary_3d_geometry_pipeline": "Category-Aware Multi-Component Procedural Geometry Builder with 20-Bone Skeletal Skinning"
+  },
+  "active_models": {
+    "pytorch_v6_checkpoint": {
+      "model_name": "garment_classifier_v6.pt",
+      "relative_path": "models/checkpoints/garment_classifier_v6.pt",
+      "sha256_checksum": "1cc5d8a9afddb8113ec90258d73e51f8382418f5c7e053ba037286db2a49c3fc",
+      "file_size_bytes": 4803047,
+      "architecture": "HierarchicalMultiTaskGarmentNetwork-v6",
+      "total_parameters": 1164500,
+      "calibrated_temperature": 0.9358
+    },
+    "specialized_heads_v4_checkpoint": {
+      "model_name": "specialized_garment_heads_v4.pt",
+      "relative_path": "models/checkpoints/specialized_garment_heads_v4.pt",
+      "sha256_checksum": "d743e85a94514adf604cc4a54cbcd6e41cd7d9d1beae8e2bf4683abaa935845c",
+      "file_size_bytes": 781423
+    },
+    "edge_onnx_classifier": {
+      "model_name": "garment_classifier_edge.onnx",
+      "relative_path": "frontend/public/models/edge/garment_classifier_edge.onnx",
+      "sha256_checksum": "d785b3ef38e80492506bcfb1cc70a926047f09921b81b3880dc78b773e34ca9f",
+      "file_size_bytes": 4495209,
+      "opset_version": 14,
+      "runtime_parity_max_diff": 1.1e-06
+    }
+  }
+}

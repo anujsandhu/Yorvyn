@@ -1,0 +1,164 @@
+{
+  "benchmark_version": "14.2.0-visual-qa",
+  "timestamp": "2026-11-18T16:14:40Z",
+  "total_contact_sheets_generated": 12,
+  "visual_qa_directory": "docs/reports/phase_14_2_visual_qa/",
+  "required_six_panels": [
+    "1. Raw Photograph",
+    "2. Instance Bounding Boxes & Multi-Garment Outlines",
+    "3. Neutral Letterbox Crop (Aspect Ratio Preserved)",
+    "4. Refined Segmentation Alpha Mask (Hole Preservation)",
+    "5. AI Multi-Garment Perception Telemetry",
+    "6. Skinned 3D Avatar Virtual Try-On Render"
+  ],
+  "verified_modalities": [
+    {
+      "id": "multigarment_outfit_01",
+      "title": "Multi-Garment Outfit Grid (Shirt + Trousers)",
+      "category": "outfit_grid",
+      "subcat": "formal_shirt + chinos",
+      "domain": "flat_lay",
+      "confidence": 0.88,
+      "filename": "contact_sheet_multigarment_outfit_01.png",
+      "instances": [
+        "inst_0_tops (Formal Shirt)",
+        "inst_1_bottoms (Chinos)"
+      ]
+    },
+    {
+      "id": "multigarment_outfit_02",
+      "title": "Multi-Garment On-Body Ensemble (Jacket + Dress)",
+      "category": "lifestyle_ensemble",
+      "subcat": "denim_jacket + slip_dress",
+      "domain": "on_body",
+      "confidence": 0.91,
+      "filename": "contact_sheet_multigarment_outfit_02.png",
+      "instances": [
+        "inst_0_jacket (Denim Jacket)",
+        "inst_1_dress (Slip Dress)"
+      ]
+    },
+    {
+      "id": "flatlay_hoodie",
+      "title": "Flat-Lay Pullover Hoodie (Tabletop)",
+      "category": "hoodie",
+      "subcat": "pullover_hoodie",
+      "domain": "flat_lay",
+      "confidence": 0.86,
+      "filename": "contact_sheet_flatlay_hoodie.png",
+      "instances": [
+        "inst_0_hoodie (Pullover Hoodie)"
+      ]
+    },
+    {
+      "id": "flatlay_shirt",
+      "title": "Flat-Lay Formal Oxford Shirt",
+      "category": "shirt",
+      "subcat": "formal_shirt",
+      "domain": "flat_lay",
+      "confidence": 0.89,
+      "filename": "contact_sheet_flatlay_shirt.png",
+      "instances": [
+        "inst_0_shirt (Formal Shirt)"
+      ]
+    },
+    {
+      "id": "flatlay_trousers",
+      "title": "Flat-Lay Casual Chinos / Trousers",
+      "category": "bottoms",
+      "subcat": "chinos",
+      "domain": "flat_lay",
+      "confidence": 0.84,
+      "filename": "contact_sheet_flatlay_trousers.png",
+      "instances": [
+        "inst_0_bottoms (Chinos)"
+      ]
+    },
+    {
+      "id": "flatlay_jacket",
+      "title": "Flat-Lay Denim Trucker Jacket",
+      "category": "jacket",
+      "subcat": "denim_jacket",
+      "domain": "flat_lay",
+      "confidence": 0.9,
+      "filename": "contact_sheet_flatlay_jacket.png",
+      "instances": [
+        "inst_0_jacket (Denim Jacket)"
+      ]
+    },
+    {
+      "id": "flatlay_tshirt",
+      "title": "Flat-Lay Graphic Crewneck T-Shirt",
+      "category": "tops",
+      "subcat": "tshirt",
+      "domain": "flat_lay",
+      "confidence": 0.92,
+      "filename": "contact_sheet_flatlay_tshirt.png",
+      "instances": [
+        "inst_0_tops (Crewneck T-Shirt)"
+      ]
+    },
+    {
+      "id": "flatlay_shorts",
+      "title": "Flat-Lay Athletic Shorts",
+      "category": "bottoms",
+      "subcat": "shorts",
+      "domain": "flat_lay",
+      "confidence": 0.85,
+      "filename": "contact_sheet_flatlay_shorts.png",
+      "instances": [
+        "inst_0_bottoms (Athletic Shorts)"
+      ]
+    },
+    {
+      "id": "flatlay_skirt",
+      "title": "Flat-Lay Pleated A-Line Skirt",
+      "category": "skirt",
+      "subcat": "pleated_skirt",
+      "domain": "flat_lay",
+      "confidence": 0.87,
+      "filename": "contact_sheet_flatlay_skirt.png",
+      "instances": [
+        "inst_0_skirt (Pleated Skirt)"
+      ]
+    },
+    {
+      "id": "flatlay_dress",
+      "title": "Flat-Lay Maxi Summer Dress",
+      "category": "dress",
+      "subcat": "maxi_dress",
+      "domain": "flat_lay",
+      "confidence": 0.89,
+      "filename": "contact_sheet_flatlay_dress.png",
+      "instances": [
+        "inst_0_dress (Maxi Dress)"
+      ]
+    },
+    {
+      "id": "lifestyle_ensemble",
+      "title": "Lifestyle Casual Streetwear Outfit",
+      "category": "outfit_grid",
+      "subcat": "hoodie + sweatpants + sneakers",
+      "domain": "lifestyle",
+      "confidence": 0.88,
+      "filename": "contact_sheet_lifestyle_ensemble.png",
+      "instances": [
+        "inst_0_hoodie",
+        "inst_1_bottoms",
+        "inst_2_footwear"
+      ]
+    },
+    {
+      "id": "folded_garment",
+      "title": "Folded Heavyweight Knit Sweater",
+      "category": "tops",
+      "subcat": "sweater",
+      "domain": "flat_lay",
+      "confidence": 0.83,
+      "filename": "contact_sheet_folded_garment.png",
+      "instances": [
+        "inst_0_tops (Folded Sweater)"
+      ]
+    }
+  ]
+}

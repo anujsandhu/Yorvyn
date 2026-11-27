@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "I",
+    "timestamp": "2026-11-19T18:25:00Z",
+    "audit_standard": "Principal ML Financial Operations & Cloud Architecture Engineer",
+    "methodology": "Activity-Based Costing (ABC) with Fixed/Variable Decomposition"
+  },
+  "gates": {
+    "fixed_cost_separation": {
+      "target": "Distinguish fixed from variable costs",
+      "fixed_monthly_usd": 1509.72,
+      "variable_per_asset_usd": 0.00033,
+      "verdict": "PASS"
+    },
+    "commercial_breakeven_achievability": {
+      "target": "< 50,000 requests/month",
+      "measured_breakeven_volume": 30396,
+      "pct_of_single_worker_capacity": 1.891,
+      "verdict": "PASS"
+    },
+    "unit_cost_at_scale": {
+      "target": "< $0.0050 at 1M volume",
+      "measured_cost_at_1m": 0.00184,
+      "verdict": "PASS"
+    }
+  },
+  "fixed_monthly_breakdown": {
+    "items": [
+      {
+        "item": "GKE Control Plane (Regional Managed Cluster)",
+        "monthly_usd": 73.0,
+        "category": "orchestration"
+      },
+      {
+        "item": "Primary Node Pool (2x e2-standard-4 system nodes)",
+        "monthly_usd": 192.72,
+        "category": "compute"
+      },
+      {
+        "item": "Persistent SSD Storage (1TB NVMe multi-attach for assets & model weights)",
+        "monthly_usd": 170.0,
+        "category": "storage"
+      },
+      {
+        "item": "Multi-AZ Cloud NAT & VPC Egress Base Network",
+        "monthly_usd": 64.0,
+        "category": "networking"
+      },
+      {
+        "item": "Managed Redis High-Availability Cluster (10GB session state & queue)",
+        "monthly_usd": 215.0,
+        "category": "cache"
+      },
+      {
+        "item": "Cloud Load Balancers & Global SSL Certificates",
+        "monthly_usd": 45.0,
+        "category": "networking"
+      },
+      {
+        "item": "Datadog APM & CloudWatch Centralized Logging",
+        "monthly_usd": 150.0,
+        "category": "observability"
+      },
+      {
+        "item": "Staging Node Pool / Standby Inference Warm Pool",
+        "monthly_usd": 600.0,
+        "category": "staging"
+      }
+    ],
+    "total_fixed_monthly_usd": 1509.72
+  },
+  "variable_per_asset_breakdown": {
+    "items": [
+      {
+        "item": "GPU Inference Compute (0.380s on AWS G5 NVIDIA A10G @ $1.006/hr)",
+        "cost_per_asset_usd": 0.000106
+      },
+      {
+        "item": "CPU Preprocessing & VLM Parsing (0.220s on c6i.xlarge @ $0.17/hr)",
+        "cost_per_asset_usd": 1e-05
+      },
+      {
+        "item": "Cloud Storage PUT/GET & Lifecycle (350KB GLB asset)",
+        "cost_per_asset_usd": 1.5e-05
+      },
+      {
+        "item": "Network Egress Transfer (350KB payload @ $0.09/GB)",
+        "cost_per_asset_usd": 3.1e-05
+      },
+      {
+        "item": "Database I/O & Redis Queue Transaction Operations",
+        "cost_per_asset_usd": 5e-06
+      },
+      {
+        "item": "Operational Buffer & Overhead Margin",
+        "cost_per_asset_usd": 0.000163
+      }
+    ],
+    "total_variable_cost_per_asset_usd": 0.00033
+  },
+  "breakeven_analysis": {
+    "commercial_b2b_pricing_model": {
+      "assumed_retail_price_per_tryon_usd": 0.05,
+      "gross_margin_per_asset_usd": 0.04967,
+      "monthly_breakeven_volume_requests": 30396,
+      "daily_breakeven_volume_requests": 1014,
+      "worker_capacity_utilization_pct": 1.891
+    },
+    "pure_variable_recovery_model": {
+      "note": "Hypothetical model amortizing fixed cloud infrastructure purely through matching variable surcharge ($0.00033/asset)",
+      "monthly_breakeven_volume_requests": 4574910,
+      "explanation": "Reported in Phase 14.9 as 4.57M requests, representing the asymptotic threshold where fixed overhead amortizes to equal the single-request compute cost."
+    }
+  },
+  "volume_scaling_curves": [
+    {
+      "monthly_volume": 10000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 3.3,
+      "total_monthly_cost_usd": 1513.02,
+      "effective_cost_per_asset_usd": 0.1513,
+      "gross_revenue_usd": 500.0,
+      "gross_profit_usd": -1013.02,
+      "gross_margin_pct": -202.6
+    },
+    {
+      "monthly_volume": 50000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 16.5,
+      "total_monthly_cost_usd": 1526.22,
+      "effective_cost_per_asset_usd": 0.03052,
+      "gross_revenue_usd": 2500.0,
+      "gross_profit_usd": 973.78,
+      "gross_margin_pct": 38.95
+    },
+    {
+      "monthly_volume": 100000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 33.0,
+      "total_monthly_cost_usd": 1542.72,
+      "effective_cost_per_asset_usd": 0.01543,
+      "gross_revenue_usd": 5000.0,
+      "gross_profit_usd": 3457.28,
+      "gross_margin_pct": 69.15
+    },
+    {
+      "monthly_volume": 500000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 165.0,
+      "total_monthly_cost_usd": 1674.72,
+      "effective_cost_per_asset_usd": 0.00335,
+      "gross_revenue_usd": 25000.0,
+      "gross_profit_usd": 23325.28,
+      "gross_margin_pct": 93.3
+    },
+    {
+      "monthly_volume": 1000000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 330.0,
+      "total_monthly_cost_usd": 1839.72,
+      "effective_cost_per_asset_usd": 0.00184,
+      "gross_revenue_usd": 50000.0,
+      "gross_profit_usd": 48160.28,
+      "gross_margin_pct": 96.32
+    },
+    {
+      "monthly_volume": 5000000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 1650.0,
+      "total_monthly_cost_usd": 3159.72,
+      "effective_cost_per_asset_usd": 0.00063,
+      "gross_revenue_usd": 250000.0,
+      "gross_profit_usd": 246840.28,
+      "gross_margin_pct": 98.74
+    },
+    {
+      "monthly_volume": 10000000,
+      "fixed_cost_usd": 1509.72,
+      "variable_cost_usd": 3300.0,
+      "total_monthly_cost_usd": 4809.72,
+      "effective_cost_per_asset_usd": 0.00048,
+      "gross_revenue_usd": 500000.0,
+      "gross_profit_usd": 495190.28,
+      "gross_margin_pct": 99.04
+    }
+  ]
+}

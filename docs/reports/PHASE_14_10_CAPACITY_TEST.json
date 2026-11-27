@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "I",
+    "timestamp": "2026-11-19T18:25:00Z",
+    "worker_endpoint": "http://127.0.0.1:8088",
+    "tested_concurrencies": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "gates": {
+    "concurrency_success_rate": {
+      "target": "100.0%",
+      "measured": "100.0%",
+      "verdict": "PASS"
+    },
+    "p95_latency_under_load": {
+      "target": "< 25000 ms",
+      "measured": "10950.5 ms",
+      "verdict": "PASS"
+    },
+    "max_memory_rss": {
+      "target": "< 4096 MB",
+      "measured": "74.6 MB",
+      "verdict": "PASS"
+    }
+  },
+  "concurrency_benchmarks": {
+    "concurrency_1": {
+      "concurrency_level": 1,
+      "total_requests": 2,
+      "successful_requests": 2,
+      "error_rate_pct": 0.0,
+      "throughput_req_per_sec": 0.47,
+      "latency_p50_ms": 2300.53,
+      "latency_p95_ms": 2300.53,
+      "latency_max_ms": 2300.53,
+      "mean_server_exec_ms": 1792.63,
+      "memory_rss_mb": 25.38,
+      "memory_delta_mb": 2.59
+    },
+    "concurrency_2": {
+      "concurrency_level": 2,
+      "total_requests": 4,
+      "successful_requests": 4,
+      "error_rate_pct": 0.0,
+      "throughput_req_per_sec": 0.61,
+      "latency_p50_ms": 3129.4,
+      "latency_p95_ms": 4662.74,
+      "latency_max_ms": 4662.74,
+      "mean_server_exec_ms": 1548.42,
+      "memory_rss_mb": 25.38,
+      "memory_delta_mb": 0.0
+    },
+    "concurrency_4": {
+      "concurrency_level": 4,
+      "total_requests": 8,
+      "successful_requests": 8,
+      "error_rate_pct": 0.0,
+      "throughput_req_per_sec": 0.62,
+      "latency_p50_ms": 6265.92,
+      "latency_p95_ms": 10950.49,
+      "latency_max_ms": 10950.49,
+      "mean_server_exec_ms": 1552.58,
+      "memory_rss_mb": 29.62,
+      "memory_delta_mb": 4.25
+    },
+    "concurrency_8": {
+      "concurrency_level": 8,
+      "total_requests": 16,
+      "successful_requests": 16,
+      "error_rate_pct": 0.0,
+      "throughput_req_per_sec": 0.71,
+      "latency_p50_ms": 11403.97,
+      "latency_p95_ms": 21353.46,
+      "latency_max_ms": 22996.03,
+      "mean_server_exec_ms": 1738.89,
+      "memory_rss_mb": 74.62,
+      "memory_delta_mb": 45.0
+    }
+  }
+}

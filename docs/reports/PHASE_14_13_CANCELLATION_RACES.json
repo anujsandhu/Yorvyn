@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Cancellation Race Testing",
+    "timestamp": "2026-11-21T18:15:31Z",
+    "total_lifecycle_points": 8,
+    "passed_points": 8,
+    "failed_points": 0,
+    "verdict": "PASS"
+  },
+  "points": [
+    {
+      "point": 1,
+      "name": "Point 1: Pre-Submission Abort",
+      "description": "Client cancellation before submission accepted",
+      "response_code": 400,
+      "latency_ms": 0.87,
+      "final_status": "NOT_FOUND",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=NOT_FOUND, asset_exists=False, latency=0.87ms"
+    },
+    {
+      "point": 2,
+      "name": "Point 2: Queued State",
+      "description": "Cancellation while job is queued waiting for execution lock",
+      "response_code": 200,
+      "latency_ms": 1.7,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=1.7ms"
+    },
+    {
+      "point": 3,
+      "name": "Point 3: Pre-Inference",
+      "description": "Cancellation after image loading, before neural/parametric synthesis",
+      "response_code": 200,
+      "latency_ms": 86.29,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=86.29ms"
+    },
+    {
+      "point": 4,
+      "name": "Point 4: Mid-Inference",
+      "description": "Cancellation inside contour carving / synthesis loop",
+      "response_code": 200,
+      "latency_ms": 83.72,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=83.72ms"
+    },
+    {
+      "point": 5,
+      "name": "Point 5: Post-Inference",
+      "description": "Cancellation after mesh generated, before GLB byte serialization",
+      "response_code": 200,
+      "latency_ms": 418.83,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=418.83ms"
+    },
+    {
+      "point": 6,
+      "name": "Point 6: During Serialization",
+      "description": "Cancellation during GLB asset encoding",
+      "response_code": 200,
+      "latency_ms": 367.34,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=367.34ms"
+    },
+    {
+      "point": 7,
+      "name": "Point 7: During Persistence",
+      "description": "Cancellation during metadata persistence",
+      "response_code": 200,
+      "latency_ms": 349.97,
+      "final_status": "CANCELLED",
+      "asset_published": false,
+      "status": "PASS",
+      "evidence": "status=CANCELLED, asset_exists=False, latency=349.97ms"
+    },
+    {
+      "point": 8,
+      "name": "Point 8: Post-Completion",
+      "description": "Late cancellation attempt on terminal COMPLETED job",
+      "response_code": 200,
+      "latency_ms": 1.16,
+      "final_status": "COMPLETED",
+      "asset_published": true,
+      "status": "PASS",
+      "evidence": "status=COMPLETED, asset_exists=True, latency=1.16ms"
+    }
+  ]
+}

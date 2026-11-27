@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.3",
+    "suite": "Concurrency & Isolation Matrix",
+    "timestamp": "2026-11-21T18:16:44Z",
+    "hardware": "Apple Silicon M2 (MPS accelerator / 16GB Unified Memory)",
+    "execution_lock": "PyTorch single-lock serialized forward pass (engine_lock)",
+    "verdict": "PASS"
+  },
+  "concurrency_matrix": [
+    {
+      "concurrency_level": 1,
+      "total_requests": 50,
+      "successes": 50,
+      "failures": 0,
+      "success_rate_pct": 100.0,
+      "wall_clock_duration_s": 18.22,
+      "throughput_req_per_s": 2.74,
+      "latency_ms": {
+        "min": 333.77,
+        "mean": 363.8,
+        "p50": 358.34,
+        "p90": 378.78,
+        "p95": 430.55,
+        "p99": 435.28,
+        "max": 436.34
+      },
+      "memory_rss_mb": 339.61,
+      "open_fds": 414,
+      "thread_count": 23,
+      "data_isolation_verified": true,
+      "queue_wait_overhead_note": "At C=1, lock contention scales P50 latency from 338ms (C=1) to 358.3ms (C=1) while throughput is bounded by hardware MPS capacity (2.74 req/s)."
+    },
+    {
+      "concurrency_level": 2,
+      "total_requests": 50,
+      "successes": 50,
+      "failures": 0,
+      "success_rate_pct": 100.0,
+      "wall_clock_duration_s": 17.18,
+      "throughput_req_per_s": 2.91,
+      "latency_ms": {
+        "min": 334.37,
+        "mean": 680.37,
+        "p50": 689.29,
+        "p90": 703.44,
+        "p95": 715.24,
+        "p99": 729.26,
+        "max": 732.98
+      },
+      "memory_rss_mb": 339.98,
+      "open_fds": 414,
+      "thread_count": 23,
+      "data_isolation_verified": true,
+      "queue_wait_overhead_note": "At C=2, lock contention scales P50 latency from 338ms (C=1) to 689.3ms (C=2) while throughput is bounded by hardware MPS capacity (2.91 req/s)."
+    },
+    {
+      "concurrency_level": 4,
+      "total_requests": 50,
+      "successes": 50,
+      "failures": 0,
+      "success_rate_pct": 100.0,
+      "wall_clock_duration_s": 17.28,
+      "throughput_req_per_s": 2.89,
+      "latency_ms": {
+        "min": 318.2,
+        "mean": 1340.89,
+        "p50": 1375.89,
+        "p90": 1432.14,
+        "p95": 1476.59,
+        "p99": 1487.8,
+        "max": 1488.08
+      },
+      "memory_rss_mb": 340.11,
+      "open_fds": 414,
+      "thread_count": 23,
+      "data_isolation_verified": true,
+      "queue_wait_overhead_note": "At C=4, lock contention scales P50 latency from 338ms (C=1) to 1375.9ms (C=4) while throughput is bounded by hardware MPS capacity (2.89 req/s)."
+    },
+    {
+      "concurrency_level": 8,
+      "total_requests": 50,
+      "successes": 50,
+      "failures": 0,
+      "success_rate_pct": 100.0,
+      "wall_clock_duration_s": 18.31,
+      "throughput_req_per_s": 2.73,
+      "latency_ms": {
+        "min": 346.46,
+        "mean": 2716.82,
+        "p50": 2872.26,
+        "p90": 3126.76,
+        "p95": 3155.93,
+        "p99": 3171.32,
+        "max": 3177.56
+      },
+      "memory_rss_mb": 340.0,
+      "open_fds": 414,
+      "thread_count": 23,
+      "data_isolation_verified": true,
+      "queue_wait_overhead_note": "At C=8, lock contention scales P50 latency from 338ms (C=1) to 2872.3ms (C=8) while throughput is bounded by hardware MPS capacity (2.73 req/s)."
+    }
+  ]
+}

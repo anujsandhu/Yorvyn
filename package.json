@@ -12,6 +12,8 @@
     "deploy:frontend": "npm run build:prod --prefix frontend && firebase deploy --only hosting"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "cloudinary": "^2.11.0"
   }
 }

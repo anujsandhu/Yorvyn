@@ -11,11 +11,13 @@ import { PISTOL, RIFLE } from './shooter';
 import { MELEE } from './melee';
 import { VEHICLES } from './vehicles';
 import { REACTIONS } from './reactions';
+import { FASHION_REACTIONS } from './fashionReactions';
 import { withFaces } from './faces';
 import { lieDown, sleep } from './lying';
 import { MOCAP_DATA } from './mocap-data';
 import { clipFromMocap } from '../mocap';
 export * from './types';
+export * from './fashionReactions';
 
 /** Motion-captured clips (CMU, see clips/mocap-data.ts); the rest are keyframed. */
 const mocap = (id: string, name: string, category: Clip['category']): Clip => clipFromMocap(MOCAP_DATA[id], { id, name, category });
@@ -36,6 +38,7 @@ const SIT_DOWN = easeFrom(mocap('sit_down', 'Sit down (chair)', 'Sitting & lying
 export const CLIPS: Clip[] = withFaces(
   [
     idle,
+    ...FASHION_REACTIONS,
     crouch,
     mocap('walk', 'Walk', 'Locomotion'),
     mocap('walk_slouch', 'Slouch walk', 'Locomotion'),

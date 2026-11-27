@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.2",
+    "timestamp": "2026-11-21T10:05:15Z",
+    "audit_standard": "Principal ML Infrastructure & Cloud FinOps Architect",
+    "pricing_reference": "AWS US-East-1 (N. Virginia) Published Rates (2026/2027)",
+    "workload_baseline": "100,000 reconstructions / month (average ~3,333 / day)"
+  },
+  "itemized_monthly_costs": {
+    "gpu_compute": {
+      "instance_type": "g6.xlarge (1x NVIDIA L4 24GB, 4 vCPU, 16GB RAM)",
+      "hourly_rate_spot": 0.354,
+      "hourly_rate_on_demand": 0.804,
+      "provisioning_model": "Spot with On-Demand Fallback (80/20 mix)",
+      "effective_hourly_rate": 0.444,
+      "cluster_sizing": "Auto-scaling 1 to 4 instances; average 1.5 instances active 24/7",
+      "monthly_gpu_cost_usd": 486.18,
+      "description": "Primary neural 3D and SegFormer B2 inference execution"
+    },
+    "cpu_compute_api": {
+      "instance_type": "AWS Fargate / ECS (2 vCPU, 4GB RAM API Gateway & Orchestrator)",
+      "monthly_cost_usd": 68.4,
+      "description": "FastAPI orchestration, HMAC authentication, request validation"
+    },
+    "storage": {
+      "service": "AWS S3 Standard (Tiered Lifecycle to Glacier Flexible Retrieval)",
+      "asset_volume_gb": 40.0,
+      "storage_rate_per_gb": 0.023,
+      "put_get_requests_usd": 5.4,
+      "monthly_storage_cost_usd": 6.32,
+      "description": "Storage of generated binary GLB meshes, texture albedo maps, and job logs"
+    },
+    "network_egress": {
+      "service": "AWS CloudFront CDN + Data Transfer Out",
+      "bandwidth_gb": 50.0,
+      "rate_per_gb": 0.085,
+      "monthly_egress_cost_usd": 4.25,
+      "description": "Delivery of binary GLB assets to Three.js client browsers"
+    },
+    "queue_and_state": {
+      "service": "Amazon ElastiCache for Redis (cache.t4g.medium, Multi-AZ)",
+      "monthly_cost_usd": 52.8,
+      "description": "Durable priority job queue, worker heartbeats, and rate limiting"
+    },
+    "observability": {
+      "service": "Datadog / Amazon CloudWatch (Metrics, Distributed Traces, Alarms)",
+      "monthly_cost_usd": 35.0,
+      "description": "P50/P95/P99 latency tracking, GPU duty cycle, error alerting"
+    },
+    "idle_capacity_overhead": {
+      "overhead_percentage": "15.0%",
+      "monthly_cost_usd": 72.9,
+      "description": "Minimum 1 warm standby spot instance during low-traffic nocturnal hours"
+    },
+    "failed_jobs_overhead": {
+      "failure_rate": "0.4%",
+      "monthly_cost_usd": 2.8,
+      "description": "Compute consumed by malformed inputs or user cancellations"
+    }
+  },
+  "summary_cost_analysis": {
+    "total_monthly_infrastructure_cost_usd": 727.87,
+    "total_monthly_reconstructions": 100000,
+    "cost_per_successful_reconstruction_usd": 0.00728,
+    "cost_breakdown_per_garment": {
+      "gpu_inference": "$0.00486 (66.8%)",
+      "orchestration_and_queue": "$0.00121 (16.6%)",
+      "idle_and_headroom": "$0.00073 (10.0%)",
+      "storage_and_cdn": "$0.00048 (6.6%)"
+    },
+    "local_mps_staging_cost_usd": 0.00012,
+    "disclaimer": "Cloud estimate based on published AWS pricing. Real cloud invoices will only be generated upon authorized production cluster provisioning."
+  }
+}

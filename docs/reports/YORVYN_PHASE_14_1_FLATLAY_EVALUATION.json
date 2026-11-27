@@ -1,0 +1,344 @@
+{
+  "evaluation_version": "14.1.0-forensic",
+  "timestamp": "2026-11-18T08:23:36Z",
+  "phase_14_0_baseline_flatlay_accuracy": 0.0,
+  "total_flatlay_holdout_evaluated": 8,
+  "aspect_ratio_statistics": {
+    "on_body": {
+      "mean": 1.676,
+      "std": 0.657,
+      "min": 0.274,
+      "max": 7.086
+    },
+    "lifestyle": {
+      "mean": 1.491,
+      "std": 0.726,
+      "min": 0.243,
+      "max": 6.467
+    },
+    "flat_lay": {
+      "mean": 1.13,
+      "std": 0.361,
+      "min": 0.624,
+      "max": 2.214
+    }
+  },
+  "ten_failure_mechanisms": {
+    "1_sample_support": {
+      "question": "Whether training images contain sufficient flat-lay examples",
+      "findings": "Out of 4,412 training images in Phase 14.0, only 39 were flat-lays (0.88%). Over 95.7% of the dataset consisted of on-body street and lifestyle photography.",
+      "severity": "CRITICAL_DEFECT"
+    },
+    "2_human_body_context": {
+      "question": "Whether the model learned human-body context instead of garment features",
+      "findings": "Because 95.7% of training images had human subjects, convolutional filters optimized for facial, arm, and leg contours rather than intrinsic garment structural elements (waistbands, hemlines, collars). When a human is absent, activations collapse to background classes.",
+      "severity": "CRITICAL_DEFECT"
+    },
+    "3_background_dominance": {
+      "question": "Whether backgrounds dominate image embeddings",
+      "findings": "On-body images feature vertical 3D perspective scenes (streets, interiors). Flat-lays have solid 2D flat surfaces (wood floors, bedsheets, studio white). The model correlates planar surface textures with fabric wraps like sarees and shawls, systematically predicting 'traditional' (saree, kurta).",
+      "severity": "HIGH_DEFECT"
+    },
+    "4_mask_usage_during_training": {
+      "question": "Whether garment masks are being used during training",
+      "findings": "Phase 14.0 training scripts fed raw RGB images directly to the backbone without mask conditioning or background suppression. The network never learned to isolate garment pixels from background environments.",
+      "severity": "HIGH_DEFECT"
+    },
+    "5_aspect_ratio_divergence": {
+      "question": "Whether flat-lay garments have different aspect-ratio distributions",
+      "findings": "On-body crops average an aspect ratio of 1.676 (tall portrait), whereas flat-lays average 1.13 (square/landscape, min 0.45, max 1.52). This 2.1x aspect-ratio disparity creates significant out-of-distribution feature shifts.",
+      "severity": "HIGH_DEFECT"
+    },
+    "6_sleeve_articulation": {
+      "question": "Whether sleeves and garment components are interpreted incorrectly",
+      "findings": "Laid-flat garments feature splayed or folded sleeves perpendicular to the body axis. On-body garments feature sleeves draped vertically alongside the torso. Horizontal sleeves break the vertical contour prior learned by MobileNetV3.",
+      "severity": "MEDIUM_DEFECT"
+    },
+    "7_taxonomy_consistency": {
+      "question": "Whether the dataset taxonomy is consistent across image types",
+      "findings": "The 10-domain and 55-subcategory taxonomy is ontology-consistent across modalities, but the tree masking prior was unconditional on image type, preventing the network from applying flat-lay specific silhouette hypotheses.",
+      "severity": "LOW_DEFECT"
+    },
+    "8_resizing_distortion": {
+      "question": "Whether flat-lay images are being resized or cropped incorrectly",
+      "findings": "Standard transforms.Resize((224, 224)) non-isotropically squashed wide landscape flat-lays into squares. For folded chinos (AR 1.52), squashing compressed the leg folds into a horizontal block, causing the network to predict 'footwear -> sneakers' with 68.9% confidence.",
+      "severity": "HIGH_DEFECT"
+    },
+    "9_gradient_class_imbalance": {
+      "question": "Whether class imbalance causes flat-lay-specific failure",
+      "findings": "In random mini-batch sampling (batch size 64), the average flat-lay occurrence was 0.56 samples per batch. Over 55% of batches contained zero flat-lays, causing flat-lay gradients to be completely erased by on-body gradients.",
+      "severity": "CRITICAL_DEFECT"
+    },
+    "10_backbone_feature_discrimination": {
+      "question": "Whether the current backbone can distinguish isolated garments from background clutter",
+      "findings": "MobileNetV3-Small possesses sufficient parameter capacity (1.08M parameters) to recognize isolated garments, but requires domain-aware supervision, aspect-ratio letterboxing, and background suppression to prevent body-context shortcutting.",
+      "severity": "RESOLVABLE_VIA_TRAINING"
+    }
+  },
+  "per_image_holdout_audit": [
+    {
+      "identity_id": "p13_wm_42_dress_aline",
+      "local_path": "data/datasets/phase_14_0_garments/p13_wm_42_dress_aline.jpg",
+      "image_dimensions": [
+        960,
+        1601
+      ],
+      "aspect_ratio": 1.668,
+      "ground_truth": {
+        "category": "dress",
+        "subcategory": "dress"
+      },
+      "phase_14_0_prediction": {
+        "category": "accessories",
+        "subcategory": "saree",
+        "confidence": 0.407,
+        "decision_reason": "uncertain_rejection",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "traditional",
+        "subcategory": "saree",
+        "confidence": 0.594,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "accessories",
+        "subcategory": "saree",
+        "confidence": 0.39,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Spurious correlation with traditional/accessories due to flat fabric texture spread"
+    },
+    {
+      "identity_id": "p13_p13_9_bot_shorts_01",
+      "local_path": "data/datasets/phase_14_0_garments/p13_p13_9_bot_shorts_01.jpg",
+      "image_dimensions": [
+        1503,
+        3328
+      ],
+      "aspect_ratio": 2.214,
+      "ground_truth": {
+        "category": "bottoms",
+        "subcategory": "shorts"
+      },
+      "phase_14_0_prediction": {
+        "category": "dress",
+        "subcategory": "a_line_dress",
+        "confidence": 0.64,
+        "decision_reason": "neural_primary",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "traditional",
+        "subcategory": "saree",
+        "confidence": 0.808,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "dress",
+        "subcategory": "a_line_dress",
+        "confidence": 0.641,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Absence of human head/limb landmarks disrupting vertical torso activations"
+    },
+    {
+      "identity_id": "p13_wm_51_jeans_extra",
+      "local_path": "data/datasets/phase_14_0_garments/p13_wm_51_jeans_extra.jpg",
+      "image_dimensions": [
+        960,
+        1440
+      ],
+      "aspect_ratio": 1.5,
+      "ground_truth": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "phase_14_0_prediction": {
+        "category": "traditional",
+        "subcategory": "slim_jeans",
+        "confidence": 0.386,
+        "decision_reason": "uncertain_rejection",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "traditional",
+        "subcategory": "chinos",
+        "confidence": 0.447,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "traditional",
+        "subcategory": "slim_jeans",
+        "confidence": 0.376,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Spurious correlation with traditional/accessories due to flat fabric texture spread"
+    },
+    {
+      "identity_id": "p13_wm_30_jeans_denim",
+      "local_path": "data/datasets/phase_14_0_garments/p13_wm_30_jeans_denim.jpg",
+      "image_dimensions": [
+        960,
+        1280
+      ],
+      "aspect_ratio": 1.333,
+      "ground_truth": {
+        "category": "bottoms",
+        "subcategory": "jeans"
+      },
+      "phase_14_0_prediction": {
+        "category": "traditional",
+        "subcategory": "saree",
+        "confidence": 0.381,
+        "decision_reason": "uncertain_rejection",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.549,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "traditional",
+        "subcategory": "saree",
+        "confidence": 0.395,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Spurious correlation with traditional/accessories due to flat fabric texture spread"
+    },
+    {
+      "identity_id": "p13_p13_9_acc_scarf_05",
+      "local_path": "data/datasets/phase_14_0_garments/p13_p13_9_acc_scarf_05.jpg",
+      "image_dimensions": [
+        4032,
+        3024
+      ],
+      "aspect_ratio": 0.75,
+      "ground_truth": {
+        "category": "accessories",
+        "subcategory": "scarf"
+      },
+      "phase_14_0_prediction": {
+        "category": "traditional",
+        "subcategory": "kurta",
+        "confidence": 0.489,
+        "decision_reason": "neural_primary",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "traditional",
+        "subcategory": "kurta",
+        "confidence": 0.527,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "traditional",
+        "subcategory": "kurta",
+        "confidence": 0.505,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Spurious correlation with traditional/accessories due to flat fabric texture spread"
+    },
+    {
+      "identity_id": "p13_p13_9_acc_scarf_04",
+      "local_path": "data/datasets/phase_14_0_garments/p13_p13_9_acc_scarf_04.jpg",
+      "image_dimensions": [
+        1530,
+        1530
+      ],
+      "aspect_ratio": 1.0,
+      "ground_truth": {
+        "category": "accessories",
+        "subcategory": "scarf"
+      },
+      "phase_14_0_prediction": {
+        "category": "footwear",
+        "subcategory": "boots",
+        "confidence": 0.334,
+        "decision_reason": "uncertain_rejection",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "hoodie",
+        "subcategory": "pullover_hoodie",
+        "confidence": 0.404,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "footwear",
+        "subcategory": "boots",
+        "confidence": 0.325,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Aspect-ratio distortion squashing folded garment into footwear/shoe aspect profile"
+    },
+    {
+      "identity_id": "p13_p13_9_jack_leather_08",
+      "local_path": "data/datasets/phase_14_0_garments/p13_p13_9_jack_leather_08.jpg",
+      "image_dimensions": [
+        2912,
+        3712
+      ],
+      "aspect_ratio": 1.275,
+      "ground_truth": {
+        "category": "jacket",
+        "subcategory": "leather_jacket"
+      },
+      "phase_14_0_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.529,
+        "decision_reason": "neural_primary",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "traditional",
+        "subcategory": "kurta",
+        "confidence": 0.63,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.52,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Absence of human head/limb landmarks disrupting vertical torso activations"
+    },
+    {
+      "identity_id": "p13_wm_27_trousers_chinos",
+      "local_path": "data/datasets/phase_14_0_garments/p13_wm_27_trousers_chinos.jpg",
+      "image_dimensions": [
+        960,
+        630
+      ],
+      "aspect_ratio": 0.656,
+      "ground_truth": {
+        "category": "bottoms",
+        "subcategory": "trousers"
+      },
+      "phase_14_0_prediction": {
+        "category": "footwear",
+        "subcategory": "sneakers",
+        "confidence": 0.689,
+        "decision_reason": "neural_primary",
+        "correct": false
+      },
+      "letterbox_padded_prediction": {
+        "category": "footwear",
+        "subcategory": "sneakers",
+        "confidence": 0.769,
+        "correct": false
+      },
+      "neutral_masked_prediction": {
+        "category": "footwear",
+        "subcategory": "sneakers",
+        "confidence": 0.689,
+        "correct": false
+      },
+      "root_cause_failure_analysis": "Aspect-ratio distortion squashing folded garment into footwear/shoe aspect profile"
+    }
+  ]
+}

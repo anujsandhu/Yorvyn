@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "phase": "14.8",
+    "workstream": "Workstream I: Garment Identity Retrieval & Disambiguation Integrity",
+    "gallery_size": 264,
+    "pair_count": 1800,
+    "generated_at": "2026-11-19 16:43:12 UTC",
+    "elapsed_seconds": 64.32,
+    "verdict": "PASS"
+  },
+  "summary": {
+    "gallery_size": 264,
+    "recall_at_1_pct": 99.33,
+    "precision_at_1_pct": 99.33,
+    "mean_reciprocal_rank": 0.9967,
+    "roc_auc": 0.997,
+    "pr_auc": 0.8611,
+    "equal_error_rate": 0.01,
+    "calibrated_threshold": 0.805,
+    "hard_negative_false_match_rate_pct": 1.8,
+    "baseline_clip_comparison": {
+      "clip_recall_at_1_pct": 99.33,
+      "clip_mrr": 0.9967,
+      "clip_roc_auc": 0.9999,
+      "clip_hard_false_match_rate_pct": 1.4,
+      "composite_recall_gain_pct": 0.0
+    },
+    "discrepancy_02_resolution": "DISC-14.8-02 Resolved: Identity gallery size expanded from Phase 14.7's 120 items to 264 distinct physical garment identities (exceeding 250+ requirement). Empirical Recall@1 measured at 99.33% and ROC-AUC at 0.9970."
+  }
+}

@@ -1,0 +1,663 @@
+{
+  "evaluation_phase": "Phase 13.9",
+  "benchmark_date": "2026-11-15T17:49:43Z",
+  "forensic_clearance_reconciliation": {
+    "root_cause_explanation": "In Phase 13.8, an average clearance of 4.0 mm was reported across every garment category and archetype. Forensic inspection of garment_collision_engine.py (line 285) reveals this was an analytical fallback scalar: `total_clearance_mm = np.sum(np.where(residual_mask, ..., min_clearance_m + 0.001)) * 1000.0`. When residual penetration was 0, every vertex was assigned `0.003 + 0.001 = 0.004 m = 4.0 mm`, masking genuine anatomical distance variations. Phase 13.9 computes true signed distance distributions from the avatar surface.",
+    "total_penetrations_across_all_runs": 0,
+    "target_zero_penetrations_met": true,
+    "median_clearance_across_all_runs_mm": 96.0,
+    "mean_anatomical_variance_relief_mm": 72.66
+  },
+  "metrics_summary": {
+    "total_evaluated_combinations": 32,
+    "total_evaluated_vertices": 25192,
+    "total_penetrations": 0,
+    "penetration_free_rate": 1.0,
+    "mean_p05_snug_anchors_mm": 27.34,
+    "mean_median_clearance_mm": 96.0,
+    "mean_p95_loose_flare_mm": 100.0,
+    "production_verdict": "ACCEPTED (ZERO PENETRATION & MEASURED ANATOMICAL VARIANCE)"
+  },
+  "per_combination_results": [
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "initial_unprojected_penetrations": 46,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 4.93,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 95.07,
+      "evaluation_duration_ms": 416.13
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "initial_unprojected_penetrations": 46,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 3.77,
+        "median_clearance_mm": 95.58,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 96.23,
+      "evaluation_duration_ms": 405.94
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "initial_unprojected_penetrations": 42,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 3.0,
+        "p05_snug_anchors_mm": 15.3,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 84.7,
+      "evaluation_duration_ms": 403.47
+    },
+    {
+      "category": "tops",
+      "subcategory": "tshirt",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 632,
+      "triangle_count": 1128,
+      "initial_unprojected_penetrations": 24,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 5.0,
+        "median_clearance_mm": 87.13,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 95.0,
+      "evaluation_duration_ms": 401.58
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "initial_unprojected_penetrations": 52,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 18.0,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 82.0,
+      "evaluation_duration_ms": 715.32
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "initial_unprojected_penetrations": 50,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 12.93,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 87.07,
+      "evaluation_duration_ms": 717.94
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "initial_unprojected_penetrations": 64,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 3.0,
+        "p05_snug_anchors_mm": 33.6,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 66.4,
+      "evaluation_duration_ms": 705.71
+    },
+    {
+      "category": "shirt",
+      "subcategory": "formal_shirt",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 1178,
+      "triangle_count": 2146,
+      "initial_unprojected_penetrations": 22,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 9.51,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 90.49,
+      "evaluation_duration_ms": 707.2
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 36.49,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 63.51,
+      "evaluation_duration_ms": 960.32
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "initial_unprojected_penetrations": 10,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 4.37,
+        "p05_snug_anchors_mm": 35.24,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 64.76,
+      "evaluation_duration_ms": 962.12
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "initial_unprojected_penetrations": 6,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 3.1,
+        "p05_snug_anchors_mm": 41.88,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 58.12,
+      "evaluation_duration_ms": 959.7
+    },
+    {
+      "category": "hoodie",
+      "subcategory": "pullover_hoodie",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 1630,
+      "triangle_count": 2932,
+      "initial_unprojected_penetrations": 8,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 12.37,
+        "p05_snug_anchors_mm": 36.31,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 63.69,
+      "evaluation_duration_ms": 961.48
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "initial_unprojected_penetrations": 24,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 26.7,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 73.3,
+      "evaluation_duration_ms": 687.84
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "initial_unprojected_penetrations": 32,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 16.69,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 83.31,
+      "evaluation_duration_ms": 683.38
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "initial_unprojected_penetrations": 26,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 9.9,
+        "p05_snug_anchors_mm": 47.95,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 52.05,
+      "evaluation_duration_ms": 681.26
+    },
+    {
+      "category": "outerwear",
+      "subcategory": "denim_jacket",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 1126,
+      "triangle_count": 2042,
+      "initial_unprojected_penetrations": 26,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 21.28,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 78.72,
+      "evaluation_duration_ms": 691.83
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "initial_unprojected_penetrations": 2,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 12.54,
+        "p05_snug_anchors_mm": 32.82,
+        "median_clearance_mm": 87.45,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 67.18,
+      "evaluation_duration_ms": 269.2
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 12.03,
+        "p05_snug_anchors_mm": 31.65,
+        "median_clearance_mm": 86.18,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 68.35,
+      "evaluation_duration_ms": 269.49
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 13.72,
+        "p05_snug_anchors_mm": 34.33,
+        "median_clearance_mm": 90.22,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 65.67,
+      "evaluation_duration_ms": 268.78
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "straight_jeans",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 408,
+      "triangle_count": 688,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 11.36,
+        "p05_snug_anchors_mm": 30.05,
+        "median_clearance_mm": 84.83,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 69.95,
+      "evaluation_duration_ms": 269.46
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "initial_unprojected_penetrations": 2,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 46.02,
+        "p05_snug_anchors_mm": 58.05,
+        "median_clearance_mm": 85.88,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 41.95,
+      "evaluation_duration_ms": 157.91
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 47.78,
+        "p05_snug_anchors_mm": 57.62,
+        "median_clearance_mm": 84.79,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 42.38,
+      "evaluation_duration_ms": 159.34
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 42.57,
+        "p05_snug_anchors_mm": 56.45,
+        "median_clearance_mm": 86.85,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 43.55,
+      "evaluation_duration_ms": 158.21
+    },
+    {
+      "category": "bottoms",
+      "subcategory": "shorts",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 228,
+      "triangle_count": 328,
+      "initial_unprojected_penetrations": 0,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 50.27,
+        "p05_snug_anchors_mm": 57.14,
+        "median_clearance_mm": 83.85,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 42.86,
+      "evaluation_duration_ms": 159.01
+    },
+    {
+      "category": "dresses_and_skirts",
+      "subcategory": "a_line_dress",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "initial_unprojected_penetrations": 18,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 22.34,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 77.66,
+      "evaluation_duration_ms": 323.42
+    },
+    {
+      "category": "dresses_and_skirts",
+      "subcategory": "a_line_dress",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "initial_unprojected_penetrations": 14,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 22.98,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 77.02,
+      "evaluation_duration_ms": 307.13
+    },
+    {
+      "category": "dresses_and_skirts",
+      "subcategory": "a_line_dress",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "initial_unprojected_penetrations": 18,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 20.99,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 79.01,
+      "evaluation_duration_ms": 309.57
+    },
+    {
+      "category": "dresses_and_skirts",
+      "subcategory": "a_line_dress",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 448,
+      "triangle_count": 840,
+      "initial_unprojected_penetrations": 6,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 25.88,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 74.12,
+      "evaluation_duration_ms": 309.72
+    },
+    {
+      "category": "traditional",
+      "subcategory": "kurta",
+      "avatar_archetype": "standard_175",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "initial_unprojected_penetrations": 12,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 13.76,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 86.24,
+      "evaluation_duration_ms": 390.97
+    },
+    {
+      "category": "traditional",
+      "subcategory": "kurta",
+      "avatar_archetype": "slim_lean",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "initial_unprojected_penetrations": 30,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 15.02,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 84.98,
+      "evaluation_duration_ms": 395.3
+    },
+    {
+      "category": "traditional",
+      "subcategory": "kurta",
+      "avatar_archetype": "athletic_broad",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "initial_unprojected_penetrations": 32,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 3.0,
+        "p05_snug_anchors_mm": 15.26,
+        "median_clearance_mm": 100.0,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 84.74,
+      "evaluation_duration_ms": 390.2
+    },
+    {
+      "category": "traditional",
+      "subcategory": "kurta",
+      "avatar_archetype": "plus_curvy",
+      "vertex_count": 648,
+      "triangle_count": 1066,
+      "initial_unprojected_penetrations": 18,
+      "residual_penetration_count": 0,
+      "is_penetration_free": true,
+      "legacy_proxy_constant_mm": 4.0,
+      "signed_distance_distribution_mm": {
+        "min_clearance_mm": 2.5,
+        "p05_snug_anchors_mm": 15.12,
+        "median_clearance_mm": 99.09,
+        "p95_loose_flare_mm": 100.0,
+        "max_clearance_mm": 100.0
+      },
+      "anatomical_variance_relief_mm": 84.88,
+      "evaluation_duration_ms": 394.7
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { 
-  Sparkles, 
-  Layers, 
-  Grid, 
-  Box, 
+  Sparkle, 
+  Stack, 
+  GridFour, 
+  Cube, 
   User
-} from 'lucide-react';
+} from './icons';
 import './FashionNavbar.css';
 
 export const FashionNavbar: React.FC = () => {
@@ -28,7 +28,7 @@ export const FashionNavbar: React.FC = () => {
           end
           className={({ isActive }) => `fashion-nav-item ${isActive ? 'active' : ''}`}
         >
-          <Sparkles size={16} color="#d4af37" />
+          <Sparkle size={16} color="#d4af37" />
           <span>AI Stylist</span>
         </NavLink>
 
@@ -36,7 +36,7 @@ export const FashionNavbar: React.FC = () => {
           to="/wardrobe" 
           className={({ isActive }) => `fashion-nav-item ${isActive ? 'active' : ''}`}
         >
-          <Layers size={16} />
+          <Stack size={16} />
           <span>Digital Wardrobe</span>
         </NavLink>
 
@@ -44,7 +44,7 @@ export const FashionNavbar: React.FC = () => {
           to="/outfits" 
           className={({ isActive }) => `fashion-nav-item ${isActive ? 'active' : ''}`}
         >
-          <Grid size={16} />
+          <GridFour size={16} />
           <span>Lookbook Studio</span>
         </NavLink>
 
@@ -52,7 +52,7 @@ export const FashionNavbar: React.FC = () => {
           to="/avatar" 
           className={({ isActive }) => `fashion-nav-item ${isActive ? 'active' : ''}`}
         >
-          <Box size={16} />
+          <Cube size={16} />
           <span>3D Digital Twin</span>
         </NavLink>
 

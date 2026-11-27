@@ -13,28 +13,7 @@
   background: linear-gradient(180deg, #b9dcf2 0%, #d8ecf8 35%, #edf6fc 70%, #f8fafc 100%);
   overflow: hidden;
   padding: 24px 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* ── Concentric Sky Geometric Orbital Arcs ── */
-.sky-ambient-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sky-concentric-arcs {
-  width: 100%;
-  max-width: 1200px;
-  height: 100%;
-  opacity: 0.65;
-  transform: scale(1.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Helvetica, Arial, sans-serif;
 }
 
 /* ── Center Floating Glassmorphism Card ── */
@@ -42,24 +21,25 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 420px;
-  padding: 42px 36px 36px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 30px;
+  max-width: 440px;
+  padding: 44px 38px 38px;
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 32px;
   box-shadow: 
-    0 24px 60px rgba(70, 115, 160, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.03),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9);
-  animation: cardFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    0 30px 70px -15px rgba(25, 75, 130, 0.16),
+    0 10px 28px -6px rgba(25, 75, 130, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.4);
+  animation: cardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes cardFadeIn {
   from {
     opacity: 0;
-    transform: translateY(16px) scale(0.98);
+    transform: translateY(18px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -67,43 +47,52 @@
   }
 }
 
-/* ── Top Icon Badge ── */
-.auth-badge-icon {
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 20px;
-  background: #edf1f5;
-  border-radius: 18px;
+/* ── Top Brand Logo ── */
+.auth-brand-badge {
+  width: 172px;
+  height: 38px;
+  margin: 0 auto 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
-    inset 0 1px 2px rgba(255, 255, 255, 0.9),
-    0 3px 8px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease;
+  overflow: hidden;
+  background: transparent;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.04));
 }
 
-.auth-badge-icon:hover {
-  transform: scale(1.04);
+.auth-brand-badge:hover {
+  transform: scale(1.03);
+}
+
+.auth-brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
 }
 
 /* ── Titles ── */
 .auth-card-title {
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 700;
-  color: #111827;
+  color: #0f172a;
   text-align: center;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.03em;
   margin: 0 0 8px;
 }
 
 .auth-card-subtitle {
   font-size: 13.5px;
-  color: #6b7280;
+  color: #64748b;
   text-align: center;
-  line-height: 1.48;
-  margin: 0 0 24px;
-  padding: 0 10px;
+  line-height: 1.52;
+  margin: 0 0 26px;
+  padding: 0 8px;
 }
 
 /* ── Form Inputs ── */
@@ -123,34 +112,44 @@
 .auth-pill-left-icon {
   position: absolute;
   left: 16px;
-  color: #6b7280;
+  color: #64748b;
   display: flex;
   align-items: center;
   pointer-events: none;
+  transition: color 0.2s ease;
 }
 
 .auth-pill-input {
   width: 100%;
-  height: 48px;
-  padding: 0 42px 0 44px;
-  background: #f1f3f5;
-  border: 1px solid transparent;
-  border-radius: 12px;
+  height: 50px;
+  padding: 0 44px 0 46px;
+  background: rgba(248, 250, 252, 0.82);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
   font-size: 14.5px;
-  color: #111827;
+  font-weight: 500;
+  color: #0f172a;
   outline: none;
-  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .auth-pill-input::placeholder {
-  color: #6b7280;
+  color: #94a3b8;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .auth-pill-input:focus {
   background: #ffffff;
-  border-color: #111827;
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.06);
+  border-color: #0f172a;
+  box-shadow: 
+    0 0 0 3px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.auth-pill-input-wrap:focus-within .auth-pill-left-icon {
+  color: #0f172a;
 }
 
 .auth-pill-eye-btn {
@@ -158,17 +157,18 @@
   right: 14px;
   background: transparent;
   border: none;
-  color: #6b7280;
+  color: #64748b;
   cursor: pointer;
   display: flex;
   align-items: center;
   padding: 6px;
   border-radius: 6px;
-  transition: color 0.15s;
+  transition: color 0.15s, background-color 0.15s;
 }
 
 .auth-pill-eye-btn:hover {
-  color: #111827;
+  color: #0f172a;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 /* ── Forgot Password ── */
@@ -184,138 +184,170 @@
   border: none;
   font-size: 12.5px;
   font-weight: 500;
-  color: #4b5563;
+  color: #64748b;
   cursor: pointer;
-  padding: 0;
+  padding: 2px 0;
   transition: color 0.15s;
 }
 
 .auth-forgot-link:hover {
-  color: #111827;
+  color: #0f172a;
   text-decoration: underline;
 }
 
 /* ── Primary Action Button ── */
 .auth-dark-cta-btn {
   width: 100%;
-  height: 48px;
+  height: 50px;
   margin-top: 6px;
-  background: #1e2025;
+  background: #0f172a;
   color: #ffffff;
   border: none;
-  border-radius: 12px;
-  font-size: 14.5px;
+  border-radius: 14px;
+  font-size: 15px;
   font-weight: 600;
+  letter-spacing: -0.01em;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(30, 32, 37, 0.16);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 6px 20px -4px rgba(15, 23, 42, 0.28),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .auth-dark-cta-btn:hover:not(:disabled) {
-  background: #111215;
+  background: #020617;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(30, 32, 37, 0.22);
+  box-shadow: 
+    0 8px 24px -4px rgba(15, 23, 42, 0.36),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
 .auth-dark-cta-btn:active:not(:disabled) {
   transform: translateY(0);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.24);
 }
 
 .auth-dark-cta-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.65;
   cursor: not-allowed;
 }
 
-/* ── Dotted Social Divider ── */
+/* ── Elegant Hairline Divider ── */
 .auth-dotted-divider {
   display: flex;
   align-items: center;
   text-align: center;
-  margin: 22px 0 16px;
+  margin: 24px 0 18px;
 }
 
 .auth-dotted-divider::before,
 .auth-dotted-divider::after {
   content: '';
   flex: 1;
-  border-bottom: 1.5px dotted #d1d5db;
+  border-bottom: 1px solid rgba(203, 213, 225, 0.65);
 }
 
 .auth-dotted-divider span {
-  padding: 0 12px;
+  padding: 0 14px;
   font-size: 12px;
-  color: #6b7280;
-  font-weight: 400;
-  white-space: nowrap;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-/* ── Social Buttons Row (3 Pill Buttons) ── */
+/* ── Social Sign-In ── */
 .auth-social-row {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
 }
 
-.auth-social-pill {
-  flex: 1;
-  height: 44px;
+.auth-guest-icon {
+  color: #6366f1;
+}
+
+.auth-google-pill-btn {
+  width: 100%;
+  height: 50px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 11px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: all 0.2s ease;
+  box-shadow: 
+    0 2px 8px rgba(15, 23, 42, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.auth-social-pill:hover:not(:disabled) {
-  background: #fdfdfd;
-  border-color: rgba(0, 0, 0, 0.16);
+.auth-google-pill-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: rgba(203, 213, 225, 1);
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
 }
 
-.auth-social-pill:active:not(:disabled) {
+.auth-google-pill-btn:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.auth-google-pill-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.auth-google-icon {
+  flex-shrink: 0;
+}
+
+.auth-google-text {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.2px;
 }
 
 /* ── Switcher Link ── */
 .auth-switch-wrap {
-  margin-top: 22px;
+  margin-top: 24px;
   text-align: center;
 }
 
 .auth-switch-text {
   font-size: 13.5px;
-  color: #6b7280;
+  color: #64748b;
   margin: 0;
 }
 
 .auth-switch-link {
   background: none;
   border: none;
-  color: #111827;
+  color: #0f172a;
   font-weight: 600;
   cursor: pointer;
   padding: 0;
   font-size: 13.5px;
-  transition: text-decoration 0.15s;
+  transition: text-decoration 0.15s, color 0.15s;
 }
 
 .auth-switch-link:hover {
   text-decoration: underline;
+  color: #020617;
 }
 
 /* ── Mobile Responsiveness ── */
 @media (max-width: 480px) {
   .yorvyn-auth-card {
-    padding: 32px 22px 26px;
-    border-radius: 24px;
+    padding: 34px 22px 28px;
+    border-radius: 26px;
   }
 
   .auth-card-title {

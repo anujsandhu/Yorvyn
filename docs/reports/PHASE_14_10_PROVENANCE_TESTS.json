@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "phase": "14.10",
+    "workstream": "A",
+    "timestamp": "2026-11-19T17:57:31Z",
+    "audit_standard": "Principal ML Infrastructure & Security Engineer",
+    "total_negative_tests": 7,
+    "passed_tests": 7,
+    "failed_tests": 0,
+    "overall_verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "PROV-NEG-01",
+      "name": "missing_checkpoint_rejection",
+      "description": "Rejects neural model loading when checkpoint file path does not exist",
+      "expected": "REJECT / FileNotFoundError",
+      "measured": "REJECTED (Missing checkpoint caught)",
+      "passed": true,
+      "details": "FileNotFoundError: Model checkpoint not found at /tmp/non_existent_model_checkpoint_v14_10.safetensors"
+    },
+    {
+      "test_id": "PROV-NEG-02",
+      "name": "empty_checkpoint_rejection",
+      "description": "Rejects 0-byte checkpoint matching empty byte hash e3b0c442...",
+      "expected": "REJECT / EmptyCheckpointError",
+      "measured": "REJECTED (Zero-byte digest detected & invalidated)",
+      "passed": true,
+      "details": "Detected empty byte hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "test_id": "PROV-NEG-03",
+      "name": "incorrect_checkpoint_hash_detection",
+      "description": "Fails validation when registered SHA-256 does not match actual bytes",
+      "expected": "REJECT / HashMismatchError",
+      "measured": "REJECTED (Mismatched hash detected)",
+      "passed": true,
+      "details": "Claimed 1111111111111111... != Real d47acdcc1be7c346..."
+    },
+    {
+      "test_id": "PROV-NEG-04",
+      "name": "tampered_checkpoint_after_registration",
+      "description": "Detects modification of checkpoint file on disk after initial registration",
+      "expected": "REJECT / TamperDetected",
+      "measured": "REJECTED (Hash mutation detected)",
+      "passed": true,
+      "details": "Pre-hash 9edf3a2541267fd6... != Post-hash d3f539a5aa7ae60b..."
+    },
+    {
+      "test_id": "PROV-NEG-05",
+      "name": "neural_mode_without_neural_inference",
+      "description": "Flags contract violation if neural mode is declared but neural 3D checkpoint is null",
+      "expected": "REJECT / ContractViolationError",
+      "measured": "REJECTED (Inconsistent mode vs checkpoint detected)",
+      "passed": true,
+      "details": "Engine declared 'neural_reconstruction' with checkpoint_sha256=null"
+    },
+    {
+      "test_id": "PROV-NEG-06",
+      "name": "parametric_fallback_honesty",
+      "description": "Verifies that falling back from neural to parametric clears neural checkpoint hash and logs fallback_reason",
+      "expected": "PASS / Truthful Fallback Reporting",
+      "measured": "PASSED (Fallback reason populated, neural hash null)",
+      "passed": true,
+      "details": "Neural 3D staging worker connection timeout; fell back to contour-carved parametric geometry"
+    },
+    {
+      "test_id": "PROV-NEG-07",
+      "name": "invalid_output_asset_hash_and_tamper_signature",
+      "description": "Verifies that modifying output asset or metadata invalidates HMAC-SHA256 signature",
+      "expected": "REJECT / SignatureVerificationFailed",
+      "measured": "REJECTED (Tampered payload failed HMAC verification)",
+      "passed": true,
+      "details": "HMAC signature mismatch detected after modifying output_glb_sha256"
+    }
+  ]
+}

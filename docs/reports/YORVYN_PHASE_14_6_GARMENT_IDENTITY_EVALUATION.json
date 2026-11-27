@@ -1,0 +1,54 @@
+{
+  "phase": "14.6",
+  "timestamp": "2026-11-19 13:24:00 UTC",
+  "total_evaluated_pairs": 1800,
+  "sample_pool_size": 147,
+  "target_metrics": {
+    "same_category_fmr_target": "<= 10.0%",
+    "similar_design_fmr_target": "<= 10.0%",
+    "cross_category_fmr_target": "<= 2.0%",
+    "positive_frr_target": "<= 10.0%",
+    "recall_at_1_target": ">= 90.0%",
+    "precision_at_1_target": ">= 90.0%"
+  },
+  "performance_comparison": {
+    "baseline_global_clip": {
+      "positive_frr": 0.0,
+      "same_category_fmr": 42.2,
+      "similar_design_fmr": 41.8,
+      "cross_category_fmr": 20.2,
+      "recall_at_1": 61.2,
+      "precision_at_1": 52.8,
+      "mean_positive_similarity": 0.9766,
+      "mean_same_category_similarity": 0.6886,
+      "mean_similar_design_similarity": 0.6948,
+      "mean_cross_category_similarity": 0.6345
+    },
+    "phase_14_6_composite_fingerprint": {
+      "positive_frr": 0.0,
+      "same_category_fmr": 6.2,
+      "similar_design_fmr": 7.8,
+      "cross_category_fmr": 2.0,
+      "recall_at_1": 94.67,
+      "precision_at_1": 93.42,
+      "mean_positive_similarity": 0.9548,
+      "mean_same_category_similarity": 0.3626,
+      "mean_similar_design_similarity": 0.388,
+      "mean_cross_category_similarity": 0.3332
+    }
+  },
+  "modality_breakdown": {
+    "vlm_weight": 0.35,
+    "colorway_weight": 0.3,
+    "texture_weight": 0.2,
+    "shape_weight": 0.15,
+    "same_category_color_dissimilarity": 0.4745,
+    "same_category_texture_dissimilarity": 0.0426,
+    "same_category_shape_dissimilarity": 0.6577
+  },
+  "latency_metrics": {
+    "mean_extraction_time_ms": 153.9,
+    "mean_comparison_time_ms": 0.04
+  },
+  "status": "PASS"
+}

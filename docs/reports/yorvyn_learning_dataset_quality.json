@@ -1,0 +1,64 @@
+{
+  "report_title": "Yorvyn AI Learning Dataset Quality & Sanitation Audit",
+  "audit_timestamp": "2026-11-07T07:40:00Z",
+  "pipeline_version": "v1.2_continuous",
+  "dataset_summary": {
+    "total_interactions_evaluated": 1420,
+    "eligible_for_review": 1180,
+    "consent_verified_rate": 0.324,
+    "dataset_examples_generated": 382,
+    "validated_examples": 348,
+    "quarantined_examples": 34,
+    "duplicate_submissions_blocked": 156,
+    "token_scrubbed_count": 89
+  },
+  "consent_filtering_breakdown": {
+    "personalization_only_retained": 798,
+    "global_model_training_opt_in": 382,
+    "image_training_consented": 215,
+    "conversation_training_consented": 310,
+    "excluded_due_to_missing_global_consent": 798,
+    "excluded_due_to_missing_image_consent": 167
+  },
+  "task_distribution": {
+    "classification": {
+      "validated_count": 142,
+      "quarantined_count": 12,
+      "mean_quality_score": 0.894,
+      "primary_correction_types": ["garment_silhouette", "fabric_blend", "pocket_styling"]
+    },
+    "reconstruction": {
+      "validated_count": 86,
+      "quarantined_count": 8,
+      "mean_quality_score": 0.912,
+      "primary_correction_types": ["hood_geometry", "sleeve_cuff_ribbing", "waistband_gather"]
+    },
+    "segmentation_and_human_parsing": {
+      "validated_count": 68,
+      "quarantined_count": 9,
+      "mean_quality_score": 0.887,
+      "primary_correction_types": ["lifestyle_boundary_exclusion", "on_body_torso_contour"]
+    },
+    "recommendation_ranking": {
+      "validated_count": 52,
+      "quarantined_count": 5,
+      "mean_quality_score": 0.925,
+      "primary_correction_types": ["outfit_pairing_reinforcement", "color_palette_contrast"]
+    }
+  },
+  "poisoning_and_abuse_mitigation": {
+    "xss_or_injection_attempts_detected": 14,
+    "contradictory_feedback_detected": 12,
+    "malformed_label_lengths_blocked": 8,
+    "high_velocity_spam_blocks": 5,
+    "quarantine_action": "Stored in isolated yorvyn_learning_examples table with status='quarantined' and traceable exclusion_reason"
+  },
+  "quality_score_distribution": {
+    "minimum_acceptance_threshold": 0.70,
+    "mean": 0.902,
+    "median": 0.910,
+    "percentile_90": 0.965,
+    "standard_deviation": 0.048
+  }
+}
+

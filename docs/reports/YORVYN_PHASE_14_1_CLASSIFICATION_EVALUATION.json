@@ -1,0 +1,2843 @@
+{
+  "evaluation_version": "14.1.0-generalization",
+  "timestamp": "2026-11-18T09:07:19Z",
+  "dataset_manifest": "data/datasets/YORVYN_PHASE_14_0_DATASET_MANIFEST.json",
+  "total_holdout_samples": 650,
+  "overall_metrics": {
+    "independent_domain_accuracy": 0.6354,
+    "exact_subcategory_accuracy": 0.4631,
+    "macro_f1": 0.4858,
+    "high_confidence_precision": 0.878,
+    "rejection_precision": 0.6165,
+    "selective_coverage": 0.7954
+  },
+  "per_domain_metrics": {
+    "tops": {
+      "ground_truth_count": 129,
+      "predicted_count": 126,
+      "correct_count": 81,
+      "recall": 0.6279,
+      "precision": 0.6429,
+      "f1_score": 0.6353
+    },
+    "shirt": {
+      "ground_truth_count": 37,
+      "predicted_count": 48,
+      "correct_count": 22,
+      "recall": 0.5946,
+      "precision": 0.4583,
+      "f1_score": 0.5176
+    },
+    "hoodie": {
+      "ground_truth_count": 3,
+      "predicted_count": 5,
+      "correct_count": 3,
+      "recall": 1.0,
+      "precision": 0.6,
+      "f1_score": 0.75
+    },
+    "jacket": {
+      "ground_truth_count": 96,
+      "predicted_count": 90,
+      "correct_count": 54,
+      "recall": 0.5625,
+      "precision": 0.6,
+      "f1_score": 0.5806
+    },
+    "bottoms": {
+      "ground_truth_count": 109,
+      "predicted_count": 96,
+      "correct_count": 74,
+      "recall": 0.6789,
+      "precision": 0.7708,
+      "f1_score": 0.722
+    },
+    "dress": {
+      "ground_truth_count": 157,
+      "predicted_count": 143,
+      "correct_count": 117,
+      "recall": 0.7452,
+      "precision": 0.8182,
+      "f1_score": 0.78
+    },
+    "skirt": {
+      "ground_truth_count": 62,
+      "predicted_count": 66,
+      "correct_count": 36,
+      "recall": 0.5806,
+      "precision": 0.5455,
+      "f1_score": 0.5625
+    },
+    "traditional": {
+      "ground_truth_count": 0,
+      "predicted_count": 2,
+      "correct_count": 0,
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1_score": 0.0
+    },
+    "footwear": {
+      "ground_truth_count": 15,
+      "predicted_count": 17,
+      "correct_count": 12,
+      "recall": 0.8,
+      "precision": 0.7059,
+      "f1_score": 0.75
+    },
+    "accessories": {
+      "ground_truth_count": 42,
+      "predicted_count": 57,
+      "correct_count": 27,
+      "recall": 0.6429,
+      "precision": 0.4737,
+      "f1_score": 0.5455
+    }
+  },
+  "photography_type_breakdown": {
+    "on_body": {
+      "samples_count": 422,
+      "domain_accuracy": 0.6943,
+      "subcategory_accuracy": 0.4716,
+      "average_confidence": 0.6505,
+      "domain_accuracy_percent": "69.43%"
+    },
+    "lifestyle": {
+      "samples_count": 209,
+      "domain_accuracy": 0.6029,
+      "subcategory_accuracy": 0.4641,
+      "average_confidence": 0.6176,
+      "domain_accuracy_percent": "60.29%"
+    },
+    "product": {
+      "samples_count": 9,
+      "domain_accuracy": 0.6667,
+      "subcategory_accuracy": 0.4444,
+      "average_confidence": 0.4416,
+      "domain_accuracy_percent": "66.67%"
+    },
+    "flat_lay": {
+      "samples_count": 8,
+      "domain_accuracy": 0.125,
+      "subcategory_accuracy": 0.0,
+      "average_confidence": 0.5793,
+      "domain_accuracy_percent": "12.50%"
+    },
+    "mannequin": {
+      "samples_count": 2,
+      "domain_accuracy": 0.0,
+      "subcategory_accuracy": 0.5,
+      "average_confidence": 0.3432,
+      "domain_accuracy_percent": "0.00%"
+    }
+  },
+  "selective_prediction_outcomes": {
+    "accepted_high_confidence": 295,
+    "accepted_low_confidence": 222,
+    "rejected_ambiguous": 133,
+    "rejected_invalid_input": 0,
+    "rejected_unsupported": 0,
+    "inference_failure": 0
+  },
+  "sample_evaluations": [
+    {
+      "identity_id": "fp_tr_1950_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1950_01_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.6267
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.6472,
+        "top_margin": 0.3516
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1950_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1950_02_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.8616
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.8836,
+        "top_margin": 0.8012
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_16553_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_16553_00_maxi_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "maxi_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.3418
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.3584,
+        "top_margin": 0.1321
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.36, margin=0.13)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_16553_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_16553_01_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "footwear",
+        "confidence": 0.7777
+      },
+      "calibrated_prediction": {
+        "category": "footwear",
+        "subcategory": "boots",
+        "confidence": 0.8117,
+        "top_margin": 0.7447
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_9743_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_9743_00_denim_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "denim_jacket",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.7223
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "leather_jacket",
+        "confidence": 0.7571,
+        "top_margin": 0.6633
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_9743_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_9743_08_slim_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "slim_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.8632
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "slim_jeans",
+        "confidence": 0.8908,
+        "top_margin": 0.8551
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1006_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1006_01_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.9261
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.9425,
+        "top_margin": 0.9141
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1837_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1837_02_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.6959
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.7309,
+        "top_margin": 0.643
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_11132_obj05",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11132_05_shorts.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "shorts",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.4482
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.4792,
+        "top_margin": 0.3437
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_11132_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11132_08_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.6172
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.6554,
+        "top_margin": 0.5569
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_548_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_548_00_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.2648
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.275,
+        "top_margin": 0.0482
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.28, margin=0.05)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_548_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_548_02_slim_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "slim_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.9163
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.9358,
+        "top_margin": 0.9134
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_548_obj07",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_548_07_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.4876
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.5209,
+        "top_margin": 0.4058
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_548_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_548_08_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.5819
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.6182,
+        "top_margin": 0.526
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_18443_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_18443_00_a_line_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "a_line_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.3785
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.3966,
+        "top_margin": 0.0713
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.40, margin=0.07)",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_397_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_397_00_a_line_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "a_line_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.4567
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "maxi_skirt",
+        "confidence": 0.4833,
+        "top_margin": 0.3174
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_17609_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_17609_02_formal_trousers.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "formal_trousers",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.9067
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.9273,
+        "top_margin": 0.9068
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_17609_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_17609_03_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.8891
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.9122,
+        "top_margin": 0.8826
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_11336_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11336_01_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.9404
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "shift_dress",
+        "confidence": 0.9541,
+        "top_margin": 0.9278
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_689_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_689_00_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.4854
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "mini_skirt",
+        "confidence": 0.4998,
+        "top_margin": 0.0997
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_689_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_689_01_leather_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "leather_jacket",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.7094
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.7429,
+        "top_margin": 0.6173
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_253_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_253_00_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.3592
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.3725,
+        "top_margin": 0.0102
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.37, margin=0.01)",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_253_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_253_01_pleated_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pleated_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.9604
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.9703,
+        "top_margin": 0.9564
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_11917_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11917_01_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.6806
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.7142,
+        "top_margin": 0.5918
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_347_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_347_00_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.4053
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.4295,
+        "top_margin": 0.2294
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_347_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_347_01_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.832
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.8581,
+        "top_margin": 0.7765
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_347_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_347_02_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "shirt",
+        "confidence": 0.3558
+      },
+      "calibrated_prediction": {
+        "category": "shirt",
+        "subcategory": "mini_skirt",
+        "confidence": 0.3701,
+        "top_margin": 0.031
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.37, margin=0.03)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_2162_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2162_00_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.7232
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.7611,
+        "top_margin": 0.6919
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_2162_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2162_01_bomber_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "bomber_jacket",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.683
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "bomber_jacket",
+        "confidence": 0.7152,
+        "top_margin": 0.6139
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1771_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1771_00_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.8542
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.8795,
+        "top_margin": 0.8252
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1771_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1771_02_slim_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "slim_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.4073
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "maxi_skirt",
+        "confidence": 0.4244,
+        "top_margin": 0.0879
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_306_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_306_00_chinos.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "chinos",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.4251
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "chinos",
+        "confidence": 0.4443,
+        "top_margin": 0.1766
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_306_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_306_01_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.6621
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.7019,
+        "top_margin": 0.6483
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_526_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_526_00_maxi_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "maxi_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.7791
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "maxi_dress",
+        "confidence": 0.8134,
+        "top_margin": 0.7404
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_2102_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2102_00_maxi_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "maxi_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.594
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.6284,
+        "top_margin": 0.4682
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_2102_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2102_04_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.5409
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.5709,
+        "top_margin": 0.3974
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1127_obj05",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1127_05_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.5005
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.5214,
+        "top_margin": 0.1974
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_244_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_244_00_a_line_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "a_line_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.5472
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "a_line_dress",
+        "confidence": 0.5742,
+        "top_margin": 0.3195
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_828_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_828_02_leather_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "leather_jacket",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.7938
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.8271,
+        "top_margin": 0.7793
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_828_obj05",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_828_05_polo_shirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "polo_shirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.4413
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.4677,
+        "top_margin": 0.2375
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_828_obj09",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_828_09_pencil_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pencil_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.8478
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.8758,
+        "top_margin": 0.8196
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_828_obj14",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_828_14_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.8342
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.8643,
+        "top_margin": 0.8247
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1512_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1512_02_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.4181
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.4375,
+        "top_margin": 0.1283
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1512_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1512_04_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.8886
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.91,
+        "top_margin": 0.8584
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1941_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1941_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.7663
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "maxi_dress",
+        "confidence": 0.8038,
+        "top_margin": 0.7567
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_2106_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2106_00_mini_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "mini_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.9579
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "mini_skirt",
+        "confidence": 0.9694,
+        "top_margin": 0.9605
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_2106_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2106_02_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.6424
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.6694,
+        "top_margin": 0.4369
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_2066_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2066_00_casual_shirt.jpg",
+      "ground_truth": {
+        "domain": "shirt",
+        "subcategory": "casual_shirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.5868
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.623,
+        "top_margin": 0.5161
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_2066_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2066_02_pleated_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pleated_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.9889
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.9926,
+        "top_margin": 0.9889
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1264_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1264_02_maxi_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "maxi_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.9365
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "maxi_dress",
+        "confidence": 0.953,
+        "top_margin": 0.9427
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_11807_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11807_04_sweater.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "sweater",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.3382
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.3555,
+        "top_margin": 0.1265
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.36, margin=0.13)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_11807_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_11807_08_formal_trousers.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "formal_trousers",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.7858
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.8143,
+        "top_margin": 0.7245
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_76_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_76_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.5744
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.6113,
+        "top_margin": 0.515
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_474_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_474_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.9827
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.9882,
+        "top_margin": 0.982
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_15214_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_15214_00_tank_top.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tank_top",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.4277
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.4514,
+        "top_margin": 0.255
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_15214_obj05",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_15214_05_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.38
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.4012,
+        "top_margin": 0.2737
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_15984_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_15984_00_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.4248
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "formal_shirt",
+        "confidence": 0.4361,
+        "top_margin": 0.0309
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.44, margin=0.03)",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_15984_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_15984_01_pleated_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pleated_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "skirt",
+        "confidence": 0.8293
+      },
+      "calibrated_prediction": {
+        "category": "skirt",
+        "subcategory": "pleated_skirt",
+        "confidence": 0.8577,
+        "top_margin": 0.7996
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1298_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1298_00_shorts.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "shorts",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.8714
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "chinos",
+        "confidence": 0.8975,
+        "top_margin": 0.8625
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1298_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1298_01_sweater.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "sweater",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.7348
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "leather_jacket",
+        "confidence": 0.7709,
+        "top_margin": 0.7148
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_19097_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_19097_01_leather_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "leather_jacket",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "shirt",
+        "confidence": 0.6025
+      },
+      "calibrated_prediction": {
+        "category": "shirt",
+        "subcategory": "oxford_shirt",
+        "confidence": 0.6236,
+        "top_margin": 0.3233
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_19097_obj06",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_19097_06_pleated_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pleated_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.3241
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "chinos",
+        "confidence": 0.3391,
+        "top_margin": 0.1295
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.34, margin=0.13)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_257_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_257_00_casual_shirt.jpg",
+      "ground_truth": {
+        "domain": "shirt",
+        "subcategory": "casual_shirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.4704
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "crop_top",
+        "confidence": 0.4958,
+        "top_margin": 0.2875
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_257_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_257_03_scarf.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "scarf",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.5576
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "scarf",
+        "confidence": 0.5873,
+        "top_margin": 0.3929
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_257_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_257_04_pleated_skirt.jpg",
+      "ground_truth": {
+        "domain": "skirt",
+        "subcategory": "pleated_skirt",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.2412
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.2529,
+        "top_margin": 0.1134
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.25, margin=0.11)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_257_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_257_08_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.653
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.6875,
+        "top_margin": 0.529
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_219_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_219_00_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.394
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.417,
+        "top_margin": 0.206
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_219_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_219_01_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.4942
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "scarf",
+        "confidence": 0.5273,
+        "top_margin": 0.3922
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_219_obj06",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_219_06_oxford_shirt.jpg",
+      "ground_truth": {
+        "domain": "shirt",
+        "subcategory": "oxford_shirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.6953
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.7197,
+        "top_margin": 0.4968
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_219_obj12",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_219_12_straight_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "straight_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.9464
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.9602,
+        "top_margin": 0.9468
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_219_obj13",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_219_13_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.8692
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.8941,
+        "top_margin": 0.8534
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1221_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1221_00_cap.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "cap",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.6661
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "denim_jacket",
+        "confidence": 0.6949,
+        "top_margin": 0.5139
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1221_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1221_03_boots.jpg",
+      "ground_truth": {
+        "domain": "footwear",
+        "subcategory": "boots",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "footwear",
+        "confidence": 0.559
+      },
+      "calibrated_prediction": {
+        "category": "footwear",
+        "subcategory": "boots",
+        "confidence": 0.5784,
+        "top_margin": 0.2437
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1221_obj08",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1221_08_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.4719
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "bomber_jacket",
+        "confidence": 0.4984,
+        "top_margin": 0.3067
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_582_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_582_00_boots.jpg",
+      "ground_truth": {
+        "domain": "footwear",
+        "subcategory": "boots",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.8459
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.8742,
+        "top_margin": 0.8263
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_582_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_582_02_sneakers.jpg",
+      "ground_truth": {
+        "domain": "footwear",
+        "subcategory": "sneakers",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "footwear",
+        "confidence": 0.9354
+      },
+      "calibrated_prediction": {
+        "category": "footwear",
+        "subcategory": "sneakers",
+        "confidence": 0.9496,
+        "top_margin": 0.9137
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_582_obj06",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_582_06_formal_coat.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "formal_coat",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.3046
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "tote_bag",
+        "confidence": 0.3197,
+        "top_margin": 0.0964
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.32, margin=0.10)",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_16331_obj10",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_16331_10_bomber_jacket.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "bomber_jacket",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.2898
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "denim_jacket",
+        "confidence": 0.3015,
+        "top_margin": 0.0517
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.30, margin=0.05)",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_16331_obj13",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_16331_13_straight_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "straight_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.899
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "straight_jeans",
+        "confidence": 0.9219,
+        "top_margin": 0.8989
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_83_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_83_02_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "shirt",
+        "confidence": 0.5723
+      },
+      "calibrated_prediction": {
+        "category": "shirt",
+        "subcategory": "formal_shirt",
+        "confidence": 0.6003,
+        "top_margin": 0.3681
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_83_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_83_03_shorts.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "shorts",
+        "photography_type": "lifestyle"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.2919
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "shorts",
+        "confidence": 0.3031,
+        "top_margin": 0.0587
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.30, margin=0.06)",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1341_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1341_02_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.7349
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.7685,
+        "top_margin": 0.6805
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1601_obj09",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1601_09_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.4525
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "shift_dress",
+        "confidence": 0.4783,
+        "top_margin": 0.2274
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1013_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1013_03_straight_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "straight_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.9793
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.9857,
+        "top_margin": 0.9809
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1013_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1013_04_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.7318
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tshirt",
+        "confidence": 0.7617,
+        "top_margin": 0.6234
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1316_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1316_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.4249
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "a_line_dress",
+        "confidence": 0.4432,
+        "top_margin": 0.1555
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1316_obj09",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1316_09_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.8975
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "blazer",
+        "confidence": 0.9199,
+        "top_margin": 0.8945
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1316_obj11",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1316_11_tote_bag.jpg",
+      "ground_truth": {
+        "domain": "accessories",
+        "subcategory": "tote_bag",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "accessories",
+        "confidence": 0.7534
+      },
+      "calibrated_prediction": {
+        "category": "accessories",
+        "subcategory": "tote_bag",
+        "confidence": 0.7861,
+        "top_margin": 0.6881
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_872_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_872_00_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "shirt",
+        "confidence": 0.4392
+      },
+      "calibrated_prediction": {
+        "category": "shirt",
+        "subcategory": "blazer",
+        "confidence": 0.4492,
+        "top_margin": 0.01
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.45, margin=0.01)",
+      "domain_correct": false,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_872_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_872_04_straight_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "straight_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.9695
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "slim_jeans",
+        "confidence": 0.9785,
+        "top_margin": 0.9718
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_1259_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1259_02_maxi_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "maxi_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.3605
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "maxi_dress",
+        "confidence": 0.3763,
+        "top_margin": 0.0757
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.38, margin=0.08)",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1259_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1259_03_blazer.jpg",
+      "ground_truth": {
+        "domain": "jacket",
+        "subcategory": "blazer",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.5581
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.5922,
+        "top_margin": 0.4327
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_12776_obj02",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_12776_02_slim_jeans.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "slim_jeans",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.7404
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "slim_jeans",
+        "confidence": 0.7771,
+        "top_margin": 0.7221
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_val_12776_obj03",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_12776_03_formal_shirt.jpg",
+      "ground_truth": {
+        "domain": "shirt",
+        "subcategory": "formal_shirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "jacket",
+        "confidence": 0.4609
+      },
+      "calibrated_prediction": {
+        "category": "jacket",
+        "subcategory": "oxford_shirt",
+        "confidence": 0.474,
+        "top_margin": 0.0737
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_9834_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_9834_01_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.3091
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.3213,
+        "top_margin": 0.0018
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "rejected_ambiguous",
+      "decision_reason": "low_confidence_or_margin (conf=0.32, margin=0.00)",
+      "domain_correct": false,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_val_12449_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_val_12449_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.9231
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.9408,
+        "top_margin": 0.9156
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_1230_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_1230_00_bodycon_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "bodycon_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.4143
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.4356,
+        "top_margin": 0.2378
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_low_confidence",
+      "decision_reason": "moderate_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_2130_obj00",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2130_00_tshirt.jpg",
+      "ground_truth": {
+        "domain": "tops",
+        "subcategory": "tshirt",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "tops",
+        "confidence": 0.7075
+      },
+      "calibrated_prediction": {
+        "category": "tops",
+        "subcategory": "tank_top",
+        "confidence": 0.7377,
+        "top_margin": 0.5657
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    },
+    {
+      "identity_id": "fp_tr_2130_obj04",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_2130_04_formal_trousers.jpg",
+      "ground_truth": {
+        "domain": "bottoms",
+        "subcategory": "formal_trousers",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "bottoms",
+        "confidence": 0.8975
+      },
+      "calibrated_prediction": {
+        "category": "bottoms",
+        "subcategory": "formal_trousers",
+        "confidence": 0.92,
+        "top_margin": 0.8902
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": true
+    },
+    {
+      "identity_id": "fp_tr_965_obj01",
+      "local_path": "data/datasets/phase_14_0_garments/fp_tr_965_01_shift_dress.jpg",
+      "ground_truth": {
+        "domain": "dress",
+        "subcategory": "shift_dress",
+        "photography_type": "on_body"
+      },
+      "raw_model_prediction": {
+        "category": "dress",
+        "confidence": 0.6753
+      },
+      "calibrated_prediction": {
+        "category": "dress",
+        "subcategory": "bodycon_dress",
+        "confidence": 0.7001,
+        "top_margin": 0.4708
+      },
+      "acceptance_thresholds": {
+        "tau_high": 0.65,
+        "tau_acc": 0.4
+      },
+      "final_outcome": "accepted_high_confidence",
+      "decision_reason": "high_confidence_neural_prediction",
+      "domain_correct": true,
+      "subcategory_correct": false
+    }
+  ]
+}

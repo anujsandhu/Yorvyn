@@ -1,0 +1,26 @@
+{
+  "job_id": "job_p12_case_f_dress_626f6d5a",
+  "case_id": "case_f_dress",
+  "case_name": "Floral Summer Casual Dress",
+  "image_type": "lifestyle_fashion",
+  "category": "dresses_and_skirts",
+  "subcategory": "maxi_dress",
+  "confidence": 0.85,
+  "primary_color_name": "crimson red",
+  "primary_color_hex": "#d23e60",
+  "secondary_color_name": "crimson red",
+  "secondary_color_hex": "#d23c5f",
+  "palette": [
+    "#d23e60",
+    "#d23c5f",
+    "#e2c6b4",
+    "#e9e9ed",
+    "#241a16"
+  ],
+  "pattern": "solid",
+  "material_hint": "viscose_rayon",
+  "silhouette": "regular",
+  "sleeve_length": "short",
+  "neckline_type": "crewneck",
+  "detection_duration_ms": 452.53
+}

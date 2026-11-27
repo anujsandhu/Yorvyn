@@ -1,0 +1,485 @@
+{
+  "metadata": {
+    "phase": "14.11",
+    "total_failure_scenes": 33,
+    "timestamp": "2026-11-19T18:55:54Z"
+  },
+  "failures": [
+    {
+      "scene_id": "scene_0004",
+      "ground_truth": [
+        "bottoms",
+        "tops",
+        "jacket"
+      ],
+      "detected": [
+        "shirt"
+      ],
+      "fp_count": 0,
+      "fn_count": 2,
+      "latency_ms": 192.54
+    },
+    {
+      "scene_id": "scene_0012",
+      "ground_truth": [
+        "bottoms",
+        "tops"
+      ],
+      "detected": [
+        "jacket",
+        "tops",
+        "skirt"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 437.76
+    },
+    {
+      "scene_id": "scene_0013",
+      "ground_truth": [
+        "skirt",
+        "tops"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 285.14
+    },
+    {
+      "scene_id": "scene_0014",
+      "ground_truth": [
+        "skirt",
+        "tops"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 214.6
+    },
+    {
+      "scene_id": "scene_0015",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 225.56
+    },
+    {
+      "scene_id": "scene_0016",
+      "ground_truth": [
+        "bottoms",
+        "tops"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 215.62
+    },
+    {
+      "scene_id": "scene_0018",
+      "ground_truth": [
+        "jacket"
+      ],
+      "detected": [
+        "shirt",
+        "skirt"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 241.62
+    },
+    {
+      "scene_id": "scene_0022",
+      "ground_truth": [
+        "dress",
+        "jacket"
+      ],
+      "detected": [
+        "jacket",
+        "tops",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 279.09
+    },
+    {
+      "scene_id": "scene_0023",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "tops",
+        "jacket",
+        "skirt"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 250.96
+    },
+    {
+      "scene_id": "scene_0025",
+      "ground_truth": [
+        "dress"
+      ],
+      "detected": [
+        "jacket",
+        "shirt"
+      ],
+      "fp_count": 2,
+      "fn_count": 1,
+      "latency_ms": 217.41
+    },
+    {
+      "scene_id": "scene_0032",
+      "ground_truth": [
+        "dress"
+      ],
+      "detected": [],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 267.31
+    },
+    {
+      "scene_id": "scene_0034",
+      "ground_truth": [
+        "bottoms",
+        "tops"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 215.41
+    },
+    {
+      "scene_id": "scene_0036",
+      "ground_truth": [
+        "dress",
+        "tops"
+      ],
+      "detected": [
+        "skirt"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 227.91
+    },
+    {
+      "scene_id": "scene_0037",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 192.06
+    },
+    {
+      "scene_id": "scene_0042",
+      "ground_truth": [
+        "jacket"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 1,
+      "fn_count": 1,
+      "latency_ms": 235.77
+    },
+    {
+      "scene_id": "scene_0044",
+      "ground_truth": [
+        "bottoms",
+        "tops"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 242.07
+    },
+    {
+      "scene_id": "scene_0051",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 284.67
+    },
+    {
+      "scene_id": "scene_0052",
+      "ground_truth": [
+        "bottoms",
+        "dress",
+        "jacket"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 1,
+      "latency_ms": 213.74
+    },
+    {
+      "scene_id": "scene_0054",
+      "ground_truth": [
+        "dress",
+        "tops"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 216.5
+    },
+    {
+      "scene_id": "scene_0055",
+      "ground_truth": [
+        "bottoms",
+        "tops",
+        "tops"
+      ],
+      "detected": [
+        "tops",
+        "bottoms"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 284.52
+    },
+    {
+      "scene_id": "scene_0056",
+      "ground_truth": [
+        "dress"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "skirt"
+      ],
+      "fp_count": 2,
+      "fn_count": 0,
+      "latency_ms": 277.77
+    },
+    {
+      "scene_id": "scene_0057",
+      "ground_truth": [
+        "dress",
+        "jacket"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "skirt"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 238.58
+    },
+    {
+      "scene_id": "scene_0064",
+      "ground_truth": [
+        "shirt",
+        "jacket",
+        "tops",
+        "bottoms",
+        "jacket"
+      ],
+      "detected": [
+        "jacket",
+        "bottoms"
+      ],
+      "fp_count": 0,
+      "fn_count": 3,
+      "latency_ms": 279.58
+    },
+    {
+      "scene_id": "scene_0067",
+      "ground_truth": [
+        "dress",
+        "jacket"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 402.28
+    },
+    {
+      "scene_id": "scene_0075",
+      "ground_truth": [
+        "bottoms",
+        "tops"
+      ],
+      "detected": [
+        "tops",
+        "tops",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 253.77
+    },
+    {
+      "scene_id": "scene_0076",
+      "ground_truth": [
+        "shirt",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket",
+        "shirt"
+      ],
+      "fp_count": 1,
+      "fn_count": 1,
+      "latency_ms": 249.53
+    },
+    {
+      "scene_id": "scene_0080",
+      "ground_truth": [
+        "tops",
+        "skirt"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 221.88
+    },
+    {
+      "scene_id": "scene_0081",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 384.99
+    },
+    {
+      "scene_id": "scene_0082",
+      "ground_truth": [
+        "tops",
+        "bottoms"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 276.08
+    },
+    {
+      "scene_id": "scene_0083",
+      "ground_truth": [
+        "tops",
+        "jacket"
+      ],
+      "detected": [
+        "tops",
+        "tops",
+        "tops"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 230.55
+    },
+    {
+      "scene_id": "scene_0085",
+      "ground_truth": [
+        "tops",
+        "skirt"
+      ],
+      "detected": [
+        "dress"
+      ],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 242.65
+    },
+    {
+      "scene_id": "scene_0087",
+      "ground_truth": [
+        "tops"
+      ],
+      "detected": [],
+      "fp_count": 0,
+      "fn_count": 1,
+      "latency_ms": 212.93
+    },
+    {
+      "scene_id": "scene_0094",
+      "ground_truth": [
+        "bottoms",
+        "jacket"
+      ],
+      "detected": [
+        "jacket",
+        "shirt",
+        "bottoms"
+      ],
+      "fp_count": 1,
+      "fn_count": 0,
+      "latency_ms": 306.86
+    }
+  ],
+  "error_taxonomy": {
+    "accessories_incorrectly_detected": 0,
+    "duplicate_garment_instances": 20,
+    "garment_background_confusion": 3,
+    "garment_body_confusion": 0,
+    "underlayer_omission": 0,
+    "overlapping_garment_merge": 0,
+    "incorrect_category_hierarchy": 0,
+    "small_object_detection_failure": 3,
+    "occlusion": 0,
+    "annotation_ambiguity": 0
+  }
+}

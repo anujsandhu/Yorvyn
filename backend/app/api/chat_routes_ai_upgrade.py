@@ -296,7 +296,7 @@ def _generate_preference_questions(user_message: str, context: Dict[str, Any], u
     # Build questions based on what's missing
     if is_gift and not has_gender:
         # Gifting but don't know who - Step 1
-        return f"🎁 I'll help you find the perfect gift!\n\n**Step 1 of 3: Who is this fragrance for?**\n• For him 👨\n• For her 👩\n• Unisex (anyone) ✨"
+        return "🎁 I'll help you find the perfect gift!\n\n**Step 1 of 3: Who is this fragrance for?**\n• For him 👨\n• For her 👩\n• Unisex (anyone) ✨"
     
     if not has_gender and not is_gift:
         # Don't know if for themselves or gift - Step 1
@@ -310,7 +310,7 @@ def _generate_preference_questions(user_message: str, context: Dict[str, Any], u
     
     if has_gender and has_occasion_or_mood and not has_budget:
         # Know gender and mood but not budget - Step 3
-        return f"Perfect! 🎯\n\n**Step 4 of 4: What's your budget?**\n• Under ₹2000 💰\n• Under ₹3000 💰💰\n• Under ₹5000 💰💰💰\n• No budget limit ✨"
+        return "Perfect! 🎯\n\n**Step 4 of 4: What's your budget?**\n• Under ₹2000 💰\n• Under ₹3000 💰💰\n• Under ₹5000 💰💰💰\n• No budget limit ✨"
     
     if not has_gender and has_occasion_or_mood:
         # Know mood but not gender - Step 1
@@ -485,7 +485,7 @@ def chat_v2(req: ChatRequest):
     except Exception as e:
         logger.error(f"AI recommendation error: {e}")
         return ChatResponse(
-            reply=f"I encountered an error processing your request. Please try rephrasing your query.",
+            reply="I encountered an error processing your request. Please try rephrasing your query.",
             recommendations=[],
             follow_up_suggestions=["Fresh citrus", "Woody oud", "Floral romantic"],
             confidence=0.0,

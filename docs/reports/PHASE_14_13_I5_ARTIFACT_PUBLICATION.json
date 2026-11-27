@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "phase": "14.13",
+    "workstream": "I.5",
+    "suite": "Atomic Artifact Publication Protocol",
+    "timestamp": "2026-11-21T19:05:21Z",
+    "protocol_name": "Atomic Artifact Publication Protocol (12-Step)",
+    "verdict": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "AAP-14-13-01",
+      "name": "12-Step Atomic Artifact Publication Protocol",
+      "expected": "file_exists=True, state=COMPLETED, verified_sha256",
+      "actual": "file_exists=True, state=COMPLETED, size=268",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AAP-14-13-02",
+      "name": "Unaligned glTF Boundary Rejection",
+      "expected": "ArtifactPublicationException",
+      "actual": "rejected=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AAP-14-13-03",
+      "name": "Malformed glTF JSON Chunk Rejection",
+      "expected": "ArtifactPublicationException",
+      "actual": "rejected=True",
+      "status": "PASS"
+    },
+    {
+      "test_id": "AAP-14-13-04",
+      "name": "Startup Reconciliation (Orphan Cleanup & Missing Artifact Flagging)",
+      "expected": "purged_tmp >= 1, missing_glb detected, tmp_file unlinked",
+      "actual": "purged=1, missing=['job_missing_glb']",
+      "status": "PASS"
+    }
+  ]
+}
