@@ -628,3 +628,187 @@ def validate_correspondence_against_topology(
             return True, SyncStatus.SYNCHRONIZED_WITH_UNCERTAINTY, []
 
     return True, SyncStatus.SYNCHRONIZED, []
+
+
+class AvatarCorrespondenceRegion(BaseModel):
+    garment_region: str
+    avatar_region: str
+    target_bones: List[int] = Field(default_factory=list)
+    confidence: float = Field(0.85, ge=0.0, le=1.0)
+    attachment_mode: str = "skinned_drape"  # skinned_drape, rigid_anchor, soft_strap
+    verified_against_mesh: bool = False
+
+
+class SemanticAvatarCorrespondenceReport(BaseModel):
+    category: str
+    subcategory: str
+    overall_confidence: float
+    is_valid: bool = True
+    regions: List[AvatarCorrespondenceRegion] = Field(default_factory=list)
+    blockers: List[str] = Field(default_factory=list)
+    warnings: List[str] = Field(default_factory=list)
+
+
+class SemanticCorrespondenceEngine:
+    """
+    Phase 17.7 category-aware garment-to-avatar semantic correspondence resolver & validator
+    supporting upper-body, lower-body, dresses/skirts, traditional, footwear, headwear,
+    bags, belts, jewelry/watches, glasses, and scarves/gloves.
+    """
+
+    CATEGORY_REGION_SPECS: Dict[str, List[Tuple[str, str, List[int], str, float]]] = {
+        "tops": [
+            ("neck_collar", "Neck", [4, 3], "skinned_drape", 0.90),
+            ("left_shoulder_chest", "Spine2/LeftArm", [3, 6], "skinned_drape", 0.92),
+            ("right_shoulder_chest", "Spine2/RightArm", [3, 10], "skinned_drape", 0.92),
+            ("torso_core", "Spine/Spine1/Spine2", [1, 2, 3], "skinned_drape", 0.94),
+            ("left_sleeve", "LeftArm/LeftForeArm", [6, 7, 8], "skinned_drape", 0.88),
+            ("right_sleeve", "RightArm/RightForeArm", [10, 11, 12], "skinned_drape", 0.88),
+            ("hem_waist", "Hips/Spine", [0, 1], "skinned_drape", 0.90),
+        ],
+        "outerwear": [
+            ("collar_lapel", "Neck/Spine2", [3, 4], "skinned_drape", 0.90),
+            ("left_shoulder", "LeftShoulder/LeftArm", [6, 3], "skinned_drape", 0.92),
+            ("right_shoulder", "RightShoulder/RightArm", [10, 3], "skinned_drape", 0.92),
+            ("outer_shell_torso", "Spine1/Spine2", [1, 2, 3], "skinned_drape", 0.93),
+            ("left_sleeve", "LeftArm/LeftForeArm", [6, 7, 8], "skinned_drape", 0.88),
+            ("right_sleeve", "RightArm/RightForeArm", [10, 11, 12], "skinned_drape", 0.88),
+            ("hem_hip", "Hips", [0, 1], "skinned_drape", 0.88),
+        ],
+        "bottoms": [
+            ("waistband", "Hips/Spine", [0, 1], "skinned_drape", 0.94),
+            ("pelvis_hip", "Hips/UpLegs", [0, 14, 17], "skinned_drape", 0.92),
+            ("left_leg", "LeftUpLeg/LeftLeg/LeftFoot", [14, 15, 16], "skinned_drape", 0.91),
+            ("right_leg", "RightUpLeg/RightLeg/RightFoot", [17, 18, 19], "skinned_drape", 0.91),
+        ],
+        "dresses_and_skirts": [
+            ("upper_bodice", "Spine2/Neck", [2, 3, 4], "skinned_drape", 0.88),
+            ("waist_seam", "Spine/Hips", [0, 1], "skinned_drape", 0.91),
+            ("skirt_flare", "Hips/LeftUpLeg/RightUpLeg", [0, 14, 17], "skinned_drape", 0.87),
+        ],
+        "traditional": [
+            ("mandarin_collar", "Neck/Spine2", [3, 4], "skinned_drape", 0.89),
+            ("kurta_torso", "Spine1/Spine2", [1, 2, 3], "skinned_drape", 0.91),
+            ("left_sleeve", "LeftArm/LeftForeArm", [6, 7], "skinned_drape", 0.86),
+            ("right_sleeve", "RightArm/RightForeArm", [10, 11], "skinned_drape", 0.86),
+            ("lower_panel_flare", "Hips/UpLegs", [0, 14, 17], "skinned_drape", 0.84),
+        ],
+        "footwear": [
+            ("left_shoe", "LeftFoot", [15, 16], "rigid_anchor", 0.92),
+            ("right_shoe", "RightFoot", [18, 19], "rigid_anchor", 0.92),
+        ],
+        "headwear": [
+            ("head_crown", "Head", [5], "rigid_anchor", 0.91),
+        ],
+        "glasses": [
+            ("nose_bridge_temples", "Head", [5], "rigid_anchor", 0.90),
+        ],
+        "bags": [
+            ("shoulder_or_hand_strap", "LeftArm/RightArm/Spine2", [6, 10, 3], "soft_strap", 0.80),
+        ],
+        "belts": [
+            ("waist_belt", "Hips/Spine", [0, 1], "skinned_drape", 0.91),
+        ],
+        "jewelry": [
+            ("wrist_or_neck_mount", "LeftHand/RightHand/Neck", [4, 8, 12], "rigid_anchor", 0.82),
+        ],
+        "scarves_and_gloves": [
+            ("neck_or_hand_wrap", "Neck/LeftHand/RightHand", [4, 8, 12], "soft_strap", 0.83),
+        ],
+    }
+
+    def build_and_validate(
+        self,
+        *,
+        category: str,
+        subcategory: str = "",
+        positions: Optional[np.ndarray] = None,
+        joint_indices: Optional[np.ndarray] = None,
+        joint_weights: Optional[np.ndarray] = None,
+        component_types: Optional[List[str]] = None,
+    ) -> SemanticAvatarCorrespondenceReport:
+        cat_l = (category or "tops").lower().strip()
+        sub_l = (subcategory or "").lower().strip()
+
+        lookup_key = cat_l
+        if cat_l == "accessories":
+            if any(k in sub_l for k in ("hat", "cap", "beanie", "fedora", "headwear")):
+                lookup_key = "headwear"
+            elif any(k in sub_l for k in ("glass", "sunglass", "eyewear")):
+                lookup_key = "glasses"
+            elif any(k in sub_l for k in ("bag", "backpack", "tote", "purse", "clutch")):
+                lookup_key = "bags"
+            elif "belt" in sub_l:
+                lookup_key = "belts"
+            elif any(k in sub_l for k in ("watch", "brace", "ring", "neckl", "earr", "jewel")):
+                lookup_key = "jewelry"
+            elif any(k in sub_l for k in ("scarf", "glove", "shawl")):
+                lookup_key = "scarves_and_gloves"
+            else:
+                lookup_key = "headwear"
+
+        specs = list(self.CATEGORY_REGION_SPECS.get(lookup_key, self.CATEGORY_REGION_SPECS["tops"]))
+        if "skirt" in sub_l and lookup_key == "dresses_and_skirts":
+            specs = [s for s in specs if s[0] != "upper_bodice"]
+        if any(k in sub_l for k in ("hoodie", "parka")) or (component_types and "hood" in component_types):
+            if all(s[0] != "hood_cowl" for s in specs):
+                specs.append(("hood_cowl", "Neck/Head", [4, 5], "skinned_drape", 0.86))
+
+        regions: List[AvatarCorrespondenceRegion] = []
+        blockers: List[str] = []
+        warnings: List[str] = []
+
+        present_bones = set()
+        if joint_indices is not None and joint_weights is not None and len(joint_indices) > 0:
+            active = joint_weights > 0.05
+            present_bones = set(int(b) for b in joint_indices[active].tolist())
+
+        confs: List[float] = []
+        for g_reg, a_reg, bones, mode, base_conf in specs:
+            verified = bool(present_bones.intersection(bones)) if present_bones else False
+            conf = base_conf if (not present_bones or verified) else round(base_conf * 0.72, 3)
+            confs.append(conf)
+            regions.append(AvatarCorrespondenceRegion(
+                garment_region=g_reg,
+                avatar_region=a_reg,
+                target_bones=bones,
+                confidence=conf,
+                attachment_mode=mode,
+                verified_against_mesh=verified,
+            ))
+
+        # Anatomical correspondence validation against actual coordinates + skinning
+        if positions is not None and len(positions) > 0 and present_bones:
+            import numpy as np
+            pos = np.asarray(positions, dtype=np.float32)
+            # Flag tops claiming bottoms bones primarily, or vice versa
+            bottoms_bones = {14, 15, 16, 17, 18, 19}
+            upper_bones = {3, 4, 6, 7, 8, 10, 11, 12}
+            if lookup_key == "tops" and present_bones.issubset(bottoms_bones):
+                blockers.append("Tops garment mapped exclusively to leg bones.")
+            if lookup_key == "bottoms" and present_bones.issubset(upper_bones):
+                blockers.append("Bottoms garment mapped exclusively to upper-torso/arm bones.")
+            # Verify vertical span plausibility relative to avatar height
+            min_y, max_y = float(np.min(pos[:, 1])), float(np.max(pos[:, 1]))
+            if lookup_key == "headwear" and max_y < 1.35:
+                warnings.append(f"Headwear max Y ({max_y:.2f}m) sits below Ara neck/head crown.")
+            if lookup_key == "footwear" and min_y > 0.35:
+                warnings.append(f"Footwear min Y ({min_y:.2f}m) sits above ankle ground zone.")
+
+        mean_conf = round(float(sum(confs) / max(1, len(confs))), 3)
+        if mean_conf < 0.50:
+            blockers.append(f"Correspondence confidence too low ({mean_conf:.2f} < 0.50).")
+
+        return SemanticAvatarCorrespondenceReport(
+            category=cat_l,
+            subcategory=sub_l,
+            overall_confidence=mean_conf,
+            is_valid=(len(blockers) == 0),
+            regions=regions,
+            blockers=blockers,
+            warnings=warnings,
+        )
+
+
+semantic_correspondence_engine = SemanticCorrespondenceEngine()
+

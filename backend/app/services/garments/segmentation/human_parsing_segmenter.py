@@ -76,11 +76,13 @@ class HumanParsingSegmenter(IGarmentSegmenter):
     """Neural Human Parsing and Disentanglement Engine for Garment Isolation."""
 
     def __init__(self, model_name: str = "mattmdjaga/segformer_b2_clothes"):
+        import threading
         self._model_name = model_name
         self._device: Optional[torch.device] = None
         self._processor = None
         self._model = None
         self._is_loaded = False
+        self._load_lock = threading.Lock()
 
     @property
     def model_id(self) -> str:
@@ -91,25 +93,36 @@ class HumanParsingSegmenter(IGarmentSegmenter):
         return "segformer-b2-clothes-v1.0"
 
     def _ensure_loaded(self):
-        """Loads model weights lazily with MPS/CUDA/CPU device mapping."""
+        """Loads model weights lazily with lock + low_cpu_mem_usage=False to avoid meta tensor races."""
         if self._is_loaded:
             return
+        with self._load_lock:
+            if self._is_loaded:
+                return
 
-        if torch.backends.mps.is_available():
-            self._device = torch.device("mps")
-        elif torch.cuda.is_available():
-            self._device = torch.device("cuda")
-        else:
-            self._device = torch.device("cpu")
+            if torch.backends.mps.is_available():
+                self._device = torch.device("mps")
+            elif torch.cuda.is_available():
+                self._device = torch.device("cuda")
+            else:
+                self._device = torch.device("cpu")
 
-        logger.info(f"Loading HumanParsingSegmenter '{self._model_name}' on {self._device}...")
-        from transformers import SegformerImageProcessor, AutoModelForSemanticSegmentation
+            logger.info(f"Loading HumanParsingSegmenter '{self._model_name}' on {self._device}...")
+            from transformers import SegformerImageProcessor, AutoModelForSemanticSegmentation
 
-        self._processor = SegformerImageProcessor.from_pretrained(self._model_name)  # nosec B615
-        self._model = AutoModelForSemanticSegmentation.from_pretrained(self._model_name).to(self._device)  # nosec B615
-        self._model.eval()
-        self._is_loaded = True
-        logger.info(f"HumanParsingSegmenter ready on {self._device}.")
+            try:
+                self._processor = SegformerImageProcessor.from_pretrained(self._model_name, local_files_only=True)  # nosec B615
+                self._model = AutoModelForSemanticSegmentation.from_pretrained(
+                    self._model_name, local_files_only=True, low_cpu_mem_usage=False
+                ).to(self._device)  # nosec B615
+            except OSError:
+                self._processor = SegformerImageProcessor.from_pretrained(self._model_name)  # nosec B615
+                self._model = AutoModelForSemanticSegmentation.from_pretrained(
+                    self._model_name, low_cpu_mem_usage=False
+                ).to(self._device)  # nosec B615
+            self._model.eval()
+            self._is_loaded = True
+            logger.info(f"HumanParsingSegmenter ready on {self._device}.")
 
     def parse_full_body(self, image: Image.Image) -> Tuple[np.ndarray, np.ndarray]:
         """

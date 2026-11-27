@@ -263,17 +263,66 @@ class FitIntelligenceEngine:
             note="Requires physical tensile lab testing",
         ))
 
-        # Body collision & clearance evaluation against non-mutated geometry
+        # Body collision & clearance evaluation against non-mutated geometry (with elliptical + head/neck hulls)
         coll_engine = GarmentCollisionEngine()
         scale_f = profile.height_cm / 175.0
         bones = {spec[0]: np.array(spec[3], dtype=np.float32) * scale_f for spec in ARA_SKELETON_SPECS}
         coll_engine.update_hulls_from_avatar(bones, scale_factor=scale_f)
         face_arr = np.asarray(indices, dtype=np.int32) if (indices is not None and len(indices) > 0) else np.zeros((0, 3), dtype=np.int32)
+        is_head_acc = cat_l in {"headwear", "glasses"} or any(k in cat_l for k in ("hat", "cap", "beanie", "glass", "headwear"))
         _, col_metrics = coll_engine.detect_and_resolve_collisions(
             positions=pts.copy(),
             indices=face_arr,
             min_clearance_m=0.003,
+            exclude_head=is_head_acc,
         )
+
+        # Oversized envelope, cylindrical torso Z bloat & head/neck penetration diagnostics
+        if float(np.max(extents_cm)) > 235.0:
+            defects.append(FitDefect(
+                defect_type="oversized_envelope",
+                severity="CRITICAL",
+                location="bounding_box",
+                measured_metric=f"max_extent_cm={float(np.max(extents_cm)):.1f}",
+                suggestion="Garment exceeds maximum wearable meter-scale envelope; rescale or reject.",
+            ))
+
+        if cat_l in {"tops", "outerwear", "shirt", "hoodie", "jacket", "traditional"} or "kurta" in cat_l:
+            core_pts = pts[(pts[:, 1] >= y_min + 0.15 * y_span) & (pts[:, 1] <= y_min + 0.80 * y_span) & (np.abs(pts[:, 0]) <= 0.27)]
+            if len(core_pts) >= 12:
+                core_depth_m = float(np.max(core_pts[:, 2]) - np.min(core_pts[:, 2]))
+                if core_depth_m > 0.34:
+                    defects.append(FitDefect(
+                        defect_type="cylindrical_torso_bloat",
+                        severity="CRITICAL" if core_depth_m > 0.42 else "MAJOR",
+                        location="torso_core",
+                        measured_metric=f"core_depth_z_m={core_depth_m:.3f}",
+                        suggestion="Compress torso front-back Z depth to anatomical chest ellipse (~0.24-0.31m).",
+                    ))
+        elif "dress" in cat_l or "skirt" in cat_l:
+            total_depth_m = float(extents_cm[2]) / 100.0
+            if total_depth_m > 0.48:
+                defects.append(FitDefect(
+                    defect_type="cylindrical_torso_bloat",
+                    severity="CRITICAL" if total_depth_m > 0.56 else "MAJOR",
+                    location="skirt_or_bodice_depth",
+                    measured_metric=f"depth_z_m={total_depth_m:.3f}",
+                    suggestion="Constrain lower skirt & bodice Z depth against anatomical hips.",
+                ))
+
+        if not is_head_acc:
+            head_hulls = [h for h in coll_engine.hulls if h.name == "head"]
+            if head_hulls:
+                _, _, h_mask = head_hulls[0].resolve_penetrations_batch(pts, min_clearance=0.002)
+                head_pen_cnt = int(np.sum(h_mask))
+                if head_pen_cnt > 0:
+                    defects.append(FitDefect(
+                        defect_type="hood_head_penetration",
+                        severity="CRITICAL" if head_pen_cnt > 12 else "MAJOR",
+                        location="head_skull",
+                        measured_metric=f"head_penetration_count={head_pen_cnt}",
+                        suggestion="Open hood front aperture (+Z) and project hood cowl outside skull capsule.",
+                    ))
 
         # Degenerate distortion / extreme edge stretch / hole diagnostics when faces supplied
         if len(face_arr) > 0:

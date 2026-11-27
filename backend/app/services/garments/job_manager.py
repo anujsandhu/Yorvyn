@@ -1284,8 +1284,53 @@ class GarmentJobManager:
                 diag.roughness_preview_data_url = _file_to_b64(mr_path)
                 diag.uv_layout_preview_data_url = f"data:image/png;base64,{uv_b64}"
             
-            # Phase 5: Universal Avatar-Aware Garment Fitting, Collision Resolution & Cloth Draping
+            # Phase 5: Source Inspection, Pre-Fitting Repair, Correspondence & Avatar Fitting (Phase 17.7)
             from .fitting import universal_garment_fitting_engine
+            from .fitting.garment_asset_inspector import garment_asset_inspector, geometry_repair_engine
+            from backend.app.services.intelligence.semantic_correspondence import semantic_correspondence_engine
+
+            comp_graph = rec_out.component_graph if rec_out else None
+            src_inspection = garment_asset_inspector.inspect(
+                garment_mesh.positions,
+                garment_mesh.indices,
+                normals=garment_mesh.normals,
+                uvs=garment_mesh.uvs,
+                joint_indices=garment_mesh.joint_indices,
+                joint_weights=garment_mesh.joint_weights,
+                category=features.category,
+                subcategory=features.subcategory,
+                component_graph=comp_graph,
+            )
+            pre_repair_receipt = None
+            if src_inspection.needs_repair:
+                p_r, i_r, n_r, u_r, ji_r, jw_r, pre_repair_receipt = geometry_repair_engine.repair(
+                    garment_mesh.positions,
+                    garment_mesh.indices,
+                    normals=garment_mesh.normals,
+                    uvs=garment_mesh.uvs,
+                    joint_indices=garment_mesh.joint_indices,
+                    joint_weights=garment_mesh.joint_weights,
+                    category=features.category,
+                    subcategory=features.subcategory,
+                    component_graph=comp_graph,
+                )
+                if not pre_repair_receipt.applied:
+                    raise ValueError(f"Source garment rejected prior to fitting: {pre_repair_receipt.rejected_reason}")
+                garment_mesh.positions = p_r
+                garment_mesh.indices = i_r
+                garment_mesh.normals = n_r
+                garment_mesh.uvs = u_r
+                garment_mesh.joint_indices = ji_r
+                garment_mesh.joint_weights = jw_r
+
+            corr_report = semantic_correspondence_engine.build_and_validate(
+                category=features.category,
+                subcategory=features.subcategory,
+                positions=garment_mesh.positions,
+                joint_indices=garment_mesh.joint_indices,
+                joint_weights=garment_mesh.joint_weights,
+            )
+
             garment_mesh, fit_res = universal_garment_fitting_engine.fit_garment(
                 mesh=garment_mesh,
                 category=features.category,
@@ -1293,9 +1338,32 @@ class GarmentJobManager:
                 fabric_type=appearance.fabric.fabric_category,
                 job_id=job_id
             )
+
+            # Recompute component_graph bounds AFTER fitting so glTF extras match final fitted geometry
+            if comp_graph and getattr(comp_graph, "nodes", None):
+                for comp in comp_graph.nodes.values():
+                    v_s, v_c = comp.vertex_range
+                    if v_c > 0 and v_s + v_c <= len(garment_mesh.positions):
+                        sub_p = garment_mesh.positions[v_s : v_s + v_c]
+                        mn_a = np.min(sub_p, axis=0)
+                        mx_a = np.max(sub_p, axis=0)
+                        dm_a = mx_a - mn_a
+                        comp.bounding_box_3d = (
+                            (round(float(mn_a[0]), 4), round(float(mn_a[1]), 4), round(float(mn_a[2]), 4)),
+                            (round(float(mx_a[0]), 4), round(float(mx_a[1]), 4), round(float(mx_a[2]), 4)),
+                        )
+                        comp.dimensions_m = (
+                            round(float(dm_a[0]), 4), round(float(dm_a[1]), 4), round(float(dm_a[2]), 4)
+                        )
+
             if job_id in self._diagnostics:
                 diag_entry = self._diagnostics[job_id]
-                diag_entry.fitting_telemetry = fit_res.model_dump()
+                fit_dict = fit_res.model_dump()
+                fit_dict["source_inspection"] = src_inspection.model_dump()
+                if pre_repair_receipt:
+                    fit_dict["pre_repair_receipt"] = pre_repair_receipt.model_dump()
+                fit_dict["semantic_correspondence"] = corr_report.model_dump()
+                diag_entry.fitting_telemetry = fit_dict
                 if fit_res.motion_simulation:
                     diag_entry.motion_telemetry = fit_res.motion_simulation.model_dump()
                 if fit_res.wrinkle_deformation:
@@ -1334,16 +1402,66 @@ class GarmentJobManager:
             evaluation_start = time.monotonic()
             inspection = None
             repaired = False
-            if canonical_specification_v2:
-                from .mesh_validation_service import MeshValidationService
-                from .chat_candidate import remove_invalid_triangles
+            from .mesh_validation_service import MeshValidationService
+            from .chat_candidate import remove_invalid_triangles
+            from .visual_validator import backend_visual_validator
+            from backend.app.services.intelligence.evaluation_critic import evaluation_critic, garment_quality_gate
+            from backend.app.services.intelligence.candidate_optimizer import candidate_optimizer
+
+            inspection = MeshValidationService.validate_glb_bytes(glb_bytes, features.category)
+            if not inspection.is_valid and (inspection.duplicate_faces or inspection.degenerate_faces):
+                glb_bytes = remove_invalid_triangles(glb_bytes)
                 inspection = MeshValidationService.validate_glb_bytes(glb_bytes, features.category)
-                if not inspection.is_valid and (inspection.duplicate_faces or inspection.degenerate_faces):
-                    glb_bytes = remove_invalid_triangles(glb_bytes)
-                    inspection = MeshValidationService.validate_glb_bytes(glb_bytes, features.category)
-                    repaired = True
-                if not inspection.is_valid:
-                    raise ValueError("Candidate failed structural validation before publication.")
+                repaired = True
+
+            vis_metrics = backend_visual_validator.validate_and_render(
+                garment_mesh.positions,
+                garment_mesh.indices,
+                normals=garment_mesh.normals,
+                category=features.category,
+                subcategory=features.subcategory,
+            )
+            critic_rep = evaluation_critic.evaluate_candidate(glb_bytes, category=features.category)
+            gate_res = garment_quality_gate.evaluate_gate(
+                critic_rep,
+                correspondence_valid=corr_report.is_valid,
+                correspondence_blockers=corr_report.blockers,
+                visual_head_penetrations=vis_metrics.head_penetrating_vertices,
+                visual_spike_anomaly=vis_metrics.silhouette_spike_anomaly,
+            )
+            opt_res = None
+            if not gate_res.publication_allowed or not inspection.is_valid:
+                glb_bytes, opt_res = candidate_optimizer.optimize_candidate(
+                    glb_bytes,
+                    category=features.category,
+                    max_iterations=3,
+                    owner_id=job.user_id,
+                )
+                repaired = repaired or opt_res.accepted_improved_candidate
+                critic_rep = opt_res.final_report
+                inspection = MeshValidationService.validate_glb_bytes(glb_bytes, features.category)
+                gate_res = garment_quality_gate.evaluate_gate(
+                    critic_rep,
+                    correspondence_valid=corr_report.is_valid,
+                    correspondence_blockers=corr_report.blockers,
+                    visual_head_penetrations=vis_metrics.head_penetrating_vertices if not opt_res.accepted_improved_candidate else 0,
+                    visual_spike_anomaly=vis_metrics.silhouette_spike_anomaly if not opt_res.accepted_improved_candidate else False,
+                )
+            if job_id in self._diagnostics and isinstance(self._diagnostics[job_id].fitting_telemetry, dict):
+                self._diagnostics[job_id].fitting_telemetry["quality_gate"] = gate_res.model_dump()
+                self._diagnostics[job_id].fitting_telemetry["visual_validation"] = vis_metrics.model_dump()
+                if opt_res is not None:
+                    self._diagnostics[job_id].fitting_telemetry["candidate_optimization"] = {
+                        "stopping_reason": opt_res.stopping_reason,
+                        "iterations_executed": opt_res.iterations_executed,
+                        "accepted_improved_candidate": opt_res.accepted_improved_candidate,
+                    }
+
+            if canonical_specification_v2 and (not inspection.is_valid or not gate_res.publication_allowed):
+                raise ValueError(
+                    f"Candidate blocked by Phase 17.7 quality gate ({gate_res.verdict.value}): "
+                    f"{'; '.join(gate_res.reasons[:3])}"
+                )
             evaluation_ms = (time.monotonic() - evaluation_start) * 1000
             glb_filename = "garment.glb"
             glb_path = os.path.join(perm_job_dir, glb_filename)

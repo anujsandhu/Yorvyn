@@ -269,9 +269,9 @@ class ComponentAwareHoodieBuilder:
                 w_post = 1.0 - w_ant
                 rz_curr = w_ant * rz_front + w_post * rz_back
 
-                # 3D ribbed micro-corrugation for waistband (bottom rings)
+                # Smooth waistband contour (avoid high-frequency cos(48*theta) vertical flute artifacts)
                 if t_rel >= 0.84:
-                    rib_amp = 0.0016 * math.cos(48.0 * theta)
+                    rib_amp = 0.0
                     rx_curr = rx + rib_amp
                     rz_curr = rz_curr + rib_amp
                 else:
@@ -537,22 +537,22 @@ class ComponentAwareHoodieBuilder:
                     y_pos = top_y + frac_y * hood_height
 
                     if hood_posture == "draped":
-                        # Draped cowl collar resting naturally around neck base and upper trapezius
-                        rad_x = (0.110 + 0.016 * math.sin(frac_y * math.pi)) + layer_offset
-                        rad_z = (0.116 + 0.022 * math.sin(frac_y * math.pi)) + layer_offset
-                        center_z = -0.028 - 0.016 * frac_y
+                        # Draped cowl collar resting naturally around neck base and upper trapezius (clear of neck Z~0.02m)
+                        rad_x = (0.118 + 0.016 * math.sin(frac_y * math.pi)) + layer_offset
+                        rad_z = (0.116 + 0.018 * math.sin(frac_y * math.pi)) + layer_offset
+                        center_z = 0.015 - 0.022 * frac_y
                     else:
-                        # Upright volumetric hood with aerodynamic cranial profile (Workstream D)
-                        crown_taper = max(0.0, frac_y - 0.60) / 0.40
-                        rad_x = (0.124 + 0.024 * math.sin(frac_y * math.pi * 0.7) - 0.020 * (crown_taper ** 1.5)) + layer_offset
-                        rad_z = (0.132 + 0.028 * math.sin(frac_y * math.pi * 0.7) - 0.016 * (crown_taper ** 1.5)) + layer_offset
-                        occipital_bump = 0.015 * math.sin(frac_y * math.pi)
-                        center_z = -0.025 - 0.020 * (1.0 - frac_y) - occipital_bump
+                        # Upright volumetric hood calibrated to Ara head bounds (Z in [-0.055, +0.168], |X| <= 0.113)
+                        crown_taper = max(0.0, frac_y - 0.65) / 0.35
+                        rad_x = (0.134 + 0.018 * math.sin(frac_y * math.pi * 0.75) - 0.012 * (crown_taper ** 1.5)) + layer_offset
+                        rad_z = (0.128 + 0.020 * math.sin(frac_y * math.pi * 0.75) - 0.010 * (crown_taper ** 1.5)) + layer_offset
+                        occipital_bump = 0.010 * math.sin(frac_y * math.pi)
+                        center_z = 0.026 - 0.012 * (1.0 - frac_y) - occipital_bump
 
                     for s in range(hood_slices + 1):
                         u_val = s / hood_slices
-                        # Wrap around sides and back, leaving contoured face aperture in front
-                        phi = -0.36 * math.pi + u_val * (1.72 * math.pi)
+                        # Wrap symmetrically around back (-Z, phi=0) and sides, keeping +Z face aperture open
+                        phi = -0.64 * math.pi + u_val * (1.28 * math.pi)
                         px = rad_x * math.sin(phi)
                         pz = center_z - rad_z * math.cos(phi)
                         py = y_pos

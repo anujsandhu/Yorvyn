@@ -279,16 +279,17 @@ class HoodieReconstructionEngine(IGarmentReconstructionEngine):
                 layer_start_v = len(verts)
                 for r in range(hood_rings):
                     frac_y = r / (hood_rings - 1)
-                    y_pos = top_y + frac_y * 0.26
-                    rad_x = (0.125 + 0.038 * math.sin(frac_y * math.pi)) + layer_offset
-                    rad_z = (0.130 + 0.042 * math.sin(frac_y * math.pi)) + layer_offset
+                    y_pos = top_y + frac_y * 0.27
+                    rad_x = (0.132 + 0.022 * math.sin(frac_y * math.pi)) + layer_offset
+                    rad_z = (0.128 + 0.024 * math.sin(frac_y * math.pi)) + layer_offset
+                    center_z = 0.022 - 0.014 * frac_y
 
                     for s in range(hood_slices + 1):
                         u_val = s / hood_slices
-                        # Wrap around sides and back, leaving face opening in front
-                        phi = -0.34 * math.pi + u_val * (1.68 * math.pi)
+                        # Wrap symmetrically around back (-Z, phi=0) and sides, leaving front (+Z) open for face
+                        phi = -0.64 * math.pi + u_val * (1.28 * math.pi)
                         px = rad_x * math.sin(phi)
-                        pz = -0.035 - rad_z * math.cos(phi)
+                        pz = center_z - rad_z * math.cos(phi)
                         py = y_pos
 
                         norm_len = math.hypot(px, pz) or 1.0

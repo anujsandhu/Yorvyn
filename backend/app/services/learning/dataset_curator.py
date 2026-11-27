@@ -191,15 +191,15 @@ class OfflineDatasetCurator:
         torch.manual_seed(seed)
         np.random.seed(seed)
 
-        x_tr = torch.tensor([s.features for s in train_items], dtype=torch.float32)
-        y_tr = torch.tensor([label_to_idx[s.label] for s in train_items], dtype=torch.long)
-        x_ho = torch.tensor([s.features for s in holdout_items], dtype=torch.float32)
-        y_ho = torch.tensor([label_to_idx[s.label] for s in holdout_items], dtype=torch.long)
+        x_tr = torch.tensor([s.features for s in train_items], dtype=torch.float32, device="cpu")
+        y_tr = torch.tensor([label_to_idx[s.label] for s in train_items], dtype=torch.long, device="cpu")
+        x_ho = torch.tensor([s.features for s in holdout_items], dtype=torch.float32, device="cpu")
+        y_ho = torch.tensor([label_to_idx[s.label] for s in holdout_items], dtype=torch.long, device="cpu")
 
         model = nn.Sequential(
-            nn.Linear(feat_dim, max(8, len(labels) * 4)),
+            nn.Linear(feat_dim, max(8, len(labels) * 4), device="cpu"),
             nn.ReLU(),
-            nn.Linear(max(8, len(labels) * 4), len(labels)),
+            nn.Linear(max(8, len(labels) * 4), len(labels), device="cpu"),
         )
         opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-4)
         loss_fn = nn.CrossEntropyLoss()

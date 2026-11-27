@@ -144,22 +144,24 @@ class BottomsReconstructionEngine(IGarmentReconstructionEngine):
             leg_start_v = len(verts)
             leg_start_t = len(tris)
             leg_configs_tracking.append((leg_start_v, leg_start_t))
-            leg_center_x = side * 0.104
-            rx_top = 0.096 + margin
-            rz_top = 0.136 + margin
-            r_bot = 0.072 + margin if is_shorts else 0.056 + margin
+            leg_center_x = side * 0.102
+            rx_top = 0.092 + margin
+            rz_top = 0.118 + margin
+            r_bot = 0.068 + margin if is_shorts else 0.056 + margin
 
             for r in range(n_leg_rings):
                 frac = r / (n_leg_rings - 1)
-                # Anchor upper thigh cleanly beneath crotch saddle with oval pelvis-depth blend
+                # Anchor upper thigh cleanly beneath crotch saddle with anatomical oval pelvis-depth
                 leg_top_y = crotch_y - 0.005
                 y = leg_top_y - frac * (leg_top_y - leg_bottom_y)
                 rx_now = rx_top + frac * (r_bot - rx_top)
                 rz_now = rz_top + frac * (r_bot - rz_top)
                 if sil_scales is not None:
+                    # Clamp silhouette modulation per leg so full hip width never blows up each leg radius
                     s_idx = min(len(sil_scales) - 1, int(len(sil_scales) * (0.45 + frac * 0.50)))
-                    rx_now = rx_now * float(sil_scales[s_idx])
-                    rz_now = rz_now * float(sil_scales[s_idx])
+                    leg_mod = float(np.clip(sil_scales[s_idx], 0.85, 1.12))
+                    rx_now = rx_now * leg_mod
+                    rz_now = rz_now * (1.0 + (leg_mod - 1.0) * 0.45)
                 # Follow subtle stance taper outward toward ankles while preserving inner seam clearance
                 cx = leg_center_x + side * (frac * 0.008)
 

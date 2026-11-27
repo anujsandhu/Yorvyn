@@ -76,11 +76,124 @@ class ControlledCandidateOptimizer:
     @staticmethod
     def _select_bounded_operation(report: IndependentEvaluationReport, attempted_ops: set) -> Optional[str]:
         defect_refs = " ".join(f"{d.domain}:{d.evidence_ref}:{d.suggested_action}" for d in report.defects).lower()
+        if (
+            any(tok in defect_refs for tok in ("cylindrical_torso_bloat", "hood_head_penetration", "invalid_skinning", "non_normalized", "overlapping_duplicate_meshes"))
+            and "repair_geometry_and_refit" not in attempted_ops
+        ):
+            return "repair_geometry_and_refit"
         if ("degenerate" in defect_refs or "duplicate" in defect_refs or "remove_invalid_triangles" in defect_refs) and "remove_invalid_triangles" not in attempted_ops:
             return "remove_invalid_triangles"
         if ("negative_ease" in defect_refs or "body_penetration" in defect_refs) and "widen" not in attempted_ops:
             return "widen"
         return None
+
+    @staticmethod
+    def _execute_geometry_repair_on_glb(
+        glb_bytes: bytes,
+        *,
+        category: str,
+        report: IndependentEvaluationReport,
+    ) -> bytes:
+        import json, struct, io
+        import numpy as np
+        from PIL import Image
+        from backend.app.services.garments.garment_mesh_builder import GarmentMesh
+        from backend.app.services.garments.fitting.garment_asset_inspector import geometry_repair_engine
+        from backend.app.services.garments.fitting.universal_garment_fitting_engine import universal_garment_fitting_engine
+        from backend.app.services.garments.glb_exporter import glb_exporter
+        from backend.app.services.intelligence.multi_model_reasoning import multi_model_reasoning
+
+        if len(glb_bytes) < 20 or glb_bytes[:4] != b"glTF":
+            raise ValueError("Invalid binary GLB header")
+        j_len = struct.unpack_from("<I", glb_bytes, 12)[0]
+        gltf = json.loads(glb_bytes[20 : 20 + j_len].decode("utf-8"))
+        bin_off = 20 + j_len + 8
+        bin_data = glb_bytes[bin_off:]
+
+        # Preserve embedded diffuse & normal PNGs if present
+        embedded_pngs = []
+        for img_obj in gltf.get("images") or []:
+            bv_i = img_obj.get("bufferView")
+            if bv_i is not None and bv_i < len(gltf.get("bufferViews") or []):
+                bv = gltf["bufferViews"][bv_i]
+                s0 = bv.get("byteOffset", 0)
+                l0 = bv.get("byteLength", 0)
+                if s0 + l0 <= len(bin_data) and l0 > 16:
+                    embedded_pngs.append(bin_data[s0 : s0 + l0])
+        if not embedded_pngs:
+            buf = io.BytesIO()
+            Image.new("RGB", (64, 64), (160, 160, 160)).save(buf, format="PNG")
+            embedded_pngs = [buf.getvalue()]
+        diffuse_png = embedded_pngs[0]
+        normal_png = embedded_pngs[1] if len(embedded_pngs) > 1 else diffuse_png
+
+        # Extract merged unique primitive geometry from accessors
+        meshes = gltf.get("meshes") or []
+        if not meshes or not meshes[0].get("primitives"):
+            raise ValueError("No mesh primitives present in GLB")
+        prim0 = meshes[0]["primitives"][0]
+        attrs = prim0.get("attributes") or {}
+
+        def _read_acc(acc_id: Optional[int], dtype: str, cols: int) -> Optional[np.ndarray]:
+            if acc_id is None or acc_id >= len(gltf.get("accessors") or []):
+                return None
+            acc = gltf["accessors"][acc_id]
+            bv = gltf["bufferViews"][acc["bufferView"]]
+            off = bv.get("byteOffset", 0) + acc.get("byteOffset", 0)
+            cnt = acc["count"]
+            return np.frombuffer(bin_data, dtype=dtype, count=cnt * cols, offset=off).reshape(-1, cols).copy()
+
+        pos = _read_acc(attrs.get("POSITION"), "<f4", 3)
+        if pos is None or len(pos) < 3:
+            raise ValueError("Missing POSITION buffer in GLB")
+        norm = _read_acc(attrs.get("NORMAL"), "<f4", 3)
+        uv = _read_acc(attrs.get("TEXCOORD_0"), "<f4", 2)
+        ji = _read_acc(attrs.get("JOINTS_0"), "<u2", 4)
+        if ji is None:
+            j_u8 = _read_acc(attrs.get("JOINTS_0"), "<u1", 4)
+            ji = j_u8.astype(np.uint16) if j_u8 is not None else None
+        jw = _read_acc(attrs.get("WEIGHTS_0"), "<f4", 4)
+
+        all_idx = []
+        for m in meshes:
+            for pr in m.get("primitives") or []:
+                ia = pr.get("indices")
+                if ia is None:
+                    continue
+                acc = gltf["accessors"][ia]
+                bv = gltf["bufferViews"][acc["bufferView"]]
+                off = bv.get("byteOffset", 0) + acc.get("byteOffset", 0)
+                dt = "<u4" if acc.get("componentType") == 5125 else "<u2"
+                arr = np.frombuffer(bin_data, dtype=dt, count=acc["count"], offset=off).reshape(-1, 3).astype(np.uint32)
+                all_idx.append(arr)
+        if not all_idx:
+            raise ValueError("No triangle indices in GLB")
+        stacked = np.vstack(all_idx)
+        # Deduplicate overlapping primitives by canonical sorted vertex triplet
+        _, uniq_rows = np.unique(np.sort(stacked, axis=1), axis=0, return_index=True)
+        uniq_rows = np.sort(uniq_rows)
+        idx = stacked[uniq_rows]
+
+        plan = multi_model_reasoning.propose_geometry_repair_plan(
+            category=category,
+            subcategory=category,
+            defects=[d.model_dump() for d in report.defects],
+            mesh_metrics={
+                "depth_z_m": float(np.max(pos[:, 2]) - np.min(pos[:, 2])),
+                "width_x_m": float(np.max(pos[:, 0]) - np.min(pos[:, 0])),
+            },
+            allow_remote=False,
+        )
+        pos_r, idx_r, norm_r, uv_r, ji_r, jw_r, receipt = geometry_repair_engine.repair(
+            pos, idx, normals=norm, uvs=uv, joint_indices=ji, joint_weights=jw,
+            category=category, subcategory=category, proposal=plan.payload,
+        )
+        if not receipt.applied:
+            raise ValueError(receipt.rejected_reason or "Geometry repair rejected")
+
+        gmesh = GarmentMesh(positions=pos_r, normals=norm_r, uvs=uv_r, indices=idx_r, joint_indices=ji_r, joint_weights=jw_r)
+        fitted_mesh, _ = universal_garment_fitting_engine.fit_garment(mesh=gmesh, category=category, subcategory=category)
+        return glb_exporter.export(fitted_mesh, diffuse_png, normal_png, name=f"repaired_{category}")
 
     def optimize_candidate(
         self,
@@ -144,7 +257,11 @@ class ControlledCandidateOptimizer:
 
             parent_sha = best_report.candidate_sha256
             try:
-                if op == "remove_invalid_triangles":
+                if op == "repair_geometry_and_refit":
+                    candidate_bytes = self._execute_geometry_repair_on_glb(
+                        best_bytes, category=category, report=best_report
+                    )
+                elif op == "remove_invalid_triangles":
                     candidate_bytes = remove_invalid_triangles(best_bytes)
                 else:
                     candidate_bytes = edit_candidate(best_bytes, op)

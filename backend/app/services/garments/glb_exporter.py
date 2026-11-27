@@ -258,13 +258,20 @@ class GLBExporter:
             nodes.append(root_node_entry)
             
             comp_node_idx_map: Dict[str, int] = {}
+            emitted_tri_ranges: List[Tuple[int, int]] = []
             for comp in comp_nodes:
                 node_idx = len(nodes)
                 comp_node_idx_map[comp.component_id] = node_idx
                 
                 t_start, t_count = comp.triangle_range
+                rep_type = getattr(comp, "representation_type", "GEOMETRIC_MESH")
+                overlaps_existing = any(
+                    not (t_start + t_count <= e_start or t_start >= e_end)
+                    for e_start, e_end in emitted_tri_ranges
+                )
                 mesh_idx: Optional[int] = None
-                if t_count > 0:
+                if t_count > 0 and rep_type == "GEOMETRIC_MESH" and not overlaps_existing:
+                    emitted_tri_ranges.append((t_start, t_start + t_count))
                     accessors.append({
                         "bufferView": idx_bv,
                         "byteOffset": int(t_start * 3 * 4),

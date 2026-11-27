@@ -152,12 +152,20 @@ class GarmentEaseEngine:
         is_neg = (ref_ease < 0.0)
 
         # Segment-specific scaling multipliers relative to canonical Ara 3D 1.75m body
-        # Standard Ara 3D measurements: height=175cm, chest=96cm, waist=78cm, hip=98cm
-        canonical = cls.CANONICAL_GARMENT_DIMENSIONS["tops"]
-        scale_x_chest = float(np.clip((avatar_measurements.chest_circumference_cm + chest_ease) / 102.0, 0.70, 1.45))
-        scale_x_waist = float(np.clip((avatar_measurements.waist_circumference_cm + waist_ease) / 84.0, 0.70, 1.45))
-        scale_x_hip = float(np.clip((avatar_measurements.hip_circumference_cm + hip_ease) / 104.0, 0.70, 1.45))
-        scale_x_shoulder = float(np.clip((avatar_measurements.shoulder_width_cm + shoulder_ease) / 45.0, 0.75, 1.40))
+        # OR measured incoming garment circumference when custom_garment_dimensions supplies actual mesh extents
+        src_chest_cm = float((custom_garment_dimensions or {}).get("measured_chest_cm", 102.0))
+        src_waist_cm = float((custom_garment_dimensions or {}).get("measured_waist_cm", 84.0))
+        src_hip_cm = float((custom_garment_dimensions or {}).get("measured_hip_cm", 104.0))
+        src_sh_cm = float((custom_garment_dimensions or {}).get("measured_shoulder_width_cm", 45.0))
+        target_chest_cm = avatar_measurements.chest_circumference_cm + chest_ease
+        target_waist_cm = avatar_measurements.waist_circumference_cm + waist_ease
+        target_hip_cm = avatar_measurements.hip_circumference_cm + hip_ease
+        target_sh_cm = avatar_measurements.shoulder_width_cm + shoulder_ease
+
+        scale_x_chest = float(np.clip(target_chest_cm / max(src_chest_cm, 60.0), 0.72, 1.28))
+        scale_x_waist = float(np.clip(target_waist_cm / max(src_waist_cm, 50.0), 0.72, 1.28))
+        scale_x_hip = float(np.clip(target_hip_cm / max(src_hip_cm, 62.0), 0.72, 1.28))
+        scale_x_shoulder = float(np.clip(target_sh_cm / max(src_sh_cm, 30.0), 0.75, 1.25))
         scale_y_height = float(np.clip(avatar_measurements.height_cm / 175.0, 0.75, 1.35))
 
         segment_scales = {

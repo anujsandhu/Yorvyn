@@ -280,7 +280,27 @@ class GarmentHypothesisResolver:
             (pocket_box.size > 25 and (has_sleeves or span_ratio >= 0.82) and float(np.mean(np.abs(np.diff(pocket_box.astype(float), axis=0)))) >= 12.0)
         )
 
-        # 5. Initialize Hypothesis Scores from Raw Category Probs
+        # Normalize user hints early so downstream safeguards respect explicit bottoms/tops/dress hints
+        early_hint_cat = (user_category_hint or "").lower().strip()
+        early_hint_sub = (user_subcategory_hint or "").lower().strip()
+        if not early_hint_cat and early_hint_sub:
+            for cat_k, cat_subs in self.DISPLAY_NAMES.items():
+                if early_hint_sub in cat_subs or any(early_hint_sub in s or s in early_hint_sub for s in cat_subs):
+                    early_hint_cat = cat_k
+                    break
+        explicit_bottoms_hint = (
+            early_hint_cat == "bottoms"
+            or any(kw in early_hint_cat for kw in ("bottom", "pant", "trouser", "jean", "short", "chino"))
+            or any(kw in early_hint_sub for kw in ("pant", "trouser", "jean", "short", "chino", "cargo"))
+        )
+        explicit_non_kurta_hint = (
+            explicit_bottoms_hint
+            or early_hint_cat in {"tops", "outerwear", "dresses_and_skirts", "footwear", "accessories"}
+            or any(kw in early_hint_cat for kw in ("dress", "skirt", "coat", "jacket", "shirt", "hoodie", "top"))
+            or any(kw in early_hint_sub for kw in ("dress", "skirt", "coat", "jacket", "shirt", "hoodie", "sweater", "tshirt", "blazer"))
+        )
+
+        # Initialize Hypothesis Scores from Raw Category Probs
         heuristic_adjustments: List[Dict[str, Any]] = []
         reasoning_signals: List[str] = []
 
@@ -362,15 +382,18 @@ class GarmentHypothesisResolver:
             log.append("Evidence: Upper components and bilateral crotch split indicate Jumpsuit / Romper")
             log.append("Evidence: Upper components and bilateral crotch split indicate Jumpsuit / Romper")
         elif not is_true_crotch_split:
-            scores["bottoms"] -= 16.0
+            # Never override an explicit bottoms/jeans/trousers hint with a -16 veto just because legs sit close in a photo
+            bottoms_veto_delta = -2.0 if explicit_bottoms_hint else -16.0
+            scores["bottoms"] += bottoms_veto_delta
             heuristic_adjustments.append({
                 "rule": "no_crotch_split_veto_bottoms",
                 "category": "bottoms",
-                "delta": -16.0,
-                "reason": "Garment lacks bilateral leg bifurcation; cannot be pants, jeans, or shorts"
+                "delta": bottoms_veto_delta,
+                "reason": "Garment lacks clear leg gap in 2D mask; soft penalty due to bottoms hint" if explicit_bottoms_hint else "Garment lacks bilateral leg bifurcation; cannot be pants, jeans, or shorts"
             })
-            reasoning_signals.append("Garment lacks bilateral leg bifurcation (vetoes bottoms)")
-            log.append("Veto: Bottoms rejected (no bilateral leg bifurcation)")
+            if not explicit_bottoms_hint:
+                reasoning_signals.append("Garment lacks bilateral leg bifurcation (vetoes bottoms)")
+                log.append("Veto: Bottoms rejected (no bilateral leg bifurcation)")
 
         if is_true_crotch_split and not has_upper_components and not has_jumpsuit_signal:
             scores["bottoms"] += 6.0
@@ -441,7 +464,8 @@ class GarmentHypothesisResolver:
             not has_hood and
             not has_kangaroo_pocket and
             "lapel" not in comp_types and
-            not (user_category_hint and any(kw in user_category_hint.lower() for kw in ["dress", "coat", "jacket", "shirt", "pant", "trouser", "jean"]))
+            not explicit_non_kurta_hint and
+            raw_category_probs.get("bottoms", 0.0) < 0.38
         )
         if is_kurta_candidate:
             scores["traditional"] += 7.5
@@ -465,6 +489,7 @@ class GarmentHypothesisResolver:
             not is_kurta_candidate and
             not (has_hood or has_kangaroo_pocket) and
             not has_jumpsuit_signal and
+            not explicit_bottoms_hint and
             not (user_category_hint and any(kw in user_category_hint.lower() for kw in ["pant", "trouser", "jean", "short", "shirt", "hoodie", "jacket", "coat"])) and
             (
                 bool(user_category_hint and "dress" in user_category_hint.lower()) or
@@ -630,7 +655,7 @@ class GarmentHypothesisResolver:
                 log.append("Veto: Footwear rejected (garment contains waist, legs, or torso features)")
 
         # Bayesian hint integration
-        effective_hint = user_category_hint
+        effective_hint = early_hint_cat or user_category_hint
         if not effective_hint and user_subcategory_hint:
             sub_norm = user_subcategory_hint.lower().strip()
             for cat_k, cat_subs in self.DISPLAY_NAMES.items():
@@ -642,16 +667,19 @@ class GarmentHypothesisResolver:
                     effective_hint = "accessories"
                 elif any(kw in sub_norm for kw in ["shirt", "hoodie", "top", "sweater", "tank", "tee"]):
                     effective_hint = "tops"
+                elif any(kw in sub_norm for kw in ["jean", "pant", "trouser", "short", "chino", "cargo"]):
+                    effective_hint = "bottoms"
 
         if effective_hint:
             h_hint = effective_hint.lower().strip()
             for cat_key in scores:
                 if cat_key == h_hint or cat_key in h_hint or h_hint in cat_key:
-                    scores[cat_key] += 4.5
+                    prior_delta = 7.5
+                    scores[cat_key] += prior_delta
                     heuristic_adjustments.append({
                         "rule": "user_category_prior",
                         "category": cat_key,
-                        "delta": 4.5,
+                        "delta": prior_delta,
                         "reason": f"User hint '{effective_hint}'"
                     })
                     log.append(f"Prior: User hint '{effective_hint}' boosted '{cat_key}'")

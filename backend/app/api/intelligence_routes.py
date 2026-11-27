@@ -1345,4 +1345,57 @@ def plan_universal_fitting(
     }
 
 
+@router.get("/providers/status")
+def get_llm_provider_status(
+    current_user: UserContext = Depends(get_current_user),
+):
+    """Returns honest live/cached health states across registered LLM providers without exposing keys."""
+    from backend.app.services.llm.registry import llm_registry
+    return {
+        "owner_id": current_user.user_id,
+        "providers": llm_registry.get_status_report(),
+    }
+
+
+@router.post("/fitting/validate-glb")
+async def validate_fitted_glb(
+    category: str = Form("tops"),
+    subcategory: str = Form(""),
+    avatar_profile_id: str = Form("standard_175"),
+    glb_file: UploadFile = File(...),
+    current_user: UserContext = Depends(get_current_user),
+):
+    """Runs independent critic, semantic correspondence, visual software validation, and quality gate on a GLB."""
+    from backend.app.services.garments.visual_validator import backend_visual_validator
+    from backend.app.services.intelligence.evaluation_critic import garment_quality_gate
+    from backend.app.services.intelligence.fit_intelligence import FitIntelligenceEngine
+
+    glb_bytes = await glb_file.read()
+    if len(glb_bytes) > MAX_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail="Uploaded GLB exceeds limit.")
+    critic_rep = evaluation_critic.evaluate_candidate(
+        glb_bytes,
+        category=category,
+        avatar_profile_id=avatar_profile_id,
+    )
+    pts, idxs = FitIntelligenceEngine.extract_mesh_arrays_from_glb(glb_bytes)
+    vis = backend_visual_validator.validate_and_render(
+        pts, idxs, category=category, subcategory=subcategory
+    )
+    gate = garment_quality_gate.evaluate_gate(
+        critic_rep,
+        visual_head_penetrations=vis.head_penetrating_vertices,
+        visual_spike_anomaly=vis.silhouette_spike_anomaly,
+    )
+    return {
+        "owner_id": current_user.user_id,
+        "verdict": gate.verdict.value,
+        "publication_allowed": gate.publication_allowed,
+        "quality_gate": gate.model_dump(),
+        "visual_validation": vis.model_dump(),
+        "critic_report": critic_rep.model_dump(),
+    }
+
+
+
 

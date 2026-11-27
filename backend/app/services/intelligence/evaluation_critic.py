@@ -34,6 +34,14 @@ class DefectSeverity(str, Enum):
     MINOR = "MINOR"
 
 
+class AcceptanceVerdict(str, Enum):
+    PASS = "PASS"
+    PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS"
+    DEGRADED = "DEGRADED"
+    FAILED = "FAILED"
+    NOT_EVALUATED = "NOT_EVALUATED"
+
+
 class CriticOverallStatus(str, Enum):
     PASSED = "PASSED"
     PASSED_WITH_WARNINGS = "PASSED_WITH_WARNINGS"
@@ -170,7 +178,8 @@ class IndependentQualityCritic:
             ))
         # Also check raw primitive triangle indices directly (in case Trimesh auto-stripped duplicates/zero-area on load)
         parsed_raw = _parse_glb_chunks(glb_bytes)
-        raw_degen = raw_dup = 0
+        raw_degen = raw_dup = total_raw_tris = 0
+        all_tri_tuples = []
         if parsed_raw:
             gltf_r, bin_r = parsed_raw["gltf"], parsed_raw["bin"]
             for m_obj in gltf_r.get("meshes") or []:
@@ -189,12 +198,31 @@ class IndependentQualityCritic:
                         if ioff + i_acc["count"] * 4 <= len(bin_r) and poff + p_acc["count"] * 12 <= len(bin_r):
                             tris = np.frombuffer(bin_r, dtype="<u4", count=i_acc["count"], offset=ioff).reshape(-1, 3)
                             pts = np.frombuffer(bin_r, dtype="<f4", count=p_acc["count"] * 3, offset=poff).reshape(-1, 3)
+                            total_raw_tris += len(tris)
                             if len(tris) > 0 and int(np.max(tris)) < len(pts):
                                 tpts = pts[tris]
                                 areas = 0.5 * np.linalg.norm(np.cross(tpts[:, 1] - tpts[:, 0], tpts[:, 2] - tpts[:, 0]), axis=1)
                                 raw_degen += int(np.sum(areas <= 1e-9))
-                                _, uniq_idx = np.unique(np.sort(tris, axis=1), axis=0, return_index=True)
+                                s_tris = np.sort(tris, axis=1)
+                                _, uniq_idx = np.unique(s_tris, axis=0, return_index=True)
                                 raw_dup += int(len(tris) - len(uniq_idx))
+                                all_tri_tuples.append(s_tris)
+        if all_tri_tuples:
+            combined_tris = np.vstack(all_tri_tuples)
+            _, uniq_global = np.unique(combined_tris, axis=0, return_index=True)
+            global_overlap_ratio = float(len(combined_tris)) / max(1.0, float(len(uniq_global)))
+            if global_overlap_ratio > 1.25:
+                geo_defects.append(_add_defect(
+                    domain="geometry",
+                    location="overlapping_primitives",
+                    severity=DefectSeverity.CRITICAL if global_overlap_ratio > 2.0 else DefectSeverity.MAJOR,
+                    evidence_ref=f"overlapping_duplicate_meshes: exported_tris={len(combined_tris)}, unique_tris={len(uniq_global)}, ratio={global_overlap_ratio:.2f}x",
+                    confidence=0.99,
+                    method="global_primitive_overlap_audit",
+                    model_id="MeshValidationService-v13.2",
+                    limitations="Detects shared/overlapping triangle ranges across multiple glTF primitives.",
+                    action="Deduplicate overlapping alias/sub-slice component primitives before GLB export.",
+                ))
 
         total_degen = max(mesh_report.degenerate_faces, raw_degen)
         total_dup = max(mesh_report.duplicate_faces, raw_dup)
@@ -576,4 +604,98 @@ class IndependentQualityCritic:
         )
 
 
+class QualityGateResult(BaseModel):
+    verdict: AcceptanceVerdict
+    publication_allowed: bool
+    reasons: List[str] = Field(default_factory=list)
+    critical_count: int = 0
+    major_count: int = 0
+    minor_count: int = 0
+
+
+class GarmentQualityGate:
+    """Authoritative pre-publication gate distinguishing PASS, PASS_WITH_WARNINGS, DEGRADED, FAILED, NOT_EVALUATED."""
+
+    def evaluate_gate(
+        self,
+        report: Optional[IndependentEvaluationReport],
+        *,
+        correspondence_valid: bool = True,
+        correspondence_blockers: Optional[List[str]] = None,
+        visual_head_penetrations: int = 0,
+        visual_spike_anomaly: bool = False,
+        fallback_degraded: bool = False,
+    ) -> QualityGateResult:
+        if report is None:
+            return QualityGateResult(
+                verdict=AcceptanceVerdict.NOT_EVALUATED,
+                publication_allowed=False,
+                reasons=["Independent critic report missing."],
+            )
+        reasons: List[str] = []
+        crit = int(report.critical_defect_count)
+        maj = int(report.major_defect_count)
+        min_c = int(report.minor_defect_count)
+
+        if not correspondence_valid:
+            crit += 1
+            reasons.extend(correspondence_blockers or ["Semantic correspondence invalid."])
+        if visual_head_penetrations > 12:
+            crit += 1
+            reasons.append(f"Visual validator detected {visual_head_penetrations} skull-penetrating vertices.")
+        elif visual_head_penetrations > 0:
+            maj += 1
+            reasons.append(f"Minor head/collar clearance alert ({visual_head_penetrations} verts).")
+        if visual_spike_anomaly:
+            crit += 1
+            reasons.append("Visual spike / torn triangle edge anomaly detected.")
+
+        if crit > 0 or not report.publication_allowed:
+            for d in report.defects:
+                if d.severity == DefectSeverity.CRITICAL:
+                    reasons.append(f"{d.domain}:{d.evidence_ref}")
+            return QualityGateResult(
+                verdict=AcceptanceVerdict.FAILED,
+                publication_allowed=False,
+                reasons=reasons[:8] or ["Critical critic gate failure."],
+                critical_count=crit,
+                major_count=maj,
+                minor_count=min_c,
+            )
+
+        if fallback_degraded or maj >= 2:
+            for d in report.defects:
+                if d.severity == DefectSeverity.MAJOR:
+                    reasons.append(f"{d.domain}:{d.evidence_ref}")
+            return QualityGateResult(
+                verdict=AcceptanceVerdict.DEGRADED,
+                publication_allowed=True,
+                reasons=reasons[:8] or ["Completed with fallback or multiple major warnings."],
+                critical_count=crit,
+                major_count=maj,
+                minor_count=min_c,
+            )
+
+        if maj > 0 or min_c > 0:
+            return QualityGateResult(
+                verdict=AcceptanceVerdict.PASS_WITH_WARNINGS,
+                publication_allowed=True,
+                reasons=[f"{d.domain}:{d.evidence_ref}" for d in report.defects[:6]],
+                critical_count=crit,
+                major_count=maj,
+                minor_count=min_c,
+            )
+
+        return QualityGateResult(
+            verdict=AcceptanceVerdict.PASS,
+            publication_allowed=True,
+            reasons=["All geometry, texture, construction, fit, skinning, and visual gates passed cleanly."],
+            critical_count=0,
+            major_count=0,
+            minor_count=0,
+        )
+
+
 evaluation_critic = IndependentQualityCritic()
+garment_quality_gate = GarmentQualityGate()
+

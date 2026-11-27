@@ -193,12 +193,12 @@ class ImageConditionedReconstructionEngine:
                 sc_norm = (float(nz[-1] + nz[0]) / 2.0 - (float(bw) / 2.0)) / max(float(bw), 1.0)
                 l_norm = float(nz[0]) / max(float(bw), 1.0)
                 r_norm = float(nz[-1]) / max(float(bw), 1.0)
-                # In upper garment regions, isolate the central torso cluster from lateral sleeve lobes
-                torso_nz = nz[(nz >= bw * 0.18) & (nz <= bw * 0.82)]
-                if len(torso_nz) > 0 and rel_y < 0.42:
-                    tw_norm = float(torso_nz[-1] - torso_nz[0]) / max(float(bw), 1.0)
+                # Isolate central torso cluster from lateral sleeve lobes across shoulders & mid-torso
+                torso_nz = nz[(nz >= bw * 0.22) & (nz <= bw * 0.78)]
+                if len(torso_nz) > 0 and rel_y < 0.82:
+                    tw_norm = min(sw_norm, float(torso_nz[-1] - torso_nz[0]) / max(float(bw), 1.0))
                 else:
-                    tw_norm = sw_norm
+                    tw_norm = min(sw_norm, 0.56)
             else:
                 sw_norm = 0.50
                 sc_norm = 0.0
@@ -590,8 +590,8 @@ class ImageConditionedReconstructionEngine:
         sleeve_nodes = []
 
         for side_idx, (side_name, side, arm_j_idx) in enumerate([
-            ("left", -1.0, [10, 11, 12, 0]),
-            ("right", 1.0, [6, 7, 8, 0])
+            ("left", 1.0, [6, 7, 8, 0]),
+            ("right", -1.0, [10, 11, 12, 0])
         ]):
             s_v_start = len(positions)
             s_tri_start = len(indices)
@@ -779,18 +779,19 @@ class ImageConditionedReconstructionEngine:
             )
             hood_min, hood_max, hood_dims = compute_component_bounds(pos_arr, 0, 64)
             hood_node = GarmentComponentNode(
-                component_id="hood_shell",
+                component_id="hood_collar_ring",
                 category="tops",
-                semantic_type="hood",
+                semantic_type="collar",
                 parent_id="torso_root",
                 dimensions_m=hood_dims,
                 bounding_box_3d=(hood_min, hood_max),
-                attachment_location="head_base",
+                attachment_location="neck",
                 material_assignment="hood_fleece",
                 confidence=0.90,
                 provenance="contour_carved_parametric",
                 vertex_range=(0, 64),
-                triangle_range=(0, 64)
+                triangle_range=(0, 64),
+                representation_type="SEMANTIC_REGION",
             )
             structural_features.extend([pocket_node, hood_node])
 
@@ -912,7 +913,7 @@ class ImageConditionedReconstructionEngine:
                 GarmentComponentNode(
                     component_id="hood_cowl",
                     category="tops",
-                    semantic_type="hood",
+                    semantic_type="collar",
                     parent_id="main_torso",
                     dimensions_m=torso_node.dimensions_m,
                     bounding_box_3d=torso_node.bounding_box_3d,
@@ -922,7 +923,7 @@ class ImageConditionedReconstructionEngine:
                     provenance="contour_carved_parametric",
                     vertex_range=(0, 64),
                     triangle_range=(0, 64),
-                    representation_type="GEOMETRIC_MESH"
+                    representation_type="SEMANTIC_REGION"
                 ),
                 GarmentComponentNode(
                     component_id="ribbed_waistband",
@@ -1093,8 +1094,8 @@ class ImageConditionedReconstructionEngine:
         leg_nodes = []
 
         for side_idx, (side_name, side, leg_j_idx) in enumerate([
-            ("left", -1.0, [17, 18, 19, 0]),
-            ("right", 1.0, [14, 15, 16, 0])
+            ("left", 1.0, [14, 15, 16, 0]),
+            ("right", -1.0, [17, 18, 19, 0])
         ]):
             leg_center_x = side * 0.10
             base_v = len(positions)
@@ -1649,7 +1650,9 @@ class ImageConditionedReconstructionEngine:
 
             leg_s = float(np.clip((slit_y - y_val) / 0.30, 0.0, 1.0))
             j_idx = [0, 1, 14, 17]
-            j_w = [0.6 - leg_s * 0.2, 0.2, leg_s * 0.1, leg_s * 0.1]
+            raw_w = [max(0.05, 0.8 - leg_s * 0.2), 0.2, leg_s * 0.1, leg_s * 0.1]
+            w_tot = sum(raw_w) or 1.0
+            j_w = [w / w_tot for w in raw_w]
 
             for c in range(half_seg):
                 theta = math.pi * c / max(half_seg - 1, 1)
@@ -1703,7 +1706,9 @@ class ImageConditionedReconstructionEngine:
 
             leg_s = float(np.clip((slit_y - y_val) / 0.30, 0.0, 1.0))
             j_idx = [0, 1, 14, 17]
-            j_w = [0.6 - leg_s * 0.2, 0.2, leg_s * 0.1, leg_s * 0.1]
+            raw_w = [max(0.05, 0.8 - leg_s * 0.2), 0.2, leg_s * 0.1, leg_s * 0.1]
+            w_tot = sum(raw_w) or 1.0
+            j_w = [w / w_tot for w in raw_w]
 
             for c in range(half_seg):
                 theta = math.pi + math.pi * c / max(half_seg - 1, 1)
